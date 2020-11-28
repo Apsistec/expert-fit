@@ -27,10 +27,12 @@
 
 
 // NGX-Share
-@import "~ngx-sharebuttons/themes/material/material-dark-theme";
+// @import "~ngx-sharebuttons/themes/material/material-dark-theme";
+// @import url('https://fonts.googleapis.com/css?family=Spectral+SC:700');
 
+// @import '~ngx-sharebuttons/themes/material/material-dark-theme';
 // Fonts
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Open+Sans:wght@700;800&family=Philosopher:wght@700;800&family=Roboto:wght@300;400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:weight@800;900&family=Open+Sans:weight@700;800&family=Philosopher:weight@700;800&family=Roboto:weight@300;400;500;700;800&display=swap");
 
 // Classes
 a:hover {

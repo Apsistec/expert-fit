@@ -14,12 +14,10 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "10.2",
-    "@angular/cdk": "^10.2.7",
     "@angular/common": "~10.2.0",
     "@angular/core": "~10.2.0",
     "@angular/fire": "^6.1.2",
     "@angular/forms": "~10.2.0",
-    "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
