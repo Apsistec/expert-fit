@@ -5,11 +5,11 @@ import { AuthService } from '../../services/auth.service';
 import { StripeService } from '../../services/stripe.service';
 
 @Component({
-  selector: 'app-cancel-subscription',
+  selector: 'app-cancel-service',
   templateUrl: './cancel-service.component.html',
   styleUrls: ['./cancel-service.component.scss']
 })
-export class CancelSubscriptionComponent implements OnInit {
+export class CancelServiceComponent implements OnInit {
   // confirmation;
 
   constructor(

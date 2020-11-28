@@ -9,7 +9,7 @@ import { PhotoService } from '../../services/photo.service';
 import { StripeService } from '../../services/stripe.service';
 import { ThemeService } from '../../services/theme.service';
 import { UserService } from '../../services/user.service';
-import { CancelSubscriptionComponent } from '../cancel-service/cancel-service.component';
+import { CancelServiceComponent } from '../cancel-service/cancel-service.component';
 import { InvoicesComponent } from '../invoices/invoices.component';
 
 @Component({
@@ -60,7 +60,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   // Stripe Account Administration Modals
   async presentCancelSubModal() {
     const modal = await this.modalCtrl.create({
-      component: CancelSubscriptionComponent,
+      component: CancelServiceComponent,
     });
     return modal.present();
   }
