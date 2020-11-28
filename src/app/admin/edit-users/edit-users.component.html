@@ -1,3 +1,26 @@
-<p>
-  edit-users works!
-</p>
+
+  <ion-item>
+    <ion-label>Name</ion-label>
+    <ion-input
+      [(ngModel)]="data.displayName"
+      placeholder="Enter Name"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input [(ngModel)]="data.email" placeholder="Enter Email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Address</ion-label>
+    <ion-input
+      [(ngModel)]="data.phoneNumber"
+      placeholder="Enter Address"
+    ></ion-input>
+  </ion-item>
+  <ion-button (click)="update()" color="success" size="small">
+    Update
+  </ion-button>
+  <ion-button [routerLink]="[ '/list-user']" color="danger" size="small">
+    Cancel
+  </ion-button>
+

@@ -1,9 +1,135 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>admin-dashboard</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="9">
+            <ion-card color="medium">
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-label color="secondary"> Trouble Tickets </ion-label>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-list>
+                <ion-item
+                  button
+                  *ngFor="let ticket of tickets | async"
+                  class="ion-text-wrap"
+                  (click)="openTicket(ticket.id)"
+                >
+                  <ion-icon
+                    name="radio-button-off"
+                    color="light"
+                    *ngIf="ticket.status == 0"
+                    slot="start"
+                  ></ion-icon>
+                  <ion-icon
+                    name="done-all"
+                    color="success"
+                    *ngIf="ticket.status == 1"
+                    slot="start"
+                  ></ion-icon>
+                  <ion-label>
+                    <ion-text color="dark">
+                      <h2>{{ ticket.title }}</h2>
+                    </ion-text>
+                    <ion-text color="light">
+                      <p class="ion-text-wrap">{{ ticket.desc }}</p>
+                    </ion-text>
+                  </ion-label>
+                  <ion-label slot="start">
+                    <ion-note color="dark"> {{ ticket.id }} </ion-note>
+                    <br />
+                    <ion-note color="dark">
+                      {{ ticket.created_at?.seconds*1000 | date: 'MMM d H:HH' }}
+                    </ion-note>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-card>
+          </ion-col>
+          <ion-col size="3">
+            <ion-card color="medium">
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-label color="secondary"> Admins </ion-label>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-list>
+                <ion-item *ngFor="let admin of admins | async">
+                  <ion-avatar>
+                    <img
+                      [src]='admin.photoURL || "../assets/img/dummy-user.png"'
+                    />
+                  </ion-avatar>
+                  &nbsp; &nbsp;
+                  <ion-label>
+                    <ion-text color="dark"> {{ admin.name }} </ion-text>
+                    <br />
+                    <ion-note color="dark"> {{ admin.email }} </ion-note>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-card>
 
-</ion-content>
+            <ion-card color="medium">
+              <ion-card-header>
+                <ion-card-title>
+                  <ion-label color="secondary"> All Users </ion-label>
+                </ion-card-title>
+                <ion-card-subtitle class="card-subtitle-global">
+                  <ion-label color="dark">
+                    Unpaid, Current & Cancelled
+                  </ion-label>
+                </ion-card-subtitle>
+                <ion-toolbar class="toolbar-global">
+                  <ion-searchbar
+                    inputmode="search"
+                    type="search"
+                    autocomplete="on"
+                    animated="true"
+                    style="border-radius: 12px;"
+                  >
+                  </ion-searchbar>
+                  <br />
+                  <ion-text color="dark">
+                    <sup class="ion-text-center ion-text-wrap"
+                      >Search by any field</sup
+                    >
+                  </ion-text>
+                </ion-toolbar>
+              </ion-card-header>
+              <ion-list>
+                <ion-item class="userlist" *ngFor="let user of users | async">
+                  <ion-avatar>
+                    <img
+                      [src]='user.photoURL || "../assets/img/dummy-user.png"'
+                    />
+                  </ion-avatar>
+                  &nbsp; &nbsp;
+                  <ion-label>
+                    <ion-text color="dark"> {{ user.name }} </ion-text>
+                    <br />
+                    <ion-note color="dark"> {{ user.email }} </ion-note>
+                    <br />
+                    <ion-note *ngIf="user.plan == 'premium'" color="dark">
+                      Premium Plan
+                    </ion-note>
+                    <ion-note *ngIf="user.plan == 'basic'" color="tertiary">
+                      Basic Plan
+                    </ion-note>
+                    <ion-note *ngIf="user.plan != 'premium' || 'basic'" color="dark">
+                      Free Plan
+                    </ion-note>
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-card>
+            <!-- </ion-card> -->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-row>
+  </ion-grid>
+
+<app-footer></app-footer>

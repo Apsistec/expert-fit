@@ -1,3 +1,169 @@
-<p>
-  header works!
-</p>
+<ion-header translucent>
+  <!-- small screen/ hamburger-->
+  <ion-toolbar color="dark" class="small-screen">
+    <ion-buttons slot="start">
+      <ion-menu-button color="tertiary"> </ion-menu-button>
+    </ion-buttons>
+    <ion-img
+      src="../../../assets/logos/logo.png"
+      slot="start"
+      class="small-logo"
+    ></ion-img>
+
+    <ng-container *ngIf="authService.user$ | async as user; else startButton">
+      <ion-item
+        slot="end"
+        type="button"
+        color="dark"
+        (click)="presentPopover($event)"
+        detail="false"
+        lines="none"
+      >
+        <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
+        <ion-avatar>
+          <ion-img
+            [src]="user.photoURL || '../../../assets/img/dummy-user.png'"
+          ></ion-img>
+        </ion-avatar>
+      </ion-item>
+    </ng-container>
+
+    <ng-template #startButton>
+      <ion-buttons slot="end">
+        <div style="text-align: center;">
+          <ion-text color="warning" style="padding-right: 5px;">
+            <sup>
+              Returning Users:
+            </sup>
+          </ion-text>
+          <br>
+          <ion-button
+          style="font-size: x-large"
+          appBlink
+          (click)="showModalGetStarted()"
+          color="danger"
+          >
+          <ion-text>Login</ion-text>
+        </ion-button>
+      </div>
+      </ion-buttons>
+    </ng-template>
+  </ion-toolbar>
+
+  <!-- large screen/ no hamburger -->
+  <ion-toolbar color="dark" class="large-screen">
+    <ion-buttons slot="start">
+      <ion-back-button
+        *ngIf="showBackButton"
+        defaultHref="/home"
+        color="tertiary"
+      ></ion-back-button>
+      <ion-img
+        src="../../../assets/logos/logo.png"
+        slot="start"
+        class="small-logo"
+      ></ion-img>
+
+      <ion-item
+        class="menu-font"
+        button
+        color="dark"
+        routerLink="/home"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <ion-label class="menu-label">Home</ion-label>
+      </ion-item>
+
+      <ion-item
+        class="menu-font"
+        button
+        color="dark"
+        routerLink="/products"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <ion-label class="menu-label">Products</ion-label>
+      </ion-item>
+
+      <ion-item
+        class="menu-font"
+        button
+        color="dark"
+        routerLink="/faqs"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <ion-label class="menu-label">FAQs</ion-label>
+      </ion-item>
+
+      <ion-item
+        class="menu-font"
+        button
+        color="dark"
+        routerLink="/testimonials"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <ion-label class="menu-label">Testimonials</ion-label>
+      </ion-item>
+
+      <ion-item
+        class="menu-font"
+        button
+        color="dark"
+        routerLink="/about"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <ion-label class="menu-label">About</ion-label>
+      </ion-item>
+      <ion-item
+        class="menu-font"
+        button
+        color="dark"
+        routerLink="/contact"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <ion-label class="menu-label">Contact</ion-label>
+      </ion-item>
+    </ion-buttons>
+
+    <ng-container *ngIf="authService.user$ | async as user; else getStarted">
+      <ion-item
+        slot="end"
+        type="button"
+        color="dark"
+        (click)="presentPopover($event)"
+        detail="false"
+        lines="none"
+      >
+        <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
+        <ion-avatar>
+          <ion-img
+            [src]="user.photoURL || '../../../assets/images/dummy-user.png'"
+          ></ion-img>
+        </ion-avatar>
+      </ion-item>
+    </ng-container>
+
+    <ng-template #getStarted>
+      <ion-buttons slot="end">
+
+        <div style="text-align: center;">
+          <ion-text color="warning" style="padding-right: 5px;">
+            <sup>
+              Returning Users:
+            </sup>
+          </ion-text>
+          <br>
+          <ion-button (click)="showModalGetStarted()" color="danger">
+
+            <ion-text style="font-size: x-large" appBlink>Login</ion-text>
+          </ion-button>
+        </div>
+      </ion-buttons>
+    </ng-template>
+  </ion-toolbar>
+</ion-header>

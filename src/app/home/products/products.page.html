@@ -1,9 +1,100 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>products</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card color="secondary" class="title-card ion-text-center ion-padding ">
+          <ion-card-title class="page-card-title">
+            <ion-text>
+              <h1>Pricing Plans</h1>
+            </ion-text>
+          </ion-card-title>
+          <ion-card-subtitle class="card-subtitle-products">
+            <ion-text>
+              <h4>Choose one of our Awesome plans</h4>
+            </ion-text>
+          </ion-card-subtitle>
+        </ion-card>
+      </ion-col>
+    </ion-row>
 
-</ion-content>
+
+      <ion-row class="ion-justify-content-around">
+        <ng-component *ngIf="user.subStatus !== 'active' || 'trialing'; else paid">
+            <form #purchaseForm="ngForm" (ngSubmit)="onSubmit(purchaseForm)">
+            <ion-spinner>Loading...</ion-spinner>
+
+          <ion-col #purchase size="12" size-md="3" *ngFor="let product of products" class="ion-text-left ion-align-self-stretch">
+            <ion-card class="ion-padding page-card">
+              <ion-card-header class="page-card-header">
+                <ion-card-title class="page-card-title">
+                  <ion-text class="ion-text-start">
+                    <h3>{{ product.name }}</h3>
+                  </ion-text>
+                  <ion-text class="ion-text-end">
+                    <h2>{{ product.price }}</h2>
+                  </ion-text>
+                </ion-card-title>
+
+              </ion-card-header>
+              <ion-card-content>
+              <hr/>
+              <ion-list style="border-radius: 12px">
+                <ion-list-header class="list-header-global">
+                  <ion-title>
+                    <ion-text> Features: </ion-text>
+                  </ion-title>
+                </ion-list-header>
+                <ion-item>
+                  <p>
+                    {{ product.description }}
+                  </p>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+            <ion-footer class="ion-text-center ion-padding">
+              <ion-button
+                color="tertiary"
+                size="large"
+                type="submit"
+                >Subscribe to {{ product.name }}</ion-button>
+              </ion-footer>
+            </ion-card>
+          </ion-col>
+        </form>
+        </ng-component>
+
+            <ng-template #paid>
+              <ion-col>
+                <ion-card>
+                  <ion-card-title>
+                    <ion-text>
+                      <h2>My subscription</h2>
+                    </ion-text>
+                  </ion-card-title>
+                  <ion-card-content>
+                    <ion-text>
+                      <h2>
+                        You are currently paying {{ subscription.unit_price | currency }}
+                     </h2>
+                    </ion-text>
+                    <ion-text>
+                      <h2>Stripe Customer Portal</h2>
+                    </ion-text>
+                    <ion-text>
+                      <h3>View invoices, update subscription & payment methods</h3>
+                    </ion-text>
+                    <ion-button color="tertiary">
+                      <ion-text>
+                        Access Customer Portal
+                      </ion-text>
+                    </ion-button>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ng-template>
+      </ion-row>
+
+
+
+  </ion-grid>
+

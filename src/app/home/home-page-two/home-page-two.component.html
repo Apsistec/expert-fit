@@ -1,0 +1,70 @@
+<!-- <ion-grid class="page-two-grid"> -->
+  <ion-row class="ion-no-margin-horizontal ion-margin-vertical ion-text-center">
+    <ion-toolbar class="toolbar-global">
+      <ion-title [@slideInRight]="slideInRight">
+        <ion-text color="tertiary">
+          Benefits of Having a Personal Trainer
+        </ion-text>
+      </ion-title>
+    </ion-toolbar>
+  </ion-row>
+  <ion-row>
+    <ion-slides
+      #mySlider
+      pager="true"
+      (ionSlidesDidLoad)="slidesDidLoad(mySlider)"
+      [options]="slideOpts"
+    >
+      <ion-slide *ngFor="let benefit of benefits">
+        <ion-col class="ion-align-self-start">
+          <ion-card color="light" class=" slide-card" style="height: 37em; width: 380px;">
+            <ion-card-header class="ion-text-center" color="primary">
+              <ion-card-title>
+                <ion-text color="warning">{{ benefit.title }}</ion-text>
+              </ion-card-title>
+              <ion-img [src]="benefit.image" style="height: fit-content; width: fit-content;"></ion-img>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-text>
+                <p>{{ benefit.content }}</p>
+              </ion-text>
+            </ion-card-content>
+
+
+          </ion-card>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+  <ion-row
+    class="ion-no-margin-horizontal ion-margin-vertical ion-text-center"
+    color="primary"
+  >
+    <ion-toolbar class="toolbar-global ion-align-text-center">
+      <ion-title [@slideInRight]="slideInRight">
+        <ion-text color="warning">
+        <h2>
+
+       Our one on one and semi-private sessions are geared to providing the guidance and instruction to achieve your goals fast, while staying safe!.
+        </h2>
+        </ion-text>
+      </ion-title>
+          <ion-title>
+            <ion-text color="light">
+<i>
+
+  Let's make our introductions and quickly go over your needs assesment. You can expect to be here about 15 minutes on this first visit. Like you, we want to make sure this is the right place for you.
+</i>
+            </ion-text>
+          </ion-title>
+      <ion-button
+        size="large"
+        style="padding: 0.4em"
+        color="danger"
+        (click)="showModalGetStarted()"
+        [@slideInLeft]="slideInLeft">
+        Free Fitness Planner
+      </ion-button>
+    </ion-toolbar>
+  </ion-row>
+<!-- </ion-grid> -->

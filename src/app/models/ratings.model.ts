@@ -1,5 +1,4 @@
-import { User } from 'src/app/_models/users.model';
-import { Employee } from './employees.model';
+import { User } from './users.model';
 
 export interface Rating {
   stars: number;

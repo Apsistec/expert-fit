@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { StripeService } from '../../services/stripe.service';
 
 @Component({
   selector: 'app-invoices',
@@ -7,8 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoicesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modalCtrl: ModalController,
+    public stripeService: StripeService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this.auth.checkInvoices();
+  }
 
+
+
+  async dismissModal() {
+    this.modalCtrl.dismiss();
+  }
 }

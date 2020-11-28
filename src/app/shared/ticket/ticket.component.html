@@ -1,3 +1,79 @@
-<p>
-  ticket works!
-</p>
+<ion-header translucent>
+  <ion-toolbar class="toolbar-global">
+    <ion-title>
+      <ion-text color="medium"> Ticket Details </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="dismissModal()" color="danger">
+        <ion-text>
+          Close
+        </ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title *ngIf="!id">
+        <ion-text> New Ticket </ion-text>
+      </ion-card-title>
+      <ion-card-title *ngIf="id">
+        <ion-text> Ticket: #{{ id }} </ion-text>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form (ngSubmit)="saveOrUpdate()" [formGroup]="ticketForm">
+        <ion-item color="light" *ngIf="id">
+          <ion-label position="stacked">User</ion-label>
+          <ion-input
+            type="text"
+            [(ngModel)]="user"
+            [ngModelOptions]="{ standalone: true }"
+            disabled="true"
+          ></ion-input>
+        </ion-item>
+        <ion-item color="light">
+          <ion-label position="stacked">Problem</ion-label>
+          <ion-input type="text" formControlName="title"></ion-input>
+        </ion-item>
+        <ion-item color="light" lines="none">
+          <ion-label position="stacked">Description</ion-label>
+          <ion-textarea rows="5" formControlName="desc"></ion-textarea>
+        </ion-item>
+        <ion-item lines="none" appHasPermission="['change-ticket-status']">
+          <ion-label position="stacked">Status</ion-label>
+          <ion-segment formControlName="status" mode="ios">
+            <ion-segment-button value="0" layout="icon-start">
+              <ion-label>Open</ion-label>
+              <ion-icon name="radio-button-off"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="1" layout="icon-end">
+              <ion-icon color="medium" name="done-all"></ion-icon>
+              <ion-label color="medium">Fixed</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-item>
+        <ion-button
+          class="ion-padding-horizontal ion-margin-vertical"
+          expand="block"
+          [disabled]="!ticketForm.valid"
+          type="submit"
+        >
+          <ion-icon name="add-circle-outline" slot="end"></ion-icon>
+          <p *ngIf="!id">Create Ticket</p>
+          <p *ngIf="id">Update Ticket</p>
+        </ion-button>
+        <ion-button
+          class="ion-padding-horizontal ion-margin-vertical"
+          expand="block"
+          (click)="deleteTicket()"
+          appHasPermission="['delete-ticket']"
+        >
+          <ion-icon name="trash" slot="end"></ion-icon>
+          Delete Ticket
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

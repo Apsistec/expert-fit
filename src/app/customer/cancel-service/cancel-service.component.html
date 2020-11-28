@@ -1,3 +1,25 @@
-<p>
-  cancel-service works!
-</p>
+
+  <ion-card color="medium" class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-text>Cancel Subscription</ion-text>
+      </ion-card-title>
+      <ion-card-subtitle class="card-subtitle-global">
+        <ion-text> Are You Sure You Want To Cancel? </ion-text>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button
+        class="ion-text-capitalize"
+        size="small"
+        (click)="stripeService.cancelSubscription()"
+        >Cancel Subscription</ion-button
+      >
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card
+    *ngIf="stripeService.confirmation | async as confirm"
+    color="medium"
+  >
+  </ion-card>

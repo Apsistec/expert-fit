@@ -6,8 +6,8 @@ import { CheckoutPage } from './checkout.page';
 const routes: Routes = [
   {
     path: '',
-    component: CheckoutPage
-  }
+    component: CheckoutPage,
+  },
 ];
 
 @NgModule({

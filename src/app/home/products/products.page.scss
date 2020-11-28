@@ -1,0 +1,32 @@
+.page-content {
+  --background: var(--ion-color-light-shade);
+}
+.page-card {
+  --background: var(--ion-color-medium-shade);
+  border-radius: 12px;
+}
+
+.page-card-header {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  --background: var(--ion-color-primary-shade);
+}
+
+.page-card-title {
+  color: var(--ion-color-warning-tint);
+  font: 800 16px/1 "Roboto", sans-serif;
+  text-transform: capitalize;
+  font-variant: small-caps;
+}
+
+.title-card {
+  color: var(--ion-color-tertiary-tint);
+  font: 800 16px/1 "Roboto", sans-serif;
+  text-transform: uppercase;
+}
+
+.card-subtitle-products {
+  font: 700 16px/1 "Roboto", sans-serif;
+  color: var(--ion-color-light-shade);
+  text-transform: capitalize;
+}

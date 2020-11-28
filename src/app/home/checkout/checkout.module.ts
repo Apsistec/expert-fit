@@ -1,20 +1,24 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-
+import { ArchwizardModule } from 'angular-archwizard';
+import { SharedModule } from '../../shared/shared.module';
 import { CheckoutPageRoutingModule } from './checkout-routing.module';
-
 import { CheckoutPage } from './checkout.page';
+import { MaterialModule } from '../../material/material.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CheckoutPageRoutingModule
+    CheckoutPageRoutingModule,
+    ReactiveFormsModule,
+    ArchwizardModule,
+    SharedModule,
+    MaterialModule
   ],
-  declarations: [CheckoutPage]
+  declarations: [CheckoutPage],
 })
 export class CheckoutPageModule {}

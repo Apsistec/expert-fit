@@ -24,10 +24,6 @@ const routes: Routes = [
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
   {
-    path: 'page-two',
-    loadChildren: () => import('./page-two/page-two.module').then( m => m.PageTwoPageModule)
-  },
-  {
     path: 'products',
     loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
   },
@@ -45,7 +41,7 @@ const routes: Routes = [
   },
   {
     path: 'verify-email',
-    loadChildren: () => import('./verify-email/verify-email.module').then( m => m.VerifyEmailPageModule)
+    loadChildren: () => import('./verify-email/verify-email.module').then( m => m.VerifyEmailModule)
   }
 ];
 

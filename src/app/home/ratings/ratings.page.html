@@ -1,9 +1,59 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ratings</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  <ion-grid>
+    <ion-row>
+        <ion-card *ngFor="let testimonial of testimonials">
+        </ion-card>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-title>
+            <ion-text> Add A Review of Expert Fitness App </ion-text>
+          </ion-card-title>
+          <ion-card-content>
+            <!-- <form
+              *ngIf="user"
+              [formGroup]="reviewForm"
+              (ngSubmit)="setTestimonial()"
+              novalidate
+            >
+              <ion-list class="ion-no-margin ion-no-padding">
+                <ion-item>
+                  <ion-label>{{ user.name }}</ion-label>
+                </ion-item>
 
-</ion-content>
+                <ion-item>
+                  <ion-label position="floating">Review</ion-label>
+                  <ion-textarea
+                    auto-grow="true"
+                    color="primary"
+                    type="text"
+                    inputmode="text"
+                    formControlName="review"
+                    placeholder="Your review goes here..."
+                    required
+                    spellcheck="true"
+                    wrap="soft"
+                    autofocus="true"
+                  >
+                  </ion-textarea>
+                </ion-item>
+              </ion-list>
+
+              <ion-button
+                [disabled]="reviewForm.invalid"
+                color="tertiary"
+                expand="full"
+                type="submit"
+              >
+                <ion-icon size="small" slot="start" name="arrow-forward-sharp">
+                </ion-icon>
+                <ion-text>Create</ion-text>
+              </ion-button>
+            </form> -->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+

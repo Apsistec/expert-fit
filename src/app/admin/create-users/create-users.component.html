@@ -1,3 +1,18 @@
-<p>
-  create-users works!
-</p>
+
+  <ion-item>
+    <ion-label>Name</ion-label>
+    <ion-input
+      [(ngModel)]="data.displayName"
+      placeholder="Enter Name"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input [(ngModel)]="data.email" placeholder="Enter Email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-button (click)="submitForm()">Add </ion-button>
+  </ion-item>
+

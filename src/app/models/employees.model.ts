@@ -1,7 +1,7 @@
-import { User } from 'src/app/_models/users.model';
+import { User } from './users.model';
 import { Customer } from './customers.model';
-import { GymSession } from './gym-sessions.model';
 import { GymLocation } from './gym-locations.model';
+import { GymSession } from './gym-sessions.model';
 
 export interface Employee {
   employeeId: string;

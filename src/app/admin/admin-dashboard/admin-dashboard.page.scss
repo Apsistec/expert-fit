@@ -1,0 +1,10 @@
+body {
+    counter-reset: user1;
+  }
+  .userlist{
+    ion-item::before {
+      counter-increment: user1;
+      content: counter(user1) ': ';
+    }
+  }
+  

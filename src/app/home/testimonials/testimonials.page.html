@@ -1,9 +1,47 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>testimonials</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+    <ion-slides
+      #reviewSlider
+      pager="true"
+      (ionSlidesDidLoad)="slidesDidLoad(reviewSlider)"
+      [options]="slideOpts"
+    >
+      <ion-slide *ngFor="let rating of ratings">
+        <ion-col class="ion-align-self-start">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <ion-text> {{ rating.name }}"> </ion-text>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-avatar>
+                  <img src="../../../assets/images/dummy-user.png" />
+                </ion-avatar>
+                <ion-chip color="dark">
+                  <ion-icon
+                    name="star-outline"
+                    color="danger"
+                    size="small"
+                  ></ion-icon>
+                  <ion-icon
+                    name="star-outline"
+                    color="danger"
+                    size="small"
+                  ></ion-icon>
+                  <ion-icon name="star" color="warning" size="small"></ion-icon>
+                  <ion-icon name="star" color="warning" size="small"></ion-icon>
+                  <ion-icon name="star" color="warning" size="small"></ion-icon>
+                  <ion-text> {{ rating.rating }} </ion-text>
+                </ion-chip>
+              </ion-item>
+              <br />
+              <ion-text>
+                <p>{{ rating.review }}</p>
+              </ion-text>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
 
-</ion-content>

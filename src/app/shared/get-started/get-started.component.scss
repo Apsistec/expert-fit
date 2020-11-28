@@ -1,0 +1,50 @@
+.selector {
+  font-weight: bold;
+  font-size: larger;
+  padding-right: 0.625em;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+  background-color: transparent;
+  position: relative;
+  perspective: 1000px;
+  height: 490px;
+}
+
+.flip-container.flip .flipper {
+  transform: rotateY(180deg);
+  // height: 100vh;
+}
+
+// .flip-container,
+.front,
+.back {
+  width: 100%;
+}
+
+/* flip speed goes here */
+.flipper {
+  position: relative;
+  height: 100%;
+  transition: 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* hide back of pane during swap */
+.front,
+.back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+}
+

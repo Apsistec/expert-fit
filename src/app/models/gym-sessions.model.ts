@@ -1,7 +1,6 @@
-import { User } from 'src/app/_models/users.model';
+import { Customer } from './customers.model';
 import { Employee } from './employees.model';
 import { GymLocation } from './gym-locations.model';
-import { Customer } from './customers.model';
 
 export interface GymSession {
   gymSessionId: string;

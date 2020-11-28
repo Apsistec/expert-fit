@@ -1,9 +1,54 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>verify-email</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  <ion-card
+    class="ion-padding ion-text-center"
+    style="margin: auto; top: 10vh; max-width: 500px"
+    color="light"
+  >
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h3>Thank You!</h3>
 
-</ion-content>
+        <div *ngIf="authService.user$ | async as user">
+          <p class="text-center">
+            Your email,
+            <strong>{{user.email}}</strong>
+            , has been verified. Also, depending on your screen's dimensions,
+            the navigation menus are either at top of this page for tv's,
+            desktops & tablets; yet for movile devices, click
+            <ion-icon name="menu-outline"></ion-icon> in the top left corner of
+            the screen.
+          </p>
+
+          <h3>Didn't receive an email?</h3>
+          <p class="text-center">
+            If for some reason you keep arriving back at this page, please check
+            your email and click on the link in the body of the email to verfiy
+            your account. If you have not receieved an email, please click the
+            button below to have the email sent again. Thank you.
+          </p>
+        </div>
+
+        <!-- Calling SendVerificationMail() method using authService Api -->
+        <div class="formGroup">
+          <ion-button
+            class="ion-text-capitalize"
+            type="button"
+            class="btn btnPrimary"
+            (click)="authService.sendVerificationMail()"
+          >
+            <i class="fas fa-redo-alt"></i>
+            Resend Verification Email
+          </ion-button>
+        </div>
+      </div>
+
+      <div class="redirectToSignIn">
+        <span
+          >Go back to?<span class="redirect" routerLink="/get-started">
+            Sign in</span
+          ></span
+        >
+      </div>
+    </div>
+  </ion-card>
+

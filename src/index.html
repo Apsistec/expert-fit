@@ -1,29 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Expert Fitness App</title>
 
-<head>
-  <meta charset="utf-8"/>
-  <title>Ionic App</title>
+    <base href="/" />
+    <link rel="icon" href="assets/icon/favicon.ico" type="image/x-icon" />
 
-  <base href="/"/>
+    <link rel="manifest" href="/manifest.webmanifest" />
 
-  <meta name="color-scheme" content="light dark"/>
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <meta name="format-detection" content="telephone=no"/>
-  <meta name="msapplication-tap-highlight" content="no"/>
+    <!-- add to Chrome Web Homescreen  -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#116466" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="application-name" content="Expert Fitness App" />
+    <meta
+      name="description"
+      content="A fitness App that serves as your fitness consultant"
+    />
 
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png"/>
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Expert Fitness App" />
 
-  <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#1976d2">
-</head>
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3" async></script>
 
-<body>
-  <app-root></app-root>
-  <noscript>Please enable JavaScript to continue using this application.</noscript>
-</body>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.expert-fitness.com/" />
+    <meta property="og:title" content="Expert Fitness App" />
+    <meta property="og:image" content="assets/icons/icon-512x512" />
+    <meta
+      property="og:description"
+      content="A fitness App that serves as your fitness consultant"
+    />
 
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.expert-fitness.com/" />
+    <meta property="twitter:title" content="Expert Fitness App" />
+    <meta property="twitter:image" content="assets/icons/icon-512x512.png" />
+    <meta
+      property="twitter:description"
+      content="A fitness App that serves as your fitness consultant"
+    />
+  </head>
+
+  <body class="mat-typography">
+    <script>
+          // window.fbAsyncInit = function() {
+          //   FB.init({
+          //     appId      : '842482879622606',
+          //     cookie     : true,
+          //     xfbml      : true,
+          //     version    : '8.0'
+          //   });
+
+          //   FB.AppEvents.logPageView();
+
+          // };
+
+
+
+        // {
+        //     status: 'connected',
+        //     authResponse: {
+        //         accessToken: '...',
+        //         expiresIn:'...',
+        //         signedRequest:'...',
+        //         userID:'...'
+        //     }
+        // }
+
+
+      //       (function(d, s, id){
+      //          var js, fjs = d.getElementsByTagName(s)[0];
+      //          if (d.getElementById(id)) {return;}
+      //          js = d.createElement(s); js.id = id;
+      //          js.src = "https://connect.facebook.net/en_US/sdk.js";
+      //          fjs.parentNode.insertBefore(js, fjs);
+      //        }(document, 'script', 'facebook-jssdk'));
+
+
+      //     FB.getLoginStatus(function(response) {
+      //         statusChangeCallback(response);
+      //     });
+
+
+      // function checkLoginState() {
+      //   FB.getLoginStatus(function(response) {
+      //     statusChangeCallback(response);
+      //   });
+      // }
+    </script>
+
+    <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button> -->
+    <app-root></app-root>
+
+    <noscript
+      >Please enable JavaScript or try another browser such as
+      <a href="https://www.brave.com">Brave Browser</a>to continue using this
+      application.
+      </noscript>
+  </body>
 </html>

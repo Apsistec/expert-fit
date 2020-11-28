@@ -1,9 +1,37 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>customer-dashboard</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  <ion-grid>
+    <!-- Row 1 -->
+    <ion-row>
+      <!-- Col 0 -->
+      <ion-col>
+        <ion-card>
 
-</ion-content>
+          <ion-button routerLink="profile">Profile</ion-button>
+
+        </ion-card>
+      </ion-col>
+      <!-- Row-2 -->
+    </ion-row>
+    <ion-row>
+      <!-- Col 2 -->
+      <ion-col>
+        <ion-card>
+
+         <ion-button routerLink="settings">Settings</ion-button>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <!-- Row=3 -->
+    <ion-row>
+      <!-- Col 3 -->
+      <ion-col>
+        <ion-card>
+
+          <app-ticket></app-ticket>
+
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+

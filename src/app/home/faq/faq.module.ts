@@ -1,19 +1,23 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { MaterialModule } from '../../material/material.module';
 import { IonicModule } from '@ionic/angular';
-
+import { SharedModule } from '../../shared/shared.module';
 import { FaqPageRoutingModule } from './faq-routing.module';
-
 import { FaqPage } from './faq.page';
+
+
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FaqPageRoutingModule
+    SharedModule,
+    FaqPageRoutingModule,
+    MaterialModule
   ],
   declarations: [FaqPage]
 })

@@ -1,9 +1,45 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>faq</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="8" size-xl="6" class="ion-align-self-auto" style="margin-top: 5em">
+        <ion-card color="medium" class="details-card">
+          <ion-card-header class="ion-text-center" color="dark">
+            <ion-card-title>
+              <ion-text color="tertiary" style="font-weight: 900">
+                <h2>Expert Fitness FAQs</h2>
+              </ion-text>
+            </ion-card-title>
+                <ion-card-subtitle class="card-subtitle-global">
+              <ion-text
+                color="warning"
+                class="ion-text-capitalize"
+              >
+                  <h5>
+                    Responses to Frequently asked questions
+                  </h5>
+              </ion-text>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <details
+              *ngFor="let faq of faqs"
+              (toggle)="onToggle()"
+            >
+              <summary style="margin: 1em;">
+                <ion-text class="questions-text">
+                  <p>{{faq.title}}</p>
+                </ion-text>
+              </summary>
 
-</ion-content>
+              <div>
+              <ion-text class="details-text">
+                <p>{{ faq.info }}</p>
+              </ion-text>
+              </div>
+            </details>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+

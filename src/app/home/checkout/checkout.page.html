@@ -1,9 +1,723 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>checkout</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  <ion-grid>
+    <ion-row class="ion-wrap-reverse tech">
+      <div
+        style="
+          position: absolute;
+          z-index: 99;
+          top: 26px;
+          left: 30px;
+          cursor: pointer;
+        "
+        routerLink="/home"
+      >
+        <img
+          src="../../assets/img/icon-192x192.png"
+          style="width: 60px; height: 60px"
+        />
+      </div>
+      <div *ngIf="user">
+        <a
+          (click)="presentPopover($event)"
+          style="
+            position: absolute;
+            top: 30px;
+            z-index: 99;
+            right: 30px;
+            cursor: pointer;
+          "
+        >
+          <ion-avatar>
+            <img
+              [src]="user.photoURL || '../../../assets/img/dummy-user.png'"
+              style="width: 60px; height: 60px"
+            />
+          </ion-avatar>
+        </a>
+      </div>
+      <ion-col
+        class="ion-align-self-center ion-no-padding ion-no-margin"
+        size-sm="12"
+        size-md="6"
+        offset-md="3"
+        size-lg="4"
+        offset-lg="1"
+        size-xl="4"
+        offset-xl="1"
+      >
+        <ion-card color="medium" class="ion-text-center">
+          <ion-card-content>
+            <!-- Step 1 Log In Sign Up -->
+            <aw-wizard
+              navBarLayout="large-filled-symbols"
+              navigationMode="free"
+            >
+              <aw-wizard-step
+                stepTitle="{{ isRegister ?  'Sign Up' : 'Log In' }}"
+                [navigationSymbol]="{ symbol: 1 }"
+              >
+                <!-- Sign  Up form -->
+                <ng-container *ngIf="isRegister">
+                  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+                    <ion-card-title>
+                      <ion-text> Rank Fantasy Sports Sign Up </ion-text>
+                    </ion-card-title>
+                    <ion-card-subtitle>
+                      <ion-text>
+                        You need to sign up before purchasing a
+                        <strong>Pro Plan</strong>
+                      </ion-text>
+                    </ion-card-subtitle>
+                    <ion-card color="light" class="ion-padding ion-margin">
+                      <ion-item color="light">
+                        <ion-label color="dark" position="floating"
+                          >Name</ion-label
+                        >
+                        <ion-input
+                          autofocus
+                          formControlName="name"
+                          type="text"
+                          autocapitalize="on"
+                          inputmode="text"
+                          required
+                        ></ion-input>
+                      </ion-item>
+                      <div
+                        *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)"
+                        class="alert alert-danger"
+                      >
+                        <div
+                          *ngIf="registerForm.controls['name'].errors.required"
+                        >
+                          <ion-text color="danger">
+                            Name is required.
+                          </ion-text>
+                        </div>
+                      </div>
 
-</ion-content>
+                      <ion-item color="light">
+                        <ion-label color="dark" position="floating"
+                          >Email</ion-label
+                        >
+                        <ion-input
+                          style="width: 95%"
+                          type="email"
+                          inputmode="email"
+                          formControlName="email"
+                          required
+                        ></ion-input>
+                      </ion-item>
+                      <div
+                        *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)"
+                        class="alert alert-danger"
+                      >
+                        <div
+                          *ngIf="registerForm.controls['email'].errors.required"
+                        >
+                          <ion-text color="danger">
+                            Email is required.
+                          </ion-text>
+                        </div>
+                        <div
+                          *ngIf="registerForm.controls['email'].errors.email"
+                        >
+                          <ion-text color="danger">
+                            Email is not Valid.
+                          </ion-text>
+                        </div>
+                      </div>
+                      <ion-item color="light">
+                        <ion-label color="dark" position="floating"
+                          >Password</ion-label
+                        >
+                        <ion-input
+                          id="password"
+                          style="width: 89%"
+                          [type]="hide ? 'password' : 'text'"
+                          class="form-control"
+                          inputmode="text"
+                          formControlName="password"
+                          required
+                        ></ion-input>
+                        <ion-button
+                          color="dark"
+                          fill="clear"
+                          shape="round"
+                          item-end
+                          (click)="hide = !hide"
+                          *ngIf="hide"
+                          style="
+                            position: absolute;
+                            right: 5px;
+                            bottom: 5px;
+                            background: transparent;
+                          "
+                        >
+                          <ion-icon name="eye"> </ion-icon>
+                        </ion-button>
+                        <ion-button
+                          color="dark"
+                          fill="clear"
+                          shape="round"
+                          item-end
+                          (click)="hide = !hide"
+                          *ngIf="!hide"
+                          style="
+                            position: absolute;
+                            right: 5px;
+                            bottom: 5px;
+                            background: transparent;
+                          "
+                        >
+                          <ion-icon name="eye-off"> </ion-icon>
+                        </ion-button>
+                      </ion-item>
+                      <div
+                        *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)"
+                        class="alert alert-danger"
+                      >
+                        <div
+                          *ngIf="registerForm.controls['password'].errors.required"
+                        >
+                          <ion-text color="danger">
+                            Password is required.
+                          </ion-text>
+                        </div>
+                        <div
+                          *ngIf="registerForm.controls['password'].hasError('minlength')"
+                        >
+                          <ion-text color="danger">
+                            Password must be at least 8 characters long.
+                          </ion-text>
+                        </div>
+                        <div
+                          *ngIf="registerForm.controls['password'].errors.maxlength"
+                        >
+                          <ion-text color="danger">
+                            Password must be less than 25 characters long.
+                          </ion-text>
+                        </div>
+                        <div
+                          *ngIf="registerForm.controls['password'].errors.pattern"
+                        >
+                          <ion-text color="danger">
+                            Password must contain 1 uppercase, 1 lowercase and 1
+                            digit.
+                          </ion-text>
+                        </div>
+                      </div>
+                    </ion-card>
+                    <hr />
+                    <ion-button
+                      type="submit"
+                      color="danger"
+                      expand="full"
+                      [disabled]="!registerForm.valid"
+                    >
+                      <ion-text> Sign Up </ion-text>
+                    </ion-button>
+                  </form>
+                </ng-container>
+                <!-- Login form -->
+                <ng-container *ngIf="!isRegister">
+                  <form [formGroup]="loginForm" (ngSubmit)="Login()" novalidate>
+                    <ion-card-title>
+                      <ion-text> Rank Fantasy Sports Log In </ion-text>
+                    </ion-card-title>
+                    <ion-card-subtitle>
+                      <ion-text>
+                        You need to log in before using your
+                        <strong>Pro Plan</strong>
+                      </ion-text>
+                    </ion-card-subtitle>
+                    <ion-card color="light" class="ion-padding ion-margin">
+                      <ion-item color="light">
+                        <ion-label position="floating">Email</ion-label>
+                        <ion-input
+                          debounce="300"
+                          style="width: 95%; text-transform: lowercase"
+                          type="email"
+                          inputmode="email"
+                          formControlName="email"
+                        ></ion-input>
+                      </ion-item>
+                      <div
+                        *ngIf="
+                        loginForm.controls['email'].invalid &&
+                        (loginForm.controls['email'].dirty ||
+                          loginForm.controls['email'].touched)"
+                        class="alert alert-danger"
+                      >
+                        <div
+                          *ngIf="loginForm.controls['email'].errors.required"
+                        >
+                          <ion-text color="danger" class="inputError">
+                            Email is required.
+                          </ion-text>
+                        </div>
+                        <div *ngIf="loginForm.controls['email'].errors.email">
+                          <ion-text color="danger" class="inputError">
+                            Email is not Valid.
+                          </ion-text>
+                        </div>
+                      </div>
+                      <ion-item color="light">
+                        <ion-label position="floating">Password</ion-label>
+                        <ion-input
+                          debounce="300"
+                          id="password"
+                          style="width: 89%"
+                          [type]="hide ? 'password' : 'text'"
+                          inputmode="text"
+                          formControlName="password"
+                        ></ion-input>
+                        <ion-button
+                          item-end
+                          (click)="hide = !hide"
+                          *ngIf="hide"
+                          style="
+                            position: absolute;
+                            right: 15px;
+                            bottom: 15px;
+                            background: transparent;
+                          "
+                          color="dark"
+                          fill="clear"
+                        >
+                          <ion-icon name="eye"> </ion-icon>
+                        </ion-button>
+                        <ion-button
+                          item-end
+                          (click)="hide = !hide"
+                          *ngIf="!hide"
+                          style="
+                            position: absolute;
+                            right: 15px;
+                            bottom: 15px;
+                            background: transparent;
+                          "
+                          color="dark"
+                          fill="clear"
+                        >
+                          <ion-icon name="eye-off"> </ion-icon>
+                        </ion-button>
+                      </ion-item>
+                      <div
+                        *ngIf="
+                        loginForm.controls['password'].invalid &&
+                        (loginForm.controls['password'].dirty ||
+                          loginForm.controls['password'].touched)
+                      "
+                        class="alert alert-danger"
+                      >
+                        <div
+                          *ngIf="loginForm.controls['password'].errors.required"
+                        >
+                          <ion-text color="danger" class="inputError">
+                            Password is required.
+                          </ion-text>
+                        </div>
+                        <div
+                          *ngIf="loginForm.controls['password'].hasError('minlength')"
+                        >
+                          <ion-text color="danger" class="inputError">
+                            Password must be at least 8 characters long.
+                          </ion-text>
+                        </div>
+                        <div
+                          *ngIf="loginForm.controls['password'].errors.maxlength"
+                        >
+                          <ion-text color="danger" class="inputError">
+                            Password must be less than 25 characters long.
+                          </ion-text>
+                        </div>
+                        <div
+                          *ngIf="loginForm.controls['password'].errors.pattern"
+                        >
+                          <ion-text color="danger" class="inputError">
+                            Password must contain 1 uppercase, 1 lowercase and 1
+                            digit.
+                          </ion-text>
+                        </div>
+                      </div>
+                    </ion-card>
+
+                    <ion-button
+                      [disabled]="loginForm.invalid"
+                      color="danger"
+                      expand="full"
+                      type="submit"
+                    >
+                      <ion-icon
+                        slot="start"
+                        color="light"
+                        name="arrow-round-forward"
+                        slot="start"
+                      ></ion-icon>
+                      <ion-text> Log In </ion-text>
+                    </ion-button>
+                  </form>
+                </ng-container>
+                <ion-button
+                  color="secondary"
+                  fill="clear"
+                  (click)="switchAuthMode()"
+                  >Need to {{ isRegister ? 'Log In' : 'Sign Up' }}?</ion-button
+                >
+                <!-- Step 2  Pay     -->
+              </aw-wizard-step>
+              <aw-wizard-step
+                stepTitle="Enter Card Info"
+                [navigationSymbol]="{ symbol: 2 }"
+              >
+                <hr />
+                <ion-card-title>
+                  <ion-text
+                    color="secondary"
+                    class="ion-text-wrap"
+                    style="
+                      font-size: x-large;
+                      font-weight: 800;
+                      font-variant: small-caps;
+                      font-stretch: condensed;
+                      line-height: 1;
+                    "
+                  >
+                    Payment Details
+                  </ion-text>
+                </ion-card-title>
+
+                <ion-grid>
+                  <ion-card
+                    color="light"
+                    style="padding-left: 10px; text-align: left"
+                  >
+                    <ion-row class="ion-align-items-around">
+                      <ion-col size="6">
+                        <ion-text style="font-weight: 600">
+                          <u> Items </u>
+                        </ion-text>
+                        <br />
+                        <ion-text> Game Work Pro Package </ion-text>
+                        <br />
+                        <ion-text *ngIf="!theCheckbox"> *** </ion-text>
+                        <ion-text *ngIf="theCheckbox">
+                          1-ON-1 Training
+                        </ion-text>
+                        <br />
+                        <br />
+                        <ion-text> Total $ Today </ion-text>
+                      </ion-col>
+                      <ion-col siz="6">
+                        <ion-text style="font-weight: 600">
+                          <u> Price </u>
+                        </ion-text>
+                        <br />
+                        <ion-text> $9.99/<sub>Month</sub> </ion-text>
+                        <br />
+                        <ion-text *ngIf="!theCheckbox"> *** </ion-text>
+
+                        <ion-text *ngIf="theCheckbox"> $57.00 </ion-text>
+                        <br />
+                        <br />
+                        <ion-text *ngIf="theCheckbox"> $57.00 </ion-text>
+                        <ion-text *ngIf="!theCheckbox"> $0.00 </ion-text>
+                      </ion-col>
+                    </ion-row>
+                  </ion-card>
+                </ion-grid>
+                <div style="display: flex; margin-bottom: 2px">
+                  <img
+                    src="../../assets/img/1.png"
+                    style="height: 22.5px; width: 37.5px"
+                  />
+                  <img
+                    src="../../assets/img/2.png"
+                    style="height: 22.5px; width: 37.5px"
+                  />
+                  <img
+                    src="../../assets/img/14.png"
+                    style="height: 22.5px; width: 37.5px"
+                  />
+                  <img
+                    src="../../assets/img/22.png"
+                    style="height: 22.5px; width: 37.5px"
+                  />
+                </div>
+
+                <form (submit)="handleForm($event)">
+                  <div class="form-row">
+                    <div id="card-element" #cardElement>
+                      <!-- A Stripe Element will be inserted here. -->
+                    </div>
+
+                    <!-- Used to display Element errors. -->
+                    <p class="has-text-danger">{{ cardErrors }}</p>
+                  </div>
+
+                  <hr />
+
+                  <ion-button
+                    color="secondary"
+                    expand="full"
+                    type="submit"
+                    class="button is-success"
+                    >Subscribe</ion-button
+                  >
+                </form>
+                <ion-spinner *ngIf="isLoading" class="notification is-info"
+                  >Loading....</ion-spinner
+                >
+
+                <hr />
+
+                <!-- bumpup offer -->
+                <ion-card
+                  class="ion-text-start ion-text-wrap ion-no-margin"
+                  style="
+                    border: 4px black dotted;
+                    background-color: rgb(54, 68, 131);
+                  "
+                >
+                  <ion-card-content>
+                    <ion-item color="dark">
+                      <ion-icon
+                        appBlink
+                        name="arrow-round-forward"
+                        color="danger"
+                        slot="start"
+                      ></ion-icon>
+
+                      <ion-checkbox
+                        size="large"
+                        mode="md"
+                        style="margin-right: 15px"
+                        [(ngModel)]="theCheckbox"
+                        (change)="toggleVisibility($event)"
+                      ></ion-checkbox>
+
+                      <ion-label color="success" class="ion-text-wrap">
+                        Enhance My Trial
+                      </ion-label>
+                    </ion-item>
+                    <ion-text color="danger" class="bump">
+                      ONE TIME OFFER ($57):
+                    </ion-text>
+                    <ion-text>
+                      You'll never see this offer again! By checking the box, we
+                      will Send you our DFS Lineup Checklist and You will get a
+                      complimentary 30 min strategy session with one of our DFS
+                      Pros to help you win some contests early (Normally $250)
+                      for just $57 when you check the box above. This offer is
+                      only available when you sign up for your trial today.
+                    </ion-text>
+                  </ion-card-content>
+                </ion-card>
+
+                <ion-button fill="clear" color="secondary" awPreviousStep
+                  >Need to Start Over?</ion-button
+                >
+              </aw-wizard-step>
+              <!-- Step 3 Done -->
+              <aw-wizard-completion-step
+                stepTitle="Done!"
+                [navigationSymbol]="{ symbol: 3 }"
+              >
+                <ion-card color="light">
+                  <img src="../../../assets/img/logo.jpg" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      <ion-text class="ion-text-center ion-text-capitalize">
+                        <strong> Welcome to RF$&trade; </strong>
+                      </ion-text>
+                    </ion-card-title>
+                    <ion-card-subtitle> </ion-card-subtitle>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-text class="ion-text-wrap">
+                      <p>
+                        Thank you! Your Rank Fantasy Sports trial account has
+                        officially started! This 7 day trial is provided to you
+                        at no cost for the next 7 days! Your card will be chaged
+                        $9.99 at the end of the trial period, and will be
+                        continue to be charged each following month.
+                      </p>
+                      <hr />
+
+                      <hr />
+                      <ul>
+                        <ion-text
+                          class="ion-text-capitalize"
+                          style="
+                            font-variant: small-caps;
+                            font-size: large;
+                            font-weight: 700;
+                          "
+                        >
+                          <li>The RF$&trade; Data Tables</li>
+                          <li>View Account Details</li>
+                          <li>Update Profile</li>
+                          <li>Create Trouble Tickets</li>
+                          <li>Request New Features</li>
+                          <li>Change Theme</li>
+                        </ion-text>
+                      </ul>
+                    </ion-text>
+                    <ion-button
+                      expand="block"
+                      color="secondary"
+                      routerLink="/profile"
+                    >
+                      <ion-icon slot="start" name="person"></ion-icon>
+                      <ion-text> Goto My Profile </ion-text>
+                    </ion-button>
+                  </ion-card-content>
+                </ion-card>
+              </aw-wizard-completion-step>
+            </aw-wizard>
+          </ion-card-content>
+
+          <hr />
+        </ion-card>
+      </ion-col>
+
+      <ion-col
+        *ngIf="showDetails"
+        class="ion-align-self-center ion-no-padding ion-text-center"
+        size-sm="6"
+        offset-sm="3"
+        size-md="6"
+        offset-md="3"
+        size-lg="3"
+        pull-lg="3"
+        size-xl="3"
+        pull-xl="3"
+      >
+        <ion-card
+          style="
+            margin-top: 100px;
+            background: rgb(0, 0, 0);
+            background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0.6) 0%,
+              rgba(0, 0, 0, 0.7) 100%
+            );
+          "
+        >
+          <ion-card-header style="background-color: transparent !important">
+            <ion-card-subtitle>
+              <ion-text class="ion-text-wrap ion-text-center" color="light">
+                Price after
+                <br />
+                your complimentary trial
+              </ion-text>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-title style="background-color: transparent !important">
+            <ion-text class="ion-text-no-wrap" style="font-weight: 800">
+              $9.99
+              <sub>per month</sub>
+              <hr />
+            </ion-text>
+          </ion-card-title>
+          <ion-text color="light">
+            <ion-text>
+              <u> Features: </u>
+            </ion-text>
+            <ul>
+              <li>
+                <ion-text>
+                  <p>Season Long Projections & Picks</p>
+                </ion-text>
+              </li>
+
+              <li>
+                <ion-text>
+                  <p>Game Work Aggregated information</p>
+                </ion-text>
+              </li>
+
+              <li>
+                <ion-text>
+                  <p>Advanced Game Work Stats</p>
+                </ion-text>
+              </li>
+
+              <li>
+                <ion-text>
+                  <p>Hand Curated data</p>
+                </ion-text>
+              </li>
+
+              <li>
+                <ion-text>
+                  <p>Data Dashboard</p>
+                </ion-text>
+              </li>
+
+              <li>
+                <ion-text>
+                  <p>Billed monthly, no set up fee</p>
+                </ion-text>
+              </li>
+            </ul>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-padding bottom">
+        <ion-text>
+          <p>
+            * A valid Credit or Debit card in your name is required for
+            account authorization, and further verification may be requeseted if
+            necessary to validate the subscription service. During the One Week
+            (7 day) Free trial period, your card will not be charged, however
+            the information will be used to validate the subscription. On the
+            eighth 8
+            <sup> th </sup>
+            day following the subscription start date, your card will be
+            processed for the full customership fee, according to the plan you
+            chose on the day you began your One Week Free Trial.
+            <strong>
+              The One Week Free Trial can only be activated one (1) time per
+              card holder and all customerships are valid for only one (1) user
+              per account, the card holder.
+            </strong>
+            Customerships are also associated with the email address you used at
+            the time you submitted your Credit or Debit card information and
+            began your One Week Free Trial. To ensure access to your account,
+            sign in with the same email address each time. All payments are
+            handled by
+            <a href="https://www.stripe.com">
+              <ion-text color="secondary"> Stripe </ion-text>
+            </a>
+            . The RF$ site is served using Secure Socket Layer (SSL) encryption,
+            and our servers submit secure tokenized versions of your payment
+            information. The complete card details are never visible to anyone
+            at Rank Fantasy Sports, nor are the complete card details stored on
+            our servers. Pro Customership Packages are subscriptions which are
+            billed automatically, on or about the same date each billing cycle
+            varying only on accounts which have a start date that does not occur
+            every month (e.g. 31st day of a month). You may cancel your
+            subscription at anytime. Once a cancellation request has been
+            submitted, your account will be terminated immediately, and no
+            further payments will be processed. For more details, please read
+            our
+            <a (click)="showModalTerms()">
+              <ion-text color="secondary"> Terms </ion-text>
+            </a>
+            . The security of your information is our priority. Please read our
+            <a (click)="showModalPrivacy()">
+              <ion-text color="secondary"> Privacy </ion-text>
+            </a>
+            for more details.
+          </p>
+          <br>
+          <ion-button color="medium" (click)="showModalAbout()">About App</ion-button>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+

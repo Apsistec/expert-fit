@@ -1,3 +1,52 @@
-<p>
-  user-tickets works!
-</p>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="medium">
+          <ion-card-header>
+            <ion-card-title>
+              <ion-text color="secondary"> My Trouble Tickets </ion-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-list>
+            <ion-item
+              *ngFor="let ticket of tickets | async"
+              class="ion-text-wrap"
+              ngSortgridItem
+            >
+              <ion-icon
+                name="radio-button-off"
+                color="danger"
+                *ngIf="ticket.status == 0"
+                slot="start"
+              ></ion-icon>
+              <ion-icon
+                name="done-all"
+                color="success"
+                *ngIf="ticket.status == 1"
+                slot="start"
+              ></ion-icon>
+              <ion-label>
+                <ion-text color="dark">
+                  <h2>{{ ticket.title }}</h2>
+                </ion-text>
+                <ion-text color="light">
+                  <p class="ion-text-wrap">{{ ticket.desc }}</p>
+                </ion-text>
+              </ion-label>
+              <ion-note color="light" slot="end">
+                {{ ticket.created_at?.seconds*1000 | date: 'MMM d' }}
+              </ion-note>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="dark" (click)="openTicketModal()">
+      <ion-icon color="secondary" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+<app-footer></app-footer>
