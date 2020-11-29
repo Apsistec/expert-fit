@@ -1,27 +1,153 @@
-#container {
-  text-align: center;
+@media screen and (max-width: 400px) {
+    .landing-quote {
+      display: none;
+    }
+    .landing-cta-text {
+      font-size: 2.55em;
+    }
+    .large-screen {
+        display: none;
+    }
+  }
+  @media screen and (min-width: 401px) {
+    .small-screen {
+        display: none;
+    }
+  }
+  @media screen and (max-height: 500px) {
+    .landing-quote {
+      display: none;
+    }
+    .landing-cta-motto {
+      display: none;
+    }
+  }
+  @media screen and (max-height: 600px) {
+    .landing-quote {
+      display: none;
+    }
+    .landing-cta-motto {
+      display: none;
+    }
+  }
+  
+  
+  .scene-one {
+      margin-top: 60px;
+    height: 94vh;
+    width: 100vw;
+    background-color: var(--ion-color-medium);
+    background: linear-gradient(
+        to bottom left,
+        rgba(0, 0, 0, 0.45) 15%,
+        rgba(71, 0, 0, 0.55) 50%,
+        rgba(0, 0, 0, 0.45) 85%
+      ),
+      linear-gradient(
+        to right,
+        rgba(92, 0, 8, 0.35) 0%,
+        rgba(17, 0, 2, 0.45) 50%,
+        rgba(83, 0, 7, 0.35) 100%
+      ),
+      url(../../assets/images/fitness-balancing.jpg) bottom /cover no-repeat;
+  
+  }
+  
+  
+  .logo-card {
+    // margin: .6em;
+    text-transform: capitalize;
+    font:small-caps 900 sans-serif;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    // padding: 0 .3125em;
+    // background-origin: border-box;
+    border-radius: 12px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
+      0px 6px 6px rgba(0, 0, 0, 0.1),
+      0px 8px 8px rgba(0, 0, 0, 0.05),
+      0px 10px 15px rgba(0, 0, 0, 0.03),
+      0px 30px 30px rgba(0, 0, 0, 0.15),
+      0px 70px 60px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(
+      to bottom left,
+      rgba(145, 145, 160, 0.76) 10%,
+      rgba(108, 110, 117, 0.89) 20%,
+      rgba(52, 56, 68, 0.89) 40%,
+      rgba(55, 58, 70, 0.89) 60%,
+      rgba(78, 85, 116, 0.89) 80%,
+      rgba(108, 103, 124, 0.8) 90%
+    );
+  }
+  
+  .raised-z{
+    z-index: 22;
+  }
+  
+  .cta {
+    margin: 1em;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
+      0px 6px 6px rgba(0, 0, 0, 0.1),
+      0px 8px 8px rgba(0, 0, 0, 0.05),
+      0px 10px 15px rgba(0, 0, 0, 0.03),
+      0px 30px 30px rgba(0, 0, 0, 0.15),
+      0px 70px 60px rgba(0, 0, 0, 0.15);
+  }
+  
+  .learn-more-animate {
+    animation: 2s ease-out infinite down-animation;
+    z-index: 2;
+    padding-top: 1em;
+  }
+  
+  @keyframes down-animation {
+    from {
+      opacity: 70%;
+    }
+    50% {
+      transform: translate(0, 2.5em);
+      opacity: 100%;
+    }
+    to {
+      opacity: 70%;
+    }
+  }
+  
+  .footer {
+    background-color: var(--ion-color-dark);
+   ion-item{
+      color: var(--ion-color-medium-tint);
+      list-style-type: none;
+    }
+    ion-item::hover, .active-bottom-menu {
+      color: var(--ion-color-tertiary-shade);
+    }
+  
+    h2,
+    h3 {
+      color: var(--ion-color-tertiary-shade);
+    }
+  }
+  
+  .bottom-menu {
+    padding-left: 20px;
+ 
 }
+.active-bottom-menu{
+    ion-label{
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+        color: var(--ion-color-secondary);
+    }
 }
+  
+  .footer-logo {
+    padding: 0.313em;
+  }
+  
+  ion-item :hover{
+      ion-label{
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
+          color: var(--ion-color-priamry);   
+        }
+  }

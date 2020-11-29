@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, Platform, PopoverController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { UpdateService } from './services/update.service';
-import { Router } from '@angular/router';
+import { ModalController, Platform, PopoverController } from '@ionic/angular';
 import { Observable } from 'rxjs';
-import { GetStartedComponent } from './shared/get-started/get-started.component';
-import { PopoverComponent } from './shared/popover/popover.component';
+import { User } from './models/users.model';
 import { AuthService } from './services/auth.service';
 import { MessageService } from './services/message.service';
-import { User } from './models/users.model';
-
+import { PopoverService } from './services/popover.service';
+import { UpdateService } from './services/update.service';
+import { GetStartedComponent } from './shared/get-started/get-started.component';
+import { PopoverComponent } from './shared/popover/popover.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-
-  user: User;
+  user: Observable<User>;
   currentRoute;
   showBackButton = false;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
+    public popoverService: PopoverService,
     private statusBar: StatusBar,
     private checkForUpdate: UpdateService,
     private modalController: ModalController,
@@ -62,14 +62,14 @@ export class AppComponent implements OnInit {
     //   firebase.analytics();
     // } catch (error) {
     //   console.error('Persistense Failed');
-    }
+  }
 
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
       component: PopoverComponent,
       event: ev,
       translucent: true,
-      cssClass: 'user-popover',
+      cssClass: 'user-popover'
     });
     return popover.present().catch((err) => {
       return this.messageService.errorAlert(err);
@@ -81,12 +81,10 @@ export class AppComponent implements OnInit {
       component: GetStartedComponent,
       cssClass: 'modal-css',
       showBackdrop: true,
-      backdropDismiss: false,
+      backdropDismiss: false
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
     });
   }
-
 }
-

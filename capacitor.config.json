@@ -1,9 +1,9 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "app.apsistec.expert-fit",
   "appName": "expert-fit",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "www",
+  "webDir": "public",
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0
