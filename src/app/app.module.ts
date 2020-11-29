@@ -26,8 +26,8 @@ import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SharedDirectivesModule } from './directives/shared-directives.module';
 import { SideMenuComponent } from './home/side-menu/side-menu.component';
-// import { SharedDirectivesModule } from './_directives/shared-directives.module';
 // import { SharedModule } from './_shared/shared.module';
 // import { GlobalErrorHandlerService } from './_services/error-handler.service';
 
@@ -58,8 +58,8 @@ import { SideMenuComponent } from './home/side-menu/side-menu.component';
     ReactiveFormsModule,
     FormsModule,
     ShareButtonsModule,
-    ShareIconsModule
-    // SharedDirectivesModule,
+    ShareIconsModule,
+    SharedDirectivesModule
     // SharedModule,
   ],
   providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

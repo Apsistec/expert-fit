@@ -95,22 +95,26 @@
       0px 70px 60px rgba(0, 0, 0, 0.15);
   }
   
-  .learn-more-animate {
-    animation: 2s ease-out infinite down-animation;
-    z-index: 2;
-    padding-top: 1em;
+  .pulsing {
+    animation: 4s ease-out infinite pulsar;
+    z-index: 22;
+ 
   }
   
-  @keyframes down-animation {
-    from {
-      opacity: 70%;
-    }
-    50% {
-      transform: translate(0, 2.5em);
+  @keyframes pulsar {
+    0% {
       opacity: 100%;
     }
-    to {
-      opacity: 70%;
+
+    50% {
+        // transform: rotate(0.1turn);
+        transform: scale(1.1, 1.1);
+        opacity: 40%;
+    }
+
+    100% {
+        opacity: 100%;
+        // transform: rotate(0turn);
     }
   }
   

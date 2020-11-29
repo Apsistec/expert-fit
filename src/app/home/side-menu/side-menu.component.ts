@@ -6,7 +6,6 @@ import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
 import { UserService } from '../../services/user.service';
 import { AboutAppComponent } from '../../shared/about-app/about-app.component';
-import { AboutUsComponent } from '../../shared/about-us/about-us.component';
 import { GetStartedComponent } from '../../shared/get-started/get-started.component';
 import { PrivacyComponent } from '../../shared/privacy/privacy.component';
 import { TermsComponent } from '../../shared/terms/terms.component';
@@ -15,7 +14,7 @@ import { ContactPage } from '../contact/contact.page';
 @Component({
   selector: 'app-side-menu',
   templateUrl: './side-menu.component.html',
-  styleUrls: ['./side-menu.component.scss'],
+  styleUrls: ['./side-menu.component.scss']
 })
 export class SideMenuComponent implements OnInit {
   yearDate: any;
@@ -33,13 +32,11 @@ export class SideMenuComponent implements OnInit {
     this.getYear();
     // this.user = this.authService.user$;
     // this.authService.user$.pipe(map((user) => (this.user = user)));
-
   }
 
   getYear(): void {
     this.yearDate = Date.now();
   }
-
 
   gotoGetStarted() {
     this.router.navigateByUrl('/get-started');
@@ -51,7 +48,7 @@ export class SideMenuComponent implements OnInit {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
@@ -64,7 +61,7 @@ export class SideMenuComponent implements OnInit {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
@@ -75,7 +72,7 @@ export class SideMenuComponent implements OnInit {
     const modal = await this.modalController.create({
       component: GetStartedComponent,
       cssClass: 'modal-css',
-      showBackdrop: true,
+      showBackdrop: true
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
@@ -88,7 +85,7 @@ export class SideMenuComponent implements OnInit {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
@@ -100,19 +97,7 @@ export class SideMenuComponent implements OnInit {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
-  async showModalAboutUs() {
-    const modal = await this.modalController.create({
-      component: AboutUsComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);

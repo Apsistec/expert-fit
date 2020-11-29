@@ -1,50 +1,3 @@
-<!-- end check if currently signed in -->
-<!-- if not signed in toolbar -->
-<!-- <ng-template #notSignedIn> -->
-
-<!-- small toolbar if not signed in currently -->
-<!-- <div class="small-toolbar">
-      <ion-buttons slot="end">
-        <div style="text-align: center;">
-          <ion-text color="warning" style="padding-right: 5px;">
-            <sup>
-              Returning Users:
-            </sup>
-          </ion-text>
-          <br>
-          <ion-button
-          style="font-size: x-large"
-          appBlink
-          (click)="showModalGetStarted()"
-          color="danger"
-          >
-          <ion-text>Login</ion-text>
-        </ion-button>
-      </div>
-      </ion-buttons>
-      </div> -->
-<!-- end small toolbar not currently signed in -->
-<!-- large toolbar if not currently signed in -->
-<!-- <div class="large-toolbar">
-      <ion-buttons slot="end">
-
-        <div style="text-align: center;">
-          <ion-text color="warning" style="padding-right: 5px;">
-            <sup>
-              Returning Users:
-            </sup>
-          </ion-text>
-          <br>
-          <ion-button (click)="showModalGetStarted()" color="danger">
-
-            <ion-text style="font-size: x-large" appBlink>Login</ion-text>
-          </ion-button>
-        </div>
-      </ion-buttons>
-    </div> -->
-<!-- end large toolbar if not currently signed in -->
-
-<!-- </ng-template> -->
 
 
 
@@ -61,7 +14,7 @@
                         <hr />
                         <!-- </ion-row>
           <ion-row class="ion-justify-content-center"> -->
-                        <ion-card [@pulse]="pulse" class="raised-z logo-card ion-padding">
+                        <ion-card class="raised-z logo-card ion-padding">
                             <ion-card-title>
                                 <ion-text color="warning">
                                     <h1>omni-fit: A holistic fitness paradigm</h1>
@@ -80,7 +33,7 @@
 
             <ion-col size="12" size-md="6" class="ion-align-self-stretch ion-text-center">
                 <div>
-                    <img style="z-index: 22;" src="../../../assets/svg/btn-play.svg" />
+                    <img class="pulsing" style="z-index: 22;" src="../../../assets/svg/btn-play.svg" />
                 </div>
             </ion-col>
         </ion-row>
