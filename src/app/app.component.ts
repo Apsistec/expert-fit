@@ -18,9 +18,10 @@ import { PopoverComponent } from './shared/popover/popover.component';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  user: Observable<User>;
+//   user: Observable<User>;
   currentRoute;
   showBackButton = false;
+  currentURL: string;
 
   constructor(
     private platform: Platform,
@@ -45,9 +46,7 @@ export class AppComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // this.authService.user$.pipe(map((user) => (this.user = user)));
-
-    if (this.router.url === '/home') {
+    if (this.router.url === '/home' || '/') {
       this.showBackButton = false;
     } else {
       this.showBackButton = true;

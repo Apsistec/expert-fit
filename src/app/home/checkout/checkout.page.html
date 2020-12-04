@@ -45,7 +45,7 @@
         size-xl="4"
         offset-xl="1"
       >
-        <ion-card color="medium" class="ion-text-center">
+        <ion-card color="medium" class="ion-text-center ion-card-global">
           <ion-card-content>
             <!-- Step 1 Log In Sign Up -->
             <aw-wizard
@@ -57,12 +57,11 @@
                 [navigationSymbol]="{ symbol: 1 }"
               >
                 <!-- Sign  Up form -->
-                <ng-container *ngIf="isRegister">
-                  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+                  <form [formGroup]="registerForm" (ngSubmit)="registerUser()" *ngIf="isRegister">
                     <ion-card-title>
                       <ion-text> Rank Fantasy Sports Sign Up </ion-text>
                     </ion-card-title>
-                    <ion-card-subtitle>
+                    <ion-card-subtitle >
                       <ion-text>
                         You need to sign up before purchasing a
                         <strong>Pro Plan</strong>
@@ -217,14 +216,13 @@
                       <ion-text> Sign Up </ion-text>
                     </ion-button>
                   </form>
-                </ng-container>
+              
                 <!-- Login form -->
-                <ng-container *ngIf="!isRegister">
-                  <form [formGroup]="loginForm" (ngSubmit)="Login()" novalidate>
+                  <form [formGroup]="loginForm" (ngSubmit)="Login()" novalidate *ngIf="!isRegister">
                     <ion-card-title>
-                      <ion-text> Rank Fantasy Sports Log In </ion-text>
+                      <ion-text> Expert Fitness Log In </ion-text>
                     </ion-card-title>
-                    <ion-card-subtitle>
+                    <ion-card-subtitle >
                       <ion-text>
                         You need to log in before using your
                         <strong>Pro Plan</strong>
@@ -357,7 +355,6 @@
                       <ion-text> Log In </ion-text>
                     </ion-button>
                   </form>
-                </ng-container>
                 <ion-button
                   color="secondary"
                   fill="clear"
@@ -523,45 +520,23 @@
                 stepTitle="Done!"
                 [navigationSymbol]="{ symbol: 3 }"
               >
-                <ion-card color="light">
+                <ion-card color="light" class="ion-card-global">
                   <img src="../../../assets/img/logo.jpg" />
                   <ion-card-header>
                     <ion-card-title>
                       <ion-text class="ion-text-center ion-text-capitalize">
-                        <strong> Welcome to RF$&trade; </strong>
+                        <strong> Welcome to Expert Finess&trade; </strong>
                       </ion-text>
                     </ion-card-title>
-                    <ion-card-subtitle> </ion-card-subtitle>
+                    <ion-card-subtitle >You are now a member </ion-card-subtitle>
                   </ion-card-header>
                   <ion-card-content>
                     <ion-text class="ion-text-wrap">
                       <p>
-                        Thank you! Your Rank Fantasy Sports trial account has
-                        officially started! This 7 day trial is provided to you
-                        at no cost for the next 7 days! Your card will be chaged
-                        $9.99 at the end of the trial period, and will be
-                        continue to be charged each following month.
+                        Thank you! Your Expert Fitness account has
+                        officially started!
                       </p>
-                      <hr />
 
-                      <hr />
-                      <ul>
-                        <ion-text
-                          class="ion-text-capitalize"
-                          style="
-                            font-variant: small-caps;
-                            font-size: large;
-                            font-weight: 700;
-                          "
-                        >
-                          <li>The RF$&trade; Data Tables</li>
-                          <li>View Account Details</li>
-                          <li>Update Profile</li>
-                          <li>Create Trouble Tickets</li>
-                          <li>Request New Features</li>
-                          <li>Change Theme</li>
-                        </ion-text>
-                      </ul>
                     </ion-text>
                     <ion-button
                       expand="block"
@@ -569,7 +544,7 @@
                       routerLink="/profile"
                     >
                       <ion-icon slot="start" name="person"></ion-icon>
-                      <ion-text> Goto My Profile </ion-text>
+                      <ion-text> Goto My Dashboard </ion-text>
                     </ion-button>
                   </ion-card-content>
                 </ion-card>
@@ -603,9 +578,10 @@
               rgba(0, 0, 0, 0.7) 100%
             );
           "
+          class="ion-card-global"
         >
           <ion-card-header style="background-color: transparent !important">
-            <ion-card-subtitle>
+            <ion-card-subtitle >
               <ion-text class="ion-text-wrap ion-text-center" color="light">
                 Price after
                 <br />
@@ -615,7 +591,7 @@
           </ion-card-header>
           <ion-card-title style="background-color: transparent !important">
             <ion-text class="ion-text-no-wrap" style="font-weight: 800">
-              $9.99
+              $250
               <sub>per month</sub>
               <hr />
             </ion-text>
@@ -672,20 +648,8 @@
           <p>
             * A valid Credit or Debit card in your name is required for
             account authorization, and further verification may be requeseted if
-            necessary to validate the subscription service. During the One Week
-            (7 day) Free trial period, your card will not be charged, however
-            the information will be used to validate the subscription. On the
-            eighth 8
-            <sup> th </sup>
-            day following the subscription start date, your card will be
-            processed for the full customership fee, according to the plan you
-            chose on the day you began your One Week Free Trial.
-            <strong>
-              The One Week Free Trial can only be activated one (1) time per
-              card holder and all customerships are valid for only one (1) user
-              per account, the card holder.
-            </strong>
-            Customerships are also associated with the email address you used at
+            necessary to validate the subscription service. 
+            Memberships are also associated with the email address you used at
             the time you submitted your Credit or Debit card information and
             began your One Week Free Trial. To ensure access to your account,
             sign in with the same email address each time. All payments are
@@ -693,16 +657,16 @@
             <a href="https://www.stripe.com">
               <ion-text color="secondary"> Stripe </ion-text>
             </a>
-            . The RF$ site is served using Secure Socket Layer (SSL) encryption,
+            . The Expert Fitness site is served using Secure Socket Layer (SSL) encryption,
             and our servers submit secure tokenized versions of your payment
             information. The complete card details are never visible to anyone
             at Rank Fantasy Sports, nor are the complete card details stored on
-            our servers. Pro Customership Packages are subscriptions which are
-            billed automatically, on or about the same date each billing cycle
+            our servers. Pro Membership Packages are subscriptions which are
+            billed automatically, on or about the same day each billing cycle
             varying only on accounts which have a start date that does not occur
             every month (e.g. 31st day of a month). You may cancel your
             subscription at anytime. Once a cancellation request has been
-            submitted, your account will be terminated immediately, and no
+            submitted, your account will be terminated at the end of the current billing cycle, and no
             further payments will be processed. For more details, please read
             our
             <a (click)="showModalTerms()">

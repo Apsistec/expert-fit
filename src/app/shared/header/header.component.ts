@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.authService.user$.pipe(map((user) => (this.user = user)));
+    // this.authService.user.pipe(map((user) => (this.user = user)));
 
     if (this.router.url === '/home') {
       this.showBackButton = false;

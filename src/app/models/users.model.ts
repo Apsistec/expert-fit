@@ -5,7 +5,7 @@ export interface User {
   displayName: string;
   email: string;
   role: string;
-  permissions: string[];
+  permissions?: string[];
   photoURL?: string;
   phoneNumber?: number;
   locations?: string[];

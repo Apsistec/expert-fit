@@ -10,7 +10,7 @@
       class="small-logo"
     ></ion-img>
 
-    <ng-container *ngIf="authService.user$ | async as user; else startButton">
+    <ng-container *ngIf="authService.user$ | async ; else startButton">
       <ion-item
         slot="end"
         type="button"
@@ -112,7 +112,7 @@
         class="menu-font"
         button
         color="dark"
-        routerLink="/about"
+        routerLink="/about-us"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -122,7 +122,7 @@
         class="menu-font"
         button
         color="dark"
-        routerLink="/contact"
+        routerLink="/contact-us"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -130,7 +130,7 @@
       </ion-item>
     </ion-buttons>
 
-    <ng-container *ngIf="authService.user$ | async as user; else getStarted">
+    <ng-container *ngIf="authService.user$ | async ; else getStarted">
       <ion-item
         slot="end"
         type="button"

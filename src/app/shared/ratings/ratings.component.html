@@ -1,0 +1,48 @@
+
+ <ion-slides
+      #reviewSlider
+      pager="true"
+      (ionSlidesDidLoad)="slidesDidLoad(reviewSlider)"
+      [options]="slideOpts"
+    >
+      <ion-slide style="z-index: 99;" *ngFor="let rating of ratings">
+          <ion-card class="ion-card-global">
+            <ion-card-header>
+              <ion-card-title>
+                <ion-text> {{ rating.author }} </ion-text>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-item>
+                <ion-avatar>
+                  <img src="../../../assets/images/dummy-user.png" />
+                </ion-avatar>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <ion-button color="primary">
+                  <ion-icon name="star-sharp" color="warning" ></ion-icon>
+                  <ion-icon name="star-sharp" color="warning" ></ion-icon>
+                  <ion-icon name="star-sharp" color="warning" ></ion-icon>
+                  <ion-icon name="star-sharp" color="warning" ></ion-icon>
+                  <ion-icon name="star-sharp" color="warning" ></ion-icon>
+                  <!-- <ion-icon
+                    name="star-outline"
+                    color="warning"
+                    size="small"
+                  ></ion-icon>
+                  <ion-icon
+                    name="star-outline"
+                    color="warning"
+                    size="small"
+                  ></ion-icon> -->
+                </ion-button>
+              </ion-item>
+              <br />
+              <ion-text>
+                <p>{{ rating.message }}</p>
+              </ion-text>
+            </ion-card-content>
+          </ion-card>
+      </ion-slide>
+    </ion-slides>

@@ -7,12 +7,17 @@
     <base href="/" />
     <link rel="icon" href="assets/icon/favicon.ico" type="image/x-icon" />
 
-    <link rel="manifest" href="/manifest.webmanifest" />
-
-    <!-- add to Chrome Web Homescreen  -->
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="theme-color" content="#116466" />
-    <meta name="color-scheme" content="light dark" />
+    <link rel="manifest" href="manifest.webmanifest">
+    <!-- PWA Meta -->
+    <meta name="application-name" content="Expert Fitness App" />
+    <meta
+      name="description"
+      content="A fitness App that serves as your fitness consultant"
+    />
+    <meta name="theme-color" content="#38407a" />
+    <meta name="color-scheme" content="dark light" />
+    <!-- add to homescreen for web  -->
+    <meta name="web-app-capable" content="yes" />
     <meta
       name="viewport"
       content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -20,15 +25,11 @@
     <meta name="format-detection" content="telephone=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="application-name" content="Expert Fitness App" />
-    <meta
-      name="description"
-      content="A fitness App that serves as your fitness consultant"
-    />
-
+    <!-- add to homescreen for md -->
+    <meta name="mobile-web-app-capable" content="yes" />
     <!-- add to homescreen for ios -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="light dark" />
     <meta name="apple-mobile-web-app-title" content="Expert Fitness App" />
 
     <!-- Stripe -->
@@ -53,65 +54,17 @@
       property="twitter:description"
       content="A fitness App that serves as your fitness consultant"
     />
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
   <body class="mat-typography">
-    <script>
-          // window.fbAsyncInit = function() {
-          //   FB.init({
-          //     appId      : '842482879622606',
-          //     cookie     : true,
-          //     xfbml      : true,
-          //     version    : '8.0'
-          //   });
 
-          //   FB.AppEvents.logPageView();
-
-          // };
-
-
-
-        // {
-        //     status: 'connected',
-        //     authResponse: {
-        //         accessToken: '...',
-        //         expiresIn:'...',
-        //         signedRequest:'...',
-        //         userID:'...'
-        //     }
-        // }
-
-
-      //       (function(d, s, id){
-      //          var js, fjs = d.getElementsByTagName(s)[0];
-      //          if (d.getElementById(id)) {return;}
-      //          js = d.createElement(s); js.id = id;
-      //          js.src = "https://connect.facebook.net/en_US/sdk.js";
-      //          fjs.parentNode.insertBefore(js, fjs);
-      //        }(document, 'script', 'facebook-jssdk'));
-
-
-      //     FB.getLoginStatus(function(response) {
-      //         statusChangeCallback(response);
-      //     });
-
-
-      // function checkLoginState() {
-      //   FB.getLoginStatus(function(response) {
-      //     statusChangeCallback(response);
-      //   });
-      // }
-    
-    </script>
-    <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button> -->
     <app-root></app-root>
 
     <noscript
       >Please enable JavaScript or try another browser such as
-      <a href="https://www.brave.com">Brave Browser</a>to continue using this
+      <a href="https://www.brave.com">Brave Browser</a>to actually use this
       application.
       </noscript>
   </body>

@@ -16,54 +16,140 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
 
 /* Optional CSS utils that can be commented out */
+@import '~@ionic/angular/css/display.css';
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/float-elements.css";
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-
 // NGX-Share
-@import url('https://fonts.googleapis.com/css?family=Spectral+SC:700');
 @import '~ngx-sharebuttons/themes/material/material-dark-theme';
+
 // Fonts
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:weight@800;900&family=Open+Sans:weight@700;800&family=Philosopher:weight@700;800&family=Roboto:weight@300;400;500;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Spectral+SC:wght@700&family=Montserrat:wght@800;900&family=Roboto:wght@300;400;500;700;900&display=swap');
 
 // Classes
+ion-col{
+  border: 2px solid green;
+}
+
 a:hover {
   cursor: pointer;
-}
-
-.list-header-global {
-  --background: var(--ion-color-medium-tint);
-  color: var(--ion-color-secondary-shade);
-  text-transform: uppercase;
-  font: 800 18px/1 Montserrat, sans-serif;
-}
-
-.card-subtitle-global {
-  color: var(--ion-color-light-shade);
-  font: 800 Philosopher, sans-serif;
-}
-
-.toolbar-global {
-  text-transform: uppercase;
-  text-align: center;
-  font: 800 Montserrat, sans-serif;
-  --min-height: 5em;
-  --background: var(--ion-color-dark);
 }
 
 .small-logo {
   width: 7.5em;
   margin: 15px 10px 10px 25px;
 }
+// Account for Header on each page
+ion-grid{
+    padding-top: 85px;
+}
 
-// Toasts
-.success {
+ion-card{
+    border-radius: 12px;
+}
+
+// Font color on Form Validators
+.ion-invalid .ion-touched ion-label {
+  color: var(--ion-color-danger);
+}
+
+// Lists
+.list-header-global {
+  font: 900 Montserrat;
+  --background: var(--ion-color-light-shade);
+  color: var(--ion-color-secondary-shade);
+  text-transform: uppercase;
+}
+
+// Cards
+.ion-card-global {
+  text-align: center;
+  --background: var(--ion-color-light-shade);  
+  ion-card-header{
+  --background: var(--ion-color-primary);
+  }
+
+  ion-card-title {
+    font: 900 Montserrat;
+  text-transform: capitalize;
+    color: var(--ion-color-light);
+  }
+
+  ion-card-subtitle {
+    color: var(--ion-color-warning-shade);
+    font-weight: 700;
+  }
+
+  ion-card-content {
+      color: black;
+    padding-top: 15px;
+    text-align: left;
+    font-weight: 900;
+  }
+
+}
+
+.ion-sub-card-global{
+  --background: var(--ion-color-medium-tint);  
+  ion-card-header{
+  --background: var(--ion-color-secondary-tint);
+  }
+  ion-card-title {
+    font: 900 Montserrat;
+//   text-transform: capitalize;
+    color: var(--ion-color-warning-tint);
+  }
+  ion-card-subtitle {
+    color: var(--ion-color-medium-tint);
+    font-weight: 700;
+  }
+  ion-card-content {
+      color: black;
+    padding-top: 12px;
+    font-weight: 700;
+  }
+}
+
+
+// Toolbars
+.toolbar-global {
+  font: 900 Montserrat;
+  text-transform: uppercase;
+  text-align: center;
+  --min-height: 5em;
+  --background: var(--ion-color-primary);
+}
+
+
+// Modals
+.modal-css {
+  --border: 3px solid var(--ion-color-warning);
+  --border-radius: 12px;
+  --backdrop-opacity: 30% !important;
+}
+.video-css {
+    z-index: 99;
+    max-height: 355px;
+    max-width: 600px;
+  --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1),
+    0px 8px 8px rgba(0, 0, 0, 0.05), 0px 10px 15px rgba(0, 0, 0, 0.03),
+    0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
+  --border: 3px solid var(--ion-color-warning);
+  --border-radius: 12px;
+  --backdrop-opacity: 80% !important;
+}
+
+.user-popover {
+  text-align: left;
+}
+
+// Toasts and Alerts
+.successA {
   --background-color: var(--ion-color-medium-shade);
   --border-color: var(--ion-color-success-tint);
   --border-radius: 12px;
@@ -75,7 +161,7 @@ a:hover {
   --color: var(--ion-color-light);
 }
 
-.warning {
+.warningA {
   --background-color: var(--ion-color-medium-shade);
   --border-color: var(--ion-color-warning-tint);
   --border-radius: 12px;
@@ -87,8 +173,8 @@ a:hover {
   --color: var(--ion-color-light);
 }
 
-.danger{
-  --background-color: var(--ion-color-medium-shade);
+.dangerA{
+  --background-color: var(--ion-color-medium-shade); 
   --border-color: var(--ion-color-danger-tint);
   --border-radius: 12px;
   --border-style: solid;
@@ -98,7 +184,8 @@ a:hover {
     0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
   --color: var(--ion-color-light);
 }
-.info{
+
+.infoA{
   --background-color: var(--ion-color-medium-shade);
   --border-color: var(--ion-color-danger-secondary-tint);
   --border-radius: 12px;
@@ -108,39 +195,4 @@ a:hover {
     0px 8px 8px rgba(0, 0, 0, 0.05), 0px 10px 15px rgba(0, 0, 0, 0.03),
     0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
   --color: var(--ion-color-light);
-}
-
-
-
-// Font color on Form Validators
-.ion-invalid.ion-touched ion-label {
-  color: var(--ion-color-danger);
-}
-
-// Modals
-.cart-modal {
-  @extend .modal-css;
-  --height: 50%;
-  --border-radius: 12px;
-  padding: 2.3125em;
-}
-
-.modal-css {
-  --border: 3px solid var(--ion-color-warning);
-  --border-radius: 12px;
-  --backdrop-opacity: 30% !important;
-  .modal-toolbar {
-    --background: var(--ion-color-secondary-shade);
-    --color: var(--ion-color-tertiary);
-    text-align: center;
-    text-transform: capitalize;
-    font-variant: small-caps;
-    .modal-toolbar-endbutton {
-      --color: var(--ion-color-warning);
-    }
-  }
-
-  .user-popover {
-    text-align: left;
-  }
 }

@@ -32,7 +32,7 @@
           <ion-label class="side-menu-font">Home</ion-label>
         </ion-item>
         <!-- SignedIn Menu Items -->
-        <ng-component *ngIf="authService.user$ | async as user">
+        <ng-component *ngIf="authService.user$ | async ">
           <ion-item
             color="medium"
             button
@@ -173,7 +173,7 @@
         <ion-item
           color="medium"
           button
-          routerLink="/contact"
+          routerLink="/contact-us"
           routerLinkActive="active-item"
           [routerLinkActiveOptions]="{ exact: true }"
           class="contact-modal-button"
@@ -205,7 +205,7 @@
         <ion-list-header class="list-header-global">
           Authentication
         </ion-list-header>
-        <ng-component *ngIf="authService.user$ | async as user; else nouser">
+        <ng-component *ngIf="authService.user$ | async ; else nouser">
           <ion-item color="medium" button (click)="authService.SignOut()">
             <ion-label color="danger" class="side-menu-font">
               Sign Out

@@ -6,10 +6,11 @@ import {
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { NgForm } from '@angular/forms';
 import { loadStripe } from '@stripe/stripe-js';
-import { take } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
 import { environment } from '../../../environments/environment';
+import { User } from 'src/app/models/users.model';
 
 @Component({
   selector: 'app-products',
@@ -17,24 +18,27 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./products.page.scss']
 })
 export class ProductsPage implements OnInit {
-  user;
+  user: User;
   role;
   signedIn;
   subscription;
   products: AngularFirestoreCollection;
-
+    loading;
+    
   constructor(
-    private db: AngularFirestore,
+    private afs: AngularFirestore,
     private fun: AngularFireFunctions,
     private authService: AuthService,
     private messageService: MessageService
   ) {}
 
   ngOnInit() {
-    this.user = this.authService.user$.pipe(take(1));
+    this.authService.user$.pipe(map(user => this.user = user));
+    // this.afs.doc<User>(`users/${this.user.uid}`).valueChanges().pipe(map(user => this.user = user));
+    console.log('prodUser: ', this.user);
     if (this.user && this.user !== null) {
       this.signedIn = true;
-      this.getSubscriptions();
+    //   this.getSubscriptions();
     } else {
       this.signedIn = false;
     }
@@ -42,12 +46,12 @@ export class ProductsPage implements OnInit {
 
   // Get all our products and render them to the page
   getProducts() {
-    this.products = this.db.collection('products', (ref) =>
+    this.products = this.afs.collection('products', (ref) =>
       ref.where('active', '==', true)
     );
     this.products.get();
     // .forEach( async ( prod ) => {
-    //   await this.db.collection('prices', ref => ref.orderBy('unit_amount'));
+    //   await this.afs.collection('prices', ref => ref.orderBy('unit_amount'));
     // });
     console.log('products: ', this.products);
     return this.products;
@@ -55,7 +59,7 @@ export class ProductsPage implements OnInit {
 
   // Get all subscriptions for the customer
   getSubscriptions() {
-    const snapshot = this.db
+    const snapshot = this.afs
       .collection('customers')
       .doc(this.user.uid)
       .collection('subscriptions', (ref) =>
@@ -68,13 +72,13 @@ export class ProductsPage implements OnInit {
       // In this implementation we only expect one Subscription to exist
       this.subscription = snapshot.doc[0].data();
       const priceData = this.subscription.price.get().data();
-      return;
+      return priceData || null;
     }
   }
 
   // Checkout handler
   async onSubmit(purchaseForm: NgForm) {
-    const docRef = await this.db
+    const docRef = await this.afs
       .collection('customers')
       .doc(this.user.uid)
       .collection('checkout_sessions')

@@ -1,3 +1,4 @@
+        <ion-content class="page-content">
 
   <ion-grid>
     <ion-row>
@@ -19,26 +20,29 @@
 
 
       <ion-row class="ion-justify-content-around">
-        <ng-component *ngIf="user.subStatus !== 'active' || 'trialing'; else paid">
-            <form #purchaseForm="ngForm" (ngSubmit)="onSubmit(purchaseForm)">
-            <ion-spinner>Loading...</ion-spinner>
+            <ion-spinner *ngIf="loading">Loading...</ion-spinner>
 
-          <ion-col #purchase size="12" size-md="3" *ngFor="let product of products" class="ion-text-left ion-align-self-stretch">
+
+            <form #purchaseForm="ngForm" (ngSubmit)="onSubmit(purchaseForm)" *ngIf="user && user.subStatus !== ('active' || 'trialing'); else paid">
+          <ion-col #purchase size-sm="12" size-md="3" size-lg="4" *ngFor="let product of products" class="ion-text-left ion-align-self-stretch">
             <ion-card class="ion-padding page-card">
               <ion-card-header class="page-card-header">
                 <ion-card-title class="page-card-title">
                   <ion-text class="ion-text-start">
                     <h3>{{ product.name }}</h3>
                   </ion-text>
-                  <ion-text class="ion-text-end">
+                <ion-card-subtitle class="ion-text-end">
+
+                  <ion-text>
                     <h2>{{ product.price }}</h2>
                   </ion-text>
+                </ion-card-subtitle>
                 </ion-card-title>
 
               </ion-card-header>
               <ion-card-content>
-              <hr/>
-              <ion-list style="border-radius: 12px">
+              
+              <ion-list style="border-radius: 12px; padding-top: 12px;">
                 <ion-list-header class="list-header-global">
                   <ion-title>
                     <ion-text> Features: </ion-text>
@@ -61,7 +65,6 @@
             </ion-card>
           </ion-col>
         </form>
-        </ng-component>
 
             <ng-template #paid>
               <ion-col>
@@ -98,3 +101,4 @@
 
   </ion-grid>
 
+        </ion-content>

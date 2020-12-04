@@ -6,12 +6,12 @@ import { CheckoutPage } from './checkout.page';
 const routes: Routes = [
   {
     path: '',
-    component: CheckoutPage,
-  },
+    component: CheckoutPage
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
 export class CheckoutPageRoutingModule {}

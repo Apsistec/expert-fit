@@ -18,7 +18,7 @@ export class MessageService {
     const toast = await this.toastController.create({
       message: infoMessage,
       duration: 2000,
-      cssClass: 'info',
+      cssClass: 'infoA',
       position: 'middle'
     });
     toast.present();
@@ -28,7 +28,7 @@ export class MessageService {
     const toast = await this.toastController.create({
       header: 'Login Successful',
       message: 'Welcome Back ' + data.user.displayName + '!' || 'Welcome Back!',
-      cssClass: 'success',
+      cssClass: 'successA',
       position: 'middle',
       keyboardClose: true,
       duration: 2500,
@@ -39,7 +39,7 @@ export class MessageService {
   async signOutToast() {
     const toast = await this.toastController.create({
       header: 'Sign Out Successful',
-      cssClass: 'success',
+      cssClass: 'successA',
       message: 'Thank You for Stopping By!',
       position: 'middle',
       duration: 2500,
@@ -51,7 +51,7 @@ export class MessageService {
   async deleteTicketToast() {
     const toast = await this.toastController.create({
       header: 'Ticket Deleted',
-      cssClass: 'success',
+      cssClass: 'successA',
       message: 'The ticket was successfully deleted.',
       position: 'middle',
       duration: 2500,
@@ -66,7 +66,7 @@ export class MessageService {
       message: 'User info was updated',
       duration: 3000,
       position: 'middle',
-      cssClass: 'success',
+      cssClass: 'successA',
       keyboardClose: true,
     });
     await toast.present();
@@ -75,7 +75,7 @@ export class MessageService {
   async subscribedToast() {
     const toast = await this.toastController.create({
       header: 'Payment Successful',
-      cssClass: 'success',
+      cssClass: 'successA',
       message: 'You are subscribed! Thank You!',
       position: 'middle',
       duration: 3000,
@@ -87,7 +87,7 @@ export class MessageService {
   async alreadySubscribedToast() {
     const toast = await this.toastController.create({
       header: 'Invalid Request',
-      cssClass: 'warning',
+      cssClass: 'warningA',
       message: ' You are already Subscribed',
       position: 'middle',
       duration: 3000,
@@ -99,7 +99,7 @@ export class MessageService {
   async generalToast(message) {
     const toast = await this.toastController.create({
       header: 'Message Service',
-      cssClass: 'success',
+      cssClass: 'successA',
       message,
       position: 'middle',
       duration: 2500,
@@ -114,7 +114,7 @@ export class MessageService {
       header: 'Welcome Back',
       message: 'Login Successful, your account is currently active.',
       duration: 2000,
-      cssClass: 'success',
+      cssClass: 'successA',
       position: 'middle',
       translucent: true
     });
@@ -130,7 +130,7 @@ export class MessageService {
       message:
       'Try another account. If you continue to have trouble, \n open a trouble ticket and we will assist you',
       buttons: ['OK'],
-      cssClass: 'danger',
+      cssClass: 'dangerA',
       translucent: true
     });
     await alert.present();
@@ -140,7 +140,7 @@ export class MessageService {
     const alert = await this.alertController.create({
       message:
         'Currently, your account is Past Due. You can update your account with a valid card and make a payment in order to restore access immediately',
-      cssClass: 'danger',
+      cssClass: 'dangerA',
       translucent: true,
       subHeader: 'Payment Past-due'
     });
@@ -153,7 +153,7 @@ export class MessageService {
       subHeader: 'Account Cancelled',
       message:
       'Your account has successfully been cancelled, and service will end on the last day of your billing period(usually the last day of the month). Your card will not be charged again. In order to utilize the services, you will need to register a new account.',
-      cssClass: 'danger',
+      cssClass: 'dangerA',
     });
     alertController.present();
   }
@@ -165,7 +165,7 @@ export class MessageService {
       message: 'We have not been able to process a payment with the card on file. Please apply a valid card and we will process your payment immediately in order to provide access to your new account',
       buttons: ['OK'],
       translucent: true,
-      cssClass: 'danger'
+      cssClass: 'dangerA'
     });
     await alert.present();
   }
@@ -177,7 +177,7 @@ export class MessageService {
       message: 'Check your email for a link to RESET your password',
       buttons: ['OK'],
       translucent: true,
-      cssClass: 'success'
+      cssClass: 'successA'
     });
     await alert.present();
   }
@@ -187,7 +187,7 @@ export class MessageService {
       header: 'Invalid Request',
       message: 'You are already Subscribed',
       buttons: ['OK'],
-      cssClass: 'warning',
+      cssClass: 'warningA',
       translucent: true
     });
     await alert.present();
@@ -198,7 +198,7 @@ export class MessageService {
       header: 'Registration Successful',
       message:
         'You have successfully registered. Now, one last step.... to verify your email, check your inbox for instructions!',
-      cssClass: 'success',
+      cssClass: 'successA',
       keyboardClose: true,
       translucent: true,
       buttons: ['OK']
@@ -211,7 +211,7 @@ export class MessageService {
       header: 'Invalid Request',
       subHeader: 'You are already Signed In',
       message: 'Your account does not need access to this area',
-      cssClass: 'warning',
+      cssClass: 'warningA',
       buttons: ['OK'],
       translucent: true
     });
@@ -223,7 +223,7 @@ export class MessageService {
       header: 'Page: ' + page,
       subHeader: 'Location: ' + router.url,
       message: err.message,
-      cssClass: 'warning',
+      cssClass: 'warningA',
       translucent: true
     });
     await alert.present();
@@ -235,7 +235,7 @@ export class MessageService {
       message: err.message,
       buttons: ['OK'],
       translucent: true,
-      cssClass: 'warning'
+      cssClass: 'warningA'
     });
     await alert.present();
   }
@@ -247,7 +247,7 @@ export class MessageService {
       message: err.message,
       buttons: ['OK'],
       translucent: true,
-      cssClass: 'warning'
+      cssClass: 'warningA'
     });
     await alert.present();
   }
@@ -258,7 +258,7 @@ export class MessageService {
       subHeader: 'Changes were NOT saved',
       message: 'Press Save to resume editing or press OK to close',
       backdropDismiss: false,
-      cssClass: 'info',
+      cssClass: 'infoA',
       translucent: true,
       buttons: [
         {
@@ -284,7 +284,7 @@ export class MessageService {
       message,
       translucent: true,
       backdropDismiss: false,
-      cssClass: 'info',
+      cssClass: 'infoA',
       buttons: [
         {
           text: 'Cancel',
@@ -310,7 +310,7 @@ export class MessageService {
       subHeader: feedId,
       translucent: true,
       message: 'Are you sure you want to delete this post?',
-      cssClass: 'warning',
+      cssClass: 'warningA',
       backdropDismiss: false,
       buttons: [
         {
@@ -338,7 +338,7 @@ export class MessageService {
       message:
         'Press Update to reload the page and apply the new update or press cancel to close.',
       backdropDismiss: false,
-      cssClass: 'info',
+      cssClass: 'infoA',
       translucent: true,
       buttons: [
         {

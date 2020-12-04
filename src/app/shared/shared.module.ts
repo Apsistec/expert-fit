@@ -9,6 +9,7 @@ import { GetStartedComponent } from './get-started/get-started.component';
 import { HeaderComponent } from './header/header.component';
 import { PopoverComponent } from './popover/popover.component';
 import { PrivacyComponent } from './privacy/privacy.component';
+import { RatingsComponent } from './ratings/ratings.component';
 import { TermsComponent } from './terms/terms.component';
 import { TicketComponent } from './ticket/ticket.component';
 
@@ -23,7 +24,8 @@ const routes: Routes = [];
     GetStartedComponent,
     TicketComponent,
     PrivacyComponent,
-    TermsComponent
+    TermsComponent,
+    RatingsComponent
   ],
   imports: [IonicModule, RouterModule.forChild(routes), CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -34,7 +36,8 @@ const routes: Routes = [];
     GetStartedComponent,
     TicketComponent,
     PrivacyComponent,
-    TermsComponent
+    TermsComponent,
+    RatingsComponent
   ]
 })
 export class SharedModule {}

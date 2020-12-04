@@ -1,43 +1,39 @@
-import {
-    Component,
-    ElementRef,
-    EventEmitter,
-    OnInit,
-    Output,
-    ViewChild
-} from '@angular/core';
+import { Component } from '@angular/core';
 import { Faqs } from '../../models/faqs.model';
-import { SeoService } from '../../services/seo.service';
+// import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.page.html',
-  styleUrls: ['./faq.page.scss'],
+  styleUrls: ['./faq.page.scss']
 })
-export class FaqPage implements OnInit {
-  faqs = Faqs;
-  title = 'FAQs';
-  detailsOpen;
-  // isOpen = false;
-  // public content: HTMLDivElement;
+export class FaqPage {
+  faqs: any[] = Faqs;
+    index;
+  automaticClose = true;
 
-  @ViewChild('details', { static: true }) details: ElementRef;
-  @ViewChild('summary', { static: true }) summary: ElementRef;
 
-  @Output() toggle = new EventEmitter<string>();
+  constructor() {
+    // Automatically open the first level if want
+    this.faqs[0].open = true;
+}
 
-  constructor(private seo: SeoService) {
-    this.seo.addTwitterCard(
-      this.title,
-      'This is the FAQ page for those who are have questions about the Expert Fitness products and services',
-      '../../../assets/logos/logo.png'
-    );
+    onToggleAutomatic() {
+        this.automaticClose = !this.automaticClose;
+        if (!this.automaticClose) {
+            this.faqs.forEach(faq => faq.open = faq); 
+        }
+        if (this.automaticClose) {
+            this.faqs.forEach(faq => faq.open = !faq);
+    }
   }
 
-  ngOnInit() {
-    // `$('details')`.on('click', function(event) {       $(this).siblings('details').removeAttr('open'); });  }
-  }
-  onToggle() {
-    //   this.details: = !this.details[open]
+  toggleSection(index) {
+    this.faqs[index].open = !this.faqs[index].open;
+    if (this.automaticClose && this.faqs[index].open) {
+      this.faqs
+        .filter((faq, faqIndex) => faqIndex !== index)
+        .map((faq) => (faq.open = false));
+    }
   }
 }

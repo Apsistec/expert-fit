@@ -12,7 +12,7 @@ export const Benefits: Benefit[] = [
   },
   {
     title: 'Proper Form',
-    image: '"../../assets/svg/Plain_infographic4slot.svg"',
+    image: '../../assets/svg/Plain_infographic4slot.svg',
     content:
       'Having a Personal Trainer beside you to demonstrate the correct posture and technique is invaluable. A Personal Trainer will ensure clients are performing exercises correctly and efficiently, in order to maximise results. If your form when exercising is not correct, then you are at increased risk of injury as well as not achieving your goals (because nothing kills a dream like 10 weeks of prescribed bed rest!).',
   },

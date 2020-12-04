@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
 
@@ -14,6 +15,11 @@ export class VerifyEmailPage implements OnInit {
     ) { }
 
   ngOnInit() {
+            this.authService.user$.pipe(
+        map(user => {
+          this.user = user;
+        })
+      );
     // this.authService.user$.pipe(
     //   map((user) =>
     //   this.user = user)

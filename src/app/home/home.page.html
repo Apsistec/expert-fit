@@ -23,9 +23,9 @@
                         </ion-card>
                         <!-- </ion-row>
           <ion-row class="ion-justify-content-center"> -->
-                        <ion-button [@flash]="flash" class="cta raised-z" color="secondary" routerLink="/checkout"
+                        <ion-button [@flash]="flash" size="large" class="cta raised-z" color="warning" routerLink="/checkout"
                             fill="outline">Learn More</ion-button>
-                        <ion-button [@flash]="flash" class="cta raised-z" color="secondary"
+                        <ion-button [@flash]="flash" size="large" class="cta raised-z" color="secondary"
                             (click)="showModalGetStarted()">View Pricing</ion-button>
                     </ion-col>
                 </ion-row>
@@ -33,21 +33,25 @@
 
             <ion-col size="12" size-md="6" class="ion-align-self-stretch ion-text-center">
                 <div>
-                    <img class="pulsing" style="z-index: 22;" src="../../../assets/svg/btn-play.svg" />
+                    <img class="pulsing" (click)="showModalVideo()" style="z-index: 22;" src="../../../assets/svg/btn-play.svg" />
                 </div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-padding ion-no-margin infographic">
+            <ion-col size="12" class="ion-text-center">
+                <img src="../../../assets/svg/Plain_infographic4slot.svg">
             </ion-col>
         </ion-row>
 
 
-        <ion-row>
+            <!-- <app-home-page-three style="width: 100vw; height: 70vh;"></app-home-page-three> -->
+
+        <!-- <ion-row> -->
             <app-home-page-two style="width: 199vw; height: 100vh;"></app-home-page-two>
-        </ion-row>
-        <ion-row>
-            <app-home-page-three style="width: 100vw; height: 100vh;"></app-home-page-three>
-        </ion-row>
-        <ion-row>
+        <!-- </ion-row> -->
+        <!-- <ion-row>
             <app-home-page-four style="width: 100vw; height: 100vh;"></app-home-page-four>
-        </ion-row>
+        </ion-row> -->
         <!-- <ion-fab>
     <ion-fab-button (click)="topFunction()" id="myBtn" title="Go to top">Top</ion-fab-button>
 
@@ -117,11 +121,11 @@
                         <ion-item button color="dark" routerLink="/testimonials">
                             <ion-label>Testimonials</ion-label>
                         </ion-item>
-                        <ion-item button color="dark" routerLink="/about" routerLinkActive="active-bottom-menu"
+                        <ion-item button color="dark" routerLink="/about-us" routerLinkActive="active-bottom-menu"
                             [routerLinkActiveOptions]="{ exact: true }">
                             <ion-label>About</ion-label>
                         </ion-item>
-                        <ion-item button color="dark" routerLink="/contact" routerLinkActive="active-bottom-menu"
+                        <ion-item button color="dark" routerLink="/contact-us" routerLinkActive="active-bottom-menu"
                             [routerLinkActiveOptions]="{ exact: true }">
                             <ion-label>Contact</ion-label>
                         </ion-item>
@@ -139,7 +143,7 @@
                 </ion-row>
             </ion-col>
 
-            <ion-col size-sm="4" size="12" push-sm="4" class="ion-align-self-center" routerLink="/contact">
+            <ion-col size-sm="4" size="auto" push-sm="4" class="ion-align-self-center" routerLink="/contact-us">
                 <ion-row class="ion-justify-content-center">
                     <ion-col size="8">
                         <ion-card color="primary" class="ion-text-center">
@@ -160,7 +164,7 @@
                                     <ion-label> (432) 684-0844 </ion-label>
                                 </ion-chip>
 
-                                <ion-chip color="light" routerLink="/contact">
+                                <ion-chip color="light" routerLink="/contact-us">
                                     <ion-icon color="warning" name="mail-sharp"></ion-icon>
                                     <ion-label> Contact Us </ion-label>
                                 </ion-chip>
@@ -170,14 +174,20 @@
                 </ion-row>
             </ion-col>
 
-            <ion-col size="12" pull-sm="4" size-sm="4">
-                <ion-row>
+            <ion-col size="auto" pull-sm="4" size-sm="4">
+                <ion-row  class="ion-justify-content-center">
                     <ion-col>
 
+   <app-ratings></app-ratings>
+           <!-- <share-buttons style="z-index: 99;" theme="material-dark" exclude="['vk', 'google', 'xing']"
+                            twitterAccount="@apsistec" show="3" showCount> </share-buttons> -->
+             
                     </ion-col>
+            
                 </ion-row>
-                <ion-row class="ion-justify-content-center ion-text-center">
-                    <ion-col class="ion-align-self-baseline">
+                <ion-row class="ion-justify-content-center">
+                    <!-- <ion-col class="ion-align-self-center ion-text-center"> -->
+
                         <ion-buttons>
                             <ion-button color="tertiary" (click)="showModalPrivacy()">
                                 Privacy
@@ -189,13 +199,11 @@
                                 About App
                             </ion-button>
                         </ion-buttons>
-                        <hr>
+                    <!-- </ion-col> -->
+                      
 
 
-                        <share-buttons theme="material-dark" exclude="['vk', 'google', 'xing']" gaTracking
-                            twitterAccount="@rankfs" show="3" size="-10" showCount> </share-buttons>
 
-                    </ion-col>
                 </ion-row>
             </ion-col>
         </ion-row>

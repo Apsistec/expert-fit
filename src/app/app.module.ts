@@ -1,5 +1,7 @@
+// import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {
+  DEFAULT_CURRENCY_CODE,
   // ApplicationRef,
   NgModule
 } from '@angular/core';
@@ -36,6 +38,7 @@ import { SideMenuComponent } from './home/side-menu/side-menu.component';
   entryComponents: [],
   imports: [
     BrowserModule,
+    // CommonModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot({
       name: '__mydb',
@@ -62,7 +65,12 @@ import { SideMenuComponent } from './home/side-menu/side-menu.component';
     SharedDirectivesModule
     // SharedModule,
   ],
-  providers: [StatusBar, SplashScreen, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'USD' },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent],
   exports: []
 })
