@@ -3,12 +3,11 @@
   <ion-header  transparent>
     <ion-toolbar color="dark" #toolbar  class="small-screen">
 <!-- small screen/ hamburger-->
-      <!-- <div class="small-screen"> -->
     <ion-buttons slot="start">
       <ion-menu-button color="tertiary"> </ion-menu-button>
     </ion-buttons>
     <ion-img
-      src="../../../assets/logos/logo.png"
+      src="../assets/icons/icon-144x144.png"
       slot="start"
       class="small-logo"
       routerLink="/home"
@@ -24,7 +23,7 @@
     *ngIf="authService.user$ | async as user; else login"
     >
     <ion-avatar slot="end">
-        <img [src]="user.photoURL || '../../../assets/images/dummy-user.png'"
+        <img [src]="user.photoURL || '..//assets//images//dummy-user.png'"
         >
     </ion-avatar>
     <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
@@ -42,7 +41,7 @@
         color="warning"
       ></ion-back-button>
       <ion-img
-        src="../../../assets/logos/logo.png"
+        src="..//assets//icons//icon-144x144.png"
         slot="start"
         class="small-logo"
         routerLink="/home"
@@ -124,20 +123,23 @@
     >
     <ion-avatar slot="end">
         <img
-        [src]="user.photoURL || '../../../assets/images/dummy-user.png'"
+        [src]="user.photoURL || '..//assets//images//dummy-user.png'"
         >
     </ion-avatar>
     <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
 </ion-item>
 </div>
 <ng-template #login>
-    <ion-button appBlink style="float: right; padding-right: 10px;" (click)="showModalGetStarted()" color="warning">Login</ion-button>
+    <ion-button class="flashing" style="float: right; padding-right: 10px;" routerLink="/get-started" color="warning">Login</ion-button>
 </ng-template>
 <!-- end large screen -->
 </ion-toolbar>
 </ion-header>
   
+  <!-- Main Outlet -->
   
     <ion-router-outlet id="main-content"></ion-router-outlet>
-  
+
+    <!-- Modal Outlet -->
+    <router-outlet name="modal"></router-outlet>
   </ion-app>

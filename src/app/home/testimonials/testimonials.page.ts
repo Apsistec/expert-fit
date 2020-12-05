@@ -45,7 +45,7 @@ export class TestimonialsPage {
     segment: string;
   constructor(
     public modalController: ModalController,
-    private authService: AuthService,
+    public authService: AuthService,
     private fb: FormBuilder,
     private messageService: MessageService,
     private afs: AngularFirestore,

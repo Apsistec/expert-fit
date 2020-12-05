@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {
-    AngularFirestore,
-    AngularFirestoreCollection
+  AngularFirestore,
+  AngularFirestoreCollection
 } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { NgForm } from '@angular/forms';
@@ -23,8 +23,8 @@ export class ProductsPage implements OnInit {
   signedIn;
   subscription;
   products: AngularFirestoreCollection;
-    loading;
-    
+  loading;
+
   constructor(
     private afs: AngularFirestore,
     private fun: AngularFireFunctions,
@@ -33,12 +33,12 @@ export class ProductsPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.authService.user$.pipe(map(user => this.user = user));
+    this.authService.user$.pipe(map((user) => (this.user = user)));
     // this.afs.doc<User>(`users/${this.user.uid}`).valueChanges().pipe(map(user => this.user = user));
     console.log('prodUser: ', this.user);
     if (this.user && this.user !== null) {
       this.signedIn = true;
-    //   this.getSubscriptions();
+      //   this.getSubscriptions();
     } else {
       this.signedIn = false;
     }

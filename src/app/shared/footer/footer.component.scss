@@ -1,0 +1,21 @@
+.footer {
+  background-color: var(--ion-color-dark);
+  h2,
+  h3 {
+    color: var(--ion-color-tertiary-shade);
+  }
+  }
+  
+.bottom-menu {
+  padding-left: 20px;
+ 
+}
+.active-bottom-menu{
+  ion-label{
+      color: var(--ion-color-secondary);
+  }
+}
+  
+  .footer-logo {
+    padding: 0.313em;
+  }

@@ -12,28 +12,30 @@
                         <img [@bounceOutUp]="bounceOutUp" src="../../../assets/logos/logo.png" style="max-width: 450px"
                             class="raised-z" />
                         <hr />
-                        <!-- </ion-row>
-          <ion-row class="ion-justify-content-center"> -->
-                        <ion-card class="raised-z logo-card ion-padding">
-                            <ion-card-title>
-                                <ion-text color="warning">
-                                    <h1>omni-fit: A holistic fitness paradigm</h1>
-                                </ion-text>
+                        <ion-card class="logo-card">
+                            <ion-card-title class="lead" color="light">
+                           
+                                      Expert Fitness<sup>3D</sup>
+
+                         
                             </ion-card-title>
+                            <ion-card-subtitle color="warning" class="lesser" >
+                               Train | Review | Grow
+                            </ion-card-subtitle>
                         </ion-card>
-                        <!-- </ion-row>
-          <ion-row class="ion-justify-content-center"> -->
-                        <ion-button [@flash]="flash" size="large" class="cta raised-z" color="warning" routerLink="/checkout"
-                            fill="outline">Learn More</ion-button>
-                        <ion-button [@flash]="flash" size="large" class="cta raised-z" color="secondary"
-                            (click)="showModalGetStarted()">View Pricing</ion-button>
+                        <ion-button [@flash]="flash" size="large" class="cta raised-z" color="light" routerLink="/about-us"
+                            fill="outline">Our Club</ion-button>
+                        <ion-button [@flash]="flash" size="large" class="cta raised-z" color="warning" fill="outline"
+                            routerLink="/get-started" style="background: var(--ion-color-primary);">
+                            Join Now
+                            </ion-button>
                     </ion-col>
                 </ion-row>
             </ion-col>
 
-            <ion-col size="12" size-md="6" class="ion-align-self-stretch ion-text-center">
+            <ion-col size="12" size-md="6" class="ion-align-self-center ion-text-center">
                 <div>
-                    <img class="pulsing" (click)="showModalVideo()" style="z-index: 22;" src="../../../assets/svg/btn-play.svg" />
+                    <img class="pulsing" (click)="showModalVideo()" style="z-index: 22; width:150px;" src="../../../assets/svg/btn-play.svg" />
                 </div>
             </ion-col>
         </ion-row>
@@ -44,169 +46,11 @@
         </ion-row>
 
 
-            <!-- <app-home-page-three style="width: 100vw; height: 70vh;"></app-home-page-three> -->
-
-        <!-- <ion-row> -->
+     
             <app-home-page-two style="width: 199vw; height: 100vh;"></app-home-page-two>
-        <!-- </ion-row> -->
-        <!-- <ion-row>
-            <app-home-page-four style="width: 100vw; height: 100vh;"></app-home-page-four>
-        </ion-row> -->
-        <!-- <ion-fab>
-    <ion-fab-button (click)="topFunction()" id="myBtn" title="Go to top">Top</ion-fab-button>
 
-  </ion-fab> -->
+        <app-footer></app-footer>
+   </ion-grid>
 
-        <!-- Footer` -->
-        <ion-row class="footer ion-justify-content-around">
-            <ion-col size="12" size-sm="4">
-                <ion-row>
-                    <ion-toolbar color="dark">
-
-                        <ion-title>
-                            <ion-text color="warning">
-
-                                Menu
-                            </ion-text>
-
-                        </ion-title>
-                    </ion-toolbar>
-                </ion-row>
-                <ion-row>
-                    <ion-col class="bottom-menu">
-
-                        <ion-item button color="dark" routerLink="/home" routerLinkActive="active-bottom-menu"
-                            [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>Home</ion-label>
-                        </ion-item>
-                        <!-- SignedIn Menu Items -->
-                        <ion-item button color="dark" routerLink="/customers/dashboard"
-                            routerLinkActive="active-bottom-menu" [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>Dashboard</ion-label>
-                        </ion-item>
-                        <ion-item button color="dark" routerLink="/customers/workouts"
-                            routerLinkActive="active-bottom-menu" [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>Workouts</ion-label>
-                        </ion-item>
-                        <ion-item button color="dark" routerLink="/customers/nutrition"
-                            routerLinkActive="active-bottom-menu" [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>Nutrition</ion-label>
-                        </ion-item>
-                        <ion-item button color="dark" routerLink="/customers/videos"
-                            routerLinkActive="active-bottom-menu" [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>Videos</ion-label>
-                        </ion-item>
-                        <ion-item button color="dark" routerLink="/customers/messages"
-                            routerLinkActive="active-bottom-menu" [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>Messages</ion-label>
-                        </ion-item>
-                        <ion-item button color="dark" routerLink="/customers/settings"
-                            routerLinkActive="active-bottom-menu" [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>Settings</ion-label>
-                        </ion-item>
-                    </ion-col>
-
-
-                    <ion-col>
-
-                        <!-- Menu Options for nonusers -->
-                        <ion-item button color="dark" routerLink="/products" routerLinkActive="active-bottom-menu"
-                            [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>Products</ion-label>
-                        </ion-item>
-                        <ion-item button color="dark" routerLink="/faqs" routerLinkActive="active-bottom-menu"
-                            [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>FAQs</ion-label>
-                        </ion-item>
-                        <ion-item button color="dark" routerLink="/testimonials">
-                            <ion-label>Testimonials</ion-label>
-                        </ion-item>
-                        <ion-item button color="dark" routerLink="/about-us" routerLinkActive="active-bottom-menu"
-                            [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>About</ion-label>
-                        </ion-item>
-                        <ion-item button color="dark" routerLink="/contact-us" routerLinkActive="active-bottom-menu"
-                            [routerLinkActiveOptions]="{ exact: true }">
-                            <ion-label>Contact</ion-label>
-                        </ion-item>
-                    </ion-col>
-                </ion-row>
-
-                <ion-row>
-                    <ion-col class="ion-padding">
-                        <img src="../../../assets/logos/logo.png" class="small-logo" />
-                        <br />
-                        <ion-text color="light">
-                            <small> &#9426;{{ yearDate }} www.expertfitness.com </small>
-                        </ion-text>
-                    </ion-col>
-                </ion-row>
-            </ion-col>
-
-            <ion-col size-sm="4" size="auto" push-sm="4" class="ion-align-self-center" routerLink="/contact-us">
-                <ion-row class="ion-justify-content-center">
-                    <ion-col size="8">
-                        <ion-card color="primary" class="ion-text-center">
-                            <ion-card-header color="primary">
-                                <ion-card-title>
-                                    <img src="../../../assets/icons/icon-144x144.png" style="max-height: 38px" />
-                                    Expert Fitness Gym
-                                </ion-card-title>
-                            </ion-card-header>
-
-                            <ion-card-content>
-                                <ion-text style="font-weight: bold">
-                                    <p>3000 N. Garfield Street Suite 159</p>
-                                    <p>Midland TX 79705</p>
-                                </ion-text>
-                                <ion-chip color="light" href="tel://432-684-0844">
-                                    <ion-icon color="warning" name="call-sharp"></ion-icon>
-                                    <ion-label> (432) 684-0844 </ion-label>
-                                </ion-chip>
-
-                                <ion-chip color="light" routerLink="/contact-us">
-                                    <ion-icon color="warning" name="mail-sharp"></ion-icon>
-                                    <ion-label> Contact Us </ion-label>
-                                </ion-chip>
-                            </ion-card-content>
-                        </ion-card>
-                    </ion-col>
-                </ion-row>
-            </ion-col>
-
-            <ion-col size="auto" pull-sm="4" size-sm="4">
-                <ion-row  class="ion-justify-content-center">
-                    <ion-col>
-
-   <app-ratings></app-ratings>
-           <!-- <share-buttons style="z-index: 99;" theme="material-dark" exclude="['vk', 'google', 'xing']"
-                            twitterAccount="@apsistec" show="3" showCount> </share-buttons> -->
-             
-                    </ion-col>
-            
-                </ion-row>
-                <ion-row class="ion-justify-content-center">
-                    <!-- <ion-col class="ion-align-self-center ion-text-center"> -->
-
-                        <ion-buttons>
-                            <ion-button color="tertiary" (click)="showModalPrivacy()">
-                                Privacy
-                            </ion-button>
-                            <ion-button color="tertiary" (click)="showModalTerms()">
-                                Terms
-                            </ion-button>
-                            <ion-button color="tertiary" (click)="showModalAbout()">
-                                About App
-                            </ion-button>
-                        </ion-buttons>
-                    <!-- </ion-col> -->
-                      
-
-
-
-                </ion-row>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-
+   
 </ion-content>

@@ -1,8 +1,7 @@
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, ModalController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { slideInLeft, slideInRight } from 'ng-animate';
-import { Benefits } from '../../models/training-benefits';
 import { MessageService } from '../../services/message.service';
 import { GetStartedComponent } from '../../shared/get-started/get-started.component';
 
@@ -32,30 +31,6 @@ import { GetStartedComponent } from '../../shared/get-started/get-started.compon
   ],
 })
 export class HomePageTwoComponent implements OnInit {
-  @ViewChild('mySlider') slider: IonSlides;
-
-  slideOpts = {
-    initialSlide: 1,
-    speed: 200,
-    loop: true,
-
-    breakpoints: {
-      350: {
-        slidesPerView: 1,
-         spaceBetween: 15,
-      },
-      576: {
-        slidesPerView: 1.5,
-         spaceBetween: 15,
-      },
-      1200: {
-        slidesPerView: 4,
-         spaceBetween: 15,
-      },
-    }
-  };
-
-  benefits =  Benefits;
 
   slideInRight: any;
   slideInLeft: any;
@@ -67,18 +42,14 @@ export class HomePageTwoComponent implements OnInit {
 
   ngOnInit() {}
 
-  slidesDidLoad(slides: IonSlides) {
-    slides.startAutoplay();
-  }
-
-  async showModalGetStarted() {
-    const modal = await this.modalController.create({
-      component: GetStartedComponent,
-      cssClass: 'modal-css',
-      showBackdrop: true,
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
+//   async showModalGetStarted() {
+//     const modal = await this.modalController.create({
+//       component: GetStartedComponent,
+//       cssClass: 'modal-css',
+//       showBackdrop: true,
+//     });
+//     return modal.present().catch((err) => {
+//       return this.messageService.errorAlert(err);
+//     });
+//   }
 }

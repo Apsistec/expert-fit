@@ -4,7 +4,7 @@
       <ion-toolbar class="toolbar-global">
         <ion-buttons slot="start">
           <ion-menu-button color="tertiary"></ion-menu-button>
-          <img src="../assets/logos/logo.png" class="small-logo" />
+          <img src="..//assets//icons//icon-144x144.png" class="small-logo" />
         </ion-buttons>
       </ion-toolbar>
     </ion-menu-toggle>
@@ -226,7 +226,7 @@
             button
             routerLinkActive="active-item"
             [routerLinkActiveOptions]="{ exact: true }"
-            (click)="showModalGetStarted()"
+            routerLink="/get-started"
           >
             <ion-icon
               color="secondary"
@@ -239,17 +239,20 @@
           </ion-item>
         </ng-template>
       </ion-menu-toggle>
-    </ion-list>
-    <!-- Below menu -->
-    <div class="under-menu">
-      <div class="first-row">
+    </ion-list>  
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar color="dark" class="ion-text-center">
+        <ion-grid>
+            <ion-row class="ion-justify-content-center">
+                <ion-buttons>
         <ion-button color="primary" fill="clear" (click)="showModalPrivacy()">
           Privacy
         </ion-button>
         <ion-button color="primary" fill="clear" (click)="showModalTerms()">
           Terms
         </ion-button>
-      </div>
       <ion-button
         class="under-button"
         fill="clear"
@@ -258,16 +261,20 @@
       >
         About App
       </ion-button>
-    </div>
-  </ion-content>
 
-  <ion-footer>
-    <ion-toolbar class="toolbar-global">
-      <ion-text color="tertiary">
-        <small>
-          &#9426;{{ yearDate | date: "yyyy" }} www.expertfitness.com
-        </small>
-      </ion-text>
+                </ion-buttons>
+            </ion-row>
+            <ion-row class="ion-justify-content-center">
+                <ion-col>
+                <ion-text color="tertiary">
+                    <small>
+                    &#9426;{{ yearDate }} www.expertfitness.com
+                    </small>
+                </ion-text>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
     </ion-toolbar>
   </ion-footer>
 </ion-menu>

@@ -48,3 +48,21 @@
     }
   }
   
+  
+  .flashing {
+    animation: 2s ease-out infinite flasher;
+    z-index: 99;
+ 
+  }
+  
+  @keyframes flasher {
+    0% {
+      opacity: 100%;
+    }
+    50% {
+      opacity: 0%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }

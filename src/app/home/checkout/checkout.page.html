@@ -12,7 +12,7 @@
         routerLink="/home"
       >
         <img
-          src="../../assets/img/icon-192x192.png"
+          src="..//..//..//assets//icons//icon-144x144.png"
           style="width: 60px; height: 60px"
         />
       </div>
@@ -29,7 +29,7 @@
         >
           <ion-avatar>
             <img
-              [src]="user.photoURL || '../../../assets/img/dummy-user.png'"
+              [src]="user.photoURL || '..//..//..//assets//images//dummy-user.png'"
               style="width: 60px; height: 60px"
             />
           </ion-avatar>
@@ -59,18 +59,17 @@
                 <!-- Sign  Up form -->
                   <form [formGroup]="registerForm" (ngSubmit)="registerUser()" *ngIf="isRegister">
                     <ion-card-title>
-                      <ion-text> Rank Fantasy Sports Sign Up </ion-text>
+                      <ion-text> Expert Fitness Sign Up </ion-text>
                     </ion-card-title>
                     <ion-card-subtitle >
                       <ion-text>
-                        You need to sign up before purchasing a
-                        <strong>Pro Plan</strong>
+                        You need to sign up before purchasing.
                       </ion-text>
                     </ion-card-subtitle>
                     <ion-card color="light" class="ion-padding ion-margin">
                       <ion-item color="light">
                         <ion-label color="dark" position="floating"
-                          >Name</ion-label
+                          >Full Name</ion-label
                         >
                         <ion-input
                           autofocus
@@ -384,7 +383,7 @@
                   </ion-text>
                 </ion-card-title>
 
-                <ion-grid>
+                <!-- <ion-grid> -->
                   <ion-card
                     color="light"
                     style="padding-left: 10px; text-align: left"
@@ -422,22 +421,22 @@
                       </ion-col>
                     </ion-row>
                   </ion-card>
-                </ion-grid>
+                <!-- </ion-grid> -->
                 <div style="display: flex; margin-bottom: 2px">
                   <img
-                    src="../../assets/img/1.png"
+                    src="..//..//..//assets//images//credit_cards//visa.png"
                     style="height: 22.5px; width: 37.5px"
                   />
                   <img
-                    src="../../assets/img/2.png"
+                    src="..//..//..//assets//images//credit_cards//mastercard.png"
                     style="height: 22.5px; width: 37.5px"
                   />
                   <img
-                    src="../../assets/img/14.png"
+                    src="..//..//..//assets//images//credit_cards//americanexpress.png"
                     style="height: 22.5px; width: 37.5px"
                   />
                   <img
-                    src="../../assets/img/22.png"
+                    src="..//..//..//assets//images//credit_cards//discover.png"
                     style="height: 22.5px; width: 37.5px"
                   />
                 </div>
@@ -521,7 +520,7 @@
                 [navigationSymbol]="{ symbol: 3 }"
               >
                 <ion-card color="light" class="ion-card-global">
-                  <img src="../../../assets/img/logo.jpg" />
+                  <img src="..//..//..//assets//icons//icon-144x144.png" />
                   <ion-card-header>
                     <ion-card-title>
                       <ion-text class="ion-text-center ion-text-capitalize">
@@ -657,23 +656,21 @@
             <a href="https://www.stripe.com">
               <ion-text color="secondary"> Stripe </ion-text>
             </a>
-            . The Expert Fitness site is served using Secure Socket Layer (SSL) encryption,
-            and our servers submit secure tokenized versions of your payment
-            information. The complete card details are never visible to anyone
-            at Rank Fantasy Sports, nor are the complete card details stored on
+            . The Expert Fitness App is served using Secure Socket Layer (SSL) encryption. The Google Cloud servers submit secure tokenized versions of your payment
+            information, so none of your private information is ever human readable. Thus, the private card details are never visible to anyone
+            at  Expert Fitness, nor are the private card details stored on
             our servers. Pro Membership Packages are subscriptions which are
             billed automatically, on or about the same day each billing cycle
             varying only on accounts which have a start date that does not occur
-            every month (e.g. 31st day of a month). You may cancel your
+            every month(e.g. Leap Year Days). You may cancel your
             subscription at anytime. Once a cancellation request has been
-            submitted, your account will be terminated at the end of the current billing cycle, and no
-            further payments will be processed. For more details, please read
+            submitted, it will be processed immediately. Your account will be terminated at the end of the current billing cycle at that time. Provided your account is current and in good standing, there will not be any further payments processed. For more details, please read
             our
-            <a (click)="showModalTerms()">
+            <a routerLink="/terms">
               <ion-text color="secondary"> Terms </ion-text>
             </a>
             . The security of your information is our priority. Please read our
-            <a (click)="showModalPrivacy()">
+            <a routerLink="/privacy">
               <ion-text color="secondary"> Privacy </ion-text>
             </a>
             for more details.

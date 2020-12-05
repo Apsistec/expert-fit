@@ -15,7 +15,7 @@ export class SeoService {
     this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
     this.meta.updateTag({
       name: 'twitter:site',
-      content: '@rankfsports',
+      content: '@apsistec',
     });
     this.meta.updateTag({ name: 'twitter:title', content: title });
     this.meta.updateTag({

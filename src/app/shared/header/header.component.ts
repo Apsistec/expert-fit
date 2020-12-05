@@ -49,15 +49,15 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  async showModalGetStarted() {
-    const modal = await this.modalController.create({
-      component: GetStartedComponent,
-      cssClass: 'modal-css',
-      showBackdrop: true,
-      backdropDismiss: false,
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
+//   async showModalGetStarted() {
+//     const modal = await this.modalController.create({
+//       component: GetStartedComponent,
+//       cssClass: 'modal-css',
+//       showBackdrop: true,
+//       backdropDismiss: false,
+//     });
+//     return modal.present().catch((err) => {
+//       return this.messageService.errorAlert(err);
+//     });
+//   }
 }

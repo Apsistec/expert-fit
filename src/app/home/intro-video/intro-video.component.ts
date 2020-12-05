@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IonContent, ModalController } from '@ionic/angular';
 import { SeoService } from '../../services/seo.service';
@@ -9,9 +9,9 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './intro-video.component.html',
   styleUrls: ['./intro-video.component.scss'],
 })
-export class IntroVideoComponent implements OnInit, AfterViewInit {
+export class IntroVideoComponent implements OnInit {
 
- titleId = 'RF$\u2122 Home';
+ titleId = 'Expert Fitness Home';
   core;
 
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
@@ -40,8 +40,6 @@ export class IntroVideoComponent implements OnInit, AfterViewInit {
       this.video = this.domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/JrqXsZX1xgk');
   }
 
-  ngAfterViewInit() {
-  }
 
     dismissModal() {
         this.modalController.dismiss();

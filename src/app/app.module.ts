@@ -1,8 +1,6 @@
-// import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {
   DEFAULT_CURRENCY_CODE,
-  // ApplicationRef,
   NgModule
 } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
@@ -14,7 +12,6 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -30,15 +27,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedDirectivesModule } from './directives/shared-directives.module';
 import { SideMenuComponent } from './home/side-menu/side-menu.component';
-// import { SharedModule } from './_shared/shared.module';
-// import { GlobalErrorHandlerService } from './_services/error-handler.service';
+
 
 @NgModule({
   declarations: [AppComponent, SideMenuComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
-    // CommonModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot({
       name: '__mydb',
@@ -76,11 +71,3 @@ import { SideMenuComponent } from './home/side-menu/side-menu.component';
 })
 export class AppModule {}
 
-// platformBrowserDynamic().bootstrapModule(AppModule)
-//   .then(moduleRef => {
-//     const applicationRef = moduleRef.injector.get(ApplicationRef);
-//     const appComponent = applicationRef.components[0];
-//     enableDebugTools(appComponent);
-//   });
-
-// .....

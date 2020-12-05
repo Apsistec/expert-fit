@@ -5,6 +5,11 @@ import { QuicklinkStrategy } from 'ngx-quicklink';
 // import { PaidGuard } from './_guards/paid.guard';
 // import { RoleGuard } from './_guards/role.guard';
 import { HomePage } from './home/home.page';
+import { AboutAppComponent } from './shared/about-app/about-app.component';
+import { GetStartedComponent } from './shared/get-started/get-started.component';
+import { ModalViewComponent } from './shared/modal-view/modal-view.component';
+import { PrivacyComponent } from './shared/privacy/privacy.component';
+import { TermsComponent } from './shared/terms/terms.component';
 
 const redirectLoggedInToDash = () => redirectLoggedInTo(['/customers/dashboard']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/home']);
@@ -75,6 +80,26 @@ const routes: Routes = [
     // ...canActivate(verifiedEmail),
     // canActivate: [PaidGuard, RoleGuard]
   },
+//   {
+//     path: 'modal', component: ModalViewComponent, outlet: 'modal',
+//     children: [
+        {
+            path: 'about-app', component: AboutAppComponent, outlet: 'modal'
+        },
+        {
+            path: 'terms', component:  TermsComponent, outlet: 'modal'
+        },
+        {
+            path: 'privacy', component: PrivacyComponent, outlet: 'modal'
+        },
+        {
+            path: 'get-started', component: GetStartedComponent, outlet: 'modal'
+        },
+          { path: ':id', component: ModalViewComponent },
+
+
+//     ]
+//   },
   {
     path: '',
     redirectTo: '/home',

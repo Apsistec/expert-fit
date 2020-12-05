@@ -5,7 +5,7 @@
       <ion-menu-button color="tertiary"> </ion-menu-button>
     </ion-buttons>
     <ion-img
-      src="../../../assets/logos/logo.png"
+      src="..//..//..//assets//icons//icon-144x144.png"
       slot="start"
       class="small-logo"
     ></ion-img>
@@ -22,7 +22,7 @@
         <ion-icon slot="start" name="arrow-dropdown"></ion-icon>
         <ion-avatar>
           <ion-img
-            [src]="user.photoURL || '../../../assets/img/dummy-user.png'"
+            [src]="user.photoURL || '../../../assets/images/dummy-user.png'"
           ></ion-img>
         </ion-avatar>
       </ion-item>
@@ -40,7 +40,7 @@
           <ion-button
           style="font-size: x-large"
           appBlink
-          (click)="showModalGetStarted()"
+         routerLink="/get-started"
           color="danger"
           >
           <ion-text>Login</ion-text>
@@ -59,7 +59,7 @@
         color="tertiary"
       ></ion-back-button>
       <ion-img
-        src="../../../assets/logos/logo.png"
+        src="..//..//..//assets//icons//icon-144x144.png"
         slot="start"
         class="small-logo"
       ></ion-img>
@@ -158,7 +158,7 @@
             </sup>
           </ion-text>
           <br>
-          <ion-button (click)="showModalGetStarted()" color="danger">
+          <ion-button routerLink="/get-started" color="danger">
 
             <ion-text style="font-size: x-large" appBlink>Login</ion-text>
           </ion-button>

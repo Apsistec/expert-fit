@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { DateService } from 'src/app/services/date.service';
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
@@ -25,7 +26,8 @@ export class SideMenuComponent implements OnInit {
     public authService: AuthService,
     public userService: UserService,
     private modalController: ModalController,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private dateService: DateService
   ) {}
 
   ngOnInit() {
@@ -35,7 +37,7 @@ export class SideMenuComponent implements OnInit {
   }
 
   getYear(): void {
-    this.yearDate = Date.now();
+    this.yearDate = this.dateService.convertDate(Date.now(), 'yyyy');
   }
 
   gotoGetStarted() {
@@ -68,16 +70,16 @@ export class SideMenuComponent implements OnInit {
     });
   }
 
-  async showModalGetStarted() {
-    const modal = await this.modalController.create({
-      component: GetStartedComponent,
-      cssClass: 'modal-css',
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
+//   async showModalGetStarted() {
+//     const modal = await this.modalController.create({
+//       component: GetStartedComponent,
+//       cssClass: 'modal-css',
+//       showBackdrop: true
+//     });
+//     return modal.present().catch((err) => {
+//       return this.messageService.errorAlert(err);
+//     });
+//   }
 
   async showModalAbout() {
     const modal = await this.modalController.create({

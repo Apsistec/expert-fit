@@ -9,8 +9,11 @@ import { AuthService } from './services/auth.service';
 import { MessageService } from './services/message.service';
 import { PopoverService } from './services/popover.service';
 import { UpdateService } from './services/update.service';
+import { AboutAppComponent } from './shared/about-app/about-app.component';
 import { GetStartedComponent } from './shared/get-started/get-started.component';
 import { PopoverComponent } from './shared/popover/popover.component';
+import { PrivacyComponent } from './shared/privacy/privacy.component';
+import { TermsComponent } from './shared/terms/terms.component';
 
 @Component({
   selector: 'app-root',
@@ -55,7 +58,8 @@ export class AppComponent implements OnInit {
 
     // try {
     //   await Promise.all([
-    //     firebase.firestore().enablePersistence({ synchronizeTabs: true }), // set {synchronizeTabs:true} for resource sharing across tabs
+    //     firebase.firestore().enablePersistence({ synchronizeTabs: true }),
+    // set {synchronizeTabs:true} for resource sharing across tabs
     //     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL),
     //   ]);
     //   firebase.analytics();
@@ -85,5 +89,55 @@ export class AppComponent implements OnInit {
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
     });
+  }
+    async showModalTerms() {
+    const modal = await this.modalController.create({
+      component: TermsComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
+
+  async showModalPrivacy() {
+    const modal = await this.modalController.create({
+      component: PrivacyComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
+
+  async showModalAbout() {
+    const modal = await this.modalController.create({
+      component: AboutAppComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
+
+  showModal(modalID) {
+      if (modalID === 'about-app') {
+          this.showModalAbout();
+      } else if (modalID === 'privacy') {
+          this.showModalPrivacy();
+      } else if (modalID === 'terms') {
+          this.showModalTerms();
+      } else if (modalID === 'get-started') {
+          this.showModalGetStarted();
+      }
   }
 }

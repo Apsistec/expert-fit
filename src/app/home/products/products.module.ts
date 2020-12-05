@@ -13,8 +13,8 @@ import { ProductsPage } from './products.page';
     ReactiveFormsModule,
     IonicModule,
     ProductsPageRoutingModule,
-    SharedModule,
+    SharedModule
   ],
-  declarations: [ProductsPage],
+  declarations: [ProductsPage]
 })
 export class ProductsPageModule {}

@@ -1,7 +1,6 @@
 
   <ion-grid>
     <ion-row>
-      <ion-grid>
         <ion-row>
           <ion-col size="9">
             <ion-card color="medium">
@@ -59,7 +58,7 @@
                 <ion-item *ngFor="let admin of admins | async">
                   <ion-avatar>
                     <img
-                      [src]='admin.photoURL || "../assets/img/dummy-user.png"'
+                      [src]='admin.photoURL || "..//..//assets//images//dummy-user.png"'
                     />
                   </ion-avatar>
                   &nbsp; &nbsp;
@@ -103,7 +102,7 @@
                 <ion-item class="userlist" *ngFor="let user of users | async">
                   <ion-avatar>
                     <img
-                      [src]='user.photoURL || "../assets/img/dummy-user.png"'
+                      [src]='user.photoURL || "..//..//assets//images//dummy-user.png"'
                     />
                   </ion-avatar>
                   &nbsp; &nbsp;
@@ -125,10 +124,8 @@
                 </ion-item>
               </ion-list>
             </ion-card>
-            <!-- </ion-card> -->
           </ion-col>
         </ion-row>
-      </ion-grid>
     </ion-row>
   </ion-grid>
 

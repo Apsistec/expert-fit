@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { AboutAppComponent } from './about-app/about-app.component';
+import { BenefitsComponent } from './benefits/benefits.component';
 import { FooterComponent } from './footer/footer.component';
 import { GetStartedComponent } from './get-started/get-started.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +13,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { TermsComponent } from './terms/terms.component';
 import { TicketComponent } from './ticket/ticket.component';
+import { ModalViewComponent } from './modal-view/modal-view.component';
 
 const routes: Routes = [];
 
@@ -25,7 +27,9 @@ const routes: Routes = [];
     TicketComponent,
     PrivacyComponent,
     TermsComponent,
-    RatingsComponent
+    RatingsComponent,
+    BenefitsComponent,
+    ModalViewComponent
   ],
   imports: [IonicModule, RouterModule.forChild(routes), CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -37,7 +41,9 @@ const routes: Routes = [];
     TicketComponent,
     PrivacyComponent,
     TermsComponent,
-    RatingsComponent
+    RatingsComponent,
+    BenefitsComponent,
+    ModalViewComponent
   ]
 })
 export class SharedModule {}

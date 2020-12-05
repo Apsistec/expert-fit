@@ -1,0 +1,29 @@
+ <ion-slides
+            #mySlider
+            pager="true"
+            (ionSlidesDidLoad)="slidesDidLoad(mySlider)"
+            [options]="slideOpts"
+        >
+            <ion-slide *ngFor="let benefit of benefits">
+                <ion-card
+                    color="light"
+                    class="slide-card"
+                    style="height: 37em; width: 380px"
+                >
+                    <ion-card-header class="ion-text-center" color="primary">
+                        <ion-card-title>
+                            <ion-text color="warning">{{
+                                benefit.title
+                            }}</ion-text>
+                        </ion-card-title>
+                        <img
+                            [src]="benefit.image"
+                            style="height: 200px; width: 100%"
+                        />
+                    </ion-card-header>
+                    <ion-card-content class="ion-margin-top">
+                        <p>{{ benefit.content }}</p>
+                    </ion-card-content>
+                </ion-card>
+            </ion-slide>
+        </ion-slides>

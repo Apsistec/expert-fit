@@ -23,6 +23,7 @@ export class AuthService {
   displayName;
   currentBehaviorUser = new BehaviorSubject(null);
   authState$: any = this.afAuth.authState;
+    userData: User;
 
   constructor(
     public afs: AngularFirestore,
@@ -34,13 +35,14 @@ export class AuthService {
     this.user$ = this.authState$.pipe(
       switchMap((user: any) => {
         if (user) {
-          return this.afs.doc(`users/${user.uid}`).valueChanges();
-        } else {
-          return of(null);
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         }
       })
     );
+    this.user$.pipe(map(user => this.userData = user));
   }
+
+
 
   SignIn(credentials) {
     return this.afAuth
@@ -188,23 +190,23 @@ export class AuthService {
   }
 
   // determines if user is a member
-  private checkAuthorization(user: User): boolean {
-    if ((user && user.role === 'PUBLIC') || 'MEMBER' || 'EMPLOYEE' || 'ADMIN') {
+  private checkAuthorization(userData: User): boolean {
+    if (userData && (userData.role === 'PUBLIC' || 'MEMBER' || 'EMPLOYEE' || 'ADMIN')) {
       return true;
-    }
-    {
+    } else {
       return false;
     }
   }
 
-  hasPermissions(permissions: string[]) {
+  hasPermissions(permissions: string[]): Observable<boolean> {
     for (const perm of permissions) {
       return this.user$.pipe(
         map((user) => {
-          if (user.permissions.includes(perm)) {
+          if (user && user.permissions.includes(perm)) {
             return true;
+          } else {
+            return false;
           }
-          return false;
         })
       );
     }

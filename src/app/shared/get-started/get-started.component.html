@@ -1,11 +1,11 @@
 <ion-header transparent>
-  <ion-toolbar class="toolbar-global ion-text-center">
-    <ion-title *ngIf="loginTitle" color="light">Account Login</ion-title>
-    <ion-title *ngIf="!loginTitle" color="light"
+  <ion-toolbar class="toolbar-global">
+    <ion-title *ngIf="loginTitle" >Account Login</ion-title>
+    <ion-title *ngIf="!loginTitle"
       >Account Registration</ion-title
     >
     <ion-buttons slot="end">
-      <ion-button color="danger" (click)="dismissModal()">Close </ion-button>
+      <ion-button (click)="dismissModal()">Close </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

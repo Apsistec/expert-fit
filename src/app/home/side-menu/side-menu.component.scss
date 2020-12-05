@@ -14,24 +14,24 @@
     ),
 }
 
-.under-menu {
-  position: absolute;
-  text-align: center;
-  bottom: 5em;
-}
-.first-row {
-  position: relative;
-  padding-left: 3.5em;
-}
+// .under-menu {
+//   position: absolute;
+//   text-align: center;
+//   bottom: 5em;
+// }
+// .first-row {
+//   position: relative;
+//   padding-left: 3.5em;
+// }
 
-.under-button {
-  padding-left: 3.5em;
-  position: relative;
-}
-.bottom-toolbar {
-  position: absolute;
-  bottom: 0px;
-}
+// .under-button {
+//   padding-left: 3.5em;
+//   position: relative;
+// }
+// .bottom-toolbar {
+//   position: absolute;
+//   bottom: 0px;
+// }
 
 .showModalContact::active {
   border-left: 0.625em solid var(--ion-color-tertiary);

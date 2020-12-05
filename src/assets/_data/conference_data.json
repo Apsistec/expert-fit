@@ -1,7 +1,7 @@
 {
   "schedule": [
     {
-      "date": "2047-05-17",
+      "date": "2021-05-17",
       "groups": [
         {
           "time": "8:00 am",
@@ -259,7 +259,7 @@
     },
     {
       "name": "Paul Puppy",
-      "profilePic": "/assets/img/speakers/puppy.jpg",
+      "profilePic": "/assets/images/shay-small-pic.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "about": "Paul is a Puppy. Paul's interests include maps, whales, and dragons.",
@@ -271,7 +271,7 @@
     },
     {
       "name": "Rachel Rabbit",
-      "profilePic": "/assets/img/speakers/rabbit.jpg",
+      "profilePic": "/assets/images/shay-small-pic.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "about": "Rachel is a Rabbit. Rachel's interests include clowns, skeletons, and yo-yos.",
@@ -283,7 +283,7 @@
     },
     {
       "name": "Ted Turtle",
-      "profilePic": "/assets/img/speakers/turtle.jpg",
+      "profilePic": "/assets/images/shay-small-pic.jpg",
       "instagram": "ionicframework",
       "twitter": "ionicframework",
       "about": "Ted is a Turtle. Ted's interests include butterflies, skiing, and cupcakes.",
@@ -299,7 +299,7 @@
     {
       "name": "Expert Fitness Gym",
       "address": "3000 N Garfield St Ste 159, Midland, TX 79705",
-      "phone": "(432)684-0844",
+      "phone": "+1-432-684-0844",
       "lat": 32.021493,
       "lng": -102.107034,
       "center": true
