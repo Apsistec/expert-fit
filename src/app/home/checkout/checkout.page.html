@@ -16,7 +16,7 @@
           style="width: 60px; height: 60px"
         />
       </div>
-      <div *ngIf="user">
+      <div *ngIf="authService.afAuth.user | async">
         <a
           (click)="presentPopover($event)"
           style="

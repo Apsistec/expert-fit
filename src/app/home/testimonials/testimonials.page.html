@@ -108,7 +108,7 @@
                         <ion-card-content>
                             <form
                             #testimonial
-                                *ngIf="user | async; else register;"
+                                *ngIf="authService.afAuth.user | async; else register;"
                                 [formGroup]="reviewForm"
                                 (ngSubmit)="setTestimonial(testimonial)"
                                 novalidate

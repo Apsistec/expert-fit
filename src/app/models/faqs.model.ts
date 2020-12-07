@@ -33,7 +33,7 @@ export const Faqs: FAQ[] = [
   {
     title: 'What does Expert Fitness offer that is unique?',
     info:
-      'The team behing the Expert Fitness App offers some of the best fitness focused while simultaneously balanced information available and we want you to have access to these tools and services whereever you are in the world. Expert Fitness provides unmatched insights and time savings for attaining then maintaining our clients ever evolving fitness goals.',
+      'The team behind the Expert Fitness App offers some of the best fitness focused while simultaneously balanced information available and we want you to have access to these tools and services whereever you are in the world. Expert Fitness provides unmatched insights and time savings for attaining then maintaining our clients ever evolving fitness goals.',
     faqId: 4,
   },
   {

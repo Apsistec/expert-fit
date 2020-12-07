@@ -59,7 +59,7 @@
 				</ion-item>
 			</ion-col>
 			<ion-col >
-				<div *ngIf="user | async">
+				<div *ngIf="authService.afAuth.user | async">
 					<!-- SignedIn Menu Items -->
 					<ion-item
 						button
@@ -152,19 +152,21 @@
 					</ion-card-header>
 
 					<ion-card-content>
-						<ion-text style="font-weight: bold">
-							<p>3000 N. Garfield Street Suite 159</p>
-							<p>Midland TX 79705</p>
-						</ion-text>
-						<ion-chip color="light" href="tel://432-684-0844">
-							<ion-icon color="warning" name="call-sharp"></ion-icon>
-							<ion-label> (432) 684-0844 </ion-label>
-						</ion-chip>
+					 <ion-item lines="none" details="none">
+              <ion-label style="font-weight: bold">
+                <p>3000 N. Garfield Street Suite 159</p>
+                <p>Midland TX 79705</p>
+              </ion-label>
+              </ion-item>
+              <ion-chip color="light" href="tel://432-684-0844">
+                <ion-icon color="warning" name="call-sharp"></ion-icon>
+                <ion-label> (432) 684-0844 </ion-label>
+              </ion-chip>
 
-						<ion-chip color="light" routerLink="/contact-us">
-							<ion-icon color="warning" name="mail-sharp"></ion-icon>
-							<ion-label> Contact Us </ion-label>
-						</ion-chip>
+              <ion-chip color="light" routerLink="/contact-us">
+                <ion-icon color="warning" name="mail-sharp"></ion-icon>
+                <ion-label> Contact Us </ion-label>
+              </ion-chip>
 					</ion-card-content>
 				</ion-card>
 	</ion-col>

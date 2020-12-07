@@ -19,7 +19,7 @@
     color="dark"
     (click)="popoverService.presentPopover($event)"
     lines="none"
-    *ngIf="user | async; else login"
+    *ngIf="authService.afAuth.user | async; else login"
     >
     <ion-avatar slot="end">
         <img [src]="user.photoURL || '..//assets//images//dummy-user.png'"
@@ -116,7 +116,7 @@
     color="dark"
     (click)="popoverService.presentPopover($event)"
     lines="none"
-    *ngIf="user | async ; else login"
+    *ngIf="authService.afAuth.user | async ; else login"
     >
     <ion-avatar slot="end">
         <img

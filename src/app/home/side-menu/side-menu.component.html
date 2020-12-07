@@ -32,7 +32,7 @@
 					<ion-label class="side-menu-font">Home</ion-label>
 				</ion-item>
 				<!-- SignedIn Menu Items -->
-				<div *ngIf="user | async ; else public">
+				<div *ngIf="authService.afAuth.user | async; else public">
 					<ion-item
 						color="medium"
 						button
@@ -280,11 +280,10 @@
 					</ion-item>
 				</ng-template>
 				<!-- authentication area of menu -->
-
 				<ion-list-header class="list-header-global">
 					<ion-title> Authentication </ion-title>
 				</ion-list-header>
-				<div *ngIf="user | async; else nouser">
+				<div *ngIf="authService.afAuth.user | async; else nouser">
 					<ion-item color="medium" button (click)="authService.SignOut()">
 						<ion-label class="side-menu-font"> Sign Out </ion-label>
 						<ion-icon
@@ -301,7 +300,7 @@
 						button
 						routerLinkActive="active-item"
 						[routerLinkActiveOptions]="{ exact: true }"
-					(click)="showModalGetStarted()"
+						routerLink="/sign-in"
 					>
 						<ion-icon
 							color="success"
@@ -309,32 +308,30 @@
 							slot="start"
 							name="rocket"
 						></ion-icon>
-						<ion-label class="sales side-menu-font">Get Started</ion-label>
+						<ion-label class="sales side-menu-font">Login</ion-label>
 					</ion-item>
 				</ng-template>
 			</ion-menu-toggle>
 		</ion-list>
 	</ion-content>
-
 	<ion-footer style="max-height: 15%">
 		<ion-toolbar color="dark" class="ion-text-center">
 			<ion-buttons>
-				<ion-button color="primary" fill="clear" (click)="showModalPrivacy()">
+				<ion-button color="primary" fill="clear" routerLink="/privacy">
 					Privacy
 				</ion-button>
-				<ion-button color="primary" fill="clear" (click)="showModalTerms()">
+				<ion-button color="primary" fill="clear" routerLink="/terms">
 					Terms
 				</ion-button>
 				<ion-button
 					class="under-button"
 					fill="clear"
 					color="primary"
-				(click)="showModalAbout()"
+					routerLink="/about-app"
 				>
 					About App
 				</ion-button>
 			</ion-buttons>
-
 			<ion-text color="tertiary">
 				<small>
 					&#9426;{{ yearDate | date: 'yyyy' }} www.expertfitness.com

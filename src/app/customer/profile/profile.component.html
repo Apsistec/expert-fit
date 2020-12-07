@@ -1,5 +1,5 @@
 
-    <ion-grid *ngIf="user | async" >
+    <ion-grid *ngIf="authService.afAuth.user | async" >
         <ion-row>
           <ion-col size-sm="5">
             <ion-card color="medium" class="ion-text-center">
