@@ -1,122 +1,95 @@
-@media screen and (max-width: 400px) {
-    .landing-quote {
-      display: none;
-    }
-    .landing-cta-text {
-      font-size: 2.55em;
-    }
-    .large-screen {
-        display: none;
-    }
-  }
-  @media screen and (min-width: 401px) {
-    .small-screen {
-        display: none;
-    }
-  }
-  @media screen and (max-height: 500px) {
-    .landing-quote {
-      display: none;
-    }
-    .landing-cta-motto {
-      display: none;
-    }
-  }
-  @media screen and (max-height: 600px) {
-    .landing-quote {
-      display: none;
-    }
-    .landing-cta-motto {
-      display: none;
-    }
-  }
-  
-  
-  .scene-one {
-      margin-top: 60px;
-    height: 94vh;
-    width: 100vw;
-    background-color: var(--ion-color-medium);
-    background: linear-gradient(
-        to bottom left,
-        rgba(0, 0, 0, 0.342) 15%,
-        rgba(15, 0, 71, 0.274) 50%,
-        rgba(0, 0, 0, 0.247) 85%
-      ),
-      linear-gradient(
-        to right,
-        rgba(92, 0, 8, 0.35) 0%,
-        rgba(17, 0, 2, 0.45) 50%,
-        rgba(83, 0, 7, 0.35) 100%
-      ),
-      url(../../assets/images/fitness-balancing.jpg) bottom /cover no-repeat;
-  
-  }
-  
-  
-  .logo-card {
-    padding:12px;
-    background: var(--ion-color-medium-shade);
-    width: 500px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
-      0px 6px 6px rgba(0, 0, 0, 0.1),
-      0px 8px 8px rgba(0, 0, 0, 0.356),
-      0px 10px 15px rgba(0, 0, 0, 0.03),
-      0px 30px 30px rgba(0, 0, 0, 0.15),
-      0px 70px 60px rgba(0, 0, 0, 0.15);
-  }
+@media screen and (max-width: 375px) {
+	.large-screen {
+		display: none;
+	}
+}
+@media screen and (min-width: 376px) {
+	.small-screen {
+		display: none;
+	}
+}
 
-  .lead{
-    text-transform: uppercase;
-    font-size: x-large;
-    font-weight: bolder;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  sup{
-      color: var(--ion-color-secondary)
-  }
-  .lesser{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: x-large;
-    font-variant: small-caps;
-  }
+.scene-one {
+	margin-top: 60px;
+	height: 94vh;
+	width: 100vw;
+	background-color: var(--ion-color-medium);
+	background: linear-gradient(
+			to bottom left,
+			rgba(0, 0, 0, 0.342) 15%,
+			rgba(15, 0, 71, 0.274) 50%,
+			rgba(0, 0, 0, 0.247) 85%
+		),
+		linear-gradient(
+			to right,
+			rgba(92, 0, 8, 0.35) 0%,
+			rgba(17, 0, 2, 0.45) 50%,
+			rgba(83, 0, 7, 0.35) 100%
+		),
+		url(../../assets/images/fitness-balancing.jpg) bottom / cover no-repeat;
+}
 
-  
-  .cta {
-    margin:.8em .4em;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
-      0px 6px 6px rgba(0, 0, 0, 0.1),
-      0px 8px 8px rgba(0, 0, 0, 0.05),
-      0px 10px 15px rgba(0, 0, 0, 0.03),
-      0px 30px 30px rgba(0, 0, 0, 0.15),
-      0px 70px 60px rgba(0, 0, 0, 0.15);
-  }
-  
-  .pulsing {
-    animation: 2s ease-out infinite pulsar;
-    z-index: 99;
- 
-  }
-  
-  @keyframes pulsar {
-    0% {
-      transform: scale(.8, .8);
-      opacity: 100%;
-    }
-    50% {
-      opacity: 70%;
-    }
-    100% {
-      transform: scale(1, 1);
-      opacity: 100%;
-    }
-  }
 
-  
-  
-.infographic{
-    background: var(--ion-color-medium);
 
+.logo-card {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+	padding: 12px;
+  width: fit-content;
+	background: var(--ion-color-medium-shade);
+	border-radius: 12px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1),
+		0px 8px 8px rgba(0, 0, 0, 0.356), 0px 10px 15px rgba(0, 0, 0, 0.03),
+		0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
+}
+
+.cta{
+  margin: 15px;
+}
+
+.lead {
+	text-transform: uppercase;
+	font-size: x-large;
+	font-weight: bolder;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+sup {
+	color: var(--ion-color-secondary);
+}
+
+.lesser {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: x-large;
+	font-variant: small-caps;
+}
+
+.pulsing {
+	animation: 2s ease-out infinite pulsar;
+	z-index: 99;
+  display:block;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+@keyframes pulsar {
+	0% {
+		opacity: 100%;
+	}
+	50% {
+		transform: scale(0.8, 0.8);
+		opacity: 70%;
+	}
+	100% {
+		transform: scale(1, 1);
+		opacity: 100%;
+	}
+}
+
+.infographic {
+	background: var(--ion-color-medium);
+}
+.infographic-toolbar{
+  --background: var(--ion-color-medium-shade);
 }

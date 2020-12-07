@@ -5,16 +5,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DateService {
-    newDate;
+    newDate: any;
   constructor( private datepipe: DatePipe
 
   ) { }
 
-    get yearDate() {
+    get yearDate(): any {
         return this.datepipe.transform(Date.now(), 'yyyy');
     }
 
-    convertDate(rawDate, format) {
+    convertDate(rawDate: any, format: string) {
         this.newDate = this.datepipe.transform(rawDate, format );
         return;
     }

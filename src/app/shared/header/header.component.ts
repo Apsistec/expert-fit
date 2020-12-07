@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController, PopoverController } from '@ionic/angular';
+import { PopoverController } from '@ionic/angular';
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
-import { GetStartedComponent } from '../get-started/get-started.component';
 import { PopoverComponent } from '../popover/popover.component';
 
 
@@ -20,7 +19,6 @@ export class HeaderComponent implements OnInit {
   showBackButton = false;
 
   constructor(
-    private modalController: ModalController,
     private popoverController: PopoverController,
     private messageService: MessageService,
     public authService: AuthService,
@@ -28,9 +26,8 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.authService.user.pipe(map((user) => (this.user = user)));
 
-    if (this.router.url === '/home') {
+    if (this.router.url === '/home' || '/') {
       this.showBackButton = false;
     } else {
       this.showBackButton = true;
@@ -48,16 +45,4 @@ export class HeaderComponent implements OnInit {
       return this.messageService.errorAlert(err);
     });
   }
-
-//   async showModalGetStarted() {
-//     const modal = await this.modalController.create({
-//       component: GetStartedComponent,
-//       cssClass: 'modal-css',
-//       showBackdrop: true,
-//       backdropDismiss: false,
-//     });
-//     return modal.present().catch((err) => {
-//       return this.messageService.errorAlert(err);
-//     });
-//   }
 }

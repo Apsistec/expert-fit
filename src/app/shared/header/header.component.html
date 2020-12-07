@@ -10,7 +10,7 @@
       class="small-logo"
     ></ion-img>
 
-    <ng-container *ngIf="authService.user$ | async ; else startButton">
+    <div *ngIf="authService.user$ | async as user ; else startButton">
       <ion-item
         slot="end"
         type="button"
@@ -26,7 +26,7 @@
           ></ion-img>
         </ion-avatar>
       </ion-item>
-    </ng-container>
+    </div>
 
     <ng-template #startButton>
       <ion-buttons slot="end">
@@ -52,17 +52,17 @@
 
   <!-- large screen/ no hamburger -->
   <ion-toolbar color="dark" class="large-screen">
-    <ion-buttons slot="start">
-      <ion-back-button
-        *ngIf="showBackButton"
-        defaultHref="/home"
-        color="tertiary"
-      ></ion-back-button>
-      <ion-img
+      <img
         src="..//..//..//assets//icons//icon-144x144.png"
         slot="start"
         class="small-logo"
-      ></ion-img>
+      >
+    <ion-buttons slot="start">
+      <ion-back-button
+        *ngIf="showBackButton === true"
+        defaultHref="/home"
+        color="tertiary"
+      ></ion-back-button>
 
       <ion-item
         class="menu-font"
@@ -130,7 +130,7 @@
       </ion-item>
     </ion-buttons>
 
-    <ng-container *ngIf="authService.user$ | async ; else getStarted">
+    <div *ngIf="authService.user$ | async as user ; else getStarted">
       <ion-item
         slot="end"
         type="button"
@@ -146,7 +146,7 @@
           ></ion-img>
         </ion-avatar>
       </ion-item>
-    </ng-container>
+    </div>
 
     <ng-template #getStarted>
       <ion-buttons slot="end">

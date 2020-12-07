@@ -41,8 +41,14 @@ a:hover {
 }
 
 .small-logo {
-    width: 7.5em;
-  margin: 15px 10px 10px 25px;
+   height: 45px;
+   width: 45px;
+   padding-left: 20px;
+}
+.full-logo{
+  height: 45px;
+  max-width: 140px;
+  padding-left: 20px;
 }
 // Account for Header on each page
 ion-grid {
@@ -122,20 +128,36 @@ ion-card {
 
 // Toolbars
 .toolbar-global {
-  text-align: center;
-  font: 900 Montserrat;
-  color: var(--ion-color-light-shade);
   --background: var(--ion-color-primary);
-  text-transform: capitalize;
-  --min-height: 5em;
-  ion-button {
+  h4, h3{
+  text-align: center;
+  font-size: large;
+  font-weight: bolder;
+  }
+  h3{
+      padding-top: 10px;
+    text-transform: uppercase;
+    color: var(--ion-color-light-shade);
+  }
+  h4{
     color: var(--ion-color-warning-shade);
+    text-transform: capitalize;
+    font-variant:small-caps;
+  }
+  ion-button {
+    color: var(--ion-color-warning);
   }
 }
 
 // Modals
+  
+  p{
+    color: black;
+    text-align: left;
+  }
 .modal-css {
   @extend .toolbar-global;
+  padding: 15px;
   --border-radius: 12px;
   --backdrop-opacity: 30% !important;
   --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
@@ -143,6 +165,7 @@ ion-card {
       0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
       0px 70px 60px rgba(0, 0, 0, 0.15);
 }
+
 .video-css .modal-wrapper {
   @extend .toolbar-global;
   --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),

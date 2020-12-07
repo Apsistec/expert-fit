@@ -18,7 +18,7 @@ import { ContactPage } from '../contact/contact.page';
   styleUrls: ['./side-menu.component.scss']
 })
 export class SideMenuComponent implements OnInit {
-  yearDate: any;
+  yearDate: any = Date.now();
   user: User;
 
   constructor(
@@ -31,13 +31,8 @@ export class SideMenuComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getYear();
     // this.user = this.authService.user;
     // this.authService.user.pipe(map((user) => (this.user = user)));
-  }
-
-  getYear(): void {
-    this.yearDate = this.dateService.convertDate(Date.now(), 'yyyy');
   }
 
   gotoGetStarted() {

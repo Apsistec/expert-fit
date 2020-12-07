@@ -1,6 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { User } from 'src/app/models/users.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { DateService } from 'src/app/services/date.service';
 import { MessageService } from 'src/app/services/message.service';
 import { AboutAppComponent } from '../about-app/about-app.component';
@@ -13,16 +16,14 @@ import { TermsComponent } from '../terms/terms.component';
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent implements OnInit {
-  yearDate: any;
-  ratings;
-    benefits;
-    chooser;
-
+  yearDate: any = Date.now();
+  chooser;
+  user: User;
   constructor(
       private modalController: ModalController,
       private messageService: MessageService,
       private router: Router,
-      public dateService: DateService
+      public authService: AuthService
 
   ) {
 
@@ -30,7 +31,6 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
     this.chooser = (this.router.url === '/testimonials') ? 'benefits' : 'ratings';
-    this.yearDate = this.dateService.convertDate(Date.now(), 'yyyy');
 
   }
 

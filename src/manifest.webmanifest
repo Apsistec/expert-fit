@@ -1,7 +1,7 @@
 {
     "name": "expert-fit-app",
-    "short_name": "game-work",
-    "description": "The premier app for Daily Fantasy Sports players who Win.",
+    "short_name": "expert-fit",
+    "description": "The fitness app that becomes your trainer.",
     "dir": "ltr",
     "orientation": "any",
     "lang": "en-US",
@@ -9,12 +9,12 @@
         "src": "./ngsw-worker.js"
     },
     "categories": [
-        "sports",
-        "entertainment",
+        "fitness",
+        "health",
         "statistics"
     ],
-    "theme_color": "#121212",
-    "background_color": "#ffffff",
+    "theme_color": "#38407a",
+    "background_color": "#92949c",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",

@@ -12,10 +12,14 @@
 }
 .active-bottom-menu{
   ion-label{
-      color: var(--ion-color-secondary);
+      color: var(--ion-color-tertiary-tint);
   }
 }
   
   .footer-logo {
     padding: 0.313em;
+  }
+
+  .left-footer-col{
+    padding-left: 20px;
   }

@@ -47,7 +47,7 @@ export class ModalViewComponent implements OnDestroy {
         // this.currentDialog = this.modalService.create(AboutAppComponent, );
         // this.currentDialog.componentInstance.photo = params.id;
     console.log('params: ', params);
-    this.showModal(this.modalID);
+    // this.showModal(this.modalID);
     //     // Go back to home page after the modal is closed
     //     this.currentDialog.result.then(result => {
     //       console.log('hello');
@@ -59,67 +59,67 @@ export class ModalViewComponent implements OnDestroy {
     });
   }
 
-    async showModalGetStarted() {
-    const modal = await this.modalController.create({
-      component: GetStartedComponent,
-      cssClass: 'modal-css',
-      showBackdrop: true,
-      backdropDismiss: false
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
-    async showModalTerms() {
-    const modal = await this.modalController.create({
-      component: TermsComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
+  //   async showModalGetStarted() {
+  //   const modal = await this.modalController.create({
+  //     component: GetStartedComponent,
+  //     cssClass: 'modal-css',
+  //     showBackdrop: true,
+  //     backdropDismiss: false
+  //   });
+  //   return modal.present().catch((err) => {
+  //     return this.messageService.errorAlert(err);
+  //   });
+  // }
+  //   async showModalTerms() {
+  //   const modal = await this.modalController.create({
+  //     component: TermsComponent,
+  //     cssClass: 'modal-css',
+  //     backdropDismiss: true,
+  //     swipeToClose: true,
+  //     showBackdrop: true
+  //   });
+  //   return modal.present().catch((err) => {
+  //     return this.messageService.errorAlert(err);
+  //   });
+  // }
 
-  async showModalPrivacy() {
-    const modal = await this.modalController.create({
-      component: PrivacyComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
+  // async showModalPrivacy() {
+  //   const modal = await this.modalController.create({
+  //     component: PrivacyComponent,
+  //     cssClass: 'modal-css',
+  //     backdropDismiss: true,
+  //     swipeToClose: true,
+  //     showBackdrop: true
+  //   });
+  //   return modal.present().catch((err) => {
+  //     return this.messageService.errorAlert(err);
+  //   });
+  // }
 
-  async showModalAbout() {
-    const modal = await this.modalController.create({
-      component: AboutAppComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
+  // async showModalAbout() {
+  //   const modal = await this.modalController.create({
+  //     component: AboutAppComponent,
+  //     cssClass: 'modal-css',
+  //     backdropDismiss: true,
+  //     swipeToClose: true,
+  //     showBackdrop: true
+  //   });
+  //   return modal.present().catch((err) => {
+  //     return this.messageService.errorAlert(err);
+  //   });
+  // }
 
-  showModal(modalID) {
-      if (modalID === 'about-app') {
-          this.showModalAbout();
-      } else if (modalID === 'privacy') {
-          this.showModalPrivacy();
-      } else if (modalID === 'terms') {
-          this.showModalTerms();
-      } else if (modalID === 'get-started') {
-          this.showModalGetStarted();
-      }
-  }
+  // showModal(modalID) {
+  //     if (modalID === 'about-app') {
+  //         this.showModalAbout();
+  //     } else if (modalID === 'privacy') {
+  //         this.showModalPrivacy();
+  //     } else if (modalID === 'terms') {
+  //         this.showModalTerms();
+  //     } else if (modalID === 'get-started') {
+  //         this.showModalGetStarted();
+  //     }
+  // }
 
   ngOnDestroy() {
     this.destroy.next();

@@ -1,8 +1,6 @@
+import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import {
-  DEFAULT_CURRENCY_CODE,
-  NgModule
-} from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -28,7 +26,6 @@ import { AppComponent } from './app.component';
 import { SharedDirectivesModule } from './directives/shared-directives.module';
 import { SideMenuComponent } from './home/side-menu/side-menu.component';
 
-
 @NgModule({
   declarations: [AppComponent, SideMenuComponent],
   entryComponents: [],
@@ -37,10 +34,10 @@ import { SideMenuComponent } from './home/side-menu/side-menu.component';
     IonicModule.forRoot(),
     IonicStorageModule.forRoot({
       name: '__mydb',
-      driverOrder: ['indexeddb', 'sqlite', 'websql']
+      driverOrder: ['indexeddb', 'sqlite', 'websql'],
     }),
     ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production
+      enabled: environment.production,
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthGuardModule,
@@ -57,17 +54,16 @@ import { SideMenuComponent } from './home/side-menu/side-menu.component';
     FormsModule,
     ShareButtonsModule,
     ShareIconsModule,
-    SharedDirectivesModule
-    // SharedModule,
+    SharedDirectivesModule,
   ],
   providers: [
+    DatePipe,
     StatusBar,
     SplashScreen,
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'USD' },
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
-  exports: []
+  exports: [],
 })
 export class AppModule {}
-

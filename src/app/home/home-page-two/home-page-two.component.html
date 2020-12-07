@@ -4,7 +4,7 @@
     >
         <ion-toolbar class="toolbar-global">
             <ion-title [@slideInRight]="slideInRight">
-                <ion-text color="tertiary">
+                <ion-text color="warning">
                     Clear Benefits of utilizing Expert Fitness Personal Training
                 </ion-text>
             </ion-title>
@@ -16,7 +16,7 @@
         </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
-        <ion-card color="tertiary" class="ion-padding">
+        <ion-card color="primary" class="ion-padding">
             <div [@slideInRight]="slideInRight">
                 <ion-text color="warning">
                     <h2>
@@ -37,14 +37,13 @@
         </ion-card>
     </ion-row>
     <ion-row
-        class="ion-no-margin-horizontal ion-margin-vertical"
+        class="ion-no-margin-horizontal ion-justify-content-center ion-margin-vertical"
         color="primary"
     >
-        <ion-toolbar class="toolbar-global">
+        <ion-toolbar class="benefits-toolbar ion-text-center">
+
             <ion-button
-                size="large"
-                style="padding: 0.4em"
-                color="warning"
+                color="secondary"
                 routerLink="/get-started"
                 [@slideInLeft]="slideInLeft"
             >

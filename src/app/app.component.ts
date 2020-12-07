@@ -1,27 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ModalController, Platform, PopoverController } from '@ionic/angular';
-import { Observable } from 'rxjs';
-import { User } from './models/users.model';
 import { AuthService } from './services/auth.service';
 import { MessageService } from './services/message.service';
 import { PopoverService } from './services/popover.service';
 import { UpdateService } from './services/update.service';
-import { AboutAppComponent } from './shared/about-app/about-app.component';
-import { GetStartedComponent } from './shared/get-started/get-started.component';
 import { PopoverComponent } from './shared/popover/popover.component';
-import { PrivacyComponent } from './shared/privacy/privacy.component';
-import { TermsComponent } from './shared/terms/terms.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent implements OnInit {
-//   user: Observable<User>;
+export class AppComponent{
   currentRoute;
   showBackButton = false;
   currentURL: string;
@@ -32,11 +25,7 @@ export class AppComponent implements OnInit {
     public popoverService: PopoverService,
     private statusBar: StatusBar,
     private checkForUpdate: UpdateService,
-    private modalController: ModalController,
-    private popoverController: PopoverController,
-    private messageService: MessageService,
     public authService: AuthService,
-    private router: Router
   ) {
     this.initializeApp();
   }
@@ -48,12 +37,7 @@ export class AppComponent implements OnInit {
     });
   }
 
-  async ngOnInit() {
-    if (this.router.url === '/home' || '/') {
-      this.showBackButton = false;
-    } else {
-      this.showBackButton = true;
-    }
+
     // this.checkForUpdate.checkForUpdateService();
 
     // try {
@@ -65,79 +49,7 @@ export class AppComponent implements OnInit {
     //   firebase.analytics();
     // } catch (error) {
     //   console.error('Persistense Failed');
-  }
+  // }
 
-  async presentPopover(ev: any) {
-    const popover = await this.popoverController.create({
-      component: PopoverComponent,
-      event: ev,
-      translucent: true,
-      cssClass: 'user-popover'
-    });
-    return popover.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
 
-  async showModalGetStarted() {
-    const modal = await this.modalController.create({
-      component: GetStartedComponent,
-      cssClass: 'modal-css',
-      showBackdrop: true,
-      backdropDismiss: false
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
-    async showModalTerms() {
-    const modal = await this.modalController.create({
-      component: TermsComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
-
-  async showModalPrivacy() {
-    const modal = await this.modalController.create({
-      component: PrivacyComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
-
-  async showModalAbout() {
-    const modal = await this.modalController.create({
-      component: AboutAppComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
-
-  showModal(modalID) {
-      if (modalID === 'about-app') {
-          this.showModalAbout();
-      } else if (modalID === 'privacy') {
-          this.showModalPrivacy();
-      } else if (modalID === 'terms') {
-          this.showModalTerms();
-      } else if (modalID === 'get-started') {
-          this.showModalGetStarted();
-      }
-  }
 }

@@ -1,56 +1,72 @@
-
-
-
 <ion-content fullscreen>
-    <!-- scrollEvents="true" [appFadeHeader]="toolbar"> -->
+  <!-- scrollEvents="true" [appFadeHeader]="toolbar"> -->
 
-    <ion-grid class="ion-no-padding">
-        <ion-row class="scene-one ion-justify-content-around" style="padding-top: 14vh">
-            <ion-col size="12" size-md="6" class="ion-align-self-start ion-text-center">
-                <ion-row class="ion-text-center">
-                    <ion-col size="6" offset="3">
-                        <img [@bounceOutUp]="bounceOutUp" src="../../../assets/logos/logo.png" style="max-width: 450px"
-                            class="raised-z" />
-                        <hr />
-                        <ion-card class="logo-card">
-                            <ion-card-title class="lead" color="light">
-                           
-                                      Expert Fitness<sup>3D</sup>
+  <ion-grid class="ion-no-padding ion-no-margin">
+    <ion-row class="scene-one ion-justify-content-center" style="padding-top: 14vh">
+      <!-- Left side of Landing -->
+      <ion-col size="12" class="ion-text-center">
+  
+            <img
+              [@bounceOutUp]="bounceOutUp"
+              src="../../../assets/logos/logo.png"
+              style="max-width: 370px"
+            />
 
-                         
-                            </ion-card-title>
-                            <ion-card-subtitle color="warning" class="lesser" >
-                               Train | Review | Grow
-                            </ion-card-subtitle>
-                        </ion-card>
-                        <ion-button [@flash]="flash" size="large" class="cta raised-z" color="light" routerLink="/about-us"
-                            fill="outline">Our Club</ion-button>
-                        <ion-button [@flash]="flash" size="large" class="cta raised-z" color="warning" fill="outline"
-                            routerLink="/get-started" style="background: var(--ion-color-primary);">
-                            Join Now
-                            </ion-button>
-                    </ion-col>
-                </ion-row>
-            </ion-col>
-
-            <ion-col size="12" size-md="6" class="ion-align-self-center ion-text-center">
-                <div>
-                    <img class="pulsing" (click)="showModalVideo()" style="z-index: 22; width:150px;" src="../../../assets/svg/btn-play.svg" />
-                </div>
-            </ion-col>
-        </ion-row>
-        <ion-row class="ion-padding ion-no-margin infographic">
-            <ion-col size="12" class="ion-text-center">
-                <img src="../../../assets/svg/Plain_infographic4slot.svg">
-            </ion-col>
-        </ion-row>
-
-
-     
-            <app-home-page-two style="width: 199vw; height: 100vh;"></app-home-page-two>
-
-        <app-footer></app-footer>
-   </ion-grid>
-
+              <ion-card class="logo-card ion-text-center">
+                <ion-card-title class="lead" color="light">
+                  Expert Fitness<sup>3D</sup>
+                </ion-card-title>
+                <ion-card-subtitle color="warning" class="lesser">
+                  Train | Review | Grow
+                </ion-card-subtitle>
+              </ion-card>
    
+            <ion-button
+              [@flash]="flash"
+              size="large"
+              class="cta"
+              color="light"
+              routerLink="/about-us"
+              fill="outline"
+              >Our Club</ion-button
+            >
+            <ion-button
+              [@flash]="flash"
+              size="large"
+              class="cta"
+              color="warning"
+              fill="outline"
+              routerLink="/get-started"
+              style="background: var(--ion-color-primary)"
+            >
+              Join Now
+            </ion-button>
+              <img
+            class="pulsing"
+            (click)="showModalVideo()"
+            style="z-index: 22; width: 150px"
+            src="../../../assets/svg/btn-play.svg"
+          />
+        
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row class="infographic">
+
+      <ion-col size="12" class="ion-text-center ion-no-padding ion-no-margin">
+        <ion-toolbar class="infographic-toolbar ion-margin-vertical">
+          <ion-title color="warning">
+            The Approach to Fitness at Expert Fitness
+          </ion-title>
+        </ion-toolbar>
+        <img src="../../../assets/svg/Plain_infographic4slot.svg" />
+      </ion-col>
+        <ion-toolbar class="infographic-toolbar ion-margin-vertical"></ion-toolbar>
+    </ion-row>
+
+    <app-home-page-two style="width: 100vw; height: 100vh"></app-home-page-two>
+
+    <app-footer></app-footer>
+  </ion-grid>
 </ion-content>

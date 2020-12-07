@@ -1,14 +1,20 @@
 
   <ion-card
     class="ion-padding ion-text-center"
+    class="ion-card-global"
     style="margin: auto; top: 10vh; max-width: 500px"
-    color="light"
   >
-    <div class="displayTableCell">
-      <div class="authBlock">
+    <ion-card-header>
+      <ion-card-title>
+
+      </ion-card-title>
+      <ion-card-subtitle>
+
+      </ion-card-subtitle>
+    </ion-card-header>
         <h3>Thank You!</h3>
 
-        <div *ngIf="authService.user$ | async ">
+        <div *ngIf="authService.user$ | async as user">
           <p class="text-center">
             Your email,
             <strong>{{user.email}}</strong>
@@ -29,25 +35,25 @@
         </div>
 
         <!-- Calling SendVerificationMail() method using authService Api -->
-        <div class="formGroup">
+        <!-- <div class="formGroup"> -->
           <ion-button
             class="ion-text-capitalize"
             type="button"
-            class="btn btnPrimary"
             (click)="authService.sendVerificationMail()"
           >
-            <i class="fas fa-redo-alt"></i>
+            <ion-icon name="return-sharp"></ion-icon>
             Resend Verification Email
           </ion-button>
-        </div>
-      </div>
+        <!-- </div>
+      </div> -->
 
-      <div class="redirectToSignIn">
-        <span
-          >Go back to?<span class="redirect" routerLink="/get-started">
-            Sign in</span
-          ></span
+      <!-- <div class="redirectToSignIn"> -->
+        <ion-button fill="clear" class="redirect" routerLink="/get-started">
+            > 
+            <ion-text color="light">Go back to?</ion-text>
+            <ion-text color="warning">Sign In</ion-text>
+          </ion-button
         >
-      </div>
-    </div>
+      <!-- </div> -->
+    <!-- </div> -->
   </ion-card>
