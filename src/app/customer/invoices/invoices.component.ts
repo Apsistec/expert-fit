@@ -21,6 +21,6 @@ export class InvoicesComponent implements OnInit {
 
 
   async dismissModal() {
-    this.modalCtrl.dismiss();
+    await this.modalCtrl.dismiss();
   }
 }

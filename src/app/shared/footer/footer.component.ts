@@ -34,43 +34,43 @@ export class FooterComponent implements OnInit {
 
   }
 
-  async showModalTerms() {
-    const modal = await this.modalController.create({
-      component: TermsComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
+  // async showModalTerms() {
+  //   const modal = await this.modalController.create({
+  //     component: TermsComponent,
+  //     cssClass: 'modal-css',
+  //     backdropDismiss: true,
+  //     swipeToClose: true,
+  //     showBackdrop: true
+  //   });
+  //   return modal.present().catch((err) => {
+  //     return this.messageService.errorAlert(err);
+  //   });
+  // }
 
-  async showModalPrivacy() {
-    const modal = await this.modalController.create({
-      component: PrivacyComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
+  // async showModalPrivacy() {
+  //   const modal = await this.modalController.create({
+  //     component: PrivacyComponent,
+  //     cssClass: 'modal-css',
+  //     backdropDismiss: true,
+  //     swipeToClose: true,
+  //     showBackdrop: true
+  //   });
+  //   return modal.present().catch((err) => {
+  //     return this.messageService.errorAlert(err);
+  //   });
+  // }
 
-  async showModalAbout() {
-    const modal = await this.modalController.create({
-      component: AboutAppComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
+  // async showModalAbout() {
+  //   const modal = await this.modalController.create({
+  //     component: AboutAppComponent,
+  //     cssClass: 'modal-css',
+  //     backdropDismiss: true,
+  //     swipeToClose: true,
+  //     showBackdrop: true
+  //   });
+  //   return modal.present().catch((err) => {
+  //     return this.messageService.errorAlert(err);
+  //   });
+  // }
 
 }

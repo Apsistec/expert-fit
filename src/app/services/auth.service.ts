@@ -32,14 +32,15 @@ export class AuthService {
     private messageService: MessageService,
     private modalController: ModalController
   ) {
-    this.user$ = this.authState$.pipe(
-      switchMap((user: any) => {
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap((user) => {
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+        } else {
+          of(null);
         }
       })
     );
-    this.user$.pipe(map(user => this.userData = user));
   }
 
 
@@ -173,9 +174,6 @@ export class AuthService {
   SignOut() {
     return this.afAuth
       .signOut()
-      .catch((error) => {
-        this.messageService.errorAlert(error);
-      })
       .then(() => {
         this.messageService
           .signOutToast()

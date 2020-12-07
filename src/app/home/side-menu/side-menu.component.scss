@@ -33,14 +33,13 @@
 //   bottom: 0px;
 // }
 
-.showModalContact::active {
-  border-left: 0.625em solid var(--ion-color-tertiary);
+ion-label::hover {
+  border-left: 0.625em solid var(--ion-color-warning);
 }
 
 .active-item {
   border-left: 0.625em solid var(--ion-color-warning-shade);
   color: var(--ion-color-tertiary-tint)
-  //   background: rgba(var(--ion-color-warning-rgb) 0.4);
 }
 
 ion-item {
@@ -48,14 +47,10 @@ ion-item {
 }
 
 .side-menu-font {
-  // text-decoration: none;
-  // font: normal 800 1em sans-serif !important;
   color: var(--ion-color-dark-shade);
   font-size: x-large;
   font-weight: 900;
   text-transform: capitalize;
   font-variant: small-caps;
 }
-.sales{
-  border:  2px solid var(--ion-color-success);
-}
+

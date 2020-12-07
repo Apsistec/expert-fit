@@ -107,9 +107,10 @@
                         </ion-card-header>
                         <ion-card-content>
                             <form
-                                *ngIf="authService.user$ | async as user; else register;"
+                            #testimonial
+                                *ngIf="user | async; else register;"
                                 [formGroup]="reviewForm"
-                                (ngSubmit)="setTestimonial()"
+                                (ngSubmit)="setTestimonial(testimonial)"
                                 novalidate
                             >
                                 <ion-list class="ion-no-margin ion-no-padding">

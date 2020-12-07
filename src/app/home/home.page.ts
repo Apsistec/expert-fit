@@ -7,8 +7,11 @@ import { User } from '../models/users.model';
 import { AuthService } from '../services/auth.service';
 import { MessageService } from '../services/message.service';
 import { UserService } from '../services/user.service';
+import { AboutAppComponent } from '../shared/about-app/about-app.component';
 
-import { IntroVideoComponent } from './intro-video/intro-video.component';
+import { IntroVideoComponent } from '../shared/intro-video/intro-video.component';
+import { PrivacyComponent } from '../shared/privacy/privacy.component';
+import { TermsComponent } from '../shared/terms/terms.component';
 
 @Component({
   selector: 'app-home',
@@ -19,19 +22,19 @@ import { IntroVideoComponent } from './intro-video/intro-video.component';
       transition(
         '* => *',
         useAnimation(bounceOutUp, {
-          params: { timing: 1.75, delay: 2.4 }
+          params: { timing: 1.75, delay: 2.4 },
         })
-      )
+      ),
     ]),
     trigger('flash', [
       transition(
         '* => *',
         useAnimation(flash, {
-          params: { timing: 0.66, delay: 3.95 }
+          params: { timing: 0.66, delay: 3.95 },
         })
-      )
-    ])
-  ]
+      ),
+    ]),
+  ],
 })
 export class HomePage implements OnInit {
   title = 'Home';
@@ -50,14 +53,10 @@ export class HomePage implements OnInit {
     public authService: AuthService,
     public userService: UserService,
     private modalController: ModalController,
-    private messageService: MessageService,
-  ) {
+    private messageService: MessageService
+  ) {}
 
-
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async showModalVideo() {
     const modal = await this.modalController.create({
@@ -65,11 +64,49 @@ export class HomePage implements OnInit {
       cssClass: 'video-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true
+      showBackdrop: true,
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
     });
   }
 
+  async showModalPrivacy() {
+    const modal = await this.modalController.create({
+      component: PrivacyComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true,
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
+
+  async showModalTerms() {
+    const modal = await this.modalController.create({
+      component: TermsComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true,
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
+
+  async showModalAbout() {
+    const modal = await this.modalController.create({
+      component: AboutAppComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true,
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
 }

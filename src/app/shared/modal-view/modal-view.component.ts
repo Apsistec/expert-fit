@@ -9,6 +9,9 @@ import { MessageService } from 'src/app/services/message.service';
 import { AboutAppComponent } from '../about-app/about-app.component';
 import { GetStartedComponent } from '../get-started/get-started.component';
 import { TermsComponent } from '../terms/terms.component';
+import { IntroVideoComponent } from '../intro-video/intro-video.component';
+import { SignInComponent } from '../sign-in/sign-in.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 // import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 
 @Component({
@@ -47,6 +50,7 @@ export class ModalViewComponent implements OnDestroy {
         // this.currentDialog = this.modalService.create(AboutAppComponent, );
         // this.currentDialog.componentInstance.photo = params.id;
     console.log('params: ', params);
+    this.showModal(this.modalID);
     // this.showModal(this.modalID);
     //     // Go back to home page after the modal is closed
     //     this.currentDialog.result.then(result => {
@@ -59,67 +63,110 @@ export class ModalViewComponent implements OnDestroy {
     });
   }
 
-  //   async showModalGetStarted() {
-  //   const modal = await this.modalController.create({
-  //     component: GetStartedComponent,
-  //     cssClass: 'modal-css',
-  //     showBackdrop: true,
-  //     backdropDismiss: false
-  //   });
-  //   return modal.present().catch((err) => {
-  //     return this.messageService.errorAlert(err);
-  //   });
-  // }
-  //   async showModalTerms() {
-  //   const modal = await this.modalController.create({
-  //     component: TermsComponent,
-  //     cssClass: 'modal-css',
-  //     backdropDismiss: true,
-  //     swipeToClose: true,
-  //     showBackdrop: true
-  //   });
-  //   return modal.present().catch((err) => {
-  //     return this.messageService.errorAlert(err);
-  //   });
-  // }
 
-  // async showModalPrivacy() {
-  //   const modal = await this.modalController.create({
-  //     component: PrivacyComponent,
-  //     cssClass: 'modal-css',
-  //     backdropDismiss: true,
-  //     swipeToClose: true,
-  //     showBackdrop: true
-  //   });
-  //   return modal.present().catch((err) => {
-  //     return this.messageService.errorAlert(err);
-  //   });
-  // }
+  showModal(modalID) {
+      if (modalID === 'about-app') {
+          this.showModalAbout();
+      } else if (modalID === 'privacy') {
+          this.showModalPrivacy();
+      } else if (modalID === 'terms') {
+          this.showModalTerms();
+      } else if (modalID === 'get-started') {
+          this.showModalGetStarted();
+      } else if (modalID === 'intro-video') {
+        this.showModalVideo();
+      } else if (modalID === 'sign-in') {
+        this.showModalSignIn();
+      } else if (modalID === 'sign-up') {
+        this.showModalSignUp();
+      }
+  }
+    async showModalVideo() {
+    const modal = await this.modalController.create({
+      component: IntroVideoComponent,
+      cssClass: 'video-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
 
-  // async showModalAbout() {
-  //   const modal = await this.modalController.create({
-  //     component: AboutAppComponent,
-  //     cssClass: 'modal-css',
-  //     backdropDismiss: true,
-  //     swipeToClose: true,
-  //     showBackdrop: true
-  //   });
-  //   return modal.present().catch((err) => {
-  //     return this.messageService.errorAlert(err);
-  //   });
-  // }
+    async showModalGetStarted() {
+    const modal = await this.modalController.create({
+      component: GetStartedComponent,
+      cssClass: 'modal-css',
+      showBackdrop: true,
+      backdropDismiss: false
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
+    async showModalTerms() {
+    const modal = await this.modalController.create({
+      component: TermsComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
 
-  // showModal(modalID) {
-  //     if (modalID === 'about-app') {
-  //         this.showModalAbout();
-  //     } else if (modalID === 'privacy') {
-  //         this.showModalPrivacy();
-  //     } else if (modalID === 'terms') {
-  //         this.showModalTerms();
-  //     } else if (modalID === 'get-started') {
-  //         this.showModalGetStarted();
-  //     }
-  // }
+  async showModalPrivacy() {
+    const modal = await this.modalController.create({
+      component: PrivacyComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
+
+  async showModalAbout() {
+    const modal = await this.modalController.create({
+      component: AboutAppComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
+  async showModalSignUp() {
+    const modal = await this.modalController.create({
+      component: SignUpComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
+  async showModalSignIn() {
+    const modal = await this.modalController.create({
+      component: SignInComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
 
   ngOnDestroy() {
     this.destroy.next();

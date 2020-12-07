@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {
     LoadingController,
@@ -8,17 +8,15 @@ import { MessageService } from '../../services/message.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-get-started',
-  templateUrl: './get-started.component.html',
-  styleUrls: ['./get-started.component.scss'],
+  selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss'],
 })
-export class GetStartedComponent implements OnInit {
+export class SignUpComponent implements OnInit {
   loginTitle: boolean;
   hide: boolean;
   hid: boolean;
   registerForm: FormGroup;
-  loginForm: FormGroup;
-  @ViewChild('flipcontainer', { static: false }) flipcontainer: ElementRef;
 
   constructor(
     private fb: FormBuilder,
@@ -29,13 +27,12 @@ export class GetStartedComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loginTitle = true;
     this.hide = true;
     this.hid = true;
-    this.createForms();
+    this.createForm();
   }
 
-  createForms() {
+  createForm() {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -57,28 +54,28 @@ export class GetStartedComponent implements OnInit {
       ],
     });
 
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(25),
-          Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
-        ],
-      ],
-    });
+    // this.loginForm = this.fb.group({
+    //   email: ['', [Validators.required, Validators.email]],
+    //   password: [
+    //     '',
+    //     [
+    //       Validators.required,
+    //       Validators.minLength(8),
+    //       Validators.maxLength(25),
+    //       Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$'),
+    //     ],
+    //   ],
+    // });
   }
 
 
-  async onLogin() {
-    await this.showLoading();
-    await this.authService.SignIn(this.loginForm.value);
-    await this.dismissLoading();
-  }
+  // async onLogin() {
+  //   await this.showLoading();
+  //   await this.authService.SignIn(this.loginForm.value);
+  //   await this.dismissLoading();
+  // }
 
-  async onRegister() {
+  async onRegister(registerForm) {
     await this.showLoading();
     await this.authService.SignUp(this.registerForm.value);
     await this.dismissLoading();
@@ -101,21 +98,10 @@ export class GetStartedComponent implements OnInit {
     this.hide = !this.hide;
   }
 
-  toggleHid() {
-    this.hid = !this.hid;
-  }
-
-  toggleRegister() {
-    this.loginTitle = !this.loginTitle;
-    this.flipcontainer.nativeElement.classList.toggle('flip');
-  }
-
   get registerFormControl() {
     return this.registerForm.controls;
   }
-  get loginFormControl() {
-    return this.loginForm.controls;
-  }
+
 
   dismissModal() {
     this.modalController.dismiss();

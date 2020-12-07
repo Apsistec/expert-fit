@@ -14,7 +14,7 @@
     </ion-card-header>
         <h3>Thank You!</h3>
 
-        <div *ngIf="authService.user$ | async as user">
+        <div *ngIf="user | async">
           <p class="text-center">
             Your email,
             <strong>{{user.email}}</strong>

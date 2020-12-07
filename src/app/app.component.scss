@@ -1,20 +1,4 @@
 
-// ion-header{
-//     z-index: 30;
-//   }
-  
-  // ion-toolbar {
-  //   --background: transparent;
-  //   --border-color: transparent;
-  // }
-  
-  // ion-content {
-  //   --offset-top: 0px;
-  //   position: absolute;
-  // }
-  
-  
-  
   .menu-font {
     ion-label {
       font: 800 1.1em/1.4 Montserrat, sans-serif;
@@ -36,19 +20,7 @@
   .silhouette {
     max-height: 2.75em;
   }
-  
-  @media (max-width: 415px) {
-    .large-screen {
-      display: none !important;
-    }
-  }
-  @media (min-width: 416px) {
-    .small-screen {
-      display: none !important;
-    }
-  }
-  
-  
+ 
   .flashing {
     animation: 2s ease-out infinite flasher;
     z-index: 99;

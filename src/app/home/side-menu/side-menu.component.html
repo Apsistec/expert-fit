@@ -32,7 +32,7 @@
 					<ion-label class="side-menu-font">Home</ion-label>
 				</ion-item>
 				<!-- SignedIn Menu Items -->
-				<div *ngIf="authService.user$ | async as user; else public">
+				<div *ngIf="user | async ; else public">
 					<ion-item
 						color="medium"
 						button
@@ -284,7 +284,7 @@
 				<ion-list-header class="list-header-global">
 					<ion-title> Authentication </ion-title>
 				</ion-list-header>
-				<div *ngIf="authService.user$ | async as user; else nouser">
+				<div *ngIf="user | async; else nouser">
 					<ion-item color="medium" button (click)="authService.SignOut()">
 						<ion-label class="side-menu-font"> Sign Out </ion-label>
 						<ion-icon
@@ -301,7 +301,7 @@
 						button
 						routerLinkActive="active-item"
 						[routerLinkActiveOptions]="{ exact: true }"
-						routerLink="/get-started"
+					(click)="showModalGetStarted()"
 					>
 						<ion-icon
 							color="success"
@@ -319,17 +319,17 @@
 	<ion-footer style="max-height: 15%">
 		<ion-toolbar color="dark" class="ion-text-center">
 			<ion-buttons>
-				<ion-button color="primary" fill="clear" routerLink="/privacy">
+				<ion-button color="primary" fill="clear" (click)="showModalPrivacy()">
 					Privacy
 				</ion-button>
-				<ion-button color="primary" fill="clear" routerLink="/terms">
+				<ion-button color="primary" fill="clear" (click)="showModalTerms()">
 					Terms
 				</ion-button>
 				<ion-button
 					class="under-button"
 					fill="clear"
 					color="primary"
-					routerLink="/about-app"
+				(click)="showModalAbout()"
 				>
 					About App
 				</ion-button>

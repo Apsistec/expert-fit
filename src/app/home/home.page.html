@@ -2,14 +2,21 @@
   <!-- scrollEvents="true" [appFadeHeader]="toolbar"> -->
 
   <ion-grid class="ion-no-padding ion-no-margin">
-    <ion-row class="scene-one ion-justify-content-center" style="padding-top: 14vh">
+    <ion-row class="scene-one ion-justify-content-center">
       <!-- Left side of Landing -->
       <ion-col size="12" class="ion-text-center">
   
             <img
               [@bounceOutUp]="bounceOutUp"
               src="../../../assets/logos/logo.png"
-              style="max-width: 370px"
+              class="ion-hide-md-down"
+              style="width: 500px; padding-top: 100px;"
+            />
+            <img
+              [@bounceOutUp]="bounceOutUp"
+              src="../../../assets/logos/logo.png"
+              class="ion-hide-md-up"
+              style="width: fit-content(); padding-top: 100px;"
             />
 
               <ion-card class="logo-card ion-text-center">

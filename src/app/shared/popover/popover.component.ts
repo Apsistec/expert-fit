@@ -28,8 +28,8 @@ export class PopoverComponent {
   }
 
   async goToProfile() {
-    const res = await this.dismissPopover();
-    this.router.navigateByUrl('/customers/dashboard');
+    await this.dismissPopover();
+    this.router.navigateByUrl('/dashboard');
   }
 
   dismissPopover() {

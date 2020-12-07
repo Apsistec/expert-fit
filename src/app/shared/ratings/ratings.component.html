@@ -1,11 +1,11 @@
 
  <ion-slides
-      #reviewSlider
+      #ratings
       pager="true"
-      (ionSlidesDidLoad)="slidesDidLoad(reviewSlider)"
+      (ionSlidesDidLoad)="slidesDidLoad(ratings)"
       [options]="slideOpts"
     >
-      <ion-slide style="z-index: 99;" *ngFor="let rating of ratings">
+      <ion-slide style="z-index: 99;" *ngFor="let rating of testimonials">
           <ion-card class="ion-card-global">
             <ion-card-header>
               <ion-card-title>

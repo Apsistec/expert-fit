@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { ModalController, Platform, PopoverController } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
+import { User } from './models/users.model';
 import { AuthService } from './services/auth.service';
-import { MessageService } from './services/message.service';
 import { PopoverService } from './services/popover.service';
 import { UpdateService } from './services/update.service';
-import { PopoverComponent } from './shared/popover/popover.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +16,7 @@ export class AppComponent{
   currentRoute;
   showBackButton = false;
   currentURL: string;
+  user: User;
 
   constructor(
     private platform: Platform,

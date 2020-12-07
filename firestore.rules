@@ -1,17 +1,75 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    // This rule allows anyone on the internet to view, edit, and delete
-    // all data in your Firestore database. It is useful for getting
-    // started, but it is configured to expire after 30 days because it
-    // leaves your app open to attackers. At that time, all client
-    // requests to your Firestore database will be denied.
-    //
-    // Make sure to write security rules for your app before that time, or else
-    // your app will lose access to your Firestore database
-    match /{document=**} {
-      allow read, write;
+    function isTrialing() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'trialing';
     }
-  }
+    function isActive() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'active';
+    }
+    function isPastdue() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'past-due';
+    }
+    function isUser() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'USER';
+    }
+    function isAdmin() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'ADMIN';
+    }
+    function isCustomer() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'CUSTOMER';
+    }
+    function isEmployee() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'EMPLOYEE';
+    }
+    function isRegistered() {
+    	return isAdmin() || isCustomer() || isUser() || isEmployee();
+    }
+    function isValidCustomer() {
+    	return isRegistered() && isSignedIn() && (isActive() || isTrialing());
+    }
+  	function hasBasicSubscription() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.plan == 'BASIC';
+    }
+    function hasPremiumSubscription() {
+    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.plan == 'PREMIUM';
+    }
+      match /users/{uid} {
+        allow read, create, update: if request.auth.uid == uid || isAdmin();
+        allow delete: if isAdmin();
+
+        match /customers/{id} {
+          allow read, write: if request.auth.uid == uid;
+        }
+        match /checkout_sessions/{id} {
+          allow read, write: if request.auth.uid == uid;
+        }
+        match /subscriptions/{id} {
+          allow read: if request.auth.uid == uid;
+        }
+        match /tickets/{ticket} {
+          allow read, create, update: if request.auth.uid == uid || isAdmin();
+          allow delete: if isAdmin() || isEmployee();
+        }
+        match /posts/{post} {
+          allow read, write: if request.auth.uid == uid || isAdmin();
+        }
+        match /content-basic/{doc} {
+          allow read: if hasBasicSubscription() || hasPremiumSubscription() || isAdmin();
+        }
+        match /content-premium/{doc} {
+          allow read: if hasPremiumSubscription() || isAdmin();
+        }
+      }
+    }
+
+    match /products/{id} {
+      allow read: if true;
+    match /prices/{id} {
+      allow read: if true;
+    }
+    match /tax_rates/{id} {
+      allow read: if true;
+    }
+    }
 }

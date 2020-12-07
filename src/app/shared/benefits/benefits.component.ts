@@ -23,25 +23,24 @@ benefits =  Benefits;
     if (this.router.url === '/testimonials') {
         this.slideOpts = {
             initialSlide: 1,
-            speed: 600,
+            speed: 1200,
             loop: true,
             slidesPerView: 1
         };
     } else {
         this.slideOpts = {
             initialSlide: 1,
-            speed: 600,
+            speed: 1200,
             loop: true,
-
             breakpoints: {
                 350: {
                     slidesPerView: 1,
                 },
                 576: {
                     slidesPerView: 1.5,
-                    spaceBetween: 15,
+                    spaceBetween: 20,
                 },
-                1200: {
+                800: {
                     slidesPerView: 4,
                     spaceBetween: 15,
                 },

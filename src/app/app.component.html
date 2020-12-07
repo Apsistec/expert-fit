@@ -1,9 +1,8 @@
 <ion-app>
     <app-side-menu></app-side-menu>
-  <ion-header  transparent>
-    <ion-toolbar color="dark" #toolbar  class="small-screen">
-<!-- small screen/ hamburger-->
-    <ion-buttons slot="start">
+   <ion-header  transparent>
+    <ion-toolbar color="dark" #toolbar  class="ion-hide-lg-up">
+  <ion-buttons slot="start">
       <ion-menu-button color="tertiary"> </ion-menu-button>
     </ion-buttons>
     <ion-img
@@ -20,7 +19,7 @@
     color="dark"
     (click)="popoverService.presentPopover($event)"
     lines="none"
-    *ngIf="authService.user$ | async as user; else login"
+    *ngIf="user | async; else login"
     >
     <ion-avatar slot="end">
         <img [src]="user.photoURL || '..//assets//images//dummy-user.png'"
@@ -30,10 +29,8 @@
 </ion-item>
 </div>
     </ion-toolbar>
-     <!-- end small screen -->
 
-    <!-- large screen/ no hamburger -->
-  <ion-toolbar class="large-screen" color="dark" #toolbar >
+  <ion-toolbar class="ion-hide-lg-down" color="dark" #toolbar >
     <ion-buttons slot="start"> 
       <ion-back-button
         *ngIf="showBackButton"
@@ -119,7 +116,7 @@
     color="dark"
     (click)="popoverService.presentPopover($event)"
     lines="none"
-    *ngIf="authService.user$ | async as user ; else login"
+    *ngIf="user | async ; else login"
     >
     <ion-avatar slot="end">
         <img
@@ -132,9 +129,9 @@
 <ng-template #login>
     <ion-button class="flashing" style="float: right; padding-right: 10px;" routerLink="/get-started" color="warning">Login</ion-button>
 </ng-template>
-<!-- end large screen -->
 </ion-toolbar>
 </ion-header>
+
   
   <!-- Main Outlet -->
   

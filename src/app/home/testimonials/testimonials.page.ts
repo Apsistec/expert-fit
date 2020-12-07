@@ -14,11 +14,6 @@ import { Ratings } from 'src/app/models/ratings.model';
   styleUrls: ['./testimonials.page.scss'],
 })
 export class TestimonialsPage {
-
-
-
-
-
   slideOpts = {
     initialSlide: 1,
     speed: 400,
@@ -26,29 +21,29 @@ export class TestimonialsPage {
     breakpoints: {
       150: {
         slidesPerView: 1.5,
-        spaceBetween: 20
+        spaceBetween: 20,
       },
       576: {
         slidesPerView: 2.5,
-        spaceBetween: 30
+        spaceBetween: 30,
       },
       1200: {
         slidesPerView: 3.5,
-        spaceBetween: 15
-      }
-    }
+        spaceBetween: 15,
+      },
+    },
   };
   reviewForm;
   user: User;
   testimonials = Ratings;
   newTestimonial;
-    segment: string;
+  segment: string;
   constructor(
     public modalController: ModalController,
     public authService: AuthService,
     private fb: FormBuilder,
     private messageService: MessageService,
-    private afs: AngularFirestore,
+    private afs: AngularFirestore
   ) {
     // this.authService.user.pipe(map((user) => (this.user = user)));
 
@@ -57,20 +52,18 @@ export class TestimonialsPage {
     });
   }
 
-  segmentChanged(event) {
+  segmentChanged(event) {}
 
-  }
-
-  setTestimonial(review: string) {
+  setTestimonial(testimonial: string) {
     return this.afs
       .doc(`testimonials/${this.newTestimonial.id}`)
       .set({
-        review,
+        testimonial,
       })
       .then(() => {
         this.messageService.generalToast({
-            header: 'Testimonial Created',
-            message: 'Your review/testimonial has been created.'
+          header: 'Testimonial Created',
+          message: 'Your review/testimonial has been created.',
         });
       });
   }

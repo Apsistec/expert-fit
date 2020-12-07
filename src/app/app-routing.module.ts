@@ -4,12 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { QuicklinkStrategy } from 'ngx-quicklink';
 // import { PaidGuard } from './_guards/paid.guard';
 // import { RoleGuard } from './_guards/role.guard';
-import { HomePage } from './home/home.page';
+import { IntroVideoComponent } from './shared/intro-video/intro-video.component';
 import { AboutAppComponent } from './shared/about-app/about-app.component';
-import { GetStartedComponent } from './shared/get-started/get-started.component';
 import { ModalViewComponent } from './shared/modal-view/modal-view.component';
 import { PrivacyComponent } from './shared/privacy/privacy.component';
 import { TermsComponent } from './shared/terms/terms.component';
+import { SignUpComponent } from './shared/sign-up/sign-up.component';
+import { SignInComponent } from './shared/sign-in/sign-in.component';
 
 const redirectLoggedInToDash = () => redirectLoggedInTo(['/customers/dashboard']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/home']);
@@ -93,9 +94,15 @@ const routes: Routes = [
             path: 'privacy', component: PrivacyComponent, outlet: 'modal'
         },
         {
-            path: 'get-started', component: GetStartedComponent, outlet: 'modal'
+          path: 'intro-video', component: IntroVideoComponent, outlet: 'modal'
         },
-          { path: ':id', component: ModalViewComponent },
+        {
+          path: 'sign-in', component: SignInComponent, outlet: 'modal'
+        },
+        {
+          path: 'sign-up', component: SignUpComponent, outlet: 'modal'
+        },
+        { path: ':id', component: ModalViewComponent },
 
 
 //     ]

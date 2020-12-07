@@ -27,11 +27,10 @@ export class ContactPage implements AfterViewInit {
 
   async ngAfterViewInit() {
     const appEl = this.doc.querySelector('ion-app');
-    let isDark = false;
     let style = [];
-    if (appEl.classList.contains('dark-theme')) {
-      style = darkStyle;
-    }
+    // if (appEl.classList.contains('dark-theme')) {
+    style = darkStyle;
+    // }
 
     const googleMaps = await getGoogleMaps(
       'AIzaSyBiBxbmdVNvYMRdFSJDf-uWRsQ7Y7DPjbg'
@@ -59,37 +58,18 @@ export class ContactPage implements AfterViewInit {
           title: markerData.name,
         });
 
-        marker.addListener('click', () => {
-          infoWindow.open(map, marker);
-        });
+        // marker.addListener('click', () => {
+        infoWindow.open(map, marker);
+        // });
       });
 
       googleMaps.event.addListenerOnce(map, 'idle', () => {
         mapEle.classList.add('show-map');
       });
     });
-
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'class') {
-          const el = mutation.target as HTMLElement;
-          isDark = el.classList.contains('dark-theme');
-          if (map && isDark) {
-            map.setOptions({ styles: darkStyle });
-          } else if (map) {
-            map.setOptions({ styles: [] });
-          }
-        }
-      });
-    });
-    observer.observe(appEl, {
-      attributes: true,
-    });
   }
 
-  dismissModal() {
-    this.modalController.dismiss();
-  }
+
 }
 
 function getGoogleMaps(apiKey: string): Promise<any> {

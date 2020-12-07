@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, ModalController, NavParams } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
 import { TicketService } from '../../services/ticket.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-ticket',

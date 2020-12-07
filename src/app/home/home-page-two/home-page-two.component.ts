@@ -1,9 +1,6 @@
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 import { slideInLeft, slideInRight } from 'ng-animate';
-import { MessageService } from '../../services/message.service';
-import { GetStartedComponent } from '../../shared/get-started/get-started.component';
 
 @Component({
   selector: 'app-home-page-two',
@@ -36,20 +33,9 @@ export class HomePageTwoComponent implements OnInit {
   slideInLeft: any;
 
   constructor(
-    private modalController: ModalController,
-    private messageService: MessageService
+
   ) {}
 
   ngOnInit() {}
 
-//   async showModalGetStarted() {
-//     const modal = await this.modalController.create({
-//       component: GetStartedComponent,
-//       cssClass: 'modal-css',
-//       showBackdrop: true,
-//     });
-//     return modal.present().catch((err) => {
-//       return this.messageService.errorAlert(err);
-//     });
-//   }
 }

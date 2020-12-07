@@ -65,16 +65,16 @@ export class SideMenuComponent implements OnInit {
     });
   }
 
-//   async showModalGetStarted() {
-//     const modal = await this.modalController.create({
-//       component: GetStartedComponent,
-//       cssClass: 'modal-css',
-//       showBackdrop: true
-//     });
-//     return modal.present().catch((err) => {
-//       return this.messageService.errorAlert(err);
-//     });
-//   }
+  async showModalGetStarted() {
+    const modal = await this.modalController.create({
+      component: GetStartedComponent,
+      cssClass: 'modal-css',
+      showBackdrop: true
+    });
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
+    });
+  }
 
   async showModalAbout() {
     const modal = await this.modalController.create({
@@ -88,20 +88,6 @@ export class SideMenuComponent implements OnInit {
       return this.messageService.errorAlert(err);
     });
   }
-  async showModalContact() {
-    const modal = await this.modalController.create({
-      component: ContactPage,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
 
-  dismissModal() {
-    this.modalController.dismiss();
-  }
+
 }

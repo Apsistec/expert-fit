@@ -36,6 +36,12 @@
 //   border: 2px solid green;
 // }
 
+ion-content {
+  --offset-top: 0px;
+  position: absolute;
+}
+  
+
 a:hover {
   cursor: pointer;
 }
@@ -184,8 +190,8 @@ ion-card {
 
 // Toasts and Alerts
 .successA {
-    --background-color: var(--ion-color-medium-shade);
-    --border-color: var(--ion-color-success-tint);
+    --background-color: var(--ion-color-medium-tint);
+    --border-color: var(--ion-color-success-shade);
     --border-radius: 12px;
     --border-style: solid;
     --border-width: 0.25em;
@@ -193,12 +199,12 @@ ion-card {
         0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
         0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
         0px 70px 60px rgba(0, 0, 0, 0.15);
-    --color: var(--ion-color-light);
+    --color: black;
 }
 
 .warningA {
-    --background-color: var(--ion-color-medium-shade);
-    --border-color: var(--ion-color-warning-tint);
+    --background-color: var(--ion-color-medium-tint);
+    --border-color: var(--ion-color-warning-shade);
     --border-radius: 12px;
     --border-style: solid;
     --border-width: 0.25em;
@@ -206,12 +212,12 @@ ion-card {
         0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
         0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
         0px 70px 60px rgba(0, 0, 0, 0.15);
-    --color: var(--ion-color-light);
+    --color: black;
 }
 
 .dangerA {
-    --background-color: var(--ion-color-medium-shade);
-    --border-color: var(--ion-color-danger-tint);
+    --background-color: var(--ion-color-danger-tint);
+    --border-color: var(--ion-color-danger-shade);
     --border-radius: 12px;
     --border-style: solid;
     --border-width: 0.25em;
@@ -219,12 +225,12 @@ ion-card {
         0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
         0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
         0px 70px 60px rgba(0, 0, 0, 0.15);
-    --color: var(--ion-color-light);
+    --color: black;
 }
 
 .infoA {
-    --background-color: var(--ion-color-medium-shade);
-    --border-color: var(--ion-color-danger-secondary-tint);
+    --background-color: var(--ion-color-medium-tint);
+    --border-color: var(--ion-color-primary-shade);
     --border-radius: 12px;
     --border-style: solid;
     --border-width: 0.25em;
@@ -232,5 +238,5 @@ ion-card {
         0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
         0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
         0px 70px 60px rgba(0, 0, 0, 0.15);
-    --color: var(--ion-color-light);
+    --color: black;
 }

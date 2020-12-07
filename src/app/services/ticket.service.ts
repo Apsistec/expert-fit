@@ -13,7 +13,7 @@ export class TicketService {
   private ngUnsubscribe: Subject<any> = new Subject();
 
   constructor(
-    private db: AngularFirestore,
+    private afs: AngularFirestore,
     private auth: AuthService,
     private afAuth: AngularFireAuth
   ) {
@@ -27,17 +27,17 @@ export class TicketService {
 
   createOrUpdateTicket(id = null, info): Promise<any> {
     if (id) {
-      return this.db.doc(`tickets/${id}`).update(info);
+      return this.afs.doc(`tickets/${id}`).update(info);
     } else {
       info.creator = this.auth.currentBehaviorUser.value.id;
       info.created_at = fire.default.firestore.FieldValue.serverTimestamp();
-      return this.db.collection('tickets').add(info);
+      return this.afs.collection('tickets').add(info);
     }
   }
 
   getUserTickets() {
     const id = this.auth.currentBehaviorUser.value.id;
-    return this.db
+    return this.afs
       .collection('tickets', (ref) => ref.where('creator', '==', id))
       .snapshotChanges()
       .pipe(
@@ -53,7 +53,7 @@ export class TicketService {
   }
 
   getAdminTickets() {
-    return this.db
+    return this.afs
       .collection('tickets')
       .snapshotChanges()
       .pipe(
@@ -69,15 +69,15 @@ export class TicketService {
   }
 
   getTicket(id) {
-    return this.db.doc(`tickets/${id}`).valueChanges().pipe(take(1));
+    return this.afs.doc(`tickets/${id}`).valueChanges().pipe(take(1));
   }
 
   deleteTicket(id) {
-    return this.db.doc(`tickets/${id}`).delete();
+    return this.afs.doc(`tickets/${id}`).delete();
   }
 
   getUser(uid) {
-    return this.db.doc(`users/${uid}`).valueChanges().pipe(take(1));
+    return this.afs.doc(`users/${uid}`).valueChanges().pipe(take(1));
   }
 
 }
