@@ -13,9 +13,11 @@ export class RatingsComponent {
   @ViewChild('ratings') ratings: IonSlides;
 
   slideOpts = {
-    speed: 1300,
+    speed: 2500,
     loop: true,
     slidesPerView: 1,
+    spaceBetween: 20,
+
   };
 
   constructor() {}

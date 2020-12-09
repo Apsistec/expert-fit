@@ -1,3 +1,7 @@
+.page-two{
+  height: 100vh;
+  width: 100vw;
+}
 
 .slide-card{
   border-radius: 12px;
@@ -6,11 +10,10 @@
     0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
 }
 
-.page-two{
-  background-color: var(--ion-color-medium);
-  z-index: 99;
+
+.benefit-toolbar{
+  --background: var(--ion-color-dark-tint);
 }
-.benefits-toolbar{
-  --background: var(--ion-color-medium-shade);
-  align-text: center;
+.schedule-card{
+  background: var(--ion-color-primary-tint);
 }

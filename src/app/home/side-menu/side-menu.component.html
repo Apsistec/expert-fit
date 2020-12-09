@@ -1,20 +1,20 @@
 <ion-menu contentId="main-content" type="overlay">
 	<ion-header transparent>
 		<ion-menu-toggle>
-			<ion-toolbar class="toolbar-global">
+			<ion-toolbar color="primary">
 				<ion-buttons slot="start">
-					<ion-menu-button color="tertiary"></ion-menu-button>
+					<ion-menu-button color="warning"></ion-menu-button>
 				</ion-buttons>
-				<img src="..//assets//logos//logo.png" class="full-logo" />
+				<img src="..//assets//logos//logo.png" class="full-logo" routerLink="/home"/>
 			</ion-toolbar>
 		</ion-menu-toggle>
 	</ion-header>
-	<ion-content color="medium" fullscreen>
+	<ion-content fullscreen style="top:0;">
+			<ion-menu-toggle>
 		<ion-list color="medium" class="ion-no-padding" lines="none">
 			<ion-list-header class="list-header-global">
 				<ion-title> Menu </ion-title>
 			</ion-list-header>
-			<ion-menu-toggle>
 				<!-- Menu options -->
 				<ion-item
 					color="medium"
@@ -300,7 +300,7 @@
 						button
 						routerLinkActive="active-item"
 						[routerLinkActiveOptions]="{ exact: true }"
-						routerLink="/sign-in"
+						routerLink="/login"
 					>
 						<ion-icon
 							color="success"
@@ -311,23 +311,23 @@
 						<ion-label class="sales side-menu-font">Login</ion-label>
 					</ion-item>
 				</ng-template>
-			</ion-menu-toggle>
 		</ion-list>
+			</ion-menu-toggle>
 	</ion-content>
 	<ion-footer style="max-height: 15%">
 		<ion-toolbar color="dark" class="ion-text-center">
 			<ion-buttons>
-				<ion-button color="primary" fill="clear" routerLink="/privacy">
+				<ion-button color="primary" fill="clear" routerLink="/home(/privacy)">
 					Privacy
 				</ion-button>
-				<ion-button color="primary" fill="clear" routerLink="/terms">
+				<ion-button color="primary" fill="clear" routerLink="/home(/terms)">
 					Terms
 				</ion-button>
 				<ion-button
 					class="under-button"
 					fill="clear"
 					color="primary"
-					routerLink="/about-app"
+					routerLink="/home(/about-app)"
 				>
 					About App
 				</ion-button>

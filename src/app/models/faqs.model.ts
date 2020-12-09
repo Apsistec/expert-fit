@@ -5,7 +5,7 @@ export interface FAQ {
 }
 
 export const Faqs: FAQ[] = [
-  
+
   {
     title: 'What is the Expert Fitness App?',
     info: 'The Expert Fitness App is designed for use by fitness minded users. Specifically, the app is a tool which provides concise and highly relevent data so users can be confident about the progress they are making, while also providing for quicker responses to areas that need work by allowing for far quicker decisions. The app also provides the most relevent data to users so they can make considerably more informed decisions when developing a fitness plan.',
@@ -39,7 +39,7 @@ export const Faqs: FAQ[] = [
   {
     title: 'Where can I learn more about the Expert Fitness webapp?',
     info:
-      "Great question, you can watch the video on our home page to hear the Expert Fitness App's CEO, Shay Gillham, explain what the Expert Fitness Club is all about, how that potentially involves you, and what the goals of club are today & looking forward. You can also check out the About Us section on the menu to learn more about the history and achievements of the Expert Fitness Club",
+      'Great question, you can watch the video on our home page to hear the Expert Fitness App\'s CEO, Shay Gillham, explain what the Expert Fitness Club is all about, how that potentially involves you, and what the goals of club are today & looking forward. You can also check out the About Us section on the menu to learn more about the history and achievements of the Expert Fitness Club',
     faqId: 5,
   },
 ];

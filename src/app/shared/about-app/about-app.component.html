@@ -1,19 +1,14 @@
-<ion-header transparent>
-  <ion-toolbar class="toolbar-global">
-      <h3>
-      About Web & Mobile App
-      </h3>
-
-
-    <h4>Designed and Developed by Obliquity</h4>
-    <ion-buttons slot="end">
+  <ion-card>
+    <ion-card-header>
       <ion-button (click)="dismissModal()"> Close </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content fullscreen class="ion-padding" >
-
+  <ion-card-title>
+    About App
+  </ion-card-title>
+    <ion-card-subtitle>
+      Designed and Developed by Obliquity
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
     <p>
       Expert Fitness App is a progressive web app created for fitness and health
       enthusiast who are interested at reaching and maintaining high levels of
@@ -38,14 +33,16 @@
       customer's' journeys are on target and Operations is equipped with the
       right tools to become or remain a leader within their respective markets.
     </p>
-
-<div class="ion-text-center">
-  <ion-button
-    target="_blank"
-    href="https://obliquity.dev"
-    color="success"
+    
+    <div class="ion-text-center">
+      <ion-button
+      target="_blank"
+      href="https://obliquity.dev"
+      color="success"
   >
-    Visit Obliquity
-  </ion-button>
-  </div>
-</ion-content>
+  Visit Obliquity
+</ion-button>
+</div>
+</ion-card-content>
+</ion-card>
+

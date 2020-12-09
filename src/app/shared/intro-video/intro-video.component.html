@@ -1,21 +1,20 @@
-<ion-header transparent>
 	<ion-toolbar class="toolbar-global">
 		<ion-title>
-			<h2>What is Expert Fitness?</h2>
+		{{ titleId }}
 		</ion-title>
 		<ion-buttons slot="end">
 			<ion-button (click)="dismissModal()">Close</ion-button>
 		</ion-buttons>
 	</ion-toolbar>
-</ion-header>
 
-<ion-content>
+<div style="display: block; margin:auto">
+
 	<iframe
 		[src]="video"
 		width="560"
 		height="315"
 		frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
 	>
 	</iframe>
-</ion-content>
+</div>

@@ -1,13 +1,16 @@
 
   .menu-font {
     ion-label {
-      font: 800 1.1em/1.4 Montserrat, sans-serif;
+      // font: 800 1.1em/1.4 Montserrat, sans-serif;
       text-transform: uppercase;
       color: var(--ion-color-light-tint);
     }
-    padding: 0 1.3125em;
     display: inline-block;
     border-bottom: 0.3125em solid transparent;
+  }
+
+  .menu-font :hover{
+    color: var(--ion-color-tertiary);
   }
   
   .active-link {

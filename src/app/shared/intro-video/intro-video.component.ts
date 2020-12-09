@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { IonContent, ModalController } from '@ionic/angular';
 import { SeoService } from '../../services/seo.service';
 
@@ -8,10 +9,10 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './intro-video.component.html',
   styleUrls: ['./intro-video.component.scss'],
 })
-export class IntroVideoComponent implements OnInit {
+export class VideoComponent implements OnInit {
   @ViewChild(IonContent, { static: true }) ionContent: IonContent;
   scrolledDown = false;
-  titleId = 'Expert Fitness Home';
+  titleId = 'What Is Expert Fitness?';
 
   trustedVideoUrl: SafeResourceUrl;
   video;
@@ -19,7 +20,8 @@ export class IntroVideoComponent implements OnInit {
   constructor(
     private modalController: ModalController,
     private domSanitizer: DomSanitizer,
-    private seo: SeoService
+    private seo: SeoService,
+    private router: Router
   ) {
     this.seo.addTwitterCard(
       this.titleId,
@@ -35,6 +37,8 @@ export class IntroVideoComponent implements OnInit {
   }
 
   dismissModal() {
-    this.modalController.dismiss();
+    this.modalController.dismiss().then(() => {
+      this.router.navigateByUrl('/home');
+    });
   }
 }

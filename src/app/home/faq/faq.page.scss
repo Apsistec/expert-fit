@@ -1,34 +1,30 @@
-ion-content {
-//   --ion-item-background: #fff;
-}
-
 .accordion-list {
   margin-bottom: 4px;
   --ion-item-background: var(--ion-color-light-shade);
 }
-    
-.section, ion-item:disabled {
+
+.section,
+ion-item:disabled {
   --ion-item-background: var(--ion-color-light-shade);
   --ion-item-color: #000 !important;
-  ion-label{
-      color: #000;
+  ion-label {
+    color: #000;
   }
 }
 
 .section-active {
   font-weight: 600;
   ion-icon {
-      color: var(--ion-color-warning-shade);
+    color: var(--ion-color-warning-shade);
   }
 }
 
-.info{
-    --ion-item-background: var(--ion-color-medium-shade);
+.info {
+  --ion-item-background: var(--ion-color-medium-shade);
 }
 
-.info-text{
-    padding-top: 12px;
-    font-weight: 500;
-    color: white;
-
+.info-text {
+  padding-top: 12px;
+  font-weight: 500;
+  color: white;
 }

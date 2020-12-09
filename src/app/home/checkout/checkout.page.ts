@@ -8,7 +8,6 @@ import { AngularFireAnalytics } from '@angular/fire/analytics';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { FormBuilder, FormGroup } from '@angular/forms';
-// import * as firebase from 'firebase/app';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Router } from '@angular/router';
 import {
@@ -24,7 +23,7 @@ import { AboutAppComponent } from '../../shared/about-app/about-app.component';
 import { PopoverComponent } from '../../shared/popover/popover.component';
 import { PrivacyComponent } from '../../shared/privacy/privacy.component';
 import { TermsComponent } from '../../shared/terms/terms.component';
-import * as stripe from '@stripe/stripe-js';
+declare var Stripe;
 
 @Component({
   selector: 'app-checkout',

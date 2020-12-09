@@ -14,28 +14,6 @@
     ),
 }
 
-// .under-menu {
-//   position: absolute;
-//   text-align: center;
-//   bottom: 5em;
-// }
-// .first-row {
-//   position: relative;
-//   padding-left: 3.5em;
-// }
-
-// .under-button {
-//   padding-left: 3.5em;
-//   position: relative;
-// }
-// .bottom-toolbar {
-//   position: absolute;
-//   bottom: 0px;
-// }
-
-ion-label::hover {
-  border-left: 0.625em solid var(--ion-color-warning);
-}
 
 .active-item {
   border-left: 0.625em solid var(--ion-color-warning-shade);
@@ -47,9 +25,7 @@ ion-item {
 }
 
 .side-menu-font {
-  color: var(--ion-color-dark-shade);
-  font-size: x-large;
-  font-weight: 900;
+  color: black;
   text-transform: capitalize;
   font-variant: small-caps;
 }

@@ -1,84 +1,60 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { PrivacyComponent } from '../privacy/privacy.component';
 import { MessageService } from 'src/app/services/message.service';
 import { AboutAppComponent } from '../about-app/about-app.component';
 import { TermsComponent } from '../terms/terms.component';
-import { IntroVideoComponent } from '../intro-video/intro-video.component';
-import { SignInComponent } from '../sign-in/sign-in.component';
-import { SignUpComponent } from '../sign-up/sign-up.component';
+import { VideoComponent } from '../intro-video/intro-video.component';
+import { LoginComponent } from '../login/login.component';
 // import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 
 @Component({
   selector: 'app-modal-container',
   template: '',
 })
-export class ModalViewComponent implements OnDestroy {
+export class ModalViewComponent implements OnInit, OnDestroy {
   destroy = new Subject<any>();
-  currentDialog = null;
   modal;
   modalID;
 
   constructor(
     private modalController: ModalController,
     private messageService: MessageService,
-    route: ActivatedRoute,
-    router: Router
+    private route: ActivatedRoute,
   ) {
-    route.params.pipe(takeUntil(this.destroy)).subscribe((params) => {
-      // When router navigates on this component is takes the params
-      // and opens up the photo detail modal
-      // this.modal = this.modalController.create({
-      //   component: PrivacyComponent,
-      //   cssClass: 'modal-css',
-      //   backdropDismiss: true,
-      //   swipeToClose: true,
-      //   showBackdrop: true
-      // });
-      // this.modal.present().catch((err) => {
-      //    this.messageService.errorAlert(err);
-      // });
+  }
+
+  ngOnInit() {
+    this.route.params.pipe(takeUntil(this.destroy)).subscribe((params) => {
 
       // this.modal.componentInstance.modalID = params.id;
       this.modalID = params.id;
-      // this.currentDialog = this.modalService.create(AboutAppComponent, );
-      // this.currentDialog.componentInstance.photo = params.id;
-      console.log('params: ', params);
-      this.showModal(this.modalID);
-      // this.showModal(this.modalID);
-      //     // Go back to home page after the modal is closed
-      //     this.currentDialog.result.then(result => {
-      //       console.log('hello');
-      //         router.navigateByUrl('/');
-      //     }, reason => {
-      //         router.navigateByUrl('/');
-      //     });
-      // });
+      if (this.modalID === 'about-app') {
+        this.showModalAbout();
+      } else if (this.modalID === 'privacy') {
+        this.showModalPrivacy();
+      } else if (this.modalID === 'terms') {
+        this.showModalTerms();
+      } else if (this.modalID === 'intro-video') {
+        this.showModalVideo();
+      } else if (this.modalID === 'login') {
+        this.showModalLogin();
+      }
+
+      console.log('modalID: ', this.modalID);
     });
+
   }
 
-  showModal(modalID) {
-    if (modalID === 'about-app') {
-      this.showModalAbout();
-    } else if (modalID === 'privacy') {
-      this.showModalPrivacy();
-    } else if (modalID === 'terms') {
-      this.showModalTerms();
-    } else if (modalID === 'intro-video') {
-      this.showModalVideo();
-    } else if (modalID === 'sign-in') {
-      this.showModalSignIn();
-    } else if (modalID === 'sign-up') {
-      this.showModalSignUp();
-    }
-  }
+
+
   async showModalVideo() {
     const modal = await this.modalController.create({
-      component: IntroVideoComponent,
+      component: VideoComponent,
       cssClass: 'video-css',
       backdropDismiss: true,
       swipeToClose: true,
@@ -127,27 +103,24 @@ export class ModalViewComponent implements OnDestroy {
       return this.messageService.errorAlert(err);
     });
   }
-  async showModalSignUp() {
+
+  async showModalLogin() {
     const modal = await this.modalController.create({
-      component: SignUpComponent,
+      component: LoginComponent,
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
       showBackdrop: true,
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
-  async showModalSignIn() {
-    const modal = await this.modalController.create({
-      component: SignInComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true,
-    });
-    return modal.present().catch((err) => {
+    return modal.present()
+    .then(result => {
+      console.log('result: ', result);
+    },
+    reason => {
+      console.log('reason: ', reason);
+    })
+
+    .catch((err) => {
       return this.messageService.errorAlert(err);
     });
   }

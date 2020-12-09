@@ -9,7 +9,7 @@ import { MessageService } from '../services/message.service';
 import { UserService } from '../services/user.service';
 import { AboutAppComponent } from '../shared/about-app/about-app.component';
 
-import { IntroVideoComponent } from '../shared/intro-video/intro-video.component';
+import { VideoComponent } from '../shared/intro-video/intro-video.component';
 import { PrivacyComponent } from '../shared/privacy/privacy.component';
 import { TermsComponent } from '../shared/terms/terms.component';
 
@@ -60,7 +60,7 @@ export class HomePage implements OnInit {
 
   async showModalVideo() {
     const modal = await this.modalController.create({
-      component: IntroVideoComponent,
+      component: VideoComponent,
       cssClass: 'video-css',
       backdropDismiss: true,
       swipeToClose: true,

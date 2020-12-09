@@ -19,7 +19,7 @@ export const Benefits: Benefit[] = [
   {
     title: 'Cleanliness',
     image: '../../assets/images/female-lifting.jpg',
-    content: `With everything going on the world these days, you really want to limit your exposure. We understand, so at Expert Fitness, you can trust that we are staying on top of maintaining the highest level of cleanliness. Not only do we sanitize the facility and equipment before every session; we also keep you informed should we observe anyone that shows any signs of being sick. We are taking every reasonable measure to ensure your health and safety, and we also want to have a an exceptionally clean working environment for the sake of our own families and friends.`,
+    content: `With everything going on the world these days, you really want to limit your exposure. We understand, so at Expert Fitness, you can trust that we are staying on top of maintaining the highest level of cleanliness. Not only do we sanitize the facility and equipment before every session. We are taking every reasonable measure to ensure your health and safety, and we also want to have a an exceptionally clean working environment for the sake of our own families and friends.`,
   },
   {
     title: 'Unique Requirements',

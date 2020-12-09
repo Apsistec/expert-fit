@@ -41,13 +41,13 @@ export class ConferenceData {
           session.employees = [];
           if (session.employeeNames) {
             session.employeeNames.forEach((employeeName: any) => {
-              const speaker = this.data.employees.find(
+              const trainer = this.data.employees.find(
                 (s: any) => s.name === employeeName
               );
-              if (speaker) {
-                session.employees.push(speaker);
-                speaker.sessions = speaker.sessions || [];
-                speaker.sessions.push(session);
+              if (trainer) {
+                session.employees.push(trainer);
+                trainer.sessions = trainer.sessions || [];
+                trainer.sessions.push(session);
               }
             });
           }

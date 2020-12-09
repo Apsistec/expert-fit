@@ -10,58 +10,57 @@
  */
 
 /* Core CSS required for Ionic components to work properly */
-@import "~@ionic/angular/css/core.css";
+@import '~@ionic/angular/css/core.css';
 
 /* Basic CSS for apps built with Ionic */
-@import "~@ionic/angular/css/normalize.css";
-@import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
 
 /* Optional CSS utils that can be commented out */
-@import "~@ionic/angular/css/display.css";
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+// Firebase UI
+@import '~firebaseui/dist/firebaseui.css';
 
 // NGX-Share
-@import "~ngx-sharebuttons/themes/material/material-dark-theme";
+@import '~ngx-sharebuttons/themes/material/material-dark-theme';
 
 // Fonts
-@import url("https://fonts.googleapis.com/css2?family=Spectral+SC:wght@700&family=Montserrat:wght@800;900&family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Spectral+SC:wght@700&family=Montserrat:wght@800;900&family=Roboto:wght@300;400;500;700;900&display=swap');
 
 // Classes
-// ion-col {
-//   border: 2px solid green;
-// }
-
 ion-content {
-  --offset-top: 0px;
-  position: absolute;
+  top: 36px;
+  // --offset-top: 45px;
+  // position: absolute;
+  --background: var(--ion-color-light-shade);
 }
-  
+
+[ion-fixed] {
+  min-height: calc(100% - 88px); // adjust to your footer height!
+}
+
 a:hover {
   cursor: pointer;
 }
 
 .small-logo {
-   height: 45px;
-   width: 45px;
-   padding-left: 20px;
-}
-.full-logo{
-  height: 45px;
-  max-width: 140px;
-  padding-left: 20px;
-}
-// Account for Header on each page
-ion-grid {
-  padding-top: 85px;
+  height: 90%;
+  max-height: 45px;
+  max-width: 45px;
+  margin-left: 20px;
 }
 
-ion-card {
-  border-radius: 12px;
+.full-logo {
+  height: 90%;
+  max-height: 45px;
+  max-width: 140px;
+  margin-left: 20px;
 }
 
 // Font color on Form Validators
@@ -71,187 +70,121 @@ ion-card {
 
 // Lists
 .list-header-global {
-  font: 900 Montserrat;
-  --background: var(--ion-color-light-shade);
+  --background: var(--ion-color-medium-shade);
   color: var(--ion-color-secondary-shade);
-  text-transform: capitalize;
+  text-transform: uppercase;
+  text-align: left;
 }
 
-// Ratings/Testimonials 
-.rating-item{
-    --background: var(--ion-color-medium-shade);
+// Ratings/Testimonials
+.rating-item {
+  --background: var(--ion-color-medium-shade);
 }
 
 // Cards
-.ion-card-global {
-  --background: var(--ion-color-medium-tint);
-  h3{
-  font-weight: bolder;
-  text-transform: capitalize;
-  font-size: x-large;
-  }
-  h4{
-  font-weight: bold;
-  text-transform: capitalize;
-  font-size: large;
-  }
-  h6,h5{
-  text-transform: capitalize;
-  font-size: large;
-  }
 
+ion-card{
+  border-radius: 12px;
+}
+
+.ion-card-global {
+  --background: var(--ion-color-primary-tint);
   ion-card-header {
-  text-align: center;
-    --background: var(--ion-color-primary-shade);
-  }
-  ion-card-title {
-    text-transform: capitalize;
-    color: var(--ion-color-light);
-  }
-  ion-card-subtitle {
-    text-transform: capitalize;
-    // font-variant: small-caps;
-    color: var(--ion-color-warning-shade);
-    font-weight: 700;
-  }
-  ion-card-content {
-    color: black;
-    padding-top: 12px;
     text-align: left;
-    font-weight: 700;
+    --background: var(--ion-color-primary-shade);
+    ion-button {
+      float: right;
+      color: var(--ion-color-warning-shade);
+    }
+
+    ion-card-title {
+      text-transform: capitalize;
+      color: var(--ion-color-light);
+    }
+    ion-card-subtitle {
+      text-transform: capitalize;
+      color: var(--ion-color-warning-shade);
+      font-weight: 700;
+    }
+  }
+  p {
+    color: black;
   }
 }
 
 .ion-sub-card-global {
-  --background: var(--ion-color-light-shade);
   ion-card-header {
     --background: var(--ion-color-primary-tint);
   }
   ion-card-title {
-    font: 900 Montserrat;
     text-transform: capitalize;
     color: var(--ion-color-warning-shade);
   }
   ion-card-subtitle {
-    color: var(--ion-color-medium-tint);
+    color: var(--ion-color-light-shade);
     text-transform: capitalize;
-    font-weight: 700;
   }
   ion-card-content {
-      color: black;
-      padding-top: 12px;
-      font-weight: 700;
-  }
-  ion-item{
-      background: var(--ion-color-medium);
-  }
-}
-
-// Toolbars
-.toolbar-global {
-  --background: var(--ion-color-primary);
-  h4, h3{
-  text-align: center;
-  font-size: large;
-  font-weight: bolder;
-  }
-  h3{
-      padding-top: 10px;
-    text-transform: uppercase;
-    color: var(--ion-color-light-shade);
-  }
-  h4{
-    color: var(--ion-color-warning-shade);
-    text-transform: capitalize;
-    font-variant:small-caps;
-  }
-  ion-button {
-    color: var(--ion-color-warning);
+    --background: var(--ion-color-light-shade);
+    color: black;
+    padding-top: 12px;
   }
 }
 
 // Modals
-  
-  p{
-    color: black;
-    text-align: left;
-  }
 .modal-css {
-  @extend .toolbar-global;
-  padding: 15px;
+  --backdrop-opacity: 88% !important;
+  padding: 0px;
+  margin: 0px;
   --border-radius: 12px;
-  --backdrop-opacity: 30% !important;
-  --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
-      0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-      0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
-      0px 70px 60px rgba(0, 0, 0, 0.15);
+  width: min-content;
+  height: max-content;
 }
 
 .video-css .modal-wrapper {
-  @extend .toolbar-global;
-  --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
-      0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-      0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
-      0px 70px 60px rgba(0, 0, 0, 0.15);
   --border-radius: 12px;
-  --backdrop-opacity: 98%;
-  width: 590px;
-  height: 390px;
+  --backdrop-opacity: 88%;
+  width: min-content;
+  height: min-content;
 }
 
 .user-popover {
-    text-align: left;
+  text-align: left;
 }
 
 // Toasts and Alerts
 .successA {
-    --background: var(--ion-color-light);
-    --border-color: var(--ion-color-success-shade);
-    --border-radius: 12px;
-    --border-style: solid;
-    --border-width: 6px;
-    --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
-        0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-        0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
-        0px 70px 60px rgba(0, 0, 0, 0.15);
-    --color: black;
+  --background: var(--ion-color-light);
+  --border-color: var(--ion-color-success-shade);
+  --border-radius: 12px;
+  --border-style: solid;
+  --border-width: 6px;
+  --color: black;
 }
 
 .warningA {
-    --background: var(--ion-color-light);
-    --border-color: var(--ion-color-warning-shade);
-    --border-radius: 12px;
-    --border-style: solid;
-    --border-width: 6px;
-    --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
-        0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-        0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
-        0px 70px 60px rgba(0, 0, 0, 0.15);
-    --color: black;
+  --background: var(--ion-color-light);
+  --border-color: var(--ion-color-warning-shade);
+  --border-radius: 12px;
+  --border-style: solid;
+  --border-width: 6px;
+  --color: black;
 }
 
 .dangerA {
-    --background: var(--ion-color-light);
-    --border-color: var(--ion-color-danger-shade);
-    --border-radius: 12px;
-    --border-style: solid;
-    --border-width: 6px;
-    --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
-        0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-        0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
-        0px 70px 60px rgba(0, 0, 0, 0.15);
-    --color: black;
+  --background: var(--ion-color-light);
+  --border-color: var(--ion-color-danger-shade);
+  --border-radius: 12px;
+  --border-style: solid;
+  --border-width: 6px;
+  --color: black;
 }
 
 .infoA {
-    --background: var(--ion-color-light);
-    --border-color: var(--ion-color-primary-shade);
-    --border-radius: 12px;
-    --border-style: solid;
-    --border-width: 6px;
-    --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
-        0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-        0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
-        0px 70px 60px rgba(0, 0, 0, 0.15);
-    --color: black;
+  --background: var(--ion-color-light);
+  --border-color: var(--ion-color-primary-shade);
+  --border-radius: 12px;
+  --border-style: solid;
+  --border-width: 6px;
+  --color: black;
 }

@@ -8,20 +8,20 @@
                 <ion-card
                     color="light"
                     class="slide-card"
-                    style="height: 37em; width: 380px"
+                    style="height:470px; width: 380px"
                 >
-                    <ion-card-header class="ion-text-center" color="primary">
+                    <ion-card-header class="ion-text-center">
                         <ion-card-title>
-                            <ion-text color="light">{{
+                            <ion-text color="secondary">{{
                                 benefit.title
                             }}</ion-text>
                         </ion-card-title>
                         <img
                             [src]="benefit.image"
-                            style="height: 200px; width: 100%"
+                            style="height: 150px; max-height: 150px; width: 100%; margin-top: 20px;"
                         />
                     </ion-card-header>
-                    <ion-card-content class="ion-margin-top">
+                    <ion-card-content >
                         <p>{{ benefit.content }}</p>
                     </ion-card-content>
                 </ion-card>

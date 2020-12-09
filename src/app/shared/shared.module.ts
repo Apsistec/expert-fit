@@ -12,9 +12,8 @@ import { RatingsComponent } from './ratings/ratings.component';
 import { TermsComponent } from './terms/terms.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { ModalViewComponent } from './modal-view/modal-view.component';
-import { IntroVideoComponent } from './intro-video/intro-video.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { VideoComponent } from './intro-video/intro-video.component';
+
 
 const routes: Routes = [];
 
@@ -29,12 +28,16 @@ const routes: Routes = [];
     RatingsComponent,
     BenefitsComponent,
     ModalViewComponent,
-    IntroVideoComponent,
-    SignInComponent,
-    SignUpComponent
+    VideoComponent,
   ],
   providers: [DatePipe],
-  imports: [IonicModule, RouterModule.forChild(routes), CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    IonicModule,
+    RouterModule.forChild(routes),
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [
     FooterComponent,
     AboutAppComponent,
@@ -45,9 +48,7 @@ const routes: Routes = [];
     RatingsComponent,
     BenefitsComponent,
     ModalViewComponent,
-    IntroVideoComponent,
-    SignInComponent,
-    SignUpComponent
+    VideoComponent,
   ]
 })
 export class SharedModule {}

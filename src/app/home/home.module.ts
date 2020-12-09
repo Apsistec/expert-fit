@@ -10,7 +10,6 @@ import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { HomePageTwoComponent } from '../home/home-page-two/home-page-two.component';
 import { HomePageThreeComponent } from '../home/home-page-three/home-page-three.component';
-import { HomePageFourComponent } from '../home/home-page-four/home-page-four.component';
 
 
 @NgModule({
@@ -26,7 +25,6 @@ import { HomePageFourComponent } from '../home/home-page-four/home-page-four.com
   ],
   declarations: [
     HomePage,
-    HomePageFourComponent,
     HomePageTwoComponent,
     HomePageThreeComponent,
   ]

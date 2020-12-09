@@ -35,6 +35,7 @@ benefits =  Benefits;
             breakpoints: {
                 350: {
                     slidesPerView: 1,
+                    spaceBetween: 20,
                 },
                 576: {
                     slidesPerView: 1.5,
@@ -42,7 +43,7 @@ benefits =  Benefits;
                 },
                 800: {
                     slidesPerView: 4,
-                    spaceBetween: 15,
+                    spaceBetween: 20,
                 },
             }
         };

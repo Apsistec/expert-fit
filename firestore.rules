@@ -19,11 +19,14 @@ service cloud.firestore {
     function isEmployee() {
     	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'EMPLOYEE';
     }
-  	function hasBasicSubscription() {
-    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.plan == 'BASIC';
+    function hasBasicSubs() {
+      return request.auth.token.stripeRole == "basic";
     }
-    function hasPremiumSubscription() {
-    	return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.plan == 'PREMIUM';
+    function hasPremiumSubs() {
+      return request.auth.token.stripeRole == "premium";
+    }
+    function hasPlatinumSubs() {
+      return request.auth.token.stripeRole == "platinum";
     }
       match /users/{uid} {
         allow read, write: if request.auth.uid == uid || isAdmin();
@@ -33,7 +36,7 @@ service cloud.firestore {
           allow write: if false;
     		}
         match /customers/{id} {
-          allow read, write: if (request.auth.uid == uid && isCustomer()) || isAdmin();
+          allow read, write: if request.auth.uid == uid  || isAdmin();
         }
         match /checkout_sessions/{id} {
           allow read, write: if request.auth.uid == uid;
@@ -54,6 +57,10 @@ service cloud.firestore {
         	allow write: if false;
         }
         match /content-premium/{doc} {
+          allow read: if ((isActive() || isTrialing()) && hasPremiumSubscription()) || isAdmin();
+          allow write: if false;
+        }
+        match /content-platinum/{doc} {
           allow read: if ((isActive() || isTrialing()) && hasPremiumSubscription()) || isAdmin();
           allow write: if false;
         }

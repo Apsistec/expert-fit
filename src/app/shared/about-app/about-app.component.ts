@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -7,11 +8,16 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./about-app.component.scss'],
 })
 export class AboutAppComponent implements OnInit {
-  constructor(private modalController: ModalController) {}
+  constructor(
+    private modalController: ModalController,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
   dismissModal() {
-    this.modalController.dismiss();
+    this.modalController.dismiss().then(() => {
+      this.router.navigateByUrl('/home');
+    });
   }
 }

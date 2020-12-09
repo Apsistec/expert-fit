@@ -1,30 +1,182 @@
 <ion-content class="page-content">
 	<ion-grid>
-        <!-- <div *ngIf="user.subStatus === null || undefined"> -->
-		<ion-row class="ion-justify-content-center">
-			<ion-col size="12">
-
-				<ion-card
-					class="ion-card-global ion-text-center ion-padding"
-				>
-        <ion-card-header>
-
-					<ion-card-title >
-						<ion-text>
-							<h2>Pricing Plans</h2>
-						</ion-text>
-					</ion-card-title>
-					<ion-card-subtitle>
-						<ion-text>
-							<h3>Choose one of our Awesome plans</h3>
-						</ion-text>
-					</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-row>
-			<ion-spinner *ngIf="loading">Loading...</ion-spinner>
-<!-- product 0 -->
-            			<!-- <form
+		<ion-row>
+			<ion-col>
+				<ion-toolbar style="--background: var(--ion-color-medium-shade)">
+					<ion-segment [(ngModel)]="segment">
+						<ion-segment-button value="current" color="warning">
+							<ion-icon name="ribbon-sharp" color="warning"></ion-icon>
+							Individual Items
+						</ion-segment-button>
+						<ion-segment-button value="sub">
+							<ion-icon name="person-add-sharp" color="warning"></ion-icon>
+							Online Subscriptions
+						</ion-segment-button>
+					</ion-segment>
+				</ion-toolbar>
+				<hr />
+			</ion-col>
+		</ion-row>
+		<div [ngSwitch]="segment">
+			<ion-row class="ion-justify-content-center" *ngSwitchCase="'sub'">
+				<ion-col size="12">
+					<ion-card class="ion-card-global ion-text-center ion-padding">
+						<ion-card-header>
+							<ion-card-title>
+								<h3>Online Training Platform plans</h3>
+							</ion-card-title>
+							<ion-card-subtitle>
+								<h4>Choose the plan that works for you</h4>
+							</ion-card-subtitle>
+						</ion-card-header>
+						<ion-card-content>
+							<ion-row>
+								<ion-spinner *ngIf="loading">Loading...</ion-spinner>
+								<ion-col>
+									<ion-card class="ion-sub-card-global">
+										<ion-card-header>
+											<ion-card-title class="ion-text-center">
+												<h3>Basic Plan</h3>
+											</ion-card-title>
+										</ion-card-header>
+										<ion-card-content>
+											<p>
+												This Basic online training plan will provide you with
+												access to the online training platform- Express Fitness
+												App and the Getting Started Right Webinar. When you want
+												to take advantage of one on one time at our personal
+												training facility with a trainer, sessions are offered
+												at a discounted rate.
+											</p>
+										</ion-card-content>
+										<ion-button class="product-button" color="success"
+											>Choose this plan</ion-button
+										>
+									</ion-card>
+								</ion-col>
+								<ion-col>
+									<ion-card class="ion-sub-card-global">
+										<ion-card-header>
+											<ion-card-title class="ion-text-center">
+												<h3>Premium Plan</h3>
+											</ion-card-title>
+										</ion-card-header>
+										<ion-card-content>
+											<p>
+												This Premium online training plan will provide you with
+												our Online Training Platform- Getting Started Right
+												Webinar; you will also receive: Weekly education
+												webinars covering topics from goals setting, maximizing
+												metabolism, supercharging your weight loss and more. In
+												addition you get our worksheets with each lesson which
+												will help you apply the information faster, maximizing
+												your results. When you want to take advantage of one on
+												one time at our personal training facility with a
+												trainer, sessions are offered at a discounted rate.
+											</p>
+										</ion-card-content>
+										<ion-button class="product-button" color="success"
+											>Choose this plan</ion-button
+										>
+									</ion-card>
+								</ion-col>
+								<ion-col>
+									<ion-card class="ion-sub-card-global">
+										<ion-card-header>
+											<ion-card-title class="ion-text-center">
+												<h3>Platinum Plan</h3>
+											</ion-card-title>
+										</ion-card-header>
+										<ion-card-content>
+											<p>
+												Yet one more expansion providing you with the ultimate
+												in education, reporting capabilities and guidance. The
+												Platinum online training plan provides you with
+												immediate access to the Expert Fitness App and the
+												Getting Started Right Webinar covering how to use the
+												app for maximum success. Also you gain early access to
+												upcoming videos and live casts covering topics
+												including: goals setting, maximizing metabolism,
+												supercharging your weight loss and more. In addition you
+												get our worksheets with each lesson which will help you
+												apply the information faster, maximizing your results.
+												With the enhanced program, each week after updating the
+												online progress reports your assigned trainer will
+												review your progress and then contact you to provide a
+												weekly progress consultation and answer any questions.
+												When you want to take advantage of one on one time at
+												our personal training facility with a trainer, sessions
+												are offered at a discounted rate.
+											</p>
+										</ion-card-content>
+										<ion-button class="product-button" color="success"
+											>Choose this plan</ion-button
+										>
+									</ion-card>
+								</ion-col>
+							</ion-row>
+						</ion-card-content>
+					</ion-card>
+				</ion-col>
+			</ion-row>
+			<ion-row class="ion-justify-content-center" *ngSwitchDefault>
+				<ion-col size="12">
+					<ion-card class="ion-card-global ion-text-center ion-padding">
+						<ion-card-header>
+							<ion-card-title>
+								<h3>Expert Fitness Offerings</h3>
+							</ion-card-title>
+							<ion-card-subtitle>
+								<h4>Choose what works for you</h4>
+							</ion-card-subtitle>
+						</ion-card-header>
+						<ion-card-content>
+							<ion-row>
+								<ion-spinner *ngIf="loading">Loading...</ion-spinner>
+								<ion-col>
+									<ion-card class="ion-sub-card-global">
+										<ion-card-header>
+											<ion-card-title> </ion-card-title>
+											<ion-card-subtitle> </ion-card-subtitle>
+										</ion-card-header>
+										<ion-card-content> </ion-card-content>
+										<ion-button class="product-button" color="success"
+											>Choose this plan</ion-button
+										>
+									</ion-card>
+								</ion-col>
+								<ion-col>
+									<ion-card class="ion-sub-card-global">
+										<ion-card-header>
+											<ion-card-title> </ion-card-title>
+											<ion-card-subtitle> </ion-card-subtitle>
+										</ion-card-header>
+										<ion-card-content> </ion-card-content>
+										<ion-button class="product-button" color="success"
+											>Choose this plan</ion-button
+										>
+									</ion-card>
+								</ion-col>
+								<ion-col>
+									<ion-card class="ion-sub-card-global">
+										<ion-card-header>
+											<ion-card-title> </ion-card-title>
+											<ion-card-subtitle> </ion-card-subtitle>
+										</ion-card-header>
+										<ion-card-content> </ion-card-content>
+										<ion-button class="product-button" color="success"
+											>Choose this plan</ion-button
+										>
+									</ion-card>
+								</ion-col>
+							</ion-row>
+						</ion-card-content>
+					</ion-card>
+				</ion-col>
+			</ion-row>
+		</div>
+		<!-- product 0 -->
+		<!-- <form
 				#purchaseForm="ngForm"
 				(ngSubmit)="onSubmit(purchaseForm)"
 			
@@ -68,7 +220,7 @@
 				</ion-col>
 
         <!-- product 1 -->
-				<!-- <ion-col
+		<!-- <ion-col
 					
 					size-sm="12"
 					size-md="4"
@@ -111,10 +263,9 @@
 						</ion-card-content>
 					</ion-card>
 				</ion-col> -->
-				
-        
-        <!-- product 2  -->
-        <!-- <ion-col
+
+		<!-- product 2  -->
+		<!-- <ion-col
 					
 					size-sm="12"
 					size-md="4"
@@ -157,22 +308,13 @@
 						</ion-card-content>
 					</ion-card>
 				</ion-col>
-			</form> --> -->
+			</form> -->
 
+		<!-- </ion-row> -->
 
+		<!-- </div> -->
 
-
-
-          </ion-row>
-        </ion-card-content>
-				</ion-card>
-			</ion-col>
-		</ion-row>
-
-
-      <!-- </div> -->
-
-			<!-- <ng-template #paid>
+		<!-- <ng-template #paid>
         <ion-row>
           <ion-col>
 
@@ -241,7 +383,7 @@
 							<ion-text>
 								<h2>
 									<!-- You are currently paying {{ subscription.unit_price | currency }} -->
-								<!-- </h2>
+		<!-- </h2>
 							</ion-text>
 							<ion-text>
 								<h2>Stripe Customer Portal</h2>
@@ -260,6 +402,6 @@
 
 				</ion-col>
         </ion-row>
-			</ng-template> --> -->
+			</ng-template> -->
 	</ion-grid>
 </ion-content>

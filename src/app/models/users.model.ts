@@ -22,4 +22,5 @@ export interface User {
   createdAt: any;
   lastUpdatedAt?: any;
   stripeId?: string;
+  stripeRole?: string;
 }

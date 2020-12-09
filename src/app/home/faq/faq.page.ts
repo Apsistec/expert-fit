@@ -21,7 +21,7 @@ export class FaqPage {
     onToggleAutomatic() {
         this.automaticClose = !this.automaticClose;
         if (!this.automaticClose) {
-            this.faqs.forEach(faq => faq.open = faq); 
+            this.faqs.forEach(faq => faq.open = faq);
         }
         if (this.automaticClose) {
             this.faqs.forEach(faq => faq.open = !faq);

@@ -1,37 +1,38 @@
-<ion-content fullscreen>
+i<ion-content fullscreen>
+<div ion-fixed>
   <!-- scrollEvents="true" [appFadeHeader]="toolbar"> -->
-
   <ion-grid class="ion-no-padding ion-no-margin">
     <ion-row class="scene-one ion-justify-content-center">
       <!-- Left side of Landing -->
       <ion-col size="12" class="ion-text-center">
-  
             <img
               [@bounceOutUp]="bounceOutUp"
               src="../../../assets/logos/logo.png"
               class="ion-hide-md-down"
-              style="width: 500px; padding-top: 100px;"
+              style="width: 345px; padding-top: 40px;"
             />
             <img
               [@bounceOutUp]="bounceOutUp"
               src="../../../assets/logos/logo.png"
               class="ion-hide-md-up"
-              style="width: fit-content(); padding-top: 100px;"
+              style="width: 345px; padding-top: 40px;"
             />
-
-              <ion-card class="logo-card ion-text-center">
-                <ion-card-title class="lead" color="light">
-                  Expert Fitness<sup>3D</sup>
+              <ion-card class="main-heading-card ion-text-center">
+                <ion-card-title class="main-title" color="light">
+                <!-- <ion-text> -->             
+                      Expert Fitness<sup>3D</sup>
+                  <!-- </ion-text> -->
                 </ion-card-title>
-                <ion-card-subtitle color="warning" class="lesser">
-                  Train | Review | Grow
+                <ion-card-subtitle class="main-subtitle" color="warning" >
+                  Train <ion-text color="medium">|</ion-text> Review <ion-text color="medium">|</ion-text> Grow
                 </ion-card-subtitle>
               </ion-card>
-   
             <ion-button
               [@flash]="flash"
               size="large"
               class="cta"
+              strong
+              style="background: rgba(255, 255, 255, 0.192);"
               color="light"
               routerLink="/about-us"
               fill="outline"
@@ -41,39 +42,27 @@
               [@flash]="flash"
               size="large"
               class="cta"
-              color="warning"
+              strong
+              color="success"
               fill="outline"
-              routerLink="/get-started"
+              routerLink="/login"
               style="background: var(--ion-color-primary)"
             >
               Join Now
             </ion-button>
               <img
             class="pulsing"
-            (click)="showModalVideo()"
-            style="z-index: 22; width: 150px"
+            routerLink="/home(/video)"
+            style="z-index: 99; width: 100px; margin-left: auto; margin-right: auto; margin-top:30px; display:block;"
             src="../../../assets/svg/btn-play.svg"
           />
-        
-      </ion-col>
+        </ion-col>
+      </ion-row>
 
-    </ion-row>
-
-    <ion-row class="infographic">
-
-      <ion-col size="12" class="ion-text-center ion-no-padding ion-no-margin">
-        <ion-toolbar class="infographic-toolbar ion-margin-vertical">
-          <ion-title color="warning">
-            The Approach to Fitness at Expert Fitness
-          </ion-title>
-        </ion-toolbar>
-        <img src="../../../assets/svg/Plain_infographic4slot.svg" />
-      </ion-col>
-        <ion-toolbar class="infographic-toolbar ion-margin-vertical"></ion-toolbar>
-    </ion-row>
-
-    <app-home-page-two style="width: 100vw; height: 100vh"></app-home-page-two>
-
-    <app-footer></app-footer>
   </ion-grid>
+
+    <app-home-page-three></app-home-page-three>
+    <app-home-page-two></app-home-page-two>
+</div>
+    <app-footer></app-footer>
 </ion-content>

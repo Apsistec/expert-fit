@@ -1,142 +1,146 @@
 <ion-app>
-    <app-side-menu></app-side-menu>
-   <ion-header  transparent>
-    <ion-toolbar color="dark" #toolbar  class="ion-hide-lg-up">
-  <ion-buttons slot="start">
-      <ion-menu-button color="tertiary"> </ion-menu-button>
-    </ion-buttons>
-    <ion-img
-      src="../assets/icons/icon-144x144.png"
-      slot="start"
-      class="small-logo"
-      routerLink="/home"
-    ></ion-img>
+	<app-side-menu></app-side-menu>
+	<ion-header transparent>
+		<ion-toolbar color="dark" #toolbar class="ion-hide-lg-up">
+			<ion-buttons slot="start">
+				<ion-menu-button color="warning"> </ion-menu-button>
+        				<ion-back-button
+					*ngIf="showBackButton === true"
+					defaultHref="/home"
+					color="warning"
+				></ion-back-button>
+			</ion-buttons>
+			<ion-img
+				src="../assets/icons/icon-144x144.png"
+				slot="start"
+				class="small-logo"
+				routerLink="/home"
+			></ion-img>
 
-<div class="end">
+			<!-- <div> -->
+				<ion-item
+					type="button"
+					color="dark"
+					(click)="popoverService.presentPopover($event)"
+					lines="none"
+					*ngIf="authService.afAuth.user | async; else login"
+				>
+					<ion-avatar>
+						<img
+							[src]="user.photoURL || '..//assets//images//dummy-user.png'"
+						/>
+					</ion-avatar>
+					<ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
+				</ion-item>
+			<!-- </div> -->
+		</ion-toolbar>
 
-    <ion-item
-    type="button"
-    color="dark"
-    (click)="popoverService.presentPopover($event)"
-    lines="none"
-    *ngIf="authService.afAuth.user | async; else login"
-    >
-    <ion-avatar slot="end">
-        <img [src]="user.photoURL || '..//assets//images//dummy-user.png'"
-        >
-    </ion-avatar>
-    <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
-</ion-item>
-</div>
-    </ion-toolbar>
+		<ion-toolbar class="ion-hide-lg-down" color="dark" #toolbar>
+			<ion-img
+				src="..//assets//icons//icon-144x144.png"
+				slot="start"
+				class="small-logo"
+				routerLink="/home"
+			></ion-img>
+			<ion-button
+			class="menu-font"
+			button
+			color="dark"
+			routerLink="/home"
+			routerLinkActive="active-link"
+			[routerLinkActiveOptions]="{ exact: true }"
+			>
+			<ion-label class="menu-label">Home</ion-label>
+		</ion-button>
+		
+				<ion-button
+					class="menu-font"
+					button
+					color="dark"
+					routerLink="/products"
+					routerLinkActive="active-link"
+					[routerLinkActiveOptions]="{ exact: true }"
+				>
+					<ion-label class="menu-label">Products</ion-label>
+				</ion-button>
 
-  <ion-toolbar class="ion-hide-lg-down" color="dark" #toolbar >
-    <ion-buttons slot="start"> 
-      <ion-back-button
-        *ngIf="showBackButton"
-        defaultHref="/home"
-        color="warning"
-      ></ion-back-button>
-      <ion-img
-        src="..//assets//icons//icon-144x144.png"
-        slot="start"
-        class="small-logo"
-        routerLink="/home"
-      ></ion-img>
+				<ion-button
+					class="menu-font"
+					button
+					color="dark"
+					routerLink="/faqs"
+					routerLinkActive="active-link"
+					[routerLinkActiveOptions]="{ exact: true }"
+				>
+					<ion-label class="menu-label">FAQs</ion-label>
+				</ion-button>
 
-      <ion-item
-        class="menu-font"
-        button
-        color="dark"
-        routerLink="/home"
-        routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <ion-label class="menu-label">Home</ion-label>
-      </ion-item>
+				<ion-button
+					class="menu-font"
+					button
+					color="dark"
+					routerLink="/testimonials"
+					routerLinkActive="active-link"
+					[routerLinkActiveOptions]="{ exact: true }"
+				>
+					<ion-label class="menu-label">Testimonials</ion-label>
+				</ion-button>
 
-      <ion-item
-        class="menu-font"
-        button
-        color="dark"
-        routerLink="/products"
-        routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <ion-label class="menu-label">Products</ion-label>
-      </ion-item>
+				<ion-button
+					class="menu-font"
+					button
+					color="dark"
+					routerLink="/about-us"
+					routerLinkActive="active-link"
+					[routerLinkActiveOptions]="{ exact: true }"
+				>
+					<ion-label class="menu-label">About Us</ion-label>
+				</ion-button>
+				<ion-button
+					class="menu-font"
+					button
+					color="dark"
+					routerLink="/contact-us"
+					routerLinkActive="active-link"
+					[routerLinkActiveOptions]="{ exact: true }"
+				>
+					<ion-label class="menu-label">Contact</ion-label>
+				</ion-button>
+			<!-- <div class="end"> -->
+				<ion-item
+					type="button"
+					color="dark"
+					(click)="popoverService.presentPopover($event)"
+					lines="none"
+					*ngIf="authService.afAuth.user | async; else login"
+				>
+					<ion-avatar slot="end">
+						<img
+							[src]="user.photoURL || '..//assets//images//dummy-user.png'"
+						/>
+					</ion-avatar>
+					<ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
+				</ion-item>
+			<!-- </div> -->
+			<ng-template #login>
+				<ion-buttons style="float:right; z-index: 99;" >
+					<ion-button
+						class="flashing"
+						style="padding-right: 12px;"
+						routerLink="/login"
+						color="warning"
+					>
+						Login
+					</ion-button>
+				</ion-buttons>
+			</ng-template>
+		</ion-toolbar>
+	</ion-header>
 
-      <ion-item
-        class="menu-font"
-        button
-        color="dark"
-        routerLink="/faqs"
-        routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <ion-label class="menu-label">FAQs</ion-label>
-      </ion-item>
+	<!-- Main Outlet -->
 
-      <ion-item
-        class="menu-font"
-        button
-        color="dark"
-        routerLink="/testimonials"
-        routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <ion-label class="menu-label">Testimonials</ion-label>
-      </ion-item>
+	<ion-router-outlet id="main-content"></ion-router-outlet>
 
-      <ion-item
-        class="menu-font"
-        button
-        color="dark"
-        routerLink="/about-us"
-        routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <ion-label class="menu-label">About Us</ion-label>
-      </ion-item>
-      <ion-item
-        class="menu-font"
-        button
-        color="dark"
-        routerLink="/contact-us"
-        routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >
-        <ion-label class="menu-label">Contact</ion-label>
-      </ion-item>
-    </ion-buttons>
-<div class="end">
-
-    <ion-item
-    type="button"
-    color="dark"
-    (click)="popoverService.presentPopover($event)"
-    lines="none"
-    *ngIf="authService.afAuth.user | async ; else login"
-    >
-    <ion-avatar slot="end">
-        <img
-        [src]="user.photoURL || '..//assets//images//dummy-user.png'"
-        >
-    </ion-avatar>
-    <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
-</ion-item>
-</div>
-<ng-template #login>
-    <ion-button class="flashing" style="float: right; padding-right: 10px;" routerLink="/get-started" color="warning">Login</ion-button>
-</ng-template>
-</ion-toolbar>
-</ion-header>
-
-  
-  <!-- Main Outlet -->
-  
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-
-    <!-- Modal Outlet -->
-    <router-outlet name="modal"></router-outlet>
-  </ion-app>
+	<!-- Modal Outlet -->
+	<router-outlet name="modal"></router-outlet>
+</ion-app>

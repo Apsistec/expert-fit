@@ -32,7 +32,7 @@ export class ContactPage implements AfterViewInit {
     style = darkStyle;
     // }
 
-    const googleMaps = await getGoogleMaps(
+    const googleMaps = await this.getGoogleMaps(
       'AIzaSyBiBxbmdVNvYMRdFSJDf-uWRsQ7Y7DPjbg'
     );
 
@@ -49,7 +49,7 @@ export class ContactPage implements AfterViewInit {
 
       mapData.forEach((markerData: any) => {
         const infoWindow = new googleMaps.InfoWindow({
-          content: `<h3>${markerData.name}</h3><h6>${markerData.address}</h6><h4>${markerData.phone}</h4>`,
+          content: `<h3><b>${markerData.name}</b></h3><h5>${markerData.address}</h5><h4>${markerData.phone}</h4>`,
         });
 
         const marker = new googleMaps.Marker({
@@ -58,9 +58,10 @@ export class ContactPage implements AfterViewInit {
           title: markerData.name,
         });
 
-        // marker.addListener('click', () => {
         infoWindow.open(map, marker);
-        // });
+        marker.addListener('click', () => {
+          infoWindow.open(map, marker);
+        });
       });
 
       googleMaps.event.addListenerOnce(map, 'idle', () => {
@@ -70,28 +71,50 @@ export class ContactPage implements AfterViewInit {
   }
 
 
+  getGoogleMaps(apiKey: string): Promise<any> {
+    const win = window as any;
+    const googleModule = win.google;
+    if (googleModule && googleModule.maps) {
+      return Promise.resolve(googleModule.maps);
+    }
+
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=beta`;
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+      script.onload = () => {
+        const googleModule2 = win.google;
+        if (googleModule2 && googleModule2.maps) {
+          resolve(googleModule2.maps);
+        } else {
+          reject('google maps not available');
+        }
+      };
+    });
 }
 
-function getGoogleMaps(apiKey: string): Promise<any> {
-  const win = window as any;
-  const googleModule = win.google;
-  if (googleModule && googleModule.maps) {
-    return Promise.resolve(googleModule.maps);
-  }
+// function getGoogleMaps(apiKey: string): Promise<any> {
+//   const win = window as any;
+//   const googleModule = win.google;
+//   if (googleModule && googleModule.maps) {
+//     return Promise.resolve(googleModule.maps);
+//   }
 
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=beta`;
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-    script.onload = () => {
-      const googleModule2 = win.google;
-      if (googleModule2 && googleModule2.maps) {
-        resolve(googleModule2.maps);
-      } else {
-        reject('google maps not available');
-      }
-    };
-  });
+//   return new Promise((resolve, reject) => {
+//     const script = document.createElement('script');
+//     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=beta`;
+//     script.async = true;
+//     script.defer = true;
+//     document.body.appendChild(script);
+//     script.onload = () => {
+//       const googleModule2 = win.google;
+//       if (googleModule2 && googleModule2.maps) {
+//         resolve(googleModule2.maps);
+//       } else {
+//         reject('google maps not available');
+//       }
+//     };
+//   });
 }

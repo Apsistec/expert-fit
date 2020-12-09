@@ -5,12 +5,13 @@ import {
 } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { NgForm } from '@angular/forms';
-import { loadStripe } from '@stripe/stripe-js';
 import { map } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
 import { environment } from '../../../environments/environment';
 import { User } from 'src/app/models/users.model';
+
+declare var Stripe;
 
 @Component({
   selector: 'app-products',
@@ -18,12 +19,15 @@ import { User } from 'src/app/models/users.model';
   styleUrls: ['./products.page.scss']
 })
 export class ProductsPage implements OnInit {
+
   user: User;
   role;
   signedIn;
   subscription;
   products: AngularFirestoreCollection;
   loading;
+  segment: string;
+  stripe;
 
   constructor(
     private afs: AngularFirestore,
@@ -31,6 +35,8 @@ export class ProductsPage implements OnInit {
     private authService: AuthService,
     private messageService: MessageService
   ) {}
+
+  segmentChanged(event) {}
 
   ngOnInit() {
     this.authService.user$.pipe(map((user) => (this.user = user)));
@@ -86,8 +92,8 @@ export class ProductsPage implements OnInit {
         price: purchaseForm.value.price,
         allow_promotion_codes: true,
         tax_rates: environment.taxRates,
-        success_url: 'https://expert-fitness-midland-tx.firebaseapp.com',
-        cancel_url: 'https://expert-fitness-midland-tx.firebaseapp.com',
+        success_url: 'https://expert-fitness-midland-tx.firebaseapp.com/dashboard',
+        cancel_url: 'https://expert-fitness-midland-tx.firebaseapp.com/dashboard',
         metadata: {
           tax_rate: '10% sales tax exclusive'
         }
@@ -102,8 +108,8 @@ export class ProductsPage implements OnInit {
       // We have a session, let's redirect to Checkout
       // Init Stripe
       if (sessionId) {
-        const stripe = await loadStripe(environment.stripePubKey);
-        stripe.redirectToCheckout({ sessionId });
+        this.stripe = await Stripe(environment.stripePubKey);
+        this.stripe.redirectToCheckout({ sessionId });
       }
     });
   }
@@ -116,7 +122,7 @@ export class ProductsPage implements OnInit {
     );
     const url = await functionRef({
       returnUrl:
-        'https://expert-fitness-midland-tx.firebaseapp.com/members/dashboard'
+        'https://expert-fitness-midland-tx.firebaseapp.com/dashboard'
     });
     return url;
   }

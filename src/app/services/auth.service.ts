@@ -23,8 +23,9 @@ export class AuthService {
   displayName;
   currentBehaviorUser = new BehaviorSubject(null);
   authState$: any = this.afAuth.authState;
-    userData: User;
-
+  gedIn;userData: User;
+  isLoggedIn;
+  notLoggedIn;
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
@@ -32,6 +33,7 @@ export class AuthService {
     private messageService: MessageService,
     private modalController: ModalController
   ) {
+    this.afAuth.authState.subscribe(this.firebaseAuthChangeListener);
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user) => {
         if (user) {
@@ -43,6 +45,19 @@ export class AuthService {
     );
   }
 
+  // tslint:disable: no-unused-expression
+
+
+public firebaseAuthChangeListener(response) {
+    // if needed, do a redirect in here
+    if (response) {
+      this.isLoggedIn === true;
+      console.log('Logged in :)');
+    } else {
+        this.notLoggedIn === true;
+        console.log('Logged out :(');
+    }
+  }
 
 
   SignIn(credentials) {
@@ -56,8 +71,9 @@ export class AuthService {
           emailVerified: data.user.emailVerified,
           lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
         });
-        this.modalController.dismiss();
+        this.modalController.dismiss().then(() => {
         this.messageService.loggedInToast(data);
+        });
       })
       .catch((error) => {
         this.messageService.authErrorAlert(error);
@@ -85,9 +101,10 @@ export class AuthService {
             this.messageService.authErrorAlert(error);
           })
           .then(() => {
-            this.modalController.dismiss();
+            this.modalController.dismiss().then(() => {
             this.sendVerificationMail();
             this.messageService.registerSuccessAlert();
+            });
           });
       });
   }
@@ -109,8 +126,9 @@ export class AuthService {
             this.messageService.authErrorAlert(err);
           })
           .then(() => {
-            this.modalController.dismiss();
-            this.messageService.loggedInToast(data);
+            this.modalController.dismiss().then(() => {
+              this.messageService.loggedInToast(data);
+            });
           });
       });
     });

@@ -4,15 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { QuicklinkStrategy } from 'ngx-quicklink';
 // import { PaidGuard } from './_guards/paid.guard';
 // import { RoleGuard } from './_guards/role.guard';
-import { IntroVideoComponent } from './shared/intro-video/intro-video.component';
-import { AboutAppComponent } from './shared/about-app/about-app.component';
-import { ModalViewComponent } from './shared/modal-view/modal-view.component';
+// import { ModalViewComponent } from './shared/modal-view/modal-view.component';
 import { PrivacyComponent } from './shared/privacy/privacy.component';
 import { TermsComponent } from './shared/terms/terms.component';
-import { SignUpComponent } from './shared/sign-up/sign-up.component';
-import { SignInComponent } from './shared/sign-in/sign-in.component';
+import { VideoComponent } from './shared/intro-video/intro-video.component';
+import { AboutAppComponent } from './shared/about-app/about-app.component';
+import { LoginComponent } from './shared/login/login.component';
 
-const redirectLoggedInToDash = () => redirectLoggedInTo(['/customers/dashboard']);
+const redirectLoggedInToDash = () => redirectLoggedInTo(['/dashboard']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/home']);
 const verifiedEmail = () => emailVerified;
 
@@ -81,9 +80,9 @@ const routes: Routes = [
     // ...canActivate(verifiedEmail),
     // canActivate: [PaidGuard, RoleGuard]
   },
-//   {
-//     path: 'modal', component: ModalViewComponent, outlet: 'modal',
-//     children: [
+  // {
+    // path: 'modal', component: ModalViewComponent, outlet: 'modal',
+    // children: [
         {
             path: 'about-app', component: AboutAppComponent, outlet: 'modal'
         },
@@ -94,19 +93,14 @@ const routes: Routes = [
             path: 'privacy', component: PrivacyComponent, outlet: 'modal'
         },
         {
-          path: 'intro-video', component: IntroVideoComponent, outlet: 'modal'
+          path: 'video', component: VideoComponent, outlet: 'modal'
         },
-        {
-          path: 'sign-in', component: SignInComponent, outlet: 'modal'
-        },
-        {
-          path: 'sign-up', component: SignUpComponent, outlet: 'modal'
-        },
-        { path: ':id', component: ModalViewComponent },
+        { path: 'login', component: LoginComponent },
+        // { path: ':id', component: ModalViewComponent },
 
 
-//     ]
-//   },
+  //   ]
+  // },
   {
     path: '',
     redirectTo: '/home',
