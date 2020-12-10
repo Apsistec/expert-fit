@@ -35,7 +35,7 @@ export class CheckoutPage implements OnInit, AfterViewInit {
   @ViewChild(WizardComponent, { static: true }) public wizard: WizardComponent;
   @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
 
-  @ViewChild('card-payment') cardPayElement: stripe.StripeCardElement;
+  @ViewChild('card-payment') cardPayElement: this.stripe.StripeCardElement;
   @ViewChild('sections') photos: MatExpansionPanel;
   @ViewChild('info') info: MatExpansionPanel;
   @ViewChild('pay') pay: MatExpansionPanel;
@@ -98,7 +98,7 @@ export class CheckoutPage implements OnInit, AfterViewInit {
         iconColor: '#fa755a'
       }
     };
-    this.stripe = await stripe.loadStripe(environment.stripePubKey);
+    this.stripe = await this.stripe.loadStripe(environment.stripePubKey);
     const elements = await this.stripe.elements();
     this.card = elements.create('card', {
       hidePostalCode: true,
