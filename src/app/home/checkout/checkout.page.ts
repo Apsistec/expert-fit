@@ -35,7 +35,7 @@ export class CheckoutPage implements OnInit, AfterViewInit {
   @ViewChild(WizardComponent, { static: true }) public wizard: WizardComponent;
   @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
 
-  @ViewChild('card-payment') cardPayElement: this.stripe.StripeCardElement;
+  // @ViewChild('card-payment') cardPayElement: StripeCardElement;
   @ViewChild('sections') photos: MatExpansionPanel;
   @ViewChild('info') info: MatExpansionPanel;
   @ViewChild('pay') pay: MatExpansionPanel;
