@@ -1,55 +1,84 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
-import { FirebaseUISignInSuccessWithAuthResult, FirebaseUISignInFailure } from 'firebaseui-angular';
-import { User } from 'src/app/models/users.model';
-import { AuthService } from 'src/app/services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { MatTabChangeEvent } from '@angular/material/tabs';
+import {AuthProvider, Theme} from 'ngx-auth-firebaseui';
 import { MessageService } from 'src/app/services/message.service';
+import { ModalController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
-  user: User;
-  
-  constructor(
-    public authService: AuthService,
-    public afAuth: AngularFireAuth,
-    private modalController: ModalController,
-    private messageService: MessageService,
-    private router: Router
-  ) {}
+export class LoginComponent implements OnDestroy {
+    title = 'ngx-auth-firebaseui';
 
+    viewSourceOfNgxAuthFirebaseuiComponent: boolean;
+    viewSourceOfNgxAuthFirebaseuiLoginComponent: boolean;
+    viewSourceOfNgxAuthFirebaseuiRegisterComponent: boolean;
+    viewSourceOfTheUserComponent: boolean;
+    viewSourceOfTheProvidersComponentRow: boolean;
+    viewSourceOfTheProvidersComponentColumn: boolean;
+    viewSourceOfTheProvidersComponentThemes: boolean;
 
-  dismissModal() {
-    this.modalController.dismiss().then(() => {
-      this.router.navigateByUrl('/home');
-    });
+    snackbarSubscription: Subscription;
+
+    error: boolean;
+    public index: number;
+
+    providers = AuthProvider;
+    themes = Theme;
+
+    constructor(
+      public auth: AngularFireAuth,
+      public router: Router,
+      public messageService: MessageService,
+      private modalController: ModalController,
+      private snackbar: MatSnackBar
+      ) {}
+
+    get color(): string {
+      return this.error ? 'warn' : 'primary';
+    }
+
+    printUser(event) {
+      console.log('onSuccess event ->', event);
+      this.error = false;
+      this.index = 2;
+    }
+
+    printError(event) {
+      console.error('onError event --> ', event);
+      this.error = true;
+
+      this.snackbar.open(event.message, 'OK', {duration: 5000});
+    }
+
+    ngOnDestroy(): void {
+      if (this.snackbarSubscription) {
+        this.snackbarSubscription.unsubscribe();
+      }
+    }
+
+    onTabChange(event: MatTabChangeEvent) {
+      console.log('on tab change: ', event);
+    }
+
+    onSignOut() {
+
+      console.log('Sign-out successful!');
+    }
+
+    onAccountDeleted() {
+      console.log('Account Delete successful!');
+    }
+
+    dismissModal() {
+      this.modalController.dismiss();
+    }
   }
-
-  successCallback(signInSuccessData: FirebaseUISignInSuccessWithAuthResult) {
-    this.messageService.loggedInToast(signInSuccessData);
-  }
-
-  errorCallback(errorData: FirebaseUISignInFailure) {
-    this.messageService.errorAlert(errorData);
-  }
-
-  uiShownCallback() {
-    console.log('ui was shown');
-  }
-
-  logOut() {
-    this.dismissModal();
-    this.authService.SignOut();
-
-  }
-
-  goHome() {
-    this.dismissModal();
-    this.router.navigateByUrl('/home');
-  }
-}

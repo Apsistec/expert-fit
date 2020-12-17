@@ -7,32 +7,16 @@ import { map } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
 import { Ratings } from 'src/app/models/ratings.model';
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-testimonials',
   templateUrl: './testimonials.page.html',
   styleUrls: ['./testimonials.page.scss'],
+  providers: [NgbRatingConfig] // add NgbRatingConfig to the component providers
 })
 export class TestimonialsPage {
-  slideOpts = {
-    initialSlide: 1,
-    speed: 400,
-    loop: true,
-    breakpoints: {
-      150: {
-        slidesPerView: 1.5,
-        spaceBetween: 20,
-      },
-      576: {
-        slidesPerView: 2.5,
-        spaceBetween: 30,
-      },
-      1200: {
-        slidesPerView: 3.5,
-        spaceBetween: 15,
-      },
-    },
-  };
+ 
   reviewForm;
   user: User;
   testimonials = Ratings;
@@ -43,10 +27,11 @@ export class TestimonialsPage {
     public authService: AuthService,
     private fb: FormBuilder,
     private messageService: MessageService,
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    config: NgbRatingConfig
   ) {
-    // this.authService.user.pipe(map((user) => (this.user = user)));
-
+    config.max = 5;
+    config.readonly = false;
     this.reviewForm = this.fb.group({
       review: ['', [Validators.required]],
     });

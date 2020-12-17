@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { User } from 'src/app/models/users.model';
 import { AuthService } from 'src/app/services/auth.service';
-import { DateService } from 'src/app/services/date.service';
 import { MessageService } from 'src/app/services/message.service';
 import { AboutAppComponent } from '../about-app/about-app.component';
 import { PrivacyComponent } from '../privacy/privacy.component';

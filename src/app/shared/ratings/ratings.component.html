@@ -6,33 +6,23 @@
       [options]="slideOpts"
     >
       <ion-slide style="z-index: 99;" *ngFor="let rating of testimonials">
-          <ion-card class="ion-card-global">
+          <ion-card class="ion-card-global" routerLink="/testimonials">
             <ion-card-header>
               <ion-card-title>
-                <ion-text> {{ rating.author }} </ion-text>
+               {{ rating.author }}
               </ion-card-title>
             </ion-card-header>
             <ion-card-content>
               <ion-item class="rating-item">
                 <ion-avatar>
-                  <img src="../../../assets/images/dummy-user.png" />
+                  <img [src]="[rating.img || '../../../assets/images/dummy-user.png']"/>
                 </ion-avatar>
-                &nbsp;
-                &nbsp;
-                &nbsp;
-                <ion-button color="primary">
-                  <ion-icon name="star-sharp" color="warning" ></ion-icon>
-                  <ion-icon name="star-sharp" color="warning" ></ion-icon>
-                  <ion-icon name="star-sharp" color="warning" ></ion-icon>
-                  <ion-icon name="star-sharp" color="warning" ></ion-icon>
-                  <ion-icon name="star-sharp" color="warning" ></ion-icon>
-        
-                </ion-button>
+                <!-- <ion-button *ngIf="rating.stars" color="primary"> -->
+                  <ngb-rating [rate]="3"></ngb-rating>      
+                <!-- </ion-button> -->
               </ion-item>
               <br />
-              <ion-text>
                 <p>{{ rating.message }}</p>
-              </ion-text>
             </ion-card-content>
           </ion-card>
       </ion-slide>

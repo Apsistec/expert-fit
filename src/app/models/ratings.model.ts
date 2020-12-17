@@ -1,11 +1,10 @@
-import { User } from './users.model';
 
 export interface Rating {
-  stars: number;
-  author?: User | string;
+  stars?: number;
+  author: string;
   message?: string;
-  ratingId?: string;
   createdAt?: string;
+  img?: string;
 }
 
 export const Ratings: Rating[] = [
@@ -40,13 +39,13 @@ export const Ratings: Rating[] = [
     message: 'I love everyone\'s upbeat, freindly attitide. It is infectious and motivational!',
   },
   {
-    ratingId: '',
+
     author: 'Susan Horton',
     stars: 5,
     message: 'The staff at Expert Fitness is kind, thoughtful and very professional - a joy to be around! ',
   },
   {
-    ratingId: '',
+
     author: 'Jay Horton',
     stars: 5,
     message: 'The staff at Expert Fitness are Great! They are freindly, courteous, helpful and encouraging. What a great place to work out! Having a personal trainer is like having someone to be accountable to and make me show up when I wouldn\'t on my own.',

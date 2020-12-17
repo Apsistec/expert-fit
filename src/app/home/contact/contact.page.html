@@ -1,41 +1,30 @@
 <ion-content>
-	<ion-grid>
-		<ion-row class="ion-justify-content-center">
-			<ion-col size-lg="4" size-sm="8">
-				<ion-card color="primary" class="ion-text-center map-card">
-					<ion-card-header color="primary">
-						<ion-card-title>
-							<img
-								src="../../../assets/icons/icon-144x144.png"
-								style="max-height: 38px"
-							/>
-							Expert Fitness Gym
-						</ion-card-title>
-					</ion-card-header>
-					<ion-card-content>
-						<ion-item lines="none" detail="false">
-							<ion-label style="font-weight: bold">
-								<p>3000 N. Garfield Street Suite 159</p>
-								<p>Midland TX 79705</p>
-							</ion-label>
-						</ion-item>
-						<ion-chip color="light" href="tel://432-684-0844">
-							<ion-icon color="warning" name="call-sharp"></ion-icon>
-							<ion-label> (432) 684-0844 </ion-label>
-						</ion-chip>
-						<ion-chip color="light" routerLink="/contact-us">
-							<ion-icon color="warning" name="mail-sharp"></ion-icon>
-							<ion-label> Contact Us </ion-label>
-						</ion-chip>
-					</ion-card-content>
-				</ion-card>
-			</ion-col>
-			<ion-col size-lg="8" size-sm="11">
-				<ion-card>
+	<ion-card color="dark" class="ion-text-center">
+		<ion-card-header>
+			<ion-card-title color="warning">
+				Map of Expert Fitness Club
+			</ion-card-title>
+		</ion-card-header>
+		<ion-card-content>
+			
+			<ion-grid>
+				<ion-row class="ion-justify-content-center">
+				<ion-col size-lg="8" size-md="8" size-sm="12">
 					<div #mapCanvas class="map-canvas"></div>
-				</ion-card>
-			</ion-col>
-		</ion-row>
-	</ion-grid>
-	<app-footer></app-footer>
+				</ion-col>
+				<ion-col size-lg="4" size-md="4" size-sm="12">
+					<ion-card>
+						<img src="../../../assets/images/squatting-exercise.jpg">
+					</ion-card>
+				</ion-col>
+			</ion-row>
+			<ion-row>
+				<ion-col>
+					<app-footer>
+					</app-footer>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		</ion-card-content>
+	</ion-card>
 </ion-content>

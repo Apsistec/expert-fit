@@ -5,18 +5,19 @@ import { Platform } from '@ionic/angular';
 import { User } from './models/users.model';
 import { AuthService } from './services/auth.service';
 import { UpdateService } from './services/update.service';
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 // import 'firebase/auth';
 import 'firebase/app';
-import { PopoverService } from './services/popover.service';
+// import { PopoverService } from './services/popover.service';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+// import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
-  providers: [Location]
+  // providers: [Location]
 })
 export class AppComponent implements OnInit{
 
@@ -30,8 +31,8 @@ export class AppComponent implements OnInit{
     private statusBar: StatusBar,
     private checkForUpdate: UpdateService,
     public authService: AuthService,
-    public popoverService: PopoverService,
-    private router: Router
+    // public popoverService: PopoverService,
+    public router: Router
   ) {
     this.initializeApp();
   }

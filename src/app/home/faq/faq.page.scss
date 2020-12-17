@@ -5,6 +5,7 @@
 
 .section,
 ion-item:disabled {
+  font-weight: 600;
   --ion-item-background: var(--ion-color-light-shade);
   --ion-item-color: #000 !important;
   ion-label {
@@ -15,12 +16,12 @@ ion-item:disabled {
 .section-active {
   font-weight: 600;
   ion-icon {
-    color: var(--ion-color-warning-shade);
+    color: black;
   }
 }
 
 .info {
-  --ion-item-background: var(--ion-color-medium-shade);
+  --ion-item-background: var(--ion-color-dark-tint);
 }
 
 .info-text {

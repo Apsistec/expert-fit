@@ -19,11 +19,11 @@ import { MessageService } from './message.service';
 })
 export class AuthService {
   user$: Observable<User>;
-  role;
+  userType;
+  user: any;
   displayName;
   currentBehaviorUser = new BehaviorSubject(null);
   authState$: any = this.afAuth.authState;
-  gedIn;userData: User;
   isLoggedIn;
   notLoggedIn;
   constructor(
@@ -32,35 +32,47 @@ export class AuthService {
     private router: Router,
     private messageService: MessageService,
     private modalController: ModalController
-  ) {
-    this.afAuth.authState.subscribe(this.firebaseAuthChangeListener);
-    this.user$ = this.afAuth.authState.pipe(
-      switchMap((user) => {
+    ) {
+      // this.authState$.subscribe(this.firebaseAuthChangeListener)
+      this.user$ = this.afAuth.authState.pipe(
+        switchMap((user) => {
+          if (user) {
+            return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          } else {
+            of(null);
+          }
+        })
+      );
+
+      this.user = this.afAuth.user.pipe(switchMap(user => {
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           of(null);
         }
-      })
-    );
-  }
+      }));
+      console.log('user', this.user);
 
-  // tslint:disable: no-unused-expression
+      const usersList = document.getElementById('users');
+    }
+
 
 
 public firebaseAuthChangeListener(response) {
-    // if needed, do a redirect in here
     if (response) {
-      this.isLoggedIn === true;
-      console.log('Logged in :)');
-    } else {
-        this.notLoggedIn === true;
-        console.log('Logged out :(');
-    }
-  }
+this.firebaseAuthChangeListener( res => this.isLoggedIn = res);
+}
+    if (!!this.isLoggedIn) {
+  console.log('rvalue: ', this.isLoggedIn );
+
+} else {
+  // tslint:disable-next-line: no-unused-expression
+  this.notLoggedIn;
+}
+}
 
 
-  SignIn(credentials) {
+    SignIn(credentials) {
     return this.afAuth
       .signInWithEmailAndPassword(credentials.email, credentials.password)
       .then((data) => {
@@ -71,7 +83,8 @@ public firebaseAuthChangeListener(response) {
           emailVerified: data.user.emailVerified,
           lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
         });
-        this.modalController.dismiss().then(() => {
+        this.modalController.dismiss()
+        .then(() => {
         this.messageService.loggedInToast(data);
         });
       })
@@ -81,7 +94,7 @@ public firebaseAuthChangeListener(response) {
   }
 
 
-  SignUp(credentials) {
+    SignUp(credentials) {
     return this.afAuth
       .createUserWithEmailAndPassword(credentials.email, credentials.password)
       .then((data) => {
@@ -92,25 +105,25 @@ public firebaseAuthChangeListener(response) {
             displayName: credentials.displayName,
             photoURL: data.user.photoURL,
             email: data.user.email,
-            role: 'USER',
+            userType: 'USER',
             permissions: ['delete-ticket'],
             emailVerified: data.user.emailVerified,
             createdAt: fire.default.firestore.FieldValue.serverTimestamp()
-          })
-          .catch((error) => {
-            this.messageService.authErrorAlert(error);
-          })
+          }, {merge: true})
           .then(() => {
-            this.modalController.dismiss().then(() => {
-            this.sendVerificationMail();
-            this.messageService.registerSuccessAlert();
+            this.modalController.dismiss()
+            .then(() => {
+              this.sendVerificationMail();
+            })
+            .catch((error) => {
+              this.messageService.authErrorAlert(error);
             });
           });
-      });
+        });
   }
 
   // Auth providers
-  AuthLogin(provider) {
+    AuthLogin(provider) {
     return this.afAuth.signInWithRedirect(provider).then(() => {
       return this.afAuth.getRedirectResult().then((data) => {
         this.afs
@@ -122,12 +135,13 @@ public firebaseAuthChangeListener(response) {
             emailVerified: data.user.emailVerified,
             lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
           })
-          .catch((err) => {
-            this.messageService.authErrorAlert(err);
-          })
           .then(() => {
-            this.modalController.dismiss().then(() => {
+            this.modalController.dismiss()
+            .then(() => {
               this.messageService.loggedInToast(data);
+            })
+            .catch((err) => {
+              this.messageService.authErrorAlert(err);
             });
           });
       });
@@ -135,13 +149,13 @@ public firebaseAuthChangeListener(response) {
   }
 
   // Sign in with 3rd party Oauth
-  GoogleAuth() {
+    GoogleAuth() {
     this.AuthLogin(new fire.default.auth.GoogleAuthProvider()).catch((error) => {
       this.messageService.errorAlert(error);
     });
   }
 
-  TwitterAuth() {
+    TwitterAuth() {
     this.AuthLogin(new fire.default.auth.TwitterAuthProvider()).catch((error) => {
       this.messageService.errorAlert(error);
     });
@@ -152,24 +166,25 @@ public firebaseAuthChangeListener(response) {
   //   });
   // }
 
-  FacebookAuth() {
+    FacebookAuth() {
     this.AuthLogin(new fire.default.auth.FacebookAuthProvider()).catch((error) => {
       this.messageService.errorAlert(error);
     });
   }
 
   /* Send email verfificaiton when new user sign up */
-  sendVerificationMail() {
+    sendVerificationMail() {
     const actionCodeSettings = {
       url: 'https://expert-fitness-midland-tx.firebaseapp.com/vefified-email',
       handleCodeInApp: true,
     };
-    fire
-      .default
-      .auth()
+    fire.default.auth()
       .currentUser.sendEmailVerification(actionCodeSettings)
       .then(() => {
-        this.messageService.registerSuccessAlert();
+        this.messageService.registerSuccessAlert()
+        .then(() => {
+          this.SignOut();
+        });
       })
       .catch((error) => {
         this.messageService.errorAlert(error);
@@ -177,10 +192,9 @@ public firebaseAuthChangeListener(response) {
   }
 
   // Recover password
-  ForgotPassword(passwordResetEmail) {
+    ForgotPassword(passwordResetEmail) {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
-      .catch((error) => this.messageService.errorAlert(error))
       .then(() =>
         this.messageService
           .resetPasswordAlert()
@@ -189,7 +203,7 @@ public firebaseAuthChangeListener(response) {
   }
 
   // Sign-out
-  SignOut() {
+    SignOut() {
     return this.afAuth
       .signOut()
       .then(() => {
@@ -201,20 +215,20 @@ public firebaseAuthChangeListener(response) {
       .catch((err) => this.messageService.errorAlert(JSON.stringify(err)));
   }
 
-  canRead(user: User): boolean {
+    canRead(user: User): boolean {
     return this.checkAuthorization(user);
   }
 
   // determines if user is a member
-  private checkAuthorization(userData: User): boolean {
-    if (userData && (userData.role === 'PUBLIC' || 'MEMBER' || 'EMPLOYEE' || 'ADMIN')) {
+  private checkAuthorization(user: User): boolean {
+    if (user && (user.userType === 'PUBLIC' || 'MEMBER' || 'EMPLOYEE' || 'ADMIN')) {
       return true;
     } else {
       return false;
     }
   }
 
-  hasPermissions(permissions: string[]): Observable<boolean> {
+hasPermissions(permissions: string[]): Observable < boolean > {
     for (const perm of permissions) {
       return this.user$.pipe(
         map((user) => {

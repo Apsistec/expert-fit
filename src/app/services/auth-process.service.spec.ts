@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DateService } from './date.service';
+import { AuthProcessService } from './auth-process.service';
 
-describe('DateService', () => {
-  let service: DateService;
+describe('AuthProcessService', () => {
+  let service: AuthProcessService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DateService);
+    service = TestBed.inject(AuthProcessService);
   });
 
   it('should be created', () => {

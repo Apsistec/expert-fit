@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { emailVerified, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { RouterModule, Routes } from '@angular/router';
 import { QuicklinkStrategy } from 'ngx-quicklink';
 // import { PaidGuard } from './_guards/paid.guard';
@@ -10,10 +9,8 @@ import { TermsComponent } from './shared/terms/terms.component';
 import { VideoComponent } from './shared/intro-video/intro-video.component';
 import { AboutAppComponent } from './shared/about-app/about-app.component';
 import { LoginComponent } from './shared/login/login.component';
+import {LoggedInGuard} from 'ngx-auth-firebaseui';
 
-const redirectLoggedInToDash = () => redirectLoggedInTo(['/dashboard']);
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/home']);
-const verifiedEmail = () => emailVerified;
 
 const routes: Routes = [
   {
@@ -32,6 +29,10 @@ const routes: Routes = [
   {
     path: 'testimonials',
     loadChildren: () => import('./home/testimonials/testimonials.module').then((m) => m.TestimonialsPageModule)
+  },
+  {
+    path: 'gallery',
+    loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule)
   },
   {
     path: 'about-us',
@@ -60,7 +61,8 @@ const routes: Routes = [
   {
     path: 'customer-dashboard',
     loadChildren: () =>
-      import('./customer/customer-dashboard/customer-dashboard.module').then((m) => m.CustomerDashboardPageModule)
+      import('./customer/customer-dashboard/customer-dashboard.module').then((m) => m.CustomerDashboardPageModule),
+      canActivate: [LoggedInGuard]
     // ...canActivate(redirectUnauthorizedToLogin),
     // ...canActivate(verifiedEmail),
     // canActivate: [PaidGuard, RoleGuard]
@@ -68,14 +70,16 @@ const routes: Routes = [
   {
     path: 'employee-dashboard',
     loadChildren: () =>
-      import('./employee/employee-dashboard/employee-dashboard.module').then((m) => m.EmployeeDashboardPageModule)
+      import('./employee/employee-dashboard/employee-dashboard.module').then((m) => m.EmployeeDashboardPageModule),
+      canActivate: [LoggedInGuard]
     // ...canActivate(redirectUnauthorizedToLogin),
     // ...canActivate(verifiedEmail),
     // canActivate: [PaidGuard, RoleGuard]
   },
   {
     path: 'admin-dashboard',
-    loadChildren: () => import('./admin/admin-dashboard/admin-dashboard.module').then((m) => m.AdminDashboardPageModule)
+    // tslint:disable-next-line: max-line-length
+    loadChildren: () => import('./admin/admin-dashboard/admin-dashboard.module').then((m) => m.AdminDashboardPageModule), canActivate: [LoggedInGuard]
     // ...canActivate(redirectUnauthorizedToLogin),
     // ...canActivate(verifiedEmail),
     // canActivate: [PaidGuard, RoleGuard]
@@ -116,7 +120,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: QuicklinkStrategy,
-      relativeLinkResolution: 'legacy'
+      relativeLinkResolution: 'corrected'
     })
   ],
   exports: [RouterModule]

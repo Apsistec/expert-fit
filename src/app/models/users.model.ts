@@ -1,26 +1,22 @@
-import { Employee } from './employees.model';
 
 export interface User {
   uid: string;
   displayName: string;
   email: string;
-  role: string;
-  permissions?: string[];
+  userType: string; // USER, ADMIN, EMPLOYEE, CUSTOMER
   photoURL?: string;
+  emailVerified?: boolean;
+  providerId?: string;
   phoneNumber?: number;
-  locations?: string[];
-  ratings?: string[];
+  permissions?: string[];
+  ratings?: string[] ;
   hashTags?: string[];
   bio?: string;
   whereFrom?: string;
   friends?: User[];
-  employeeId?: Employee[];
-  subStatus?: string;
-  emailVerified?: boolean;
-  plan?: string;
   subId?: string;
-  createdAt: any;
+  createdAt?: any;
   lastUpdatedAt?: any;
-  stripeId?: string;
-  stripeRole?: string;
+  stripeStatus?: string;  // current, trialing, past-due, cancelled, needs-payment
+  stripeRole?: string;   // basic, premium, platinum
 }

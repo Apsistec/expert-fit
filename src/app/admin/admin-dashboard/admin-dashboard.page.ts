@@ -28,7 +28,6 @@ export class AdminDashboardPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.admins = this.collection.getAllAdmins();
     this.users = this.collection.getUsers();
     this.customers = this.collection.getCurrentCustomers();
     this.feed = this.collection.getUserFeed();

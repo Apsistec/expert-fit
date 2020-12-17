@@ -1,43 +1,22 @@
-<div class="page-two">
-
-    <ion-row
-    class="ion-no-margin ion-no-padding-horizontal ion-text-center"
-    >
-        <ion-toolbar style="position: relative;" class="benefit-toolbar">
-            <ion-title [@slideInRight]="slideInRight" style="position: absolute; bottom: 0;">
-                <ion-text color="warning" class="ion-text-capitalize ion-text-left">
-                    <p>
-                        Key Benefits of Expert Fitness Personal Training
-                    </p>
-                </ion-text>
-            </ion-title>
-        </ion-toolbar>
-    </ion-row>
-    <ion-row class="ion-justify-content-center ">
-        <ion-col > 
-            <app-benefits></app-benefits>
-
-        <ion-card class=" schedule-card ion-padding  ion-text-center">
-            <ion-card-title>
-                <ion-text color="light" >
-                    <p >
-                        Our 1-on-1 & semi-private sessions accelerate your progress, safely.
-                    </p>
-                </ion-text>
-            </ion-card-title>
-                <ion-card-subtitle >
-                    <ion-text color="success">
-                    <p>
-                 Like you, we want to make sure this is the right fit.
-                    </p>    
-                    </ion-text>
-                </ion-card-subtitle>
-
-                <ion-button strong color="light" fill="outline" style="background:var(--ion-color-secondary-tint);">Schedule Greeting</ion-button>
-        </ion-card>
-        </ion-col>
-    </ion-row>
-    
-
-    
-</div>
+<ion-card class="benefit-card ion-padding-vertical" >
+  <ion-card-header>
+      <ion-card-title>
+          Why Choose Expert Fitness for as your fitness management platform?
+      </ion-card-title>
+    <ion-card-subtitle [@slideInRight]="slideInRight" color="warning" class="ion-text-capitalize">
+      15 Ways we stand apart all other options
+    </ion-card-subtitle>
+  </ion-card-header>
+    <app-benefits></app-benefits>
+</ion-card>
+    <ion-card style="width: fit-content; display:block; margin: 0 5px;" class="schedule-card ion-padding ion-text-center">
+      <ion-card-title color="light">
+       Accelerate your progress, safely. Sign up for a private or semi-private session today.
+      </ion-card-title>
+      <ion-card-subtitle color="success">
+        We want to make sure Expert Fitness is going to exceed your expectations.
+      </ion-card-subtitle>
+      <ion-button strong color="light" fill="outline" style="background: var(--ion-color-secondary-tint)"
+        >Schedule Greeting
+      </ion-button>
+    </ion-card>

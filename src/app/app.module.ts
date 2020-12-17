@@ -18,56 +18,68 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 import { QuicklinkModule } from 'ngx-quicklink';
-import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
-import { ShareIconsModule } from 'ngx-sharebuttons/icons';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedDirectivesModule } from './directives/shared-directives.module';
 import { SideMenuComponent } from './home/side-menu/side-menu.component';
-import {firebase, firebaseui, FirebaseUIModule} from 'firebaseui-angular';
 import { LoginComponent } from './shared/login/login.component';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-const firebaseUiAuthConfig: firebaseui.auth.Config = {
-  signInFlow: 'popup',
-  signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-  {
-    scopes: [
-      'public_profile',
-      'email',
-      'user_likes',
-      'user_friends'
-    ],
-    customParameters: {
-      'auth_type': 'reauthenticate'
-    },
-    provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID
-  },
-  firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-  firebase.auth.GithubAuthProvider.PROVIDER_ID,
-  {
-    requireDisplayName: false,
-    provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
-  },
-  firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-  firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
-],
-  tosUrl: 'https://expert-fitness-midland-tx.web.app/terms',
-  privacyPolicyUrl: 'https://expert-fitness-midland-tx.web.app/privacy',
-  credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
-  signInSuccessUrl: 'https://expert-fitness-midland-tx.web.app/dashboard'
-};
-
-
-
+export function firebaseAppNameFactory() {
+  return `expert-fit`;
+}
 
 @NgModule({
   declarations: [AppComponent, SideMenuComponent, LoginComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    NgxAuthFirebaseUIModule.forRoot(
+    {
+      apiKey: 'AIzaSyBp8ssZ4LEJqzdRYMbK9rvh66_za4iujdM',
+      authDomain: 'expert-fitness-midland-tx.firebaseapp.com',
+      databaseURL: 'https://expert-fitness-midland-tx.firebaseio.com',
+      projectId: 'expert-fitness-midland-tx',
+      storageBucket: 'expert-fitness-midland-tx.appspot.com',
+      messagingSenderId: '179991880670',
+    },
+      () => 'your_app_name_factory',
+    {
+        enableFirestoreSync: true, // enable/disable autosync users with firestore
+        toastMessageOnAuthSuccess: true, // whether to open/show a snackbar message on auth success - default : true
+        toastMessageOnAuthError: true, // whether to open/show a snackbar message on auth error - default : true
+        // tslint:disable-next-line: max-line-length
+        authGuardFallbackURL: '/home', // url for unauthenticated users - to use in combination with canActivate feature on a route
+        // tslint:disable-next-line: max-line-length
+        authGuardLoggedInURL: '/dashboard', // url for authenticated users - to use in combination with canActivate feature on a route
+        passwordMaxLength: 60, // `min/max` input parameters in components should be within this range.
+        passwordMinLength: 8, // Password length min/max in forms independently of each componenet min/max.
+        // Same as password but for the name
+        nameMaxLength: 50,
+        nameMinLength: 2,
+        // If set, sign-in/up form is not available until email has been verified.
+        // Plus protected routes are still protected even though user is connected.
+        guardProtectedRoutesUntilEmailIsVerified: true,
+        enableEmailVerification: true, // default: true
+      }),
+      HttpClientModule,
+      FormsModule,
+      FlexLayoutModule,
+      MatCardModule,
+      MatButtonModule,
+      MatTabsModule,
+      MatIconModule,
+      MatToolbarModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot({
       name: '__mydb',
@@ -83,16 +95,13 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     AppRoutingModule,
     QuicklinkModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    ShareButtonsModule,
-    ShareIconsModule,
     SharedDirectivesModule,
+    NgbModule,
   ],
   providers: [
     DatePipe,

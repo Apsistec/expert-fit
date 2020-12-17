@@ -1,166 +1,85 @@
-<ion-content color="light">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-toolbar style="--background: var(--ion-color-medium-shade)">
-          <ion-segment [(ngModel)]="segment">
-            <ion-segment-button value="current" color="warning">
-              <ion-icon name="ribbon-sharp" color="warning"></ion-icon>
-              Testimonials
-            </ion-segment-button>
-            <ion-segment-button value="add">
-              <ion-icon name="person-add-sharp" color="warning"></ion-icon>
-              Add A Testimonial
-            </ion-segment-button>
-          </ion-segment>
-        </ion-toolbar>
-        <hr />
+<ion-content [ngSwitch]="segment">
+  <!-- <ion-card-header> -->
+  <ion-segment [(ngModel)]="segment">
+    <ion-segment-button value="current" color="warning">
+      <ion-icon name="ribbon-sharp" color="warning"></ion-icon>
+      Testimonials
+    </ion-segment-button>
+    <ion-segment-button value="add">
+      <ion-icon name="person-add-sharp" color="warning"></ion-icon>
+      Add A Testimonial
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-grid *ngSwitchDefault>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-sm="12" size-md="6" size-lg="4" size-xl="3" *ngFor="let testimonial of testimonials">
+        <ion-card class="ion-sub-card-global">
+          <ion-card-header>
+            <ion-card-title> {{ testimonial.author }} </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item class="rating-item">
+              <ion-avatar>
+                <img src="../../../assets/images/dummy-user.png" />
+              </ion-avatar>
+              <ion-button color="primary">
+                <ngb-rating [formControl]="rating.stars"></ngb-rating>
+              </ion-button>
+            </ion-item>
+            <br />
+            <ion-text>
+              <p>{{ testimonial.message }}</p>
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
-    <div [ngSwitch]="segment">
-      <ion-row *ngSwitchDefault>
-        <ion-col>
-          <ion-row class="ion-justify-content-center">
-            <ion-col size="12">
-              <ion-card class="ion-card-global">
-                <ion-card-header>
-                  <ion-card-title> Current Testimonials </ion-card-title>
-                </ion-card-header>
-                <ion-card-content>
-                  <ion-row class="ion-justify-content-center">
-                    <ion-col
-                      size-sm="12"
-                      size-md="6"
-                      size-lg="4"
-                      *ngFor="let testimonial of testimonials"
-                    >
-                      <ion-card class="ion-sub-card-global">
-                        <ion-card-header>
-                          <ion-card-title>
-                            {{ testimonial.author }}
-                          </ion-card-title>
-                        </ion-card-header>
-                        <ion-card-content>
-                          <ion-item class="rating-item">
-                            <ion-avatar>
-                              <img
-                                src="../../../assets/images/dummy-user.png"
-                              />
-                            </ion-avatar>
-                            &nbsp;
-                            <ion-button color="primary">
-                              <ion-icon
-                                name="star-sharp"
-                                color="warning"
-                              ></ion-icon>
-                              <ion-icon
-                                name="star-sharp"
-                                color="warning"
-                              ></ion-icon>
-                              <ion-icon
-                                name="star-sharp"
-                                color="warning"
-                              ></ion-icon>
-                              <ion-icon
-                                name="star-sharp"
-                                color="warning"
-                              ></ion-icon>
-                              <ion-icon
-                                name="star-sharp"
-                                color="warning"
-                              ></ion-icon>
-                            </ion-button>
-                          </ion-item>
-                          <br />
-                          <ion-text>
-                            <p>{{ testimonial.message }}</p>
-                          </ion-text>
-                        </ion-card-content>
-                      </ion-card>
-                    </ion-col>
-                  </ion-row>
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngSwitchCase="'add'">
-        <ion-col>
-          <ion-card class="ion-text-center ion-card-global">
-            <ion-card-header>
-              <ion-card-title>
-                <ion-text> Add A Review</ion-text>
-              </ion-card-title>
-              <ion-card-subtitle>
-                Any Employe, Gym, or this App
-              </ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              <form
-                #testimonial
-                *ngIf="authService.afAuth.user | async; else register;"
-                [formGroup]="reviewForm"
-                (ngSubmit)="setTestimonial(testimonial)"
-                novalidate
-              >
-                <ion-list class="ion-no-margin ion-no-padding">
-                  <ion-item>
-                    <ion-label>{{ user.displayName }}</ion-label>
-                  </ion-item>
-
-                  <ion-item>
-                    <ion-label position="floating">Review</ion-label>
-                    <ion-textarea
-                      auto-grow="true"
-                      color="primary"
-                      type="text"
-                      inputmode="text"
-                      formControlName="review"
-                      placeholder="Your review goes here..."
-                      required
-                      spellcheck="true"
-                      wrap="soft"
-                      autofocus="true"
-                    >
-                    </ion-textarea>
-                  </ion-item>
-                </ion-list>
-
-                <ion-button
-                  [disabled]="reviewForm.invalid"
-                  color="tertiary"
-                  expand="full"
-                  type="submit"
-                >
-                  <ion-icon
-                    size="small"
-                    slot="start"
-                    name="arrow-forward-sharp"
-                  >
-                  </ion-icon>
-                  <ion-text>Create</ion-text>
-                </ion-button>
-              </form>
-              <ng-template #register>
-                <ion-row class="ion-justify-content-center">
-                  <ion-col size-sm="12" size-md="4">
-                    <ion-card class="ion-padding ion-text-center" color="light">
-                      <ion-card-title>
-                        You must get registered first
-                      </ion-card-title>
-                      <ion-button color="primary" routerLink="/checkout">
-                        Register
-                      </ion-button>
-                    </ion-card>
-                  </ion-col>
-                </ion-row>
-              </ng-template>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </div>
   </ion-grid>
+
+  <ion-card>
+    <form
+      #testimonial
+      *ngIf="authService.afAuth.user | async; else register;"
+      [formGroup]="reviewForm"
+      (ngSubmit)="setTestimonial(testimonial)"
+      novalidate
+    >
+      <ion-list class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-label color="dark">{{ user.displayName }}</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Review</ion-label>
+          <ion-textarea
+            auto-grow="true"
+            color="primary"
+            type="text"
+            inputmode="text"
+            formControlName="review"
+            placeholder="Your review goes here..."
+            required
+            spellcheck="true"
+            wrap="soft"
+            autofocus="true"
+          >
+          </ion-textarea>
+        </ion-item>
+      </ion-list>
+
+      <ion-button [disabled]="reviewForm.invalid" color="tertiary" expand="full" type="submit">
+        <ion-icon size="small" slot="start" name="arrow-forward-sharp"> </ion-icon>
+        <ion-text>Create</ion-text>
+      </ion-button>
+    </form>
+  </ion-card>
+  <ng-template #register>
+    <ion-card class="ion-padding ion-text-center" color="light">
+      <ion-card-title> You must login first </ion-card-title>
+      <ion-button color="primary" routerLink="/checkout"> Register </ion-button>
+    </ion-card>
+  </ng-template>
+
   <app-footer></app-footer>
 </ion-content>

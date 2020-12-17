@@ -50,19 +50,29 @@ export class CollectionService {
       .collection('users', ref => ref.where('role', '==', 'EMPLOYEE'))
       .valueChanges();
   }
+  getMembers() {
+    return this.db
+      .collection('users', ref => ref.where('role', '==', 'MEMBER'))
+      .valueChanges();
+  }
+  getAdmins() {
+    return this.db
+      .collection('users', ref => ref.where('role', '==', 'ADMIN'))
+      .valueChanges();
+  }
   getPremiumSubs() {
     return this.db
-      .collection('users', ref => ref.where('plan', '==', 'premium'))
+      .collection('users', ref => ref.where('stripeRole', '==', 'premium'))
+      .valueChanges();
+  }
+  getPlatinumSubs() {
+    return this.db
+      .collection('users', ref => ref.where('stripeRole', '==', 'platinum'))
       .valueChanges();
   }
   getBasicSubs() {
     return this.db
-      .collection('users', ref => ref.where('plan', '==', 'basic'))
-      .valueChanges();
-  }
-  getFreeSubs() {
-    return this.db
-      .collection('users', ref => ref.where('plan', '!=', 'basic' || 'premium'))
+      .collection('users', ref => ref.where('stripeRole', '==', 'basic'))
       .valueChanges();
   }
 
@@ -76,15 +86,10 @@ export class CollectionService {
     .collection('users', ref => ref.where('subStatus', '==', 'past_due' || 'unpaid'))
       .valueChanges();
   }
-  getCancelledCustomers() {
+  getPastDueCustomers() {
     return this.db
     .collection('users', ref => ref.where('subStatus', '==', 'cancelled'))
       .valueChanges();
   }
 
-  getAllAdmins() {
-    return this.db
-      .collection('users', ref => ref.where('role', '==', 'ADMIN' || 'SUPERADMIN'))
-      .valueChanges();
-  }
 }

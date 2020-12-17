@@ -58,10 +58,9 @@
                 <ion-item *ngFor="let admin of admins | async">
                   <ion-avatar>
                     <img
-                      [src]='admin.photoURL || "..//..//assets//images//dummy-user.png"'
+                      [src]="admin.photoURL || '..//..//assets//images//dummy-user.png'" class="small-logo"
                     />
                   </ion-avatar>
-                  &nbsp; &nbsp;
                   <ion-label>
                     <ion-text color="dark"> {{ admin.name }} </ion-text>
                     <br />
@@ -102,10 +101,9 @@
                 <ion-item class="userlist" *ngFor="let user of users | async">
                   <ion-avatar>
                     <img
-                      [src]='user.photoURL || "..//..//assets//images//dummy-user.png"'
+                      [src]="user.photoURL || '..//..//assets//images//dummy-user.png'" class="small-logo"
                     />
                   </ion-avatar>
-                  &nbsp; &nbsp;
                   <ion-label>
                     <ion-text color="dark"> {{ user.name }} </ion-text>
                     <br />

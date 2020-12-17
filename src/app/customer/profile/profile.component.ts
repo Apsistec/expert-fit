@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { AlertController, ModalController } from '@ionic/angular';
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
-import { PhotoService } from '../../services/photo.service';
 import { StripeService } from '../../services/stripe.service';
 import { ThemeService } from '../../services/theme.service';
 import { UserService } from '../../services/user.service';
@@ -34,7 +33,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     public afAuth: AngularFireAuth,
     public afs: AngularFirestore,
     public stripe: StripeService,
-    public photoService: PhotoService,
     private userService: UserService,
     private alertController: AlertController,
     private router: Router
@@ -44,9 +42,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         // this.authService.user$.pipe(map(user => this.user = user));
   }
 
-  addPhotoToGallery() {
-    this.photoService.addNewToGallery();
-  }
+
 
   // Themes
   enableDark() {
@@ -102,6 +98,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   support() {
-    this.router.navigateByUrl('/customer/dashboard');
+    this.router.navigateByUrl('/dashboard');
   }
 }

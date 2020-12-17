@@ -1,12 +1,16 @@
 
+  
   .menu-font {
     ion-label {
-      // font: 800 1.1em/1.4 Montserrat, sans-serif;
+      font-size:larger;
+      font-weight: 900;
       text-transform: uppercase;
       color: var(--ion-color-light-tint);
     }
-    display: inline-block;
-    border-bottom: 0.3125em solid transparent;
+ 
+    display:inline-flex;
+    // top: 20px;
+
   }
 
   .menu-font :hover{
@@ -20,10 +24,12 @@
     }
   }
   
-  .silhouette {
-    max-height: 2.75em;
+  .avatar{
+    margin-right: 10px;
+    margin-top: 5px;
   }
- 
+
+
   .flashing {
     animation: 2s ease-out infinite flasher;
     z-index: 99;

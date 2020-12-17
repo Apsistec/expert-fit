@@ -1,5 +1,5 @@
 .scene-one {
-	height: 94vh;
+	height: 100vh;
 	width: 100vw;
 	background-color: var(--ion-color-medium);
 	background: linear-gradient(
@@ -14,13 +14,12 @@
 			rgba(17, 0, 2, 0.45) 50%,
 			rgba(83, 0, 7, 0.35) 100%
 		),
-		url(../../assets/images/fitness-balancing.jpg) bottom/ cover no-repeat;
-	
+		url(../../assets/images/fitness-balancing.jpg) center/ cover no-repeat;
 }
 
 
 .main-title{
-	font: normal normal 800 24px/2 sans-serif;
+	font: normal normal 800 32px/2 sans-serif;
 }
 .main-subtitle{
 	font: normal normal 800 20px sans-serif;
@@ -32,17 +31,14 @@ sup {
 }
 
 .main-heading-card {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-	padding: 12px;
-  width: fit-content;
+	padding-bottom: 12px;
+  // width: 100%;
 	background: var(--ion-color-dark-tint);
 	border: 4px solid var(--ion-color-secondary);
 }
 
 .cta{
-  margin: 15px;
+  margin: 5px;
 }
 
 

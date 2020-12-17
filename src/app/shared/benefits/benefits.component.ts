@@ -25,6 +25,7 @@ benefits =  Benefits;
             initialSlide: 1,
             speed: 1200,
             loop: true,
+            spaceBetween: 20,
             slidesPerView: 1
         };
     } else {
@@ -33,17 +34,25 @@ benefits =  Benefits;
             speed: 1200,
             loop: true,
             breakpoints: {
-                350: {
+                0: {
                     slidesPerView: 1,
-                    spaceBetween: 20,
+                    spaceBetween: 20
                 },
                 576: {
                     slidesPerView: 1.5,
-                    spaceBetween: 20,
+                    spaceBetween: 15
                 },
-                800: {
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 12
+                },
+                992: {
                     slidesPerView: 4,
-                    spaceBetween: 20,
+                    spaceBetween: 10
+                },
+                1200: {
+                    slidesPerView: 6,
+                    spaceBetween: 10
                 },
             }
         };
