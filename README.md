@@ -136,6 +136,24 @@ This is an example of how to list things you need to use the software and how to
    npm install
 
    firebase init
+
+   cd functions
+
+   npm install
+
+   ng build
+
+   cd ..
+
+   ionic build --prod
+
+   ionic serve 
+   ```
+   
+   or 
+
+   ```sh
+   firebase deploy
    ```
 6. Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
    ```js
