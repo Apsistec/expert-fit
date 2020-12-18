@@ -5,6 +5,7 @@
 **/assets
 **/public
 **/environments
+**/desktop.ini
 .*
 manifest.webmanifest
 ngsw-config.json
