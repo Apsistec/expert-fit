@@ -4,6 +4,7 @@
 /docs
 /assets
 /public
+/environments
 .*
 manifest.webmanifest
 ngsw-config.json
