@@ -134,23 +134,23 @@ This is an example of how to list things you need to use the software and how to
    ```
 6. Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
    ```js
-  export const environment = {
-    production: 'boolean',
-    firebaseConfig: {
-      apiKey: '...',
-      authDomain: '...',
-      databaseURL: '...',
-      projectId: '...',
-      storageBucket: '...',
-      messagingSenderId: '...',
-      appId: '...',
-      measurementId: '...'
-    },
+    export const environment = {
+      production: 'boolean',
+      firebaseConfig: {
+        apiKey: '...',
+        authDomain: '...',
+        databaseURL: '...',
+        projectId: '...',
+        storageBucket: '...',
+        messagingSenderId: '...',
+        appId: '...',
+        measurementId: '...'
+      },
 
-    stripePubKey: 'pk_test_ API',
+      stripePubKey: 'pk_test_ API',
 
-    taxRates: ['enter API']
-  };
+      taxRates: ['enter API']
+    }
    ```
 
 
