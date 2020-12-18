@@ -1,10 +1,10 @@
 # Doug's ignore files
-/.*
-/e2e
-/docs
-/assets
-/public
-/environments
+**/.*
+**/e2e
+**/docs
+**/assets
+**/public
+**/environments
 .*
 manifest.webmanifest
 ngsw-config.json
@@ -47,7 +47,7 @@ npm-debug.log*
 /.vscode
 /coverage
 /dist
-/node_modules
+**/node_modules
 /platforms
 /plugins
-/public
+
