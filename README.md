@@ -80,7 +80,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Expert Fitness App Screen Shot][product-screenshot]](/assets/images/screenshot.png)
 
 There are many great fitness apps available on GitHub, however, I didn't find one that really suit my client's needs so I created this enhanced one. I want to create a fitness app so amazing that it'll be the last one my client ever needs -- I think this is it.
 
@@ -132,9 +132,25 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    npm install
    ```
-6. Enter your APIs in `environment.ts` and `environment.prod.ts`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
+6. Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
+   ```js
+   export const environment = {
+    production: 'boolean',
+    firebaseConfig: {
+      apiKey: '...',
+      authDomain: '...',
+      databaseURL: '...',
+      projectId: '...',
+      storageBucket: '...',
+      messagingSenderId: '...',
+      appId: '...',
+      measurementId: '...'
+    },
+
+    stripePubKey: 'pk_test_ API',
+
+    taxRates: ['enter API'],
+  };
    ```
 
 
