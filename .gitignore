@@ -1,6 +1,27 @@
+# Doug's ignore files
+/.*
+/e2e
+/docs
+/assets
+/public
+.*
+manifest.webmanifest
+ngsw-config.json
+firebase.json
+firestore.rules
+firestore.indexes.json
+ionic.config.json
+angular.json
+capacitor.config.json
+storage.rules
+remoteconfig.template.json
+prettier.config.js
+karma.conf.js
+package-lock.json
+browserslist
+
 # Specifies intentionally untracked files to ignore when using Git
 # http://git-scm.com/docs/gitignore
-
 *~
 *.sw[mnpcod]
 .tmp
