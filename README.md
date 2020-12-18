@@ -117,6 +117,9 @@ This is an example of how to list things you need to use the software and how to
 * npm
   ```sh
   npm install npm@latest -g
+  npm install @angular/cli@latest -g
+  npm install @ionic/cli@latest -g
+  npm install firebase-tools@latest -g
   ```
 
 ### Installation
@@ -131,6 +134,8 @@ This is an example of how to list things you need to use the software and how to
 5. Install NPM packages
    ```sh
    npm install
+
+   firebase init
    ```
 6. Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
    ```js
