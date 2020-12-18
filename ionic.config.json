@@ -1,7 +1,0 @@
-{
-  "name": "expert-fit",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
