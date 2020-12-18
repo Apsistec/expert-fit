@@ -134,7 +134,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 6. Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
    ```js
-   export const environment = {
+  export const environment = {
     production: 'boolean',
     firebaseConfig: {
       apiKey: '...',
@@ -149,7 +149,7 @@ This is an example of how to list things you need to use the software and how to
 
     stripePubKey: 'pk_test_ API',
 
-    taxRates: ['enter API'],
+    taxRates: ['enter API']
   };
    ```
 
