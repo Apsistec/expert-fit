@@ -124,14 +124,15 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free Stripe API Key at [https://stripe.com](https://stripe.com)
-2. Get a free Firebase API Key at [https://firebase.com](https://firebase.com)
-3. Get a free MailStart API Key at [https://mailstart.com](https://mailstart.com)
-4. Clone the repo
+1. Get a free Stripe API Key at [https://dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys)
+2. Get a free Stripe Tax Rates API Key at [https://dashboard.stripe.com/tax-rates](https://dashboard.stripe.com/tax-rates)
+3. Get a free Firebase API Key at [https://firebase.com](https://firebase.com)
+4. Get a free MailStart API Key at [https://mailstart.com](https://mailstart.com)
+5. Clone the repo
    ```sh
    git clone https://github.com/apsistec/expert-fit.git
    ```
-5. Install NPM packages
+6. Install NPM packages
    ```sh
    npm install
 
@@ -155,7 +156,7 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    firebase deploy
    ```
-6. Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
+7. Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
    ```js
     export const environment = {
       production: 'boolean',
