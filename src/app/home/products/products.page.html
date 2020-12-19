@@ -28,9 +28,8 @@
 				<hr />
 			</ion-col>
 		</ion-row>
-		<div [ngSwitch]="segment">
-			<ion-row class="ion-justify-content-center" *ngSwitchCase="'sub'">
-				<ion-col size="12">
+			<ion-row class="ion-justify-content-center"  [ngSwitch]="segment" >
+				<ion-col size="12"*ngSwitchCase="'sub'">
 					<ion-card class="ion-card-global ion-text-center ion-padding">
 						<ion-card-header>
 							<ion-card-title>
@@ -41,31 +40,40 @@
 							</ion-card-subtitle>
 						</ion-card-header>
 						<ion-card-content>
+							<ion-grid>
 							<ion-row>
 								<ion-spinner *ngIf="loading">Loading...</ion-spinner>
-								<ion-col>
+								<ion-col  *ngFor="let product of products | async">
 									<ion-card class="ion-sub-card-global">
 										<ion-card-header>
-											<ion-card-title class="ion-text-center">
-												<h3>Basic Plan</h3>
+											<ion-card-title class="ion-float-left">
+												<h3>{{product.name}}</h3>
 											</ion-card-title>
+											<ion-card-subtitle class="ion-float-right">
+												{{ product.price }}
+											</ion-card-subtitle>
 										</ion-card-header>
 										<ion-card-content>
+											{{ product.image }}
 											<p>
-												This Basic online training plan will provide you with
+												{{ product.description }}
+												<!-- This Basic online training plan will provide you with
 												access to the online training platform- Express Fitness
 												App and the Getting Started Right Webinar. When you want
 												to take advantage of one on one time at our personal
 												training facility with a trainer, sessions are offered
-												at a discounted rate.
+												at a discounted rate. -->
 											</p>
 										</ion-card-content>
 										<ion-button class="product-button" color="success"
-											>Choose this plan</ion-button
+											>Choose this plan
+											</ion-button
 										>
 									</ion-card>
 								</ion-col>
-								<ion-col>
+			
+							
+								<!-- <ion-col>
 									<ion-card class="ion-sub-card-global">
 										<ion-card-header>
 											<ion-card-title class="ion-text-center">
@@ -124,14 +132,14 @@
 											>Choose this plan</ion-button
 										>
 									</ion-card>
-								</ion-col>
+								</ion-col> -->
 							</ion-row>
+							</ion-grid>
 						</ion-card-content>
 					</ion-card>
 				</ion-col>
-			</ion-row>
-			<ion-row class="ion-justify-content-center" *ngSwitchDefault>
-				<ion-col size="12">
+
+				<ion-col size="12"*ngSwitchDefault>
 					<ion-card class="ion-card-global ion-text-center ion-padding">
 						<ion-card-header>
 							<ion-card-title>
@@ -181,11 +189,28 @@
 									</ion-card>
 								</ion-col>
 							</ion-row>
+							<ion-row>
+								<ion-col>
+									<ion-card>
+										<ion-card-header>
+											<ion-card-title>
+												Stripe Billing Portal
+											</ion-card-title>
+										</ion-card-header>
+										<ion-card-content>
+											<ion-button (click)="openBillingPortal()">
+												Access Portal
+											</ion-button>
+										</ion-card-content>
+									</ion-card>
+								</ion-col>
+							</ion-row>
 						</ion-card-content>
 					</ion-card>
 				</ion-col>
 			</ion-row>
-		</div>
+			</ion-grid>
+			</ion-content>
 		<!-- product 0 -->
 		<!-- <form
 				#purchaseForm="ngForm"
@@ -414,5 +439,5 @@
 				</ion-col>
         </ion-row>
 			</ng-template> -->
-	</ion-grid>
-</ion-content>
+	<!-- </ion-grid>
+</ion-content> -->

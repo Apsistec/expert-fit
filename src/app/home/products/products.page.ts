@@ -19,7 +19,7 @@ declare var Stripe;
   styleUrls: ['./products.page.scss']
 })
 export class ProductsPage implements OnInit {
-
+  ref;
   user: User;
   role;
   signedIn;
@@ -39,48 +39,71 @@ export class ProductsPage implements OnInit {
   segmentChanged(event) {}
 
   ngOnInit() {
-    this.authService.user$.pipe(map((user) => (this.user = user)));
+    // this.authService.user$.pipe(map((user) => (this.user = user)));
     // this.afs.doc<User>(`users/${this.user.uid}`).valueChanges().pipe(map(user => this.user = user));
-    console.log('prodUser: ', this.user);
-    if (this.user && this.user !== null) {
-      this.signedIn = true;
-      //   this.getSubscriptions();
-    } else {
-      this.signedIn = false;
-    }
+    // console.log('prodUser: ', this.user);
+    // if (this.user && this.user !== null) {
+    //   this.signedIn = true;
+    //   //   this.getSubscriptions();
+    // } else {
+    //   this.signedIn = false;
+    // }
+
+    this.ref = this.afs.collection('products');
+    this.products = this.ref.snapshotChanges().map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data();
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      });
+    });
   }
 
   // Get all our products and render them to the page
-  getProducts() {
-    this.products = this.afs.collection('products', (ref) =>
-      ref.where('active', '==', true)
-    );
-    this.products.get();
-    // .forEach( async ( prod ) => {
-    //   await this.afs.collection('prices', ref => ref.orderBy('unit_amount'));
-    // });
-    console.log('products: ', this.products);
-    return this.products;
-  }
+  // getProducts() {
+  //   this.products = this.afs.collection('products', (ref) =>
+  //     ref.where('active', '==', true)
+  //   );
+  //   const querySnapshot = this.products.get();
+  //   querySnapshot.forEach( async ( doc ) => {
+  //     console.log(doc.id, ' => ', doc.data());
+  //     const priceSnap = await this.afs.collection('prices', ref => ref.orderBy('unit_amount'));
+  //   });
+  //   console.log('products: ', this.products);
+  //   return this.products;
+
+    // this.afs.collection('products')
+    //   .where('active', '==', true)
+    //   .get()
+    //   .then((querySnapshot) => {
+    //     querySnapshot.forEach(async (doc) => {
+    //       console.log(doc.id, ' => ', doc.data());
+    //       const priceSnap = await doc.ref.collection('prices').get();
+    //       priceSnap.docs.forEach((doc) => {
+    //         console.log(doc.id, ' => ', doc.data());
+    //       });
+    //     });
+    //   });
+  // }
 
   // Get all subscriptions for the customer
-  getSubscriptions() {
-    const snapshot = this.afs
-      .collection('customers')
-      .doc(this.user.uid)
-      .collection('subscriptions', (ref) =>
-        ref.where('status', 'in', ['trialing', 'active'])
-      );
-    if (snapshot == null) {
-      // Show products
-      this.getProducts();
-    } else {
-      // In this implementation we only expect one Subscription to exist
-      this.subscription = snapshot.doc[0].data();
-      const priceData = this.subscription.price.get().data();
-      return priceData || null;
-    }
-  }
+  // getSubscriptions() {
+  //   const snapshot = this.afs
+  //     .collection('customers')
+  //     .doc(this.user.uid)
+  //     .collection('subscriptions', (ref) =>
+  //       ref.where('status', 'in', ['trialing', 'active'])
+  //     );
+  //   if (snapshot == null) {
+  //     // Show products
+  //     this.getProducts();
+  //   } else {
+  //     // In this implementation we only expect one Subscription to exist
+  //     this.subscription = snapshot.doc[0].data();
+  //     const priceData = this.subscription.price.get().data();
+  //     return priceData || null;
+  //   }
+  // }
 
   // Checkout handler
   async onSubmit(purchaseForm: NgForm) {
