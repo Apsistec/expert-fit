@@ -1,20 +1,20 @@
-<!--
-*** Thanks for checking out the Expert Fitness App. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
--->
+#
 
+<!-- PROJECT LOGO -->
+<p align="center">
+<a href="https://github.com/apsistec/expert-fit">
+<img src="src/assets/logos/logo.png" alt="Expert Fitness Logo" width="160" height="80">
+</a>
+</p>
 
+<h1 align="center">
+Expert Fitness App
+</h1>
+
+<p align="center">
+The fitness app that becomes your trainer. :barbell:
 
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -22,35 +22,23 @@
 [![GNU General Public License v3.0][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
-
-<!-- PROJECT LOGO -->
-<br />
 <p align="center">
-  <a href="https://github.com/apsistec/expert-fit">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+<a href="https://github.com/apsistec/expert-fit">
+<strong>
+Explore the docs »
+</strong>
+</a>
+<br />
+<a href="https://github.com/apsistec/expert-fit">View Demo</a>
+·
+<a href="https://github.com/apsistec/expert-fit/issues">Report Bug</a>
+·
+<a href="https://github.com/apsistec/expert-fit/issues">Request Feature</a>
 
-  <h3 align="center">Expert Fitness App</h3>
-
-  <p align="center">
-    The fitness app that becomes your trainer.
-    <br />
-    <a href="https://github.com/apsistec/expert-fit"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/apsistec/expert-fit">View Demo</a>
-    ·
-    <a href="https://github.com/apsistec/expert-fit/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/apsistec/expert-fit/issues">Request Feature</a>
-  </p>
-</p>
-
-
+---
 
 <!-- TABLE OF CONTENTS -->
-<details open="open">
+<details open>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -75,36 +63,48 @@
   </ol>
 </details>
 
-
-
+---
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Expert Fitness App Screen Shot][product-screenshot]](/assets/images/screenshot.png)
+[![product-screenshot]](http://expert-fitness-midland-tx.web.app "Expert Fitness
+Landing Page")
 
-There are many great fitness apps available on GitHub, however, I didn't find one that really suit my client's needs so I created this enhanced one. I want to create a fitness app so amazing that it'll be the last one my client ever needs -- I think this is it.
+There are many great fitness apps available on GitHub.
+However, I didn't find one that really suit my client's needs.
+So I created this enhanced one.
+I want to create a fitness app so amazing that it'll be the last one my client
+ever needs.
+I think this is it.
 
 Here's why:
-* Time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be using a plain website now that progressive web apps have entered the market
-* You should element DRY principles to the rest of your life :smile:
 
-Of course, this is a continued work in progress. I will constantly add to this project any updates and additional features that are relevant to the industry and/or to progressive web apps in general.
+* Time should be focused on creating something amazing. A project that solves a
+  problem and helps others
+* Clients shouldn't be using a plain website now that progressive web apps have
+  entered the market
+* We should implement DRY coding principles to the app code :barbell:
 
-You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
+Of course, this is a continued work in progress. I will constantly add to this
+project any updates and additional features that are relevant to the industry
+and/or to progressive web apps in general.
+
+You may also suggest changes by forking this repo and creating a pull request or
+opening an issue. Thanks to all the people have have contributed to expanding
+this template!
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
 ### Built With
 
-The major frameworks I used to build the project. Add-ons/plugins are listed in the acknowledgements section.
+The major frameworks I used to build the project. Add-ons/plugins are listed in
+the acknowledgements section.
+
 * [Ionic](https://ionicframework.com)
 * [Angular](https://angular.io)
 * [Angular Material](https://material.angular.io)
 * [Firebase](https://firebase.com)
 * [Stripe](https://stripe.com)
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -113,50 +113,56 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  npm install @angular/cli@latest -g
-  npm install @ionic/cli@latest -g
-  npm install firebase-tools@latest -g
-  ```
+1. Install
+   <!-- ```http -->
+   [NodeJS](https://www.nodejs.com)
+2. Using npm, install:
 
-### Installation
+    ```sh
+    npm install npm@latest -global
+    ```
+
+    ```sh
+    npm install @angular/cli@latest -global
+    ```
+
+    ```sh
+    npm install @ionic/cli@latest -global
+    ```
+
+    ```sh
+    npm install firebase-tools@latest -global
+    ````
+
+### Acquire APIs
 
 1. Get a free Stripe API Key at [https://dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys)
 2. Get a free Stripe Tax Rates API Key at [https://dashboard.stripe.com/tax-rates](https://dashboard.stripe.com/tax-rates)
 3. Get a free Firebase API Key at [https://firebase.com](https://firebase.com)
 4. Get a free MailStart API Key at [https://mailstart.com](https://mailstart.com)
-5. Clone the repo
+
+### Installation
+
+1. Clone the repo
+
    ```sh
    git clone https://github.com/apsistec/expert-fit.git
    ```
-6. Install NPM packages
+
+2. Install NPM packages
+
    ```sh
    npm install
+   ```
 
+3. Setup Firebase backend
+
+   ```sh
    firebase init
-
-   cd functions
-
-   npm install
-
-   ng build
-
-   cd ..
-
-   ionic build --prod
-
-   ionic serve 
    ```
-   
-   or 
 
-   ```sh
-   firebase deploy
-   ```
-7. Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
+4. Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
+
    ```js
     export const environment = {
       production: 'boolean',
@@ -177,7 +183,41 @@ This is an example of how to list things you need to use the software and how to
     }
    ```
 
+5. Compile the function code
 
+   ```sh
+   cd functions
+   ```
+
+   ```sh
+   npm install
+   ```
+
+   ```sh
+   ng build
+   ```
+
+   ```sh
+   cd ..
+   ```
+
+6. Compile the app code -production quality
+
+   ```sh
+   ionic build --prod
+   ```
+
+7. Work on the app code with hot-reload
+
+   ```sh
+   ionic serve 
+   ```
+
+8. Deploy to Firebase Authentication, Hosting, Database, Serverless and Storage
+
+   ```sh
+   firebase deploy
+   ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -186,14 +226,10 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/apsistec/expert-fit/issues) for a list of proposed features (and known issues).
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -206,14 +242,10 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-
 
 <!-- CONTACT -->
 ## Contact
@@ -222,22 +254,16 @@ Doug White - [@apsistec](https://twitter.com/apsistec) - doug@apsistec.app
 
 Project Link: [https://github.com/apsistec/expert-fit](https://github.com/apsistec/expert-fit)
 
-
-
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
+
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Img Shields](https://shields.io)
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Pages](https://pages.github.com)
 * [Ion Icons](https://ionicons.com)
 
-
-
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/apsistec/expert-fit.svg?style=for-the-badge
 [contributors-url]: https://github.com/apsistec/expert-fit/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/apsistec/expert-fit.svg?style=for-the-badge
@@ -250,4 +276,4 @@ Project Link: [https://github.com/apsistec/expert-fit](https://github.com/apsist
 [license-url]: https://github.com/apsistec/expert-fit/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/apsistec
-[product-screenshot]: /assets/images/screenshot.png
+[product-screenshot]: src/assets/images/screenshot.png
