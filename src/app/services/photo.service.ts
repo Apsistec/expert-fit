@@ -1,6 +1,7 @@
 import { MessageService } from './message.service';
 import { Injectable } from '@angular/core';
 import { Plugins, CameraResultType, Capacitor, FilesystemDirectory, CameraPhoto, CameraSource } from '@capacitor/core';
+import { Platform } from '@ionic/angular';
 
 const { Camera, Filesystem, Storage } = Plugins;
 
@@ -11,7 +12,10 @@ export class PhotoService {
   public photos: Photo[] = [];
   private PHOTO_STORAGE = 'photos';
 
-  constructor(private messageService: MessageService) {}
+  constructor(
+    private messageService: MessageService,
+    private platform: Platform
+    ) {}
 
   public async addNewToGallery() {
     // Take a photo
@@ -30,10 +34,27 @@ export class PhotoService {
     this.photos.unshift(savedImageFile);
   }
 
+  private async readAsBase64(cameraPhoto: CameraPhoto) {
+    // Fetch the photo, read as a blob, then convert to base64 format
+    // tslint:disable-next-line: no-non-null-assertion
+    const response = await fetch(cameraPhoto.webPath!);
+    const blob = await response.blob();
+
+    return await this.convertBlobToBase64(blob) as string;
+  }
+
+  convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = reject;
+    reader.onload = () => {
+        resolve(reader.result);
+    };
+    reader.readAsDataURL(blob);
+  })
+
   private async savePicture(cameraPhoto: CameraPhoto) {
     // Convert photo to base64 format, required by Filesystem API to save
     const base64Data = await this.readAsBase64(cameraPhoto);
-
     // Write the file to the data directory
     const fileName = new Date().getTime() + '.jpeg';
     const savedFile = await Filesystem.writeFile({
@@ -41,7 +62,6 @@ export class PhotoService {
       data: base64Data,
       directory: FilesystemDirectory.Data
     });
-
     // Use webPath to display the new image instead of base64 since it's
     // already loaded into memory
     return {
@@ -49,25 +69,6 @@ export class PhotoService {
       webviewPath: cameraPhoto.webPath
     };
   }
-
-  private async readAsBase64(cameraPhoto: CameraPhoto) {
-    // Fetch the photo, read as a blob, then convert to base64 format
-    // tslint:disable-next-line: no-non-null-assertion
-    const response = await fetch(cameraPhoto.webPath!);
-    const blob = await response.blob();
-
-    return (await this.convertBlobToBase64(blob)) as string;
-  }
-
-  convertBlobToBase64 = (blob: Blob) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onerror = reject;
-      reader.onload = () => {
-        resolve(reader.result);
-      };
-      reader.readAsDataURL(blob);
-    });
 
   public async loadSaved() {
     // Retrieve cached photo array data

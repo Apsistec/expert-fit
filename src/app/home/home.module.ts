@@ -8,6 +8,7 @@ import { SharedDirectivesModule } from '../directives/shared-directives.module';
 import { HomePageRoutingModule } from './home-routing.module';
 import { HomePageTwoComponent } from '../home/home-page-two/home-page-two.component';
 import { HomePageThreeComponent } from '../home/home-page-three/home-page-three.component';
+import { BenefitTrackerComponent } from './benefit-tracker/benefit-tracker.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { HomePageThreeComponent } from '../home/home-page-three/home-page-three.
     HomePage,
     HomePageTwoComponent,
     HomePageThreeComponent,
+    BenefitTrackerComponent
   ]
 })
 export class HomePageModule {}

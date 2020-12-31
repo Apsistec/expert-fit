@@ -27,7 +27,7 @@
           style="width: 60px; height: 60px"
         />
       </div>
-      <div *ngIf="authService.afAuth.user | async">
+      <div *ngIf="authService.afAuth.user | async as user">
         <a
           (click)="presentPopover($event)"
           style="
@@ -530,31 +530,29 @@
                 stepTitle="Done!"
                 [navigationSymbol]="{ symbol: 3 }"
               >
-                <ion-card color="light" class="ion-card-global">
+                <ion-card class="ion-card-global">
                   <img src="..//..//..//assets//icons//icon-144x144.png" />
                   <ion-card-header>
                     <ion-card-title>
-                      <ion-text class="ion-text-center ion-text-capitalize">
-                        <strong> Welcome to Expert Finess&trade; </strong>
-                      </ion-text>
+                      
+                       Welcome to Expert Finess
+               
                     </ion-card-title>
                     <ion-card-subtitle >You are now a member </ion-card-subtitle>
                   </ion-card-header>
                   <ion-card-content>
-                    <ion-text class="ion-text-wrap">
                       <p>
                         Thank you! Your Expert Fitness account has
                         officially started!
                       </p>
 
-                    </ion-text>
                     <ion-button
                       expand="block"
                       color="secondary"
                       routerLink="/profile"
                     >
                       <ion-icon slot="start" name="person"></ion-icon>
-                      <ion-text> Goto My Dashboard </ion-text>
+                      Goto My Dashboard 
                     </ion-button>
                   </ion-card-content>
                 </ion-card>
@@ -592,21 +590,19 @@
         >
           <ion-card-header style="background-color: transparent !important">
             <ion-card-subtitle >
-              <ion-text class="ion-text-wrap ion-text-center" color="light">
+             
                 Price after
                 <br />
                 your complimentary trial
-              </ion-text>
+              
             </ion-card-subtitle>
           </ion-card-header>
           <ion-card-title style="background-color: transparent !important">
-            <ion-text class="ion-text-no-wrap" style="font-weight: 800">
+            
               $250
               <sub>per month</sub>
               <hr />
-            </ion-text>
           </ion-card-title>
-          <ion-text color="light">
             <ion-text>
               <u> Features: </u>
             </ion-text>
@@ -647,7 +643,6 @@
                 </ion-text>
               </li>
             </ul>
-          </ion-text>
         </ion-card>
       </ion-col>
     </ion-row>

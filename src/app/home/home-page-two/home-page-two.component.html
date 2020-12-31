@@ -1,22 +1,43 @@
-<ion-card class="benefit-card ion-padding-vertical" >
+<ion-card class="ion-card-global benefit-card ion-margin">
   <ion-card-header>
-      <ion-card-title>
-          Why Choose Expert Fitness for as your fitness management platform?
-      </ion-card-title>
-    <ion-card-subtitle [@slideInRight]="slideInRight" color="warning" class="ion-text-capitalize">
-      15 Ways we stand apart all other options
+    <ion-card-title> Are there any benefits in using Expert Fitness? </ion-card-title>
+    <ion-card-subtitle [@slideInRight]="slideInRight" color="tertiary" class="ion-hide-sm-down ion-text-capitalize">
+      Select buttons to learn more
+    </ion-card-subtitle>
+    <ion-card-subtitle [@slideInRight]="slideInRight" color="tertiary" class="ion-hide-sm-up ion-text-capitalize">
+      Swipe cards below for details
     </ion-card-subtitle>
   </ion-card-header>
-    <app-benefits></app-benefits>
-</ion-card>
-    <ion-card style="width: fit-content; display:block; margin: 0 5px;" class="schedule-card ion-padding ion-text-center">
-      <ion-card-title color="light">
-       Accelerate your progress, safely. Sign up for a private or semi-private session today.
-      </ion-card-title>
-      <ion-card-subtitle color="success">
-        We want to make sure Expert Fitness is going to exceed your expectations.
-      </ion-card-subtitle>
-      <ion-button strong color="light" fill="outline" style="background: var(--ion-color-secondary-tint)"
-        >Schedule Greeting
-      </ion-button>
-    </ion-card>
+  <ion-card-content> 
+    <ion-grid class="ion-hide-sm-down">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="auto" *ngFor="let benefit of benefits">
+          <ion-button
+          size="small"
+          fill="outline"
+          shape="round"
+          color="dark"
+          strong
+          class="benefit-button"
+          (focus)="chooseBenefit(benefit)">
+          {{ benefit.title }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-md="8" size-lg="6" size-xl="4">
+        <app-benefit-tracker [benefit]="benefitChosen"></app-benefit-tracker>
+      </ion-col>
+  </ion-row>
+</ion-grid>    
+  </ion-card-content>
+  <ion-footer class="ion-text-center ion-padding" style="background:var(--ion-color-primary-shade);">
+    <ion-card-title color="light"> Why would you only choose a few of these benefits? </ion-card-title>
+    <ion-card-subtitle color="success">Expert Fitness makes All of these benefits accessible for you!  </ion-card-subtitle>
+    <ion-button strong color="tertiary" >
+      Choose a Plan
+  </ion-button>
+</ion-footer>
+ </ion-card>
+<app-benefits class="ion-hide-sm-up"></app-benefits>
+

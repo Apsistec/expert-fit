@@ -9,10 +9,14 @@ import { TermsComponent } from './shared/terms/terms.component';
 import { VideoComponent } from './shared/intro-video/intro-video.component';
 import { AboutAppComponent } from './shared/about-app/about-app.component';
 import { LoginComponent } from './shared/login/login.component';
-import {LoggedInGuard} from 'ngx-auth-firebaseui';
-
+import { LoggedInGuard } from 'ngx-auth-firebaseui';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
@@ -62,7 +66,7 @@ const routes: Routes = [
     path: 'customer-dashboard',
     loadChildren: () =>
       import('./customer/customer-dashboard/customer-dashboard.module').then((m) => m.CustomerDashboardPageModule),
-      canActivate: [LoggedInGuard]
+    canActivate: [LoggedInGuard]
     // ...canActivate(redirectUnauthorizedToLogin),
     // ...canActivate(verifiedEmail),
     // canActivate: [PaidGuard, RoleGuard]
@@ -71,7 +75,7 @@ const routes: Routes = [
     path: 'employee-dashboard',
     loadChildren: () =>
       import('./employee/employee-dashboard/employee-dashboard.module').then((m) => m.EmployeeDashboardPageModule),
-      canActivate: [LoggedInGuard]
+    canActivate: [LoggedInGuard]
     // ...canActivate(redirectUnauthorizedToLogin),
     // ...canActivate(verifiedEmail),
     // canActivate: [PaidGuard, RoleGuard]
@@ -79,37 +83,41 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     // tslint:disable-next-line: max-line-length
-    loadChildren: () => import('./admin/admin-dashboard/admin-dashboard.module').then((m) => m.AdminDashboardPageModule), canActivate: [LoggedInGuard]
+    loadChildren: () =>
+      import('./admin/admin-dashboard/admin-dashboard.module').then((m) => m.AdminDashboardPageModule),
+    canActivate: [LoggedInGuard]
     // ...canActivate(redirectUnauthorizedToLogin),
     // ...canActivate(verifiedEmail),
     // canActivate: [PaidGuard, RoleGuard]
   },
   // {
-    // path: 'modal', component: ModalViewComponent, outlet: 'modal',
-    // children: [
-        {
-            path: 'about-app', component: AboutAppComponent, outlet: 'modal'
-        },
-        {
-            path: 'terms', component:  TermsComponent, outlet: 'modal'
-        },
-        {
-            path: 'privacy', component: PrivacyComponent, outlet: 'modal'
-        },
-        {
-          path: 'video', component: VideoComponent, outlet: 'modal'
-        },
-        { path: 'login', component: LoginComponent },
-        // { path: ':id', component: ModalViewComponent },
-
+  // path: 'modal', component: ModalViewComponent, outlet: 'modal',
+  // children: [
+  {
+    path: 'about-app',
+    component: AboutAppComponent,
+    outlet: 'modal'
+  },
+  {
+    path: 'terms',
+    component: TermsComponent,
+    outlet: 'modal'
+  },
+  {
+    path: 'privacy',
+    component: PrivacyComponent,
+    outlet: 'modal'
+  },
+  {
+    path: 'video',
+    component: VideoComponent,
+    outlet: 'modal'
+  },
+  { path: 'login', component: LoginComponent },
+  // { path: ':id', component: ModalViewComponent },
 
   //   ]
   // },
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
   {
     path: '**',
     redirectTo: '/unknown',

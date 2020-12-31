@@ -81,15 +81,13 @@
               </ion-list>
             </ion-card>
 
-            <ion-card color="medium" class="ion-card-global">
+            <ion-card class="ion-card-global">
               <ion-card-header>
                 <ion-card-title>
-                  <ion-label color="secondary"> All Users </ion-label>
+                  All Users 
                 </ion-card-title>
                 <ion-card-subtitle >
-                  <ion-label color="dark">
                     Unpaid, Current & Cancelled
-                  </ion-label>
                 </ion-card-subtitle>
                 <ion-toolbar class="toolbar-global">
                   <ion-searchbar
@@ -123,7 +121,7 @@
                     <ion-note *ngIf="user.plan == 'premium'" color="dark">
                       Premium Plan
                     </ion-note>
-                    <ion-note *ngIf="user.plan == 'basic'" color="tertiary">
+                    <ion-note *ngIf="user.plan == 'basic'" color="secondary">
                       Basic Plan
                     </ion-note>
                     <ion-note *ngIf="user.plan != 'premium' || 'basic'" color="dark">
@@ -138,4 +136,4 @@
     </ion-row>
   </ion-grid>
 
-<!-- <app-footer></app-footer> -->
+<app-footer></app-footer>

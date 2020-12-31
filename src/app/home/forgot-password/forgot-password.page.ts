@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -8,10 +9,11 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ForgotPasswordPage implements OnInit {
 
-  constructor(
-    public authService: AuthService
+  email = new FormControl('', [Validators.email, Validators.required]);
 
-  ) { }
+  constructor(
+    public authService: AuthService,
+    ) { }
 
   ngOnInit() {
   }

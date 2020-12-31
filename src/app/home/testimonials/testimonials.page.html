@@ -3,8 +3,7 @@
     <ion-title>Client Testimonials</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content fullscreen transparent [ngSwitch]="segment">
+<ion-content fullscreen transparent >
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Client Testimonials</ion-title>
@@ -22,8 +21,8 @@
     </ion-segment-button>
   </ion-segment>
 
-  <ion-grid *ngSwitchDefault>
-    <ion-row class="ion-justify-content-center">
+  <ion-grid [ngSwitch]="segment">
+    <ion-row class="ion-justify-content-center" *ngSwitchDefault>
       <ion-col size-sm="12" size-md="6" size-lg="4" size-xl="3" *ngFor="let testimonial of testimonials">
         <ion-card class="ion-sub-card-global">
           <ion-card-header>
@@ -35,7 +34,7 @@
                 <img [src]="[testimonial.img || '../../../assets/images/dummy-user.png']" />
               </ion-avatar>
               <ion-button color="primary">
-                <ngb-rating [formControl]="testimonial.stars"></ngb-rating>
+                <!-- <ngb-rating [formControl]="+testimonial.stars"></ngb-rating> -->
               </ion-button>
             </ion-item>
             <br />
@@ -46,20 +45,17 @@
         </ion-card>
       </ion-col>
     </ion-row>
-  </ion-grid>
 
-
-  <ion-grid *ngSwitchCase="'add'">
-    <ion-row class="ion-justify-content-center">
-      <ion-col >
+    <ion-row class="ion-justify-content-center" *ngSwitchCase="'add'">
+      <ion-col>
         <ion-card class="ion-sub-card-global">
           <ion-card-header>
             <ion-card-title> New Testimonial</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-    <form
+            <!-- <form
       #testimonial
-      *ngIf="authService.afAuth.user | async; else register;"
+      *ngIf="authService.afAuth.user | async as user; else register;"
       [formGroup]="reviewForm"
       (ngSubmit)="setTestimonial(testimonial)"
       novalidate
@@ -116,17 +112,17 @@
         <ion-icon size="small" slot="start" name="close-sharp"> </ion-icon>
         <ion-text>Clear</ion-text>
       </ion-button>
-    </form>
-    <ng-template #register>
+    </form> -->
+            <!-- <ng-template #register>
       <ion-card class="ion-padding ion-text-center" color="light">
         <ion-card-title> You must login first </ion-card-title>
         <ion-button color="primary" routerLink="/checkout"> Register </ion-button>
       </ion-card>
-    </ng-template>
-    </ion-card-content>
-  </ion-card>
-  </ion-col>
-  </ion-row>
+    </ng-template> -->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
   <app-footer></app-footer>

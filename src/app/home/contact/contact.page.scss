@@ -3,15 +3,18 @@
 
   height:80vh;
 
-  background-color:white;
-
+  background-color: grey;
+  
   opacity: 1;
   transition: opacity 150ms ease-in;
 }
 
 .show-map {
-  opacity: 1;
+  opacity: .65;
+  background: darkslategray;
+  color:black;
 }
+
 
 
 

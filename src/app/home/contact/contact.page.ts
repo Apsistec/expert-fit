@@ -1,11 +1,13 @@
 import { DOCUMENT } from '@angular/common';
 import {
   AfterViewInit,
+  OnInit,
   Component,
   ElementRef,
   Inject,
   ViewChild,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalController, Platform } from '@ionic/angular';
 import { ConferenceData  } from './conference-data';
 import { darkStyle } from './map-dark-style';
@@ -15,15 +17,19 @@ import { darkStyle } from './map-dark-style';
   templateUrl: './contact.page.html',
   styleUrls: ['./contact.page.scss'],
 })
-export class ContactPage implements AfterViewInit {
+export class ContactPage implements OnInit, AfterViewInit {
   @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     public confData: ConferenceData,
     public platform: Platform,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private router: Router
   ) {}
+
+  ngOnInit() {
+  }
 
   async ngAfterViewInit() {
     const appEl = this.doc.querySelector('ion-app');

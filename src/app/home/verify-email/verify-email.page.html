@@ -1,59 +1,42 @@
+<ion-card class="ion-padding ion-text-center" class="ion-card-global" style="margin: auto; max-width: 500px" *ngIf="authService.afAuth.user | async as user then verified; else unverified">
+  <ion-card-header>
+    <ion-card-title> Account Verification </ion-card-title>
+    <ion-card-subtitle *ngIf="user.emailVerified"> Verification Successful </ion-card-subtitle>
+    <ion-card-subtitle *ngIf="!user.emailVerified"> Verification Unsuccessful </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content #verified *ngIf="user.emailVerified" >
+    <p class="ion-text-start">
+      Congratulations! Your email,
+      <strong>{{ user.email }}</strong>, has been verified. 
+      <br>
+      Depending on your screen's dimensions, the navigation menus are either at top of this
+      page for tv's, desktops & tablets; yet for movile devices, click
+      <ion-icon name="menu-outline"></ion-icon> in the top left corner of the screen.    
+    </ion-card-content>
+    <ng-template #unverified>
+      <ion-card-content>
 
-  <ion-card
-    class="ion-padding ion-text-center"
-    class="ion-card-global"
-    style="margin: auto; top: 10vh; max-width: 500px"
-  >
-    <ion-card-header>
-      <ion-card-title>
+        <p class="ion-text-start">
+      Didn't receive an email?
+      <br />
+      If for some reason you keep arriving back at this page, please check your email at 
+      <strong>
+        {{ user.email }}
+      </strong> 
+      , and click on
+      the link to verfiy your account. 
+      <br>
+      If you have not receieved an email, please click the button below to resend the
+      email, then check your email account for instructions. Thank you.
+    </p>
 
-      </ion-card-title>
-      <ion-card-subtitle>
-
-      </ion-card-subtitle>
-    </ion-card-header>
-        <h3>Thank You!</h3>
-
-        <div *ngIf="authService.afAuth.user | async">
-          <p class="text-center">
-            Your email,
-            <strong>{{user.email}}</strong>
-            , has been verified. Also, depending on your screen's dimensions,
-            the navigation menus are either at top of this page for tv's,
-            desktops & tablets; yet for movile devices, click
-            <ion-icon name="menu-outline"></ion-icon> in the top left corner of
-            the screen.
-          </p>
-
-          <h3>Didn't receive an email?</h3>
-          <p class="text-center">
-            If for some reason you keep arriving back at this page, please check
-            your email and click on the link in the body of the email to verfiy
-            your account. If you have not receieved an email, please click the
-            button below to have the email sent again. Thank you.
-          </p>
-        </div>
-
-        <!-- Calling SendVerificationMail() method using authService Api -->
-        <!-- <div class="formGroup"> -->
-          <ion-button
-            class="ion-text-capitalize"
-            type="button"
-            (click)="authService.sendVerificationMail()"
-          >
-            <ion-icon name="return-sharp"></ion-icon>
-            Resend Verification Email
-          </ion-button>
-        <!-- </div>
-      </div> -->
-
-      <!-- <div class="redirectToSignIn"> -->
-        <ion-button fill="clear" class="redirect" routerLink="/get-started">
-            > 
-            <ion-text color="light">Go back to?</ion-text>
-            <ion-text color="warning">Sign In</ion-text>
-          </ion-button
-        >
-      <!-- </div> -->
-    <!-- </div> -->
-  </ion-card>
+    <ion-button color="warning" class="ion-text-capitalize" type="button" (click)="authService.sendVerificationMail()">
+      <ion-icon slot="end" color="dark" name="return-down-back-outline"></ion-icon>
+      Resend Verification
+    </ion-button>
+    
+    <ion-button fill="outline" color="light" routerLink="/login"> Sign In </ion-button>
+  </ion-card-content>
+  </ng-template>
+</ion-card>
+<ion-card>

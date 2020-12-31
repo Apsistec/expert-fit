@@ -32,7 +32,7 @@
 					<ion-label class="side-menu-font">Home</ion-label>
 				</ion-item>
 				<!-- SignedIn Menu Items -->
-				<div *ngIf="authService.afAuth.user | async; else public">
+				<div *ngIf="authService.afAuth.user | async as user; else public">
 					<ion-item
 						color="medium"
 						button
@@ -283,7 +283,7 @@
 				<ion-list-header class="list-header-global">
 					<ion-title> Authentication </ion-title>
 				</ion-list-header>
-				<div *ngIf="authService.afAuth.user | async; else nouser">
+				<div *ngIf="authService.afAuth.user | async as user; else nouser">
 					<ion-item color="medium" button (click)="authService.SignOut()">
 						<ion-label class="side-menu-font"> Sign Out </ion-label>
 						<ion-icon
@@ -332,7 +332,7 @@
 					About App
 				</ion-button>
 			</ion-buttons>
-			<ion-text color="tertiary">
+			<ion-text color="secondary">
 				<small>
 					&#9426;{{ yearDate | date: 'yyyy' }} www.expertfitness.com
 				</small>

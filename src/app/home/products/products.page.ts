@@ -24,7 +24,7 @@ export class ProductsPage implements OnInit {
   role;
   signedIn;
   subscription;
-  products: AngularFirestoreCollection;
+  products; // : AngularFirestoreCollection;
   loading;
   segment: string;
   stripe;

@@ -1,19 +1,26 @@
-.page-two{
-  height: 100vh;
-  width: 100vw;
+.benefit-card {
+  width: fit-content;
+  display: block;
+  margin: 20px auto;
 }
 
-.slide-card{
-  border-radius: 12px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1),
-    0px 8px 8px rgba(0, 0, 0, 0.05), 0px 10px 15px rgba(0, 0, 0, 0.03),
-    0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
+.benefit-button {
+  border-radius: 15px;
+  background: var(--ion-color-medium);
 }
 
+// .benefit-button:focus {
+//   background: orange;
+// }
 
-.benefit-card{
-  --background: var(--ion-color-medium-shade);
+.benefit-button:hover {
+  background: var(--ion-color-tertiary);;
 }
-.schedule-card{
-  background: var(--ion-color-primary);
+
+.benefit-sub-card {
+  background: var(--ion-color-primary-shade);
+  width: fit-content;
+  display: block;
+  margin: 20px auto;
 }
+

@@ -1,4 +1,14 @@
 {
+  "map": [
+    {
+      "name": "Expert Fitness Gym",
+      "address": "3000 N Garfield St Ste 159, Midland, TX 79705",
+      "phone": "(432)684-0844",
+      "lat": 32.021493,
+      "lng": -102.107034,
+      "center": true
+    }
+  ],
   "schedule": [
     {
       "date": "2021-05-17",
@@ -293,16 +303,6 @@
       "phone": "+1-541-754-3010",
       "id": "13"
     }
-  ],
-
-  "map": [
-    {
-      "name": "Expert Fitness Gym",
-      "address": "3000 N Garfield St Ste 159, Midland, TX 79705",
-      "phone": "(432)684-0844",
-      "lat": 32.021493,
-      "lng": -102.107034,
-      "center": true
-    }
   ]
+
 }

@@ -6,17 +6,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { VerifyEmailRoutingModule } from './verify-email-routing.module';
 import { VerifyEmailPage } from './verify-email.page';
 
-
-
-
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    VerifyEmailRoutingModule,
-    SharedModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, VerifyEmailRoutingModule, SharedModule],
   declarations: [VerifyEmailPage]
 })
 export class VerifyEmailModule {}

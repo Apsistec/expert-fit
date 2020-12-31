@@ -13,7 +13,6 @@ export interface User {
   hashTags?: string[];
   bio?: string;
   whereFrom?: string;
-  friends?: User[];
   subId?: string;
   createdAt?: any;
   lastUpdatedAt?: any;

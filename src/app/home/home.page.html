@@ -1,6 +1,6 @@
 <ion-content fullscreen>
   <!-- scrollEvents="true" [appFadeHeader]="toolbar"> -->
-  <ion-grid class="ion-no-padding ">
+  <ion-grid class="ion-no-padding">
     <ion-row class="scene-one ion-justify-content-center ion-align-items-center">
       <!-- Left side of Landing -->
       <ion-col size-sm="12" size-md="8" size-lg="6" size-xl="4" class="ion-text-center">
@@ -11,10 +11,8 @@
           class="ion-hide-lg-up"
           style="width: 345px; padding-top: 40px"
         />
-        <ion-card class="main-heading-card ion-text-center ">
-          <ion-card-title class="main-title" color="light">
-            Expert Fitness<sup>3D</sup>
-          </ion-card-title>
+        <ion-card class="main-heading-card ion-text-center">
+          <ion-card-title class="main-title" color="light"> Expert Fitness<sup>3D</sup> </ion-card-title>
           <ion-card-subtitle class="main-subtitle" color="warning">
             Train <ion-text color="medium">|</ion-text> Review <ion-text color="medium">|</ion-text> Grow
           </ion-card-subtitle>
@@ -50,16 +48,16 @@
         />
       </ion-col>
     </ion-row>
-    <ion-row class="ion-padding-vertical ion-margin-vertical  ion-justify-content-center">
+    <ion-row class="ion-margin-vertical ion-justify-content-center" style="height: 100vh;width: 100vw;">
       <ion-col size="auto">
-        <app-home-page-three></app-home-page-three>
+        <app-home-page-three ></app-home-page-three>
       </ion-col>
     </ion-row>
-    <ion-row class="ion-padding-vertical ion-margin-vertical ion-justify-content-center">
-      <ion-col size="auto">
+    <ion-row class="ion-margin ion-justify-content-center">
+      <ion-col  class="ion-align-self-center">
         <app-home-page-two></app-home-page-two>
       </ion-col>
     </ion-row>
+    <app-footer></app-footer>
   </ion-grid>
-   <app-footer></app-footer>
 </ion-content>

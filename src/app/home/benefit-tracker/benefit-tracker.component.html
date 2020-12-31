@@ -1,0 +1,15 @@
+<ion-card color="light">
+    <ion-card-header color="dark" >
+    <ion-card-title>
+        <ion-text color="tertiary">
+          {{ benefit.title }}
+          </ion-text>
+    </ion-card-title>
+</ion-card-header>
+<ion-card-content>
+    <img
+        [src]="benefit.image" style="height: 300px; display:block; margin:auto;" 
+    />
+    <p style="padding-top: 20px;">{{ benefit.content }}</p>
+</ion-card-content>
+</ion-card>

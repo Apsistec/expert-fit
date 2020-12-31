@@ -14,12 +14,12 @@
   }
 
   .menu-font :hover{
-    color: var(--ion-color-tertiary);
+    color: var(--ion-color-secondary);
   }
   
   .active-link {
     ion-label {
-      color: var(--ion-color-tertiary);
+      color: var(--ion-color-secondary-tint);
       border-bottom: 0.3125em solid var(--ion-color-warning-shade);
     }
   }

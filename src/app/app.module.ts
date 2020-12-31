@@ -39,21 +39,17 @@ export function firebaseAppNameFactory() {
 }
 
 @NgModule({
-  declarations: [AppComponent, SideMenuComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    SideMenuComponent,
+    LoginComponent,
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     NgxAuthFirebaseUIModule.forRoot(
-    {
-      apiKey: 'AIzaSyBp8ssZ4LEJqzdRYMbK9rvh66_za4iujdM',
-      authDomain: 'expert-fitness-midland-tx.firebaseapp.com',
-      databaseURL: 'https://expert-fitness-midland-tx.firebaseio.com',
-      projectId: 'expert-fitness-midland-tx',
-      storageBucket: 'expert-fitness-midland-tx.appspot.com',
-      messagingSenderId: '179991880670',
-    },
-      () => 'your_app_name_factory',
+      environment.firebaseConfig, () => 'your_app_name_factory',
     {
         enableFirestoreSync: true, // enable/disable autosync users with firestore
         toastMessageOnAuthSuccess: true, // whether to open/show a snackbar message on auth success - default : true
@@ -81,11 +77,8 @@ export function firebaseAppNameFactory() {
       MatIconModule,
       MatToolbarModule,
     IonicModule.forRoot(),
-    IonicStorageModule.forRoot({
-      name: '__mydb',
-      driverOrder: ['indexeddb', 'sqlite', 'websql'],
-    }),
-    ServiceWorkerModule.register('ngsw-worker.js', {
+    IonicStorageModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-config.json', {
       enabled: environment.production,
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),

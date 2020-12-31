@@ -10,6 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "doc": "npx compodoc src -n 'Expert Fitness App' -a src/assets -s -w --theme stripe --customFavicon favicon.png --customLogo src/assets/logos/logo.png -p tsconfig.json",
     "postinstall": "ngcc"
   },
   "private": true,

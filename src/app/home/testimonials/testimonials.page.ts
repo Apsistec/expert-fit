@@ -16,7 +16,7 @@ import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbRatingConfig] // add NgbRatingConfig to the component providers
 })
 export class TestimonialsPage {
- 
+
   reviewForm;
   user: User;
   testimonials = Ratings;
@@ -37,7 +37,7 @@ export class TestimonialsPage {
     });
   }
 
-  segmentChanged(event) {}
+
 
   setTestimonial(testimonial: string) {
     return this.afs
