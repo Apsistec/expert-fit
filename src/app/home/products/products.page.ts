@@ -10,6 +10,8 @@ import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
 import { environment } from '../../../environments/environment';
 import { User } from 'src/app/models/users.model';
+import { Products } from 'src/app/models/products.model';
+import { Observable, Subject } from 'rxjs';
 
 declare var Stripe;
 
@@ -24,7 +26,8 @@ export class ProductsPage implements OnInit {
   role;
   signedIn;
   subscription;
-  products; // : AngularFirestoreCollection;
+  productsAll: AngularFirestoreCollection<any>;
+  productsActive: Observable<any>;
   loading;
   segment: string;
   stripe;
@@ -39,25 +42,20 @@ export class ProductsPage implements OnInit {
   segmentChanged(event) {}
 
   ngOnInit() {
-    // this.authService.user$.pipe(map((user) => (this.user = user)));
-    // this.afs.doc<User>(`users/${this.user.uid}`).valueChanges().pipe(map(user => this.user = user));
-    // console.log('prodUser: ', this.user);
-    // if (this.user && this.user !== null) {
-    //   this.signedIn = true;
-    //   //   this.getSubscriptions();
-    // } else {
-    //   this.signedIn = false;
-    // }
+    // this.productCollection = this.afs.collection('products');
 
-    this.ref = this.afs.collection('products');
-    this.products = this.ref.snapshotChanges().map(actions => {
-      return actions.map(a => {
+    this.productsAll = this.afs.collection('products');
+    // this.productsActive = this.afs.collection('products', ref => ref.while('active', '==', 'true'));
+    this.productsActive = this.productsAll.snapshotChanges().pipe(
+      map( action => action.map(a => {
         const data = a.payload.doc.data();
         const id = a.payload.doc.id;
         return { id, ...data };
-      });
-    });
+      }))
+    );
   }
+
+}
 
   // Get all our products and render them to the page
   // getProducts() {
@@ -86,67 +84,54 @@ export class ProductsPage implements OnInit {
     //   });
   // }
 
-  // Get all subscriptions for the customer
-  // getSubscriptions() {
-  //   const snapshot = this.afs
-  //     .collection('customers')
-  //     .doc(this.user.uid)
-  //     .collection('subscriptions', (ref) =>
-  //       ref.where('status', 'in', ['trialing', 'active'])
-  //     );
-  //   if (snapshot == null) {
-  //     // Show products
-  //     this.getProducts();
-  //   } else {
-  //     // In this implementation we only expect one Subscription to exist
-  //     this.subscription = snapshot.doc[0].data();
-  //     const priceData = this.subscription.price.get().data();
-  //     return priceData || null;
-  //   }
-  // }
 
   // Checkout handler
-  async onSubmit(purchaseForm: NgForm) {
-    const docRef = await this.afs
-      .collection('customers')
-      .doc(this.user.uid)
-      .collection('checkout_sessions')
-      .add({
-        price: purchaseForm.value.price,
-        allow_promotion_codes: true,
-        tax_rates: environment.taxRates,
-        success_url: 'https://expert-fitness-midland-tx.firebaseapp.com/dashboard',
-        cancel_url: 'https://expert-fitness-midland-tx.firebaseapp.com/dashboard',
-        metadata: {
-          tax_rate: '10% sales tax exclusive'
-        }
-      });
-    // Wait for the CheckoutSession to get attached by the extension
-    docRef.onSnapshot(async (snap) => {
-      const { error, sessionId } = snap.data();
-      // Show an error to your customer and then inspect your function logs.
-      if (error) {
-        this.messageService.errorAlert(error);
-      }
-      // We have a session, let's redirect to Checkout
-      // Init Stripe
-      if (sessionId) {
-        this.stripe = await Stripe(environment.stripePubKey);
-        this.stripe.redirectToCheckout({ sessionId });
-      }
-    });
-  }
+  // async onSubmit(purchaseForm: NgForm) {
+  //   const docRef = await this.afs
+  //   .collection('customers')
+  //   .doc(this.user.uid)
+  //   .collection('checkout_sessions')
+  //   .add({
+  //     price: purchaseForm.value.price,
+  //       allow_promotion_codes: true,
+  //       tax_rates: environment.taxRates,
+  //       success_url: 'https://expert-fitness-midland-tx.firebaseapp.com/dashboard',
+  //       cancel_url: 'https://expert-fitness-midland-tx.firebaseapp.com/dashboard',
+  //       metadata: {
+  //         tax_rate: '10% sales tax exclusive'
+  //       }
+  //     });
+      // Wait for the CheckoutSession to get attached by the extension
 
-  // Billing portal handler
-  async openBillingPortal() {
-    // Call billing portal function
-    const functionRef = this.fun.httpsCallable(
-      'ext-firestore-stripe-subscriptions-createPortalLink'
-    );
-    const url = await functionRef({
-      returnUrl:
-        'https://expert-fitness-midland-tx.firebaseapp.com/dashboard'
-    });
-    return url;
-  }
-}
+  // // Billing portal handler
+  // async openBillingPortal() {
+    //   // Call billing portal function
+  //   const functionRef = this.fun.httpsCallable(
+    //     'ext-firestore-stripe-subscriptions-createPortalLink'
+    //   );
+    //   const url = await functionRef({
+      //     returnUrl:
+      //       'https://expert-fitness-midland-tx.firebaseapp.com/dashboard'
+      //   });
+      //   return url;
+      // }
+    // }
+
+    // Get all subscriptions for the customer
+    // getSubscriptions() {
+    //   const snapshot = this.afs
+    //     .collection('customers')
+    //     .doc(this.user.uid)
+    //     .collection('subscriptions', (ref) =>
+    //       ref.where('status', 'in', ['trialing', 'active'])
+    //     );
+    //   if (snapshot == null) {
+    //     // Show products
+    //     this.getProducts();
+    //   } else {
+    //     // In this implementation we only expect one Subscription to exist
+    //     this.subscription = snapshot.doc[0].data();
+    //     const priceData = this.subscription.price.get().data();
+    //     return priceData || null;
+    //   }
+    // }
