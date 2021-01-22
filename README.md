@@ -1,8 +1,6 @@
 <!-- PROJECT LOGO -->
 <p align="center">
-<a href="https://github.com/apsistec/expert-fit">
-<img src="https://github.com/apsistec/expert-fit/src/assets/logos/logo.png" alt="Expert Fitness Logo" width="160" height="80">
-</a>
+[![product-screenshot]](http://expert-fitness-midland-tx.web.app "Expert Fitness Landing Page")
 </p>
 
 <h1 align="center">
@@ -65,8 +63,7 @@ Explore the docs »
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![product-screenshot]](http://expert-fitness-midland-tx.web.app "Expert Fitness
-Landing Page")
+
 
 There are many great fitness apps available on GitHub.
 However, I didn't find one that really suit my client's needs.
