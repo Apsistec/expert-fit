@@ -2,10 +2,11 @@
 Expert Fitness App
 </h1>
 <!-- PROJECT Screenshot -->
-[![product-screenshot]](http://expert-fitness-midland-tx.web.app "Expert Fitness Landing Page")
+[![product-screenshot]](http://expert-fitness-midland-tx.web.app "Expert Fitness
+Landing Page")
 
 <p align="center">
-The fitness app that becomes your trainer. :barbell:
+The fitness app that becomes your trainer :barbell:
 
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
