@@ -113,17 +113,11 @@ To get a local copy up and running follow these simple example steps.
 
     ```sh
     npm install npm@latest -global
-    ```
 
-    ```sh
     npm install @angular/cli@latest -global
-    ```
 
-    ```sh
     npm install @ionic/cli@latest -global
-    ```
 
-    ```sh
     npm install firebase-tools@latest -global
     ````
 
@@ -178,17 +172,11 @@ To get a local copy up and running follow these simple example steps.
 
    ```sh
    cd functions
-   ```
 
-   ```sh
    npm install
-   ```
 
-   ```sh
    ng build
-   ```
 
-   ```sh
    cd ..
    ```
 
