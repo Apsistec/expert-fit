@@ -1,11 +1,8 @@
-<!-- PROJECT LOGO -->
-<p align="center">
-[![product-screenshot]](http://expert-fitness-midland-tx.web.app "Expert Fitness Landing Page")
-</p>
-
 <h1 align="center">
 Expert Fitness App
 </h1>
+<!-- PROJECT Screenshot -->
+[![product-screenshot]](http://expert-fitness-midland-tx.web.app "Expert Fitness Landing Page")
 
 <p align="center">
 The fitness app that becomes your trainer. :barbell:
@@ -62,8 +59,6 @@ Explore the docs »
 ---
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-
 
 There are many great fitness apps available on GitHub.
 However, I didn't find one that really suit my client's needs.
