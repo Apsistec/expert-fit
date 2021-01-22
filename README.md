@@ -1,12 +1,9 @@
-<h1 align="center">
-Expert Fitness App
-</h1>
-<!-- PROJECT Screenshot -->
-[![product-screenshot]](http://expert-fitness-midland-tx.web.app "Expert Fitness
-Landing Page")
 
-<p align="center">
-The fitness app that becomes your trainer :barbell:
+# 🏋️‍♂️ 🥡 🍎 Expert Fitness App   🍏 ⚖️ 🏋️‍♀️
+
+## The fitness app that becomes your trainer
+
+<br>
 
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
@@ -16,18 +13,21 @@ The fitness app that becomes your trainer :barbell:
 [![GNU General Public License v3.0][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
+[![logo-full]](http://expert-fitness-midland-tx.web.app "Expert Fitness Landing Page")
+
+<!-- PROJECT Screenshot -->
+
 <p align="center">
 <a href="https://github.com/apsistec/expert-fit">
 <strong>
 Explore the docs »
 </strong>
-</a>
 <br />
-<a href="https://github.com/apsistec/expert-fit">View Demo</a>
+<a href="https://github.com/apsistec/expert-fit">View Demo
 ·
-<a href="https://github.com/apsistec/expert-fit/issues">Report Bug</a>
+<a href="https://github.com/apsistec/expert-fit/issues">Report Bug
 ·
-<a href="https://github.com/apsistec/expert-fit/issues">Request Feature</a>
+<a href="https://github.com/apsistec/expert-fit/issues">Request Feature
 
 ---
 
@@ -36,24 +36,24 @@ Explore the docs »
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">About The Project
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with">Built With</li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#getting-started">Getting Started
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#prerequisites">Prerequisites</li>
+        <li><a href="#installation">Installation</li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#usage">Usage</li>
+    <li><a href="#roadmap">Roadmap</li>
+    <li><a href="#contributing">Contributing</li>
+    <li><a href="#license">License</li>
+    <li><a href="#contact">Contact</li>
+    <li><a href="#acknowledgements">Acknowledgements</li>
   </ol>
 </details>
 
@@ -61,6 +61,8 @@ Explore the docs »
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+[![product-screenshot]](http://expert-fitness-midland-tx.web.app "Expert Fitness
+Landing Page")
 There are many great fitness apps available on GitHub.
 However, I didn't find one that really suit my client's needs.
 So I created this enhanced one.
@@ -266,3 +268,4 @@ Project Link: [https://github.com/apsistec/expert-fit](https://github.com/apsist
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/apsistec
 [product-screenshot]: src/assets/images/screenshot.png
+[logo-full]: src/assets/logos/logo.png
