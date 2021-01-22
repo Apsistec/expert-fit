@@ -1,39 +1,145 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
 
-        <ion-card class="ion-padding infographic-card">
-          <ion-card-header>
-            <ion-card-title color="warning" >
-              <p>
-                The Expert Fitness Approach to fitness has 4 Simple & Effective phases
-              </p>
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <img src="../../../assets/svg/PlainSVGinfograph.svg"  />
 
-          </ion-card-content>
-        </ion-card>
+<ion-card color="tertiary">
+  <ion-card-header color="dark">
+    <ion-title color="light    " class="ion-text-capitalize"> A Simple & Effective Approach </ion-title>
+    <ion-card-subtitle>
+      <ion-text color="secondary" class="ion-margin-left">
+        Aim
+        <ion-icon color="warning" name="arrow-forward-outline"></ion-icon>
+        Achieve
+        <ion-icon color="warning" name="arrow-forward-outline"></ion-icon>
+        Analyze
+        <ion-icon color="warning" name="arrow-forward-outline"></ion-icon>
+        Align
+        <ion-icon color="warning" name="repeat-outline"></ion-icon>
+      </ion-text>
+    </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid class="ion-margin-vertical">
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-xl="6" size-lg="6">
+            <img src="../../../assets/svg/circleinfograph1.svg" height="500" style="display: block;margin:auto;"/>
+        </ion-col>
+        <ion-col size-xl="6" size-lg="6" class="ion-align-self-center">
+          <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts">
+            <ion-slide *ngFor="let phase of phases">
+              <ion-card color="dark" style="max-width: 500px">
+                <img [src]="phase.image" />
+                <ion-card-header color="medium">
+                  <ion-card-title>
+                    <ion-text color="primary" class="ion-text-capitalize" style="font-size: larger">
+                      {{ phase.id }}. {{ phase.title }}
+                    </ion-text>
+                  </ion-card-title>
+                  <ion-card-subtitle>
+                    <ion-text color="light">
+                      {{ phase.content }}
+                    </ion-text>
+                  </ion-card-subtitle>
+                </ion-card-header>
+              </ion-card>
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+  <ion-footer class="ion-text-center" style="background-color: var(--ion-color-dark);"  >
+    <ion-button color="light" strong fill="outline" routerLink="/home#pageThreeTwo" >
+      Learn More
+    </ion-button>
+    <ion-button color="secondary" strong routerLink="/products" >
+      Products & Plans
+    </ion-button>
+  </ion-footer>
+</ion-card>
 
-        <ion-card color="dark" class="schedule-card ion-margin ion-text-center">
-          <ion-card-header>
-            <ion-card-title> 
-              <ion-text color="secondary" class="ion-text-capitalize">
-                Looking forward to maximizing your exercise efficiencies accross the board? 
-              </ion-text>
-              </ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              Expect to establish a progressive maintenance routine comprehensive for your lifestyle and long term goals. You will have everything you need for fulfilling your long term expectations all while establishing awareness for and learning more about safe techniques so you reduce your chances of injury whenever possible.
+</ion-col>
 
-              <ion-button color="success" strong routerLink="/products">
-                View Products
-              </ion-button>
-            </ion-card-content>
-            <ion-footer class="ion-padding">
-              <ion-card-subtitle color="medium"> 
-              Expert Fitness has avariety of membership plans, private sessions, small-group sessions, and home sessions<sup>*</sup>
-            </ion-card-subtitle>
-            <sub color="light" class="ion-text-start"><sup>*</sup>-currently only available in Midland TX</sub>
-          </ion-footer>
-        </ion-card>
-        
+</ion-row>
+<ion-row id="pageThreeTwo" class="ion-margin">
+  <ion-col size-xl="6" size-lg="6" size-md="6" class=" ion-float-left ion-margin-vertical">
+    <ion-card color="light" class="schedule-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-text color="primary"> Surpass your short & long term expectations </ion-text>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <ion-text>
+            Motivation, real-time reporting & consultative feedback
+          </ion-text>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-item button color="danger" fill="outline" strong href="/home#pageTwo"> Learn More 
+      <ion-icon name="caret-forward-outline" slot="end"></ion-icon>
+    </ion-item>
+  </ion-card>
+</ion-col>
+</ion-row>
+<ion-row>
+<ion-col size-xl="6" size-lg="6" offset-lg= size-md="6" class=" ion-float-right ion-margin-vertical">
+  <ion-card color="light" class="schedule-card">
+    <ion-card-header>
+        <ion-card-title>
+          <ion-text color="primary">
+             Options to suite all needs
+            </ion-text>
+          </ion-card-title>
+       
+          <ion-card-subtitle>
+            <ion-text color="dark">
+            Private, semi-private & home sessions available  <br><sup>*</sup> Midland TX local area 
+          </ion-text>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-item button color="danger" fill="outline" strong href="/home#pageTwo"> Learn More 
+          <ion-icon name="caret-forward-outline" slot="end"></ion-icon>
+        </ion-item>
+    </ion-card>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col size-xl="6" size-lg="6" size-md="6" class="ion-float-left ion-margin-vertical">
+    <ion-card color="light" class="schedule-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-text color="primary"> Taking fitness to new dimensions </ion-text>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <ion-text color="dark"> Establish a progressive maintenance routine to keep forever </ion-text>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-item button color="danger" fill="outline" strong href="/home#pageTwo"> Learn More  
+        <ion-icon name="caret-forward-outline" slot="end"></ion-icon>
+      </ion-item>
+    </ion-card>
+  </ion-col>
+</ion-row>
+  <ion-row>
+    
+  <ion-col size-xl="6" size-lg="6" size-md="6" class="ion-float-right ion-margin-vertical">
+    <ion-card color="light" class="schedule-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-text color="primary">Dramatically reduce chances of injury </ion-text>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <ion-text>
+            Learn more about preventing injuries with safe balanced techniques
+          </ion-text>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-item button color="danger" fill="outline" strong href="/home#pageTwo"> Learn More 
+          <ion-icon name="caret-forward-outline" slot="end"></ion-icon>
+        </ion-item>
+    </ion-card>
 
+  </ion-col>
+</ion-row>
+
+</ion-grid>

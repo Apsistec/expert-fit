@@ -11,11 +11,11 @@ export class GalleryPage implements OnInit {
   constructor(public photoService: PhotoService) { }
 
   async ngOnInit() {
-    await this.photoService.loadSaved();
+    // await this.photoService.loadSaved();
   }
 
   addPhotoToGallery() {
-    this.photoService.addNewToGallery();
+    this.photoService.storeImage();
   }
 
 }

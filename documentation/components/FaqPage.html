@@ -442,19 +442,19 @@ export class FaqPage {
       &lt;ion-title size&#x3D;&quot;large&quot;&gt;FAQs&lt;/ion-title&gt;
     &lt;/ion-toolbar&gt;
   &lt;/ion-header&gt;
-  &lt;ion-grid class&#x3D;&quot;ion-no-padding-horizontal ion-no-margin-horizontal&quot;&gt;
-    &lt;ion-row style&#x3D;&quot;height: 100vh; width: 100vw&quot; class&#x3D;&quot;ion-justify-content-center ion-align-items-center&quot;&gt;
+  &lt;ion-grid &gt;
+    &lt;ion-row class&#x3D;&quot;ion-justify-content-center ion-align-items-start&quot;&gt;
       &lt;ion-col size-sm&#x3D;&quot;12&quot; size-md&#x3D;&quot;8&quot; size-lg&#x3D;&quot;6&quot;&gt;
         &lt;ion-card class&#x3D;&quot;ion-card-global ion-text-center&quot;&gt;
           &lt;ion-card-header&gt;
-            &lt;ion-button color&#x3D;&quot;tertiary&quot; (click)&#x3D;&quot;onToggleAutomatic()&quot; style&#x3D;&quot;display: relative; float: right&quot;&gt;
+            &lt;ion-button color&#x3D;&quot;warning&quot; size&#x3D;&quot;small&quot; (click)&#x3D;&quot;onToggleAutomatic()&quot; style&#x3D;&quot;float: right&quot;&gt;
               &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;contract-sharp&quot; *ngIf&#x3D;&quot;automaticClose&quot;&gt;&lt;/ion-icon&gt;
               &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;expand-sharp&quot; *ngIf&#x3D;&quot;!automaticClose&quot;&gt;&lt;/ion-icon&gt;
             &lt;/ion-button&gt;
             &lt;ion-card-title&gt; Expert Fitness FAQs &lt;/ion-card-title&gt;
             &lt;ion-card-subtitle&gt; Answers to common questions &lt;/ion-card-subtitle&gt;
           &lt;/ion-card-header&gt;
-
+          &lt;ion-card-content&gt;
           &lt;ion-list
             *ngFor&#x3D;&quot;let faq of faqs; let i &#x3D; index&quot;
             class&#x3D;&quot;accordion-list ion-text-left ion-no-padding&quot;
@@ -462,32 +462,28 @@ export class FaqPage {
             detail&#x3D;&quot;false&quot;
           &gt;
             &lt;ion-item
-              [disabled]&#x3D;&quot;!automaticClose&quot;
               tappable
               (click)&#x3D;&quot;toggleSection(i)&quot;
               [ngClass]&#x3D;&quot;{&#x27;section-active&#x27;: faq.open, &#x27;section&#x27;: !faq.open}&quot;
             &gt;
-              &lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;arrow-forward&quot; *ngIf&#x3D;&quot;!faq.open&quot;&gt;&lt;/ion-icon&gt;
-              &lt;ion-icon slot&#x3D;&quot;start&quot; name&#x3D;&quot;arrow-down-sharp&quot;  *ngIf&#x3D;&quot;faq.open&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-icon slot&#x3D;&quot;start&quot; color&#x3D;&quot;secondary&quot; size&#x3D;&quot;large&quot; name&#x3D;&quot;add-sharp&quot; *ngIf&#x3D;&quot;!faq.open&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-icon slot&#x3D;&quot;start&quot; color&#x3D;&quot;danger&quot; size&#x3D;&quot;large&quot; name&#x3D;&quot;remove-sharp&quot;  *ngIf&#x3D;&quot;faq.open&quot;&gt;&lt;/ion-icon&gt;
               &lt;ion-label&gt; {{ faq.title }} &lt;/ion-label&gt;
             &lt;/ion-item&gt;
             &lt;ion-item class&#x3D;&quot;info&quot; *ngIf&#x3D;&quot;faq.open&quot;&gt;
               &lt;p class&#x3D;&quot;info-text ion-text-left&quot;&gt;{{ faq.info }}&lt;/p&gt;
             &lt;/ion-item&gt;
           &lt;/ion-list&gt;
+          &lt;/ion-card-content&gt;
         &lt;/ion-card&gt;
       &lt;/ion-col&gt;
     &lt;/ion-row&gt;
-    &lt;!-- &lt;ion-row&gt;
-      &lt;ion-col&gt;
-    &lt;/ion-col&gt;
-&lt;/ion-row&gt; --&gt;
+
 &lt;/ion-grid&gt;
-&lt;ion-footer&gt;
+        &lt;app-footer&gt;&lt;/app-footer&gt;
   
-  &lt;app-footer fixed&gt;&lt;/app-footer&gt;
-&lt;/ion-footer&gt;
-&lt;/ion-content&gt;</code></pre>
+&lt;/ion-content&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
@@ -501,29 +497,22 @@ export class FaqPage {
 
 .section,
 ion-item:disabled {
-  font-weight: 600;
+  // font-weight: 600;
   --ion-item-background: var(--ion-color-light-shade);
   --ion-item-color: #000 !important;
-  ion-label {
-    color: #000;
-  }
 }
 
 .section-active {
-  font-weight: 600;
-  ion-icon {
-    color: black;
-  }
+  font-weight: 500;
 }
 
 .info {
-  --ion-item-background: var(--ion-color-dark-tint);
+  --ion-item-background: var(--ion-color-light-tint);
 }
 
 .info-text {
   padding-top: 12px;
-  font-weight: 500;
-  color: white;
+  color: var(--ion-color-primary);
 }
 </code></pre>
     </div>
@@ -553,8 +542,8 @@ ion-item:disabled {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>FAQs</ion-title>  </ion-toolbar></ion-header><ion-content fullscreen transparent>  <ion-header collapse="condense">    <ion-toolbar>      <ion-title size="large">FAQs</ion-title>    </ion-toolbar>  </ion-header>  <ion-grid class="ion-no-padding-horizontal ion-no-margin-horizontal">    <ion-row style="height: 100vh; width: 100vw" class="ion-justify-content-center ion-align-items-center">      <ion-col size-sm="12" size-md="8" size-lg="6">        <ion-card class="ion-card-global ion-text-center">          <ion-card-header>            <ion-button color="tertiary" (click)="onToggleAutomatic()" style="display: relative; float: right">              <ion-icon slot="icon-only" name="contract-sharp" *ngIf="automaticClose"></ion-icon>              <ion-icon slot="icon-only" name="expand-sharp" *ngIf="!automaticClose"></ion-icon>            </ion-button>            <ion-card-title> Expert Fitness FAQs </ion-card-title>            <ion-card-subtitle> Answers to common questions </ion-card-subtitle>          </ion-card-header>          <ion-list            *ngFor="let faq of faqs; let i = index"            class="accordion-list ion-text-left ion-no-padding"            lines="none"            detail="false"          >            <ion-item              [disabled]="!automaticClose"              tappable              (click)="toggleSection(i)"              [ngClass]="{\'section-active\': faq.open, \'section\': !faq.open}"            >              <ion-icon slot="start" name="arrow-forward" *ngIf="!faq.open"></ion-icon>              <ion-icon slot="start" name="arrow-down-sharp"  *ngIf="faq.open"></ion-icon>              <ion-label> {{ faq.title }} </ion-label>            </ion-item>            <ion-item class="info" *ngIf="faq.open">              <p class="info-text ion-text-left">{{ faq.info }}</p>            </ion-item>          </ion-list>        </ion-card>      </ion-col>    </ion-row>    <!-- <ion-row>      <ion-col>    </ion-col></ion-row> --></ion-grid><ion-footer>    <app-footer fixed></app-footer></ion-footer></ion-content></div>'
-    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicContentComponent', 'selector': 'app-basic-content'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitTrackerComponent', 'selector': 'app-benefit-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CheckoutPage', 'selector': 'app-checkout'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'CreateUsersComponent', 'selector': 'app-create-users'},{'name': 'CustomerDashboardPage', 'selector': 'app-customer-dashboard'},{'name': 'DetailUsersComponent', 'selector': 'app-detail-users'},{'name': 'EditUsersComponent', 'selector': 'app-edit-users'},{'name': 'EmployeeDashboardPage', 'selector': 'app-employee-dashboard'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordPage', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'ListUsersComponent', 'selector': 'app-list-users'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalViewComponent', 'selector': 'app-modal-container'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NutritionComponent', 'selector': 'app-nutrition'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PremiumContentComponent', 'selector': 'app-premium-content'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'},{'name': 'VideoComponent', 'selector': 'app-intro-video'},{'name': 'VideosComponent', 'selector': 'app-videos'},{'name': 'WorkoutsComponent', 'selector': 'app-workouts'}];
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>FAQs</ion-title>  </ion-toolbar></ion-header><ion-content fullscreen transparent>  <ion-header collapse="condense">    <ion-toolbar>      <ion-title size="large">FAQs</ion-title>    </ion-toolbar>  </ion-header>  <ion-grid >    <ion-row class="ion-justify-content-center ion-align-items-start">      <ion-col size-sm="12" size-md="8" size-lg="6">        <ion-card class="ion-card-global ion-text-center">          <ion-card-header>            <ion-button color="warning" size="small" (click)="onToggleAutomatic()" style="float: right">              <ion-icon slot="icon-only" name="contract-sharp" *ngIf="automaticClose"></ion-icon>              <ion-icon slot="icon-only" name="expand-sharp" *ngIf="!automaticClose"></ion-icon>            </ion-button>            <ion-card-title> Expert Fitness FAQs </ion-card-title>            <ion-card-subtitle> Answers to common questions </ion-card-subtitle>          </ion-card-header>          <ion-card-content>          <ion-list            *ngFor="let faq of faqs; let i = index"            class="accordion-list ion-text-left ion-no-padding"            lines="none"            detail="false"          >            <ion-item              tappable              (click)="toggleSection(i)"              [ngClass]="{\'section-active\': faq.open, \'section\': !faq.open}"            >              <ion-icon slot="start" color="secondary" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>              <ion-icon slot="start" color="danger" size="large" name="remove-sharp"  *ngIf="faq.open"></ion-icon>              <ion-label> {{ faq.title }} </ion-label>            </ion-item>            <ion-item class="info" *ngIf="faq.open">              <p class="info-text ion-text-left">{{ faq.info }}</p>            </ion-item>          </ion-list>          </ion-card-content>        </ion-card>      </ion-col>    </ion-row></ion-grid>        <app-footer></app-footer>  </ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicContentComponent', 'selector': 'app-basic-content'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitTrackerComponent', 'selector': 'app-benefit-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CheckoutPage', 'selector': 'app-checkout'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'CreateUsersComponent', 'selector': 'app-create-users'},{'name': 'CustomerDashboardComponent', 'selector': 'app-customer-dashboard'},{'name': 'CustomerPage', 'selector': 'app-customer'},{'name': 'DetailUsersComponent', 'selector': 'app-detail-users'},{'name': 'EditUsersComponent', 'selector': 'app-edit-users'},{'name': 'EmployeeDashboardPage', 'selector': 'app-employee-dashboard'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FileUploaderComponent', 'selector': 'app-file-uploader'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'ListUsersComponent', 'selector': 'app-customer-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalViewComponent', 'selector': 'app-modal-container'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NutritionComponent', 'selector': 'app-nutrition'},{'name': 'PlatinumContentComponent', 'selector': 'app-platinum-content'},{'name': 'PremiumContentComponent', 'selector': 'app-premium-content'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VideoComponent', 'selector': 'app-intro-video'},{'name': 'VideosComponent', 'selector': 'app-videos'},{'name': 'WorkoutsComponent', 'selector': 'app-workouts'}];
     var DIRECTIVES = [{'name': 'BlinkDirective', 'selector': '[appBlink]'},{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
     var ACTUAL_COMPONENT = {'name': 'FaqPage'};
 </script>

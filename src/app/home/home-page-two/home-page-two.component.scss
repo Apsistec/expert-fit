@@ -2,6 +2,7 @@
   width: fit-content;
   display: block;
   margin: 20px auto;
+  border: 3px solid var(--ion-color-tertiary-tint)
 }
 
 .benefit-button {
@@ -14,13 +15,12 @@
 // }
 
 .benefit-button:hover {
-  background: var(--ion-color-tertiary);;
+  background: var(--ion-colo-danger);;
 }
 
 .benefit-sub-card {
-  background: var(--ion-color-primary-shade);
+  background: var(--ion-color-dark-tint);
   width: fit-content;
   display: block;
   margin: 20px auto;
 }
-

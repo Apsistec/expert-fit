@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
 
@@ -9,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SideMenuComponent implements OnInit {
   yearDate: any = Date.now();
-  user: User;
+  user: Observable<User>;
 
   constructor(
     public authService: AuthService,

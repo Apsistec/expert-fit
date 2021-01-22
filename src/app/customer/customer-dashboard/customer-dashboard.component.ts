@@ -6,10 +6,10 @@ import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-customer-dashboard',
-  templateUrl: './customer-dashboard.page.html',
-  styleUrls: ['./customer-dashboard.page.scss']
+  templateUrl: './customer-dashboard.component.html',
+  styleUrls: ['./customer-dashboard.component.scss']
 })
-export class CustomerDashboardPage implements OnInit {
+export class CustomerDashboardComponent implements OnInit {
   constructor(
     public storage: StorageService,
     public afAuth: AngularFireAuth,

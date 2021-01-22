@@ -2,7 +2,8 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { AlertController, ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 import { PhotoService } from 'src/app/services/photo.service';
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
@@ -15,7 +16,7 @@ import { InvoicesComponent } from '../invoices/invoices.component';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit, AfterViewInit {
   title = 'User Profile';
@@ -34,17 +35,13 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     public afAuth: AngularFireAuth,
     public afs: AngularFirestore,
     public stripe: StripeService,
-    private userService: UserService,
-    private alertController: AlertController,
     private router: Router,
     public photoService: PhotoService
   ) {}
 
-  ngOnInit() {
-        // this.authService.user$.pipe(map(user => this.user = user));
-  }
+  ngOnInit() {}
 
-
+  ngAfterViewInit() {}
 
   // Themes
   enableDark() {
@@ -58,14 +55,14 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   // Stripe Account Administration Modals
   async presentCancelSubModal() {
     const modal = await this.modalCtrl.create({
-      component: CancelServiceComponent,
+      component: CancelServiceComponent
     });
     return modal.present();
   }
 
   async presentInvoicesModal() {
     const modal = await this.modalCtrl.create({
-      component: InvoicesComponent,
+      component: InvoicesComponent
     });
     return modal.present();
   }
@@ -73,30 +70,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   // dismiss Modals
   onDismissModal() {
     return this.modalCtrl.dismiss();
-  }
-
-  ngAfterViewInit() {
-    this.getEmail();
-  }
-
-  updatePicture() {
-    console.log('Clicked to update picture');
-  }
-
-  // Present an alert with the current email populated
-  // clicking OK will update the email and display it
-  // clicking Cancel will close the alert and do nothing
-
-  getEmail() {
-    return this.userService.getEmail();
-  }
-
-
-
-  logout() {
-    this.authService.SignOut().then(() => {
-      this.router.navigateByUrl('/home');
-    });
   }
 
   support() {

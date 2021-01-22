@@ -76,6 +76,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#capturedPhoto">capturedPhoto</a>
+                            </li>
+                            <li>
                                 <a href="#convertBlobToBase64">convertBlobToBase64</a>
                             </li>
                             <li>
@@ -118,6 +121,9 @@
                                     <span class="modifier">Async</span>
                                 <a href="#savePicture">savePicture</a>
                             </li>
+                            <li>
+                                <a href="#storeImage">storeImage</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -136,12 +142,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(messageService: <a href="../injectables/MessageService.html">MessageService</a>, platform: Platform)</code>
+<code>constructor(messageService: <a href="../injectables/MessageService.html">MessageService</a>, platform: Platform, storage: AngularFireStorage)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/photo.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/photo.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -175,6 +181,18 @@
                                                   
                                                         <td>
                                                                     <code>Platform</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>storage</td>
+                                                  
+                                                        <td>
+                                                                    <code>AngularFireStorage</code>
                                                         </td>
                                                   
                                                     <td>
@@ -221,8 +239,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/services/photo.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/services/photo.service.ts:43</a></div>
                 </td>
             </tr>
 
@@ -263,8 +281,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">src/app/services/photo.service.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/app/services/photo.service.ts:99</a></div>
                 </td>
             </tr>
 
@@ -305,8 +323,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/services/photo.service.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/services/photo.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -378,8 +396,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/app/services/photo.service.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/services/photo.service.ts:78</a></div>
                 </td>
             </tr>
 
@@ -426,12 +444,72 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="storeImage"></a>
+                    <span class="name">
+                        <b>
+                            storeImage
+                        </b>
+                        <a href="#storeImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>storeImage()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/services/photo.service.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
             <section>
     
         <h3 id="inputs">
             Properties
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="capturedPhoto"></a>
+                        <span class="name">
+                            <b>
+                            capturedPhoto</b>
+                            <a href="#capturedPhoto"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/services/photo.service.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -451,7 +529,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/services/photo.service.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/services/photo.service.ts:69</a></div>
                             </td>
                         </tr>
 
@@ -484,7 +562,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/services/photo.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/photo.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -517,7 +595,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/photo.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/services/photo.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -534,6 +612,9 @@
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { Plugins, CameraResultType, Capacitor, FilesystemDirectory, CameraPhoto, CameraSource } from &#x27;@capacitor/core&#x27;;
 import { Platform } from &#x27;@ionic/angular&#x27;;
+import { AngularFireStorage, AngularFireStorageReference } from &#x27;@angular/fire/storage&#x27;;
+import { from } from &#x27;rxjs&#x27;;
+import { switchMap, map } from &#x27;rxjs/operators&#x27;;
 
 const { Camera, Filesystem, Storage } &#x3D; Plugins;
 
@@ -543,26 +624,46 @@ const { Camera, Filesystem, Storage } &#x3D; Plugins;
 export class PhotoService {
   public photos: Photo[] &#x3D; [];
   private PHOTO_STORAGE &#x3D; &#x27;photos&#x27;;
+  capturedPhoto;
 
   constructor(
     private messageService: MessageService,
-    private platform: Platform
+    private platform: Platform,
+    private storage: AngularFireStorage
     ) {}
+
+    storeImage() {
+      const newName &#x3D; &#x60;${new Date().getTime()}-PICTURE.png&#x60;;
+      const storageRef: AngularFireStorageReference &#x3D; this.storage.ref(&#x60;/images/${newName}&#x60;);
+      const storageObs &#x3D; from(storageRef.putString(this.capturedPhoto, &#x27;base64&#x27;, { contentType: &#x27;image/png&#x27; }));
+      return storageObs.pipe(
+        switchMap((obj) &#x3D;&gt; {
+          return obj.ref.getDownloadURL();
+        }),
+        map((url) &#x3D;&gt; {
+          console.log(&#x27;my url: &#x27;, url);
+          return url;
+        })
+      );
+    }
+
+
+
 
   public async addNewToGallery() {
     // Take a photo
-    const capturedPhoto &#x3D; await Camera.getPhoto({
+    this.capturedPhoto &#x3D; await Camera.getPhoto({
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
       quality: 100
     });
     this.photos.unshift({
       filepath: &#x27;soon...&#x27;,
-      webviewPath: capturedPhoto.webPath
+      webviewPath: this.capturedPhoto.webPath
     });
 
     // Save the picture and add it to photo collection
-    const savedImageFile &#x3D; await this.savePicture(capturedPhoto);
+    const savedImageFile &#x3D; await this.savePicture(this.capturedPhoto);
     this.photos.unshift(savedImageFile);
   }
 
@@ -585,6 +686,9 @@ export class PhotoService {
   })
 
   private async savePicture(cameraPhoto: CameraPhoto) {
+    // Angular Storage
+    this.storeImage();
+
     // Convert photo to base64 format, required by Filesystem API to save
     const base64Data &#x3D; await this.readAsBase64(cameraPhoto);
     // Write the file to the data directory
@@ -598,7 +702,7 @@ export class PhotoService {
     // already loaded into memory
     return {
       filepath: fileName,
-      webviewPath: cameraPhoto.webPath
+      webviewPath: cameraPhoto.webPath,
     };
   }
 

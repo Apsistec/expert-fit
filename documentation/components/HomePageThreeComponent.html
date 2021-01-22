@@ -72,6 +72,7 @@
     </p>
     <p class="comment">
                     <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
     </p>
 
 
@@ -122,6 +123,26 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#phases">phases</a>
+                            </li>
+                            <li>
+                                <a href="#slideOpts">slideOpts</a>
+                            </li>
+                            <li>
+                                <a href="#slider">slider</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -132,7 +153,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#slidesDidLoad">slidesDidLoad</a>
                             </li>
                         </ul>
                     </td>
@@ -152,15 +179,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:16</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -174,6 +231,45 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewInit
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -196,8 +292,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:20</a></div>
                 </td>
             </tr>
 
@@ -213,47 +309,357 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="slidesDidLoad"></a>
+                    <span class="name">
+                        <b>
+                            slidesDidLoad
+                        </b>
+                        <a href="#slidesDidLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>slidesDidLoad(slides: IonSlides)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slides</td>
+                                    <td>
+                                            <code>IonSlides</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="phases"></a>
+                        <span class="name">
+                            <b>
+                            phases</b>
+                            <a href="#phases"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>Phases</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="slideOpts"></a>
+                        <span class="name">
+                            <b>
+                            slideOpts</b>
+                            <a href="#slideOpts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="slider"></a>
+                        <span class="name">
+                            <b>
+                            slider</b>
+                            <a href="#slider"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>IonSlides</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;mySlider&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
 </section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { IonSlides } from &#x27;@ionic/angular&#x27;;
+import { Phases } from &#x27;src/app/models/phases.model&#x27;;
 
 @Component({
   selector: &#x27;app-home-page-three&#x27;,
   templateUrl: &#x27;./home-page-three.component.html&#x27;,
   styleUrls: [&#x27;./home-page-three.component.scss&#x27;],
 })
-export class HomePageThreeComponent implements OnInit {
+export class HomePageThreeComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  phases &#x3D; Phases;
+  @ViewChild(&#x27;mySlider&#x27;) slider: IonSlides;
+
+  slideOpts;
+
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
+  ngAfterViewInit() {
+    this.slideOpts &#x3D; {
+      initialSlide: 4,
+      speed: 1600,
+      loop: true,
+      slidesPerView: 1,
+      grabCursor: true,
+
+
+    };
+  }
+
+  slidesDidLoad(slides: IonSlides) {
+    slides.startAutoplay();
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">
-        &lt;ion-card class&#x3D;&quot;ion-padding infographic-card&quot;&gt;
-          &lt;ion-card-header&gt;
-            &lt;ion-card-title color&#x3D;&quot;warning&quot; &gt;
-              &lt;p&gt;
-                Our Approach is Simple &amp; Effective At Expert Fitness
-              &lt;/p&gt;
-            &lt;/ion-card-title&gt;
-          &lt;/ion-card-header&gt;
-          &lt;ion-card-content&gt;
-            &lt;img src&#x3D;&quot;../../../assets/svg/Plain_infographic4slot.svg&quot; /&gt;
-
-          &lt;/ion-card-content&gt;
-        &lt;/ion-card&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ion-grid&gt;
+  &lt;ion-row&gt;
+    &lt;ion-col&gt;
 
 
+&lt;ion-card color&#x3D;&quot;tertiary&quot;&gt;
+  &lt;ion-card-header color&#x3D;&quot;dark&quot;&gt;
+    &lt;ion-title color&#x3D;&quot;light    &quot; class&#x3D;&quot;ion-text-capitalize&quot;&gt; A Simple &amp; Effective Approach &lt;/ion-title&gt;
+    &lt;ion-card-subtitle&gt;
+      &lt;ion-text color&#x3D;&quot;secondary&quot; class&#x3D;&quot;ion-margin-left&quot;&gt;
+        Aim
+        &lt;ion-icon color&#x3D;&quot;warning&quot; name&#x3D;&quot;arrow-forward-outline&quot;&gt;&lt;/ion-icon&gt;
+        Achieve
+        &lt;ion-icon color&#x3D;&quot;warning&quot; name&#x3D;&quot;arrow-forward-outline&quot;&gt;&lt;/ion-icon&gt;
+        Analyze
+        &lt;ion-icon color&#x3D;&quot;warning&quot; name&#x3D;&quot;arrow-forward-outline&quot;&gt;&lt;/ion-icon&gt;
+        Align
+        &lt;ion-icon color&#x3D;&quot;warning&quot; name&#x3D;&quot;repeat-outline&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-text&gt;
+    &lt;/ion-card-subtitle&gt;
+  &lt;/ion-card-header&gt;
+  &lt;ion-card-content&gt;
+    &lt;ion-grid class&#x3D;&quot;ion-margin-vertical&quot;&gt;
+      &lt;ion-row class&#x3D;&quot;ion-justify-content-center&quot;&gt;
+        &lt;ion-col size-xl&#x3D;&quot;6&quot; size-lg&#x3D;&quot;6&quot;&gt;
+            &lt;img src&#x3D;&quot;../../../assets/svg/circleinfograph1.svg&quot; height&#x3D;&quot;500&quot; style&#x3D;&quot;display: block;margin:auto;&quot;/&gt;
+        &lt;/ion-col&gt;
+        &lt;ion-col size-xl&#x3D;&quot;6&quot; size-lg&#x3D;&quot;6&quot; class&#x3D;&quot;ion-align-self-center&quot;&gt;
+          &lt;ion-slides #mySlider pager&#x3D;&quot;true&quot; (ionSlidesDidLoad)&#x3D;&quot;slidesDidLoad(mySlider)&quot; [options]&#x3D;&quot;slideOpts&quot;&gt;
+            &lt;ion-slide *ngFor&#x3D;&quot;let phase of phases&quot;&gt;
+              &lt;ion-card color&#x3D;&quot;dark&quot; style&#x3D;&quot;max-width: 500px&quot;&gt;
+                &lt;img [src]&#x3D;&quot;phase.image&quot; /&gt;
+                &lt;ion-card-header color&#x3D;&quot;medium&quot;&gt;
+                  &lt;ion-card-title&gt;
+                    &lt;ion-text color&#x3D;&quot;primary&quot; class&#x3D;&quot;ion-text-capitalize&quot; style&#x3D;&quot;font-size: larger&quot;&gt;
+                      {{ phase.id }}. {{ phase.title }}
+                    &lt;/ion-text&gt;
+                  &lt;/ion-card-title&gt;
+                  &lt;ion-card-subtitle&gt;
+                    &lt;ion-text color&#x3D;&quot;light&quot;&gt;
+                      {{ phase.content }}
+                    &lt;/ion-text&gt;
+                  &lt;/ion-card-subtitle&gt;
+                &lt;/ion-card-header&gt;
+              &lt;/ion-card&gt;
+            &lt;/ion-slide&gt;
+          &lt;/ion-slides&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+    &lt;/ion-grid&gt;
+  &lt;/ion-card-content&gt;
+  &lt;ion-footer class&#x3D;&quot;ion-text-center&quot; style&#x3D;&quot;background-color: var(--ion-color-dark);&quot;  &gt;
+    &lt;ion-button color&#x3D;&quot;light&quot; strong fill&#x3D;&quot;outline&quot; routerLink&#x3D;&quot;/home#pageThreeTwo&quot; &gt;
+      Learn More
+    &lt;/ion-button&gt;
+    &lt;ion-button color&#x3D;&quot;secondary&quot; strong routerLink&#x3D;&quot;/products&quot; &gt;
+      Products &amp; Plans
+    &lt;/ion-button&gt;
+  &lt;/ion-footer&gt;
+&lt;/ion-card&gt;
 
+&lt;/ion-col&gt;
+
+&lt;/ion-row&gt;
+&lt;ion-row id&#x3D;&quot;pageThreeTwo&quot; class&#x3D;&quot;ion-margin&quot;&gt;
+  &lt;ion-col size-xl&#x3D;&quot;6&quot; size-lg&#x3D;&quot;6&quot; size-md&#x3D;&quot;6&quot; class&#x3D;&quot; ion-float-left ion-margin-vertical&quot;&gt;
+    &lt;ion-card color&#x3D;&quot;light&quot; class&#x3D;&quot;schedule-card&quot;&gt;
+      &lt;ion-card-header&gt;
+        &lt;ion-card-title&gt;
+          &lt;ion-text color&#x3D;&quot;primary&quot;&gt; Surpass your short &amp; long term expectations &lt;/ion-text&gt;
+        &lt;/ion-card-title&gt;
+        &lt;ion-card-subtitle&gt;
+          &lt;ion-text&gt;
+            Motivation, real-time reporting &amp; consultative feedback
+          &lt;/ion-text&gt;
+        &lt;/ion-card-subtitle&gt;
+      &lt;/ion-card-header&gt;
+      &lt;ion-item button color&#x3D;&quot;danger&quot; fill&#x3D;&quot;outline&quot; strong href&#x3D;&quot;/home#pageTwo&quot;&gt; Learn More 
+      &lt;ion-icon name&#x3D;&quot;caret-forward-outline&quot; slot&#x3D;&quot;end&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-item&gt;
+  &lt;/ion-card&gt;
+&lt;/ion-col&gt;
+&lt;/ion-row&gt;
+&lt;ion-row&gt;
+&lt;ion-col size-xl&#x3D;&quot;6&quot; size-lg&#x3D;&quot;6&quot; offset-lg&#x3D; size-md&#x3D;&quot;6&quot; class&#x3D;&quot; ion-float-right ion-margin-vertical&quot;&gt;
+  &lt;ion-card color&#x3D;&quot;light&quot; class&#x3D;&quot;schedule-card&quot;&gt;
+    &lt;ion-card-header&gt;
+        &lt;ion-card-title&gt;
+          &lt;ion-text color&#x3D;&quot;primary&quot;&gt;
+             Options to suite all needs
+            &lt;/ion-text&gt;
+          &lt;/ion-card-title&gt;
+       
+          &lt;ion-card-subtitle&gt;
+            &lt;ion-text color&#x3D;&quot;dark&quot;&gt;
+            Private, semi-private &amp; home sessions available  &lt;br&gt;&lt;sup&gt;*&lt;/sup&gt; Midland TX local area 
+          &lt;/ion-text&gt;
+        &lt;/ion-card-subtitle&gt;
+      &lt;/ion-card-header&gt;
+      &lt;ion-item button color&#x3D;&quot;danger&quot; fill&#x3D;&quot;outline&quot; strong href&#x3D;&quot;/home#pageTwo&quot;&gt; Learn More 
+          &lt;ion-icon name&#x3D;&quot;caret-forward-outline&quot; slot&#x3D;&quot;end&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/ion-item&gt;
+    &lt;/ion-card&gt;
+  &lt;/ion-col&gt;
+&lt;/ion-row&gt;
+&lt;ion-row&gt;
+  &lt;ion-col size-xl&#x3D;&quot;6&quot; size-lg&#x3D;&quot;6&quot; size-md&#x3D;&quot;6&quot; class&#x3D;&quot;ion-float-left ion-margin-vertical&quot;&gt;
+    &lt;ion-card color&#x3D;&quot;light&quot; class&#x3D;&quot;schedule-card&quot;&gt;
+      &lt;ion-card-header&gt;
+        &lt;ion-card-title&gt;
+          &lt;ion-text color&#x3D;&quot;primary&quot;&gt; Taking fitness to new dimensions &lt;/ion-text&gt;
+        &lt;/ion-card-title&gt;
+        &lt;ion-card-subtitle&gt;
+          &lt;ion-text color&#x3D;&quot;dark&quot;&gt; Establish a progressive maintenance routine to keep forever &lt;/ion-text&gt;
+        &lt;/ion-card-subtitle&gt;
+      &lt;/ion-card-header&gt;
+      &lt;ion-item button color&#x3D;&quot;danger&quot; fill&#x3D;&quot;outline&quot; strong href&#x3D;&quot;/home#pageTwo&quot;&gt; Learn More  
+        &lt;ion-icon name&#x3D;&quot;caret-forward-outline&quot; slot&#x3D;&quot;end&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-item&gt;
+    &lt;/ion-card&gt;
+  &lt;/ion-col&gt;
+&lt;/ion-row&gt;
+  &lt;ion-row&gt;
+    
+  &lt;ion-col size-xl&#x3D;&quot;6&quot; size-lg&#x3D;&quot;6&quot; size-md&#x3D;&quot;6&quot; class&#x3D;&quot;ion-float-right ion-margin-vertical&quot;&gt;
+    &lt;ion-card color&#x3D;&quot;light&quot; class&#x3D;&quot;schedule-card&quot;&gt;
+      &lt;ion-card-header&gt;
+        &lt;ion-card-title&gt;
+          &lt;ion-text color&#x3D;&quot;primary&quot;&gt;Dramatically reduce chances of injury &lt;/ion-text&gt;
+        &lt;/ion-card-title&gt;
+        &lt;ion-card-subtitle&gt;
+          &lt;ion-text&gt;
+            Learn more about preventing injuries with safe balanced techniques
+          &lt;/ion-text&gt;
+        &lt;/ion-card-subtitle&gt;
+      &lt;/ion-card-header&gt;
+      &lt;ion-item button color&#x3D;&quot;danger&quot; fill&#x3D;&quot;outline&quot; strong href&#x3D;&quot;/home#pageTwo&quot;&gt; Learn More 
+          &lt;ion-icon name&#x3D;&quot;caret-forward-outline&quot; slot&#x3D;&quot;end&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/ion-item&gt;
+    &lt;/ion-card&gt;
+
+  &lt;/ion-col&gt;
+&lt;/ion-row&gt;
+
+&lt;/ion-grid&gt;
 </code></pre>
     </div>
 
@@ -261,17 +667,22 @@ export class HomePageThreeComponent implements OnInit {
                 <p class="comment">
                     <code>./home-page-three.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.page-three{
-  height: 100vh;
-  width: 100vw;
-}
-
-.infographic {
-	background: var(--ion-color-light-shade);
-}
-
+                <pre class="line-numbers"><code class="language-scss">
 .infographic-card{
-  --background: var(--ion-color-medium-shade);
+  --background: var(--ion-color-medium);
+  display:block;
+  margin:auto;
+  width: fit-content;
+  height: fit-content;
+}
+.schedule-card {
+  border: 3px solid var(--ion-color-secondary-tint);
+  border-radius: 25px;
+  display: block;
+  margin: auto;
+  max-width: 50%;
+  background-color: light;
+  text-align: center;
 }
 </code></pre>
     </div>
@@ -301,8 +712,8 @@ export class HomePageThreeComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>        <ion-card class="ion-padding infographic-card">          <ion-card-header>            <ion-card-title color="warning" >              <p>                Our Approach is Simple & Effective At Expert Fitness              </p>            </ion-card-title>          </ion-card-header>          <ion-card-content>            <img src="../../../assets/svg/Plain_infographic4slot.svg" />          </ion-card-content>        </ion-card></div>'
-    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicContentComponent', 'selector': 'app-basic-content'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitTrackerComponent', 'selector': 'app-benefit-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CheckoutPage', 'selector': 'app-checkout'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'CreateUsersComponent', 'selector': 'app-create-users'},{'name': 'CustomerDashboardPage', 'selector': 'app-customer-dashboard'},{'name': 'DetailUsersComponent', 'selector': 'app-detail-users'},{'name': 'EditUsersComponent', 'selector': 'app-edit-users'},{'name': 'EmployeeDashboardPage', 'selector': 'app-employee-dashboard'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordPage', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'ListUsersComponent', 'selector': 'app-list-users'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalViewComponent', 'selector': 'app-modal-container'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NutritionComponent', 'selector': 'app-nutrition'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PremiumContentComponent', 'selector': 'app-premium-content'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'},{'name': 'VideoComponent', 'selector': 'app-intro-video'},{'name': 'VideosComponent', 'selector': 'app-videos'},{'name': 'WorkoutsComponent', 'selector': 'app-workouts'}];
+        var COMPONENT_TEMPLATE = '<div><ion-grid>  <ion-row>    <ion-col><ion-card color="tertiary">  <ion-card-header color="dark">    <ion-title color="light    " class="ion-text-capitalize"> A Simple & Effective Approach </ion-title>    <ion-card-subtitle>      <ion-text color="secondary" class="ion-margin-left">        Aim        <ion-icon color="warning" name="arrow-forward-outline"></ion-icon>        Achieve        <ion-icon color="warning" name="arrow-forward-outline"></ion-icon>        Analyze        <ion-icon color="warning" name="arrow-forward-outline"></ion-icon>        Align        <ion-icon color="warning" name="repeat-outline"></ion-icon>      </ion-text>    </ion-card-subtitle>  </ion-card-header>  <ion-card-content>    <ion-grid class="ion-margin-vertical">      <ion-row class="ion-justify-content-center">        <ion-col size-xl="6" size-lg="6">            <img src="../../../assets/svg/circleinfograph1.svg" height="500" style="display: block;margin:auto;"/>        </ion-col>        <ion-col size-xl="6" size-lg="6" class="ion-align-self-center">          <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts">            <ion-slide *ngFor="let phase of phases">              <ion-card color="dark" style="max-width: 500px">                <img [src]="phase.image" />                <ion-card-header color="medium">                  <ion-card-title>                    <ion-text color="primary" class="ion-text-capitalize" style="font-size: larger">                      {{ phase.id }}. {{ phase.title }}                    </ion-text>                  </ion-card-title>                  <ion-card-subtitle>                    <ion-text color="light">                      {{ phase.content }}                    </ion-text>                  </ion-card-subtitle>                </ion-card-header>              </ion-card>            </ion-slide>          </ion-slides>        </ion-col>      </ion-row>    </ion-grid>  </ion-card-content>  <ion-footer class="ion-text-center" style="background-color: var(--ion-color-dark);"  >    <ion-button color="light" strong fill="outline" routerLink="/home#pageThreeTwo" >      Learn More    </ion-button>    <ion-button color="secondary" strong routerLink="/products" >      Products & Plans    </ion-button>  </ion-footer></ion-card></ion-col></ion-row><ion-row id="pageThreeTwo" class="ion-margin">  <ion-col size-xl="6" size-lg="6" size-md="6" class=" ion-float-left ion-margin-vertical">    <ion-card color="light" class="schedule-card">      <ion-card-header>        <ion-card-title>          <ion-text color="primary"> Surpass your short & long term expectations </ion-text>        </ion-card-title>        <ion-card-subtitle>          <ion-text>            Motivation, real-time reporting & consultative feedback          </ion-text>        </ion-card-subtitle>      </ion-card-header>      <ion-item button color="danger" fill="outline" strong href="/home#pageTwo"> Learn More       <ion-icon name="caret-forward-outline" slot="end"></ion-icon>    </ion-item>  </ion-card></ion-col></ion-row><ion-row><ion-col size-xl="6" size-lg="6" offset-lg= size-md="6" class=" ion-float-right ion-margin-vertical">  <ion-card color="light" class="schedule-card">    <ion-card-header>        <ion-card-title>          <ion-text color="primary">             Options to suite all needs            </ion-text>          </ion-card-title>                 <ion-card-subtitle>            <ion-text color="dark">            Private, semi-private & home sessions available  <br><sup>*</sup> Midland TX local area           </ion-text>        </ion-card-subtitle>      </ion-card-header>      <ion-item button color="danger" fill="outline" strong href="/home#pageTwo"> Learn More           <ion-icon name="caret-forward-outline" slot="end"></ion-icon>        </ion-item>    </ion-card>  </ion-col></ion-row><ion-row>  <ion-col size-xl="6" size-lg="6" size-md="6" class="ion-float-left ion-margin-vertical">    <ion-card color="light" class="schedule-card">      <ion-card-header>        <ion-card-title>          <ion-text color="primary"> Taking fitness to new dimensions </ion-text>        </ion-card-title>        <ion-card-subtitle>          <ion-text color="dark"> Establish a progressive maintenance routine to keep forever </ion-text>        </ion-card-subtitle>      </ion-card-header>      <ion-item button color="danger" fill="outline" strong href="/home#pageTwo"> Learn More          <ion-icon name="caret-forward-outline" slot="end"></ion-icon>      </ion-item>    </ion-card>  </ion-col></ion-row>  <ion-row>      <ion-col size-xl="6" size-lg="6" size-md="6" class="ion-float-right ion-margin-vertical">    <ion-card color="light" class="schedule-card">      <ion-card-header>        <ion-card-title>          <ion-text color="primary">Dramatically reduce chances of injury </ion-text>        </ion-card-title>        <ion-card-subtitle>          <ion-text>            Learn more about preventing injuries with safe balanced techniques          </ion-text>        </ion-card-subtitle>      </ion-card-header>      <ion-item button color="danger" fill="outline" strong href="/home#pageTwo"> Learn More           <ion-icon name="caret-forward-outline" slot="end"></ion-icon>        </ion-item>    </ion-card>  </ion-col></ion-row></ion-grid></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicContentComponent', 'selector': 'app-basic-content'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitTrackerComponent', 'selector': 'app-benefit-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CheckoutPage', 'selector': 'app-checkout'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'CreateUsersComponent', 'selector': 'app-create-users'},{'name': 'CustomerDashboardComponent', 'selector': 'app-customer-dashboard'},{'name': 'CustomerPage', 'selector': 'app-customer'},{'name': 'DetailUsersComponent', 'selector': 'app-detail-users'},{'name': 'EditUsersComponent', 'selector': 'app-edit-users'},{'name': 'EmployeeDashboardPage', 'selector': 'app-employee-dashboard'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FileUploaderComponent', 'selector': 'app-file-uploader'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'ListUsersComponent', 'selector': 'app-customer-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalViewComponent', 'selector': 'app-modal-container'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NutritionComponent', 'selector': 'app-nutrition'},{'name': 'PlatinumContentComponent', 'selector': 'app-platinum-content'},{'name': 'PremiumContentComponent', 'selector': 'app-premium-content'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VideoComponent', 'selector': 'app-intro-video'},{'name': 'VideosComponent', 'selector': 'app-videos'},{'name': 'WorkoutsComponent', 'selector': 'app-workouts'}];
     var DIRECTIVES = [{'name': 'BlinkDirective', 'selector': '[appBlink]'},{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
     var ACTUAL_COMPONENT = {'name': 'HomePageThreeComponent'};
 </script>

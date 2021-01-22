@@ -189,7 +189,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(modalController: ModalController, authService: <a href="../injectables/AuthService.html">AuthService</a>, fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, messageService: <a href="../injectables/MessageService.html">MessageService</a>, afs: AngularFirestore, config: <a href="../interfaces/Rating.html">NgbRatingConfig</a>)</code>
+<code>constructor(modalController: ModalController, authService: <a href="../injectables/AuthService.html">AuthService</a>, messageService: <a href="../injectables/MessageService.html">MessageService</a>, afs: AngularFirestore, config: <a href="../interfaces/Rating.html">NgbRatingConfig</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -228,18 +228,6 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>fb</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -627,16 +615,16 @@ export class TestimonialsPage {
   constructor(
     public modalController: ModalController,
     public authService: AuthService,
-    private fb: FormBuilder,
+    // private fb: FormBuilder,
     private messageService: MessageService,
     private afs: AngularFirestore,
     config: NgbRatingConfig
   ) {
     config.max &#x3D; 5;
-    config.readonly &#x3D; false;
-    this.reviewForm &#x3D; this.fb.group({
-      review: [&#x27;&#x27;, [Validators.required]],
-    });
+    config.readonly &#x3D; true;
+    // this.reviewForm &#x3D; this.fb.group({
+    //   review: [&#x27;&#x27;, [Validators.required]],
+    // });
   }
 
 
@@ -675,8 +663,7 @@ export class TestimonialsPage {
     &lt;ion-title&gt;Client Testimonials&lt;/ion-title&gt;
   &lt;/ion-toolbar&gt;
 &lt;/ion-header&gt;
-
-&lt;ion-content fullscreen transparent [ngSwitch]&#x3D;&quot;segment&quot;&gt;
+&lt;ion-content fullscreen transparent&gt;
   &lt;ion-header collapse&#x3D;&quot;condense&quot;&gt;
     &lt;ion-toolbar&gt;
       &lt;ion-title size&#x3D;&quot;large&quot;&gt;Client Testimonials&lt;/ion-title&gt;
@@ -694,41 +681,43 @@ export class TestimonialsPage {
     &lt;/ion-segment-button&gt;
   &lt;/ion-segment&gt;
 
-  &lt;ion-grid &gt;
-    &lt;ion-row class&#x3D;&quot;ion-justify-content-center&quot; *ngSwitchDefault&gt;
-      &lt;ion-col size-sm&#x3D;&quot;12&quot; size-md&#x3D;&quot;6&quot; size-lg&#x3D;&quot;4&quot; size-xl&#x3D;&quot;3&quot; *ngFor&#x3D;&quot;let testimonial of testimonials&quot;&gt;
-        &lt;ion-card class&#x3D;&quot;ion-sub-card-global&quot;&gt;
-          &lt;ion-card-header&gt;
-            &lt;ion-card-title&gt; {{ testimonial.author }} &lt;/ion-card-title&gt;
-          &lt;/ion-card-header&gt;
-          &lt;ion-card-content&gt;
-            &lt;ion-item class&#x3D;&quot;rating-item&quot;&gt;
-              &lt;ion-avatar&gt;
-                &lt;img [src]&#x3D;&quot;[testimonial.img || &#x27;../../../assets/images/dummy-user.png&#x27;]&quot; /&gt;
-              &lt;/ion-avatar&gt;
-              &lt;ion-button color&#x3D;&quot;primary&quot;&gt;
-                &lt;ngb-rating [formControl]&#x3D;&quot;testimonial.stars&quot;&gt;&lt;/ngb-rating&gt;
-              &lt;/ion-button&gt;
-            &lt;/ion-item&gt;
-            &lt;br /&gt;
-            &lt;ion-text&gt;
-              &lt;p&gt;{{ testimonial.message }}&lt;/p&gt;
-            &lt;/ion-text&gt;
-          &lt;/ion-card-content&gt;
-        &lt;/ion-card&gt;
+  &lt;ion-grid [ngSwitch]&#x3D;&quot;segment&quot;&gt;
+    &lt;ion-row class&#x3D;&quot;ion-justify-content-around&quot; *ngSwitchDefault&gt;
+      &lt;ion-col size-sm&#x3D;&quot;12&quot; size-md&#x3D;&quot;6&quot; size-lg&#x3D;&quot;4&quot; size-xl&#x3D;&quot;3&quot; class&#x3D;&quot;ion-align-self-center ion-margin&quot; *ngFor&#x3D;&quot;let testimonial of testimonials&quot;&gt;
+        &lt;ion-item class&#x3D;&quot;items items-shadow&quot;&gt;
+          &lt;ion-grid&gt;
+            &lt;ion-row&gt;
+              &lt;ion-col&gt;
+                &lt;ion-avatar&gt;
+                  &lt;img [src]&#x3D;&quot;[testimonial.img || &#x27;../../../assets/images/dummy-user.png&#x27;]&quot; /&gt;
+                &lt;/ion-avatar&gt;
+                &lt;ion-text color&#x3D;&quot;primary&quot;&gt; {{ testimonial.author }} &lt;/ion-text&gt;
+                &lt;ngb-rating
+                  style&#x3D;&quot;float: right; color: var(--ion-color-danger)&quot;
+                  [rate]&#x3D;&quot;testimonial.stars&quot;
+                &gt;&lt;/ngb-rating&gt;
+              &lt;/ion-col&gt;
+            &lt;/ion-row&gt;
+            &lt;ion-row&gt;
+              &lt;ion-col&gt;
+                &lt;p&gt;{{ testimonial.message }}&lt;/p&gt;
+              &lt;/ion-col&gt;
+            &lt;/ion-row&gt;
+          &lt;/ion-grid&gt;
+        &lt;/ion-item&gt;
       &lt;/ion-col&gt;
     &lt;/ion-row&gt;
 
     &lt;ion-row class&#x3D;&quot;ion-justify-content-center&quot; *ngSwitchCase&#x3D;&quot;&#x27;add&#x27;&quot;&gt;
-      &lt;ion-col &gt;
+      &lt;ion-col&gt;
         &lt;ion-card class&#x3D;&quot;ion-sub-card-global&quot;&gt;
           &lt;ion-card-header&gt;
             &lt;ion-card-title&gt; New Testimonial&lt;/ion-card-title&gt;
           &lt;/ion-card-header&gt;
           &lt;ion-card-content&gt;
-    &lt;!-- &lt;form
+            &lt;!-- &lt;form
       #testimonial
-      *ngIf&#x3D;&quot;authService.afAuth.user | async; else register;&quot;
+      *ngIf&#x3D;&quot;authService.user | async as user; else register;&quot;
       [formGroup]&#x3D;&quot;reviewForm&quot;
       (ngSubmit)&#x3D;&quot;setTestimonial(testimonial)&quot;
       novalidate
@@ -786,19 +775,22 @@ export class TestimonialsPage {
         &lt;ion-text&gt;Clear&lt;/ion-text&gt;
       &lt;/ion-button&gt;
     &lt;/form&gt; --&gt;
-    &lt;!-- &lt;ng-template #register&gt;
+            &lt;!-- &lt;ng-template #register&gt;
       &lt;ion-card class&#x3D;&quot;ion-padding ion-text-center&quot; color&#x3D;&quot;light&quot;&gt;
         &lt;ion-card-title&gt; You must login first &lt;/ion-card-title&gt;
         &lt;ion-button color&#x3D;&quot;primary&quot; routerLink&#x3D;&quot;/checkout&quot;&gt; Register &lt;/ion-button&gt;
       &lt;/ion-card&gt;
     &lt;/ng-template&gt; --&gt;
-    &lt;/ion-card-content&gt;
-  &lt;/ion-card&gt;
-  &lt;/ion-col&gt;
-  &lt;/ion-row&gt;
+          &lt;/ion-card-content&gt;
+        &lt;/ion-card&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+    &lt;ion-row&gt;
+      &lt;ion-col&gt;
+        &lt;app-footer&gt;&lt;/app-footer&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
   &lt;/ion-grid&gt;
-
-  &lt;app-footer&gt;&lt;/app-footer&gt;
 &lt;/ion-content&gt;
 </code></pre>
     </div>
@@ -807,9 +799,7 @@ export class TestimonialsPage {
                 <p class="comment">
                     <code>./testimonials.page.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">ion-content{
-  height: 100vh;
-}</code></pre>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -837,8 +827,8 @@ export class TestimonialsPage {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>Client Testimonials</ion-title>  </ion-toolbar></ion-header><ion-content fullscreen transparent [ngSwitch]="segment">  <ion-header collapse="condense">    <ion-toolbar>      <ion-title size="large">Client Testimonials</ion-title>    </ion-toolbar>  </ion-header>  <ion-segment [(ngModel)]="segment">    <ion-segment-button value="current" color="warning">      <ion-icon name="ribbon-sharp" color="warning"></ion-icon>      Testimonials    </ion-segment-button>    <ion-segment-button value="add">      <ion-icon name="person-add-sharp" color="warning"></ion-icon>      Add A Testimonial    </ion-segment-button>  </ion-segment>  <ion-grid >    <ion-row class="ion-justify-content-center" *ngSwitchDefault>      <ion-col size-sm="12" size-md="6" size-lg="4" size-xl="3" *ngFor="let testimonial of testimonials">        <ion-card class="ion-sub-card-global">          <ion-card-header>            <ion-card-title> {{ testimonial.author }} </ion-card-title>          </ion-card-header>          <ion-card-content>            <ion-item class="rating-item">              <ion-avatar>                <img [src]="[testimonial.img || \'../../../assets/images/dummy-user.png\']" />              </ion-avatar>              <ion-button color="primary">                <ngb-rating [formControl]="testimonial.stars"></ngb-rating>              </ion-button>            </ion-item>            <br />            <ion-text>              <p>{{ testimonial.message }}</p>            </ion-text>          </ion-card-content>        </ion-card>      </ion-col>    </ion-row>    <ion-row class="ion-justify-content-center" *ngSwitchCase="\'add\'">      <ion-col >        <ion-card class="ion-sub-card-global">          <ion-card-header>            <ion-card-title> New Testimonial</ion-card-title>          </ion-card-header>          <ion-card-content>    <!-- <form      #testimonial      *ngIf="authService.afAuth.user | async; else register;"      [formGroup]="reviewForm"      (ngSubmit)="setTestimonial(testimonial)"      novalidate    >    <ion-card class="ion-sub-card-global">      <ion-card-header>        <ion-card-title>           <ion-input           [placeholder]="user.displayName"          color="primary"          type="text"          inputmode="text"          formControlName="name"          required          autofocus="true"          >          </ion-input>        </ion-card-title>      </ion-card-header>      <ion-card-content>        <ion-item class="rating-item">      <ion-avatar>        <img [src]="[testimonial.img || \'../../../assets/images/dummy-user.png\']" />      </ion-avatar>      <ion-button color="primary">        <ngb-rating [rate]="3"></ngb-rating>      </ion-button>          <ion-label position="floating">Review</ion-label>          <br>          <ion-textarea            auto-grow="true"            color="primary"            type="text"            inputmode="text"            formControlName="review"            placeholder="Your review goes here..."            required            spellcheck="true"            wrap="soft"            autofocus="true"          >          </ion-textarea>        </ion-item>        </ion-card-content>        </ion-card>      <ion-button [disabled]="reviewForm.invalid" color="tertiary"type="submit">        <ion-icon size="small" slot="start" name="create-sharp"> </ion-icon>        <ion-text>Create</ion-text>      </ion-button>      <ion-button  color="danger" type="reset">        <ion-icon size="small" slot="start" name="close-sharp"> </ion-icon>        <ion-text>Clear</ion-text>      </ion-button>    </form> -->    <!-- <ng-template #register>      <ion-card class="ion-padding ion-text-center" color="light">        <ion-card-title> You must login first </ion-card-title>        <ion-button color="primary" routerLink="/checkout"> Register </ion-button>      </ion-card>    </ng-template> -->    </ion-card-content>  </ion-card>  </ion-col>  </ion-row>  </ion-grid>  <app-footer></app-footer></ion-content></div>'
-    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicContentComponent', 'selector': 'app-basic-content'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitTrackerComponent', 'selector': 'app-benefit-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CheckoutPage', 'selector': 'app-checkout'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'CreateUsersComponent', 'selector': 'app-create-users'},{'name': 'CustomerDashboardPage', 'selector': 'app-customer-dashboard'},{'name': 'DetailUsersComponent', 'selector': 'app-detail-users'},{'name': 'EditUsersComponent', 'selector': 'app-edit-users'},{'name': 'EmployeeDashboardPage', 'selector': 'app-employee-dashboard'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordPage', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'ListUsersComponent', 'selector': 'app-list-users'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalViewComponent', 'selector': 'app-modal-container'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NutritionComponent', 'selector': 'app-nutrition'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PremiumContentComponent', 'selector': 'app-premium-content'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'},{'name': 'VideoComponent', 'selector': 'app-intro-video'},{'name': 'VideosComponent', 'selector': 'app-videos'},{'name': 'WorkoutsComponent', 'selector': 'app-workouts'}];
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>Client Testimonials</ion-title>  </ion-toolbar></ion-header><ion-content fullscreen transparent>  <ion-header collapse="condense">    <ion-toolbar>      <ion-title size="large">Client Testimonials</ion-title>    </ion-toolbar>  </ion-header>  <ion-segment [(ngModel)]="segment">    <ion-segment-button value="current" color="warning">      <ion-icon name="ribbon-sharp" color="warning"></ion-icon>      Testimonials    </ion-segment-button>    <ion-segment-button value="add">      <ion-icon name="person-add-sharp" color="warning"></ion-icon>      Add A Testimonial    </ion-segment-button>  </ion-segment>  <ion-grid [ngSwitch]="segment">    <ion-row class="ion-justify-content-around" *ngSwitchDefault>      <ion-col size-sm="12" size-md="6" size-lg="4" size-xl="3" class="ion-align-self-center ion-margin" *ngFor="let testimonial of testimonials">        <ion-item class="items items-shadow">          <ion-grid>            <ion-row>              <ion-col>                <ion-avatar>                  <img [src]="[testimonial.img || \'../../../assets/images/dummy-user.png\']" />                </ion-avatar>                <ion-text color="primary"> {{ testimonial.author }} </ion-text>                <ngb-rating                  style="float: right; color: var(--ion-color-danger)"                  [rate]="testimonial.stars"                ></ngb-rating>              </ion-col>            </ion-row>            <ion-row>              <ion-col>                <p>{{ testimonial.message }}</p>              </ion-col>            </ion-row>          </ion-grid>        </ion-item>      </ion-col>    </ion-row>    <ion-row class="ion-justify-content-center" *ngSwitchCase="\'add\'">      <ion-col>        <ion-card class="ion-sub-card-global">          <ion-card-header>            <ion-card-title> New Testimonial</ion-card-title>          </ion-card-header>          <ion-card-content>            <!-- <form      #testimonial      *ngIf="authService.user | async as user; else register;"      [formGroup]="reviewForm"      (ngSubmit)="setTestimonial(testimonial)"      novalidate    >    <ion-card class="ion-sub-card-global">      <ion-card-header>        <ion-card-title>           <ion-input           [placeholder]="user.displayName"          color="primary"          type="text"          inputmode="text"          formControlName="name"          required          autofocus="true"          >          </ion-input>        </ion-card-title>      </ion-card-header>      <ion-card-content>        <ion-item class="rating-item">      <ion-avatar>        <img [src]="[testimonial.img || \'../../../assets/images/dummy-user.png\']" />      </ion-avatar>      <ion-button color="primary">        <ngb-rating [rate]="3"></ngb-rating>      </ion-button>          <ion-label position="floating">Review</ion-label>          <br>          <ion-textarea            auto-grow="true"            color="primary"            type="text"            inputmode="text"            formControlName="review"            placeholder="Your review goes here..."            required            spellcheck="true"            wrap="soft"            autofocus="true"          >          </ion-textarea>        </ion-item>        </ion-card-content>        </ion-card>      <ion-button [disabled]="reviewForm.invalid" color="tertiary"type="submit">        <ion-icon size="small" slot="start" name="create-sharp"> </ion-icon>        <ion-text>Create</ion-text>      </ion-button>      <ion-button  color="danger" type="reset">        <ion-icon size="small" slot="start" name="close-sharp"> </ion-icon>        <ion-text>Clear</ion-text>      </ion-button>    </form> -->            <!-- <ng-template #register>      <ion-card class="ion-padding ion-text-center" color="light">        <ion-card-title> You must login first </ion-card-title>        <ion-button color="primary" routerLink="/checkout"> Register </ion-button>      </ion-card>    </ng-template> -->          </ion-card-content>        </ion-card>      </ion-col>    </ion-row>    <ion-row>      <ion-col>        <app-footer></app-footer>      </ion-col>    </ion-row>  </ion-grid></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicContentComponent', 'selector': 'app-basic-content'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitTrackerComponent', 'selector': 'app-benefit-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CheckoutPage', 'selector': 'app-checkout'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'CreateUsersComponent', 'selector': 'app-create-users'},{'name': 'CustomerDashboardComponent', 'selector': 'app-customer-dashboard'},{'name': 'CustomerPage', 'selector': 'app-customer'},{'name': 'DetailUsersComponent', 'selector': 'app-detail-users'},{'name': 'EditUsersComponent', 'selector': 'app-edit-users'},{'name': 'EmployeeDashboardPage', 'selector': 'app-employee-dashboard'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FileUploaderComponent', 'selector': 'app-file-uploader'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'ListUsersComponent', 'selector': 'app-customer-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalViewComponent', 'selector': 'app-modal-container'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NutritionComponent', 'selector': 'app-nutrition'},{'name': 'PlatinumContentComponent', 'selector': 'app-platinum-content'},{'name': 'PremiumContentComponent', 'selector': 'app-premium-content'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VideoComponent', 'selector': 'app-intro-video'},{'name': 'VideosComponent', 'selector': 'app-videos'},{'name': 'WorkoutsComponent', 'selector': 'app-workouts'}];
     var DIRECTIVES = [{'name': 'BlinkDirective', 'selector': '[appBlink]'},{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
     var ACTUAL_COMPONENT = {'name': 'TestimonialsPage'};
 </script>

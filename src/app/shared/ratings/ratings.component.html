@@ -5,25 +5,30 @@
       (ionSlidesDidLoad)="slidesDidLoad(ratings)"
       [options]="slideOpts"
     >
-      <ion-slide style="z-index: 99;" *ngFor="let rating of testimonials">
-          <ion-card class="ion-card-global" routerLink="/testimonials">
-            <ion-card-header>
-              <ion-card-title>
-               {{ rating.author }}
-              </ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <ion-item class="rating-item">
-                <ion-avatar>
-                  <img [src]="[rating.img || '../../../assets/images/dummy-user.png']"/>
-                </ion-avatar>
-                <!-- <ion-button *ngIf="rating.stars" color="primary"> -->
-                  <!-- <ngb-rating [rate]="3"></ngb-rating>       -->
-                <!-- </ion-button> -->
-              </ion-item>
-              <br />
-                <p>{{ rating.message }}</p>
-            </ion-card-content>
-          </ion-card>
+      <ion-slide *ngFor="let rating of testimonials">
+
+              <ion-item class="items" style="max-width:80%;">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-avatar>
+                        <img [src]="[rating.img || '../../../assets/images/dummy-user.png']"/>
+                      </ion-avatar>
+                      <ion-text color="primary">
+                        {{ rating.author }}
+                      </ion-text>
+                        <ngb-rating style="float: right; color:var(--ion-color-danger);" [rate]="rating.stars"></ngb-rating>  
+                      
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <p>{{ rating.message }}</p>
+
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+                </ion-item>
+
       </ion-slide>
     </ion-slides>

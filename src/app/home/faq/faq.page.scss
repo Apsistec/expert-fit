@@ -5,24 +5,20 @@
 
 .section,
 ion-item:disabled {
-  font-weight: 600;
+  // font-weight: 600;
   --ion-item-background: var(--ion-color-light-shade);
   --ion-item-color: #000 !important;
-  ion-label {
-    color: #000;
-  }
 }
 
 .section-active {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .info {
-  --ion-item-background: var(--ion-color-dark-tint);
+  --ion-item-background: var(--ion-color-light-tint);
 }
 
 .info-text {
   padding-top: 12px;
-  font-weight: 500;
-  color: white;
+  color: var(--ion-color-primary);
 }

@@ -27,7 +27,8 @@
           style="width: 60px; height: 60px"
         />
       </div>
-      <div *ngIf="authService.afAuth.user | async as user">
+
+      <!-- <div *ngIf="authService.user | async as user">
         <a
           (click)="presentPopover($event)"
           style="
@@ -45,7 +46,7 @@
             />
           </ion-avatar>
         </a>
-      </div>
+      </div> -->
       <ion-col
         class="ion-align-self-center ion-no-padding ion-no-margin"
         size-sm="12"
@@ -65,10 +66,10 @@
             >
               <aw-wizard-step
                 stepTitle="{{ isRegister ?  'Sign Up' : 'Log In' }}"
-                [navigationSymbol]="{ symbol: 1 }"
+                [navigationSymbol]="{ symbol: '1' }"
               >
                 <!-- Sign  Up form -->
-                  <form [formGroup]="registerForm" (ngSubmit)="registerUser()" *ngIf="isRegister">
+                  <!-- <form [formGroup]="registerForm" (ngSubmit)="registerUser()" *ngIf="isRegister">
                     <ion-card-title>
                       <ion-text> Expert Fitness Sign Up </ion-text>
                     </ion-card-title>
@@ -225,10 +226,10 @@
                     >
                       <ion-text> Sign Up </ion-text>
                     </ion-button>
-                  </form>
+                  </form> -->
               
                 <!-- Login form -->
-                  <form [formGroup]="loginForm" (ngSubmit)="Login()" novalidate *ngIf="!isRegister">
+                  <!-- <form [formGroup]="loginForm" (ngSubmit)="Login()" novalidate *ngIf="!isRegister">
                     <ion-card-title>
                       <ion-text> Expert Fitness Log In </ion-text>
                     </ion-card-title>
@@ -364,7 +365,7 @@
                       ></ion-icon>
                       <ion-text> Log In </ion-text>
                     </ion-button>
-                  </form>
+                  </form> -->
                 <ion-button
                   color="secondary"
                   fill="clear"
@@ -375,7 +376,7 @@
               </aw-wizard-step>
               <aw-wizard-step
                 stepTitle="Enter Card Info"
-                [navigationSymbol]="{ symbol: 2 }"
+                [navigationSymbol]="{ symbol: '2' }"
               >
                 <hr />
                 <ion-card-title>
@@ -528,7 +529,7 @@
               <!-- Step 3 Done -->
               <aw-wizard-completion-step
                 stepTitle="Done!"
-                [navigationSymbol]="{ symbol: 3 }"
+                [navigationSymbol]="{ symbol: '3' }"
               >
                 <ion-card class="ion-card-global">
                   <img src="..//..//..//assets//icons//icon-144x144.png" />

@@ -252,22 +252,23 @@ export class MessageService {
     await alert.present();
   }
 
-  async saveOrCancel() {
+  async notifyOrCancel() {
     const alert = await this.alertController.create({
-      header: 'Are You Sure?',
-      subHeader: 'Changes were NOT saved',
-      message: 'Press Save to resume editing or press OK to close',
+      header: 'Expert Fitness App Messages',
+      subHeader: 'Push Notifications',
+      // tslint:disable-next-line: quotemark
+      message: "Press 'Okay' to start receiving push notifications",
       backdropDismiss: false,
       cssClass: 'infoA',
       translucent: true,
       buttons: [
         {
-          text: 'OK',
-          role: 'cancel',
+          text: 'Okay',
+          role: 'okay',
         },
         {
-          text: 'Save',
-          role: 'save',
+          text: 'Cancel',
+          role: 'cancel',
         },
       ],
     });

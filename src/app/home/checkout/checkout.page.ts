@@ -20,7 +20,7 @@ import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
 import { SeoService } from '../../services/seo.service';
 import { AboutAppComponent } from '../../shared/about-app/about-app.component';
-import { PopoverComponent } from '../../shared/popover/popover.component';
+// import { PopoverComponent } from '../../shared/popover/popover.component';
 import { PrivacyComponent } from '../../shared/privacy/privacy.component';
 import { TermsComponent } from '../../shared/terms/terms.component';
 declare var Stripe;
@@ -73,7 +73,7 @@ export class CheckoutPage implements OnInit, AfterViewInit {
     private seoService: SeoService,
     private fb: FormBuilder,
     private router: Router,
-    private afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth
     ) {
       this.seoService.addTwitterCard(
         'Product and Subscription Purchase Page',
@@ -143,25 +143,25 @@ export class CheckoutPage implements OnInit, AfterViewInit {
     this.marked = e.target.checked;
   }
 
-  async Login() {
-    try {
-      const res = await this.authService.SignIn(this.loginForm.value);
-      this.nextStep();
-      await this.messageService.loggedInToast(res);
-    } catch (error) {
-      this.messageService.errorAlert(error.message);
-    }
-  }
+  // async Login() {
+  //   try {
+  //     const res = await this.authService.SignIn(this.loginForm.value);
+  //     this.nextStep();
+  //     await this.messageService.loggedInToast(res);
+  //   } catch (error) {
+  //     this.messageService.errorAlert(error.message);
+  //   }
+  // }
 
-  async registerUser() {
-    try {
-      const res = await this.authService.SignUp(this.registerForm.value);
-      this.nextStep();
-      await this.messageService.registerSuccessAlert();
-    } catch (error) {
-      this.messageService.errorAlert(error.message);
-    }
-  }
+  // async registerUser() {
+  //   try {
+  //     const res = await this.authService.SignUp(this.registerForm.value);
+  //     this.nextStep();
+  //     await this.messageService.registerSuccessAlert();
+  //   } catch (error) {
+  //     this.messageService.errorAlert(error.message);
+  //   }
+  // }
 
   ngAfterViewInit() {
     this.resetVars();
@@ -200,15 +200,15 @@ export class CheckoutPage implements OnInit, AfterViewInit {
     }
   }
 
-  async presentPopover(ev: any) {
-    const popover = await this.popoverController.create({
-      component: PopoverComponent,
-      event: ev,
-      translucent: true,
-      cssClass: 'popoverUser',
-    });
-    popover.present();
-  }
+  // async presentPopover(ev: any) {
+  //   const popover = await this.popoverController.create({
+  //     component: PopoverComponent,
+  //     event: ev,
+  //     translucent: true,
+  //     cssClass: 'popoverUser',
+  //   });
+  //   popover.present();
+  // }
 
   async showModalPrivacy() {
     const modal = await this.modalController.create({

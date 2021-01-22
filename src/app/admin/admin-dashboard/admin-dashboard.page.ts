@@ -30,7 +30,6 @@ export class AdminDashboardPage implements OnInit {
   ngOnInit() {
     this.users = this.collection.getUsers();
     this.customers = this.collection.getCurrentCustomers();
-    this.feed = this.collection.getUserFeed();
     this.employees = this.collection.getEmployees();
     this.tickets = this.ticket.getAdminTickets();
   }
@@ -45,7 +44,7 @@ export class AdminDashboardPage implements OnInit {
     await ticketModal.present();
   }
 
-  signOut() {
-    this.auth.SignOut();
-  }
+  // signOut() {
+  //   this.auth.SignOut();
+  // }
 }

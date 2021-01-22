@@ -135,6 +135,9 @@
                                 <a href="#authService">authService</a>
                             </li>
                             <li>
+                                <a href="#displayToken">displayToken</a>
+                            </li>
+                            <li>
                                 <a href="#path">path</a>
                             </li>
                             <li>
@@ -143,6 +146,9 @@
                             </li>
                             <li>
                                 <a href="#showBackButton">showBackButton</a>
+                            </li>
+                            <li>
+                                <a href="#showPushNotifyBar">showPushNotifyBar</a>
                             </li>
                             <li>
                                 <a href="#user">user</a>
@@ -160,16 +166,33 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#initializeApp">initializeApp</a>
+                                <a href="#cancelNotificationBar">cancelNotificationBar</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#permitToNotify">permitToNotify</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#choice">choice</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -184,12 +207,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(platform: Platform, splashScreen: SplashScreen, statusBar: StatusBar, checkForUpdate: <a href="../injectables/UpdateService.html">UpdateService</a>, authService: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(updates: <a href="https://angular.io/api/service-worker/SwUpdate" target="_blank">SwUpdate</a>, push: <a href="https://angular.io/api/service-worker/SwPush" target="_blank">SwPush</a>, platform: Platform, splashScreen: SplashScreen, statusBar: StatusBar, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, authService: <a href="../injectables/AuthService.html">AuthService</a>, messageService: <a href="../injectables/MessageService.html">MessageService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/app.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/app.component.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -206,6 +229,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                                <tr>
+                                                        <td>updates</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/service-worker/SwUpdate" target="_blank" >SwUpdate</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>push</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/service-worker/SwPush" target="_blank" >SwPush</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                                 <tr>
                                                         <td>platform</td>
                                                   
@@ -243,10 +290,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>checkForUpdate</td>
+                                                        <td>router</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UpdateService.html" target="_self" >UpdateService</a></code>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -267,10 +314,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>router</td>
+                                                        <td>messageService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                                        <code><a href="../injectables/MessageService.html" target="_self" >MessageService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -287,7 +334,24 @@
         </table>
 </section>
 
-
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="choice"></a>
+                        <b>choice</b>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/app.component.ts:27</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -300,26 +364,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="initializeApp"></a>
+                    <a name="cancelNotificationBar"></a>
                     <span class="name">
                         <b>
-                            initializeApp
+                            cancelNotificationBar
                         </b>
-                        <a href="#initializeApp"><span class="icon ion-ios-link"></span></a>
+                        <a href="#cancelNotificationBar"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>initializeApp()</code>
+<code>cancelNotificationBar()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/app.component.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/app.component.ts:66</a></div>
                 </td>
             </tr>
 
@@ -342,7 +406,6 @@
                     <a name="ngOnInit"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Async</span>
                             ngOnInit
                         </b>
                         <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
@@ -351,16 +414,56 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>ngOnInit()</code>
+<code>ngOnInit()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/app.component.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/app.component.ts:56</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permitToNotify"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            permitToNotify
+                        </b>
+                        <a href="#permitToNotify"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>permitToNotify()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/app.component.ts:70</a></div>
                 </td>
             </tr>
 
@@ -403,7 +506,34 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/app.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/app.component.ts:35</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayToken"></a>
+                        <span class="name">
+                            <b>
+                            displayToken</b>
+                            <a href="#displayToken"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/app.component.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -424,7 +554,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/app.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/app.component.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -452,7 +582,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/app.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/app.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -479,7 +609,33 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/app.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/app.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showPushNotifyBar"></a>
+                        <span class="name">
+                            <b>
+                            showPushNotifyBar</b>
+                            <a href="#showPushNotifyBar"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/app.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -500,13 +656,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >Observable&lt;User&gt;</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/app.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/app.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -519,64 +675,88 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, Component, Input, OnInit } from &#x27;@angular/core&#x27;;
 import { SplashScreen } from &#x27;@ionic-native/splash-screen/ngx&#x27;;
 import { StatusBar } from &#x27;@ionic-native/status-bar/ngx&#x27;;
 import { Platform } from &#x27;@ionic/angular&#x27;;
 import { User } from &#x27;./models/users.model&#x27;;
 import { AuthService } from &#x27;./services/auth.service&#x27;;
-import { UpdateService } from &#x27;./services/update.service&#x27;;
-// import firebase from &#x27;firebase/app&#x27;;
-// import &#x27;firebase/auth&#x27;;
-import &#x27;firebase/app&#x27;;
-// import { PopoverService } from &#x27;./services/popover.service&#x27;;
+import firebase from &#x27;firebase/app&#x27;;
+import &#x27;firebase/messaging&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
-// import { Location } from &#x27;@angular/common&#x27;;
-
+import { AngularFireAuth } from &#x27;@angular/fire/auth&#x27;;
+import { SwUpdate, SwPush } from &#x27;@angular/service-worker&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+import { MessageService } from &#x27;./services/message.service&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
 
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;app.component.html&#x27;,
-  styleUrls: [&#x27;app.component.scss&#x27;],
-  // providers: [Location]
+  styleUrls: [&#x27;app.component.scss&#x27;]
 })
-export class AppComponent implements OnInit{
-
-  user: User;
+export class AppComponent implements OnInit {
+  user: Observable&lt;User&gt;;
   showBackButton: boolean;
   path;
-
+  displayToken: string;
+  showPushNotifyBar &#x3D; true;
+  @Input()choice;
   constructor(
+    updates: SwUpdate,
+    push: SwPush,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private checkForUpdate: UpdateService,
+    public router: Router,
     public authService: AuthService,
-    // public popoverService: PopoverService,
-    public router: Router
+    private messageService: MessageService
   ) {
-    this.initializeApp();
+    updates.available.subscribe((_) &#x3D;&gt;
+      updates.activateUpdate().then(() &#x3D;&gt; {
+        console.warn(&#x27;Update Available... Reloading to Update&#x27;);
+        document.location.reload();
+      })
+    );
+    push.messages.subscribe((msg) &#x3D;&gt; console.warn(&#x27;push message: &#x27;, msg));
+    push.notificationClicks.subscribe((click) &#x3D;&gt; console.warn(&#x27;notification click: &#x27;, click));
+    if (!firebase.apps.length) {
+      firebase.initializeApp(environment.firebaseConfig);
+      navigator.serviceWorker.getRegistration().then(
+        () &#x3D;&gt; firebase.messaging().getToken(
+          {vapidKey: &#x27;BFZIBA94F79A9vt1yD4DBZX5BD460KEm3WWdRdzGV-FSBfIgGBoajnRhwWOUeHSEb9cUmIJejFHYlMYfCtVbN3c&#x27;}
+        )
+      );
+    }
   }
 
-  initializeApp() {
+  ngOnInit() {
     this.platform.ready().then(() &#x3D;&gt; {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-    this.checkForUpdate.checkForUpdateService();
+    if (this.showPushNotifyBar) {
+      this.messageService.notifyOrCancel();
+    }
   }
 
-  async ngOnInit() {
-    // this.path &#x3D; this.router.url;
-    // console.log(this.path);
-
-    // if (this.path !&#x3D;&#x3D; &#x27;/&#x27; || &#x27;home&#x27;) {
-    //   this.showBackButton &#x3D; true;
-    // } else {
-    //   this.showBackButton &#x3D; false;
-    // }
-    // console.log(this.showBackButton);
+  cancelNotificationBar() {
+    this.showPushNotifyBar &#x3D; !this.showPushNotifyBar;
   }
+
+  async permitToNotify() {
+    try {
+      const messaging &#x3D; firebase.messaging();
+      Notification.requestPermission();
+      this.displayToken &#x3D; await messaging.getToken();
+      console.warn( &#x27;Token: &#x27;, this.displayToken);
+      this.showPushNotifyBar &#x3D; !this.showPushNotifyBar;
+    }
+    catch (err) {
+      console.warn(&#x27;Unable to get permission to notify. Error: &#x27;, err);
+    }
+  }
+
 }
 </code></pre>
     </div>
@@ -585,15 +765,16 @@ export class AppComponent implements OnInit{
         <pre class="line-numbers"><code class="language-html">&lt;ion-app&gt;
   &lt;app-side-menu&gt;&lt;/app-side-menu&gt;
   &lt;ion-header transparent&gt;
+    
     &lt;ion-toolbar color&#x3D;&quot;dark&quot; #toolbar class&#x3D;&quot;ion-hide-lg-up&quot;&gt;
       &lt;ion-buttons slot&#x3D;&quot;start&quot;&gt;
-        &lt;ion-menu-button color&#x3D;&quot;warning&quot;&gt; &lt;/ion-menu-button&gt;
+        &lt;ion-menu-button color&#x3D;&quot;tertiary&quot;&gt; &lt;/ion-menu-button&gt;
         &lt;ion-back-button *ngIf&#x3D;&quot;showBackButton &#x3D;&#x3D;&#x3D; true&quot; defaultHref&#x3D;&quot;/home&quot; color&#x3D;&quot;warning&quot;&gt;&lt;/ion-back-button&gt;
       &lt;/ion-buttons&gt;
       &lt;img src&#x3D;&quot;../assets/icons/icon-144x144.png&quot; slot&#x3D;&quot;start&quot; class&#x3D;&quot;small-logo&quot; routerLink&#x3D;&quot;/home&quot; /&gt;
       &lt;ngx-auth-firebaseui-avatar
         class&#x3D;&quot;ion-margin ion-float-right&quot;
-        *ngIf&#x3D;&quot;authService.afAuth.user | async; else login&quot;
+        *ngIf&#x3D;&quot;authService.user | async as user; else login&quot;
       &gt;&lt;/ngx-auth-firebaseui-avatar&gt;
     &lt;/ion-toolbar&gt;
 
@@ -667,7 +848,7 @@ export class AppComponent implements OnInit{
 
       &lt;ngx-auth-firebaseui-avatar
         class&#x3D;&quot;ion-float-right avatar&quot;
-        *ngIf&#x3D;&quot;authService.afAuth.user | async; else login&quot;
+        *ngIf&#x3D;&quot;authService.user | async as user; else login&quot;
       &gt;&lt;/ngx-auth-firebaseui-avatar&gt;
       &lt;ng-template #login&gt;
         &lt;ion-buttons style&#x3D;&quot;float: right; z-index: 99&quot;&gt;
@@ -686,7 +867,7 @@ export class AppComponent implements OnInit{
   &lt;/ion-header&gt;
   &lt;ion-content&gt;
     &lt;!-- Modal Outlet --&gt;
-    &lt;router-outlet name&#x3D;&quot;modal&quot;&gt;&lt;/router-outlet&gt;
+    &lt;ion-router-outlet name&#x3D;&quot;modal&quot;&gt;&lt;/ion-router-outlet&gt;
     &lt;!-- Main Outlet --&gt;
     &lt;ion-router-outlet id&#x3D;&quot;main-content&quot;&gt;&lt;/ion-router-outlet&gt;
   &lt;/ion-content&gt;
@@ -714,18 +895,18 @@ export class AppComponent implements OnInit{
   }
 
   .menu-font :hover{
-    color: var(--ion-color-tertiary);
+    color: var(--ion-color-secondary);
   }
   
   .active-link {
     ion-label {
-      color: var(--ion-color-tertiary);
+      color: var(--ion-color-secondary-tint);
       border-bottom: 0.3125em solid var(--ion-color-warning-shade);
     }
   }
   
   .avatar{
-    margin-right: 10px;
+    margin-right: 50px;
     margin-top: 5px;
   }
 
@@ -774,8 +955,8 @@ export class AppComponent implements OnInit{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-app>  <app-side-menu></app-side-menu>  <ion-header transparent>    <ion-toolbar color="dark" #toolbar class="ion-hide-lg-up">      <ion-buttons slot="start">        <ion-menu-button color="warning"> </ion-menu-button>        <ion-back-button *ngIf="showBackButton === true" defaultHref="/home" color="warning"></ion-back-button>      </ion-buttons>      <img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" />      <ngx-auth-firebaseui-avatar        class="ion-margin ion-float-right"        *ngIf="authService.afAuth.user | async; else login"      ></ngx-auth-firebaseui-avatar>    </ion-toolbar>    <ion-toolbar class="ion-hide-lg-down" color="dark" #toolbar>      <ion-img src="..//assets//icons//icon-144x144.png" slot="start" class="small-logo" routerLink="/home"></ion-img>      <ion-item        class="menu-font"        button        color="dark"        routerLink="/home"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>Home</ion-label>      </ion-item>      <ion-item        class="menu-font"        button        color="dark"        routerLink="/products"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>Products</ion-label>      </ion-item>      <ion-item        class="menu-font"        button        routerLink="/faqs"        color="dark"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>FAQs</ion-label>      </ion-item>      <ion-item        color="dark"        class="menu-font"        button        routerLink="/testimonials"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>Testimonials</ion-label>      </ion-item>      <ion-item        color="dark"        class="menu-font"        button        routerLink="/about-us"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>About Us</ion-label>      </ion-item>      <ion-item        class="menu-font"        color="dark"        button        routerLink="/contact-us"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>Contact</ion-label>      </ion-item>      <ngx-auth-firebaseui-avatar        class="ion-float-right avatar"        *ngIf="authService.afAuth.user | async; else login"      ></ngx-auth-firebaseui-avatar>      <ng-template #login>        <ion-buttons style="float: right; z-index: 99">          <ion-button            [hidden]="router.url === \'/login\'"            class="flashing"            style="margin-right: 12px; margin-top: 10px"            routerLink="/login"            color="warning"          >            Login          </ion-button>        </ion-buttons>      </ng-template>    </ion-toolbar>  </ion-header>  <ion-content>    <!-- Modal Outlet -->    <router-outlet name="modal"></router-outlet>    <!-- Main Outlet -->    <ion-router-outlet id="main-content"></ion-router-outlet>  </ion-content></ion-app></div>'
-    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicContentComponent', 'selector': 'app-basic-content'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitTrackerComponent', 'selector': 'app-benefit-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CheckoutPage', 'selector': 'app-checkout'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'CreateUsersComponent', 'selector': 'app-create-users'},{'name': 'CustomerDashboardPage', 'selector': 'app-customer-dashboard'},{'name': 'DetailUsersComponent', 'selector': 'app-detail-users'},{'name': 'EditUsersComponent', 'selector': 'app-edit-users'},{'name': 'EmployeeDashboardPage', 'selector': 'app-employee-dashboard'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordPage', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'ListUsersComponent', 'selector': 'app-list-users'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalViewComponent', 'selector': 'app-modal-container'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NutritionComponent', 'selector': 'app-nutrition'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PremiumContentComponent', 'selector': 'app-premium-content'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'},{'name': 'VideoComponent', 'selector': 'app-intro-video'},{'name': 'VideosComponent', 'selector': 'app-videos'},{'name': 'WorkoutsComponent', 'selector': 'app-workouts'}];
+        var COMPONENT_TEMPLATE = '<div><ion-app>  <app-side-menu></app-side-menu>  <ion-header transparent>        <ion-toolbar color="dark" #toolbar class="ion-hide-lg-up">      <ion-buttons slot="start">        <ion-menu-button color="tertiary"> </ion-menu-button>        <ion-back-button *ngIf="showBackButton === true" defaultHref="/home" color="warning"></ion-back-button>      </ion-buttons>      <img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" />      <ngx-auth-firebaseui-avatar        class="ion-margin ion-float-right"        *ngIf="authService.user | async as user; else login"      ></ngx-auth-firebaseui-avatar>    </ion-toolbar>    <ion-toolbar class="ion-hide-lg-down" color="dark" #toolbar>      <ion-img src="..//assets//icons//icon-144x144.png" slot="start" class="small-logo" routerLink="/home"></ion-img>      <ion-item        class="menu-font"        button        color="dark"        routerLink="/home"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>Home</ion-label>      </ion-item>      <ion-item        class="menu-font"        button        color="dark"        routerLink="/products"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>Products</ion-label>      </ion-item>      <ion-item        class="menu-font"        button        routerLink="/faqs"        color="dark"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>FAQs</ion-label>      </ion-item>      <ion-item        color="dark"        class="menu-font"        button        routerLink="/testimonials"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>Testimonials</ion-label>      </ion-item>      <ion-item        color="dark"        class="menu-font"        button        routerLink="/about-us"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>About Us</ion-label>      </ion-item>      <ion-item        class="menu-font"        color="dark"        button        routerLink="/contact-us"        routerLinkActive="active-link"        [routerLinkActiveOptions]="{ exact: true }"      >        <ion-label>Contact</ion-label>      </ion-item>      <ngx-auth-firebaseui-avatar        class="ion-float-right avatar"        *ngIf="authService.user | async as user; else login"      ></ngx-auth-firebaseui-avatar>      <ng-template #login>        <ion-buttons style="float: right; z-index: 99">          <ion-button            [hidden]="router.url === \'/login\'"            class="flashing"            style="margin-right: 12px; margin-top: 10px"            routerLink="/login"            color="warning"          >            Login          </ion-button>        </ion-buttons>      </ng-template>    </ion-toolbar>  </ion-header>  <ion-content>    <!-- Modal Outlet -->    <ion-router-outlet name="modal"></ion-router-outlet>    <!-- Main Outlet -->    <ion-router-outlet id="main-content"></ion-router-outlet>  </ion-content></ion-app></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicContentComponent', 'selector': 'app-basic-content'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitTrackerComponent', 'selector': 'app-benefit-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CheckoutPage', 'selector': 'app-checkout'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'CreateUsersComponent', 'selector': 'app-create-users'},{'name': 'CustomerDashboardComponent', 'selector': 'app-customer-dashboard'},{'name': 'CustomerPage', 'selector': 'app-customer'},{'name': 'DetailUsersComponent', 'selector': 'app-detail-users'},{'name': 'EditUsersComponent', 'selector': 'app-edit-users'},{'name': 'EmployeeDashboardPage', 'selector': 'app-employee-dashboard'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FileUploaderComponent', 'selector': 'app-file-uploader'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'ListUsersComponent', 'selector': 'app-customer-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalViewComponent', 'selector': 'app-modal-container'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NutritionComponent', 'selector': 'app-nutrition'},{'name': 'PlatinumContentComponent', 'selector': 'app-platinum-content'},{'name': 'PremiumContentComponent', 'selector': 'app-premium-content'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VideoComponent', 'selector': 'app-intro-video'},{'name': 'VideosComponent', 'selector': 'app-videos'},{'name': 'WorkoutsComponent', 'selector': 'app-workouts'}];
     var DIRECTIVES = [{'name': 'BlinkDirective', 'selector': '[appBlink]'},{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

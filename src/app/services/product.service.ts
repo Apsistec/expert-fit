@@ -12,7 +12,7 @@ import { MessageService } from './message.service';
 })
 export class ProductService {
 
-  constructor(private db: AngularFirestore, private afAuth: AngularFireAuth, private storage: AngularFireStorage,
+  constructor(private db: AngularFirestore, public afAuth: AngularFireAuth, private storage: AngularFireStorage,
               private functions: AngularFireFunctions, private messageService: MessageService) { }
 
   getAllProducts() {

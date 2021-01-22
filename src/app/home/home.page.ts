@@ -1,17 +1,9 @@
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestoreCollection } from '@angular/fire/firestore';
-import { ModalController } from '@ionic/angular';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { IonContent } from '@ionic/angular';
 import { bounceOutUp, flash } from 'ng-animate';
-import { User } from '../models/users.model';
-import { AuthService } from '../services/auth.service';
-import { MessageService } from '../services/message.service';
-import { UserService } from '../services/user.service';
-import { AboutAppComponent } from '../shared/about-app/about-app.component';
+// import { ViewportScroller } from '@angular/common';
 
-import { VideoComponent } from '../shared/intro-video/intro-video.component';
-import { PrivacyComponent } from '../shared/privacy/privacy.component';
-import { TermsComponent } from '../shared/terms/terms.component';
 
 @Component({
   selector: 'app-home',
@@ -22,91 +14,32 @@ import { TermsComponent } from '../shared/terms/terms.component';
       transition(
         '* => *',
         useAnimation(bounceOutUp, {
-          params: { timing: 1.75, delay: 2.4 },
+          params: { timing: 1.75, delay: 2.4 }
         })
-      ),
+      )
     ]),
     trigger('flash', [
       transition(
         '* => *',
         useAnimation(flash, {
-          params: { timing: 0.66, delay: 3.95 },
+          params: { timing: 0.66, delay: 3.95 }
         })
-      ),
-    ]),
-  ],
+      )
+    ])
+  ]
 })
 export class HomePage implements OnInit {
-  title = 'Home';
-  fadeInDown: any;
-  flash: any;
-  slideInRight: any;
-  slideInLeft: any;
-  pulse: any;
-  jello: any;
+  title = 'Home Page';
   bounceOutUp: any;
-  showBackButton = false;
-  userCollection: AngularFirestoreCollection<User>;
-  user: User;
+  flash: any;
 
-  constructor(
-    public authService: AuthService,
-    public userService: UserService,
-    private modalController: ModalController,
-    private messageService: MessageService
-  ) {}
+  @ViewChild(IonContent, { static: false }) content: IonContent;
+
 
   ngOnInit() {}
 
-  async showModalVideo() {
-    const modal = await this.modalController.create({
-      component: VideoComponent,
-      cssClass: 'video-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true,
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
 
-  async showModalPrivacy() {
-    const modal = await this.modalController.create({
-      component: PrivacyComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true,
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
-
-  async showModalTerms() {
-    const modal = await this.modalController.create({
-      component: TermsComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true,
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
-  }
-
-  async showModalAbout() {
-    const modal = await this.modalController.create({
-      component: AboutAppComponent,
-      cssClass: 'modal-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true,
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
+  scrollToTop() {
+    this.content.scrollToTop(1500);
   }
 }

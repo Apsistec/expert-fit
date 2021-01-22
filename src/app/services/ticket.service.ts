@@ -15,7 +15,7 @@ export class TicketService {
   constructor(
     private afs: AngularFirestore,
     private auth: AuthService,
-    private afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth
   ) {
     this.afAuth.authState.subscribe((user) => {
       if (!user) {

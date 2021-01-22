@@ -19,7 +19,7 @@ export class UserService {
 
   constructor(
     public storage: Storage,
-    private afAuth: AngularFireAuth,
+    public afAuth: AngularFireAuth,
     private afs: AngularFirestore,
     private messageService: MessageService,
     private router: Router

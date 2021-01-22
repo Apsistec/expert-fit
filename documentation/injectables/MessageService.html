@@ -140,6 +140,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#notifyOrCancel">notifyOrCancel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#pastDueAlert">pastDueAlert</a>
                             </li>
                             <li>
@@ -161,10 +165,6 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#resetWelcomeAlert">resetWelcomeAlert</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#saveOrCancel">saveOrCancel</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -442,8 +442,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="307"
-                            class="link-to-prism">src/app/services/message.service.ts:307</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="308"
+                            class="link-to-prism">src/app/services/message.service.ts:308</a></div>
                 </td>
             </tr>
 
@@ -948,6 +948,47 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="notifyOrCancel"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            notifyOrCancel
+                        </b>
+                        <a href="#notifyOrCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>notifyOrCancel()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="255"
+                            class="link-to-prism">src/app/services/message.service.ts:255</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="pastDueAlert"></a>
                     <span class="name">
                         <b>
@@ -1204,8 +1245,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="281"
-                            class="link-to-prism">src/app/services/message.service.ts:281</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="282"
+                            class="link-to-prism">src/app/services/message.service.ts:282</a></div>
                 </td>
             </tr>
 
@@ -1259,47 +1300,6 @@
                     </div>
                     <div class="io-description">
                         
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="saveOrCancel"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Async</span>
-                            saveOrCancel
-                        </b>
-                        <a href="#saveOrCancel"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>saveOrCancel()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="255"
-                            class="link-to-prism">src/app/services/message.service.ts:255</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>{}</code>
-
                     </div>
                 </td>
             </tr>
@@ -1452,8 +1452,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="334"
-                            class="link-to-prism">src/app/services/message.service.ts:334</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="335"
+                            class="link-to-prism">src/app/services/message.service.ts:335</a></div>
                 </td>
             </tr>
 
@@ -1797,22 +1797,23 @@ export class MessageService {
     await alert.present();
   }
 
-  async saveOrCancel() {
+  async notifyOrCancel() {
     const alert &#x3D; await this.alertController.create({
-      header: &#x27;Are You Sure?&#x27;,
-      subHeader: &#x27;Changes were NOT saved&#x27;,
-      message: &#x27;Press Save to resume editing or press OK to close&#x27;,
+      header: &#x27;Expert Fitness App Messages&#x27;,
+      subHeader: &#x27;Push Notifications&#x27;,
+      // tslint:disable-next-line: quotemark
+      message: &quot;Press &#x27;Okay&#x27; to start receiving push notifications&quot;,
       backdropDismiss: false,
       cssClass: &#x27;infoA&#x27;,
       translucent: true,
       buttons: [
         {
-          text: &#x27;OK&#x27;,
-          role: &#x27;cancel&#x27;,
+          text: &#x27;Okay&#x27;,
+          role: &#x27;okay&#x27;,
         },
         {
-          text: &#x27;Save&#x27;,
-          role: &#x27;save&#x27;,
+          text: &#x27;Cancel&#x27;,
+          role: &#x27;cancel&#x27;,
         },
       ],
     });

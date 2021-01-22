@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -9,8 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SettingsComponent implements OnInit {
 
   constructor(
-    public authService: AuthService
-
+    public afAuth: AngularFireAuth
   ) { }
 
   ngOnInit() {}

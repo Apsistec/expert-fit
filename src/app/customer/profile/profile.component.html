@@ -10,8 +10,8 @@
       <ion-title size="large">Profile</ion-title>
     </ion-toolbar>
   </ion-header>
-    <ion-grid *ngIf="authService.afAuth.user | async" >
-        <ion-row>
+    <ion-grid >
+        <ion-row >
           <ion-col size-sm="5">
             <ion-card color="medium" class="ion-text-center">
               <ion-card-header>
@@ -21,7 +21,7 @@
               </ion-card-header>
               <img
                 style="width: 11.25em; height: 11.25em; position: relative"
-                [src]="user.photoURL || '..//..//assets//images//dummy-user.png'"
+                [src]="[user.photoURL || '..//..//assets//images//dummy-user.png']"
               />
               <ion-item color="medium" lines="none">
                 <!-- <ion-grid> -->
@@ -35,7 +35,7 @@
                       </ion-card-title>
     
                       <ion-text color="dark">
-                        {{ user.userType }}
+                        {{ user.displayName }}
                         <hr />
                         {{ user.email }}
                       </ion-text>
@@ -53,7 +53,7 @@
                   class="ion-text-capitalize"
                   size="small"
                   color="danger"
-                  (click)="authService.SignOut()"
+                  (click)="authService.signOut()"
                   >Logout</ion-button
                 >
               </ion-card-content>
@@ -142,7 +142,7 @@
             <ion-card
               class="ion-text-center ion-card-global"
        
-              *ngIf="user.userType === 'ADMIN'"
+              *ngIf="user.role.includes('ADMIN')"
             >
               <ion-card-header>
                 <ion-card-title>
@@ -177,7 +177,7 @@
             <!-- Support Dashboard-->
             <ion-card
               class="ion-padding ion-text-center ion-card-global"
-              *ngIf="user.userType == 'CUSTOMER'"
+              *ngIf="user.role.includes('CUSTOMER')"
             >
               <ion-card-header>
                 <ion-card-title>
@@ -277,7 +277,7 @@
 
     
       <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-        <ion-fab-button (click)="photoService.addNewToGallery()">
+        <ion-fab-button (click)="photoService.storeImage()">
           <ion-icon name="camera"></ion-icon>
         </ion-fab-button>
       </ion-fab>

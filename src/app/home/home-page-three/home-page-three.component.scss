@@ -1,23 +1,17 @@
 
-.infographic {
-	background: var(--ion-color-light-shade);
-}
-
 .infographic-card{
-  --background: var(--ion-color-medium-shade);
+  --background: var(--ion-color-medium);
   display:block;
   margin:auto;
   width: fit-content;
+  height: fit-content;
 }
 .schedule-card {
-  border: 3px solid var(--ion-color-warning);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-    0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
-}
-
-.list-item{
-  color: silver;
-  width: fit-content;
+  border: 3px solid var(--ion-color-secondary-tint);
+  border-radius: 25px;
   display: block;
-  margin:auto;
+  margin: auto;
+  max-width: 50%;
+  background-color: light;
+  text-align: center;
 }

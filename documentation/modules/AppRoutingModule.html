@@ -74,131 +74,108 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { QuicklinkStrategy } from &#x27;ngx-quicklink&#x27;;
-// import { PaidGuard } from &#x27;./_guards/paid.guard&#x27;;
-// import { RoleGuard } from &#x27;./_guards/role.guard&#x27;;
-// import { ModalViewComponent } from &#x27;./shared/modal-view/modal-view.component&#x27;;
-import { PrivacyComponent } from &#x27;./shared/privacy/privacy.component&#x27;;
-import { TermsComponent } from &#x27;./shared/terms/terms.component&#x27;;
-import { VideoComponent } from &#x27;./shared/intro-video/intro-video.component&#x27;;
-import { AboutAppComponent } from &#x27;./shared/about-app/about-app.component&#x27;;
-import { LoginComponent } from &#x27;./shared/login/login.component&#x27;;
+import { PaidGuard } from &#x27;./guards/paid.guard&#x27;;
+import { RoleGuard } from &#x27;./guards/role.guard&#x27;;
+import { ModalViewComponent } from &#x27;./shared/modal-view/modal-view.component&#x27;;
+
 import { LoggedInGuard } from &#x27;ngx-auth-firebaseui&#x27;;
-import { BenefitTrackerComponent } from &#x27;./home/benefit-tracker/benefit-tracker.component&#x27;;
+import {
+  AngularFireAuthGuard,
+  canActivate,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo,
+  emailVerified,
+  hasCustomClaim,
+  idTokenResult,
+  AuthPipe
+} from &#x27;@angular/fire/auth-guard&#x27;;
+
+const customerOnly &#x3D; () &#x3D;&gt; hasCustomClaim(&#x27;customer&#x27;);
+const employeeOnly &#x3D; () &#x3D;&gt; hasCustomClaim(&#x27;employee&#x27;);
+const adminOnly &#x3D; () &#x3D;&gt; hasCustomClaim(&#x27;admin&#x27;);
+const redirectLoggedInToDash &#x3D; () &#x3D;&gt; redirectLoggedInTo([&#x27;/dashboard&#x27;]);
+const redirectUnauthorizedToHome &#x3D; () &#x3D;&gt; redirectUnauthorizedTo([&#x27;/home&#x27;]);
+const verifiedEmail &#x3D; () &#x3D;&gt; emailVerified;
 
 const routes: Routes &#x3D; [
-  {
-    path: &#x27;home&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/home.module&#x27;).then((m) &#x3D;&gt; m.HomePageModule)&quot;,
-    children: [
-      {
-        path: &#x27;benefits-tracker:id&#x27;,
-        component: BenefitTrackerComponent,
-        outlet: &#x27;benefittracker&#x27;
-      }
-    ]
-    // ...canActivate(redirectLoggedInToDash)
-  },
-  {
-    path: &#x27;products&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/products/products.module&#x27;).then((m) &#x3D;&gt; m.ProductsPageModule)&quot;
-  },
-  {
-    path: &#x27;faqs&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/faq/faq.module&#x27;).then((m) &#x3D;&gt; m.FaqPageModule)&quot;
-  },
-  {
-    path: &#x27;testimonials&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/testimonials/testimonials.module&#x27;).then((m) &#x3D;&gt; m.TestimonialsPageModule)&quot;
-  },
-  {
-    path: &#x27;gallery&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/gallery/gallery.module&#x27;).then((m) &#x3D;&gt; m.GalleryPageModule)&quot;
-  },
-  {
-    path: &#x27;about-us&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/about-us/about-us.module&#x27;).then((m) &#x3D;&gt; m.AboutUsPageModule)&quot;
-  },
-  {
-    path: &#x27;contact-us&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/contact/contact.module&#x27;).then((m) &#x3D;&gt; m.ContactPageModule)&quot;
-  },
-  {
-    path: &#x27;verified-email&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/verify-email/verify-email.module&#x27;).then((m) &#x3D;&gt; m.VerifyEmailModule)&quot;
-  },
-  {
-    path: &#x27;forgot-password&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/forgot-password/forgot-password.module&#x27;).then((m) &#x3D;&gt; m.ForgotPasswordPageModule)&quot;
-  },
-  {
-    path: &#x27;unknown&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/unknown/unknown.module&#x27;).then((m) &#x3D;&gt; m.UnknownPageModule)&quot;
-  },
-  {
-    path: &#x27;checkout&#x27;,
-    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/checkout/checkout.module&#x27;).then((m) &#x3D;&gt; m.CheckoutPageModule)&quot;
-  },
-  {
-    path: &#x27;customer-dashboard&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./customer/customer-dashboard/customer-dashboard.module&#x27;).then((m) &#x3D;&gt; m.CustomerDashboardPageModule)&quot;,
-    canActivate: [LoggedInGuard]
-    // ...canActivate(redirectUnauthorizedToLogin),
-    // ...canActivate(verifiedEmail),
-    // canActivate: [PaidGuard, RoleGuard]
-  },
-  {
-    path: &#x27;employee-dashboard&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./employee/employee-dashboard/employee-dashboard.module&#x27;).then((m) &#x3D;&gt; m.EmployeeDashboardPageModule)&quot;,
-    canActivate: [LoggedInGuard]
-    // ...canActivate(redirectUnauthorizedToLogin),
-    // ...canActivate(verifiedEmail),
-    // canActivate: [PaidGuard, RoleGuard]
-  },
-  {
-    path: &#x27;admin-dashboard&#x27;,
-    // tslint:disable-next-line: max-line-length
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./admin/admin-dashboard/admin-dashboard.module&#x27;).then((m) &#x3D;&gt; m.AdminDashboardPageModule)&quot;,
-    canActivate: [LoggedInGuard]
-    // ...canActivate(redirectUnauthorizedToLogin),
-    // ...canActivate(verifiedEmail),
-    // canActivate: [PaidGuard, RoleGuard]
-  },
-  // {
-  // path: &#x27;modal&#x27;, component: ModalViewComponent, outlet: &#x27;modal&#x27;,
-  // children: [
-  {
-    path: &#x27;about-app&#x27;,
-    component: AboutAppComponent,
-    outlet: &#x27;modal&#x27;
-  },
-  {
-    path: &#x27;terms&#x27;,
-    component: TermsComponent,
-    outlet: &#x27;modal&#x27;
-  },
-  {
-    path: &#x27;privacy&#x27;,
-    component: PrivacyComponent,
-    outlet: &#x27;modal&#x27;
-  },
-  {
-    path: &#x27;video&#x27;,
-    component: VideoComponent,
-    outlet: &#x27;modal&#x27;
-  },
-  { path: &#x27;login&#x27;, component: LoginComponent },
-  // { path: &#x27;:id&#x27;, component: ModalViewComponent },
-
-  //   ]
-  // },
   {
     path: &#x27;&#x27;,
     redirectTo: &#x27;/home&#x27;,
     pathMatch: &#x27;full&#x27;
   },
+  {
+    path: &#x27;home&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/home.module&#x27;).then((m) &#x3D;&gt; m.HomePageModule)&quot;,
+    ...&quot;canActivate(redirectLoggedInToDash)&quot;
+  },
+  {
+    path: &#x27;products&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/products/products.module&#x27;).then((m) &#x3D;&gt; m.ProductsPageModule)&quot;,
+    ...&quot;canActivate(redirectLoggedInToDash)&quot;
+  },
+  {
+    path: &#x27;faqs&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/faq/faq.module&#x27;).then((m) &#x3D;&gt; m.FaqPageModule)&quot;,
+    ...&quot;canActivate(redirectLoggedInToDash)&quot;
+  },
+  {
+    path: &#x27;testimonials&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/testimonials/testimonials.module&#x27;).then((m) &#x3D;&gt; m.TestimonialsPageModule)&quot;,
+    ...&quot;canActivate(redirectLoggedInToDash)&quot;
+  },
+  {
+    path: &#x27;gallery&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/gallery/gallery.module&#x27;).then((m) &#x3D;&gt; m.GalleryPageModule)&quot;,
+    ...&quot;canActivate(redirectLoggedInToDash)&quot;
+  },
+  {
+    path: &#x27;about-us&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/about-us/about-us.module&#x27;).then((m) &#x3D;&gt; m.AboutUsPageModule)&quot;,
+    ...&quot;canActivate(redirectLoggedInToDash)&quot;
+  },
+  {
+    path: &#x27;contact-us&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/contact/contact.module&#x27;).then((m) &#x3D;&gt; m.ContactPageModule)&quot;,
+    ...&quot;canActivate(redirectLoggedInToDash)&quot;
+  },
+  {
+    path: &#x27;unknown&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/unknown/unknown.module&#x27;).then((m) &#x3D;&gt; m.UnknownPageModule)&quot;,
+    ...&quot;canActivate(redirectLoggedInToDash)&quot;
+  },
+  {
+    path: &#x27;checkout&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/checkout/checkout.module&#x27;).then((m) &#x3D;&gt; m.CheckoutPageModule)&quot;,
+    ...&quot;canActivate(redirectLoggedInToDash)&quot;
+  },
+  {
+    path: &#x27;customer&#x27;,
+    loadChildren: () &#x3D;&gt;
+    &quot;import(&#x27;./customer/customer.module&#x27;).then((m) &#x3D;&gt; m.CustomerPageModule)&quot;,
+    ...&quot;canActivate(redirectLoggedInToDash)&quot;,
+    ...&quot;canActivate(redirectUnauthorizedToHome)&quot;,
+    ...&quot;canActivate(verifiedEmail)&quot;,
+    canActivate: [LoggedInGuard, PaidGuard, RoleGuard],
+  },
+  {
+    path: &#x27;employee-dashboard&#x27;,
+    loadChildren: () &#x3D;&gt;
+    &quot;import(&#x27;./employee/employee-dashboard/employee-dashboard.module&#x27;).then((m) &#x3D;&gt; m.EmployeeDashboardPageModule)&quot;,
+    ...&quot;canActivate(verifiedEmail)&quot;,
+    ...&quot;canActivate(redirectUnauthorizedToHome)&quot;,
+    ...&quot;canActivate(adminOnly)&quot;,
+    canActivate: [PaidGuard, LoggedInGuard, RoleGuard]
+  },
+  {
+    path: &#x27;admin-dashboard&#x27;,
+    loadChildren: () &#x3D;&gt;
+    &quot;import(&#x27;./admin/admin-dashboard/admin-dashboard.module&#x27;).then((m) &#x3D;&gt; m.AdminDashboardPageModule)&quot;,
+    ...&quot;canActivate(redirectUnauthorizedToHome)&quot;,
+    ...&quot;canActivate(verifiedEmail)&quot;,
+    ...&quot;canActivate(adminOnly)&quot;,
+    canActivate: [PaidGuard, LoggedInGuard, RoleGuard]
+    },
+
   {
     path: &#x27;**&#x27;,
     redirectTo: &#x27;/unknown&#x27;,
@@ -209,7 +186,8 @@ const routes: Routes &#x3D; [
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: QuicklinkStrategy,
-      relativeLinkResolution: &#x27;corrected&#x27;
+      scrollPositionRestoration: &#x27;enabled&#x27;,
+      anchorScrolling: &#x27;enabled&#x27;
     })
   ],
   exports: [RouterModule]

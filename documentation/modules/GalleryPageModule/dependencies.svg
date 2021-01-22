@@ -24,43 +24,43 @@
 <title>cluster_GalleryPageModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="90,-70 90,-195 406,-195 406,-70 90,-70"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_GalleryPageModule_imports</title>
-<polygon fill="none" stroke="black" points="208,-78 208,-130 398,-130 398,-78 208,-78"/>
-</g>
 <g id="clust2" class="cluster">
 <title>cluster_GalleryPageModule_declarations</title>
-<polygon fill="none" stroke="black" points="98,-78 98,-130 200,-130 200,-78 98,-78"/>
+<polygon fill="none" stroke="black" points="296,-78 296,-130 398,-130 398,-78 296,-78"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_GalleryPageModule_imports</title>
+<polygon fill="none" stroke="black" points="98,-78 98,-130 288,-130 288,-78 98,-78"/>
 </g>
 <!-- GalleryPage -->
 <g id="node1" class="node">
 <title>GalleryPage</title>
-<polygon fill="#ffffb3" stroke="black" points="191.69,-122 106.31,-122 106.31,-86 191.69,-86 191.69,-122"/>
-<text text-anchor="middle" x="149" y="-99.8" font-family="Times,serif" font-size="14.00">GalleryPage</text>
+<polygon fill="#ffffb3" stroke="black" points="389.69,-122 304.31,-122 304.31,-86 389.69,-86 389.69,-122"/>
+<text text-anchor="middle" x="347" y="-99.8" font-family="Times,serif" font-size="14.00">GalleryPage</text>
 </g>
 <!-- GalleryPageModule -->
 <g id="node2" class="node">
 <title>GalleryPageModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="296.24,-187 293.24,-191 272.24,-191 269.24,-187 167.76,-187 167.76,-151 296.24,-151 296.24,-187"/>
-<text text-anchor="middle" x="232" y="-164.8" font-family="Times,serif" font-size="14.00">GalleryPageModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="327.24,-187 324.24,-191 303.24,-191 300.24,-187 198.76,-187 198.76,-151 327.24,-151 327.24,-187"/>
+<text text-anchor="middle" x="263" y="-164.8" font-family="Times,serif" font-size="14.00">GalleryPageModule</text>
 </g>
 <!-- GalleryPage&#45;&gt;GalleryPageModule -->
 <g id="edge1" class="edge">
 <title>GalleryPage&#45;&gt;GalleryPageModule</title>
-<path fill="none" stroke="black" d="M179.61,-122.11C179.61,-122.11 179.61,-140.99 179.61,-140.99"/>
-<polygon fill="black" stroke="black" points="176.11,-140.99 179.61,-150.99 183.11,-140.99 176.11,-140.99"/>
+<path fill="none" stroke="black" d="M315.89,-122.11C315.89,-122.11 315.89,-140.99 315.89,-140.99"/>
+<polygon fill="black" stroke="black" points="312.39,-140.99 315.89,-150.99 319.39,-140.99 312.39,-140.99"/>
 </g>
 <!-- GalleryPageRoutingModule -->
 <g id="node3" class="node">
 <title>GalleryPageRoutingModule</title>
-<polygon fill="#8dd3c7" stroke="black" points="389.86,-122 386.86,-126 365.86,-126 362.86,-122 216.14,-122 216.14,-86 389.86,-86 389.86,-122"/>
-<text text-anchor="middle" x="303" y="-99.8" font-family="Times,serif" font-size="14.00">GalleryPageRoutingModule</text>
+<polygon fill="#8dd3c7" stroke="black" points="279.86,-122 276.86,-126 255.86,-126 252.86,-122 106.14,-122 106.14,-86 279.86,-86 279.86,-122"/>
+<text text-anchor="middle" x="193" y="-99.8" font-family="Times,serif" font-size="14.00">GalleryPageRoutingModule</text>
 </g>
 <!-- GalleryPageRoutingModule&#45;&gt;GalleryPageModule -->
 <g id="edge2" class="edge">
 <title>GalleryPageRoutingModule&#45;&gt;GalleryPageModule</title>
-<path fill="none" stroke="black" d="M256.22,-122.11C256.22,-122.11 256.22,-140.99 256.22,-140.99"/>
-<polygon fill="black" stroke="black" points="252.72,-140.99 256.22,-150.99 259.72,-140.99 252.72,-140.99"/>
+<path fill="none" stroke="black" d="M239.28,-122.11C239.28,-122.11 239.28,-140.99 239.28,-140.99"/>
+<polygon fill="black" stroke="black" points="235.78,-140.99 239.28,-150.99 242.78,-140.99 235.78,-140.99"/>
 </g>
 </g>
 </svg>

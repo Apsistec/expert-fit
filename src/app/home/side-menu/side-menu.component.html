@@ -32,7 +32,7 @@
 					<ion-label class="side-menu-font">Home</ion-label>
 				</ion-item>
 				<!-- SignedIn Menu Items -->
-				<div *ngIf="authService.afAuth.user | async as user; else public">
+				<div *ngIf="authService.user | async as user; else public">
 					<ion-item
 						color="medium"
 						button
@@ -283,8 +283,8 @@
 				<ion-list-header class="list-header-global">
 					<ion-title> Authentication </ion-title>
 				</ion-list-header>
-				<div *ngIf="authService.afAuth.user | async as user; else nouser">
-					<ion-item color="medium" button (click)="authService.SignOut()">
+				<div *ngIf="authService.user | async as user; else nouser">
+					<ion-item color="medium" button (click)="authService.signOut()">
 						<ion-label class="side-menu-font"> Sign Out </ion-label>
 						<ion-icon
 							color="danger"

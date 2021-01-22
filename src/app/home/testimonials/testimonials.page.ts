@@ -25,16 +25,16 @@ export class TestimonialsPage {
   constructor(
     public modalController: ModalController,
     public authService: AuthService,
-    private fb: FormBuilder,
+    // private fb: FormBuilder,
     private messageService: MessageService,
     private afs: AngularFirestore,
     config: NgbRatingConfig
   ) {
     config.max = 5;
-    config.readonly = false;
-    this.reviewForm = this.fb.group({
-      review: ['', [Validators.required]],
-    });
+    config.readonly = true;
+    // this.reviewForm = this.fb.group({
+    //   review: ['', [Validators.required]],
+    // });
   }
 
 

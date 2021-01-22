@@ -163,6 +163,9 @@
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { Plugins, CameraResultType, Capacitor, FilesystemDirectory, CameraPhoto, CameraSource } from &#x27;@capacitor/core&#x27;;
 import { Platform } from &#x27;@ionic/angular&#x27;;
+import { AngularFireStorage, AngularFireStorageReference } from &#x27;@angular/fire/storage&#x27;;
+import { from } from &#x27;rxjs&#x27;;
+import { switchMap, map } from &#x27;rxjs/operators&#x27;;
 
 const { Camera, Filesystem, Storage } &#x3D; Plugins;
 
@@ -172,26 +175,46 @@ const { Camera, Filesystem, Storage } &#x3D; Plugins;
 export class PhotoService {
   public photos: Photo[] &#x3D; [];
   private PHOTO_STORAGE &#x3D; &#x27;photos&#x27;;
+  capturedPhoto;
 
   constructor(
     private messageService: MessageService,
-    private platform: Platform
+    private platform: Platform,
+    private storage: AngularFireStorage
     ) {}
+
+    storeImage() {
+      const newName &#x3D; &#x60;${new Date().getTime()}-PICTURE.png&#x60;;
+      const storageRef: AngularFireStorageReference &#x3D; this.storage.ref(&#x60;/images/${newName}&#x60;);
+      const storageObs &#x3D; from(storageRef.putString(this.capturedPhoto, &#x27;base64&#x27;, { contentType: &#x27;image/png&#x27; }));
+      return storageObs.pipe(
+        switchMap((obj) &#x3D;&gt; {
+          return obj.ref.getDownloadURL();
+        }),
+        map((url) &#x3D;&gt; {
+          console.log(&#x27;my url: &#x27;, url);
+          return url;
+        })
+      );
+    }
+
+
+
 
   public async addNewToGallery() {
     // Take a photo
-    const capturedPhoto &#x3D; await Camera.getPhoto({
+    this.capturedPhoto &#x3D; await Camera.getPhoto({
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
       quality: 100
     });
     this.photos.unshift({
       filepath: &#x27;soon...&#x27;,
-      webviewPath: capturedPhoto.webPath
+      webviewPath: this.capturedPhoto.webPath
     });
 
     // Save the picture and add it to photo collection
-    const savedImageFile &#x3D; await this.savePicture(capturedPhoto);
+    const savedImageFile &#x3D; await this.savePicture(this.capturedPhoto);
     this.photos.unshift(savedImageFile);
   }
 
@@ -214,6 +237,9 @@ export class PhotoService {
   })
 
   private async savePicture(cameraPhoto: CameraPhoto) {
+    // Angular Storage
+    this.storeImage();
+
     // Convert photo to base64 format, required by Filesystem API to save
     const base64Data &#x3D; await this.readAsBase64(cameraPhoto);
     // Write the file to the data directory
@@ -227,7 +253,7 @@ export class PhotoService {
     // already loaded into memory
     return {
       filepath: fileName,
-      webviewPath: cameraPhoto.webPath
+      webviewPath: cameraPhoto.webPath,
     };
   }
 

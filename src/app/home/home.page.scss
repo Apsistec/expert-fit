@@ -1,71 +1,72 @@
 .scene-one {
-	height: 100vh;
-	width: 100vw;
-	background-color: var(--ion-color-medium);
-	background: linear-gradient(
-			to bottom left,
-			rgba(0, 0, 0, 0.342) 15%,
-			rgba(15, 0, 71, 0.274) 50%,
-			rgba(0, 0, 0, 0.247) 85%
-		),
-		linear-gradient(
-			to right,
-			rgba(92, 0, 8, 0.35) 0%,
-			rgba(17, 0, 2, 0.45) 50%,
-			rgba(83, 0, 7, 0.35) 100%
-		),
-		url(../../assets/images/fitness-balancing.jpg) center/ cover no-repeat;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--ion-color-medium);
+  background: linear-gradient(
+      to right,
+      rgba(39, 39, 88, 0.603) 0%,
+      rgba(15, 0, 71, 0.404) 50%,
+      rgba(24, 1, 1, 0.726) 100%
+    ),
+    linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.753) 0%,
+      rgba(189, 189, 189, 0.315) 15%,
+      rgba(201, 201, 201, 0.123) 50%,
+      rgba(15, 0, 0, 0.829) 100%
+    ),
+    url(../../assets/images/fitness-balancing.jpg) center/ cover no-repeat;
 }
 
-
-.main-title{
-	font: normal normal 800 32px/2 sans-serif;
+.main-title {
+  font: normal normal 800 32px/2 sans-serif;
 }
-.main-subtitle{
-	font: normal normal 800 20px sans-serif;
+.main-subtitle {
+  font: normal normal 800 20px sans-serif;
 }
 sup {
-	font: small-caps normal 800 18px sans-serif;
-	color: var(--ion-color-secondary);	
-	text-shadow: 1px 1px 2px black;
+  font: small-caps normal 800 18px;
+  color: var(--ion-color-primary);
+  text-shadow: 3px 1px 1px var(--ion-color-secondary-shade), 6px 4px 2px black;
 }
 
 .main-heading-card {
-	padding-bottom: 12px;
-  // width: 100%;
-	background: var(--ion-color-dark-tint);
-	border: 4px solid var(--ion-color-secondary);
+  padding-bottom: 12px;
+  background: var(--ion-color-dark-tint);
+  border: 4px outset var(--ion-color-danger);
 }
 
-.cta{
+.cta {
   margin: 5px;
 }
 
+.video-div {
+  margin-top: 50px;
+  text-transform: capitalize;
+}
 
-
-
-
+.video-div:hover {
+  text-decoration: underline;
+  color: white;
+}
 
 .pulsing {
-	animation: 3s ease-out infinite pulsar;
-	z-index: 99;
-  display:block;
-  margin-left:auto;
-  margin-right: auto;
+  animation: 3s ease-out infinite pulsar;
+  z-index: 99;
 }
 
 @keyframes pulsar {
-	0% {
-		opacity: 100%;
-	}
-	50% {
-		transform: scale(0.8, 0.8);
-		opacity: 30%;
-	}
-	100% {
-		transform: scale(1, 1);
-		opacity: 100%;
-	}
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    transform: scale(0.8, 0.8);
+    opacity: 30%;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 100%;
+  }
 }
 
 

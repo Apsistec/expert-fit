@@ -9,6 +9,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePageTwoComponent } from '../home/home-page-two/home-page-two.component';
 import { HomePageThreeComponent } from '../home/home-page-three/home-page-three.component';
 import { BenefitTrackerComponent } from './benefit-tracker/benefit-tracker.component';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { BenefitTrackerComponent } from './benefit-tracker/benefit-tracker.compo
     HomePageRoutingModule,
     SharedModule,
     SharedDirectivesModule,
+    NgxPageScrollCoreModule
   ],
   declarations: [
     HomePage,

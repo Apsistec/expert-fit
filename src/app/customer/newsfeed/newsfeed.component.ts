@@ -1,14 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewChecked, Component} from '@angular/core';
+import { Observable } from 'rxjs';
+import { BlogPost } from '../../models/blog-post.model';
+import { DatabaseService } from '../../services/database.service';
+import { ActivatedRoute } from '@angular/router';
+import { filter, map, pluck, switchMap } from 'rxjs/operators';
+import { objectExists } from '../../services/utilities.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-newsfeed',
   templateUrl: './newsfeed.component.html',
   styleUrls: ['./newsfeed.component.scss'],
 })
-export class NewsfeedComponent implements OnInit {
+export class NewsfeedComponent implements AfterViewChecked {
 
-  constructor() { }
+  post$: Observable<BlogPost> = this.router.params.pipe(
+    pluck('uid'),
+    filter(objectExists),
+    switchMap(this.db.getPost$),
+    map((post: BlogPost) => {
+      const sanitizedBlog: any = post;
+      sanitizedBlog.youtubeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(sanitizedBlog.youtubeUrl);
+      return sanitizedBlog;
+    })
+  );
+  private highlighted: boolean;
 
-  ngOnInit() {}
+  constructor(private db: DatabaseService, private router: ActivatedRoute, public sanitizer: DomSanitizer) {
+  }
+
+  ngAfterViewChecked(): void {
+    // if (!this.highlighted) {
+    //   Prism.highlightAll();
+    // }
+  }
 
 }

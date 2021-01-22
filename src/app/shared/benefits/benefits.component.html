@@ -1,6 +1,6 @@
 <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts">
   <ion-slide *ngFor="let benefit of benefits">
-    <ion-card color="medium"  style="max-width: 500px;">
+    <ion-card color="medium" class="ion-sub-card-global" style="max-width: 500px;">
       <ion-card-header color="secondary">
         <ion-card-title>
           {{ benefit.title }}

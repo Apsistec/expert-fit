@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { Ratings } from '../../models/ratings.model';
 import { SeoService } from '../../services/seo.service';
-// import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ratings',
@@ -23,10 +23,10 @@ export class RatingsComponent {
 
   };
 
-  // constructor(config: NgbRatingConfig) {
-  //   config.max = 5;
-  //   config.readonly = true;
-  // }
+  constructor(config: NgbRatingConfig) {
+    config.max = 5;
+    config.readonly = true;
+  }
 
   slidesDidLoad(slides: IonSlides) {
     slides.startAutoplay();

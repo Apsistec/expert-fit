@@ -1,54 +1,83 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
 import { User } from './models/users.model';
 import { AuthService } from './services/auth.service';
-import { UpdateService } from './services/update.service';
-import 'firebase/app';
-// import { PopoverService } from './services/popover.service';
+import firebase from 'firebase/app';
+import 'firebase/messaging';
 import { Router } from '@angular/router';
-
+import { AngularFireAuth } from '@angular/fire/auth';
+import { SwUpdate, SwPush } from '@angular/service-worker';
+import { environment } from 'src/environments/environment';
+import { MessageService } from './services/message.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+  styleUrls: ['app.component.scss']
 })
-export class AppComponent implements OnInit{
-
-  user: User;
+export class AppComponent implements OnInit {
+  user: Observable<User>;
   showBackButton: boolean;
   path;
-
+  displayToken: string;
+  showPushNotifyBar = true;
+  @Input()choice;
   constructor(
+    updates: SwUpdate,
+    push: SwPush,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private checkForUpdate: UpdateService,
+    public router: Router,
     public authService: AuthService,
-    public router: Router
+    private messageService: MessageService
   ) {
-    this.initializeApp();
+    updates.available.subscribe((_) =>
+      updates.activateUpdate().then(() => {
+        console.warn('Update Available... Reloading to Update');
+        document.location.reload();
+      })
+    );
+    push.messages.subscribe((msg) => console.warn('push message: ', msg));
+    push.notificationClicks.subscribe((click) => console.warn('notification click: ', click));
+    if (!firebase.apps.length) {
+      firebase.initializeApp(environment.firebaseConfig);
+      navigator.serviceWorker.getRegistration().then(
+        () => firebase.messaging().getToken(
+          {vapidKey: 'BFZIBA94F79A9vt1yD4DBZX5BD460KEm3WWdRdzGV-FSBfIgGBoajnRhwWOUeHSEb9cUmIJejFHYlMYfCtVbN3c'}
+        )
+      );
+    }
   }
 
-  initializeApp() {
+  ngOnInit() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-    this.checkForUpdate.checkForUpdateService();
+    if (this.showPushNotifyBar) {
+      this.messageService.notifyOrCancel();
+    }
   }
 
-  async ngOnInit() {
-    // this.path = this.router.url;
-    // console.log(this.path);
-
-    // if (this.path !== '/' || 'home') {
-    //   this.showBackButton = true;
-    // } else {
-    //   this.showBackButton = false;
-    // }
-    // console.log(this.showBackButton);
+  cancelNotificationBar() {
+    this.showPushNotifyBar = !this.showPushNotifyBar;
   }
+
+  async permitToNotify() {
+    try {
+      const messaging = firebase.messaging();
+      Notification.requestPermission();
+      this.displayToken = await messaging.getToken();
+      console.warn( 'Token: ', this.displayToken);
+      this.showPushNotifyBar = !this.showPushNotifyBar;
+    }
+    catch (err) {
+      console.warn('Unable to get permission to notify. Error: ', err);
+    }
+  }
+
 }

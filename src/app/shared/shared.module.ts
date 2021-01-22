@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { AboutAppComponent } from './about-app/about-app.component';
 import { BenefitsComponent } from './benefits/benefits.component';
 import { FooterComponent } from './footer/footer.component';
-import { PopoverComponent } from './popover/popover.component';
+// import { PopoverComponent } from './popover/popover.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { TermsComponent } from './terms/terms.component';
@@ -22,7 +22,7 @@ const routes: Routes = [];
   declarations: [
     FooterComponent,
     AboutAppComponent,
-    PopoverComponent,
+    // PopoverComponent,
     TicketComponent,
     PrivacyComponent,
     TermsComponent,
@@ -43,7 +43,7 @@ const routes: Routes = [];
   exports: [
     FooterComponent,
     AboutAppComponent,
-    PopoverComponent,
+    // PopoverComponent,
     TicketComponent,
     PrivacyComponent,
     TermsComponent,

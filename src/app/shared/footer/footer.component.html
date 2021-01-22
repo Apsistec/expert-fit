@@ -7,8 +7,8 @@
     <ion-col size-sm="12" size-md="6" size-lg="4" push-lg="4">
       <ion-grid>
 
-        <ion-row>
-          <ion-col>
+        <ion-row class="ion-justify-content-center"> 
+          <ion-col class="ion-align-self-end">
             <app-ratings *ngIf="chooser === 'ratings'"></app-ratings>
             <app-benefits *ngIf="chooser === 'benefits'"></app-benefits>
           </ion-col>
@@ -29,7 +29,7 @@
       <ion-card class="location-card" routerLink="/contact-us">
         <ion-card-header>
           <!-- <img src="../../../assets/icons/icon-144x144.png" style="max-height: 24px" /> -->
-          <ion-card-title> Expert Fitness Gym </ion-card-title>
+          <ion-card-title color="primary"> Expert Fitness Gym </ion-card-title>
         </ion-card-header>
         <ion-card-content class="ion-text-center">
           <ion-item lines="none" detail="false">
@@ -41,12 +41,12 @@
               Midland TX 79705
             </ion-label>
           </ion-item>
-          <ion-chip color="primary" href="tel://432-684-0844">
+          <ion-chip color="secondary" href="tel://432-684-0844">
             <ion-icon name="call-sharp"></ion-icon>
             <ion-label color="primary"> (432) 684-0844 </ion-label>
           </ion-chip>
 
-          <ion-chip color="primary" routerLink="/contact-us">
+          <ion-chip color="secondary" routerLink="/contact-us">
             <ion-icon name="mail-sharp"></ion-icon>
             <ion-label color="primary"> Contact Us </ion-label>
           </ion-chip>
@@ -174,7 +174,7 @@
           </ion-item>
         </ion-col>
         <ion-col>
-          <div *ngIf="authService.afAuth.user | async as user">
+          <div *ngIf="user | async">
             <!-- SignedIn Menu -->
             <ion-item
               detail="false"

@@ -1,6 +1,7 @@
 <ion-app>
   <app-side-menu></app-side-menu>
   <ion-header transparent>
+    
     <ion-toolbar color="dark" #toolbar class="ion-hide-lg-up">
       <ion-buttons slot="start">
         <ion-menu-button color="tertiary"> </ion-menu-button>
@@ -9,7 +10,7 @@
       <img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" />
       <ngx-auth-firebaseui-avatar
         class="ion-margin ion-float-right"
-        *ngIf="authService.afAuth.user | async; else login"
+        *ngIf="authService.user | async as user; else login"
       ></ngx-auth-firebaseui-avatar>
     </ion-toolbar>
 
@@ -83,7 +84,7 @@
 
       <ngx-auth-firebaseui-avatar
         class="ion-float-right avatar"
-        *ngIf="authService.afAuth.user | async; else login"
+        *ngIf="authService.user | async as user; else login"
       ></ngx-auth-firebaseui-avatar>
       <ng-template #login>
         <ion-buttons style="float: right; z-index: 99">
@@ -102,7 +103,7 @@
   </ion-header>
   <ion-content>
     <!-- Modal Outlet -->
-    <router-outlet name="modal"></router-outlet>
+    <ion-router-outlet name="modal"></ion-router-outlet>
     <!-- Main Outlet -->
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-content>

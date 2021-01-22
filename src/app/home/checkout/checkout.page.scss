@@ -2,20 +2,19 @@
 * Shows how you can use CSS to style your Element's container.
 */
 .tech {
-  background:rgba(0, 0, 0, 0.85) url(../../../assets/images/bw-girl-pushups.jpg);
+  background: rgba(0, 0, 0, 0.85) url(../../../assets/images/platinum.png);
   min-height: 100vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-.home{
+.home {
   top: 0.5%;
   left: 0.5%;
-  width:80px;
+  width: 80px;
   height: 80px;
   cursor: link;
-
 }
 
 .bottom {
@@ -23,36 +22,13 @@
 }
 p {
   font-size: small;
-
 }
 
-
-h3{
-color: var(--ion-color-light);
-font-weight: 900;
-font-size: xx-large;
-font-variant: small-caps;
-}
-h5{
-  line-height: 1;
-  font-size: x-large;
-  font-variant: small-caps;
-  font-weight: 900;
-  font-stretch:condensed;
-}
-
-h6{
-  font-size: large;
-  margin-bottom: 40px;
-  font-weight: 800;
-
-}
-
-.modalcss{
+.modalcss {
   --background: transparent;
 }
 
-inputError{
+inputError {
   font-weight: 800;
   font-variant: small-caps;
 }
@@ -60,7 +36,7 @@ inputError{
  * The CSS shown here will not be introduced in the Quickstart guide, but shows
  * how you can use CSS to style your Element's container.
  */
- .StripeElement {
+.StripeElement {
   box-sizing: border-box;
   height: 40px;
   padding: 10px;
@@ -71,8 +47,6 @@ inputError{
 
   transition: box-shadow 150ms ease;
 }
-
-
 
 #card-errors {
   text-align: center;
@@ -92,7 +66,7 @@ inputError{
   background-color: rgb(143, 110, 110) !important;
 }
 
-ul{
+ul {
   display: block;
   list-style: none;
   margin-top: 1em;
@@ -102,7 +76,7 @@ ul{
   text-align: center;
   font-variant: small-caps;
 }
-.cards{
+.cards {
   display: inline-block;
   padding-left: 4px;
   padding-right: 4px;

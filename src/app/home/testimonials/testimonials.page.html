@@ -3,7 +3,7 @@
     <ion-title>Client Testimonials</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content fullscreen transparent >
+<ion-content fullscreen transparent>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Client Testimonials</ion-title>
@@ -22,27 +22,29 @@
   </ion-segment>
 
   <ion-grid [ngSwitch]="segment">
-    <ion-row class="ion-justify-content-center" *ngSwitchDefault>
-      <ion-col size-sm="12" size-md="6" size-lg="4" size-xl="3" *ngFor="let testimonial of testimonials">
-        <ion-card class="ion-sub-card-global">
-          <ion-card-header>
-            <ion-card-title> {{ testimonial.author }} </ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-item class="rating-item">
-              <ion-avatar>
-                <img [src]="[testimonial.img || '../../../assets/images/dummy-user.png']" />
-              </ion-avatar>
-              <ion-button color="primary">
-                <!-- <ngb-rating [formControl]="+testimonial.stars"></ngb-rating> -->
-              </ion-button>
-            </ion-item>
-            <br />
-            <ion-text>
-              <p>{{ testimonial.message }}</p>
-            </ion-text>
-          </ion-card-content>
-        </ion-card>
+    <ion-row class="ion-justify-content-around" *ngSwitchDefault>
+      <ion-col size-sm="12" size-md="6" size-lg="4" size-xl="3" class="ion-align-self-center ion-margin" *ngFor="let testimonial of testimonials">
+        <ion-item class="items items-shadow">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-avatar>
+                  <img [src]="[testimonial.img || '../../../assets/images/dummy-user.png']" />
+                </ion-avatar>
+                <ion-text color="primary"> {{ testimonial.author }} </ion-text>
+                <ngb-rating
+                  style="float: right; color: var(--ion-color-danger)"
+                  [rate]="testimonial.stars"
+                ></ngb-rating>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <p>{{ testimonial.message }}</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
       </ion-col>
     </ion-row>
 
@@ -55,7 +57,7 @@
           <ion-card-content>
             <!-- <form
       #testimonial
-      *ngIf="authService.afAuth.user | async as user; else register;"
+      *ngIf="authService.user | async as user; else register;"
       [formGroup]="reviewForm"
       (ngSubmit)="setTestimonial(testimonial)"
       novalidate
@@ -123,7 +125,10 @@
         </ion-card>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col>
+        <app-footer></app-footer>
+      </ion-col>
+    </ion-row>
   </ion-grid>
-
-  <app-footer></app-footer>
 </ion-content>

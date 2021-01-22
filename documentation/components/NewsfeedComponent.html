@@ -71,7 +71,7 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewChecked" target="_blank" >AfterViewChecked</a></code>
     </p>
 
 
@@ -122,6 +122,28 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#highlighted">highlighted</a>
+                            </li>
+                            <li>
+                                <a href="#post$">post$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sanitizer">sanitizer</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -132,7 +154,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#ngAfterViewChecked">ngAfterViewChecked</a>
                             </li>
                         </ul>
                     </td>
@@ -152,15 +174,69 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(db: <a href="../injectables/DatabaseService.html">DatabaseService</a>, router: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, sanitizer: <a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank">DomSanitizer</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/customer/newsfeed/newsfeed.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/customer/newsfeed/newsfeed.component.ts:27</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>db</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DatabaseService.html" target="_self" >DatabaseService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sanitizer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -178,26 +254,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnInit"></a>
+                    <a name="ngAfterViewChecked"></a>
                     <span class="name">
                         <b>
-                            ngOnInit
+                            ngAfterViewChecked
                         </b>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        <a href="#ngAfterViewChecked"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnInit()</code>
+<code>ngAfterViewChecked()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/customer/newsfeed/newsfeed.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/customer/newsfeed/newsfeed.component.ts:32</a></div>
                 </td>
             </tr>
 
@@ -214,32 +290,189 @@
         </tbody>
     </table>
 </section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="highlighted"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            highlighted</b>
+                            <a href="#highlighted"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/customer/newsfeed/newsfeed.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="post$"></a>
+                        <span class="name">
+                            <b>
+                            post$</b>
+                            <a href="#post$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/BlogPost.html" target="_self" >Observable&lt;BlogPost&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>this.router.params.pipe(
+    pluck(&#x27;uid&#x27;),
+    filter(objectExists),
+    switchMap(this.db.getPost$),
+    map((post: BlogPost) &#x3D;&gt; {
+      const sanitizedBlog: any &#x3D; post;
+      sanitizedBlog.youtubeUrl &#x3D; this.sanitizer.bypassSecurityTrustResourceUrl(sanitizedBlog.youtubeUrl);
+      return sanitizedBlog;
+    })
+  )</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/customer/newsfeed/newsfeed.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sanitizer"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            sanitizer</b>
+                            <a href="#sanitizer"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://angular.io/api/platform-browser/DomSanitizer" target="_blank" >DomSanitizer</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/customer/newsfeed/newsfeed.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {AfterViewChecked, Component} from &#x27;@angular/core&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { BlogPost } from &#x27;../../models/blog-post.model&#x27;;
+import { DatabaseService } from &#x27;../../services/database.service&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { filter, map, pluck, switchMap } from &#x27;rxjs/operators&#x27;;
+import { objectExists } from &#x27;../../services/utilities.service&#x27;;
+import {DomSanitizer} from &#x27;@angular/platform-browser&#x27;;
 
 @Component({
   selector: &#x27;app-newsfeed&#x27;,
   templateUrl: &#x27;./newsfeed.component.html&#x27;,
   styleUrls: [&#x27;./newsfeed.component.scss&#x27;],
 })
-export class NewsfeedComponent implements OnInit {
+export class NewsfeedComponent implements AfterViewChecked {
 
-  constructor() { }
+  post$: Observable&lt;BlogPost&gt; &#x3D; this.router.params.pipe(
+    pluck(&#x27;uid&#x27;),
+    filter(objectExists),
+    switchMap(this.db.getPost$),
+    map((post: BlogPost) &#x3D;&gt; {
+      const sanitizedBlog: any &#x3D; post;
+      sanitizedBlog.youtubeUrl &#x3D; this.sanitizer.bypassSecurityTrustResourceUrl(sanitizedBlog.youtubeUrl);
+      return sanitizedBlog;
+    })
+  );
+  private highlighted: boolean;
 
-  ngOnInit() {}
+  constructor(private db: DatabaseService, private router: ActivatedRoute, public sanitizer: DomSanitizer) {
+  }
 
-}
-</code></pre>
+  ngAfterViewChecked(): void {
+    // if (!this.highlighted) {
+    //   Prism.highlightAll();
+    // }
+  }
+
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;
-  newsfeed works!
-&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;User Posts&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content fullscreen transparent&gt;
+  &lt;ion-header collapse&#x3D;&quot;condense&quot;&gt;
+    &lt;ion-toolbar&gt;
+      &lt;ion-title size&#x3D;&quot;large&quot;&gt;User Posts&lt;/ion-title&gt;
+    &lt;/ion-toolbar&gt;
+  &lt;/ion-header&gt;
+&lt;div class&#x3D;&quot;view-post&quot; *ngIf&#x3D;&quot;post$ | async as post&quot;&gt;
+  &lt;div &gt;
+    &lt;h1&gt;{{post.header}}&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;!--  &lt;div&gt;--&gt;
+&lt;!--    &lt;h3 class&#x3D;&quot;subheader&quot;&gt;{{post.subheader}}&lt;/h3&gt;--&gt;
+&lt;!--  &lt;/div&gt;--&gt;
+  &lt;div&gt;
+    &lt;h5&gt;Written by {{post.author}}&lt;/h5&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;iframe-container&quot;&gt;
+      &lt;iframe class&#x3D;&quot;responsive-iframe&quot; [src]&#x3D;&quot;post.youtubeUrl&quot;
+              frameborder&#x3D;&quot;0&quot; allow&#x3D;&quot;encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;bodyText&quot; [innerHTML]&#x3D;&quot;post.content&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;
+    &lt;a class&#x3D;&quot;readBtn&quot; routerLink&#x3D;&quot;/home&quot;&gt;Home&lt;/a&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -247,7 +480,74 @@ export class NewsfeedComponent implements OnInit {
                 <p class="comment">
                     <code>./newsfeed.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">
+
+.view-post {
+  text-align: center;
+  justify-content: center;
+  .bodyText{
+    padding: 0 .5em;
+  }
+
+  .subheader {
+    padding: 0 .5em;
+  }
+
+  .readBtn {
+    // @include sbd_btn;
+    // @extend .centerText;
+    color: white;
+    width: auto;
+    background-color: var(--ion-color-primary);
+    border: 1px solid var(--ion-color-primary);
+    margin: 1em 0;
+  }
+
+  .container {
+    padding: 0 1em;
+    .iframe-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 56.25%;
+
+      .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+}
+
+
+// media query standards: 650px, ...
+@media (min-width: 650px) {
+  .view-post {
+    max-width: 800px;
+    margin: auto;
+    .bodyText {
+      padding: 0 3em;
+    }
+
+    .subheader {
+      padding: 0 2em;
+    }
+
+    .container {
+      justify-content: center;
+      width: 60%;
+      margin: auto;
+    }
+
+  }
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -275,8 +575,8 @@ export class NewsfeedComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>  newsfeed works!</p></div>'
-    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicContentComponent', 'selector': 'app-basic-content'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitTrackerComponent', 'selector': 'app-benefit-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CheckoutPage', 'selector': 'app-checkout'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'CreateUsersComponent', 'selector': 'app-create-users'},{'name': 'CustomerDashboardPage', 'selector': 'app-customer-dashboard'},{'name': 'DetailUsersComponent', 'selector': 'app-detail-users'},{'name': 'EditUsersComponent', 'selector': 'app-edit-users'},{'name': 'EmployeeDashboardPage', 'selector': 'app-employee-dashboard'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordPage', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'ListUsersComponent', 'selector': 'app-list-users'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalViewComponent', 'selector': 'app-modal-container'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NutritionComponent', 'selector': 'app-nutrition'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PremiumContentComponent', 'selector': 'app-premium-content'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'},{'name': 'VideoComponent', 'selector': 'app-intro-video'},{'name': 'VideosComponent', 'selector': 'app-videos'},{'name': 'WorkoutsComponent', 'selector': 'app-workouts'}];
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>User Posts</ion-title>  </ion-toolbar></ion-header><ion-content fullscreen transparent>  <ion-header collapse="condense">    <ion-toolbar>      <ion-title size="large">User Posts</ion-title>    </ion-toolbar>  </ion-header><div class="view-post" *ngIf="post$ | async as post">  <div >    <h1>{{post.header}}</h1>  </div><!--  <div>--><!--    <h3 class="subheader">{{post.subheader}}</h3>--><!--  </div>-->  <div>    <h5>Written by {{post.author}}</h5>  </div>  <div class="container">    <div class="iframe-container">      <iframe class="responsive-iframe" [src]="post.youtubeUrl"              frameborder="0" allow="encrypted-media" allowfullscreen></iframe>    </div>  </div>  <div class="bodyText" [innerHTML]="post.content"></div>  <div>    <a class="readBtn" routerLink="/home">Home</a>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardPage', 'selector': 'app-admin-dashboard'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BasicContentComponent', 'selector': 'app-basic-content'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitTrackerComponent', 'selector': 'app-benefit-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CheckoutPage', 'selector': 'app-checkout'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'CreateUsersComponent', 'selector': 'app-create-users'},{'name': 'CustomerDashboardComponent', 'selector': 'app-customer-dashboard'},{'name': 'CustomerPage', 'selector': 'app-customer'},{'name': 'DetailUsersComponent', 'selector': 'app-detail-users'},{'name': 'EditUsersComponent', 'selector': 'app-edit-users'},{'name': 'EmployeeDashboardPage', 'selector': 'app-employee-dashboard'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FileUploaderComponent', 'selector': 'app-file-uploader'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'ListUsersComponent', 'selector': 'app-customer-dashboard'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ModalViewComponent', 'selector': 'app-modal-container'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NutritionComponent', 'selector': 'app-nutrition'},{'name': 'PlatinumContentComponent', 'selector': 'app-platinum-content'},{'name': 'PremiumContentComponent', 'selector': 'app-premium-content'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SchedulerComponent', 'selector': 'app-scheduler'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VideoComponent', 'selector': 'app-intro-video'},{'name': 'VideosComponent', 'selector': 'app-videos'},{'name': 'WorkoutsComponent', 'selector': 'app-workouts'}];
     var DIRECTIVES = [{'name': 'BlinkDirective', 'selector': '[appBlink]'},{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
     var ACTUAL_COMPONENT = {'name': 'NewsfeedComponent'};
 </script>

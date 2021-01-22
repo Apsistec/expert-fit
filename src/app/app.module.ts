@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -32,55 +32,50 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { SchedulerModule } from 'angular-calendar-scheduler';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { ErrorInterceptor } from './services/error.interceptor';
 
 export function firebaseAppNameFactory() {
   return `expert-fit`;
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SideMenuComponent,
-    LoginComponent,
-  ],
+  declarations: [AppComponent, SideMenuComponent, LoginComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NgxAuthFirebaseUIModule.forRoot(
-      environment.firebaseConfig, () => 'your_app_name_factory',
-    {
-        enableFirestoreSync: true, // enable/disable autosync users with firestore
-        toastMessageOnAuthSuccess: true, // whether to open/show a snackbar message on auth success - default : true
-        toastMessageOnAuthError: true, // whether to open/show a snackbar message on auth error - default : true
-        // tslint:disable-next-line: max-line-length
-        authGuardFallbackURL: '/home', // url for unauthenticated users - to use in combination with canActivate feature on a route
-        // tslint:disable-next-line: max-line-length
-        authGuardLoggedInURL: '/dashboard', // url for authenticated users - to use in combination with canActivate feature on a route
-        passwordMaxLength: 60, // `min/max` input parameters in components should be within this range.
-        passwordMinLength: 8, // Password length min/max in forms independently of each componenet min/max.
-        // Same as password but for the name
-        nameMaxLength: 50,
-        nameMinLength: 2,
-        // If set, sign-in/up form is not available until email has been verified.
-        // Plus protected routes are still protected even though user is connected.
-        guardProtectedRoutesUntilEmailIsVerified: true,
-        enableEmailVerification: true, // default: true
-      }),
-      HttpClientModule,
-      FormsModule,
-      FlexLayoutModule,
-      MatCardModule,
-      MatButtonModule,
-      MatTabsModule,
-      MatIconModule,
-      MatToolbarModule,
+    NgxAuthFirebaseUIModule.forRoot(environment.firebaseConfig, firebaseAppNameFactory, {
+      enableFirestoreSync: true, // enable/disable autosync users with firestore
+      toastMessageOnAuthSuccess: true, // whether to open/show a snackbar message on auth success - default : true
+      toastMessageOnAuthError: true, // whether to open/show a snackbar message on auth error - default : true
+      // tslint:disable-next-line: max-line-length
+      authGuardFallbackURL: '/home', // url for unauthenticated users - to use in combination with canActivate feature on a route
+      // tslint:disable-next-line: max-line-length
+      authGuardLoggedInURL: '/dashboard', // url for authenticated users - to use in combination with canActivate feature on a route
+      passwordMaxLength: 60, // `min/max` input parameters in components should be within this range.
+      passwordMinLength: 8, // Password length min/max in forms independently of each componenet min/max.
+      // Same as password but for the name
+      nameMaxLength: 50,
+      nameMinLength: 2,
+      // If set, sign-in/up form is not available until email has been verified.
+      // Plus protected routes are still protected even though user is connected.
+      guardProtectedRoutesUntilEmailIsVerified: true,
+      enableEmailVerification: true // default: true
+    }),
+    HttpClientModule,
+    FormsModule,
+    FlexLayoutModule,
+    MatCardModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatIconModule,
+    MatToolbarModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-config.json', {
-      enabled: environment.production,
-    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthGuardModule,
     AngularFireAuthModule,
@@ -95,6 +90,8 @@ export function firebaseAppNameFactory() {
     FormsModule,
     SharedDirectivesModule,
     NgbModule,
+    SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [
     DatePipe,
@@ -102,8 +99,10 @@ export function firebaseAppNameFactory() {
     SplashScreen,
     { provide: DEFAULT_CURRENCY_CODE, useValue: 'USD' },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: LOCALE_ID, useValue: 'en-US' },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  exports: [],
+  exports: []
 })
 export class AppModule {}

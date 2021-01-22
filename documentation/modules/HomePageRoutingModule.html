@@ -74,11 +74,44 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { HomePage } from &#x27;./home.page&#x27;;
+import { PrivacyComponent } from &#x27;../shared/privacy/privacy.component&#x27;;
+import { TermsComponent } from &#x27;../shared/terms/terms.component&#x27;;
+import { VideoComponent } from &#x27;../shared/intro-video/intro-video.component&#x27;;
+import { AboutAppComponent } from &#x27;../shared/about-app/about-app.component&#x27;;
+import { LoginComponent } from &#x27;../shared/login/login.component&#x27;;
 
 const routes: Routes &#x3D; [
   {
     path: &#x27;&#x27;,
-    component: HomePage
+    component: HomePage,
+    children: [
+      {
+        path: &#x27;about-app&#x27;,
+        component: AboutAppComponent,
+      },
+      {
+        path: &#x27;terms&#x27;,
+        component: TermsComponent,
+      },
+      {
+        path: &#x27;privacy&#x27;,
+        component: PrivacyComponent,
+      },
+      {
+        path: &#x27;video&#x27;,
+        component: VideoComponent,
+      },
+      { path: &#x27;login&#x27;, component: LoginComponent },
+      // {
+      //   path: &#x27;unknown&#x27;,
+      //   loadChildren: () &#x3D;&gt; import(&#x27;../home/unknown/unknown.module&#x27;).then((m) &#x3D;&gt; m.UnknownPageModule)
+      // },
+      // {
+      //   path: &#x27;**&#x27;,
+      //   redirectTo: &#x27;/unknown&#x27;,
+      //   pathMatch: &#x27;full&#x27;
+      // }
+    ]
   }
 ];
 
