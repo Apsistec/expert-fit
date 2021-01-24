@@ -28,7 +28,7 @@ export class TestimonialsPage {
     private messageService: MessageService,
     private afs: AngularFirestore,
   ) {
-    
+
 
   }
 
