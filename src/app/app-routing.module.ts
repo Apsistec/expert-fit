@@ -72,7 +72,7 @@ const routes: Routes = [
     //   ...canActivate(adminOnly),
     //   canActivate: [PaidGuard, LoggedInGuard, RoleGuard]
     //   },
-    
+
     {
       path: 'unknown',
       loadChildren: () => import('./home/unknown/unknown.module').then((m) => m.UnknownPageModule),
