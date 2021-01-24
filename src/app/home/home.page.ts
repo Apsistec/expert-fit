@@ -40,6 +40,6 @@ export class HomePage implements OnInit {
 
 
   scrollToTop() {
-    this.content.scrollToTop(1500);
+    this.content.scrollToTop(750);
   }
 }

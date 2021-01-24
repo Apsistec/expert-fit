@@ -31,7 +31,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { SchedulerModule } from 'angular-calendar-scheduler';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
@@ -89,7 +88,6 @@ export function firebaseAppNameFactory() {
     ReactiveFormsModule,
     FormsModule,
     SharedDirectivesModule,
-    NgbModule,
     SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],

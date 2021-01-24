@@ -11,7 +11,7 @@
           class="ion-hide-lg-up"
           style="width: 345px; padding-top: 40px"
         />
-        <ion-card class="main-heading-card ion-text-center">
+        <ion-card class="main-heading-card ion-text-center shadow">
           <ion-card-title class="main-title" color="light"> Expert Fitness<sup>3D</sup> </ion-card-title>
           <ion-card-subtitle class="main-subtitle" color="warning">
             Train <ion-text color="light">|</ion-text> Review <ion-text color="light">|</ion-text> Grow
@@ -22,9 +22,9 @@
           size="large"
           class="cta"
           strong
-          style="background: rgba(255, 255, 255, 0.192)"
+          fill="clear"
+          style="border:2px solid var(--ion-color-light); background-color: rgba(255, 255, 255, 0.2);border-radius: 10px;"
           color="light"
-          fill="outline"
           href="/home#pageThree"
           >More Info
         </ion-button>
@@ -33,10 +33,9 @@
           size="large"
           class="cta"
           strong
-          color="success"
-          fill="outline"
+          color="primary"
           routerLink="/login"
-          style="background: var(--ion-color-primary)"
+          style="border:3px solid var(--ion-color-success);border-radius: 10px;"
         >
           Join Now
         </ion-button>
@@ -62,8 +61,8 @@
         <app-footer></app-footer>
 
         <ion-fab horizontal="end" vertical="bottom">
-          <ion-fab-button size="small" color="danger" (click)="scrollToTop()">
-            <ion-icon color="success" size="small" name="chevron-up-sharp"></ion-icon>
+          <ion-fab-button size="small" color="secondary" (click)="scrollToTop()">
+            <ion-icon color="danger" name="chevron-up-sharp"></ion-icon>
           </ion-fab-button>
         </ion-fab>
       </ion-col>

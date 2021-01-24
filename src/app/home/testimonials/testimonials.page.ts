@@ -7,16 +7,16 @@ import { map } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
 import { Ratings } from 'src/app/models/ratings.model';
-import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-testimonials',
   templateUrl: './testimonials.page.html',
   styleUrls: ['./testimonials.page.scss'],
-  providers: [NgbRatingConfig] // add NgbRatingConfig to the component providers
 })
 export class TestimonialsPage {
-
+  value: any;
+  rate;
+  overStar: number | undefined;
   reviewForm;
   user: User;
   testimonials = Ratings;
@@ -25,19 +25,16 @@ export class TestimonialsPage {
   constructor(
     public modalController: ModalController,
     public authService: AuthService,
-    // private fb: FormBuilder,
     private messageService: MessageService,
     private afs: AngularFirestore,
-    config: NgbRatingConfig
   ) {
-    config.max = 5;
-    config.readonly = true;
-    // this.reviewForm = this.fb.group({
-    //   review: ['', [Validators.required]],
-    // });
+    
+
   }
 
-
+  hoveringOver(value: number): void {
+    this.overStar = value;
+  }
 
   setTestimonial(testimonial: string) {
     return this.afs

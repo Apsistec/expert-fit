@@ -58,9 +58,9 @@ export class AppComponent implements OnInit {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-    if (this.showPushNotifyBar) {
-      this.messageService.notifyOrCancel();
-    }
+    // if (this.showPushNotifyBar) {
+    //   this.messageService.notifyOrCancel();
+    // }
   }
 
   cancelNotificationBar() {

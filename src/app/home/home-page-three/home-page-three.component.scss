@@ -1,17 +1,21 @@
-
-.infographic-card{
+.infographic-card {
   --background: var(--ion-color-medium);
-  display:block;
-  margin:auto;
+  display: block;
+  margin: auto;
   width: fit-content;
   height: fit-content;
 }
 .schedule-card {
-  border: 3px solid var(--ion-color-secondary-tint);
-  border-radius: 25px;
-  display: block;
-  margin: auto;
-  max-width: 50%;
-  background-color: light;
+  border: 3px solid var(--ion-color-dark);
+  border-radius: 15px;
+  margin: 50px 10px;
+  // background-color: light;
   text-align: center;
+  ion-item {
+    border-top: 3px solid var(--ion-color-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    text-transform: uppercase;
+    --detail-icon-opacity: 1;
+  }
 }

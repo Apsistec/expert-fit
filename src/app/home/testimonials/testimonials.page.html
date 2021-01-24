@@ -32,13 +32,12 @@
                   <img [src]="[testimonial.img || '../../../assets/images/dummy-user.png']" />
                 </ion-avatar>
                 <ion-text color="primary"> {{ testimonial.author }} </ion-text>
-                <ngb-rating
-                  style="float: right; color: var(--ion-color-danger)"
-                  [rate]="testimonial.stars"
-                ></ngb-rating>
+                <rating [(ngModel)]="value" (onHover)="hoveringOver($event)" 
+                  style=" color: var(--ion-color-danger)"
+                  value="testimonial.stars"
+                ></rating>
               </ion-col>
-            </ion-row>
-            <ion-row>
+     
               <ion-col>
                 <p>{{ testimonial.message }}</p>
               </ion-col>

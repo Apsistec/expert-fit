@@ -43,7 +43,10 @@ inputError {
   border: 1px solid transparent;
   border-radius: 12px;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 1px 3px 0 #34073fd0;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
+  0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
+  0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
+  0px 70px 60px rgba(0, 0, 0, 0.15);
 
   transition: box-shadow 150ms ease;
 }
@@ -54,7 +57,10 @@ inputError {
   margin: 10px;
 }
 .StripeElement--focus {
-  box-shadow: 0 1px 5px 0 #9e009e;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05),
+  0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
+  0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
+  0px 70px 60px rgba(0, 0, 0, 0.15);
 }
 
 .StripeElement--invalid {

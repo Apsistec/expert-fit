@@ -29,6 +29,31 @@ const routes: Routes = [
         component: VideoComponent,
       },
       { path: 'login', component: LoginComponent },
+      {
+        path: 'products',
+        loadChildren: () => import('./products/products.module').then((m) => m.ProductsPageModule),
+        // ...canActivate(redirectLoggedInToDash)
+      },
+      {
+        path: 'faqs',
+        loadChildren: () => import('./faq/faq.module').then((m) => m.FaqPageModule),
+        // ...canActivate(redirectLoggedInToDash)
+      },
+      {
+        path: 'testimonials',
+        loadChildren: () => import('./testimonials/testimonials.module').then((m) => m.TestimonialsPageModule),
+        // ...canActivate(redirectLoggedInToDash)
+      },
+      {
+        path: 'about-us',
+        loadChildren: () => import('./about-us/about-us.module').then((m) => m.AboutUsPageModule),
+        // ...canActivate(redirectLoggedInToDash)
+      },
+      {
+        path: 'contact-us',
+        loadChildren: () => import('./contact/contact.module').then((m) => m.ContactPageModule),
+        // ...canActivate(redirectLoggedInToDash)
+      },
       // {
       //   path: 'unknown',
       //   loadChildren: () => import('../home/unknown/unknown.module').then((m) => m.UnknownPageModule)

@@ -1,34 +1,22 @@
-
- <ion-slides
-      #ratings
-      pager="true"
-      (ionSlidesDidLoad)="slidesDidLoad(ratings)"
-      [options]="slideOpts"
-    >
-      <ion-slide *ngFor="let rating of testimonials">
-
-              <ion-item class="items" style="max-width:80%;">
-                <ion-grid>
-                  <ion-row>
-                    <ion-col>
-                      <ion-avatar>
-                        <img [src]="[rating.img || '../../../assets/images/dummy-user.png']"/>
-                      </ion-avatar>
-                      <ion-text color="primary">
-                        {{ rating.author }}
-                      </ion-text>
-                        <ngb-rating style="float: right; color:var(--ion-color-danger);" [rate]="rating.stars"></ngb-rating>  
-                      
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col>
-                      <p>{{ rating.message }}</p>
-
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-                </ion-item>
-
-      </ion-slide>
-    </ion-slides>
+<ion-slides #ratings pager="true" (ionSlidesDidLoad)="slidesDidLoad(ratings)" [options]="slideOpts">
+  <ion-slide *ngFor="let rating of testimonials">
+    <ion-item class="items" style="max-width: 80%">
+      <ion-grid>
+        <ion-row class="ion-justify-content-around">
+          <ion-col size="4">
+            <ion-avatar>
+              <img [src]="[rating.img || '../../../assets/images/dummy-user.png']" />
+            </ion-avatar>
+            <ion-text color="primary">
+              {{ rating.author }}
+            </ion-text>
+            <rating [(ngModel)]="rate" (onHover)="hoveringOver($event)" style="color: var(--ion-color-danger)" aria-label="Rating" readonly="true" max="5" rate="rating.stars"></rating>
+          </ion-col>
+          <ion-col>
+            <p>{{ rating.message }}</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-slide>
+</ion-slides>

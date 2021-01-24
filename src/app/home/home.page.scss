@@ -26,8 +26,8 @@
 }
 sup {
   font: small-caps normal 800 18px;
-  color: var(--ion-color-primary);
-  text-shadow: 3px 1px 1px var(--ion-color-secondary-shade), 6px 4px 2px black;
+  color: var(--ion-color-secondary-tint);
+  text-shadow: 3px 1px 1px var(--ion-color-secondary-shade), 8px 4px 2px black;
 }
 
 .main-heading-card {
@@ -68,5 +68,3 @@ sup {
     opacity: 100%;
   }
 }
-
-

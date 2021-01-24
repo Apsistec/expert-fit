@@ -4,7 +4,6 @@ import { QuicklinkStrategy } from 'ngx-quicklink';
 import { PaidGuard } from './guards/paid.guard';
 import { RoleGuard } from './guards/role.guard';
 import { ModalViewComponent } from './shared/modal-view/modal-view.component';
-
 import { LoggedInGuard } from 'ngx-auth-firebaseui';
 import {
   AngularFireAuthGuard,
@@ -35,41 +34,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
     ...canActivate(redirectLoggedInToDash)
   },
-  {
-    path: 'products',
-    loadChildren: () => import('./home/products/products.module').then((m) => m.ProductsPageModule),
-    ...canActivate(redirectLoggedInToDash)
-  },
-  {
-    path: 'faqs',
-    loadChildren: () => import('./home/faq/faq.module').then((m) => m.FaqPageModule),
-    ...canActivate(redirectLoggedInToDash)
-  },
-  {
-    path: 'testimonials',
-    loadChildren: () => import('./home/testimonials/testimonials.module').then((m) => m.TestimonialsPageModule),
-    ...canActivate(redirectLoggedInToDash)
-  },
-  {
-    path: 'gallery',
-    loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule),
-    ...canActivate(redirectLoggedInToDash)
-  },
-  {
-    path: 'about-us',
-    loadChildren: () => import('./home/about-us/about-us.module').then((m) => m.AboutUsPageModule),
-    ...canActivate(redirectLoggedInToDash)
-  },
-  {
-    path: 'contact-us',
-    loadChildren: () => import('./home/contact/contact.module').then((m) => m.ContactPageModule),
-    ...canActivate(redirectLoggedInToDash)
-  },
-  {
-    path: 'unknown',
-    loadChildren: () => import('./home/unknown/unknown.module').then((m) => m.UnknownPageModule),
-    ...canActivate(redirectLoggedInToDash)
-  },
+
   {
     path: 'checkout',
     loadChildren: () => import('./home/checkout/checkout.module').then((m) => m.CheckoutPageModule),
@@ -84,31 +49,41 @@ const routes: Routes = [
     ...canActivate(verifiedEmail),
     canActivate: [LoggedInGuard, PaidGuard, RoleGuard],
   },
-  {
-    path: 'employee-dashboard',
-    loadChildren: () =>
-    import('./employee/employee-dashboard/employee-dashboard.module').then((m) => m.EmployeeDashboardPageModule),
-    ...canActivate(verifiedEmail),
-    ...canActivate(redirectUnauthorizedToHome),
-    ...canActivate(adminOnly),
-    canActivate: [PaidGuard, LoggedInGuard, RoleGuard]
-  },
-  {
-    path: 'admin-dashboard',
-    loadChildren: () =>
-    import('./admin/admin-dashboard/admin-dashboard.module').then((m) => m.AdminDashboardPageModule),
-    ...canActivate(redirectUnauthorizedToHome),
-    ...canActivate(verifiedEmail),
-    ...canActivate(adminOnly),
-    canActivate: [PaidGuard, LoggedInGuard, RoleGuard]
+  // {
+  //   path: 'gallery',
+  //   loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule),
+  //   ...canActivate(redirectLoggedInToDash)
+  // },
+  // {
+  //   path: 'employee-dashboard',
+  //   loadChildren: () =>
+  //   import('./employee/employee-dashboard/employee-dashboard.module').then((m) => m.EmployeeDashboardPageModule),
+  //   ...canActivate(verifiedEmail),
+  //   ...canActivate(redirectUnauthorizedToHome),
+  //   ...canActivate(adminOnly),
+  //   canActivate: [PaidGuard, LoggedInGuard, RoleGuard]
+  // },
+  // {
+    //   path: 'admin-dashboard',
+    //   loadChildren: () =>
+    //   import('./admin/admin-dashboard/admin-dashboard.module').then((m) => m.AdminDashboardPageModule),
+    //   ...canActivate(redirectUnauthorizedToHome),
+    //   ...canActivate(verifiedEmail),
+    //   ...canActivate(adminOnly),
+    //   canActivate: [PaidGuard, LoggedInGuard, RoleGuard]
+    //   },
+    
+    {
+      path: 'unknown',
+      loadChildren: () => import('./home/unknown/unknown.module').then((m) => m.UnknownPageModule),
+      ...canActivate(redirectLoggedInToDash)
     },
-
-  {
-    path: '**',
-    redirectTo: '/unknown',
-    pathMatch: 'full'
-  }
-];
+    {
+      path: '**',
+      redirectTo: '/unknown',
+      pathMatch: 'full'
+    }
+  ];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {

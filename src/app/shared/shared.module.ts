@@ -13,7 +13,7 @@ import { TermsComponent } from './terms/terms.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { ModalViewComponent } from './modal-view/modal-view.component';
 import { VideoComponent } from './intro-video/intro-video.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RatingModule } from 'ngx-bootstrap/rating';
 
 
 const routes: Routes = [];
@@ -38,7 +38,8 @@ const routes: Routes = [];
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    RatingModule.forRoot(),
+
   ],
   exports: [
     FooterComponent,
@@ -51,7 +52,7 @@ const routes: Routes = [];
     BenefitsComponent,
     ModalViewComponent,
     VideoComponent,
-    NgbModule
+    RatingModule
   ]
 })
 export class SharedModule {}
