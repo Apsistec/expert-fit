@@ -1,33 +1,38 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
-import { Ratings } from '../../models/ratings.model';
+import { Observable, Subject } from 'rxjs';
+import { ReviewService } from 'src/app/services/review.service';
+import { Review } from '../../models/reviews.model';
 import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-ratings',
   templateUrl: './ratings.component.html',
-  styleUrls: ['./ratings.component.scss'],
-  // providers: [NgbRatingConfig] // add NgbRatingConfig to the component providers
-
+  styleUrls: ['./ratings.component.scss']
 })
-export class RatingsComponent {
-  rate;
+export class RatingsComponent implements OnInit {
+  private ngUnsubscribe: Subject<any> = new Subject();
+
   overStar: number | undefined;
-  testimonials = Ratings;
-  @ViewChild('ratings') ratings: IonSlides;
+  ratings: Observable<any>;
+  @ViewChild('review') review: IonSlides;
 
   slideOpts = {
     speed: 2500,
     loop: true,
     slidesPerView: 1,
-    spaceBetween: 680,
-
+    spaceBetween: 680
   };
 
-  constructor() {
+  constructor(
+    private reviewService: ReviewService,
+  ) {}
+
+  ngOnInit() {
+    this.ratings = this.reviewService.getAllReviews();
   }
 
-  hoveringOver(value: number): void {
+  hover(value: number): void {
     this.overStar = value;
   }
 

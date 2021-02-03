@@ -35,7 +35,7 @@ export class LoginComponent implements OnDestroy {
     themes = Theme;
 
     constructor(
-      public auth: AngularFireAuth,
+      public authService: AngularFireAuth,
       public router: Router,
       public messageService: MessageService,
       private modalController: ModalController,

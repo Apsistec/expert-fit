@@ -1,8 +1,3 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>FAQs</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content fullscreen transparent>
   <ion-header collapse="condense">
@@ -13,16 +8,17 @@
   <ion-grid >
     <ion-row class="ion-justify-content-center ion-align-items-start">
       <ion-col size-sm="12" size-md="8" size-lg="6">
-        <ion-card class="ion-card-global ion-text-center">
+        <ion-card class="ion-card-global ion-text-center ion-no-margin">
+          <ion-fab horizontal="end" vertical="top">
+            <ion-fab-button color="warning" size="small" (click)="onToggleAutomatic()">
+              <ion-icon color="dark" name="contract-sharp" *ngIf="automaticClose"></ion-icon>
+              <ion-icon color="dark" name="expand-sharp" *ngIf="!automaticClose"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
           <ion-card-header>
-            <ion-button color="warning" size="small" (click)="onToggleAutomatic()" style="float: right">
-              <ion-icon slot="icon-only" name="contract-sharp" *ngIf="automaticClose"></ion-icon>
-              <ion-icon slot="icon-only" name="expand-sharp" *ngIf="!automaticClose"></ion-icon>
-            </ion-button>
             <ion-card-title> Expert Fitness FAQs </ion-card-title>
             <ion-card-subtitle> Answers to common questions </ion-card-subtitle>
           </ion-card-header>
-          <ion-card-content>
           <ion-list
             *ngFor="let faq of faqs; let i = index"
             class="accordion-list ion-text-left ion-no-padding"
@@ -34,7 +30,7 @@
               (click)="toggleSection(i)"
               [ngClass]="{'section-active': faq.open, 'section': !faq.open}"
             >
-              <ion-icon slot="start" color="secondary" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
+              <ion-icon slot="start" color="primary" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
               <ion-icon slot="start" color="danger" size="large" name="remove-sharp"  *ngIf="faq.open"></ion-icon>
               <ion-label> {{ faq.title }} </ion-label>
             </ion-item>
@@ -42,7 +38,6 @@
               <p class="info-text ion-text-left">{{ faq.info }}</p>
             </ion-item>
           </ion-list>
-          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>

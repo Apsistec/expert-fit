@@ -57,13 +57,13 @@ export const Benefits = [
   },
   {
     id: 8,
-    title: 'Healthful',
+    title: 'Healthy',
     image: '../../assets/images/katie-smith-uQs1802D0CQ-unsplash.jpg',
     content: `When completing their Certificate III in Fitness, every student is required to complete a module on nutrition and how it can affect fitness. Personal Trainers who complete their Certificate IV in Fitness have to then complete additional work on nutrition, and a number of Personal Trainers also add on additional education to their program by completing a Nutrition course such as those offered by the Australian Institute of Fitness.`
   },
   {
     id: 9,
-    title: 'Harmonious',
+    title: 'Complete',
     image: '../../assets/images/weight-lifting-man.jpg',
     content: `It has long been known that physical exercise can help with mental health issues such as depression, and that it is a recommended part of treatment by many medical health professionals. Having a Personal Trainer to help with your exercise plan when you suffer from mental health problems can help with motivation, with choosing the right exercises to release the most endorphins, and also just to have another shoulder to lean on.`
   },
@@ -75,7 +75,7 @@ export const Benefits = [
   },
   {
     id: 11,
-    title: 'Confident',
+    title: 'Superior',
     image: '../../assets/images/woman-on-exercise-bike.jpg',
     content: `It can take weeks to form good habits, and even longer to break bad ones - and trying to do it on your own is hard work. Having a Personal Trainer is like having a good angel on your shoulder encouraging you in the right direction. They can help to argue with the bad angel in your head, and keep you on track to achieve your fitness goals.`
   },

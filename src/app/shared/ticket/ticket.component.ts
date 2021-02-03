@@ -21,7 +21,7 @@ export class TicketComponent implements OnInit {
     private loadingCtrl: LoadingController,
     private ticket: TicketService,
     private navParam: NavParams,
-    public auth: AuthService
+    public authService: AuthService
   ) {}
 
   ngOnInit() {

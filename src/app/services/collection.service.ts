@@ -8,12 +8,12 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class CollectionService {
-  usersRef: AngularFirestoreCollection<User>;
-  feedsRef: AngularFirestoreCollection<any>;
+  // usersRef: AngularFirestoreCollection<User>;
+  // feedsRef: AngularFirestoreCollection<any>;
   // admins: Observable<Admin>;
   // customers: Observable<Customer>;
-  user: User;
-  collectionVar: AngularFirestoreCollection;
+  // user: User;
+  // collectionVar: AngularFirestoreCollection;
 
   constructor(private db: AngularFirestore, private authService: AuthService, private afAuth: AngularFireAuth) {}
 

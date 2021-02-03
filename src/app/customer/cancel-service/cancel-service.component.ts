@@ -17,7 +17,7 @@ export class CancelServiceComponent implements OnInit {
     public functions: AngularFireFunctions,
     public load: LoadingController,
     public modalController: ModalController,
-    public auth: AuthService,
+    public authService: AuthService,
     public stripeService: StripeService,
     private router: Router
   ) {}

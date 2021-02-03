@@ -8,13 +8,12 @@ import { PrivacyComponent } from '../privacy/privacy.component';
 import { MessageService } from 'src/app/services/message.service';
 import { AboutAppComponent } from '../about-app/about-app.component';
 import { TermsComponent } from '../terms/terms.component';
-import { VideoComponent } from '../intro-video/intro-video.component';
 import { LoginComponent } from '../login/login.component';
 // import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 
 @Component({
   selector: 'app-modal-container',
-  template: '',
+  template: ''
 })
 export class ModalViewComponent implements OnInit, OnDestroy {
   destroy = new Subject<any>();
@@ -24,13 +23,11 @@ export class ModalViewComponent implements OnInit, OnDestroy {
   constructor(
     private modalController: ModalController,
     private messageService: MessageService,
-    private route: ActivatedRoute,
-  ) {
-  }
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.route.params.pipe(takeUntil(this.destroy)).subscribe((params) => {
-
       // this.modal.componentInstance.modalID = params.id;
       this.modalID = params.id;
       if (this.modalID === 'about-app') {
@@ -39,29 +36,11 @@ export class ModalViewComponent implements OnInit, OnDestroy {
         this.showModalPrivacy();
       } else if (this.modalID === 'terms') {
         this.showModalTerms();
-      } else if (this.modalID === 'intro-video') {
-        this.showModalVideo();
       } else if (this.modalID === 'login') {
         this.showModalLogin();
       }
 
       console.log('modalID: ', this.modalID);
-    });
-
-  }
-
-
-
-  async showModalVideo() {
-    const modal = await this.modalController.create({
-      component: VideoComponent,
-      cssClass: 'video-css',
-      backdropDismiss: true,
-      swipeToClose: true,
-      showBackdrop: true,
-    });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
     });
   }
 
@@ -71,7 +50,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
@@ -84,7 +63,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
@@ -97,7 +76,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
@@ -110,19 +89,22 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
-    return modal.present()
-    .then(result => {
-      console.log('result: ', result);
-    },
-    reason => {
-      console.log('reason: ', reason);
-    })
+    return modal
+      .present()
+      .then(
+        (result) => {
+          console.log('result: ', result);
+        },
+        (reason) => {
+          console.log('reason: ', reason);
+        }
+      )
 
-    .catch((err) => {
-      return this.messageService.errorAlert(err);
-    });
+      .catch((err) => {
+        return this.messageService.errorAlert(err);
+      });
   }
 
   ngOnDestroy() {

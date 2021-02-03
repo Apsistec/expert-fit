@@ -35,13 +35,14 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { SchedulerModule } from 'angular-calendar-scheduler';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ErrorInterceptor } from './services/error.interceptor';
+import { UnknownComponent } from './unknown/unknown.component';
 
 export function firebaseAppNameFactory() {
   return `expert-fit`;
 }
 
 @NgModule({
-  declarations: [AppComponent, SideMenuComponent, LoginComponent],
+  declarations: [AppComponent, SideMenuComponent, LoginComponent, UnknownComponent],
   entryComponents: [],
   imports: [
     BrowserModule,

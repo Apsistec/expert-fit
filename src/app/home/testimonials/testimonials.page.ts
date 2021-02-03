@@ -1,63 +1,42 @@
-import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { User } from '../../models/users.model';
-import { map } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from '../../services/message.service';
-import { Ratings } from 'src/app/models/ratings.model';
+import { Review } from 'src/app/models/reviews.model';
+import { Observable, Subject } from 'rxjs';
+import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
   selector: 'app-testimonials',
   templateUrl: './testimonials.page.html',
   styleUrls: ['./testimonials.page.scss'],
 })
-export class TestimonialsPage {
-  value: any;
-  rate;
+export class TestimonialsPage implements OnInit {
+  private ngUnsubscribe: Subject<any> = new Subject();
+
+  isReadonly = true;
+  formRating;
   overStar: number | undefined;
   reviewForm;
   user: User;
-  testimonials = Ratings;
-  newTestimonial;
+  reviews: Observable<any>;
+  myReviews: Observable<any>;
   segment: string;
+
   constructor(
     public modalController: ModalController,
     public authService: AuthService,
-    private messageService: MessageService,
-    private afs: AngularFirestore,
-  ) {
+    private reviewService: ReviewService
+  ) {  }
 
-
+  ngOnInit() {
+    this.reviews = this.reviewService.getAllReviews();
+    this.myReviews = this.reviewService.getUserReviews();
   }
 
-  hoveringOver(value: number): void {
+  hover(value: number): void {
     this.overStar = value;
   }
 
-  setTestimonial(testimonial: string) {
-    return this.afs
-      .doc(`testimonials/${this.newTestimonial.id}`)
-      .set({
-        testimonial,
-      })
-      .then(() => {
-        this.messageService.generalToast({
-          header: 'Testimonial Created',
-          message: 'Your review/testimonial has been created.',
-        });
-      });
-  }
-
-  getTestimonial() {
-    this.afs
-      .collection<any>('testimonials')
-      .get()
-      .pipe(
-        map((testimonial) => {
-          this.newTestimonial = testimonial;
-        })
-      );
-  }
 }

@@ -1,140 +1,65 @@
-<ion-grid>
-  <ion-row>
-    <ion-col>
-      <ion-card color="tertiary" class="shadow">
-        <ion-card-header color="dark">
-          <ion-title color="light    " class="ion-text-capitalize"> A Simple & Effective Approach </ion-title>
-          <ion-card-subtitle>
-            <ion-text color="secondary" class="ion-margin-left">
-              Aim
-              <ion-icon color="warning" name="arrow-forward-outline"></ion-icon>
-              Achieve
-              <ion-icon color="warning" name="arrow-forward-outline"></ion-icon>
-              Analyze
-              <ion-icon color="warning" name="arrow-forward-outline"></ion-icon>
-              Align
-              <ion-icon color="warning" name="repeat-outline"></ion-icon>
-            </ion-text>
-          </ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-grid class="ion-margin-vertical">
-            <ion-row class="ion-justify-content-center">
-              <ion-col size-xl="6" size-lg="6">
-                <img src="../../../assets/svg/circleinfograph1.svg" height="500" style="display: block; margin: auto" />
+<ion-row class="ion-text-center ion-justify-content-center ion-margin ion-padding ">
+  <ion-col class="ion-padding ion-margin">
+
+    <ion-title>
+      <ion-text class="ion-text-uppercase" color="warning">
+        Aim
+        <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+        Achieve
+        <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+        Analyze
+        <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+        Align
+        <ion-icon color="tertiary" size="large" name="repeat-outline"></ion-icon>
+      </ion-text>
+    </ion-title>
+    <ion-text color="danger" class="ion-text-capitalize"
+    >A 4 Step Approach to fitness
+  </ion-text>
+</ion-col>
+</ion-row>
+            <ion-row class="ion-justify-content-center ion-padding ion-margin ">
+              <ion-col size-xl="3" size-lg="4"  size-md="5" class="ion-align-items-center ion-text-center ion-padding ion-margin">
+                <img src="../../../assets/svg/circleinfograph1.svg"  />
               </ion-col>
-              <ion-col size-xl="6" size-lg="6" class="ion-align-self-center">
+              <ion-col size-xl="3" size-lg="4" size-md="6" class="ion-align-items-center ion-text-center ion-margin ion-padding">
                 <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts">
-                  <ion-slide *ngFor="let phase of phases">
-                    <ion-card color="dark" style="max-width: 500px">
-                      <img [src]="phase.image" />
-                      <ion-card-header color="medium">
-                        <ion-card-title>
-                          <ion-text color="primary" class="ion-text-capitalize" style="font-size: larger">
-                            {{ phase.id }}. {{ phase.title }}
+                  <ion-slide *ngFor="let phase of phases" >
+                    <ion-card style="background: var(--ion-color-medium-shade);width: 100%;height:fit-content;" class="ion-no-margin">
+                      <img [src]="phase.image" style="height:200px;width:100%;"/>
+                      <ion-toolbar style="background: var(--ion-color-medium-tint);">
+                        <ion-title>
+                          <ion-text color="warning" class="ion-text-capitalize" style="font-size: large">
+                            {{ phase.id }}.
                           </ion-text>
-                        </ion-card-title>
-                        <ion-card-subtitle>
-                          <ion-text color="light">
-                            {{ phase.content }}
+                          <ion-text color="warning" class="ion-text-uppercase" style="font-size: large">
+                            {{ phase.title }}
                           </ion-text>
-                        </ion-card-subtitle>
-                      </ion-card-header>
+                        </ion-title>
+                      </ion-toolbar>
+                      <ion-card-content style="background: var(--ion-color-medium-shade);">
+                        <ion-text color="light">
+                          {{ phase.content }}
+                        </ion-text>
+                      </ion-card-content>
                     </ion-card>
                   </ion-slide>
                 </ion-slides>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </ion-card-content>
-        <ion-item style="--background: var(--ion-color-dark-tint);" detail="false">
-          <div style="display:block; margin:auto;">
-
-            <ion-button color="light" strong fill="outline" style="background: rgba(255, 255, 255, 0.2)" routerLink="/home#pageThreeTwo"> Learn More </ion-button>
-            <ion-button color="secondary" strong style="border:3px solid var(--ion-color-tertiary-tint);border-radius: 10px;" routerLink="/products"> Products & Plans </ion-button>
-          </div>
-        </ion-item>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-  <ion-row id="pageThreeTwo" class="ion-justify-content-around ion-padding">
-    <ion-col size-xl="3" size-lg="3" size-md="3" >
-      <ion-card color="light" class="schedule-card shadow">
-        <ion-card-header>
-          <ion-card-title>
-            <ion-text color="primary"> Surpass your expectations </ion-text>
-          </ion-card-title>
-          <ion-card-subtitle>
-            <ion-text color="dark"> Motivation, real-time reporting & consultative feedback </ion-text>
-          </ion-card-subtitle>
-        </ion-card-header>
-        <ion-item detail="true" button color="danger" fill="outline" strong href="/home#pageTwo">
-          <ion-text color="light">
-            Learn More
-          </ion-text>
-          
-        </ion-item>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size-xl="3" size-lg="3"  size-md="3" >
-      <ion-card color="light" class="schedule-card shadow">
-        <ion-card-header>
-          <ion-card-title>
-            <ion-text color="primary"> Options to suite all needs </ion-text>
-          </ion-card-title>
-
-          <ion-card-subtitle>
-            <ion-text color="dark">
-              Private, semi-private & home sessions available <br />
-            </ion-text>
-          </ion-card-subtitle>
-        </ion-card-header>
-        <ion-item detail="true" button color="danger" fill="outline" strong href="/home#pageTwo">
-          <ion-text color="light">
-            Learn More
-          </ion-text>
-          
-        </ion-item>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size-xl="3" size-lg="3" size-md="3" >
-      <ion-card color="light" class="schedule-card shadow">
-        <ion-card-header>
-          <ion-card-title>
-            <ion-text color="primary"> Taking fitness to new dimensions </ion-text>
-          </ion-card-title>
-          <ion-card-subtitle>
-            <ion-text color="dark"> Establish a progressive maintenance routine to keep forever </ion-text>
-          </ion-card-subtitle>
-        </ion-card-header>
-        <ion-item detail="true" button color="danger" fill="outline" strong href="/home#pageTwo">
-          <ion-text color="light">
-            Learn More
-          </ion-text>
-          
-        </ion-item>
-      </ion-card>
-    </ion-col>
-
-    <ion-col size-xl="3" size-lg="3" size-md="3" >
-      <ion-card color="light" class="schedule-card shadow">
-        <ion-card-header>
-          <ion-card-title>
-            <ion-text color="primary">Reduce chance of injury </ion-text>
-          </ion-card-title>
-          <ion-card-subtitle>
-            <ion-text color="dark"> Prevent injuries with safe balanced techniques </ion-text>
-          </ion-card-subtitle>
-        </ion-card-header>
-        <ion-item detail="true" button color="danger" fill="outline" strong href="/home#pageTwo">
-          <ion-text color="light">
-            Learn More
-          </ion-text>
-          
-        </ion-item>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+              <ion-button
+              color="tertiary"
+              strong
+              size="large"
+              class="cta"
+              style="border-radius: 5px"
+              routerLink="/home/products"
+              >
+              View Memberships
+            </ion-button>
+          </ion-col>
+        </ion-row>
+  
+            <ion-fab horizontal="center" vertical="bottom">
+              <ion-fab-button class="bounceOutDown" color="warning"  href="home#pageFour">
+                <ion-icon name="arrow-down-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>

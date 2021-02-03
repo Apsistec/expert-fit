@@ -16,10 +16,15 @@
 
 
 .active-item {
-  border-left: 0.625em solid var(--ion-color-warning-shade);
+  border-left: 0.625em solid var(--ion-color-danger);
   color: var(--ion-color-tertiary-tint)
 }
 
 ion-item {
   border-left: 0.625em solid var(--ion-color-medium);
+  --color: var(--ion-color-dark-tint);
+}
+ion-toolbar{
+  --background: var(--ion-color-dark-tint);
+  border-top: 3px solid var(--ion-color-secondary-shade);
 }

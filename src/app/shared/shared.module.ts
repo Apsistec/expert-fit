@@ -12,9 +12,7 @@ import { RatingsComponent } from './ratings/ratings.component';
 import { TermsComponent } from './terms/terms.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { ModalViewComponent } from './modal-view/modal-view.component';
-import { VideoComponent } from './intro-video/intro-video.component';
-import { RatingModule } from 'ngx-bootstrap/rating';
-
+import { BarRatingModule } from 'ngx-bar-rating';
 
 const routes: Routes = [];
 
@@ -29,7 +27,6 @@ const routes: Routes = [];
     RatingsComponent,
     BenefitsComponent,
     ModalViewComponent,
-    VideoComponent,
   ],
   providers: [DatePipe],
   imports: [
@@ -38,7 +35,7 @@ const routes: Routes = [];
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RatingModule.forRoot(),
+    BarRatingModule
 
   ],
   exports: [
@@ -51,8 +48,7 @@ const routes: Routes = [];
     RatingsComponent,
     BenefitsComponent,
     ModalViewComponent,
-    VideoComponent,
-    RatingModule
+    BarRatingModule
   ]
 })
 export class SharedModule {}

@@ -14,7 +14,7 @@ export class UserTicketsComponent implements OnInit {
   tickets: Observable<any>;
   title = 'User Dashboard';
   constructor(
-    public auth: AuthService,
+    public authService: AuthService,
     private modalCtrl: ModalController,
     private ticket: TicketService
   ) {}
@@ -31,6 +31,6 @@ export class UserTicketsComponent implements OnInit {
   }
 
   // SignOut() {
-  //   this.auth.SignOut();
+  //   this.authService.SignOut();
   // }
 }

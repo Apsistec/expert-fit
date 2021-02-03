@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { MenuController, ModalController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-about-app',
@@ -10,14 +9,24 @@ import { ModalController } from '@ionic/angular';
 export class AboutAppComponent implements OnInit {
   constructor(
     private modalController: ModalController,
-    private router: Router
+    private navCtrl: NavController,
+    private menuCtrl: MenuController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.menuCtrl.close().then(
+      () => {
+        this.menuCtrl.enable(false);
+      }
+    );
 
-  dismissModal() {
-    this.modalController.dismiss().then(() => {
-      this.router.navigateByUrl('/home');
-    });
   }
+
+  goBack() {
+    const isEnabled = this.menuCtrl.isEnabled();
+    this.navCtrl.back();
+    if (!isEnabled) {
+      this.menuCtrl.enable(true);
+    }
+ }
 }

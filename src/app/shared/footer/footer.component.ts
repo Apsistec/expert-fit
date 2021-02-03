@@ -15,7 +15,7 @@ export class FooterComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.chooser = this.router.url === '/testimonials' ? 'benefits' : 'ratings';
+    this.chooser = this.router.url === '/reviews' ? 'benefits' : 'ratings';
   }
 
  }

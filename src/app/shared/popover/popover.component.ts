@@ -18,14 +18,14 @@
 //     private popoverController: PopoverController,
 //     public afAuth: AngularFireAuth,
 //     private router: Router,
-//     private auth: AuthService,
+//     private authService AuthService,
 
 //   ) {}
 
 //   // code for logout
 //   async logOut() {
 //     await this.dismissPopover();
-//     this.auth.SignOut();
+//     this.authService.SignOut();
 //   }
 
 //   async goToProfile() {

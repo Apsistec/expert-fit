@@ -1,4 +1,5 @@
-.slide-card{
-  text-align: left;
-  
+ion-toolbar{
+  --background: var(--ion-color-dark-tint);
+  border-bottom: 3px solid var(--ion-color-tertiary-tint);
+  border-top: 4px solid var(--ion-color-tertiary-tint);
 }

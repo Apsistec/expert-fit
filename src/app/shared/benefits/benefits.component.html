@@ -1,14 +1,17 @@
-<ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts">
+<ion-slides style="border-radius: 15px;" #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts">
   <ion-slide *ngFor="let benefit of benefits">
-    <ion-card color="medium" class="ion-sub-card-global" style="max-width: 500px;">
-      <ion-card-header color="secondary">
-        <ion-card-title>
-          {{ benefit.title }}
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <img [src]="benefit.image" style="height: 150px; display: block; margin: auto;padding-top:20px;" />
-        <p style="padding-top: 20px">{{ benefit.content }}</p>
+
+    <ion-card  style="height: fit-content;  background: var(--ion-color-dark-tint);">
+      <img [src]="benefit.image" style="width: 100%; height: 180px" />
+      <ion-toolbar >
+        <ion-title>
+          <ion-text color="tertiary" style="text-transform: uppercase">
+            {{ benefit.title }}
+          </ion-text>
+        </ion-title>
+      </ion-toolbar>
+      <ion-card-content class="ion-text-left" style="background: var(--ion-color-dark-tint);">
+        <ion-text color="light" style="padding-top: 20px">{{ benefit.content }}</ion-text>
       </ion-card-content>
     </ion-card>
   </ion-slide>

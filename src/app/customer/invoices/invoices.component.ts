@@ -15,7 +15,7 @@ export class InvoicesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.auth.checkInvoices();
+    // this.authService.checkInvoices();
   }
 
 

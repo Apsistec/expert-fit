@@ -44,24 +44,4 @@
 }
 
 
-// media query standards: 650px, ...
-@media (min-width: 650px) {
-  .view-post {
-    max-width: 800px;
-    margin: auto;
-    .bodyText {
-      padding: 0 3em;
-    }
 
-    .subheader {
-      padding: 0 2em;
-    }
-
-    .container {
-      justify-content: center;
-      width: 60%;
-      margin: auto;
-    }
-
-  }
-}

@@ -1,54 +1,58 @@
-<ion-card class="benefit-card ion-margin" color="medium">
-  <ion-card-header color="primary">
+<ion-card class="page-two ion-text-center ion-no-margin">
+  <ion-card-header>
     <ion-card-title>
-      <ion-text color="tertiary">
+      <ion-text color="tertiary"> Why Expert Fitness? </ion-text>
+    </ion-card-title>
 
-        Why Expert Fitness?
-      </ion-text>
-      </ion-card-title>
-    <ion-card-subtitle [@slideInRight]="slideInRight"class="ion-hide-sm-down ion-text-capitalize">
-      <ion-text color="light">
-
-        Select buttons to learn more
-      </ion-text>
-    </ion-card-subtitle>
-    <ion-card-subtitle [@slideInRight]="slideInRight"  class="ion-hide-sm-up ion-text-capitalize">
-      <ion-text color="light">
-
-        Swipe cards below for details
-      </ion-text>
+    <ion-card-subtitle [@slideInRight]="slideInRight" class="ion-hide-sm-up ion-text-capitalize">
+      <ion-text color="light"> Swipe cards below for details </ion-text>
     </ion-card-subtitle>
   </ion-card-header>
-  <ion-card-content> 
-    <ion-grid class="ion-hide-sm-down">
-      <ion-row class="ion-justify-content-center">
-        <ion-col size-xs="12" size-sm="12" size-md="10" size-lg="8" size-md="6" class="ion-text-center" >
-          <ion-button
-          *ngFor="let benefit of benefits"
-          size="small"
-          fill="outline"
-          shape="round"
-          color="dark"
-          strong
-          class="benefit-button"
-          (focus)="chooseBenefit(benefit)">
-          {{ benefit.title }}
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-justify-content-center">
-      <ion-col size-md="8" size-lg="6" size-xl="4">
+  <ion-grid class="ion-hide-sm-down">
+    <ion-row class="ion-justify-content-around">
+      <ion-col size-md="5" size-lg="3" class="ion-align-self-center">
         <app-benefit-tracker [benefit]="benefitChosen"></app-benefit-tracker>
       </ion-col>
-  </ion-row>
-</ion-grid>    
+      <ion-col size-md="5" size-lg="3" class="ion-align-self-center">
+        <ion-text color="light" [@slideInRight]="slideInRight" class="ion-hide-sm-down ion-text-capitalize">
+          Select buttons to learn more
+        </ion-text>
+        <ion-list class="shadow" style="background-color: var(--ion-color-light-shade); border-radius: 15px">
+          <ion-item
+            *ngFor="let benefit of benefits"
+            class="benefit-item"
+            button
+            type="button"
+            (mouseenter)="chooseBenefit(benefit)"
+          >
+            <ion-text color="primary">
+              {{ benefit.title }}
+            </ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-benefits class="ion-hide-sm-up"></app-benefits>
+</ion-card>
+<ion-card class="ion-text-center ion-margin ion-padding bottom-card">
+  <ion-card-header>
+    <ion-card-title color="light"> Why limit yourself? </ion-card-title>
+    <ion-card-subtitle color="danger">At Expert Fitness YOU have it all! </ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-button
+      class="cta"
+      strong 
+      size="large"
+      fill="clear"
+      style="border: 2px solid var(--ion-color-light); background-color: rgba(255, 255, 255, 0.11); border-radius: 5px"
+      color="light"
+      routerLink="/home/about-us"
+      >About Us
+    </ion-button>
+    <ion-button class="cta" strong size="large" color="tertiary" routerLink="/home/products" style="border-radius: 5px">
+      Join Now
+    </ion-button>
   </ion-card-content>
-  <ion-footer class="ion-text-center ion-padding" style="background:var(--ion-color-primary-shade);">
-    <ion-card-title color="light"> Why would you only choose a few of these benefits? </ion-card-title>
-    <ion-card-subtitle color="success">Expert Fitness makes All of these benefits accessible for you!  </ion-card-subtitle>
-    <ion-button strong color="tertiary" >
-      Choose a Plan
-  </ion-button>
-</ion-footer>
- </ion-card>
-<app-benefits class="ion-hide-sm-up"></app-benefits>
+</ion-card>

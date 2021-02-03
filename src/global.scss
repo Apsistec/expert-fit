@@ -25,30 +25,45 @@
 @import '~@ionic/angular/css/flex-utils.css';
 @import '~@ionic/angular/css/display.css';
 
-// bootstrap
-@import '~bootstrap/scss/bootstrap';
+// rating
+@import '~ngx-bar-rating/themes/br-default-theme';
+
+
+// Page transition animation
+.bounceOutDown {
+  animation: 1.5s ease-out infinite bounceoutdown;
+  // z-index: 99;
+}
+
+@keyframes bounceoutdown {
+
+  50% {
+    transform: translate(0, 7px);
+    opacity: .4;
+  }
+}
+
 
 // Classes
 ion-content {
   --background: var(--ion-color-light-shade);
 }
 
-// [ion-fixed] {
-//   min-height: calc(100% - 88px); // adjust to your footer height!
-// }
-
 a:hover {
   cursor: pointer;
 }
 
+// Logos
 .small-logo {
   max-width: 35px;
+  max-height: 48px;
   margin-right: 30px;
   margin-left: 20px;
 }
 
 .full-logo {
   max-width: 160px;
+  max-height: 48px;
   margin-left: 20px;
 }
 
@@ -57,8 +72,35 @@ a:hover {
   color: var(--ion-color-danger);
 }
 
+// buttons call to action
+.cta {
+  margin: 10px;
+}
 
-
+// media query standards: 650px, ...
+@media screen and (min-width: 650px) {
+  .view-post {
+    max-width: 800px;
+    margin: auto;
+    .bodyText {
+      padding: 0 3em;
+    }
+    .subheader {
+      padding: 0 2em;
+    }
+    .container {
+      justify-content: center;
+      width: 60%;
+      margin: auto;
+    }
+  }
+  #pageThree{
+    height:fit-content;
+  }
+  #pageFour {
+    height:fit-content;
+  }
+}
 
 // Lists
 .list-header-global {
@@ -67,26 +109,16 @@ a:hover {
   text-transform: uppercase;
   text-align: left;
 }
-ion-toolbar{
-  --background: var(--ion-color-secondary-tint);
-  color: var(--ion-color-primary);
-  border-bottom: 3px solid var(--ion-color-secondary-shade);
-}
 
 // Cards
-ion-card {
-  border-radius: 10px;
-}
-
 .ion-card-global {
-  border: 3px solid var(--ion-color-secondary-tint);
-  --background: var(--ion-color-light-tint);
+  --background: var(--ion-color-medium-tint);
   ion-card-header {
     text-align: left;
-    text-transform: capitalize;
-    border-bottom: 3px solid var(--ion-color-secondary-tint);
+    border-bottom: 3px solid var(--ion-color-secondary-shade);
     --background: var(--ion-color-secondary-shade);
     ion-card-title {
+      text-transform: uppercase;
       color: var(--ion-color-primary-tint);
       font-weight: 600;
     }
@@ -94,6 +126,7 @@ ion-card {
       color: var(--ion-color-success-tint);
       font-size: larger;
       font-weight: 600;
+      text-transform: capitalize;
     }
   }
   ion-card-content {
@@ -112,92 +145,75 @@ ion-card {
     }
     ion-card-subtitle {
       color: var(--ion-color-light-shade);
-      
     }
   }
   ion-card-content {
     color: black;
-    // padding-top: 20px;
   }
 }
 
-// card-items
-.items{
-  background-color:white;
+// items
+.items {
+  background-color: white;
   border-radius: 5px;
-  // box-shadow:
-  // 0 100px 80px rgba(255, 255, 255, 0.12)
-  // 0 41.8px 33.4px rgba(255, 255, 255, 0.086),
-  // 0 22.3px 17.9px rgba(255, 255, 255, 0.072),
-  // 0 12.5px 10px rgba(255, 255, 255, 0.06),
-  // 0 6.7px 5.3px rgba(255, 255, 255, 0.048),
-  // 0 2.8px 2.2px rgba(255, 255, 255, 0.034),
-}
-.items-shadow{
-  box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-  0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 // Modals
 .modal-css {
   --backdrop-opacity: 88% !important;
-  padding: 0px;
-  margin: 0px;
-  --border-radius: 12px;
-  width: min-content;
-  height: max-content;
+  padding: 0;
+  margin: 0;
+  --border-radius: 15px;
+  // width: min-content;
+  --height: fit-content;
 }
 
 .video-css .modal-wrapper {
-  --border-radius: 12px;
-  --backdrop-opacity: 88%;
-  width: min-content;
-  height: min-content;
+  // --border-radius: 15px;
+  // --backdrop-opacity: 94%;
+  // --width: min-content;
+  --height: fit-content;
 }
 
 // Toasts and Alerts
 .successA {
   --background: var(--ion-color-light);
   --border-color: var(--ion-color-success-shade);
-  --border-radius: 12px;
+  --border-radius: 15px;
   --border-style: solid;
-  --border-width: 6px;
+  --border-width: 3px;
   --color: black;
 }
 
 .warningA {
   --background: var(--ion-color-light);
   --border-color: var(--ion-color-warning-shade);
-  --border-radius: 12px;
+  --border-radius: 15px;
   --border-style: solid;
-  --border-width: 6px;
+  --border-width: 3px;
   --color: black;
 }
 
 .dangerA {
   --background: var(--ion-color-light);
   --border-color: var(--ion-color-danger-shade);
-  --border-radius: 12px;
+  --border-radius: 15px;
   --border-style: solid;
-  --border-width: 6px;
+  --border-width: 3px;
   --color: black;
 }
 
 .infoA {
   --background: var(--ion-color-light);
   --border-color: var(--ion-color-primary-shade);
-  --border-radius: 12px;
+  --border-radius: 15px;
   --border-style: solid;
-  --border-width: 6px;
+  --border-width: 3px;
   --color: black;
 }
 
-.shadow{
+// any shadow
+.shadow {
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-  0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
+    0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
 }

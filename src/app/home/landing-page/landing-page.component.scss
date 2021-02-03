@@ -1,0 +1,83 @@
+.scene-one {
+  height: 94vh;
+  width: 100vw;
+  background-color: var(--ion-color-medium);
+  background: linear-gradient(
+      to right,
+      rgba(39, 39, 88, 0.603) 0%,
+      rgba(15, 0, 71, 0.404) 50%,
+      rgba(24, 1, 1, 0.726) 100%
+    ),
+    linear-gradient(
+      to bottom right,
+      rgba(83, 109, 108, 0.753) 0%,
+      rgba(10, 37, 39, 0.315) 15%,
+      rgba(4, 32, 34, 0.123) 50%,
+      rgba(3, 53, 68, 0.829) 100%
+    ),
+    url(../../../assets/images/fitness-balancing.jpg) center/ cover no-repeat;
+}
+
+.main-title {
+  font: normal normal 800 32px/2 sans-serif;
+}
+
+.main-subtitle {
+  font: normal normal 800 20px sans-serif;
+}
+
+sup {
+  font: small-caps normal 800 18px;
+  color: var(--ion-color-secondary-tint);
+  text-shadow: 3px 1px 1px var(--ion-color-secondary-shade), 8px 4px 2px black;
+}
+
+.main-heading-card {
+  padding-bottom: 12px;
+  background: var(--ion-color-dark-tint);
+  border: 4px outset var(--ion-color-danger);
+}
+
+.video {
+  cursor: pointer;
+  margin-top: 50px;
+  margin-right: 50px;
+}
+
+.video:hover {
+  text-decoration: underline;
+}
+
+.pulsing {
+  animation: 4s ease-out infinite pulsar;
+  // z-index: 99;
+}
+
+@keyframes pulsar {
+  50% {
+    transform: scale(0.8, 0.8);
+    opacity: 30%;
+  }
+}
+
+#pageThree{
+  background: linear-gradient(
+    to bottom left,
+    rgba(29, 52, 83, 0.453) 0%,
+    rgba(59, 74, 116, 0.323) 15%,
+    rgba(21, 44, 95, 0.615) 60%,
+    rgba(59, 71, 92, 0.429) 100%
+    ),
+    linear-gradient(
+    to top,
+    rgba(41, 105, 105, 0.453) 0%,
+    rgba(85, 138, 148, 0.323) 15%,
+    rgba(79, 104, 105, 0.715) 60%,
+    rgba(59, 85, 92, 0.829) 100%
+    ),
+     url(../../../assets/images/dark-suede.png)  center / cover no-repeat ;
+}
+
+.page-four{
+  background:linear-gradient(rgba(0, 0, 0, 0.952), rgba(71, 71, 71, 0.445)), center/ cover no-repeat url(../../../assets/images/platinum.png)
+}

@@ -33,17 +33,8 @@ const routes: Routes = [
         component: VideosComponent,
       },
       {
-        path: 'unknown',
-        loadChildren: () => import('../home/unknown/unknown.module').then((m) => m.UnknownPageModule)
-      },
-      {
-        path: '**',
-        redirectTo: '/unknown',
-        pathMatch: 'full'
-      },
-      {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
       }
     ]

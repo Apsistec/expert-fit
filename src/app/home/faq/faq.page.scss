@@ -1,12 +1,11 @@
 .accordion-list {
   margin-bottom: 4px;
-  --ion-item-background: var(--ion-color-light-shade);
+  --ion-item-background: var(--ion-color-light);
 }
 
 .section,
 ion-item:disabled {
-  // font-weight: 600;
-  --ion-item-background: var(--ion-color-light-shade);
+  --ion-item-background: var(--ion-color-light);
   --ion-item-color: #000 !important;
 }
 
@@ -15,10 +14,14 @@ ion-item:disabled {
 }
 
 .info {
-  --ion-item-background: var(--ion-color-light-tint);
+  --ion-item-background: var(--ion-color-light-shade);
 }
 
 .info-text {
   padding-top: 12px;
   color: var(--ion-color-primary);
+}
+ion-toolbar{
+  --background: var(--ion-color-dark-tint);
+  border-bottom: 3px solid var(--ion-color-secondary-shade);
 }

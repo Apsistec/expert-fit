@@ -1,21 +1,25 @@
-<ion-slides #ratings pager="true" (ionSlidesDidLoad)="slidesDidLoad(ratings)" [options]="slideOpts">
-  <ion-slide *ngFor="let rating of testimonials">
-    <ion-item class="items" style="max-width: 80%">
+<ion-slides #review pager="true" (ionSlidesDidLoad)="slidesDidLoad(review)" [options]="slideOpts">
+  <ion-slide *ngFor="let rating of ratings | async">
+    <ion-item class="items ion-margin-vertical" style="max-width: 80%">
       <ion-grid>
-        <ion-row class="ion-justify-content-around">
-          <ion-col size="4">
-            <ion-avatar>
-              <img [src]="[rating.img || '../../../assets/images/dummy-user.png']" />
-            </ion-avatar>
-            <ion-text color="primary">
-              {{ rating.author }}
-            </ion-text>
-            <rating [(ngModel)]="rate" (onHover)="hoveringOver($event)" style="color: var(--ion-color-danger)" aria-label="Rating" readonly="true" max="5" rate="rating.stars"></rating>
-          </ion-col>
-          <ion-col>
-            <p>{{ rating.message }}</p>
-          </ion-col>
-        </ion-row>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="4" class="ion-align-self-center">
+          <ion-avatar>
+            <img [src]="[rating.photoURL || '../../../assets/images/dummy-user.png']" />
+          </ion-avatar>
+          <ion-text color="primary"> {{ rating.displayName }} </ion-text>
+          <br>
+          <bar-rating [(rate)]="rating.stars" (onHover)="hover($event)" 
+          [theme]="'default'" max="5" readOnly="true"
+          ></bar-rating>
+        </ion-col>
+        <ion-col size="8" class="ion-align-self-center">
+          <ion-text color="warning">
+            {{ rating.created_at}}
+          </ion-text>
+          <p>{{ rating.message }}</p>
+        </ion-col>
+      </ion-row>
       </ion-grid>
     </ion-item>
   </ion-slide>

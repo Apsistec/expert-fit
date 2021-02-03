@@ -2,17 +2,16 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from '../models/users.model';
+import { MessageService } from './message.service';
 // import { AngularFireAuth } from '@angular/fire/auth';
 // import { AngularFirestore } from '@angular/fire/firestore';
 // import { Router } from '@angular/router';
 // import { ModalController } from '@ionic/angular';
 // import * as fire from 'firebase/app';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { User } from '../models/users.model';
-import { MessageService } from './message.service';
 // import { MessageService } from './message.service';
-
 
 @Injectable({
   providedIn: 'root'
@@ -20,28 +19,27 @@ import { MessageService } from './message.service';
 export class AuthService {
   user$: Observable<User>;
   role: string[];
-  // userType;
   user: Observable<User>;
-  // displayName;
   currentBehaviorUser = new BehaviorSubject(null);
+  // userType;
+  // displayName;
   // authState$: any = this.afAuth.authState;
   // isLoggedIn;
   // notLoggedIn;
+
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     private messageService: MessageService,
-    private router: Router,
-    // private modalController: ModalController
-  ) {
-
+    private router: Router
+  ) // private modalController: ModalController
+  {
     this.afAuth.user.pipe(
       map((user) => {
         if (user) {
           // tslint:disable-next-line: no-shadowed-variable
           this.afs.doc<any>(`users/${user.uid}`).valueChanges();
-          }
-       else {
+        } else {
           of(null);
         }
       })
@@ -209,7 +207,7 @@ export class AuthService {
 
   // determines if user is a member
   private checkAuthorization(user: User): boolean {
-    if (user && (user.role.includes('PUBLIC' || 'CUSTOMER' || 'EMPLOYEE' || 'ADMIN'))) {
+    if (user && user.role.includes('PUBLIC' || 'CUSTOMER' || 'EMPLOYEE' || 'ADMIN')) {
       return true;
     } else {
       return false;

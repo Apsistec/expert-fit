@@ -8,10 +8,10 @@ import { TicketComponent } from '../../shared/ticket/ticket.component';
 
 @Component({
   selector: 'app-admin-dashboard',
-  templateUrl: './admin-dashboard.page.html',
-  styleUrls: ['./admin-dashboard.page.scss'],
+  templateUrl: './admin-dashboard.component.html',
+  styleUrls: ['./admin-dashboard.component.scss'],
 })
-export class AdminDashboardPage implements OnInit {
+export class AdminDashboardComponent implements OnInit {
   tickets: Observable<any>;
   title = 'Admin Dashboard';
   admins;
@@ -21,7 +21,7 @@ export class AdminDashboardPage implements OnInit {
   employees;
 
   constructor(
-    public auth: AuthService,
+    public authService: AuthService,
     private ticket: TicketService,
     private modalCtrl: ModalController,
     private collection: CollectionService

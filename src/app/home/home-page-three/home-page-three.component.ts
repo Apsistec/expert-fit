@@ -21,12 +21,14 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.slideOpts = {
-      initialSlide: 4,
       speed: 1600,
       loop: true,
       slidesPerView: 1,
       grabCursor: true,
-
+      watchSlidesProgress: true,
+      resistanceRatio: 0,
+      spaceBetween: 300,
+      centeredSlides: true,
 
     };
   }

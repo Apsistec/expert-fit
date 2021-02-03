@@ -11,14 +11,14 @@ export class HasPermissionDirective implements OnInit, OnDestroy {
   subs: Subscription = new Subscription();
 
   constructor(
-    private auth: AuthService,
+    private authService: AuthService,
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef
   ) {}
 
   ngOnInit() {
-    this.subs = this.auth.currentBehaviorUser.subscribe((user) => {
-      if (this.auth.hasPermissions(this.permissions)) {
+    this.subs = this.authService.currentBehaviorUser.subscribe((user) => {
+      if (this.authService.hasPermissions(this.permissions)) {
         this.viewContainer.createEmbeddedView(this.templateRef);
       } else {
         this.viewContainer.clear();

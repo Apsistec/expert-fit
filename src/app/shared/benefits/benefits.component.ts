@@ -23,8 +23,8 @@ export class BenefitsComponent implements OnInit, AfterViewInit {
       initialSlide: 1,
       speed: 1200,
       loop: true,
-      spaceBetween: 20,
-      slidesPerView: 1
+      slidesPerView: 1,
+      spaceBetween: 400,
     };
   }
 

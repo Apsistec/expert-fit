@@ -1,26 +1,45 @@
-.benefit-card {
-  width: fit-content;
-  display: block;
-  margin: 20px auto;
-  border: 5px solid var(--ion-color-primary-shade)
+.page-two{
+  background:linear-gradient(to right, rgba(41, 41, 41, 0.767), rgba(77, 76, 76, 0.589)), center/ cover no-repeat url('../../../assets/images/arm-back-muscles.jpg');
 }
 
-.benefit-button {
-  border-radius: 15px;
-  background: var(--ion-color-medium);
+
+// ion-item
+.benefit-item {
+  display: inline-grid;
+  min-width: 27%;
+  margin: 1px;
+  text-transform: uppercase;
+  --background: var(--ion-color-light-shade);
 }
 
-// .benefit-button:focus {
-//   background: orange;
-// }
-
-.benefit-button:hover {
-  background: var(--ion-colo-danger);;
+.benefit-item:focus {
+  box-shadow: 2px 2px 2px var(--ion-color-danger);
 }
 
-.benefit-sub-card {
-  background: var(--ion-color-dark-tint);
-  width: fit-content;
-  display: block;
-  margin: 20px auto;
+.benefit-item:hover {
+  box-shadow: 2px 2px 2px var(--ion-color-danger);
+}
+
+.benefit-item:visited {
+  box-shadow: 2px 2px 2px var(--ion-color-danger);
+}
+
+ion-list{
+  border: 3px solid var(--ion-color-secondary);
+}
+
+.bottom-card{
+  background: linear-gradient(
+    to bottom left,
+    rgba(0, 0, 0, 0.853) 0%,
+    rgba(0, 0, 0, 0.523) 45%,
+    rgba(33, 60, 78, 0.715) 60%,
+    rgba(15, 69, 85, 0.829) 100%
+  ),
+}
+
+// toolbars
+ion-toolbar{
+  --background: var(--ion-color-light-shade);
+  border-bottom: 3px solid var(--ion-color-secondary-shade);
 }

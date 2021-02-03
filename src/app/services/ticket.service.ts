@@ -14,7 +14,7 @@ export class TicketService {
 
   constructor(
     private afs: AngularFirestore,
-    private auth: AuthService,
+    private authService: AuthService,
     public afAuth: AngularFireAuth
   ) {
     this.afAuth.authState.subscribe((user) => {
@@ -29,14 +29,14 @@ export class TicketService {
     if (id) {
       return this.afs.doc(`tickets/${id}`).update(info);
     } else {
-      info.creator = this.auth.currentBehaviorUser.value.id;
+      info.creator = this.authService.currentBehaviorUser.value.id;
       info.created_at = fire.default.firestore.FieldValue.serverTimestamp();
       return this.afs.collection('tickets').add(info);
     }
   }
 
   getUserTickets() {
-    const id = this.auth.currentBehaviorUser.value.id;
+    const id = this.authService.currentBehaviorUser.value.id;
     return this.afs
       .collection('tickets', (ref) => ref.where('creator', '==', id))
       .snapshotChanges()

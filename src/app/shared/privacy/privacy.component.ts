@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { SeoService } from '../../services/seo.service';
 
 @Component({
@@ -11,14 +10,12 @@ import { SeoService } from '../../services/seo.service';
 export class PrivacyComponent implements OnInit {
   constructor(
     private modalController: ModalController,
-    private router: Router
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {}
 
-  dismissModal() {
-    this.modalController.dismiss().then(() => {
-      this.router.navigateByUrl('/home');
-    });
+  goBack() {
+    this.navCtrl.back();
   }
 }

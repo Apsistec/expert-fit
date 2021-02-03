@@ -1,12 +1,10 @@
 <ion-header transparent>
-  <ion-toolbar class="toolbar-global">
+  <ion-toolbar >
     <ion-title>
-    <h3>
     Privacy Policy
-    </h3>
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="dismissModal()"> Close </ion-button>
+      <ion-button (click)="goBack()" color="danger">Close</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -169,5 +167,5 @@
     support@expert-fitness.app or by mail using the details provided below: 6801
     19th Street Suite 777, Midland, TX, 75777, United States
   </p>
-
+  <ion-button class="cta" (click)="goBack()"> Close </ion-button>
 </ion-content>
