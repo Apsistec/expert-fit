@@ -1,6 +1,4 @@
-.page-two{
-  background:linear-gradient(to right, rgba(41, 41, 41, 0.767), rgba(77, 76, 76, 0.589)), center/ cover no-repeat url('../../../assets/images/arm-back-muscles.jpg');
-}
+
 
 
 // ion-item
@@ -9,7 +7,7 @@
   min-width: 27%;
   margin: 1px;
   text-transform: uppercase;
-  --background: var(--ion-color-light-shade);
+  --background: var(--ion-color-dark-tint);
 }
 
 .benefit-item:focus {
@@ -26,15 +24,17 @@
 
 ion-list{
   border: 3px solid var(--ion-color-secondary);
+  background-color: var(--ion-color-dark-tint); 
+  border-radius: 15px
 }
 
 .bottom-card{
   background: linear-gradient(
     to bottom left,
-    rgba(0, 0, 0, 0.853) 0%,
-    rgba(0, 0, 0, 0.523) 45%,
-    rgba(33, 60, 78, 0.715) 60%,
-    rgba(15, 69, 85, 0.829) 100%
+    rgba(0, 0, 0, 0.192) 0%,
+    rgba(0, 0, 0, 0.151) 33%,
+    rgba(33, 60, 78, 0.164) 66%,
+    rgba(15, 69, 85, 0.137) 100%
   ),
 }
 

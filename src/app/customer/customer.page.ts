@@ -12,7 +12,6 @@ import { PrivacyComponent } from '../shared/privacy/privacy.component';
 import { TermsComponent } from '../shared/terms/terms.component';
 import { Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { PageScrollService } from 'ngx-page-scroll-core';
 
 @Component({
   selector: 'app-customer',
@@ -55,18 +54,10 @@ export class CustomerPage implements OnInit {
     public userService: UserService,
     private modalController: ModalController,
     private messageService: MessageService,
-    private pageScrollService: PageScrollService,
     @Inject(DOCUMENT) private document: any
   ) {}
 
-  ngOnInit() {
-    this.pageScrollService.scroll({
-      document: this.document,
-      scrollTarget: '.theEnd',
-    });
-  }
-
-
+  ngOnInit() {}
 
   async showModalPrivacy() {
     const modal = await this.modalController.create({

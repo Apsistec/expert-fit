@@ -20,7 +20,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     FormsModule,
     IonicModule,
     AdminPageRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     AdminPage,

@@ -28,11 +28,29 @@
 // rating
 @import '~ngx-bar-rating/themes/br-default-theme';
 
+// All Title Font Color
+
 
 // Page transition animation
 .bounceOutDown {
   animation: 1.5s ease-out infinite bounceoutdown;
-  // z-index: 99;
+   ion-icon{
+    color:var(--ion-color-secondary-tint);
+  }
+  margin-right: 10px;
+  --background: transparent;
+  --border-color:var(--ion-color-secondary);
+  --border-width: 2px;
+  --border-style:solid;
+  --ripple-color:var(--ion-color-danger);
+  --background-hover:white;
+  --background-hover-opacity:.3;
+  --background-focused: white;
+  --background-focused-opacity: .3;
+  --background-activated:var(--ion-color-secondary-tint);;
+  --background-activated-opacity:.5;
+  --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
+  0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
 }
 
 @keyframes bounceoutdown {
@@ -115,11 +133,11 @@ a:hover {
   --background: var(--ion-color-medium-tint);
   ion-card-header {
     text-align: left;
-    border-bottom: 3px solid var(--ion-color-secondary-shade);
-    --background: var(--ion-color-secondary-shade);
+    border-bottom: 3px solid var(--ion-color-secondary);
+    --background: var(--ion-color-primary);
     ion-card-title {
       text-transform: uppercase;
-      color: var(--ion-color-primary-tint);
+      color: var(--ion-color-secondary-tint);
       font-weight: 600;
     }
     ion-card-subtitle {
@@ -156,6 +174,7 @@ a:hover {
 .items {
   background-color: white;
   border-radius: 5px;
+  height: 150px;
 }
 
 // Modals
@@ -177,36 +196,32 @@ a:hover {
 
 // Toasts and Alerts
 .successA {
-  --background: var(--ion-color-light);
+  --background:rgba(25, 240, 32, 0.301);
   --border-color: var(--ion-color-success-shade);
-  --border-radius: 15px;
   --border-style: solid;
   --border-width: 3px;
   --color: black;
 }
 
 .warningA {
-  --background: var(--ion-color-light);
+  --background: rgba(237, 181, 29, 0.301);
   --border-color: var(--ion-color-warning-shade);
-  --border-radius: 15px;
   --border-style: solid;
   --border-width: 3px;
   --color: black;
 }
 
 .dangerA {
-  --background: var(--ion-color-light);
+  --background: rgba(210, 42, 30, 0.301);
   --border-color: var(--ion-color-danger-shade);
-  --border-radius: 15px;
   --border-style: solid;
   --border-width: 3px;
   --color: black;
 }
 
 .infoA {
-  --background: var(--ion-color-light);
+  --background: rgba(1, 24, 137, 0.301);
   --border-color: var(--ion-color-primary-shade);
-  --border-radius: 15px;
   --border-style: solid;
   --border-width: 3px;
   --color: black;

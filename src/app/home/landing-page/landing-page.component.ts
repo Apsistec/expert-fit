@@ -1,6 +1,5 @@
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ResolveStart } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent, ModalController } from '@ionic/angular';
 import { bounceOutUp, flash } from 'ng-animate';
 import { MessageService } from '../../services/message.service';
@@ -34,12 +33,12 @@ export class LandingPageComponent implements OnInit {
   bounceOutUp: any;
   flash: any;
   dataReturned;
-
+  scrolledDown = false;
   @ViewChild(IonContent, { static: false }) content: IonContent;
-
   constructor(private modalController: ModalController, private messageService: MessageService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   async loadVideo() {
     const modal = await this.modalController.create({
@@ -64,5 +63,14 @@ export class LandingPageComponent implements OnInit {
 
   scrollToTop() {
     this.content.scrollToTop(750);
+  }
+
+  scrollToLabel(label) {
+    const section = document.getElementById(label);
+    this.content.scrollToPoint(0, section.offsetTop, 750);
+  }
+
+  onScroll(event) {
+    this.scrolledDown = event.detail.scrollTop > 700 ? true : false;
   }
 }

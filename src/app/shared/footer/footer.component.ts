@@ -10,12 +10,13 @@ import { User } from 'src/app/models/users.model';
 })
 export class FooterComponent implements OnInit {
   yearDate: any = Date.now();
-  chooser;
+  ratings: boolean;
   user: Observable<User>;
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.chooser = this.router.url === '/reviews' ? 'benefits' : 'ratings';
+    console.log('url: ', this.router.url);
+    this.ratings = this.router.url === '/home/reviews' ? false : true;
   }
 
  }

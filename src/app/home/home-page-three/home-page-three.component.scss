@@ -1,7 +1,16 @@
-
-
+.title-card {
+  background: linear-gradient(
+    to bottom left,
+    rgba(0, 0, 0, 0.281) 0%,
+    rgba(0, 0, 0, 0.192) 33%,
+    rgba(9, 16, 20, 0.096) 66%,
+    rgba(12, 17, 19, 0.288) 100%
+  );
+}
 
 // toolbars
-ion-toolbar{
-  --background: var(--ion-color-primary-tint);
+ion-toolbar {
+  --background: var(--ion-color-medium-shade);
+  border-top: 3px solid var(--ion-color-warning-tint);
+  border-bottom: 3px solid var(--ion-color-warning-tint);
 }

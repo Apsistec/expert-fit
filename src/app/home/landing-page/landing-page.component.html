@@ -1,5 +1,4 @@
-<ion-content fullscreen scrollEvents="true">
-  <ion-grid class="ion-no-padding">
+<ion-content fullscreen scrollEvents="true" (ionScroll)="onScroll($event)">
     <ion-row id="top" class="scene-one ion-justify-content-center ion-align-items-center">
       <ion-col size-sm="12" size-md="8" size-lg="6" size-xl="4" class="ion-text-center">
         <img [@bounceOutUp]="bounceOutUp" src="../../../assets/logos/logo.png" class="ion-hide-md-down" />
@@ -17,30 +16,41 @@
           size="large"
           class="cta"
           strong
-          color="tertiary"
+          color="secondary"
           routerLink="/login"
           style="border-radius:5px;"
         >
           Join Now
         </ion-button>
       </ion-col>
-      <ion-fab  horizontal="end" vertical="top" >
-               <img width="105" class="video pulsing" src="../../../assets/svg/btn-play.svg" (click)="loadVideo()" />
-      </ion-fab>
-      <ion-fab   horizontal="center" vertical="bottom">
-        <ion-fab-button class="bounceOutDown" color="warning" href="home#pageThree">
-          <ion-icon name="arrow-down-outline"></ion-icon>
+        <ion-fab  horizontal="end" vertical="top" >
+          <img width="105" class="video pulsing" src="../../../assets/svg/btn-play.svg" (click)="loadVideo()" />
+        </ion-fab>
+        <ion-fab   horizontal="center" vertical="bottom">
+          <ion-fab-button class="bounceOutDown" size="small" (click)="scrollToLabel('pageThree')
+          ">
+          <ion-icon name="chevron-down-outline"></ion-icon>
         </ion-fab-button>
       </ion-fab>
     </ion-row>
     <ion-row id="pageThree" >
       <ion-col class="ion-align-self-center" >
         <app-home-page-three></app-home-page-three>
+        <ion-fab horizontal="center" vertical="bottom">
+          <ion-fab-button  class="bounceOutDown" size="small"  (click)="scrollToLabel('pageFour')">
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
       </ion-col>
     </ion-row>
     <ion-row id="pageFour" class="page-four">
       <ion-col class="ion-align-self-center ion-padding-vertical" >
         <app-home-page-four></app-home-page-four>
+        <ion-fab horizontal="center" vertical="bottom">
+          <ion-fab-button  class="bounceOutDown" size="small" (click)="scrollToLabel('pageTwo')">
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
       </ion-col>
     </ion-row>
     <ion-row id="pageTwo">
@@ -48,15 +58,11 @@
         <app-home-page-two></app-home-page-two>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col>
-        <app-footer></app-footer>
-        <ion-fab horizontal="end" vertical="bottom">
-          <ion-fab-button  size="small" color="secondary" (click)="scrollToTop()">
-            <ion-icon color="danger" name="chevron-up-sharp"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <app-footer style="height: fit-content;"></app-footer>
+    
+    <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+      <ion-fab-button id="up" [hidden]="!scrolledDown" class="up" size="small" (click)="scrollToTop()">
+        <ion-icon  name="chevron-up-sharp"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>

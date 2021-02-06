@@ -50,7 +50,6 @@
     "ng-animate": "^0.3.4",
     "ngx-auth-firebaseui": "^5.0.1",
     "ngx-bar-rating": "^2.0.0",
-    "ngx-page-scroll-core": "^7.0.3",
     "ngx-quicklink": "^0.2.6",
     "prettier": "^2.2.1",
     "rxjs": "^6.6.3",

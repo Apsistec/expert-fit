@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { map, take, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Review } from '../models/reviews.model';
 
 @Injectable({
@@ -12,14 +12,17 @@ import { Review } from '../models/reviews.model';
 })
 export class ReviewService {
   private ngUnsubscribe: Subject<any> = new Subject();
-
-
+  id;
 
   constructor(private afs: AngularFirestore, private authService: AuthService, public afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe((user) => {
       if (!user) {
         this.ngUnsubscribe.next();
         this.ngUnsubscribe.complete();
+      } else if (user) {
+        this.afAuth.user.pipe(map(u => {
+          this.id = u.uid;
+        }));
       }
     });
   }
@@ -28,29 +31,27 @@ export class ReviewService {
     if (id) {
       return this.afs.doc(`reviews/${id}`).update(info);
     } else {
-      info.creator = this.authService.currentBehaviorUser.value.id;
+      info.displayName = this.authService.currentBehaviorUser.value.id;
       info.created_at = fire.default.firestore.FieldValue.serverTimestamp();
       return this.afs.collection('reviews').add(info);
     }
   }
 
-  getUserReviews() {
-    // const id = this.authService.currentBehaviorUser.value.id;
-    // return this.afs
-    //   .collection<Review>('reviews', (ref) => ref.where('displayName', '==', id))
-    //   .snapshotChanges()
-    //   .pipe(
-    //     map((actions) =>
-    //       actions.map((a) => {
-    //         const data: any = a.payload.doc.data();
-    //         // tslint:disable-next-line: no-shadowed-variable
-    //         const i = a.payload.doc.id;
-    //         return { i, ...data };
-    //       })
-    //     ),
-    //     takeUntil(this.ngUnsubscribe)
-    //   );
-  }
+  // getUserReviews(): Observable<any[]> {
+  //   return this.afs
+  //     .collection<Review>('reviews', (ref) => ref.where('id', '==', this.id))
+  //     .snapshotChanges()
+  //     .pipe(
+  //       map((actions) =>
+  //         actions.map((a) => {
+  //           const data: any = a.payload.doc.data();
+  //           const id = a.payload.doc.id;
+  //           return { id, ...data };
+  //         })
+  //       ),
+  //       takeUntil(this.ngUnsubscribe)
+  //     );
+  // }
 
   getAllReviews() {
     return this.afs

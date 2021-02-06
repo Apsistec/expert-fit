@@ -1,65 +1,65 @@
-<ion-row class="ion-text-center ion-justify-content-center ion-margin ion-padding ">
+<ion-row class="ion-text-center ion-justify-content-center ion-margin ion-padding">
   <ion-col class="ion-padding ion-margin">
-
-    <ion-title>
-      <ion-text class="ion-text-uppercase" color="warning">
-        Aim
-        <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
-        Achieve
-        <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
-        Analyze
-        <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
-        Align
-        <ion-icon color="tertiary" size="large" name="repeat-outline"></ion-icon>
-      </ion-text>
-    </ion-title>
-    <ion-text color="danger" class="ion-text-capitalize"
-    >A 4 Step Approach to fitness
-  </ion-text>
-</ion-col>
+    <ion-card class="title-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-text class="ion-text-uppercase" color="warning">
+            Aim
+            <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+            Achieve
+            <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+            Analyze
+            <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+            Align
+            <ion-icon color="tertiary" size="large" name="repeat-outline"></ion-icon>
+          </ion-text>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <ion-text color="danger" class="ion-text-capitalize">A 4 Step Approach to fitness </ion-text>
+        </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </ion-col>
 </ion-row>
-            <ion-row class="ion-justify-content-center ion-padding ion-margin ">
-              <ion-col size-xl="3" size-lg="4"  size-md="5" class="ion-align-items-center ion-text-center ion-padding ion-margin">
-                <img src="../../../assets/svg/circleinfograph1.svg"  />
-              </ion-col>
-              <ion-col size-xl="3" size-lg="4" size-md="6" class="ion-align-items-center ion-text-center ion-margin ion-padding">
-                <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts">
-                  <ion-slide *ngFor="let phase of phases" >
-                    <ion-card style="background: var(--ion-color-medium-shade);width: 100%;height:fit-content;" class="ion-no-margin">
-                      <img [src]="phase.image" style="height:200px;width:100%;"/>
-                      <ion-toolbar style="background: var(--ion-color-medium-tint);">
-                        <ion-title>
-                          <ion-text color="warning" class="ion-text-capitalize" style="font-size: large">
-                            {{ phase.id }}.
-                          </ion-text>
-                          <ion-text color="warning" class="ion-text-uppercase" style="font-size: large">
-                            {{ phase.title }}
-                          </ion-text>
-                        </ion-title>
-                      </ion-toolbar>
-                      <ion-card-content style="background: var(--ion-color-medium-shade);">
-                        <ion-text color="light">
-                          {{ phase.content }}
-                        </ion-text>
-                      </ion-card-content>
-                    </ion-card>
-                  </ion-slide>
-                </ion-slides>
-              <ion-button
-              color="tertiary"
-              strong
-              size="large"
-              class="cta"
-              style="border-radius: 5px"
-              routerLink="/home/products"
-              >
-              View Memberships
-            </ion-button>
-          </ion-col>
-        </ion-row>
-  
-            <ion-fab horizontal="center" vertical="bottom">
-              <ion-fab-button class="bounceOutDown" color="warning"  href="home#pageFour">
-                <ion-icon name="arrow-down-outline"></ion-icon>
-              </ion-fab-button>
-            </ion-fab>
+<ion-row class="ion-justify-content-around ion-padding ion-margin">
+  <ion-col size-xl="3" size-lg="4" size-md="5" class="ion-align-items-center ion-text-center ion-padding ion-margin">
+    <img src="../../../assets/svg/circleinfograph1.svg" />
+  </ion-col>
+  <ion-col size-xl="3" size-lg="4" size-md="6" class="ion-align-items-center ion-text-center ion-margin ion-padding">
+    <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" >
+      <ion-slide  *ngFor="let phase of phases">
+        <ion-card
+          style="background: var(--ion-color-medium-shade); width: 100%; height: fit-content"
+          class="ion-no-margin"
+        >
+          <img [src]="phase.image" style="height: 200px; width: 100%" />
+          <ion-toolbar>
+            <ion-title>
+              <ion-text color="warning" class="ion-text-capitalize" style="font-size: large">
+                {{ phase.id }}.
+              </ion-text>
+              <ion-text color="warning" class="ion-text-uppercase" style="font-size: large">
+                {{ phase.title }}
+              </ion-text>
+            </ion-title>
+          </ion-toolbar>
+          <ion-card-content style="background: var(--ion-color-medium-shade)">
+            <ion-text color="light">
+              {{ phase.content }}
+            </ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+    <ion-button
+      color="secondary"
+      strong
+      size="large"
+      class="cta"
+      style="border-radius: 5px"
+      routerLink="/home/products"
+    >
+      View Memberships
+    </ion-button>
+  </ion-col>
+</ion-row>

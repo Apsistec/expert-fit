@@ -51,7 +51,7 @@ at a discounted rate. -->
       <ion-title size="large">Purchase</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-grid>
+  
     <ion-row>
       <ion-col>
         <!-- <ion-toolbar style="--background: var(--ion-color-medium-shade)">
@@ -77,7 +77,7 @@ at a discounted rate. -->
             <ion-card-subtitle> Choose the plan that works for you </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <ion-grid>
+            
               <ion-row>
                 <!-- <ion-spinner *ngIf="loading">Loading...</ion-spinner> -->
                 <ion-col *ngFor="let product of productsActive | async">
@@ -94,7 +94,7 @@ at a discounted rate. -->
                   </ion-card>
                 </ion-col>
               </ion-row>
-            </ion-grid>
+            
           </ion-card-content>
         </ion-card>
       <!-- </ion-col> -->
@@ -143,5 +143,5 @@ at a discounted rate. -->
         </ion-card>
       </ion-col>
     </ion-row> -->
-  </ion-grid>
+  
 </ion-content>

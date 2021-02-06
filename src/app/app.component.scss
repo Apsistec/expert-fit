@@ -1,49 +1,44 @@
-
-  
-  .menu-font {
-    ion-label {
-      font-size:larger;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: var(--ion-color-light-tint);
-    }
- 
-    display:inline-flex;
-    // top: 20px;
-
-  }
-
-  .menu-font :hover{
+.menu-font {
+  ion-label {
+    font-size: larger;
+    font-weight: 900;
+    text-transform: uppercase;
     color: var(--ion-color-secondary);
   }
-  
-  .active-link {
-    ion-label {
-      color: var(--ion-color-secondary-tint);
-      border-bottom: 0.3125em solid var(--ion-color-warning-shade);
-    }
-  }
-  
-  .avatar{
-    margin-right: 50px;
-    margin-top: 5px;
-  }
+  display: inline-flex;
+}
 
+.menu-font :hover {
+  ion-label {
+    color: var(--ion-color-light);
+  }
+}
 
-  .flashing {
-    animation: 2s ease-out infinite flasher;
-    z-index: 99;
- 
+.active-link {
+  ion-label {
+    color: var(--ion-color-tertiary);
+    border-bottom: 0.3125em solid var(--ion-color-warning-shade);
   }
-  
-  @keyframes flasher {
-    0% {
-      opacity: 100%;
-    }
-    50% {
-      opacity: 0%;
-    }
-    100% {
-      opacity: 100%;
-    }
+}
+
+.avatar {
+  margin-right: 50px;
+  margin-top: 5px;
+}
+
+.flashing {
+  animation: 2s ease-out infinite flasher;
+  z-index: 99;
+}
+
+@keyframes flasher {
+  0% {
+    opacity: 100%;
   }
+  50% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}

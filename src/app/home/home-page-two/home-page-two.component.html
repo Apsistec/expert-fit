@@ -1,49 +1,47 @@
-<ion-card class="page-two ion-text-center ion-no-margin">
-  <ion-card-header>
-    <ion-card-title>
-      <ion-text color="tertiary"> Why Expert Fitness? </ion-text>
-    </ion-card-title>
-
-    <ion-card-subtitle [@slideInRight]="slideInRight" class="ion-hide-sm-up ion-text-capitalize">
-      <ion-text color="light"> Swipe cards below for details </ion-text>
-    </ion-card-subtitle>
-  </ion-card-header>
-  <ion-grid class="ion-hide-sm-down">
-    <ion-row class="ion-justify-content-around">
-      <ion-col size-md="5" size-lg="3" class="ion-align-self-center">
-        <app-benefit-tracker [benefit]="benefitChosen"></app-benefit-tracker>
-      </ion-col>
-      <ion-col size-md="5" size-lg="3" class="ion-align-self-center">
-        <ion-text color="light" [@slideInRight]="slideInRight" class="ion-hide-sm-down ion-text-capitalize">
-          Select buttons to learn more
+<!--  -->
+<ion-row class="ion-justify-content-center ion-margin-top">
+  <ion-col>
+    <ion-card class="ion-text-center ion-margin bottom-card">
+      <ion-card-header>
+        <ion-card-title color="secondary"> Why limit yourself? </ion-card-title>
+        <ion-card-subtitle color="danger">At Expert Fitness YOU have it all! </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </ion-col>
+</ion-row>
+<ion-row class="ion-justify-content-around ion-hide-sm-down ion-margin-top">
+  <ion-col size-md="5" size-lg="4" class="ion-align-self-center">
+    <app-benefit-tracker [benefit]="benefitChosen"></app-benefit-tracker>
+  </ion-col>
+  <ion-col size-md="5" size-lg="4" class="ion-align-self-center">
+    <ion-text color="light" [@slideInRight]="slideInRight" class="ion-hide-sm-down ion-text-capitalize">
+      Select to learn more
+    </ion-text>
+    <ion-list class="shadow ion-text-center">
+      <ion-item
+        *ngFor="let benefit of benefits"
+        class="benefit-item"
+        button
+        type="button"
+        (mouseenter)="chooseBenefit(benefit)"
+      >
+        <ion-text color="tertiary">
+          {{ benefit.title }}
         </ion-text>
-        <ion-list class="shadow" style="background-color: var(--ion-color-light-shade); border-radius: 15px">
-          <ion-item
-            *ngFor="let benefit of benefits"
-            class="benefit-item"
-            button
-            type="button"
-            (mouseenter)="chooseBenefit(benefit)"
-          >
-            <ion-text color="primary">
-              {{ benefit.title }}
-            </ion-text>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <app-benefits class="ion-hide-sm-up"></app-benefits>
-</ion-card>
-<ion-card class="ion-text-center ion-margin ion-padding bottom-card">
-  <ion-card-header>
-    <ion-card-title color="light"> Why limit yourself? </ion-card-title>
-    <ion-card-subtitle color="danger">At Expert Fitness YOU have it all! </ion-card-subtitle>
-  </ion-card-header>
-  <ion-card-content>
+      </ion-item>
+    </ion-list>
+  </ion-col>
+</ion-row>
+<ion-row class="ion-justify-content-center ion-hide-sm-up">
+  <ion-col class="ion-align-self-center">
+    <app-benefits></app-benefits>
+  </ion-col>
+</ion-row>
+<ion-row class="ion-margin-top">
+  <ion-col class="ion-align-self-end ion-text-center">
     <ion-button
       class="cta"
-      strong 
+      strong
       size="large"
       fill="clear"
       style="border: 2px solid var(--ion-color-light); background-color: rgba(255, 255, 255, 0.11); border-radius: 5px"
@@ -51,8 +49,15 @@
       routerLink="/home/about-us"
       >About Us
     </ion-button>
-    <ion-button class="cta" strong size="large" color="tertiary" routerLink="/home/products" style="border-radius: 5px">
+    <ion-button
+      class="cta"
+      strong
+      size="large"
+      color="secondary"
+      routerLink="/home/products"
+      style="border-radius: 5px"
+    >
       Join Now
     </ion-button>
-  </ion-card-content>
-</ion-card>
+  </ion-col>
+</ion-row>

@@ -2,8 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { Observable, Subject } from 'rxjs';
 import { ReviewService } from 'src/app/services/review.service';
-import { Review } from '../../models/reviews.model';
-import { SeoService } from '../../services/seo.service';
+
 
 @Component({
   selector: 'app-ratings',
@@ -12,7 +11,6 @@ import { SeoService } from '../../services/seo.service';
 })
 export class RatingsComponent implements OnInit {
   private ngUnsubscribe: Subject<any> = new Subject();
-
   overStar: number | undefined;
   ratings: Observable<any>;
   @ViewChild('review') review: IonSlides;

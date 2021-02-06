@@ -10,7 +10,6 @@ import { HomePageTwoComponent } from '../home/home-page-two/home-page-two.compon
 import { HomePageThreeComponent } from '../home/home-page-three/home-page-three.component';
 import { HomePageFourComponent } from '../home/home-page-four/home-page-four.component';
 import { BenefitTrackerComponent } from './benefit-tracker/benefit-tracker.component';
-import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { IntroVideoComponent } from './intro-video/intro-video.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import {VgCoreModule} from '@videogular/ngx-videogular/core';
@@ -26,7 +25,6 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
     HomePageRoutingModule,
     SharedModule,
     SharedDirectivesModule,
-    NgxPageScrollCoreModule,
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,

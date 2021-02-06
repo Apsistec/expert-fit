@@ -1,3 +1,8 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>FAQs</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content fullscreen transparent>
   <ion-header collapse="condense">
@@ -5,17 +10,16 @@
       <ion-title size="large">FAQs</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-grid >
     <ion-row class="ion-justify-content-center ion-align-items-start">
       <ion-col size-sm="12" size-md="8" size-lg="6">
         <ion-card class="ion-card-global ion-text-center ion-no-margin">
           <ion-fab horizontal="end" vertical="top">
-            <ion-fab-button color="warning" size="small" (click)="onToggleAutomatic()">
+            <ion-fab-button  color="warning" size="small" (click)="onToggleAutomatic()">
               <ion-icon color="dark" name="contract-sharp" *ngIf="automaticClose"></ion-icon>
               <ion-icon color="dark" name="expand-sharp" *ngIf="!automaticClose"></ion-icon>
             </ion-fab-button>
           </ion-fab>
-          <ion-card-header>
+          <ion-card-header >
             <ion-card-title> Expert Fitness FAQs </ion-card-title>
             <ion-card-subtitle> Answers to common questions </ion-card-subtitle>
           </ion-card-header>
@@ -42,7 +46,7 @@
       </ion-col>
     </ion-row>
 
-</ion-grid>
+
         <app-footer></app-footer>
   
 </ion-content>

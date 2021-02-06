@@ -39,7 +39,7 @@ export const Faqs: FAQ[] = [
   {
     title: 'Where can I learn more about the Expert Fitness webapp?',
     info:
-      'Great question, you can watch the video on our home page to hear the Expert Fitness App\'s CEO, Shay Gillham, explain what the Expert Fitness Club is all about, how that potentially involves you, and what the goals of club are today & looking forward. You can also check out the About Us section on the menu to learn more about the history and achievements of the Expert Fitness Club',
+      'Great question, you can watch the video on our home page to hear the Expert Fitness App\'s CEO, Shay Gillham, explain what the Expert Fitness Club is all about, how that potentially involves you, and what the goals of club are today & looking forward. You can also check out the About section on the menu to learn more about the history and achievements of the Expert Fitness Club',
     faqId: 5,
   },
 ];

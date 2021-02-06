@@ -11,3 +11,10 @@
     0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15),
     0px 70px 60px rgba(0, 0, 0, 0.15);
 }
+
+ion-toolbar{
+    --background: var(--ion-color-dark-tint);
+    border-bottom: 3px solid var(--ion-color-secondary-shade);
+    color:var(--ion-color-tertiary-tint);
+  }
+  

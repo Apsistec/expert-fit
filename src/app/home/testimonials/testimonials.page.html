@@ -1,3 +1,8 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Expert Fitness Reviews</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content fullscreen transparent>
   <ion-header collapse="condense">
@@ -7,8 +12,8 @@
   </ion-header>
 
   <ion-segment [(ngModel)]="segment">
-    <ion-segment-button value="current" color="warning">
-      <ion-icon name="ribbon-sharp" color="warning"></ion-icon>
+    <ion-segment-button color="warning">
+      <ion-icon name="ribbon-sharp" value="default" color="warning"></ion-icon>
       Reviews
     </ion-segment-button>
     <ion-segment-button value="myReviews">
@@ -17,106 +22,91 @@
     </ion-segment-button>
   </ion-segment>
 
-  <ion-grid [ngSwitch]="segment">
-    <ion-row class="ion-justify-content-center" *ngSwitchDefault>
-      <ion-col size-sm="12" size-md="6" size-lg="4" size-xl="3" class="ion-align-self-center ion-margin" *ngFor="let review of reviews | async">
-        <ion-item class="shadow" style="--inner-padding-top:8px">
-            <ion-row class="ion-align-items-center">
-              <ion-col size="4" class="ion-align-self-center " >
-                <ion-avatar  >
-                  <img [src]="[review.photoURL || '../../../assets/images/dummy-user.png']" />
-                </ion-avatar>
-                <ion-text color="primary"> {{ review.displayName }} </ion-text>
-                <br>
-                <bar-rating [(rate)]="review.stars" (onHover)="hover($event)" 
-                style="color: var(--ion-color-danger)" [theme]="'default'" max="5" readOnly="true"
+  <div [ngSwitch]="segment">
+      <ion-grid *ngSwitchDefault>
+      <ion-row>
+      <ion-col
+        size-sm="12"
+        size-md="6"
+        size-lg="4"
+        size-xl="3"
+        *ngFor="let review of reviews | async"
+      >
+        <ion-item class="shadow" >
+          <ion-row class="ion-align-items-center">
+            <ion-col size="4" class="ion-align-self-center">
+              <ion-avatar>
+                <img [src]="[review.photoURL || '../../../assets/images/dummy-user.png']" />
+              </ion-avatar>
+              <ion-text color="primary"> {{ review.displayName }} </ion-text>
+              <br />
+              <bar-rating
+                [(rate)]="review.stars"
+                (onHover)="hover($event)"
+                style="color: var(--ion-color-danger)"
+                [theme]="'default'"
+                max="5"
+                readOnly="true"
               ></bar-rating>
-              </ion-col>
-     
-              <ion-col size="8" class="ion-align-self-center">
-                <ion-text color="warning">{{ review.created_at }}</ion-text>
-                <p>{{ review.message }}</p>
-              </ion-col>
-            </ion-row>
+            </ion-col>
+
+            <ion-col size="8" class="ion-align-self-center">
+              <ion-text color="warning">{{ review.created_at }}</ion-text>
+              <p>{{ review.message }}</p>
+            </ion-col>
+          </ion-row>
         </ion-item>
       </ion-col>
-    </ion-row>
+    </ion-row>  
+      </ion-grid>
 
-    <ion-row class="ion-justify-content-center" *ngSwitchCase="myReviews">
-      <ion-col size-sm="12" size-md="6" size-lg="4" size-xl="3" class="ion-align-self-center ion-margin" *ngFor="let myReview of myReviews | async">
-        <ion-item class="shadow" style="--inner-padding-top:8px">
+  
+      <ion-grid  *ngSwitchCase="myReviews">
+      <ion-row>
+        <ion-col
+          size-sm="12"
+          size-md="6"
+          size-lg="4"
+          size-xl="3"
+          class="ion-align-self-center ion-margin"
+          *ngFor="let myReview of myReviews | async"
+        >
+          <ion-item class="shadow" style="--inner-padding-top: 8px">
             <ion-row class="ion-align-items-center">
-              <ion-col size="4" class="ion-align-self-center " >
-                <ion-avatar  >
+              <ion-col size="4" class="ion-align-self-center">
+                <ion-avatar>
                   <img [src]="[myReview.photoURL || '../../../assets/images/dummy-user.png']" />
                 </ion-avatar>
                 <ion-text color="primary"> {{ myReview.displayName }} </ion-text>
-                <br>
-                <bar-rating [(rate)]="myReview.stars" (onHover)="hover($event)" 
-                style="color: var(--ion-color-danger)" [theme]="'default'" max="5" readOnly="true"
-              ></bar-rating>
+                <br />
+                <bar-rating
+                  [(rate)]="myReview.stars"
+                  (hover)="hover($event)"
+                  [theme]="'default'"
+                  max="5"
+                  readOnly="true"
+                ></bar-rating>
               </ion-col>
-     
               <ion-col size="8" class="ion-align-self-center">
                 <p>{{ myReview.message }}</p>
               </ion-col>
             </ion-row>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-
-    <!-- <ion-row class="ion-justify-content-center" *ngSwitchCase="'myReviews'">
-      <ion-col>
-        <ion-card class="ion-sub-card-global">
-          <ion-card-header>
-            <ion-card-title> New review</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-col>
-
-              <ion-card>
-                <ion-card-content>
-                  <form #form="ngForm">
-                    <bar-rating name="rating" [(ngModel)]="formRating" [max]="5" required ></bar-rating>
-                    <ion-textarea autoGrow="true" type="text" maxlength="500" spellcheck="true" wrap="soft" name="message" placeholder="Describe your experience (optional)">
-                      <ion-label position="floating">
-                        Write a review
-                      </ion-label>
-                    </ion-textarea>
-                  </form>
-              
-              
-                  
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-            <ion-col>
-              <ion-item class="shadow" style="--inner-padding-top:8px">
-                <ion-row class="ion-align-items-center">
-                  <ion-col size="4" class="ion-align-self-center " >
-                    <ion-avatar  >
-                      <img [src]="[user.photoURL || '../../../assets/images/dummy-user.png']" />
-                    </ion-avatar>
-                    <ion-text color="primary"> {{ user.displayName }} </ion-text>
-                    <br>
-                    <bar-rating [(rate)]="formRating" (onHover)="hover($event)" 
-                     [theme]="'default'" max="5" readOnly="true"
-                  ></bar-rating>
-                  </ion-col>
-         
-                  <ion-col size="8" class="ion-align-self-center">
-                    <p>{{ form.message }}</p>
-                  </ion-col>
-                </ion-row>
-            </ion-item>
-
-            </ion-col>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row> -->
-  </ion-grid>
-
-        <app-footer></app-footer>
-
+          </ion-item>
+        </ion-col>
+      </ion-row>
+        <!-- <ion-row >
+        <ion-col >
+          <ion-card>
+            <ion-header>
+              <ion-title> Login to create reviews and view your existing reviews </ion-title>
+            </ion-header>
+            <ion-card-content>
+              <ion-button routerLink="login"> Login </ion-button>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        </ion-row> -->
+      </ion-grid>
+    </div>
+  <app-footer></app-footer>
 </ion-content>

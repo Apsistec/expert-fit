@@ -95,8 +95,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       preloadingStrategy: QuicklinkStrategy,
-      scrollPositionRestoration: 'enabled',
-      anchorScrolling: 'enabled'
+      // scrollPositionRestoration: 'enabled',
+      // anchorScrolling: 'enabled'
     })
   ],
   exports: [RouterModule]

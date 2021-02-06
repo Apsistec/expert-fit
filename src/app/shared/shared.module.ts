@@ -13,6 +13,8 @@ import { TermsComponent } from './terms/terms.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { ModalViewComponent } from './modal-view/modal-view.component';
 import { BarRatingModule } from 'ngx-bar-rating';
+import { ReviewComponent } from './review/review.component';
+import { SharedDirectivesModule } from '../directives/shared-directives.module';
 
 const routes: Routes = [];
 
@@ -21,6 +23,7 @@ const routes: Routes = [];
     FooterComponent,
     AboutAppComponent,
     // PopoverComponent,
+    ReviewComponent,
     TicketComponent,
     PrivacyComponent,
     TermsComponent,
@@ -35,20 +38,21 @@ const routes: Routes = [];
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    BarRatingModule
-
+    BarRatingModule,
+    SharedDirectivesModule
   ],
   exports: [
     FooterComponent,
     AboutAppComponent,
     // PopoverComponent,
+    ReviewComponent,
     TicketComponent,
     PrivacyComponent,
     TermsComponent,
     RatingsComponent,
     BenefitsComponent,
     ModalViewComponent,
-    BarRatingModule
+    BarRatingModule,
   ]
 })
 export class SharedModule {}

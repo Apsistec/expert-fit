@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonSlides } from '@ionic/angular';
+import { IonContent, IonSlides } from '@ionic/angular';
 import { Phases } from 'src/app/models/phases.model';
 
 @Component({
@@ -12,6 +12,7 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
 
   phases = Phases;
   @ViewChild('mySlider') slider: IonSlides;
+  @ViewChild(IonContent, { static: false }) content: IonContent;
 
   slideOpts;
 
@@ -27,7 +28,7 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
       grabCursor: true,
       watchSlidesProgress: true,
       resistanceRatio: 0,
-      spaceBetween: 300,
+      spaceBetween: 600,
       centeredSlides: true,
 
     };
@@ -35,5 +36,10 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
 
   slidesDidLoad(slides: IonSlides) {
     slides.startAutoplay();
+  }
+
+  scrollToLabel(label) {
+    const section = document.getElementById(label);
+    this.content.scrollToPoint(0, section.offsetTop, 750);
   }
 }

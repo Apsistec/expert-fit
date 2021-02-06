@@ -60,24 +60,49 @@ sup {
   }
 }
 
-#pageThree{
+#pageThree {
   background: linear-gradient(
-    to bottom left,
-    rgba(29, 52, 83, 0.453) 0%,
-    rgba(59, 74, 116, 0.323) 15%,
-    rgba(21, 44, 95, 0.615) 60%,
-    rgba(59, 71, 92, 0.429) 100%
+      to bottom left,
+      rgba(0, 0, 0, 0.658) 0%,
+      rgba(7, 9, 17, 0.822) 33%,
+      rgba(47, 67, 110, 0.615) 66%,
+      rgba(30, 40, 56, 0.629) 100%
     ),
     linear-gradient(
-    to top,
-    rgba(41, 105, 105, 0.453) 0%,
-    rgba(85, 138, 148, 0.323) 15%,
-    rgba(79, 104, 105, 0.715) 60%,
-    rgba(59, 85, 92, 0.829) 100%
+      to top,
+      rgba(5, 2, 2, 0.453) 0%,
+      rgba(148, 85, 85, 0.123) 33%,
+      rgba(105, 79, 79, 0.415) 66%,
+      rgba(46, 31, 31, 0.229) 100%
     ),
-     url(../../../assets/images/dark-suede.png)  center / cover no-repeat ;
+    center / cover url(../../../assets/images/smiling-workout.jpg);
 }
 
-.page-four{
-  background:linear-gradient(rgba(0, 0, 0, 0.952), rgba(71, 71, 71, 0.445)), center/ cover no-repeat url(../../../assets/images/platinum.png)
+.page-four {
+  background: linear-gradient(rgba(0, 0, 0, 0.952), rgba(71, 71, 71, 0.445)),
+    center/ cover no-repeat url(../../../assets/images/platinum.png);
+}
+
+#pageTwo {
+  background: linear-gradient(to right, rgba(41, 41, 41, 0.767), rgba(77, 76, 76, 0.589)),
+    center/ cover no-repeat url('../../../assets/images/arm-back-muscles.jpg');
+}
+.up{
+  ion-icon{
+    color:var(--ion-color-warning-tint);
+  }
+  margin-right: 10px;
+  --background: transparent;
+  --border-color:var(--ion-color-warning);
+  --border-width: 2px;
+  --border-style:solid;
+  --ripple-color:var(--ion-color-danger);
+  --background-hover:white;
+  --background-hover-opacity:.3;
+  --background-focused: white;
+  --background-focused-opacity: .3;
+  --background-activated:var(--ion-color-secondary-tint);;
+  --background-activated-opacity:.5;
+  --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
+  0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
 }

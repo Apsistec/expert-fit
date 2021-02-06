@@ -23,43 +23,33 @@ export class AuthService {
   currentBehaviorUser = new BehaviorSubject(null);
   // userType;
   // displayName;
-  // authState$: any = this.afAuth.authState;
-  // isLoggedIn;
-  // notLoggedIn;
+  authState$ = this.afAuth.authState;
+  loggedInState: boolean;
 
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     private messageService: MessageService,
     private router: Router
-  ) // private modalController: ModalController
+  )
   {
     this.afAuth.user.pipe(
       map((user) => {
         if (user) {
-          // tslint:disable-next-line: no-shadowed-variable
-          this.afs.doc<any>(`users/${user.uid}`).valueChanges();
+          this.loggedInState = true;
+          this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
+          this.loggedInState = false;
           of(null);
         }
       })
     );
-    console.log('user', this.user);
+    console.log('user: ', this.user);
+    console.log('state: ', this.loggedInState);
 
-    // const usersList = document.getElementById('users');
   }
 
-  // public firebaseAuthChangeListener(response) {
-  //   if (response) {
-  //     this.firebaseAuthChangeListener((res) => (this.isLoggedIn = res));
-  //   }
-  //   if (!!this.isLoggedIn) {
-  //     console.log('rvalue: ', this.isLoggedIn);
-  //   } else {
-  //     // tslint:disable-next-line: no-unused-expression
-  //     this.notLoggedIn;
-  //   }
-  // }
+
 
   // SignIn(credentials) {
   //   return this.afAuth

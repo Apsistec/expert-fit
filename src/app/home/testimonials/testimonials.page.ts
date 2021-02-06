@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { User } from '../../models/users.model';
-import { AuthService } from '../../services/auth.service';
-import { MessageService } from '../../services/message.service';
-import { Review } from 'src/app/models/reviews.model';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, Subject } from 'rxjs';
+import { User } from 'src/app/models/users.model';
 import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
@@ -15,28 +12,37 @@ import { ReviewService } from 'src/app/services/review.service';
 export class TestimonialsPage implements OnInit {
   private ngUnsubscribe: Subject<any> = new Subject();
 
-  isReadonly = true;
   formRating;
   overStar: number | undefined;
   reviewForm;
-  user: User;
   reviews: Observable<any>;
   myReviews: Observable<any>;
-  segment: string;
+  segment: any;
+  // user: Observable<any>;
+  user;
 
   constructor(
-    public modalController: ModalController,
-    public authService: AuthService,
-    private reviewService: ReviewService
-  ) {  }
+    private reviewService: ReviewService,
+    public afAuth: AngularFireAuth
+  ) {
+    this.user = this.afAuth.authState.toPromise();
+
+      // (user) => {
+    if (this.user === null) {
+        this.ngUnsubscribe.next();
+        this.ngUnsubscribe.complete();
+      }
+    console.log('userfromtesti: ', this.user);
+  }
+
 
   ngOnInit() {
-    this.reviews = this.reviewService.getAllReviews();
-    this.myReviews = this.reviewService.getUserReviews();
-  }
+      this.reviews = this.reviewService.getAllReviews();
+      this.myReviews = this.reviewService.getAllReviews();
+    }
 
-  hover(value: number): void {
-    this.overStar = value;
-  }
+  hover(value: number) {
+      this.overStar = value;
+    }
 
 }
