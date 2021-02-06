@@ -8,13 +8,13 @@ import { PhotoService } from '../../services/photo.service';
 })
 export class GalleryPage implements OnInit {
 
-  constructor(public photoService: PhotoService) { }
+  constructor(public photoService: PhotoService, ) { }
 
   async ngOnInit() {
-    // await this.photoService.loadSaved();
+    await this.photoService.loadSaved();
   }
 
-  addPhotoToGallery() {
+  addImageToGallery() {
     this.photoService.storeImage();
   }
 

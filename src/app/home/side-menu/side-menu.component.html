@@ -6,7 +6,7 @@
         <ion-menu-button color="tertiary"> </ion-menu-button>
         <!-- <ion-back-button *ngIf="showBackButton === true" defaultHref="/home" color="warning"></ion-back-button> -->
       </ion-buttons>
-      <img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" />
+      <ion-img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" ></ion-img>
     </ion-toolbar>
 	</ion-menu-toggle>
 	</ion-header>
@@ -39,7 +39,7 @@
 						button
 						routerLinkActive="active-item"
 						[routerLinkActiveOptions]="{ exact: true }"
-						routerLink="/customers/dashboard"
+						routerLink="/user/dashboard"
 					>
 						<ion-icon
 							color="primary"

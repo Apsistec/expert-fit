@@ -69,16 +69,19 @@ export class LoginComponent implements OnDestroy {
       console.log('on tab change: ', event);
     }
 
-    onSignOut() {
+    onSignIn()
 
-      console.log('Sign-out successful!');
+    onSignOut() {
+      this.messageService.signOutToast();
     }
 
     onAccountDeleted() {
-      console.log('Account Delete successful!');
+      this.messageService.presentToast('Account Delete successful!');
     }
 
     dismissModal() {
-      this.modalController.dismiss();
+      this.modalController.dismiss().then(() => {
+        this.router.navigateByUrl('/home');
+      });
     }
   }

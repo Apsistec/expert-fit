@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Photo Gallery</ion-title>
+    <ion-title>Image Gallery</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen transparent>
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Photo Gallery</ion-title>
+      <ion-title size="large">Image Gallery</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -21,8 +21,9 @@
   
 
  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="addPhotoToGallery()">
+    <ion-fab-button (click)="addImageToGallery()" tappable>
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>
+

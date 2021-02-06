@@ -24,7 +24,7 @@ import { TermsComponent } from './shared/terms/terms.component';
 const customerOnly = () => hasCustomClaim('customer');
 const employeeOnly = () => hasCustomClaim('employee');
 const adminOnly = () => hasCustomClaim('admin');
-const redirectLoggedInToDash = () => redirectLoggedInTo(['/dashboard']);
+const redirectLoggedInToDash = () => redirectLoggedInTo(['/user/dashboard']);
 const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['/home']);
 const verifiedEmail = () => emailVerified;
 
@@ -64,6 +64,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/checkout/checkout.module').then((m) => m.CheckoutPageModule),
   },
   {
+    path: 'gallery',
+    loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule),
+  },
+  {
     path: 'about-app',
     component: AboutAppComponent
   },
@@ -81,6 +85,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule),
   },
   {
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -89,7 +97,6 @@ const routes: Routes = [
     path: '**',
     component: UnknownComponent
   }
-
 ];
 @NgModule({
   imports: [

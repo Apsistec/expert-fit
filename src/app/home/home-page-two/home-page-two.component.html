@@ -24,6 +24,7 @@
         button
         type="button"
         (mouseenter)="chooseBenefit(benefit)"
+        (mouseexit)="clear()"
       >
         <ion-text color="tertiary">
           {{ benefit.title }}

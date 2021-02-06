@@ -3,15 +3,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { Observable } from 'rxjs';
 import { PhotoService } from 'src/app/services/photo.service';
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
 import { StripeService } from '../../services/stripe.service';
 import { ThemeService } from '../../services/theme.service';
-import { UserService } from '../../services/user.service';
-import { CancelServiceComponent } from '../cancel-service/cancel-service.component';
-import { InvoicesComponent } from '../invoices/invoices.component';
+import { CancelServiceComponent } from '../../customer/cancel-service/cancel-service.component';
+import { InvoicesComponent } from '../../customer/invoices/invoices.component';
 
 @Component({
   selector: 'app-profile',
@@ -73,6 +71,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   }
 
   support() {
-    this.router.navigateByUrl('/dashboard');
+    this.router.navigateByUrl('/user/dashboard');
   }
 }

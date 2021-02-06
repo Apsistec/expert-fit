@@ -42,5 +42,8 @@ constructor() {
     this.benefitChosen = benefit;
   }
 
+  clear(){
+    this.benefitChosen = '';
+  }
 
 }

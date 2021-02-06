@@ -7,7 +7,7 @@
         <ion-menu-button color="tertiary"> </ion-menu-button>
         <ion-back-button *ngIf="showBackButton === true" defaultHref="/home" color="warning"></ion-back-button>
       </ion-buttons>
-      <img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" />
+      <ion-img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" ></ion-img>
       <ngx-auth-firebaseui-avatar
         class="ion-margin ion-float-right"
         *ngIf="authService.user | async as user; else login"

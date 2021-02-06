@@ -14,7 +14,7 @@ ion-item:disabled {
 }
 
 .info {
-  --ion-item-background: var(--ion-color-light-shade);
+  --ion-item-background: var(--ion-color-medium-tint);
 }
 
 .info-text {
@@ -23,6 +23,15 @@ ion-item:disabled {
 }
 ion-toolbar{
   --background: var(--ion-color-dark-tint);
-  border-bottom: 3px solid var(--ion-color-secondary-shade);
+  border-bottom: 3px solid var(--ion-color-secondary-tint);
   color:var(--ion-color-tertiary-tint);
+}
+expand-all-icon{
+  transform: rotate(90deg);
+}
+expand-icons :active{
+  transform: rotate(90deg);
+}
+expand-icons :hover{
+  transform: rotate(90deg);
 }

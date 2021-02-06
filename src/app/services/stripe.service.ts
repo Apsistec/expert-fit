@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { User } from '../models/users.model';
 import { AuthService } from './auth.service';
 import { MessageService } from './message.service';
@@ -19,15 +21,20 @@ export class StripeService {
   discount;
 
   constructor(
-    private authService: AuthService,
+    private afAuth: AngularFireAuth,
     private functions: AngularFireFunctions,
     private messageService: MessageService,
     private router: Router,
-    private spinner: SpinnerService
+    private spinner: SpinnerService,
+    private afs: AngularFirestore
     ) {
-      this.authService.user$.pipe(
-        map(user => {
-          this.user = user;
+      this.afAuth.user.pipe(
+        map((user) => {
+          if (user) {
+            this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          } else {
+            of(null);
+          }
         })
       );
     }

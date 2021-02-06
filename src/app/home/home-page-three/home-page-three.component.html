@@ -23,7 +23,7 @@
 </ion-row>
 <ion-row class="ion-justify-content-around ion-padding ion-margin">
   <ion-col size-xl="3" size-lg="4" size-md="5" class="ion-align-items-center ion-text-center ion-padding ion-margin">
-    <img src="../../../assets/svg/circleinfograph1.svg" />
+    <ion-img src="../../../assets/svg/circleinfograph1.svg" ></ion-img>
   </ion-col>
   <ion-col size-xl="3" size-lg="4" size-md="6" class="ion-align-items-center ion-text-center ion-margin ion-padding">
     <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" >
@@ -32,7 +32,7 @@
           style="background: var(--ion-color-medium-shade); width: 100%; height: fit-content"
           class="ion-no-margin"
         >
-          <img [src]="phase.image" style="height: 200px; width: 100%" />
+          <ion-img [src]="phase.image" style="height: 200px; width: 100%" ></ion-img>
           <ion-toolbar>
             <ion-title>
               <ion-text color="warning" class="ion-text-capitalize" style="font-size: large">

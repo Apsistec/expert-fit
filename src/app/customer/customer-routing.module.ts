@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { VideosComponent } from './videos/videos.component';
 import { BasicContentComponent } from './basic-content/basic-content.component';
 import { PlatinumContentComponent } from './platinum-content/platinum-content.component';
@@ -12,10 +11,7 @@ const routes: Routes = [
     path: '',
     component: CustomerPage,
     children: [
-      {
-        path: 'dashboard',
-        component: CustomerDashboardComponent,
-      },
+
       {
         path: 'basic',
         component: BasicContentComponent,
@@ -31,11 +27,6 @@ const routes: Routes = [
       {
         path: 'videos',
         component: VideosComponent,
-      },
-      {
-        path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'full'
       }
     ]
   }

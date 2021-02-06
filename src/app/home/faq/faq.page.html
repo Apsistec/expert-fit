@@ -15,8 +15,8 @@
         <ion-card class="ion-card-global ion-text-center ion-no-margin">
           <ion-fab horizontal="end" vertical="top">
             <ion-fab-button  color="warning" size="small" (click)="onToggleAutomatic()">
-              <ion-icon color="dark" name="contract-sharp" *ngIf="automaticClose"></ion-icon>
-              <ion-icon color="dark" name="expand-sharp" *ngIf="!automaticClose"></ion-icon>
+              <ion-icon class="expand-icon" color="dark" name="resize-sharp" *ngIf="automaticClose"></ion-icon>
+              <ion-icon class="expand-all-icon" color="dark" name="crop-sharp" *ngIf="!automaticClose"></ion-icon>
             </ion-fab-button>
           </ion-fab>
           <ion-card-header >
@@ -31,11 +31,11 @@
           >
             <ion-item
               tappable
-              (click)="toggleSection(i)"
+              (mouseenter)="toggleSection(i)"
               [ngClass]="{'section-active': faq.open, 'section': !faq.open}"
             >
-              <ion-icon slot="start" color="primary" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
-              <ion-icon slot="start" color="danger" size="large" name="remove-sharp"  *ngIf="faq.open"></ion-icon>
+              <ion-icon class="expand-icons" slot="start" color="primary" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
+              <ion-icon class="expand-icons" slot="start" color="danger" size="large" name="remove-sharp"  *ngIf="faq.open"></ion-icon>
               <ion-label> {{ faq.title }} </ion-label>
             </ion-item>
             <ion-item class="info" *ngIf="faq.open">

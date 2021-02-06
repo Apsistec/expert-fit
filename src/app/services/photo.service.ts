@@ -14,7 +14,9 @@ const { Camera, Filesystem, Storage } = Plugins;
 export class PhotoService {
   public photos: Photo[] = [];
   private PHOTO_STORAGE = 'photos';
-  capturedPhoto;
+  capturedImage;
+  image;
+  images;
 
   constructor(
     private messageService: MessageService,
@@ -25,7 +27,7 @@ export class PhotoService {
     storeImage() {
       const newName = `${new Date().getTime()}-PICTURE.png`;
       const storageRef: AngularFireStorageReference = this.storage.ref(`/images/${newName}`);
-      const storageObs = from(storageRef.putString(this.capturedPhoto, 'base64', { contentType: 'image/png' }));
+      const storageObs = from(storageRef.putString(this.capturedImage, 'base64', { contentType: 'image/png' }));
       return storageObs.pipe(
         switchMap((obj) => {
           return obj.ref.getDownloadURL();
@@ -37,23 +39,21 @@ export class PhotoService {
       );
     }
 
-
-
-
   public async addNewToGallery() {
     // Take a photo
-    this.capturedPhoto = await Camera.getPhoto({
+    this.image = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
-      source: CameraSource.Camera,
-      quality: 100
+      source: CameraSource.Prompt,
+      quality: 100,
+      allowEditing: true,
     });
     this.photos.unshift({
       filepath: 'soon...',
-      webviewPath: this.capturedPhoto.webPath
+      webviewPath: this.capturedImage.webPath
     });
 
     // Save the picture and add it to photo collection
-    const savedImageFile = await this.savePicture(this.capturedPhoto);
+    const savedImageFile = await this.savePicture(this.capturedImage);
     this.photos.unshift(savedImageFile);
   }
 
@@ -98,11 +98,10 @@ export class PhotoService {
 
   public async loadSaved() {
     // Retrieve cached photo array data
-    const photoList = await Storage.get({ key: this.PHOTO_STORAGE });
-    this.photos = JSON.parse(photoList.value) || [];
+    const imageList = await Storage.get({ key: this.PHOTO_STORAGE });
+    this.images = JSON.parse(imageList.value) || [];
     // Display the photo by reading into base64 format
-    // tslint:disable-next-line: prefer-const
-    for (let photo of this.photos) {
+    for (const photo of this.photos) {
       // Read each saved photo's data from the Filesystem
       const readFile = await Filesystem.readFile({
         path: photo.filepath,

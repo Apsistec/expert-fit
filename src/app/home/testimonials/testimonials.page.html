@@ -36,7 +36,7 @@
           <ion-row class="ion-align-items-center">
             <ion-col size="4" class="ion-align-self-center">
               <ion-avatar>
-                <img [src]="[review.photoURL || '../../../assets/images/dummy-user.png']" />
+                <ion-img [src]="[review.photoURL || '../../../assets/images/dummy-user.png']" ></ion-img>
               </ion-avatar>
               <ion-text color="primary"> {{ review.displayName }} </ion-text>
               <br />
@@ -75,7 +75,7 @@
             <ion-row class="ion-align-items-center">
               <ion-col size="4" class="ion-align-self-center">
                 <ion-avatar>
-                  <img [src]="[myReview.photoURL || '../../../assets/images/dummy-user.png']" />
+                  <ion-img [src]="[myReview.photoURL || '../../../assets/images/dummy-user.png']" ></ion-img>
                 </ion-avatar>
                 <ion-text color="primary"> {{ myReview.displayName }} </ion-text>
                 <br />

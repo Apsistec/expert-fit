@@ -18,10 +18,10 @@
                   <ion-text color="secondary"> User Profile </ion-text>
                 </ion-card-title>
               </ion-card-header>
-              <img
+              <ion-img
                 style="width: 11.25em; height: 11.25em; position: relative"
                 [src]="[user.photoURL || '..//..//assets//images//dummy-user.png']"
-              />
+              ></ion-img>
               <ion-item color="medium" lines="none">
                 <!--  -->
                   <ion-row>
@@ -69,13 +69,13 @@
     
                   </div> -->
     
-                <!-- <ng-template #buy class="ion-text-center ion-align-items-center">
+                <ng-template #buy class="ion-text-center ion-align-items-center">
         <ion-button class="ion-text-capitalize" color="danger" size="small" routerLink="/customership">
           <ion-text>
             Buy Pro Package
           </ion-text>
         </ion-button>
-      </ng-template> -->
+      </ng-template>
     
                 <ng-container *ngIf="stripe.subscriptions | async as subs">
                   

@@ -30,7 +30,7 @@
 
 //   async goToProfile() {
 //     await this.dismissPopover();
-//     this.router.navigateByUrl('/dashboard');
+//     this.router.navigateByUrl('/user/dashboard');
 //   }
 
 //   dismissPopover() {

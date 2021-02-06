@@ -11,14 +11,11 @@ import { BasicContentComponent } from './basic-content/basic-content.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { NewsfeedComponent } from './newsfeed/newsfeed.component';
 import { NutritionComponent } from './nutrition/nutrition.component';
-import { ProfileComponent } from './profile/profile.component';
 import { PremiumContentComponent } from './premium-content/premium-content.component';
 import { UserTicketsComponent } from './user-tickets/user-tickets.component';
-import { SettingsComponent } from './settings/settings.component';
 import { VideosComponent } from './videos/videos.component';
 import { WorkoutsComponent } from './workouts/workouts.component';
 import { PlatinumContentComponent } from './platinum-content/platinum-content.component';
-import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 
 @NgModule({
   imports: [
@@ -30,7 +27,6 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
     SharedDirectivesModule,
   ],
   declarations: [
-    CustomerDashboardComponent,
     CustomerPage,
     BasicContentComponent,
     CancelServiceComponent,
@@ -38,8 +34,6 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
     NewsfeedComponent,
     NutritionComponent,
     PremiumContentComponent,
-    ProfileComponent,
-    SettingsComponent,
     UserTicketsComponent,
     VideosComponent,
     WorkoutsComponent,

@@ -1,5 +1,5 @@
 <ion-row class="footer ion-padding">
-  <ion-col size-sm="12" size-md="6" size-lg="4" push-lg="4">
+  <ion-col size-sm="12" size-md="6" size-lg="4" push-lg="4" size-xl="4" push-xl="4">
         <app-ratings *ngIf="ratings"></app-ratings>
         <app-benefits *ngIf="!ratings"></app-benefits>
         <div class="center-fit bottom">
@@ -151,7 +151,7 @@
                 detail="false"
                 button
                 color="dark"
-                routerLink="/customers/dashboard"
+                routerLink="/user/dashboard"
                 routerLinkActive="active-bottom-menu"
                 [routerLinkActiveOptions]="{ exact: true }"
               >
@@ -211,10 +211,10 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <img src="../../../assets/logos/logo.png" alt="Logo" width="160" height="80" style="margin-left: 20px" />
+          <ion-img src="../../../assets/logos/logo.png" alt="Logo" style="width:160px; height:80; margin-left: 20px" ></ion-img>
         </ion-row>
         <ion-row>
-          <ion-text color="light">
+          <ion-text color="danger">
             <small> &#9426;{{ yearDate | date: 'yyyy' }} www.expertfitness.com </small>
           </ion-text>
         </ion-row>
