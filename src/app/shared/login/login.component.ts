@@ -69,7 +69,6 @@ export class LoginComponent implements OnDestroy {
       console.log('on tab change: ', event);
     }
 
-    onSignIn()
 
     onSignOut() {
       this.messageService.signOutToast();
