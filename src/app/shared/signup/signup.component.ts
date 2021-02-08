@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { LoadingController, ModalController } from '@ionic/angular';
+import { MessageService } from '../../services/message.service';
 import { AuthService } from '../../services/auth.service';
-import { SignupComponent } from '../signup/signup.component';
-import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
-import { MessageService } from 'src/app/services/message.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
+  loginTitle: boolean;
   hide: boolean;
-  loginForm: FormGroup;
+  hid: boolean;
+  registerForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -29,7 +30,8 @@ export class LoginComponent implements OnInit {
   }
 
   createForm() {
-    this.loginForm = this.fb.group({
+    this.registerForm = this.fb.group({
+      displayName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
       email: ['', [Validators.required, Validators.email]],
       password: [
         '',
@@ -43,9 +45,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  async onLogin() {
+  async onRegister() {
     await this.showLoading();
-    await this.authService.SignIn(this.loginForm.value);
+    await this.authService.SignUp(this.registerForm.value);
     await this.dismissLoading().catch((error) => this.messageService.errorAlert(error));
   }
 
@@ -66,29 +68,18 @@ export class LoginComponent implements OnInit {
     this.hide = !this.hide;
   }
 
-  get loginFormControl() {
-    return this.loginForm.controls;
+  get registerFormControl() {
+    return this.registerForm.controls;
   }
 
   dismissModal() {
     this.modalController.dismiss().catch((error) => this.messageService.errorAlert(error));
   }
 
-  async showRegisterModal() {
+  async showLoginModal() {
     this.dismissModal();
     const modal = await this.modalController.create({
-      component: SignupComponent,
-      componentProps: {
-        cssClass: 'modal-css'
-      }
-    });
-    await modal.present().catch((error) => this.messageService.errorAlert(error));
-  }
-
-  async showForgotModal() {
-    this.dismissModal();
-    const modal = await this.modalController.create({
-      component: ForgotPasswordComponent,
+      component: LoginComponent,
       componentProps: {
         cssClass: 'modal-css'
       }

@@ -1,18 +1,11 @@
-import {
-    AfterViewInit, Component,
-    ElementRef,
-    OnInit,
-    ViewChild
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAnalytics } from '@angular/fire/analytics';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Router } from '@angular/router';
-import {
-    ModalController, PopoverController
-} from '@ionic/angular';
+import { ModalController, PopoverController } from '@ionic/angular';
 import { WizardComponent } from 'angular-archwizard';
 import { environment } from '../../../environments/environment';
 import { User } from '../../models/users.model';
@@ -28,10 +21,10 @@ declare var Stripe;
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.page.html',
-  styleUrls: ['./checkout.page.scss'],
+  styleUrls: ['./checkout.page.scss']
 })
 export class CheckoutPage implements OnInit, AfterViewInit {
-    stripe;
+  stripe;
   @ViewChild(WizardComponent, { static: true }) public wizard: WizardComponent;
   @ViewChild('cardElement', { static: true }) cardElement: ElementRef;
 
@@ -74,13 +67,13 @@ export class CheckoutPage implements OnInit, AfterViewInit {
     private fb: FormBuilder,
     private router: Router,
     public afAuth: AngularFireAuth
-    ) {
-      this.seoService.addTwitterCard(
-        'Product and Subscription Purchase Page',
-        'View and purchase Expert Fitness\' Subscriptions and other products at great prices',
-        '..//..//..//assets//logos//logo.png'
-      );
-    }
+  ) {
+    this.seoService.addTwitterCard(
+      'Product and Subscription Purchase Page',
+      'View and purchase Expert Fitness\' Subscriptions and other products at great prices',
+      '..//..//..//assets//logos//logo.png'
+    );
+  }
 
   async ngOnInit(): Promise<void> {
     const style = {
@@ -88,7 +81,7 @@ export class CheckoutPage implements OnInit, AfterViewInit {
         color: '#32325d',
         fontFamily: '"Nunito", Nunito, sans-serif',
         fontSmoothing: 'antialiased',
-        fontSize: (window.innerWidth <= 500) ? '12px' : '16px',
+        fontSize: window.innerWidth <= 500 ? '12px' : '16px',
         '::placeholder': {
           color: '#aab7c4'
         }
@@ -104,7 +97,6 @@ export class CheckoutPage implements OnInit, AfterViewInit {
       hidePostalCode: true,
       style
     });
-    // this.authService.user$.pipe(map((user) => this.user = user));
 
     // this.resetVars();
     // this.checkboxStatus();
@@ -174,7 +166,7 @@ export class CheckoutPage implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.card.mount('#card-payment');
       this.card.focus();
-      this.card.on('change', e => this.btnOpts.disabled = e.complete ? false : true);
+      this.card.on('change', (e) => (this.btnOpts.disabled = e.complete ? false : true));
     });
   }
 
@@ -216,7 +208,7 @@ export class CheckoutPage implements OnInit, AfterViewInit {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
     return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
@@ -229,12 +221,10 @@ export class CheckoutPage implements OnInit, AfterViewInit {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
-    return modal.present()
-    .catch((err) => {
-      return this.messageService
-      .errorAlert(err);
+    return modal.present().catch((err) => {
+      return this.messageService.errorAlert(err);
     });
   }
 
@@ -244,10 +234,9 @@ export class CheckoutPage implements OnInit, AfterViewInit {
       cssClass: 'modal-css',
       backdropDismiss: true,
       swipeToClose: true,
-      showBackdrop: true,
+      showBackdrop: true
     });
-    return modal.present()
-    .catch((err) => {
+    return modal.present().catch((err) => {
       return this.messageService.errorAlert(err);
     });
   }
@@ -266,87 +255,87 @@ export class CheckoutPage implements OnInit, AfterViewInit {
 
 //   }
 
-  // Stripe Details
-  // this.stripe = Stripe('pk_test_Rm4QbcP0thjADBses4DnzU5600K3q0XqMA');
-  // const elements = this.stripe.elements();
-  // const style = {
-    //   base: {
-      //     color: 'var(--ion-color-secondary)',
-    //     fontFamily: 'Montserrat, "Helvetica Neue", sans-serif',
-    //     fontSmoothing: 'antialiased',
-    //     fontSize: '1em',
-    //     '::placeholder': {
-      //       color: '#121212',
-      //     },
-  //   },
-  //   invalid: {
-    //     color: '#f73008',
-    //     iconColor: '#f73008',
-    //   },
-    // };
+// Stripe Details
+// this.stripe = Stripe('pk_test_Rm4QbcP0thjADBses4DnzU5600K3q0XqMA');
+// const elements = this.stripe.elements();
+// const style = {
+//   base: {
+//     color: 'var(--ion-color-secondary)',
+//     fontFamily: 'Montserrat, "Helvetica Neue", sans-serif',
+//     fontSmoothing: 'antialiased',
+//     fontSize: '1em',
+//     '::placeholder': {
+//       color: '#121212',
+//     },
+//   },
+//   invalid: {
+//     color: '#f73008',
+//     iconColor: '#f73008',
+//   },
+// };
 
-    // // Create an instance of the card Element.
-  // this.card = elements.create('card', { style });
-  // this.card.mount(this.cardElement.nativeElement);
-  // this.card.addEventListener('change', ({ error }) => {
-    //   this.cardErrors = error && error.message;
-    // });
-  // }
+// // Create an instance of the card Element.
+// this.card = elements.create('card', { style });
+// this.card.mount(this.cardElement.nativeElement);
+// this.card.addEventListener('change', ({ error }) => {
+//   this.cardErrors = error && error.message;
+// });
+// }
 
-  // async handleForm(e) {
-    //   e.preventDefault();
-    //   const { source, error } = await this.stripe.createSource(this.card);
-    //   if (error) {
-      //     // Inform the customer that there was an error.
-      //     const cardErrors = error.message;
-      //   } else {
-        //     // Send the token to your server.
-        //     this.isLoading = true;
-        //     const fun = this.functions.httpsCallable('stripeCreateSubscription');
-        //     this.confirmation = await fun({
-          //       source: source.id,
-          //       uid: this.user.uid,
-          //       plan: this.planID,
-          //     }).toPromise();
-          //     this.isLoading = false;
-          //     this.wizard.goToStep(2);
-          //   }
-          // }
+// async handleForm(e) {
+//   e.preventDefault();
+//   const { source, error } = await this.stripe.createSource(this.card);
+//   if (error) {
+//     // Inform the customer that there was an error.
+//     const cardErrors = error.message;
+//   } else {
+//     // Send the token to your server.
+//     this.isLoading = true;
+//     const fun = this.functions.httpsCallable('stripeCreateSubscription');
+//     this.confirmation = await fun({
+//       source: source.id,
+//       uid: this.user.uid,
+//       plan: this.planID,
+//     }).toPromise();
+//     this.isLoading = false;
+//     this.wizard.goToStep(2);
+//   }
+// }
 
-          // async handlePayment(e: Event) {
-          //   e.preventDefault();
-          //   this.btnOpts.active = true;
+// async handlePayment(e: Event) {
+//   e.preventDefault();
+//   this.btnOpts.active = true;
 
-          //   try {
-          //     await this.stripe
-          //     .confirmCardPayment(
-          //       environment.stripePubKey,
-          //       {
-          //         payment_method: { card: this.card },
-          //         receipt_email: this.user.email
-          //       },
-          //       paymentIntent: {pi, error} =
-          //       if (error){
-          //       console.error(error);
-          //       this.onClose.emit(null);
-          //     } else {
-          //       console.log(pi)
-          //       this.btnOpts.active = false;
-          //       this.done = true
-          //       setTimeout(() => this.onClose.emit(this.data), 1200)
-          //       await this.pmt.confirmSetupIntent(this.setupIntent.id, pi.payment_method)
+//   try {
+//     await this.stripe
+//     .confirmCardPayment(
+//       environment.stripePubKey,
+//       {
+//         payment_method: { card: this.card },
+//         receipt_email: this.user.email
+//       },
+//       paymentIntent: {pi, error} =
+//       if (error){
+//       console.error(error);
+//       this.onClose.emit(null);
+//     } else {
+//       console.log(pi)
+//       this.btnOpts.active = false;
+//       this.done = true
+//       setTimeout(() => this.onClose.emit(this.data), 1200)
+//       await this.pmt.confirmSetupIntent(this.setupIntent.id, pi.payment_method)
 
-          //   //   if (environment.production){
-          //   //     console.log('firing purchase event');
-          //   //     this.analytics.logEvent('purchase', {
-          //   //       transaction_id: this.data.title,
-          //   //       currency: 'US',
-          //   //       price: this.data.price,
-          //   //       date: new Date()
-          //   //     });
-          //   // }
-          //   }
-          // } catch (e){
-          //   console.error(e)
-          //   this.onClose.emit(null)
-          //   }
+//   //   if (environment.production){
+//   //     console.log('firing purchase event');
+//   //     this.analytics.logEvent('purchase', {
+//   //       transaction_id: this.data.title,
+//   //       currency: 'US',
+//   //       price: this.data.price,
+//   //       date: new Date()
+//   //     });
+//   // }
+//   }
+// } catch (e){
+//   console.error(e)
+//   this.onClose.emit(null)
+//   }

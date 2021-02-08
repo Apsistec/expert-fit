@@ -1,0 +1,95 @@
+<ion-header transparent>
+  <ion-toolbar color="primary" class="ion-text-center ion-padding">
+    <ion-fab-button class="ion-float-right" size="small" color="primary" (click)="dismissModal()">
+      <ion-icon class="expand-icon" color="danger" name="close-sharp"></ion-icon>
+    </ion-fab-button>
+    <ion-title  color="tertiary">Account Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="medium">
+  <form #registerform [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <ion-list class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input
+          debounce="5000"
+          color="primary"
+          type="text"
+          inputmode="text"
+          autocomplete="name"
+          formControlName="displayName"
+          autocapitalize="words"
+          minlength="3"
+          maxlength="25"
+        >
+        </ion-input>
+      </ion-item>
+      <div *ngIf="!registerFormControl.displayName.valid && !registerFormControl.displayName.pristine">
+        <ion-text *ngIf="registerFormControl.displayName.errors.required" color="danger"> Name required. </ion-text>
+        <ion-text *ngIf="registerFormControl.displayName.errors.minlength" color="danger">At least 3 letters</ion-text>
+        <ion-text *ngIf="registerFormControl.displayName.errors.maxlength" color="danger">
+          Less than 25 letters.
+        </ion-text>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          debounce="5000"
+          color="primary"
+          type="email"
+          inputmode="email"
+          formControlName="email"
+          autocomplete="email"
+        >
+        </ion-input>
+      </ion-item>
+      <div *ngIf="!registerFormControl.email.valid && !registerFormControl.email.pristine">
+        <ion-text *ngIf="registerFormControl.email.errors.required" color="danger"> Email required. </ion-text>
+        <ion-text *ngIf="registerFormControl.email.errors.email" color="danger"> Email not valid. </ion-text>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input
+          debounce="5000"
+          color="primary"
+          [type]="hide ? 'password' : 'text'"
+          inputmode="text"
+          formControlName="password"
+        >
+        </ion-input>
+        <ion-icon color="dark" size="small" (click)="toggleHide()" slot="end" *ngIf="!hide" name="eye-sharp">
+        </ion-icon>
+        <ion-icon color="dark" size="small" (click)="toggleHide()" slot="end" *ngIf="hide" name="eye-off-sharp">
+        </ion-icon>
+      </ion-item>
+      <div *ngIf="!registerFormControl.password.valid && !registerFormControl.password.pristine">
+        <ion-text *ngIf="registerFormControl.password.errors.required" color="danger"> Password required. </ion-text>
+        <ion-text *ngIf="registerFormControl.password.errors.minlength" color="danger">
+         At least 6 characters
+        </ion-text>
+        <ion-text *ngIf="registerFormControl.password.errors.maxlength" color="danger">
+          Less than 25 characters
+        </ion-text>
+        <ion-text *ngIf="registerFormControl.password.errors.pattern" color="danger">
+          At least 1 uppercase, 1 lowercase and 1 number
+        </ion-text>
+      </div>
+    </ion-list>
+    <ion-button type="submit" color="tertiary" expand="full" [disabled]="!registerForm.valid">
+      <ion-icon slot="start" name="person-add-sharp"></ion-icon>
+      <ion-text> Register </ion-text>
+    </ion-button>
+    <ion-button  type="button" expand="full" color="danger" (click)="authService.GoogleAuth()">
+      <ion-icon slot="start" name="logo-google"> </ion-icon>
+      Register with Google
+    </ion-button>
+    <ion-button (click)="authService.GoogleAuth()" expand="full" color="secondary">
+      <ion-icon slot="start" name="logo-twitter"></ion-icon>
+      Register with Twitter
+    </ion-button>
+    <ion-button size="small" color="dark" expand="full" fill="clear" type="button" (click)="showLoginModal()">
+      <!-- <ion-icon size="small" name="log-in-sharp" slot="start" type="button"></ion-icon> -->
+      <ion-text> Need to login? </ion-text>
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,17 +1,13 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
+import { User } from '../models/users.model';
+import { MessageService } from './message.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { User } from '../models/users.model';
-import { MessageService } from './message.service';
-// import { AngularFireAuth } from '@angular/fire/auth';
-// import { AngularFirestore } from '@angular/fire/firestore';
-// import { Router } from '@angular/router';
-// import { ModalController } from '@ionic/angular';
-// import * as fire from 'firebase/app';
-// import { MessageService } from './message.service';
+import { ModalController } from '@ionic/angular';
+import * as fire from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +15,11 @@ import { MessageService } from './message.service';
 export class AuthService {
   user$: Observable<User>;
   role: string[];
-  user: Observable<User>;
+  user: any;
+  userData;
   currentBehaviorUser = new BehaviorSubject(null);
-  // userType;
-  // displayName;
+  userType;
+  displayName;
   authState$ = this.afAuth.authState;
   loggedInState: boolean;
 
@@ -30,153 +27,163 @@ export class AuthService {
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private modalController: ModalController
   )
   {
-    this.afAuth.user.pipe(
-      map((user) => {
-        if (user) {
-          this.loggedInState = true;
-          this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-        } else {
-          this.loggedInState = false;
-          of(null);
-        }
-      })
-    );
-    console.log('user: ', this.user);
-    console.log('state: ', this.loggedInState);
+    // this.afAuth.user.pipe(
+    //   switchMap((u) => {
+    //     return this.afs.doc<User>(`users/${u.uid}`).valueChanges()
+    //       .pipe(
+    //         map((user) => {
+    //           this.user = user;
+    //         })
+    //       );
+    //   })
+    // );
+    // console.log('user: ', this.user);
 
+
+  //   return this.afAuth.user.pipe(
+  //     switchMap(user => this.afs.doc<User>(`users/${user.uid}`).valueChanges()),
+  //               map(u => this.user  = u);
+  //   )
+  // }
+
+    // return this.afAuth.user.pipe(switchMap((user) => this.afs.doc<User>(`users/${user.uid}`).valueChanges))
+
+    this.user = this.afAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+        } else {
+          return of(null);
+        }
+      }));
+    console.log('userService: ', this.user);
   }
 
 
 
-  // SignIn(credentials) {
-  //   return this.afAuth
-  //     .signInWithEmailAndPassword(credentials.email, credentials.password)
-  //     .then((data) => {
-  //       this.afs.doc<User>(`users/${data.user.uid}`).update({
-  //         uid: data.user.uid,
-  //         photoURL: data.user.photoURL,
-  //         email: data.user.email,
-  //         emailVerified: data.user.emailVerified,
-  //         lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
-  //       });
-  //       this.modalController.dismiss().then(() => {
-  //         this.messageService.loggedInToast(data);
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       this.messageService.authErrorAlert(error);
-  //     });
-  // }
+  SignIn(credentials) {
+    return this.afAuth
+      .signInWithEmailAndPassword(credentials.email, credentials.password)
+      .then((data) => {
+        this.afs.doc<User>(`users/${data.user.uid}`).update({
+          uid: data.user.uid,
+          photoURL: data.user.photoURL,
+          email: data.user.email,
+          emailVerified: data.user.emailVerified,
+          lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
+        });
+        this.modalController.dismiss().then(() => {
+          this.messageService.loggedInToast(data);
+        });
+      })
+      .catch((error) => {
+        this.messageService.authErrorAlert(error);
+      });
+  }
 
-  // SignUp(credentials) {
-  //   return this.afAuth.createUserWithEmailAndPassword(credentials.email, credentials.password).then((data) => {
-  //     this.afs
-  //       .doc<User>(`users/${data.user.uid}`)
-  //       .set(
-  //         {
-  //           uid: data.user.uid,
-  //           displayName: credentials.displayName,
-  //           photoURL: data.user.photoURL,
-  //           email: data.user.email,
-  //           userType: 'USER',
-  //           permissions: ['delete-ticket'],
-  //           emailVerified: data.user.emailVerified,
-  //           createdAt: fire.default.firestore.FieldValue.serverTimestamp()
-  //         },
-  //         { merge: true }
-  //       )
-  //       .then(() => {
-  //         this.modalController
-  //           .dismiss()
-  //           .then(() => {
-  //             this.sendVerificationMail();
-  //           })
-  //           .catch((error) => {
-  //             this.messageService.authErrorAlert(error);
-  //           });
-  //       });
-  //   });
-  // }
+  SignUp(credentials) {
+    return this.afAuth.createUserWithEmailAndPassword(credentials.email, credentials.password).then((data) => {
+      this.afs
+        .doc<User>(`users/${data.user.uid}`)
+        .set(
+          {
+            uid: data.user.uid,
+            displayName: credentials.displayName,
+            photoURL: data.user.photoURL,
+            email: data.user.email,
+            role: ['USER'],
+            permissions: ['delete-ticket'],
+            emailVerified: data.user.emailVerified,
+            createdAt: fire.default.firestore.FieldValue.serverTimestamp()
+          },
+          { merge: true }
+        )
+        .then(() => {
+          this.modalController
+            .dismiss()
+            .then(() => {
+              this.sendVerificationMail();
+            })
+            .catch((error) => {
+              this.messageService.authErrorAlert(error);
+            });
+        });
+    });
+  }
 
-  // // Auth providers
-  // AuthLogin(provider) {
-  //   return this.afAuth.signInWithRedirect(provider).then(() => {
-  //     return this.afAuth.getRedirectResult().then((data) => {
-  //       this.afs
-  //         .doc<User>(`users/${data.user.uid}`)
-  //         .update({
-  //           uid: data.user.uid,
-  //           photoURL: data.user.photoURL,
-  //           email: data.user.email,
-  //           emailVerified: data.user.emailVerified,
-  //           lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
-  //         })
-  //         .then(() => {
-  //           this.modalController
-  //             .dismiss()
-  //             .then(() => {
-  //               this.messageService.loggedInToast(data);
-  //             })
-  //             .catch((err) => {
-  //               this.messageService.authErrorAlert(err);
-  //             });
-  //         });
-  //     });
-  //   });
-  // }
+  // Auth providers
+  AuthLogin(provider) {
+    return this.afAuth.signInWithRedirect(provider).then(() => {
+      return this.afAuth.getRedirectResult().then((data) => {
+        this.afs
+          .doc<User>(`users/${data.user.uid}`)
+          .update({
+            uid: data.user.uid,
+            photoURL: data.user.photoURL,
+            email: data.user.email,
+            emailVerified: data.user.emailVerified,
+            lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
+          })
+          .then(() => {
+            this.modalController
+              .dismiss()
+              .then(() => {
+                this.messageService.loggedInToast(data);
+              })
+              .catch((err) => {
+                this.messageService.authErrorAlert(err);
+              });
+          });
+      });
+    });
+  }
 
-  // // Sign in with 3rd party Oauth
-  // GoogleAuth() {
-  //   this.AuthLogin(new fire.default.auth.GoogleAuthProvider()).catch((error) => {
+  // Sign in with 3rd party Oauth
+  GoogleAuth() {
+    this.AuthLogin(new fire.default.auth.GoogleAuthProvider()).catch((error) => {
+      this.messageService.errorAlert(error);
+    });
+  }
+
+  TwitterAuth() {
+    this.AuthLogin(new fire.default.auth.TwitterAuthProvider()).catch((error) => {
+      this.messageService.errorAlert(error);
+    });
+  }
+  // MicrosoftAuth() {
+  //   this.AuthLogin(new fire.default.auth.OAuthProvider()).catch((error) => {
   //     this.messageService.errorAlert(error);
   //   });
   // }
 
-  // TwitterAuth() {
-  //   this.AuthLogin(new fire.default.auth.TwitterAuthProvider()).catch((error) => {
-  //     this.messageService.errorAlert(error);
-  //   });
-  // }
-  // // MicrosoftAuth() {
-  // //   this.AuthLogin(new fire.default.auth.OAuthProvider()).catch((error) => {
-  // //     this.messageService.errorAlert(error);
-  // //   });
-  // // }
+  FacebookAuth() {
+    this.AuthLogin(new fire.default.auth.FacebookAuthProvider()).catch((error) => {
+      this.messageService.errorAlert(error);
+    });
+  }
 
-  // FacebookAuth() {
-  //   this.AuthLogin(new fire.default.auth.FacebookAuthProvider()).catch((error) => {
-  //     this.messageService.errorAlert(error);
-  //   });
-  // }
-
-  // /* Send email verfificaiton when new user sign up */
-  // sendVerificationMail() {
-  //   const actionCodeSettings = {
-  //     url: 'https://expert-fitness-midland-tx.firebaseapp.com/vefified-email',
-  //     handleCodeInApp: true
-  //   };
-  //   fire.default
-  //     .auth()
-  //     .currentUser.sendEmailVerification(actionCodeSettings)
-  //     .then(() => {
-  //       this.messageService.registerSuccessAlert().then(() => {
-  //         this.SignOut();
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       this.messageService.errorAlert(error);
-  //     });
-  // }
-
-  // // Recover password
-  // ForgotPassword(passwordResetEmail) {
-  //   return this.afAuth
-  //     .sendPasswordResetEmail(passwordResetEmail)
-  //     .then(() => this.messageService.resetPasswordAlert().catch((error) => this.messageService.errorAlert(error)));
-  // }
+  /* Send email verfificaiton when new user sign up */
+  sendVerificationMail() {
+    const actionCodeSettings = {
+      url: 'https://expert-fitness-midland-tx.firebaseapp.com/vefified-email',
+      handleCodeInApp: true
+    };
+    fire.default
+      .auth()
+      .currentUser.sendEmailVerification(actionCodeSettings)
+      .then(() => {
+        this.messageService.registerSuccessAlert().then(() => {
+          this.signOut();
+        });
+      })
+      .catch((error) => {
+        this.messageService.errorAlert(error);
+      });
+  }
 
   // Sign-out
   signOut() {

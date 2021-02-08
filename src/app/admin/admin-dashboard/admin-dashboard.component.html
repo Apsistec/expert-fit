@@ -67,7 +67,7 @@
               </ion-card-header>
               <ion-list>
                 <ion-item *ngFor="let admin of admins | async">
-                  <ion-avatar>
+                  <ion-avatar slot="start">
                     <ion-img
                       [src]="admin.photoURL || '..//..//assets//images//dummy-user.png'" class="small-logo"
                     ></ion-img>
@@ -108,7 +108,7 @@
               </ion-card-header>
               <ion-list>
                 <ion-item class="userlist" *ngFor="let user of users | async">
-                  <ion-avatar>
+                  <ion-avatar slot="start">
                     <ion-img
                       [src]="user.photoURL || '..//..//assets//images//dummy-user.png'" class="small-logo"></ion-img>
                   </ion-avatar>

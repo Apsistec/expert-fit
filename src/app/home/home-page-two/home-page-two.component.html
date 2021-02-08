@@ -17,7 +17,7 @@
     <ion-text color="light" [@slideInRight]="slideInRight" class="ion-hide-sm-down ion-text-capitalize">
       Select to learn more
     </ion-text>
-    <ion-list class="shadow ion-text-center">
+    <ion-item-group class="shadow ion-text-center">
       <ion-item
         *ngFor="let benefit of benefits"
         class="benefit-item"
@@ -30,7 +30,7 @@
           {{ benefit.title }}
         </ion-text>
       </ion-item>
-    </ion-list>
+    </ion-item-group>
   </ion-col>
 </ion-row>
 <ion-row class="ion-justify-content-center ion-hide-sm-up">

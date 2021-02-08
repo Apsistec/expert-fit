@@ -41,7 +41,7 @@
           <ion-label position="stacked">Description</ion-label>
           <ion-textarea rows="5" formControlName="desc"></ion-textarea>
         </ion-item>
-        <ion-item lines="none" appHasPermission="['change-ticket-status']">
+        <ion-item lines="none" [appHasPermission]="['change-ticket-status']">
           <ion-label position="stacked">Status</ion-label>
           <ion-segment formControlName="status" mode="ios">
             <ion-segment-button value="0" layout="icon-start">
@@ -68,7 +68,7 @@
           class="ion-padding-horizontal ion-margin-vertical"
           expand="block"
           (click)="deleteTicket()"
-          appHasPermission="['delete-ticket']"
+          [appHasPermission]="['delete-ticket']"
         >
           <ion-icon name="trash" slot="end"></ion-icon>
           Delete Ticket

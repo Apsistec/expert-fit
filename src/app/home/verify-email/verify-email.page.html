@@ -1,4 +1,4 @@
-<!-- <div *ngIf="authService.user | async as user then verified; else unverified"></div>
+<div *ngIf="user | async then verified; else unverified"></div>
 <ion-card class="ion-padding ion-text-center" class="ion-card-global" style="margin: auto; max-width: 500px">
   <ion-card-header>
     <ion-card-title> Account Verification </ion-card-title>
@@ -40,4 +40,3 @@
   <ion-button fill="outline" color="light" routerLink="/login"> Sign In </ion-button>
 </ion-card-content>
 </ng-template>
- -->

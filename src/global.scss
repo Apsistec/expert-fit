@@ -28,8 +28,18 @@
 // rating
 @import '~ngx-bar-rating/themes/br-default-theme';
 
-// All Title Font Color
+a:hover {
+  cursor: pointer;
+}
+*::-moz-selection { /* Code for Firefox */
+  color: var(--ion-color-secondary);
+  background: purple;
+}
 
+*::selection {
+  color: darkgrey;
+  background: purple;
+}
 
 // Page transition animation
 .bounceOutDown {
@@ -67,9 +77,6 @@ ion-content {
   --background: var(--ion-color-light-shade);
 }
 
-a:hover {
-  cursor: pointer;
-}
 
 // Logos
 .small-logo {
@@ -95,8 +102,16 @@ a:hover {
   margin: 10px;
 }
 
+@media screen and ( max-width: 600px) {
+  .top-toolbar-lg{
+    display:none;
+  }
+}
 // media query standards: 650px, ...
-@media screen and (min-width: 650px) {
+@media screen and (min-width : 601px) {
+  .top-toolbar-sm{
+    display:none;
+  }
   .view-post {
     max-width: 800px;
     margin: auto;

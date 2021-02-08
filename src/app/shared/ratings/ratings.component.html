@@ -3,13 +3,13 @@
     <ion-item class="items" lines="none">
       <ion-row class="ion-align-items-around">
         <ion-col size="3" class="">
-          <ion-avatar>
+          <ion-avatar slot="start">
             <ion-img [src]="[rating.photoURL || '../../../assets/images/dummy-user.png']" ></ion-img>
           </ion-avatar>
           <ion-text color="primary"> {{ rating.displayName }} </ion-text>
           <br>
           <bar-rating [(rate)]="rating.stars" (hover)="hover($event)" 
-          [theme]="'default'" max="5" readOnly="true"
+          [theme]="'default'" [max]="5" [readOnly]="true"
           ></bar-rating>
         </ion-col>
         <ion-col size="9" class='ion-align-self-center'>

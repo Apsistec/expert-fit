@@ -35,18 +35,18 @@
         <ion-item class="shadow" >
           <ion-row class="ion-align-items-center">
             <ion-col size="4" class="ion-align-self-center">
-              <ion-avatar>
+              <ion-avatar slot="start">
                 <ion-img [src]="[review.photoURL || '../../../assets/images/dummy-user.png']" ></ion-img>
               </ion-avatar>
               <ion-text color="primary"> {{ review.displayName }} </ion-text>
               <br />
               <bar-rating
                 [(rate)]="review.stars"
-                (onHover)="hover($event)"
+                (hover)="hover($event)"
                 style="color: var(--ion-color-danger)"
                 [theme]="'default'"
-                max="5"
-                readOnly="true"
+                [max]="5"
+                readonly="true"
               ></bar-rating>
             </ion-col>
 
@@ -74,7 +74,7 @@
           <ion-item class="shadow" style="--inner-padding-top: 8px">
             <ion-row class="ion-align-items-center">
               <ion-col size="4" class="ion-align-self-center">
-                <ion-avatar>
+                <ion-avatar slot="start">
                   <ion-img [src]="[myReview.photoURL || '../../../assets/images/dummy-user.png']" ></ion-img>
                 </ion-avatar>
                 <ion-text color="primary"> {{ myReview.displayName }} </ion-text>
@@ -83,8 +83,8 @@
                   [(rate)]="myReview.stars"
                   (hover)="hover($event)"
                   [theme]="'default'"
-                  max="5"
-                  readOnly="true"
+                  [max]="5"
+                  readonly="true"
                 ></bar-rating>
               </ion-col>
               <ion-col size="8" class="ion-align-self-center">

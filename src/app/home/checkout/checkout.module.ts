@@ -6,7 +6,6 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { SharedModule } from '../../shared/shared.module';
 import { CheckoutPageRoutingModule } from './checkout-routing.module';
 import { CheckoutPage } from './checkout.page';
-import { MaterialModule } from '../../material/material.module';
 
 @NgModule({
   imports: [
@@ -17,7 +16,6 @@ import { MaterialModule } from '../../material/material.module';
     ReactiveFormsModule,
     ArchwizardModule,
     SharedModule,
-    MaterialModule
   ],
   declarations: [CheckoutPage],
 })

@@ -9,7 +9,6 @@ import { StorageService } from './storage.service';
   providedIn: 'root',
 })
 export class ThemeService {
-  renderer: Renderer2;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -22,6 +21,7 @@ export class ThemeService {
 
     this.renderer = this.rendererFactory.createRenderer(null, null);
   }
+  renderer: Renderer2;
 
   enableDark() {
     this.renderer.addClass(this.document.body, 'dark-theme');

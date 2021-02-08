@@ -11,9 +11,10 @@ import { ReviewService } from 'src/app/services/review.service';
 })
 export class TestimonialsPage implements OnInit {
   private ngUnsubscribe: Subject<any> = new Subject();
-
+  max: number;
   formRating;
-  overStar: number | undefined;
+  readonly: any;
+  overStar: any;
   reviewForm;
   reviews: Observable<any>;
   myReviews: Observable<any>;

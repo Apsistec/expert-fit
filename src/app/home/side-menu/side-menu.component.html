@@ -1,16 +1,15 @@
-<ion-menu contentId="main-content" type="push">
+<ion-menu contentId="main" type="push">
 	<ion-header transparent>
 		<ion-menu-toggle>
-		<ion-toolbar color="dark" #toolbar class="ion-hide-lg-up">
+		<ion-toolbar color="dark" #toolbar>
       <ion-buttons slot="start">
         <ion-menu-button color="tertiary"> </ion-menu-button>
-        <!-- <ion-back-button *ngIf="showBackButton === true" defaultHref="/home" color="warning"></ion-back-button> -->
       </ion-buttons>
-      <ion-img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" ></ion-img>
+      <img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" >
     </ion-toolbar>
 	</ion-menu-toggle>
 	</ion-header>
-	<ion-content fullscreen color="medium">
+	<ion-content color="medium">
 			<ion-menu-toggle>
 		<ion-list style="background: var(--ion-color-medium);"  lines="full">
 			<ion-item-divider class="list-header-global">
@@ -33,7 +32,7 @@
 					<ion-label class="side-menu-font">Home</ion-label>
 				</ion-item>
 				<!-- SignedIn Menu Items -->
-				<div *ngIf="authService.user | async as user; else public">
+				<div *ngIf="user | async; else public">
 					<ion-item
 						color="medium"
 						button
@@ -279,39 +278,22 @@
 						></ion-icon>
 						<ion-label class="side-menu-font">Contact</ion-label>
 					</ion-item>
-				</ng-template>
-				<!-- authentication area of menu
-				<ion-list-header class="list-header-global">
-					<ion-title> Authentication </ion-title>
-				</ion-list-header>
-				<div *ngIf="authService.user | async as user; else nouser">
-					<ion-item color="medium" button (click)="authService.signOut()">
-						<ion-label class="side-menu-font"> Sign Out </ion-label>
-						<ion-icon
-							color="danger"
-							size="small"
-							slot="start"
-							name="log-out"
-						></ion-icon>
-					</ion-item>
-				</div>
-				<ng-template #nouser>
 					<ion-item
 						color="medium"
 						button
+						(click)="authService.signOut()"
 						routerLinkActive="active-item"
-						[routerLinkActiveOptions]="{ exact: true }"
-						routerLink="/login"
+						class="contact-modal-button"
 					>
 						<ion-icon
-							color="success"
+							color="primary"
 							size="small"
 							slot="start"
-							name="rocket"
+							name="log-out-sharp"
 						></ion-icon>
-						<ion-label class="sales side-menu-font">Login</ion-label>
+						<ion-label class="side-menu-font">Logout</ion-label>
 					</ion-item>
-				</ng-template> -->
+				</ng-template>
 		</ion-list>
 			</ion-menu-toggle>
 	</ion-content>

@@ -10,7 +10,7 @@
 		</ion-buttons>
 	</ion-toolbar>
 
-		<vg-player>
+		<!-- <vg-player>
 			<vg-overlay-play></vg-overlay-play>
 			<vg-buffering></vg-buffering>
 			
@@ -36,8 +36,8 @@
 		<vg-fullscreen></vg-fullscreen>
 	</vg-controls>
 	
-	<video [vgMedia]="media" #media id="singleVideo" preload="auto" crossorigin>
+	<video [vgMedia]="media" [vgMaster]="true" #media id="singleVideo" preload="auto" crossorigin>
 		<source src="../../../assets/videos/fitnessGoals.mp4" type="video/mp4">
 	</video>
-</vg-player>
+</vg-player> -->
 </ion-content>

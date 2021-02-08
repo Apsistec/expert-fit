@@ -30,7 +30,7 @@ export class RatingsComponent implements OnInit {
     this.ratings = this.reviewService.getAllReviews();
   }
 
-  hover(value: number): void {
+  hover(value: any) {
     this.overStar = value;
   }
 

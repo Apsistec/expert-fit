@@ -3,7 +3,7 @@ export interface User {
   uid: string;
   displayName: string;
   email: string;
-  role: string[]; // USER, ADMIN, EMPLOYEE, CUSTOMER
+  role?: string[]; // USER, ADMIN, EMPLOYEE, CUSTOMER
   photoURL?: string;
   emailVerified?: boolean;
   providerId?: string;

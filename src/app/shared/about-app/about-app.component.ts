@@ -10,23 +10,23 @@ export class AboutAppComponent implements OnInit {
   constructor(
     private modalController: ModalController,
     private navCtrl: NavController,
-    private menuCtrl: MenuController
+    // private menuCtrl: MenuController
   ) {}
 
   ngOnInit() {
-    this.menuCtrl.close().then(
-      () => {
-        this.menuCtrl.enable(false);
-      }
-    );
+    // this.menuCtrl.close().then(
+    //   () => {
+    //     this.menuCtrl.enable(false);
+    //   }
+    // );
 
   }
 
   goBack() {
-    const isEnabled = this.menuCtrl.isEnabled();
+    // const isEnabled = this.menuCtrl.isEnabled();
     this.navCtrl.back();
-    if (!isEnabled) {
-      this.menuCtrl.enable(true);
-    }
+    // if (!isEnabled) {
+    //   this.menuCtrl.enable(true);
+    // }
  }
 }

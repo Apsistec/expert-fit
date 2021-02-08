@@ -109,10 +109,10 @@ export class MessageService {
   }
 
 
-  async welcomeBackToast() {
+  async welcomeBackToast(data) {
     const toast = await this.toastController.create({
-      header: 'Welcome Back',
-      message: 'Login Successful, your account is currently active.',
+      header:  'Login Successful!',
+      message: 'Welcome Back ' + data.displayName ,
       duration: 2000,
       cssClass: 'successA',
       position: 'middle',
@@ -232,6 +232,7 @@ export class MessageService {
   async errorAlert(err: any) {
     const alert = await this.alertController.create({
       header: 'An Error Occurred',
+      subHeader: err.number,
       message: err.message,
       buttons: ['OK'],
       translucent: true,

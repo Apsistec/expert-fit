@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { QuicklinkStrategy } from 'ngx-quicklink';
 import { PaidGuard } from './guards/paid.guard';
 import { RoleGuard } from './guards/role.guard';
-import { ModalViewComponent } from './shared/modal-view/modal-view.component';
-import { LoggedInGuard } from 'ngx-auth-firebaseui';
 import {
   AngularFireAuthGuard,
   canActivate,
@@ -12,14 +10,14 @@ import {
   redirectUnauthorizedTo,
   emailVerified,
   hasCustomClaim,
-  idTokenResult,
-  AuthPipe
 } from '@angular/fire/auth-guard';
 import { UnknownComponent } from './unknown/unknown.component';
 import { AboutAppComponent } from './shared/about-app/about-app.component';
 import { LoginComponent } from './shared/login/login.component';
 import { PrivacyComponent } from './shared/privacy/privacy.component';
 import { TermsComponent } from './shared/terms/terms.component';
+import { SignupComponent } from './shared/signup/signup.component';
+// import { AuthenticateComponent } from './shared/authenticate/authenticate.component';
 
 const customerOnly = () => hasCustomClaim('customer');
 const employeeOnly = () => hasCustomClaim('employee');
@@ -40,7 +38,7 @@ const routes: Routes = [
     ...canActivate(redirectLoggedInToDash),
     ...canActivate(redirectUnauthorizedToHome),
     ...canActivate(verifiedEmail),
-    canActivate: [LoggedInGuard, PaidGuard, RoleGuard]
+    canActivate: [PaidGuard, RoleGuard]
   },
   {
     path: 'employee',
@@ -49,7 +47,7 @@ const routes: Routes = [
     ...canActivate(verifiedEmail),
     ...canActivate(redirectUnauthorizedToHome),
     ...canActivate(adminOnly),
-    canActivate: [PaidGuard, LoggedInGuard, RoleGuard]
+    canActivate: [PaidGuard, RoleGuard]
   },
   {
     path: 'admin',
@@ -57,7 +55,7 @@ const routes: Routes = [
     ...canActivate(redirectUnauthorizedToHome),
     ...canActivate(verifiedEmail),
     ...canActivate(adminOnly),
-    canActivate: [PaidGuard, LoggedInGuard, RoleGuard]
+    canActivate: [PaidGuard, RoleGuard]
   },
   {
     path: 'checkout',
@@ -80,6 +78,7 @@ const routes: Routes = [
     component: PrivacyComponent
   },
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component:  SignupComponent },
   {
     path: 'gallery',
     loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule),

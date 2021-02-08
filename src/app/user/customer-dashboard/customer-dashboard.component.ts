@@ -3,7 +3,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from '../../services/auth.service';
 import { StorageService } from '../../services/storage.service';
 import { UserService } from '../../services/user.service';
-
 @Component({
   selector: 'app-customer-dashboard',
   templateUrl: './customer-dashboard.component.html',
@@ -18,4 +17,19 @@ export class CustomerDashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+
+
+  onSignOut() {
+    console.log('Sign-out successful!');
+  }
+
+  onAccountDeleted() {
+    console.log('Account Delete successful!');
+  }
+
+  createAccount() {
+    console.log('create account has beeen requested');
+  }
+
 }
