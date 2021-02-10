@@ -15,7 +15,7 @@
           *ngIf="user | async; else login"
         >
           <ion-avatar slot="end">
-            <img [src]="user.photoURL || '..//assets//images//dummy-user.png'" />
+            <img [src]="[user.photoURL || '..//assets//images//dummy-user.png']" />
           </ion-avatar>
           <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
         </ion-item>
@@ -102,7 +102,7 @@
           *ngIf="user | async; else login"
         >
           <ion-avatar slot="end">
-            <img [src]="user.photoURL || '..//assets//images//dummy-user.png'" />
+            <img [src]="[user.photoURL || '..//assets//images//dummy-user.png']" />
           </ion-avatar>
           <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
         </ion-item>

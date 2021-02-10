@@ -69,7 +69,7 @@
                 <ion-item *ngFor="let admin of admins | async">
                   <ion-avatar slot="start">
                     <ion-img
-                      [src]="admin.photoURL || '..//..//assets//images//dummy-user.png'" class="small-logo"
+                      [src]="['..//..//assets//images//dummy-user.png']" class="small-logo"
                     ></ion-img>
                   </ion-avatar>
                   <ion-label>
@@ -110,7 +110,7 @@
                 <ion-item class="userlist" *ngFor="let user of users | async">
                   <ion-avatar slot="start">
                     <ion-img
-                      [src]="user.photoURL || '..//..//assets//images//dummy-user.png'" class="small-logo"></ion-img>
+                      [src]="['..//..//assets//images//dummy-user.png']" class="small-logo"></ion-img>
                   </ion-avatar>
                   <ion-label>
                     <ion-text color="dark"> {{ user.name }} </ion-text>

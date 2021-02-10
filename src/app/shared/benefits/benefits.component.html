@@ -2,7 +2,7 @@
   <ion-slide  *ngFor="let benefit of benefits">
 
     <ion-card style="height: fit-content;  background: var(--ion-color-dark-tint);">
-      <!-- <img [src]="benefit.image" style="width: 100%; height: 180px" /> -->
+      <img [src]="[benefit.image]" style="width: 100%; height: 180px" />
       <ion-toolbar >
         <ion-title>
           <ion-text color="tertiary" style="text-transform: uppercase">

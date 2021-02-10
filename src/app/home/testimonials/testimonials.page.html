@@ -31,7 +31,7 @@
           <ion-row class="ion-align-items-center">
             <ion-col size="4" class="ion-align-self-center">
               <ion-avatar slot="start">
-                <img [src]="../../../assets/images/dummy-user.png" >
+                <img [src]="['../../../assets/images/dummy-user.png']" >
               </ion-avatar>
               <ion-text color="primary"> {{ review.displayName }} </ion-text>
               <br />
@@ -89,18 +89,7 @@
           </ion-item>
         </ion-col>
       </ion-row>
-        <!-- <ion-row >
-        <ion-col >
-          <ion-card>
-            <ion-header>
-              <ion-title> Login to create reviews and view your existing reviews </ion-title>
-            </ion-header>
-            <ion-card-content>
-              <ion-button routerLink="login"> Login </ion-button>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        </ion-row> -->
+          
       </ion-grid>
     </div>
   <app-footer></app-footer>

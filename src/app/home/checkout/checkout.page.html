@@ -5,11 +5,6 @@
 </ion-header>
 
 <ion-content fullscreen transparent>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Checkout</ion-title>
-    </ion-toolbar>
-  </ion-header>
   
     <ion-row class="ion-wrap-reverse tech">
       <div
@@ -41,7 +36,7 @@
         >
           <ion-avatar>
             <img
-              [src]="user.photoURL || '..//..//..//assets//images//dummy-user.png'"
+              [src]="[user.photoURL || '..//..//..//assets//images//dummy-user.png']"
               style="width: 60px; height: 60px"
             />
           </ion-avatar>
