@@ -5,11 +5,6 @@
 </ion-header>
 
 <ion-content fullscreen transparent>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Expert Fitness Reviews</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <ion-segment [(ngModel)]="segment">
     <ion-segment-button color="warning">
@@ -36,7 +31,7 @@
           <ion-row class="ion-align-items-center">
             <ion-col size="4" class="ion-align-self-center">
               <ion-avatar slot="start">
-                <ion-img [src]="[review.photoURL || '../../../assets/images/dummy-user.png']" ></ion-img>
+                <img [src]="../../../assets/images/dummy-user.png" >
               </ion-avatar>
               <ion-text color="primary"> {{ review.displayName }} </ion-text>
               <br />

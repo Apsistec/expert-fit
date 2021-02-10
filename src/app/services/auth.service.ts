@@ -8,6 +8,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import * as fire from 'firebase/app';
+import { ForgotPasswordComponent } from '../shared/forgot-password/forgot-password.component';
+import { LoginComponent } from '../shared/login/login.component';
+import { SignupComponent } from '../shared/signup/signup.component';
 
 @Injectable({
   providedIn: 'root'
@@ -31,27 +34,6 @@ export class AuthService {
     private modalController: ModalController
   )
   {
-    // this.afAuth.user.pipe(
-    //   switchMap((u) => {
-    //     return this.afs.doc<User>(`users/${u.uid}`).valueChanges()
-    //       .pipe(
-    //         map((user) => {
-    //           this.user = user;
-    //         })
-    //       );
-    //   })
-    // );
-    // console.log('user: ', this.user);
-
-
-  //   return this.afAuth.user.pipe(
-  //     switchMap(user => this.afs.doc<User>(`users/${user.uid}`).valueChanges()),
-  //               map(u => this.user  = u);
-  //   )
-  // }
-
-    // return this.afAuth.user.pipe(switchMap((user) => this.afs.doc<User>(`users/${user.uid}`).valueChanges))
-
     this.user = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
@@ -71,7 +53,6 @@ export class AuthService {
       .then((data) => {
         this.afs.doc<User>(`users/${data.user.uid}`).update({
           uid: data.user.uid,
-          photoURL: data.user.photoURL,
           email: data.user.email,
           emailVerified: data.user.emailVerified,
           lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
@@ -93,7 +74,6 @@ export class AuthService {
           {
             uid: data.user.uid,
             displayName: credentials.displayName,
-            photoURL: data.user.photoURL,
             email: data.user.email,
             role: ['USER'],
             permissions: ['delete-ticket'],
@@ -185,6 +165,12 @@ export class AuthService {
       });
   }
 
+  // Password Reset
+  passReset(email){
+    this.afAuth.sendPasswordResetEmail(email);
+  }
+
+
   // Sign-out
   signOut() {
     return this.afAuth
@@ -197,6 +183,50 @@ export class AuthService {
       })
       .catch((err) => this.messageService.errorAlert(JSON.stringify(err)));
   }
+
+
+
+  // Modals
+
+  async showRegisterModal() {
+    this.dismissModal();
+    const modal = await this.modalController.create({
+      component: SignupComponent,
+      componentProps: {
+        cssClass: 'modal-css'
+      }
+    });
+    await modal.present().catch((error) => this.messageService.errorAlert(error));
+  }
+
+  async showForgotModal() {
+    this.dismissModal();
+    const modal = await this.modalController.create({
+      component: ForgotPasswordComponent,
+      componentProps: {
+        cssClass: 'modal-css'
+      }
+    });
+    await modal.present().catch((error) => this.messageService.errorAlert(error));
+  }
+
+  async showLoginModal() {
+    this.dismissModal();
+    const modal = await this.modalController.create({
+      component: LoginComponent,
+      componentProps: {
+        cssClass: 'modal-css'
+      }
+    });
+    await modal.present().catch((error) => this.messageService.errorAlert(error));
+  }
+
+  dismissModal() {
+    this.modalController.dismiss().catch((error) => this.messageService.errorAlert(error));
+  }
+
+
+  // Permissions
 
   canRead(user: User): boolean {
     return this.checkAuthorization(user);

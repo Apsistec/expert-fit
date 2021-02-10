@@ -10,6 +10,7 @@ import { StripeService } from '../../services/stripe.service';
 import { ThemeService } from '../../services/theme.service';
 import { CancelServiceComponent } from '../../customer/cancel-service/cancel-service.component';
 import { InvoicesComponent } from '../../customer/invoices/invoices.component';
+import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
   selector: 'app-profile',
@@ -61,6 +62,12 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   async presentInvoicesModal() {
     const modal = await this.modalCtrl.create({
       component: InvoicesComponent
+    });
+    return modal.present();
+  }
+  async presentSettingsModal() {
+    const modal = await this.modalCtrl.create({
+      component: SettingsComponent
     });
     return modal.present();
   }

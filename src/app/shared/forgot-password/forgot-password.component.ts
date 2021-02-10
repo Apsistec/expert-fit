@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { LoadingController, ModalController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 import { MessageService } from 'src/app/services/message.service';
-import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-forgot-password',
@@ -16,7 +15,7 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(
     private modalController: ModalController,
     private fb: FormBuilder,
-    private afAuth: AngularFireAuth,
+    public authService: AuthService,
     private messageService: MessageService,
     private loadingController: LoadingController
   ) {}
@@ -42,8 +41,9 @@ export class ForgotPasswordComponent implements OnInit {
 
   // Recover password
   async onReset() {
+    const email = this.resetForm.value.email;
     await this.showLoading();
-    await this.afAuth.sendPasswordResetEmail(this.resetForm.value.email);
+    await this.authService.passReset(email);
     await this.dismissLoading();
     await this.messageService.resetPasswordAlert().catch((error) => this.messageService.errorAlert(error));
   }
@@ -56,14 +56,4 @@ export class ForgotPasswordComponent implements OnInit {
     this.modalController.dismiss().catch((error) => this.messageService.errorAlert(error));
   }
 
-  async showLoginModal() {
-    this.dismissModal();
-    const modal = await this.modalController.create({
-      component: LoginComponent,
-      componentProps: {
-        cssClass: 'modal-css'
-      }
-    });
-    await modal.present().catch((error) => this.messageService.errorAlert(error));
-  }
 }

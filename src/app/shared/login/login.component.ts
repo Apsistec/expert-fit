@@ -74,25 +74,5 @@ export class LoginComponent implements OnInit {
     this.modalController.dismiss().catch((error) => this.messageService.errorAlert(error));
   }
 
-  async showRegisterModal() {
-    this.dismissModal();
-    const modal = await this.modalController.create({
-      component: SignupComponent,
-      componentProps: {
-        cssClass: 'modal-css'
-      }
-    });
-    await modal.present().catch((error) => this.messageService.errorAlert(error));
-  }
 
-  async showForgotModal() {
-    this.dismissModal();
-    const modal = await this.modalController.create({
-      component: ForgotPasswordComponent,
-      componentProps: {
-        cssClass: 'modal-css'
-      }
-    });
-    await modal.present().catch((error) => this.messageService.errorAlert(error));
-  }
 }
