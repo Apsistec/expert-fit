@@ -19,5 +19,8 @@ export class PopoverService {
     return await popover.present();
   }
 
+  dismiss() {
+    this.popoverController.dismiss();
+  }
 
 }

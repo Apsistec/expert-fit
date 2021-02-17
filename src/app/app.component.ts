@@ -9,12 +9,9 @@ import { Router } from '@angular/router';
 import { SwUpdate, SwPush } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
 import { PopoverService } from './services/popover.service';
-import { LoginComponent } from './shared/login/login.component';
-import { TicketComponent } from './shared/ticket/ticket.component';
-import { MessageService } from './services/message.service';
-import { SignupComponent } from './shared/signup/signup.component';
+import { LoginComponent } from './login/login.component';
+
 import { User } from './models/users.model';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +26,6 @@ export class AppComponent implements OnInit {
   displayToken: string;
   showPushNotifyBar = true;
   @Input() choice;
-  // user: Observable<User>;
 
   constructor(
     updates: SwUpdate,
@@ -95,16 +91,20 @@ export class AppComponent implements OnInit {
     console.log('Sign-out successful!');
   }
 
-  async showAuthModal() {
-    const ticketModal = await this.modalController.create({
-      component: this.authComp,
-      componentProps: {
-        cssClass: 'modal-css',
-        swipeToCLose: true,
-        keyboardClose: false
-        ,
-      },
-    });
-    await ticketModal.present();
+  // async showAuthModal() {
+  //   const ticketModal = await this.modalController.create({
+  //     component: this.authComp,
+  //     componentProps: {
+  //       cssClass: 'modal-css',
+  //       swipeToCLose: true,
+  //       keyboardClose: false
+  //       ,
+  //     },
+  //   });
+  //   await ticketModal.present();
+  // }
+
+  clear(){
+    this.popoverService.dismiss();
   }
 }

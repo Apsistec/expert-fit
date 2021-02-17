@@ -1,16 +1,16 @@
 <ion-header transparent>
-  <ion-toolbar color="primary" class="ion-text-center ion-padding">
-    <ion-fab-button class="ion-float-right" size="small" color="primary" (click)="dismissModal()">
+  <ion-toolbar color="primary" class="ion-text-center">
+    <ion-button shape="round" class="ion-float-right" size="small" color="primary" (click)="dismissModal()">
       <ion-icon class="expand-icon" color="danger" name="close-sharp"></ion-icon>
-    </ion-fab-button>
-    <ion-title  color="tertiary">Account Registration</ion-title>
+    </ion-button>
+    <ion-title color="tertiary">Account Registration</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content color="medium">
   <form #registerform [formGroup]="registerForm" (ngSubmit)="onRegister()">
     <ion-list class="ion-no-margin ion-no-padding">
-      <ion-item>
-        <ion-label position="floating">Full Name</ion-label>
+      <ion-item color="medium">
+        <ion-label color="light" position="floating">Full Name</ion-label>
         <ion-input
           debounce="5000"
           color="primary"
@@ -31,8 +31,8 @@
           Less than 25 letters.
         </ion-text>
       </div>
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
+      <ion-item color="medium">
+        <ion-label color="light" position="floating">Email</ion-label>
         <ion-input
           debounce="5000"
           color="primary"
@@ -47,8 +47,8 @@
         <ion-text *ngIf="registerFormControl.email.errors.required" color="danger"> Email required. </ion-text>
         <ion-text *ngIf="registerFormControl.email.errors.email" color="danger"> Email not valid. </ion-text>
       </div>
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
+      <ion-item color="medium">
+        <ion-label color="light" position="floating">Password</ion-label>
         <ion-input
           debounce="5000"
           color="primary"
@@ -65,7 +65,7 @@
       <div *ngIf="!registerFormControl.password.valid && !registerFormControl.password.pristine">
         <ion-text *ngIf="registerFormControl.password.errors.required" color="danger"> Password required. </ion-text>
         <ion-text *ngIf="registerFormControl.password.errors.minlength" color="danger">
-         At least 6 characters
+          At least 6 characters
         </ion-text>
         <ion-text *ngIf="registerFormControl.password.errors.maxlength" color="danger">
           Less than 25 characters
@@ -79,7 +79,7 @@
       <ion-icon slot="start" name="person-add-sharp"></ion-icon>
       <ion-text> Register </ion-text>
     </ion-button>
-    <ion-button  type="button" expand="full" color="danger" (click)="authService.GoogleAuth()">
+    <ion-button type="button" expand="full" color="danger" (click)="authService.GoogleAuth()">
       <ion-icon slot="start" name="logo-google"> </ion-icon>
       Register with Google
     </ion-button>
@@ -87,8 +87,7 @@
       <ion-icon slot="start" name="logo-twitter"></ion-icon>
       Register with Twitter
     </ion-button>
-    <ion-button size="small" color="dark" expand="full" fill="clear" type="button" (click)="showLoginModal()">
-      <!-- <ion-icon size="small" name="log-in-sharp" slot="start" type="button"></ion-icon> -->
+    <ion-button size="small" color="dark" expand="full" fill="clear" type="button" routerLink="/login">
       <ion-text> Need to login? </ion-text>
     </ion-button>
   </form>

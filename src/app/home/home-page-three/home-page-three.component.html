@@ -26,19 +26,19 @@
     <ion-img src="../../../assets/svg/circleinfograph1.svg" ></ion-img>
   </ion-col>
   <ion-col size-xl="3" size-lg="4" size-md="6" class="ion-align-items-center ion-text-center ion-margin ion-padding">
-    <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" >
+    <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" style=" height: 450px;width: 450px; border-radius: 15px;" >
       <ion-slide  *ngFor="let phase of phases">
         <ion-card
-          style="background: var(--ion-color-medium-shade); width: 100%; height: fit-content"
+          style="border-radius: 15px;background: var(--ion-color-medium-shade); "
           class="ion-no-margin"
         >
-          <ion-img [src]="[phase.image]" style="height: 200px; width: 100%" ></ion-img>
+          <img [src]="[phase.image]" style="height:60%;width: 100%;" >
           <ion-toolbar>
             <ion-title>
-              <ion-text color="warning" class="ion-text-capitalize" style="font-size: large">
+              <ion-text color="warning" class="ion-text-capitalize" style="font-size: large;">
                 {{ phase.id }}.
               </ion-text>
-              <ion-text color="warning" class="ion-text-uppercase" style="font-size: large">
+              <ion-text color="warning" class="ion-text-uppercase" style="font-size: large;">
                 {{ phase.title }}
               </ion-text>
             </ion-title>
@@ -56,7 +56,7 @@
       strong
       size="large"
       class="cta"
-      style="border-radius: 5px"
+      style="border-radius: 5px;"
       routerLink="/home/products"
     >
       View Memberships

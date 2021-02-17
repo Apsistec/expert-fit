@@ -82,7 +82,7 @@
 
 
         <!-- SignedIn Menu Items -->
-        <div *ngIf="user | async">
+        <div *ngIf="authService.user | async as user">
           <ion-item
             color="medium"
             button

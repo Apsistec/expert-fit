@@ -8,9 +8,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import * as fire from 'firebase/app';
-import { ForgotPasswordComponent } from '../shared/forgot-password/forgot-password.component';
-import { LoginComponent } from '../shared/login/login.component';
-import { SignupComponent } from '../shared/signup/signup.component';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +15,7 @@ import { SignupComponent } from '../shared/signup/signup.component';
 export class AuthService {
   user$: Observable<User>;
   role: string[];
-  user: any;
+  user: Observable<User>;
   userData;
   currentBehaviorUser = new BehaviorSubject(null);
   userType;
@@ -32,20 +29,18 @@ export class AuthService {
     private messageService: MessageService,
     private router: Router,
     private modalController: ModalController
-  )
-  {
+  ) {
     this.user = this.afAuth.authState.pipe(
-      switchMap(user => {
+      switchMap((user) => {
         if (user) {
           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           return of(null);
         }
-      }));
+      })
+    );
     console.log('userService: ', this.user);
   }
-
-
 
   SignIn(credentials) {
     return this.afAuth
@@ -57,6 +52,8 @@ export class AuthService {
           emailVerified: data.user.emailVerified,
           lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
         });
+        localStorage.setItem('user', JSON.stringify(data.user));
+
         this.modalController.dismiss().then(() => {
           this.messageService.loggedInToast(data);
         });
@@ -68,29 +65,25 @@ export class AuthService {
 
   SignUp(credentials) {
     return this.afAuth.createUserWithEmailAndPassword(credentials.email, credentials.password).then((data) => {
-      this.afs
-        .doc<User>(`users/${data.user.uid}`)
-        .set(
-          {
-            uid: data.user.uid,
-            displayName: credentials.displayName,
-            email: data.user.email,
-            role: ['USER'],
-            permissions: ['delete-ticket'],
-            emailVerified: data.user.emailVerified,
-            createdAt: fire.default.firestore.FieldValue.serverTimestamp()
-          },
-          { merge: true }
-        )
+      this.afs.doc<User>(`users/${data.user.uid}`).set(
+        {
+          uid: data.user.uid,
+          displayName: credentials.displayName,
+          email: data.user.email,
+          role: ['USER'],
+          permissions: ['delete-ticket'],
+          createdAt: fire.default.firestore.FieldValue.serverTimestamp()
+        },
+        { merge: true }
+      );
+      localStorage.setItem('user', JSON.stringify(data.user));
+      this.modalController
+        .dismiss()
         .then(() => {
-          this.modalController
-            .dismiss()
-            .then(() => {
-              this.sendVerificationMail();
-            })
-            .catch((error) => {
-              this.messageService.authErrorAlert(error);
-            });
+          this.sendVerificationMail();
+        })
+        .catch((error) => {
+          this.messageService.authErrorAlert(error);
         });
     });
   }
@@ -98,39 +91,37 @@ export class AuthService {
   // Auth providers
   AuthLogin(provider) {
     return this.afAuth.signInWithRedirect(provider).then(() => {
-      return this.afAuth.getRedirectResult().then((data) => {
-        this.afs
-          .doc<User>(`users/${data.user.uid}`)
-          .update({
+      return this.afAuth
+        .getRedirectResult()
+        .then((data) => {
+          this.afs.doc<User>(`users/${data.user.uid}`).update({
             uid: data.user.uid,
             photoURL: data.user.photoURL,
             email: data.user.email,
             emailVerified: data.user.emailVerified,
             lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
-          })
-          .then(() => {
-            this.modalController
-              .dismiss()
-              .then(() => {
-                this.messageService.loggedInToast(data);
-              })
-              .catch((err) => {
-                this.messageService.authErrorAlert(err);
-              });
           });
-      });
+          console.log('b4 message');
+          this.messageService.loggedInToast(data.user.displayName);
+          console.log('l8r message');
+          localStorage.setItem('user', JSON.stringify(data.user));
+          this.modalController.dismiss();
+        })
+        .catch((err) => {
+          this.messageService.authErrorAlert(err);
+        });
     });
   }
 
   // Sign in with 3rd party Oauth
   GoogleAuth() {
-    this.AuthLogin(new fire.default.auth.GoogleAuthProvider()).catch((error) => {
+    return this.AuthLogin(new fire.default.auth.GoogleAuthProvider()).catch((error) => {
       this.messageService.errorAlert(error);
     });
   }
 
   TwitterAuth() {
-    this.AuthLogin(new fire.default.auth.TwitterAuthProvider()).catch((error) => {
+   return this.AuthLogin(new fire.default.auth.TwitterAuthProvider()).catch((error) => {
       this.messageService.errorAlert(error);
     });
   }
@@ -141,7 +132,7 @@ export class AuthService {
   // }
 
   FacebookAuth() {
-    this.AuthLogin(new fire.default.auth.FacebookAuthProvider()).catch((error) => {
+    return this.AuthLogin(new fire.default.auth.FacebookAuthProvider()).catch((error) => {
       this.messageService.errorAlert(error);
     });
   }
@@ -166,16 +157,22 @@ export class AuthService {
   }
 
   // Password Reset
-  passReset(email){
+  passReset(email) {
     this.afAuth.sendPasswordResetEmail(email);
   }
 
+  getUser() {
+    const userData = localStorage.getItem('user');
+    return JSON.parse(userData);
+  }
 
   // Sign-out
   signOut() {
     return this.afAuth
       .signOut()
       .then(() => {
+        localStorage.setItem('user', null);
+        localStorage.removeItem('user');
         this.messageService
           .signOutToast()
           .catch((err) => this.messageService.errorAlert(JSON.stringify(err)))
@@ -183,48 +180,6 @@ export class AuthService {
       })
       .catch((err) => this.messageService.errorAlert(JSON.stringify(err)));
   }
-
-
-
-  // Modals
-
-  async showRegisterModal() {
-    this.dismissModal();
-    const modal = await this.modalController.create({
-      component: SignupComponent,
-      componentProps: {
-        cssClass: 'modal-css'
-      }
-    });
-    await modal.present().catch((error) => this.messageService.errorAlert(error));
-  }
-
-  async showForgotModal() {
-    this.dismissModal();
-    const modal = await this.modalController.create({
-      component: ForgotPasswordComponent,
-      componentProps: {
-        cssClass: 'modal-css'
-      }
-    });
-    await modal.present().catch((error) => this.messageService.errorAlert(error));
-  }
-
-  async showLoginModal() {
-    this.dismissModal();
-    const modal = await this.modalController.create({
-      component: LoginComponent,
-      componentProps: {
-        cssClass: 'modal-css'
-      }
-    });
-    await modal.present().catch((error) => this.messageService.errorAlert(error));
-  }
-
-  dismissModal() {
-    this.modalController.dismiss().catch((error) => this.messageService.errorAlert(error));
-  }
-
 
   // Permissions
 

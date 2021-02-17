@@ -8,7 +8,6 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePageTwoComponent } from '../home/home-page-two/home-page-two.component';
 import { HomePageThreeComponent } from '../home/home-page-three/home-page-three.component';
 import { HomePageFourComponent } from '../home/home-page-four/home-page-four.component';
-import { BenefitTrackerComponent } from './benefit-tracker/benefit-tracker.component';
 import { IntroVideoComponent } from './intro-video/intro-video.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
@@ -26,7 +25,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     HomePageTwoComponent,
     HomePageThreeComponent,
     HomePageFourComponent,
-    BenefitTrackerComponent,
     IntroVideoComponent,
     LandingPageComponent
   ]

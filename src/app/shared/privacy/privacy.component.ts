@@ -16,6 +16,7 @@ export class PrivacyComponent implements OnInit {
   ngOnInit() {}
 
   goBack() {
+    this.modalController.dismiss();
     this.navCtrl.back();
   }
 }

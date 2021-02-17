@@ -11,9 +11,10 @@ import { CustomerDashboardComponent } from './customer-dashboard/customer-dashbo
 import { SharedModule } from '../shared/shared.module';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, SharedModule, UserPageRoutingModule],
-  declarations: [UserPage, ProfileComponent, CustomerDashboardComponent, SettingsComponent]
+  declarations: [UserPage, VerifyEmailComponent, ProfileComponent, CustomerDashboardComponent, SettingsComponent]
 })
 export class UserPageModule {}

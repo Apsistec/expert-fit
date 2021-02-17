@@ -46,9 +46,9 @@ at a discounted rate. -->
 </ion-header>
 
 <ion-content fullscreen transparent class="page-content">
- 
+<!--  
     <ion-row>
-      <ion-col>
+      <ion-col> -->
         <!-- <ion-toolbar style="--background: var(--ion-color-medium-shade)">
           <ion-segment [(ngModel)]="segment">
             <ion-segment-button value="unsub" color="warning">
@@ -61,9 +61,7 @@ at a discounted rate. -->
             </ion-segment-button>
           </ion-segment>
         </ion-toolbar> -->
-        <hr />
-      </ion-col>
-    </ion-row>
+
     <!-- <ion-row class="ion-justify-content-center" [ngSwitch]="segment">
       <ion-col size="12" *ngSwitchDefault> -->
         <ion-card class="ion-card-global ion-text-center ion-padding">
@@ -72,14 +70,14 @@ at a discounted rate. -->
             <ion-card-subtitle> Choose the plan that works for you </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
+            <ion-spinner *ngIf="loading">Loading...</ion-spinner>
             
-              <ion-row>
-                <!-- <ion-spinner *ngIf="loading">Loading...</ion-spinner> -->
-                <ion-col *ngFor="let product of productsActive | async">
-                  <ion-card class="ion-sub-card-global">
+              <!-- <ion-row>
+                <ion-col > -->
+                  <ion-card class="ion-sub-card-global" *ngFor="let product of productsActive | async">
                     <ion-card-header>
                       <ion-card-title class="ion-float-left"> {{product.name}} </ion-card-title>
-                      <!-- <ion-card-subtitle class="ion-float-right"> {{ product.price }} </ion-card-subtitle> -->
+                      <ion-card-subtitle class="ion-float-right"> {{ product.price }} </ion-card-subtitle>
                     </ion-card-header>
                     <ion-card-content>
                       {{ product.image }}
@@ -87,8 +85,8 @@ at a discounted rate. -->
                     </ion-card-content>
                     <ion-button class="product-button" color="success">Choose this plan </ion-button>
                   </ion-card>
-                </ion-col>
-              </ion-row>
+                <!-- </ion-col>
+              </ion-row> -->
             
           </ion-card-content>
         </ion-card>

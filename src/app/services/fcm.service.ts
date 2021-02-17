@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
-import { Platform, ToastController } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 
 import { tap } from 'rxjs/operators';
 import { from } from 'rxjs';
@@ -20,7 +20,6 @@ export class FcmService {
 
   constructor(
     private afMessaging: AngularFireMessaging,
-    private toastController: ToastController,
     private fcm: FCM,
     private platform: Platform,
     private messageService: MessageService

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from 'src/app/models/users.model';
 import { AuthService } from '../../services/auth.service';
 import { StorageService } from '../../services/storage.service';
 import { UserService } from '../../services/user.service';
@@ -9,6 +10,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./customer-dashboard.component.scss']
 })
 export class CustomerDashboardComponent implements OnInit {
+  user: User;
   constructor(
     public storage: StorageService,
     public afAuth: AngularFireAuth,

@@ -9,15 +9,17 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
   emailVerified,
-  hasCustomClaim,
+  hasCustomClaim
 } from '@angular/fire/auth-guard';
 import { UnknownComponent } from './unknown/unknown.component';
 import { AboutAppComponent } from './shared/about-app/about-app.component';
-import { LoginComponent } from './shared/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { PrivacyComponent } from './shared/privacy/privacy.component';
 import { TermsComponent } from './shared/terms/terms.component';
-import { SignupComponent } from './shared/signup/signup.component';
-// import { AuthenticateComponent } from './shared/authenticate/authenticate.component';
+import { SignupComponent } from './signup/signup.component';
+// import { LoginGuard } from './guards/login.guard';
+import { PhotoGalleryComponent } from './shared/photo-gallery/photo-gallery.component';
+import { ModalViewComponent } from './modal-view/modal-view.component';
 
 const customerOnly = () => hasCustomClaim('customer');
 const employeeOnly = () => hasCustomClaim('employee');
@@ -29,21 +31,18 @@ const verifiedEmail = () => emailVerified;
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
-    ...canActivate(redirectLoggedInToDash)
+    loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule)
   },
   {
     path: 'customer',
     loadChildren: () => import('./customer/customer.module').then((m) => m.CustomerPageModule),
-    ...canActivate(redirectLoggedInToDash),
     ...canActivate(redirectUnauthorizedToHome),
     ...canActivate(verifiedEmail),
     canActivate: [PaidGuard, RoleGuard]
   },
   {
     path: 'employee',
-    loadChildren: () =>
-      import('./employee/employee.module').then((m) => m.EmployeePageModule),
+    loadChildren: () => import('./employee/employee.module').then((m) => m.EmployeePageModule),
     ...canActivate(verifiedEmail),
     ...canActivate(redirectUnauthorizedToHome),
     ...canActivate(adminOnly),
@@ -53,44 +52,42 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then((m) => m.AdminPageModule),
     ...canActivate(redirectUnauthorizedToHome),
-    ...canActivate(verifiedEmail),
+    // ...canActivate(verifiedEmail),
     ...canActivate(adminOnly),
     canActivate: [PaidGuard, RoleGuard]
   },
   {
     path: 'checkout',
-    loadChildren: () => import('./home/checkout/checkout.module').then((m) => m.CheckoutPageModule),
+    loadChildren: () => import('./home/checkout/checkout.module').then((m) => m.CheckoutPageModule)
   },
   {
     path: 'gallery',
-    loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule),
+    loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule)
   },
   {
-    path: 'about-app',
-    component: AboutAppComponent
+    path: ':id',
+    component: ModalViewComponent
   },
-  {
-    path: 'terms',
-    component: TermsComponent
-  },
-  {
-    path: 'privacy',
-    component: PrivacyComponent
-  },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component:  SignupComponent },
   {
     path: 'gallery',
-    loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule),
+    loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule)
+  },
+  {
+    path: 'photo-gallery',
+    component: PhotoGalleryComponent
   },
   {
     path: 'user',
-    loadChildren: () => import('./user/user.module').then( m => m.UserPageModule)
+    loadChildren: () => import('./user/user.module').then((m) => m.UserPageModule),
+    ...canActivate(redirectUnauthorizedToHome),
+    ...canActivate(verifiedEmail),
+    canActivate: []
   },
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    ...canActivate(redirectLoggedInToDash)
   },
   {
     path: '**',
@@ -103,6 +100,7 @@ const routes: Routes = [
       preloadingStrategy: QuicklinkStrategy,
       // scrollPositionRestoration: 'enabled',
       // anchorScrolling: 'enabled'
+      enableTracing: true
     })
   ],
   exports: [RouterModule]

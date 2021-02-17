@@ -9,26 +9,30 @@ import { StorageService } from './storage.service';
   providedIn: 'root',
 })
 export class ThemeService {
+  renderer: Renderer2;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private storage: StorageService,
     private rendererFactory: RendererFactory2
   ) {
+    this.renderer = this.rendererFactory.createRenderer(null, null);
     this.storage.get('theme').then((theme) => {
-      this.renderer.addClass(this.document.body, theme);
+      if (theme) {
+        this.renderer.addClass(this.document.body, theme);
+      } else {
+        this.renderer.addClass(this.document.body, null);
+      }
     });
 
-    this.renderer = this.rendererFactory.createRenderer(null, null);
   }
-  renderer: Renderer2;
 
   enableDark() {
     this.renderer.addClass(this.document.body, 'dark-theme');
-    this.storage.setItem('theme', 'dark-theme');
+    this.storage.store('theme', 'dark-theme');
   }
   enableLight() {
     this.renderer.removeClass(this.document.body, 'dark-theme');
-    this.storage.setItem('theme', null);
+    this.storage.store('theme', null);
   }
 }

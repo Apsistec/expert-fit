@@ -27,11 +27,21 @@ import { SchedulerModule } from 'angular-calendar-scheduler';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ErrorInterceptor } from './services/error.interceptor';
 import { UnknownComponent } from './unknown/unknown.component';
-// import { SharedModule } from './shared/shared.module';
-
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ModalViewComponent } from './modal-view/modal-view.component';
 
 @NgModule({
-  declarations: [ AppComponent, SideMenuComponent, UnknownComponent],
+  declarations: [
+    AppComponent,
+    SideMenuComponent,
+    UnknownComponent,
+    LoginComponent,
+    SignupComponent,
+    ForgotPasswordComponent,
+    ModalViewComponent,
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -50,12 +60,11 @@ import { UnknownComponent } from './unknown/unknown.component';
     AngularFireAnalyticsModule,
     AppRoutingModule,
     QuicklinkModule,
-    // SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [
     DatePipe,

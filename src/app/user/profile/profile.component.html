@@ -1,40 +1,62 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Profile</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content fullscreen transparent>
-  <ion-row>
-    <ion-col size-sm="5">
-      <ion-card color="medium" class="ion-text-center">
+<ion-col *ngIf="authService.user | async as user">
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-align-self-center">
+      <ion-card class="profile-card ion-text-center">
         <ion-card-header>
-          <ion-card-title class="ion-text-center">
-            <ion-text color="secondary"> User Profile </ion-text>
-          </ion-card-title>
+          <ion-card-title> User Profile </ion-card-title>
         </ion-card-header>
-        <ion-img
-          style="width: 11.25em; height: 11.25em; position: relative"
-          [src]="[user.photoURL || '..//..//assets//images//dummy-user.png']"
-        ></ion-img>
-        <ion-item color="medium" lines="none">
-          <ion-row>
-            <ion-col size-lg="4"> </ion-col>
-            <ion-col size-lg="4" class="ion-text-start">
-              <ion-card-title>
-                <ion-text>
-                  <h2>{{ user.displayName || 'User' }}</h2>
-                </ion-text>
-              </ion-card-title>
-              <ion-text color="dark">
-                {{ user.displayName }}
-                <hr />
+        <ion-card-content class="ion-margin">
+          <ion-row class="ion-justify-content-around">
+            <ion-col class="ion-align-items-center">
+              <ion-row>
+                <ion-col>
+                  <img [src]="['..//..//assets//images//dummy-user.png']" />
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-text color="primary">
+                    {{ user.displayName || 'User' }}
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <ion-col class="ion-align-self-center">
+              <ion-label> <b> Email: </b> </ion-label><br />
+              <ion-text>
                 {{ user.email }}
+              </ion-text>
+              <br />
+              <ion-label> <b> Phone Number </b> </ion-label><br />
+              <ion-text>
+                {{ user.phoneNumber || '--' }}
+              </ion-text>
+              <br />
+              <ion-label> <b> Roles </b> </ion-label><br />
+              <ion-text>
+                {{ user.role }}
+              </ion-text>
+            </ion-col>
+            <ion-col class="ion-align-self-center">
+              <ion-label> <b> Email: </b> </ion-label><br />
+              <ion-text>
+                {{ user.email }}
+              </ion-text>
+              <br />
+              <ion-label> <b> User Since: </b> </ion-label><br />
+              <ion-text>
+                {{ user.createdAt || '--' }}
+              </ion-text>
+              <br />
+              <ion-label> <b> Last Logged In: </b> </ion-label><br />
+              <ion-text>
+                {{ user.lastUpdatedAt || '--' }}
               </ion-text>
             </ion-col>
           </ion-row>
-        </ion-item>
-        <ion-card-content>
-          <ion-button class="ion-text-capitalize" size="small" color="dark" (click)="presentSettingsModal()">
+          <ion-button class="ion-text-capitalize" size="small" color="secondary" (click)="presentSettingsModal()">
             <ion-text> Edit User </ion-text>
           </ion-button>
           <ion-button class="ion-text-capitalize" size="small" color="danger" (click)="authService.signOut()"
@@ -42,78 +64,73 @@
           >
         </ion-card-content>
       </ion-card>
-      <ion-card color="medium" class="ion-text-center ion-padding">
+    </ion-col>
+
+    <ion-col class="ion-align-self-center">
+      <ion-card class="profile-card">
         <ion-card-header>
-          <ion-card-title>
-            <ion-text color="secondary"> Subscription Details </ion-text>
-          </ion-card-title>
+          <ion-card-title> Subscription Details </ion-card-title>
         </ion-card-header>
-        <ion-card-content class="ion-text-center">
+        <ion-card-content class="ion-margin" class="ion-text-center">
           <div *ngIf="stripe.subscriptions | async; then subData; else buy"></div>
           <ng-template #buy class="ion-text-center ion-align-items-center">
-            <ion-button class="ion-text-capitalize" color="danger" size="small" routerLink="/customership">
+            <ion-button class="ion-text-capitalize" color="success" size="small" routerLink="/customership">
               <ion-text> Buy Pro Package </ion-text>
             </ion-button>
           </ng-template>
-          <ng-container #subData>
-            <ion-row class="ion-justify-content-around">
-              <ion-col size-sm="5">
-                <ion-label>
-                  <h2>Fitness Plan:</h2>
-                  <h3>{{ subs.data[0].plan.id | uppercase }}</h3>
-                </ion-label>
+          <ng-template #subData>
+            <ion-label> <b> Plan: </b> </ion-label><br />
+            <ion-text>
+              {{ subs.data[0].plan.id | uppercase }}
+            </ion-text>
+            <ion-label color="primary"> <b> Status: </b> </ion-label><br />
 
-                <ion-label>
-                  <h2 color="secondary">Status:</h2>
-                  <h3 color="dark">
-                    {{ subs.data[0].status | uppercase }}
-                  </h3>
-                </ion-label>
-                <ion-label>
-                  <h2 color="secondary" *ngIf="user.stripeStatus === 'trialing'">Trial Ends:</h2>
-                  <h3 color="dark" *ngIf="user.stripeStatus === 'trialing'">
-                    {{ subs.data[0].trial_end * 1000 | date }}
-                  </h3>
-                </ion-label>
-                <ion-label>
-                  <h2 color="secondary">Subscription Fee:</h2>
-                  <h3 color="dark">
-                    {{ subs.data[0].plan.amount / 100 | currency }}
-                  </h3>
-                </ion-label>
-              </ion-col>
-              <ion-col size-sm="5">
-                <ion-label>
-                  <h2 color="secondary">Created:</h2>
-                  <h3 color="dark">
-                    {{ subs.data[0].center_date * 1000 | date }}
-                  </h3>
-                </ion-label>
-                <ion-label>
-                  <h2 color="secondary">Billing center:</h2>
-                  <h3 color="dark">
-                    {{ subs.data[0].current_period_center * 1000 | date }}
-                  </h3>
-                </ion-label>
+            <ion-text>
+              {{ subs.data[0].status | uppercase }}
+            </ion-text>
 
-                <ion-label>
-                  <h2 color="secondary">Billing End:</h2>
-                  <h3 color="dark">
-                    {{ subs.data[0].current_period_end * 1000 | date }}
-                  </h3>
-                </ion-label>
-              </ion-col>
-            </ion-row>
-          </ng-container>
+            <ion-label color="primary" *ngIf="user.stripeStatus === 'trialing'"> <b> Trial Ends: </b> </ion-label><br />
+
+            <ion-text>
+              {{ subs.data[0].trial_end * 1000 | date }}
+            </ion-text>
+            <ion-label>
+              <b>
+                <ion-text color="primary">Monthly Dues:</ion-text>
+              </b> </ion-label
+            ><br />
+            <ion-text>
+              {{ subs.data[0].plan.amount / 100 | currency }}
+            </ion-text>
+            <ion-label color="primary">Membership Created:</ion-label><br />
+
+            <ion-text color="dark">
+              {{ subs.data[0].center_date * 1000 | date }}
+            </ion-text>
+            <ion-label color="primary">Billing center:</ion-label><br />
+
+            <ion-text color="dark">
+              {{ subs.data[0].current_period_center * 1000 | date }}
+            </ion-text>
+
+            <ion-label color="primary">Billing End:</ion-label><br />
+            <ion-text color="dark">
+              {{ subs.data[0].current_period_end * 1000 | date }}
+            </ion-text>
+          </ng-template>
         </ion-card-content>
       </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-align-self-center">
       <!-- Admin Dash -->
-      <ion-card class="ion-text-center ion-card-global" *ngIf="user.role.includes('ADMIN')">
+      <ion-card class="ion-text-center profile-card" *ngIf="user.role.includes('ADMIN')">
         <ion-card-header>
           <ion-card-title> Admin Dashboard </ion-card-title>
           <ion-card-subtitle> Reports & Admin Functions </ion-card-subtitle>
         </ion-card-header>
-        <ion-card-content>
+        <ion-card-content class="ion-margin">
           <ion-button class="ion-text-capitalize" size="small" color="dark" routerLink="/admin">
             <ion-icon slot="end" color="dark" name="glasses"></ion-icon>
             <ion-icon slot="center" color="dark" name="glasses"></ion-icon>
@@ -121,60 +138,66 @@
           </ion-button>
         </ion-card-content>
       </ion-card>
+
       <!-- Support Dashboard-->
-      <ion-card class="ion-padding ion-text-center ion-card-global" *ngIf="user.role.includes('CUSTOMER')">
+      <ion-card class="ion-text-center profile-card" *ngIf="user.role.includes('CUSTOMER')">
         <ion-card-header>
           <ion-card-title> User Support Dashboard </ion-card-title>
-          <ion-card-subtitle>
-            Not finding the answers you need? Open a support request, and we will get back to you ASAP!
-          </ion-card-subtitle>
+          <ion-card-subtitle> Not finding the answers you need? </ion-card-subtitle>
         </ion-card-header>
-        <hr />
-        <ion-button class="ion-text-capitalize" color="secondary" routerLink="/user">
-          <ion-icon slot="start" color="tertiary" name="bug"></ion-icon>
-          <ion-icon slot="end" color="tertiary" name="bug"></ion-icon>
-          Support Dashboard
-        </ion-button>
+        <ion-card-content>
+          <ion-text color="dark"> Open a support request, and we will get back to you ASAP! </ion-text>
+          <br />
+          <ion-button class="ion-text-capitalize" color="warning" routerLink="/user">
+            <ion-icon slot="start" color="tertiary" name="bug"></ion-icon>
+            <ion-icon slot="end" color="tertiary" name="bug"></ion-icon>
+            Support Dashboard
+          </ion-button>
+        </ion-card-content>
       </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-align-self-center">
       <!-- Account Management -->
-      <ion-card class="ion-text-center ion-card-global" *ngIf="user.stripeRole === 'premium' || 'basic' || 'platinum'">
+      <ion-card class="ion-text-center profile-card" *ngIf="user.stripeRole === 'premium' || 'basic' || 'platinum'">
         <ion-card-header>
           <ion-card-title> Account Management </ion-card-title>
         </ion-card-header>
-        <ion-card-content>
+        <ion-card-content class="ion-margin">
           <ng-container *ngIf="stripe.subscriptions | async as subs; else purchase">
-          <ion-button
-            class="ion-text-capitalize"
-            size="small"
-            color="secondary"
-            [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice"
-          >
-            Current app-invoices
-          </ion-button>
-          <ion-button class="ion-text-capitalize" size="small" color="secondary" (click)="presentInvoicesModal()">
-            Invoice History
-          </ion-button>
-          <br />
-          <ion-button class="ion-text-capitalize" size="small" color="danger" (click)="presentCancelSubModal()">
-            Cancel Subscription
-          </ion-button>
+            <ion-button
+              class="ion-text-capitalize"
+              size="small"
+              color="primary"
+              [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice"
+            >
+              Current app-invoices
+            </ion-button>
+            <ion-button class="ion-text-capitalize" size="small" color="primary" (click)="presentInvoicesModal()">
+              Invoice History
+            </ion-button>
+            <br />
+            <ion-button class="ion-text-capitalize" size="small" color="danger" (click)="presentCancelSubModal()">
+              Cancel Subscription
+            </ion-button>
           </ng-container>
         </ion-card-content>
       </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center">
+    <ion-col class="ion-align-self-center">
       <!-- Theme -->
-      <ion-card class="ion-text-center ion-card-global">
-        <ion-card-title> Theme Options </ion-card-title>
-        <ion-card-content>
+      <ion-card class="profile-card ion-text-center">
+        <ion-card-header>
+          <ion-card-title> Theme Options </ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="ion-margin">
           <ion-button class="ion-text-capitalize" (click)="enableDark()" color="dark">Dark</ion-button>
           <ion-button class="ion-text-capitalize" (click)="enableLight()" color="light">Light</ion-button>
         </ion-card-content>
       </ion-card>
     </ion-col>
-    <ion-col> </ion-col>
   </ion-row>
-  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="photoService.storeImage()">
-      <ion-icon name="camera"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-</ion-content>
+</ion-col>

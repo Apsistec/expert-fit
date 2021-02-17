@@ -7,7 +7,7 @@
   min-width: 27%;
   margin: 1px;
   text-transform: uppercase;
-  --background: var(--ion-color-dark-tint);
+  --background: transparent;
 }
 
 .benefit-item:focus {
@@ -16,6 +16,7 @@
 
 .benefit-item:hover {
   box-shadow: 2px 2px 2px var(--ion-color-danger);
+  --ripple-color:white;
 }
 
 .benefit-item:visited {

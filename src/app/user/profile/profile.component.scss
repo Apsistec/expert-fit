@@ -1,21 +1,38 @@
 .is-success {
     --color: red;
   }
-  
-  // ion-text{
-  //   text-shadow: none;
-  // }
+
   
   .center {
     align-items: center !important;
   }
-  
-  h3 {
-    text-indent: 0.25em;
+ion-label{
+  color:var(--ion-color-tertiary);
+}
+.profile-card{
+  width: fit-content;
+  --background: var(--ion-color-medium);
+  ion-card-header {
+    --background: var(--ion-color-medium-shade);
+    text-align: center;
+    border-bottom: 3px solid var(--ion-color-primary);
+    ion-card-title {
+      text-transform: uppercase;
+      color: var(--ion-color-primary);
+      font-weight: 600;
+    }
+    ion-card-subtitle {
+      color: var(--ion-color-tertiary);
+      font-size: larger;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
   }
-  ion-toolbar{
-    --background: var(--ion-color-dark-tint);
-    border-bottom: 3px solid var(--ion-color-secondary-shade);
-    color:var(--ion-color-tertiary-tint);
+  ion-card-content {
+    text-align: center;
+    padding: 10px;
   }
-  
+  ion-text{
+    color:black;
+  }
+}

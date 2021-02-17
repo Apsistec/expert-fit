@@ -3,7 +3,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { PhotoService } from 'src/app/services/photo.service';
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
 import { StripeService } from '../../services/stripe.service';
@@ -35,7 +34,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     public afs: AngularFirestore,
     public stripe: StripeService,
     private router: Router,
-    public photoService: PhotoService
   ) {}
 
   ngOnInit() {}
@@ -74,7 +72,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   // dismiss Modals
   onDismissModal() {
-    return this.modalCtrl.dismiss();
+    this.modalCtrl.dismiss();
   }
 
   support() {

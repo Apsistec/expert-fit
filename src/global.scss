@@ -31,7 +31,8 @@
 a:hover {
   cursor: pointer;
 }
-*::-moz-selection { /* Code for Firefox */
+*::-moz-selection {
+  /* Code for Firefox */
   color: var(--ion-color-secondary);
   background: purple;
 }
@@ -44,39 +45,36 @@ a:hover {
 // Page transition animation
 .bounceOutDown {
   animation: 1.5s ease-out infinite bounceoutdown;
-   ion-icon{
-    color:var(--ion-color-secondary-tint);
+  ion-icon {
+    color: var(--ion-color-secondary-tint);
   }
   margin-right: 10px;
   --background: transparent;
-  --border-color:var(--ion-color-secondary);
+  --border-color: var(--ion-color-secondary);
   --border-width: 2px;
-  --border-style:solid;
-  --ripple-color:var(--ion-color-danger);
-  --background-hover:white;
-  --background-hover-opacity:.3;
+  --border-style: solid;
+  --ripple-color: var(--ion-color-danger);
+  --background-hover: white;
+  --background-hover-opacity: 0.3;
   --background-focused: white;
-  --background-focused-opacity: .3;
-  --background-activated:var(--ion-color-secondary-tint);;
-  --background-activated-opacity:.5;
+  --background-focused-opacity: 0.3;
+  --background-activated: var(--ion-color-secondary-tint);
+  --background-activated-opacity: 0.5;
   --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-  0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
+    0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
 }
 
 @keyframes bounceoutdown {
-
   50% {
     transform: translate(0, 7px);
-    opacity: .4;
+    opacity: 0.4;
   }
 }
 
-
 // Classes
-ion-content {
-  --background: var(--ion-color-light-shade);
-}
-
+// ion-content {
+//   // --background: var(--ion-color-light);
+// }
 
 // Logos
 .small-logo {
@@ -92,25 +90,20 @@ ion-content {
   margin-left: 20px;
 }
 
-// Font color on Form Validators
-.ion-invalid .ion-touched ion-label {
-  color: var(--ion-color-danger);
-}
-
 // buttons call to action
 .cta {
   margin: 10px;
 }
 
-@media screen and ( max-width: 600px) {
-  .top-toolbar-lg{
-    display:none;
+@media screen and (max-width: 600px) {
+  .top-toolbar-lg {
+    display: none;
   }
 }
 // media query standards: 650px, ...
-@media screen and (min-width : 601px) {
-  .top-toolbar-sm{
-    display:none;
+@media screen and (min-width: 601px) {
+  .top-toolbar-sm {
+    display: none;
   }
   .view-post {
     max-width: 800px;
@@ -127,11 +120,11 @@ ion-content {
       margin: auto;
     }
   }
-  #pageThree{
-    height:fit-content;
+  #pageThree {
+    height: fit-content;
   }
   #pageFour {
-    height:fit-content;
+    height: fit-content;
   }
 }
 
@@ -147,7 +140,7 @@ ion-content {
 .ion-card-global {
   --background: var(--ion-color-medium-tint);
   ion-card-header {
-    text-align: left;
+    text-align: center;
     border-bottom: 3px solid var(--ion-color-secondary);
     --background: var(--ion-color-primary);
     ion-card-title {
@@ -193,57 +186,70 @@ ion-content {
 }
 
 // Modals
-.modal-css {
-  --backdrop-opacity: 88% !important;
-  padding: 0;
-  margin: 0;
+.modal-wrapper.modal-css{
   --border-radius: 15px;
-  // width: min-content;
-  --height: fit-content;
+  --width: 350px;
+  --height: 390px;
 }
 
-.video-css .modal-wrapper {
-  // --border-radius: 15px;
-  // --backdrop-opacity: 94%;
-  // --width: min-content;
-  --height: fit-content;
+.modal-wrapper.video-css{
+  --border-radius: 15px;
+  --width: 640px;
+  --height: fit-content !important;
+
 }
 
 // Toasts and Alerts
 .successA {
-  --background:rgba(25, 240, 32, 0.301);
+  --background: rgb(98, 153, 100);
+}
+.successT {
+  --background: rgb(98, 153, 100);
   --border-color: var(--ion-color-success-shade);
   --border-style: solid;
   --border-width: 3px;
   --color: black;
+  --start: 50px;
 }
 
 .warningA {
-  --background: rgba(237, 181, 29, 0.301);
+  --background: rgb(148, 143, 72);
+}
+.warningT {
+  --background: rgb(148, 143, 72);
   --border-color: var(--ion-color-warning-shade);
   --border-style: solid;
   --border-width: 3px;
   --color: black;
+  --start: 50px;
 }
 
 .dangerA {
-  --background: rgba(210, 42, 30, 0.301);
+  --background: rgb(129, 74, 74);
+}
+.dangerT {
+  --background: rgb(129, 74, 74);
   --border-color: var(--ion-color-danger-shade);
   --border-style: solid;
   --border-width: 3px;
   --color: black;
+  --start: 50px;
 }
 
 .infoA {
-  --background: rgba(1, 24, 137, 0.301);
+  --background: rgb(59, 64, 90);
+}
+.infoT {
+  --background: rgb(59, 64, 90);
   --border-color: var(--ion-color-primary-shade);
   --border-style: solid;
   --border-width: 3px;
   --color: black;
+  --start: 50px;
 }
 
 // any shadow
 .shadow {
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
+  box-shadow: 0px 2px 2px rgb(0, 0, 0), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
     0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
 }

@@ -1,4 +1,4 @@
-<div *ngIf="user | async"></div>
+<div *ngIf="authService.user | async as user"></div>
 <ion-card
   *ngIf="user.emailVerified"
   class="ion-padding ion-text-center"
@@ -7,7 +7,7 @@
 >
   <ion-card-header>
     <ion-card-title> Account Verification </ion-card-title>
-    <ion-card-subtitle *ngIf="user.emailVerified"> Verification Successful </ion-card-subtitle>
+    <ion-card-subtitle> Verification Successful </ion-card-subtitle>
   </ion-card-header>
   <ion-card-content>
     <p class="ion-text-start">

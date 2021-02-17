@@ -11,15 +11,17 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { TermsComponent } from './terms/terms.component';
 import { TicketComponent } from './ticket/ticket.component';
-import { ModalViewComponent } from './modal-view/modal-view.component';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { ReviewComponent } from './review/review.component';
 import { SharedDirectivesModule } from '../directives/shared-directives.module';
 import { MaterialModule } from './material/material.module';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-// import { AuthenticateComponent } from './authenticate/authenticate.component';
+// import { LoginComponent } from './login/login.component';
+// import { SignupComponent } from './signup/signup.component';
+// import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { PhotosListComponent } from './photos-list/photos-list.component';
+import { PhotoUploadComponent } from './photo-upload/photo-upload.component';
+import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
+import { BenefitTrackerComponent } from './benefit-tracker/benefit-tracker.component';
 
 const routes: Routes = [];
 
@@ -34,11 +36,10 @@ const routes: Routes = [];
     TermsComponent,
     RatingsComponent,
     BenefitsComponent,
-    ModalViewComponent,
-    LoginComponent,
-    SignupComponent,
-    ForgotPasswordComponent,
-    // AuthenticateComponent
+    PhotosListComponent,
+    PhotoUploadComponent,
+    PhotoGalleryComponent,
+    BenefitTrackerComponent
   ],
   providers: [DatePipe],
   imports: [
@@ -53,6 +54,7 @@ const routes: Routes = [];
   ],
   exports: [
     FooterComponent,
+    BenefitTrackerComponent,
     AboutAppComponent,
     PopoverComponent,
     ReviewComponent,
@@ -62,13 +64,11 @@ const routes: Routes = [];
     TermsComponent,
     RatingsComponent,
     BenefitsComponent,
-    ModalViewComponent,
     BarRatingModule,
     MaterialModule,
-    LoginComponent,
-    SignupComponent,
-    ForgotPasswordComponent,
-    // AuthenticateComponent
+    PhotosListComponent,
+    PhotoUploadComponent,
+    PhotoGalleryComponent,
   ]
 })
 export class SharedModule {}

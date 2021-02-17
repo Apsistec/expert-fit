@@ -19,7 +19,6 @@ export class TestimonialsPage implements OnInit {
   reviews: Observable<any>;
   myReviews: Observable<any>;
   segment: any;
-  // user: Observable<any>;
   user;
 
   constructor(

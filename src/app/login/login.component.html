@@ -1,16 +1,16 @@
 <ion-header transparent>
-  <ion-toolbar color="primary" class="ion-text-center ion-padding">
-    <ion-fab-button class="ion-float-right" size="small" color="primary" (click)="dismissModal()">
+  <ion-toolbar color="primary" class="ion-text-center">
+    <ion-button shape="round" class="ion-float-right" size="small" color="primary" (click)="dismissModal()">
       <ion-icon class="expand-icon" color="danger" name="close-sharp"></ion-icon>
-    </ion-fab-button>
+    </ion-button>
     <ion-title color="tertiary">Account Login</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content color="medium">
   <form #loginform [formGroup]="loginForm" (ngSubmit)="onLogin()">
     <ion-list class="ion-no-margin ion-no-padding">
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
+      <ion-item color="medium">
+        <ion-label color="light" position="floating">Email</ion-label>
         <ion-input
           debounce="5000"
           color="primary"
@@ -22,11 +22,11 @@
         </ion-input>
       </ion-item>
       <div *ngIf="loginFormControl.email.invalid && !loginFormControl.email.pristine">
-        <ion-text *ngIf="loginFormControl.email.errors.required" color="danger"> Email required. </ion-text>
-        <ion-text *ngIf="loginFormControl.email.errors.email" color="danger"> Email not Valid. </ion-text>
+        <ion-text *ngIf="isSubmitted && loginFormControl.email.errors.required" color="danger"> Email required. </ion-text>
+        <ion-text *ngIf="isSubmitted && loginFormControl.email.errors.email" color="danger"> Email not Valid. </ion-text>
       </div>
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
+      <ion-item color="medium">
+        <ion-label color="light" position="floating">Password</ion-label>
         <ion-input
           debounce="5000"
           color="primary"
@@ -39,24 +39,23 @@
         <ion-icon color="dark" size="small" (click)="toggleHide()" slot="end" *ngIf="hide" name="eye-off-sharp">
         </ion-icon>
       </ion-item>
-      <div *ngIf="!loginFormControl.password.valid && !loginFormControl.password.pristine">
+      <div *ngIf="!loginFormControl.password.valid && isSubmitted">
         <ion-text *ngIf="loginFormControl.password.errors.required" color="danger"> Password required </ion-text>
-        <ion-text *ngIf="loginFormControl.password.errors.minlength" color="danger">
-          At least 6 characters
-        </ion-text>
-        <ion-text *ngIf="loginFormControl.password.errors.maxlength" color="danger">
-         Less than 25 characters
-        </ion-text>
+        <br>
+        <ion-text *ngIf="loginFormControl.password.errors.minlength" color="danger"> At least 6 characters </ion-text>
+        <br>
+        <ion-text *ngIf="loginFormControl.password.errors.maxlength" color="danger"> Less than 25 characters </ion-text>
+        <br>
         <ion-text *ngIf="loginFormControl.password.errors.pattern" color="danger">
           At least 1 uppercase, 1 lowercase, and 1 number
         </ion-text>
       </div>
     </ion-list>
-    <ion-button [disabled]="!loginForm.valid" color="tertiary" expand="full" type="submit">
+    <ion-button  color="tertiary" expand="full" type="submit">
       <ion-icon slot="start" name="log-in-sharp"> </ion-icon>
       <ion-text> Login </ion-text>
     </ion-button>
-    <ion-button expand="full" color="danger" type="button"  (click)="authService.GoogleAuth()">
+    <ion-button expand="full" color="danger" type="button" (click)="authService.GoogleAuth()">
       <ion-icon slot="start" name="logo-google"></ion-icon>
       Login with Google
     </ion-button>
@@ -70,10 +69,9 @@
       color="dark"
       fill="clear"
       type="button"
-      (click)="showRegisterModal()"
+      routerLink="/signup"
     >
       <ion-text> Need to register? </ion-text>
-      <!-- <ion-icon size="small" slot="end" color="dark" name="person-add-sharp"></ion-icon> -->
     </ion-button>
     <ion-button
       class="ion-float-right"
@@ -81,10 +79,9 @@
       color="dark"
       fill="clear"
       type="button"
-      (click)="showForgotModal()"
+      routerLink="/forgot-password"
     >
       <ion-text> Forgot password? </ion-text>
-      <!-- <ion-icon size="small" slot="end" color="dark" name="help-circle-sharp"></ion-icon> -->
     </ion-button>
   </form>
 </ion-content>

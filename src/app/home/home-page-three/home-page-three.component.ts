@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent, IonSlides } from '@ionic/angular';
-import { Phases } from 'src/app/models/phases.model';
+import { Phases } from '../../models/phases.model';
 
 @Component({
   selector: 'app-home-page-three',
@@ -27,7 +27,6 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
       slidesPerView: 1,
       grabCursor: true,
       watchSlidesProgress: true,
-      resistanceRatio: 0,
       spaceBetween: 600,
       centeredSlides: true,
 
