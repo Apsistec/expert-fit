@@ -10,10 +10,10 @@ export class ErrorInterceptor implements HttpInterceptor {
     constructor(private messageService: MessageService) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        return next.handle(request).pipe(catchError(err => {
-            const error = err.error?.message || err.statusText;
+        return next.handle(request).pipe(catchError(error => {
+            // error.error?.message || error.statusText;
             this.messageService.errorAlert(error);
-            console.error(err);
+            console.error(error);
             return throwError(error);
         }));
     }

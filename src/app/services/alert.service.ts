@@ -45,16 +45,16 @@ export class AlertService {
         fcm
           .subscribeTo({ topic: this.topicName })
           .then((r) => this.messageService.generalToast(`subscribed to topic ${this.topicName}`))
-          .catch((err) => console.log(err));
+          .catch((error) => console.log(error));
       })
-      .catch((err) => this.messageService.errorAlert(JSON.stringify(err)));
+      .catch((error) => this.messageService.errorAlert(JSON.stringify(error)));
   }
 
   unsubscribeFrom() {
     fcm
       .unsubscribeFrom({ topic: 'test' })
       .then((r) => this.messageService.generalToast(`unsubscribed from topic ${this.topicName}`))
-      .catch((err) => console.log(err));
+      .catch((error) => console.log(error));
     if (this.platform.is('android')) { fcm.deleteInstance(); }
   }
 
@@ -64,6 +64,6 @@ export class AlertService {
       .then((result) => {
         this.remoteToken = result.token;
       })
-      .catch((err) => this.messageService.errorAlert(JSON.stringify(err)));
+      .catch((error) => this.messageService.errorAlert(JSON.stringify(error)));
   }
 }

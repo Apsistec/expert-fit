@@ -15,13 +15,14 @@ import { BarRatingModule } from 'ngx-bar-rating';
 import { ReviewComponent } from './review/review.component';
 import { SharedDirectivesModule } from '../directives/shared-directives.module';
 import { MaterialModule } from './material/material.module';
-// import { LoginComponent } from './login/login.component';
-// import { SignupComponent } from './signup/signup.component';
-// import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { PhotosListComponent } from './photos-list/photos-list.component';
 import { PhotoUploadComponent } from './photo-upload/photo-upload.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { BenefitTrackerComponent } from './benefit-tracker/benefit-tracker.component';
+import { VerifyEmailComponent } from '../user/verify-email/verify-email.component';
 
 const routes: Routes = [];
 
@@ -39,7 +40,11 @@ const routes: Routes = [];
     PhotosListComponent,
     PhotoUploadComponent,
     PhotoGalleryComponent,
-    BenefitTrackerComponent
+    BenefitTrackerComponent,
+    SignupComponent,
+    LoginComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
   ],
   providers: [DatePipe],
   imports: [

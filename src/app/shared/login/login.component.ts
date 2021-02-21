@@ -1,39 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, NavController } from '@ionic/angular';
-import { MessageService } from '../services/message.service';
-import { AuthService } from '../services/auth.service';
-import { LoginComponent } from '../login/login.component';
-import { LoadingService } from '../services/loading.service';
+import { AuthService } from '../../services/auth.service';
+import { SignupComponent } from '../signup/signup.component';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { MessageService } from '../../services/message.service';
+import { LoadingService } from '../../services/loading.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class SignupComponent implements OnInit {
-  loginTitle: boolean;
+export class LoginComponent implements OnInit {
   hide: boolean;
-  hid: boolean;
-  registerForm: FormGroup;
+  loginForm: FormGroup;
+  isSubmitted = false;
 
   constructor(
     private fb: FormBuilder,
     public authService: AuthService,
-    public loadingService: LoadingService,
     public modalController: ModalController,
     private messageService: MessageService,
-    public navController: NavController
+    private loadingService: LoadingService,
+    private navController: NavController,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.hide = true;
     this.createForm();
+    this.isSubmitted = false;
   }
 
   createForm() {
-    this.registerForm = this.fb.group({
-      displayName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+    this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
         '',
@@ -47,9 +49,11 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  async onRegister() {
+  async onLogin() {
+    this.isSubmitted = true;
     await this.loadingService.showLoading();
-    await this.authService.SignUp(this.registerForm.value);
+    await this.authService.SignIn(this.loginForm.value);
+    this.isSubmitted = false;
     await this.loadingService.dismissLoading().catch((error) => this.messageService.errorAlert(error));
   }
 
@@ -57,13 +61,14 @@ export class SignupComponent implements OnInit {
     this.hide = !this.hide;
   }
 
-  get registerFormControl() {
-    return this.registerForm.controls;
+  get loginFormControl() {
+    return this.loginForm.controls;
   }
-  // async showLoginModal() {
+
+  // async showForgotModal() {
   //   this.dismissModal();
   //   const modal = await this.modalController.create({
-  //     component: LoginComponent,
+  //     component: ForgotPasswordComponent,
   //     componentProps: {
   //       cssClass: 'modal-css'
   //     }
@@ -75,10 +80,21 @@ export class SignupComponent implements OnInit {
     this.modalController
       .dismiss()
       .then(() => {
-        this.navController.back();
+        this.router.navigateByUrl('/home');
       })
       .catch((error) => {
         this.messageService.errorAlert(error);
       });
   }
+
+  // async showRegisterModal() {
+  //   this.dismissModal();
+  //   const modal = await this.modalController.create({
+  //     component: SignupComponent,
+  //     componentProps: {
+  //       cssClass: 'modal-css'
+  //     }
+  //   });
+  //   await modal.present().catch((error) => this.messageService.errorAlert(error));
+  // }
 }

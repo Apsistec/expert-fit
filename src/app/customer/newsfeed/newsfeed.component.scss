@@ -1,14 +1,12 @@
-
-
 .view-post {
   text-align: center;
   justify-content: center;
-  .bodyText{
-    padding: 0 .5em;
+  .bodyText {
+    padding: 0 0.5em;
   }
 
   .subheader {
-    padding: 0 .5em;
+    padding: 0 0.5em;
   }
 
   .readBtn {
@@ -40,12 +38,10 @@
       }
     }
   }
-
 }
 
-ion-toolbar{
+ion-toolbar {
   --background: var(--ion-color-dark-tint);
   border-bottom: 3px solid var(--ion-color-secondary-shade);
-  color:var(--ion-color-tertiary-tint);
+  color: var(--ion-color-tertiary-tint);
 }
-

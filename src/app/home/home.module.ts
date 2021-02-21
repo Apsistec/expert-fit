@@ -10,6 +10,7 @@ import { HomePageThreeComponent } from '../home/home-page-three/home-page-three.
 import { HomePageFourComponent } from '../home/home-page-four/home-page-four.component';
 import { IntroVideoComponent } from './intro-video/intro-video.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { UnknownComponent } from './unknown/unknown.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     HomePageThreeComponent,
     HomePageFourComponent,
     IntroVideoComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    UnknownComponent
   ]
 })
 export class HomePageModule {}

@@ -210,8 +210,8 @@ export class CheckoutPage implements OnInit, AfterViewInit {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -223,8 +223,8 @@ export class CheckoutPage implements OnInit, AfterViewInit {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -236,8 +236,8 @@ export class CheckoutPage implements OnInit, AfterViewInit {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 }

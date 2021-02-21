@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, NavController } from '@ionic/angular';
-import { AuthService } from '../services/auth.service';
-import { LoadingService } from '../services/loading.service';
-import { MessageService } from '../services/message.service';
+import { AuthService } from '../../services/auth.service';
+import { LoadingService } from '../../services/loading.service';
+import { MessageService } from '../../services/message.service';
 import { LoginComponent } from '../login/login.component';
 
 @Component({

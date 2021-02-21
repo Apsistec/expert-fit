@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CheckoutPage } from './checkout/checkout.page';
 import { HomePage } from './home.page';
 import { IntroVideoComponent } from './intro-video/intro-video.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -52,6 +53,10 @@ const routes: Routes = [
         path: 'contact',
         redirectTo: 'contact-us',
         pathMatch: 'full'
+      },
+      {
+        path: 'checkout',
+        component: CheckoutPage
       },
       {
         path: '',

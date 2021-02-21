@@ -62,7 +62,7 @@ export class ReviewComponent implements OnInit {
         loading.dismiss();
         this.close();
       },
-      err => {
+      error => {
         loading.dismiss();
       }
     );

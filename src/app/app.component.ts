@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { SwUpdate, SwPush } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
 import { PopoverService } from './services/popover.service';
-import { LoginComponent } from './login/login.component';
+// import { LoginComponent } from './login/login.component';
 
 import { User } from './models/users.model';
 
@@ -20,7 +20,6 @@ import { User } from './models/users.model';
 })
 export class AppComponent implements OnInit {
   user: User;
-  authComp;
   showBackButton: boolean;
   path;
   displayToken: string;
@@ -48,15 +47,11 @@ export class AppComponent implements OnInit {
     push.notificationClicks.subscribe((click) => console.warn('notification click: ', click));
     if (!firebase.apps.length) {
       firebase.initializeApp(environment.firebaseConfig);
-      navigator.serviceWorker
-        .getRegistration()
-        .then(() =>
-          firebase
-            .messaging()
-            .getToken({
-              vapidKey: 'BFZIBA94F79A9vt1yD4DBZX5BD460KEm3WWdRdzGV-FSBfIgGBoajnRhwWOUeHSEb9cUmIJejFHYlMYfCtVbN3c'
-            })
-        );
+      navigator.serviceWorker.getRegistration().then(() =>
+        firebase.messaging().getToken({
+          vapidKey: 'BFZIBA94F79A9vt1yD4DBZX5BD460KEm3WWdRdzGV-FSBfIgGBoajnRhwWOUeHSEb9cUmIJejFHYlMYfCtVbN3c'
+        })
+      );
     }
   }
 
@@ -68,8 +63,6 @@ export class AppComponent implements OnInit {
     // if (this.showPushNotifyBar) {
     //   this.messageService.notifyOrCancel();
     // }
-
-    this.authComp =  LoginComponent;
   }
 
   cancelNotificationBar() {
@@ -83,28 +76,12 @@ export class AppComponent implements OnInit {
       this.displayToken = await messaging.getToken();
       console.warn('Token: ', this.displayToken);
       this.showPushNotifyBar = !this.showPushNotifyBar;
-    } catch (err) {
-      console.warn('Unable to get permission to notify. Error: ', err);
+    } catch (error) {
+      console.warn('Unable to get permission to notify. Error: ', error);
     }
   }
-  onSignOut() {
-    console.log('Sign-out successful!');
-  }
 
-  // async showAuthModal() {
-  //   const ticketModal = await this.modalController.create({
-  //     component: this.authComp,
-  //     componentProps: {
-  //       cssClass: 'modal-css',
-  //       swipeToCLose: true,
-  //       keyboardClose: false
-  //       ,
-  //     },
-  //   });
-  //   await ticketModal.present();
-  // }
-
-  clear(){
+  clear() {
     this.popoverService.dismiss();
   }
 }

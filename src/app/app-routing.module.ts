@@ -31,7 +31,8 @@ const verifiedEmail = () => emailVerified;
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
+
   },
   {
     path: 'customer',
@@ -87,7 +88,6 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
-    ...canActivate(redirectLoggedInToDash)
   },
   {
     path: '**',
@@ -100,7 +100,7 @@ const routes: Routes = [
       preloadingStrategy: QuicklinkStrategy,
       // scrollPositionRestoration: 'enabled',
       // anchorScrolling: 'enabled'
-      enableTracing: true
+      // enableTracing: true
     })
   ],
   exports: [RouterModule]

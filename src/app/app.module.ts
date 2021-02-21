@@ -26,20 +26,13 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { SchedulerModule } from 'angular-calendar-scheduler';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ErrorInterceptor } from './services/error.interceptor';
-import { UnknownComponent } from './unknown/unknown.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+
 import { ModalViewComponent } from './modal-view/modal-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideMenuComponent,
-    UnknownComponent,
-    LoginComponent,
-    SignupComponent,
-    ForgotPasswordComponent,
     ModalViewComponent,
   ],
   entryComponents: [],

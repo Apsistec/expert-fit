@@ -5,30 +5,30 @@
 </ion-header>
 
 <ion-content fullscreen transparent>
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">User Posts</ion-title>
-    </ion-toolbar>
-  </ion-header>
-<div class="view-post" *ngIf="post$ | async as post">
-  <div >
-    <h1>{{post.header}}</h1>
-  </div>
-<!--  <div>-->
-<!--    <h3 class="subheader">{{post.subheader}}</h3>-->
-<!--  </div>-->
-  <div>
-    <h5>Written by {{post.author}}</h5>
-  </div>
-  <div class="container">
-    <div class="iframe-container">
-      <iframe class="responsive-iframe" [src]="[post.youtubeUrl]"
-              frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
+  <div class="view-post" *ngIf="post$ | async as post">
+    <div>
+      <h1>{{ post.header }}</h1>
+    </div>
+    <div>
+      <h3 class="subheader">{{ post.subheader }}</h3>
+    </div>
+    <div>
+      <h5>Written by {{ post.author }}</h5>
+    </div>
+    <div class="container">
+      <div class="iframe-container">
+        <iframe
+          class="responsive-iframe"
+          [src]="[post.youtubeUrl]"
+          frameborder="0"
+          allow="encrypted-media"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <div class="bodyText" [innerHTML]="post.content"></div>
+    <div>
+      <ion-button class="readBtn" routerLink="/home">Home</ion-button>
     </div>
   </div>
-  <div class="bodyText" [innerHTML]="post.content"></div>
-  <div>
-    <ion-button class="readBtn" routerLink="/home">Home</ion-button>
-  </div>
-
-</div>
+</ion-content>

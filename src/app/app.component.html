@@ -6,24 +6,24 @@
         <ion-menu-button color="tertiary"> </ion-menu-button>
       </ion-buttons>
       <img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" />
-        <ion-item
-          class="ion-float-right"
-          type="button"
-          color="dark"
-          (click)="popoverService.presentPopover($event)"
-          lines="none"
-          *ngIf="authService.user | async as user; else login"
-        >
-          <ion-avatar slot="end">
-            <img [src]="['..//assets//images//dummy-user.png']" />
-          </ion-avatar>
-          <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
-        </ion-item>
-        <ng-template #login>
-          <ion-buttons slot="end">
-            <ion-button  class="flashing" routerLink="/login" color="warning"> Login </ion-button>
-          </ion-buttons>
-        </ng-template>
+      <ion-item
+        class="ion-float-right"
+        type="button"
+        color="dark"
+        (click)="popoverService.presentPopover($event)"
+        lines="none"
+        *ngIf="authService.user | async as user; else login"
+      >
+        <ion-avatar slot="end">
+          <img [src]="['..//assets//images//dummy-user.png']" />
+        </ion-avatar>
+        <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
+      </ion-item>
+      <ng-template #login>
+        <ion-buttons slot="end">
+          <ion-button class="flashing" routerLink="/login" color="warning"> Login </ion-button>
+        </ion-buttons>
+      </ng-template>
     </ion-toolbar>
 
     <ion-toolbar class="top-toolbar-lg" color="dark" #toolbar>
@@ -93,19 +93,19 @@
         <ion-label>Contact</ion-label>
       </ion-item>
 
-        <ion-item
-          class="ion-float-right"
-          type="button"
-          color="dark"
-          (mouseover)="popoverService.presentPopover($event)"
-          lines="none"
-          *ngIf="authService.user | async as user; else login"
-        >
-          <ion-avatar slot="end">
-            <img [src]="['..//assets//images//dummy-user.png']" />
-          </ion-avatar>
-          <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
-        </ion-item>
+      <ion-item
+        class="ion-float-right"
+        type="button"
+        color="dark"
+        (click)="popoverService.presentPopover($event)"
+        lines="none"
+        *ngIf="authService.user | async as user; else login"
+      >
+        <ion-avatar slot="end">
+          <img [src]="['..//assets//images//dummy-user.png']" />
+        </ion-avatar>
+        <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
+      </ion-item>
       <ng-template #login>
         <ion-buttons slot="end">
           <ion-button class="flashing" routerLink="/login" color="warning"> Login </ion-button>
@@ -113,12 +113,12 @@
       </ng-template>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
-    <!-- Modal Outlet -->
-    <!-- <ion-router-outlet name="modal"></ion-router-outlet> -->
-    <!-- Main Outlet -->
-    <ion-grid>
-      <ion-router-outlet id="main"></ion-router-outlet>
-    </ion-grid>
-  </ion-content>
+  <!-- <ion-content> -->
+  <!-- Modal Outlet -->
+  <!-- <ion-router-outlet name="modal"></ion-router-outlet> -->
+  <!-- Main Outlet -->
+  <!-- <ion-grid> -->
+  <ion-router-outlet id="main"></ion-router-outlet>
+  <!-- </ion-grid> -->
+  <!-- </ion-content> -->
 </ion-app>

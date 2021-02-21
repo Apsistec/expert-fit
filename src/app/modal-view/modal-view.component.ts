@@ -4,13 +4,13 @@ import { ModalController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { LoginComponent } from '../login/login.component';
+import { LoginComponent } from '../shared/login/login.component';
 import { MessageService } from '../services/message.service';
 import { AboutAppComponent } from '../shared/about-app/about-app.component';
 import { PrivacyComponent } from '../shared/privacy/privacy.component';
 import { TermsComponent } from '../shared/terms/terms.component';
-import { SignupComponent } from '../signup/signup.component';
-import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { SignupComponent } from '../shared/signup/signup.component';
+import { ForgotPasswordComponent } from '../shared/forgot-password/forgot-password.component';
 
 // import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 
@@ -48,37 +48,19 @@ export class ModalViewComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnInit() {
-    // route.params.pipe(takeUntil(this.destroy)).subscribe((params) => {
-    //   // this.modal.componentInstance.modalID = params.id;
-    //   this.modalID = params.id;
-    //   if (this.modalID === 'about-app') {
-    //     this.showModalAbout();
-    //   } else if (this.modalID === 'privacy') {
-    //     this.showModalPrivacy();
-    //   } else if (this.modalID === 'terms') {
-    //     this.showModalTerms();
-    //   } else if (this.modalID === 'login') {
-    //     this.showModalLogin();
-    //   }
-
-    //   console.log('modalID: ', this.modalID);
-    // });
-  }
+  ngOnInit() {  }
 
   async showModalTerms() {
-    // this.modalController.dismiss();
     const modal = await this.modalController.create({
       component: TermsComponent,
       cssClass: 'modal-css',
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 
   async showModalPrivacy() {
-    // this.modalController.dismiss();
     const modal = await this.modalController.create({
       component: PrivacyComponent,
       cssClass: 'modal-css',
@@ -86,13 +68,12 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 
   async showModalSignup() {
-    // this.modalController.dismiss();
     const modal = await this.modalController.create({
       component: SignupComponent,
       cssClass: 'modal-css',
@@ -100,8 +81,8 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -114,8 +95,8 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -128,8 +109,8 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -153,8 +134,8 @@ export class ModalViewComponent implements OnInit, OnDestroy {
         }
       )
 
-      .catch((err) => {
-        return this.messageService.errorAlert(err);
+      .catch((error) => {
+        return this.messageService.errorAlert(error);
       });
   }
 

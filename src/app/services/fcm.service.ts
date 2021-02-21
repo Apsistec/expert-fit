@@ -60,13 +60,13 @@ export class FcmService {
   sub(topic): any {
     this.fcm.subscribeToTopic(topic).then(() => {
         this.messageService.generalToast(`subscribed to ${topic}`);
-    }).catch((err) => this.messageService.errorAlert(JSON.stringify(err)));
+    }).catch((error) => this.messageService.errorAlert(JSON.stringify(error)));
   }
 
   unsub(topic) {
     this.fcm.unsubscribeFromTopic(topic).then(() => {
         this.messageService.generalToast(`unsubscribed from ${topic}`);
-    }).catch((err) => this.messageService.errorAlert(JSON.stringify(err)));
+    }).catch((error) => this.messageService.errorAlert(JSON.stringify(error)));
   }
 
   private showMessages(payload) {

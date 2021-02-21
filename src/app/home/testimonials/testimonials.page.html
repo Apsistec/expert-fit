@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Expert Fitness Reviews</ion-title>
+    <ion-title>Reviews</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,12 +8,16 @@
 
   <ion-segment [(ngModel)]="segment">
     <ion-segment-button color="warning">
-      <ion-icon name="ribbon-sharp" value="default" color="warning"></ion-icon>
-      Reviews
+      <ion-icon name="ribbon-sharp" value="default" color="secondary"></ion-icon>
+      <ion-text color="light">
+        Reviews
+      </ion-text>
     </ion-segment-button>
     <ion-segment-button value="myReviews">
-      <ion-icon name="person-sharp" color="warning"></ion-icon>
-      My Reviews
+      <ion-icon name="person-sharp" color="secondary"></ion-icon>
+      <ion-text color="light">
+        My Reviews
+      </ion-text>
     </ion-segment-button>
   </ion-segment>
 
@@ -21,6 +25,8 @@
       <ion-grid *ngSwitchDefault>
       <ion-row>
       <ion-col
+
+      class="ion-padding"
         size-sm="12"
         size-md="6"
         size-lg="4"
@@ -31,7 +37,7 @@
           <ion-row class="ion-align-items-center">
             <ion-col size="4" class="ion-align-self-center">
               <ion-avatar slot="start">
-                <img [src]="['../../../assets/images/dummy-user.png']" >
+                <img [src]="['../../../assets/lazy/images/dummy-user.png']" >
               </ion-avatar>
               <ion-text color="primary"> {{ review.displayName }} </ion-text>
               <br />
@@ -70,7 +76,7 @@
             <ion-row class="ion-align-items-center">
               <ion-col size="4" class="ion-align-self-center">
                 <ion-avatar slot="start">
-                  <ion-img [src]="['../../../assets/images/dummy-user.png']" ></ion-img>
+                  <ion-img [src]="['../../../assets/lazy/images/dummy-user.png']" ></ion-img>
                 </ion-avatar>
                 <ion-text color="primary"> {{ myReview.displayName }} </ion-text>
                 <br />

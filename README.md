@@ -255,5 +255,5 @@ Project Link: [https://github.com/apsistec/expert-fit](https://github.com/apsist
 [license-url]: https://github.com/apsistec/expert-fit/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/apsistec
-[product-screenshot]: src/assets/images/screenshot.png
+[product-screenshot]: src/assets/lazy/images/screenshot.png
 [logo-full]: src/assets/logos/logo.png

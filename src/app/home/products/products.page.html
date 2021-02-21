@@ -1,4 +1,4 @@
-<!-- This Basic online training plan will provide you with
+<!-- <!-- This Basic online training plan will provide you with
 access to the online training platform- Express Fitness
 App and the Getting Started Right Webinar. When you want
 to take advantage of one on one time at our personal
@@ -45,96 +45,103 @@ at a discounted rate. -->
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen transparent class="page-content">
-<!--  
-    <ion-row>
-      <ion-col> -->
-        <!-- <ion-toolbar style="--background: var(--ion-color-medium-shade)">
-          <ion-segment [(ngModel)]="segment">
-            <ion-segment-button value="unsub" color="warning">
-              <ion-icon name="ribbon-sharp" color="warning"></ion-icon>
-              Individual Items
-            </ion-segment-button>
-            <ion-segment-button value="current">
-              <ion-icon name="person-add-sharp" color="warning"></ion-icon>
-              Online Subscriptions
+<ion-content>
+  <ion-row>
+    <ion-col>
+        <ion-card *ngFor="let product of products | async">
+          <ion-card-header>
+            <ion-card-title>
+              {{product.name}}
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<!-- <ion-toolbar style="--background: var(--ion-color-medium-shade)">
+        <ion-segment [(ngModel)]="segment">
+          <ion-segment-button value="unsub" color="warning">
+            <ion-icon name="ribbon-sharp" color="warning"></ion-icon>
+            Individual Items
+          </ion-segment-button>
+          <ion-segment-button value="current">
+            <ion-icon name="person-add-sharp" color="warning"></ion-icon>
+            Online Subscriptions
             </ion-segment-button>
           </ion-segment>
         </ion-toolbar> -->
 
-    <!-- <ion-row class="ion-justify-content-center" [ngSwitch]="segment">
-      <ion-col size="12" *ngSwitchDefault> -->
-        <ion-card class="ion-card-global ion-text-center ion-padding">
-          <ion-card-header>
-            <ion-card-title> Online Training Platform plans </ion-card-title>
-            <ion-card-subtitle> Choose the plan that works for you </ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-spinner *ngIf="loading">Loading...</ion-spinner>
-            
-              <!-- <ion-row>
-                <ion-col > -->
-                  <ion-card class="ion-sub-card-global" *ngFor="let product of productsActive | async">
-                    <ion-card-header>
-                      <ion-card-title class="ion-float-left"> {{product.name}} </ion-card-title>
-                      <ion-card-subtitle class="ion-float-right"> {{ product.price }} </ion-card-subtitle>
-                    </ion-card-header>
-                    <ion-card-content>
-                      {{ product.image }}
-                      <p>{{ product.description }}</p>
-                    </ion-card-content>
-                    <ion-button class="product-button" color="success">Choose this plan </ion-button>
-                  </ion-card>
-                <!-- </ion-col>
-              </ion-row> -->
-            
-          </ion-card-content>
-        </ion-card>
-      <!-- </ion-col> -->
+<!-- <ion-row class="ion-justify-content-center" [ngSwitch]="segment">
+          <ion-col size="12" *ngSwitchDefault>
+            <ion-card class="ion-card-global ion-text-center ion-padding">
+              <ion-card-header>
+                <ion-card-title> Online Training Platform plans </ion-card-title>
+                <ion-card-subtitle> Choose the plan that works for you </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-spinner *ngIf="loading">Loading...</ion-spinner>
+                
+                <ion-row>
+                  <ion-col  *ngFor="let product of productsActive | async">
+                    <ion-card class="ion-sub-card-global">
+                      <ion-card-header>
+                        <ion-card-title class="ion-float-left"> {{product.name}} </ion-card-title>
+                        <ion-card-subtitle class="ion-float-right"> {{ product.price }} </ion-card-subtitle>
+                      </ion-card-header>
+                      <ion-card-content>
+                        {{ product.image }}
+                        <p>{{ product.description }}</p>
+                      </ion-card-content>
+                      <ion-button class="product-button" color="success">Choose this plan </ion-button>
+                    </ion-card>
+                  </ion-col>
+                </ion-row> -->
 
-      <!-- <ion-col size="12" *ngSwitchCase="'unsub'">
-        <ion-card class="ion-card-global ion-text-center ion-padding">
-          <ion-card-header>
-            <ion-card-title> Expert Fitness Offerings </ion-card-title>
-            <ion-card-subtitle> Choose what works for you </ion-card-subtitle>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-row>
-              <ion-spinner *ngIf="loading">Loading...</ion-spinner>
-              <ion-col>
-                <ion-card class="ion-sub-card-global">
-                  <ion-card-header>
-                    <ion-card-title> </ion-card-title>
-                    <ion-card-subtitle> </ion-card-subtitle>
-                  </ion-card-header>
-                  <ion-card-content> </ion-card-content>
-                  <ion-button class="product-button" color="success">Choose this plan</ion-button>
-                </ion-card>
-              </ion-col>
-              <ion-col>
-                <ion-card class="ion-sub-card-global">
-                  <ion-card-header>
-                    <ion-card-title> </ion-card-title>
-                    <ion-card-subtitle> </ion-card-subtitle>
-                  </ion-card-header>
-                  <ion-card-content> </ion-card-content>
-                  <ion-button class="product-button" color="success">Choose this plan</ion-button>
-                </ion-card>
-              </ion-col>
-              <ion-col>
-                <ion-card class="ion-sub-card-global">
-                  <ion-card-header>
-                    <ion-card-title> </ion-card-title>
-                    <ion-card-subtitle> </ion-card-subtitle>
-                  </ion-card-header>
-                  <ion-card-content> </ion-card-content>
-                  <ion-button class="product-button" color="success">Choose this plan</ion-button>
-                </ion-card>
-              </ion-col>
-            </ion-row>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row> -->
-  
-</ion-content>
+<!-- </ion-card-content>
+            </ion-card>
+          </ion-col>
+          
+          <ion-col size="12" *ngSwitchCase="'unsub'">
+            <ion-card class="ion-card-global ion-text-center ion-padding">
+              <ion-card-header>
+                <ion-card-title> Expert Fitness Offerings </ion-card-title>
+                <ion-card-subtitle> Choose what works for you </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-row>
+                  <ion-spinner *ngIf="loading">Loading...</ion-spinner>
+                  <ion-col>
+                    <ion-card class="ion-sub-card-global">
+                      <ion-card-header>
+                        <ion-card-title> </ion-card-title>
+                        <ion-card-subtitle> </ion-card-subtitle>
+                      </ion-card-header>
+                      <ion-card-content> </ion-card-content>
+                      <ion-button class="product-button" color="success">Choose this plan</ion-button>
+                    </ion-card>
+                  </ion-col>
+                  <ion-col>
+                    <ion-card class="ion-sub-card-global">
+                      <ion-card-header>
+                        <ion-card-title> </ion-card-title>
+                        <ion-card-subtitle> </ion-card-subtitle>
+                      </ion-card-header>
+                      <ion-card-content> </ion-card-content>
+                      <ion-button class="product-button" color="success">Choose this plan</ion-button>
+                    </ion-card>
+                  </ion-col>
+                  <ion-col>
+                    <ion-card class="ion-sub-card-global">
+                      <ion-card-header>
+                        <ion-card-title> </ion-card-title>
+                        <ion-card-subtitle> </ion-card-subtitle>
+                      </ion-card-header>
+                      <ion-card-content> </ion-card-content>
+                      <ion-button class="product-button" color="success">Choose this plan</ion-button>
+                    </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row> -->

@@ -7,12 +7,12 @@
   </ion-toolbar>
 </ion-header>
 <ion-content color="medium">
-  <form #registerform [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  <form #registerform [formGroup]="registerForm" (ngSubmit)="onRegister(registerform)">
     <ion-list class="ion-no-margin ion-no-padding">
       <ion-item color="medium">
         <ion-label color="light" position="floating">Full Name</ion-label>
         <ion-input
-          debounce="5000"
+          debounce="1600"
           color="primary"
           type="text"
           inputmode="text"
@@ -34,7 +34,7 @@
       <ion-item color="medium">
         <ion-label color="light" position="floating">Email</ion-label>
         <ion-input
-          debounce="5000"
+          debounce="1600"
           color="primary"
           type="email"
           inputmode="email"
@@ -50,7 +50,7 @@
       <ion-item color="medium">
         <ion-label color="light" position="floating">Password</ion-label>
         <ion-input
-          debounce="5000"
+          debounce="1600"
           color="primary"
           [type]="hide ? 'password' : 'text'"
           inputmode="text"

@@ -203,11 +203,11 @@ export class MessageService {
     await alert.present();
   }
 
-  async globalErrorAlert(err, router, page?) {
+  async globalErrorAlert(error, router, page?) {
     const alert = await this.alertController.create({
       header: 'Page: ' + page,
       subHeader: 'Location: ' + router.url,
-      message: err.message,
+      message: error.message,
       cssClass: 'warningA',
       backdropDismiss: false,
 
@@ -215,23 +215,23 @@ export class MessageService {
     await alert.present();
   }
 
-  async errorAlert(err: any) {
+  async errorAlert(error: any) {
     const alert = await this.alertController.create({
       header: 'Error',
-      subHeader: err.code,
+      subHeader: error.code,
       backdropDismiss: false,
-      message: err.message,
+      message: error.message,
       buttons: ['OK'],
       cssClass: 'warningA'
     });
     await alert.present();
   }
 
-  async authErrorAlert(err) {
+  async authErrorAlert(error) {
     const alert = await this.alertController.create({
-      header: 'Authentication Error ' + err.number,
-      subHeader: 'Error Code: ' + err.code,
-      message: err.message,
+      header: 'Authentication Error ' + error.number,
+      subHeader: 'Error Code: ' + error.code,
+      message: error.message,
       backdropDismiss: false,
       buttons: ['OK'],
       cssClass: 'warningA'

@@ -355,7 +355,7 @@
           this.cache = this.scope.caches.open(`${this.prefix}:${this.config.name}:cache`);
           // This is the metadata table, which holds specific information for each cached URL, such as
           // the timestamp of when it was added to the cache.
-          this.metadata = this.db.open(`${this.prefix}:${this.config.name}:meta`);
+          this.metadata = this.afs.open(`${this.prefix}:${this.config.name}:meta`);
           // Determine the origin from the registration scope. This is used to differentiate between
           // relative and absolute URLs.
           this.origin = this.adapter.parseUrl(this.scope.registration.scope).origin;
@@ -386,7 +386,7 @@
       cleanup() {
           return __awaiter(this, void 0, void 0, function* () {
               yield this.scope.caches.delete(`${this.prefix}:${this.config.name}:cache`);
-              yield this.db.delete(`${this.prefix}:${this.config.name}:meta`);
+              yield this.afs.delete(`${this.prefix}:${this.config.name}:meta`);
           });
       }
       /**
@@ -610,12 +610,12 @@
                       }
                       return res;
                   }
-                  catch (err) {
+                  catch (error) {
                       // Among other cases, this can happen when the user clears all data through the DevTools,
                       // but the SW is still running and serving another tab. In that case, trying to write to the
                       // caches throws an `Entry was not found` error.
                       // If this happens the SW can no longer work correctly. This situation is unrecoverable.
-                      throw new SwCriticalError(`Failed to update the caches for request to '${req.url}' (fetchAndCacheOnce): ${errorToString(err)}`);
+                      throw new SwCriticalError(`Failed to update the caches for request to '${req.url}' (fetchAndCacheOnce): ${errorToString(error)}`);
                   }
               }
               finally {
@@ -1020,8 +1020,8 @@
           this._lru = null;
           this.patterns = this.config.patterns.map(pattern => new RegExp(pattern));
           this.cache = this.scope.caches.open(`${this.prefix}:dynamic:${this.config.name}:cache`);
-          this.lruTable = this.db.open(`${this.prefix}:dynamic:${this.config.name}:lru`);
-          this.ageTable = this.db.open(`${this.prefix}:dynamic:${this.config.name}:age`);
+          this.lruTable = this.afs.open(`${this.prefix}:dynamic:${this.config.name}:lru`);
+          this.ageTable = this.afs.open(`${this.prefix}:dynamic:${this.config.name}:age`);
       }
       /**
        * Lazily initialize/load the LRU chain.
@@ -1204,10 +1204,10 @@
                   try {
                       yield this.cacheResponse(req, res, lru, okToCacheOpaque);
                   }
-                  catch (err) {
+                  catch (error) {
                       // Saving the API response failed. This could be a result of a full storage.
                       // Since this data is cached lazily and temporarily, continue serving clients as usual.
-                      this.debugHandler.log(err, `DataGroup(${this.config.name}@${this.config.version}).safeCacheResponse(${req.url}, status: ${res.status})`);
+                      this.debugHandler.log(error, `DataGroup(${this.config.name}@${this.config.version}).safeCacheResponse(${req.url}, status: ${res.status})`);
                       // TODO: Better detect/handle full storage; e.g. using
                       // [navigator.storage](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorStorage/storage).
                   }
@@ -1292,8 +1292,8 @@
               // Remove both the cache and the database entries which track LRU stats.
               yield Promise.all([
                   this.scope.caches.delete(`${this.prefix}:dynamic:${this.config.name}:cache`),
-                  this.db.delete(`${this.prefix}:dynamic:${this.config.name}:age`),
-                  this.db.delete(`${this.prefix}:dynamic:${this.config.name}:lru`),
+                  this.afs.delete(`${this.prefix}:dynamic:${this.config.name}:age`),
+                  this.afs.delete(`${this.prefix}:dynamic:${this.config.name}:lru`),
               ]);
           });
       }
@@ -1429,9 +1429,9 @@
                       return group.initializeFully(updateFrom);
                   }), Promise.resolve());
               }
-              catch (err) {
+              catch (error) {
                   this._okay = false;
-                  throw err;
+                  throw error;
               }
           });
       }
@@ -1676,7 +1676,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
           // Log the message.
           this.debugLogA.push({ value, time: this.adapter.time, context });
       }
-      errorToString(err) { return `${err.name}(${err.message}, ${err.stack})`; }
+      errorToString(error) { return `${error.name}(${error.message}, ${error.stack})`; }
       formatDebugLog(log) {
           return log.map(entry => `[${this.since(entry.time)}] ${entry.value} ${entry.context}`)
               .join('\n');
@@ -1742,8 +1742,8 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                       try {
                           yield task.run();
                       }
-                      catch (err) {
-                          this.debug.log(err, `while running idle task ${task.desc}`);
+                      catch (error) {
+                          this.debug.log(error, `while running idle task ${task.desc}`);
                       }
                   }), Promise.resolve());
               }
@@ -1804,7 +1804,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
           step((generator = generator.apply(thisArg, _arguments || [])).next());
       });
   };
-  const IDLE_THRESHOLD = 5000;
+  const IDLE_THRESHOLD = 1600;
   const SUPPORTED_CONFIG_VERSION = 1;
   const NOTIFICATION_OPTION_NAMES = [
       'actions', 'badge', 'body', 'data', 'dir', 'icon', 'image', 'lang', 'renotify',
@@ -1887,9 +1887,9 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                       try {
                           yield this.cleanupOldSwCaches();
                       }
-                      catch (err) {
+                      catch (error) {
                           // Nothing to do - cleanup failed. Just log it.
-                          this.debugger.log(err, 'cleanupOldSwCaches @ activate: cleanup-old-sw-caches');
+                          this.debugger.log(error, 'cleanupOldSwCaches @ activate: cleanup-old-sw-caches');
                       }
                   }));
               }))());
@@ -2166,14 +2166,14 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                   // network.
                   res = yield appVersion.handleFetch(event.request, event);
               }
-              catch (err) {
-                  if (err.isCritical) {
+              catch (error) {
+                  if (error.isCritical) {
                       // Something went wrong with the activation of this version.
-                      yield this.versionFailed(appVersion, err, this.latestHash === appVersion.manifestHash);
+                      yield this.versionFailed(appVersion, error, this.latestHash === appVersion.manifestHash);
                       event.waitUntil(this.idle.trigger());
                       return this.safeFetch(event.request);
                   }
-                  throw err;
+                  throw error;
               }
               // The AppVersion will only return null if the manifest doesn't specify what to do about this
               // request. In that case, just fall back on the network.
@@ -2205,7 +2205,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
               // the SW has run or the DB state has been wiped or is inconsistent. In that case,
               // load a fresh copy of the manifest and reset the state from scratch.
               // Open up the DB table.
-              const table = yield this.db.open('control');
+              const table = yield this.afs.open('control');
               // Attempt to load the needed state from the DB. If this fails, the catch {} block
               // will populate these variables with freshly constructed values.
               let manifests, assignments, latest;
@@ -2223,9 +2223,9 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                       try {
                           yield this.cleanupCaches();
                       }
-                      catch (err) {
+                      catch (error) {
                           // Nothing to do - cleanup failed. Just log it.
-                          this.debugger.log(err, 'cleanupCaches @ init post-load');
+                          this.debugger.log(error, 'cleanupCaches @ init post-load');
                       }
                   }));
               }
@@ -2290,8 +2290,8 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                       // it fails, then full initialization was attempted and failed.
                       yield this.scheduleInitialization(this.versions.get(hash), this.latestHash === hash);
                   }
-                  catch (err) {
-                      this.debugger.log(err, `initialize: schedule init of ${hash}`);
+                  catch (error) {
+                      this.debugger.log(error, `initialize: schedule init of ${hash}`);
                       return false;
                   }
               })));
@@ -2427,9 +2427,9 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                   try {
                       yield appVersion.initializeFully();
                   }
-                  catch (err) {
-                      this.debugger.log(err, `initializeFully for ${appVersion.manifestHash}`);
-                      yield this.versionFailed(appVersion, err, latest);
+                  catch (error) {
+                      this.debugger.log(error, `initializeFully for ${appVersion.manifestHash}`);
+                      yield this.versionFailed(appVersion, error, latest);
                   }
               });
               // TODO: better logic for detecting localhost.
@@ -2439,7 +2439,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
               this.idle.schedule(`initialization(${appVersion.manifestHash})`, initialize);
           });
       }
-      versionFailed(appVersion, err, latest) {
+      versionFailed(appVersion, error, latest) {
           return __awaiter$5(this, void 0, void 0, function* () {
               // This particular AppVersion is broken. First, find the manifest hash.
               const broken = Array.from(this.versions.entries()).find(([hash, version]) => version === appVersion);
@@ -2456,7 +2456,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                   // network, but caches continue to be valid for previous versions. This is
                   // unfortunate but unavoidable.
                   this.state = DriverReadyState.EXISTING_CLIENTS_ONLY;
-                  this.stateMessage = `Degraded due to: ${errorToString(err)}`;
+                  this.stateMessage = `Degraded due to: ${errorToString(error)}`;
                   // Cancel the binding for these clients.
                   Array.from(this.clientVersionMap.keys())
                       .forEach(clientId => this.clientVersionMap.delete(clientId));
@@ -2476,7 +2476,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
               catch (err2) {
                   // We are already in a bad state. No need to make things worse.
                   // Just log the error and move on.
-                  this.debugger.log(err2, `Driver.versionFailed(${err.message || err})`);
+                  this.debugger.log(err2, `Driver.versionFailed(${error.message || error})`);
               }
           });
       }
@@ -2519,10 +2519,10 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                   yield this.setupUpdate(manifest, hash);
                   return true;
               }
-              catch (err) {
-                  this.debugger.log(err, `Error occurred while updating to manifest ${hash}`);
+              catch (error) {
+                  this.debugger.log(error, `Error occurred while updating to manifest ${hash}`);
                   this.state = DriverReadyState.EXISTING_CLIENTS_ONLY;
-                  this.stateMessage = `Degraded due to failed initialization: ${errorToString(err)}`;
+                  this.stateMessage = `Degraded due to failed initialization: ${errorToString(error)}`;
                   return false;
               }
           });
@@ -2533,7 +2533,7 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
       sync() {
           return __awaiter$5(this, void 0, void 0, function* () {
               // Open up the DB table.
-              const table = yield this.db.open('control');
+              const table = yield this.afs.open('control');
               // Construct a serializable map of hashes to manifests.
               const manifests = {};
               this.versions.forEach((version, hash) => { manifests[hash] = version.manifest; });
@@ -2587,10 +2587,10 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
                       // Clean it up.
                       yield instance.cleanup();
                   }
-                  catch (err) {
+                  catch (error) {
                       // Oh well? Not much that can be done here. These caches will be removed when
                       // the SW revs its format version, which happens from time to time.
-                      this.debugger.log(err, `cleanupCaches - cleanup ${version}`);
+                      this.debugger.log(error, `cleanupCaches - cleanup ${version}`);
                   }
               }), Promise.resolve());
               // Commit all the changes to the saved state.
@@ -2731,8 +2731,8 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ 'Content-Type': 'text/plain' }
               try {
                   return yield this.scope.fetch(req);
               }
-              catch (err) {
-                  this.debugger.log(err, `Driver.fetch(${req.url})`);
+              catch (error) {
+                  this.debugger.log(error, `Driver.fetch(${req.url})`);
                   return this.adapter.newResponse(null, {
                       status: 504,
                       statusText: 'Gateway Timeout',

@@ -39,7 +39,6 @@ export class AuthService {
         }
       })
     );
-    console.log('userService: ', this.user);
   }
 
   SignIn(credentials) {
@@ -52,7 +51,7 @@ export class AuthService {
           emailVerified: data.user.emailVerified,
           lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
         });
-        localStorage.setItem('user', JSON.stringify(data.user));
+        // localStorage.setItem('user', JSON.stringify(data.user));
 
         this.modalController.dismiss().then(() => {
           this.messageService.loggedInToast(data);
@@ -72,43 +71,61 @@ export class AuthService {
           email: data.user.email,
           role: ['USER'],
           permissions: ['delete-ticket'],
-          createdAt: fire.default.firestore.FieldValue.serverTimestamp()
+          createdAt: fire.default.firestore.Timestamp
         },
         { merge: true }
       );
-      localStorage.setItem('user', JSON.stringify(data.user));
+      // localStorage.setItem('user', JSON.stringify(data.user));
       this.modalController
         .dismiss()
         .then(() => {
           this.sendVerificationMail();
-        })
-        .catch((error) => {
-          this.messageService.authErrorAlert(error);
         });
-    });
+        // .catch((error) => {
+        //   this.messageService.authErrorAlert(error);
+        // });
+    }) .catch((error) => {
+         const errorCode = error.code;
+         const errorMessage = error.message;
+         if (errorCode === 'auth/weak-password') {
+           alert('The password is too weak.');
+         } else {
+           alert(errorMessage);
+         }
+         console.log(error);
+       });
   }
 
   // Auth providers
   AuthLogin(provider) {
     return this.afAuth.signInWithRedirect(provider).then(() => {
-      return this.afAuth
+      this.afAuth
         .getRedirectResult()
-        .then((data) => {
-          this.afs.doc<User>(`users/${data.user.uid}`).update({
-            uid: data.user.uid,
-            photoURL: data.user.photoURL,
-            email: data.user.email,
-            emailVerified: data.user.emailVerified,
-            lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
-          });
-          console.log('b4 message');
-          this.messageService.loggedInToast(data.user.displayName);
-          console.log('l8r message');
-          localStorage.setItem('user', JSON.stringify(data.user));
+        .then((result) => {
+          if (result.user.metadata.creationTime !== null) {
+            this.afs.doc<User>(`users/${result.user.uid}`).update({
+              uid: result.user.uid,
+              photoURL: result.user.photoURL,
+              email: result.user.email,
+              emailVerified: result.user.emailVerified
+            });
+          }
+          else if (result.user.providerData)
+          {
+            this.afs.doc<User>(`users/${result.user.uid}`).update({
+              uid: result.user.uid,
+              photoURL: result.user.photoURL,
+              email: result.user.email,
+              emailVerified: result.user.emailVerified,
+              createdAt: fire.default.firestore.FieldValue.serverTimestamp()
+            });
+          }
+          this.messageService.loggedInToast(result.user.displayName);
+          // localStorage.setItem('user', JSON.stringify(result.user));
           this.modalController.dismiss();
         })
-        .catch((err) => {
-          this.messageService.authErrorAlert(err);
+        .catch((error) => {
+          this.messageService.authErrorAlert(error);
         });
     });
   }
@@ -132,7 +149,8 @@ export class AuthService {
   // }
 
   FacebookAuth() {
-    return this.AuthLogin(new fire.default.auth.FacebookAuthProvider()).catch((error) => {
+    return this.AuthLogin(new fire.default.auth.FacebookAuthProvider())
+    .catch((error) => {
       this.messageService.errorAlert(error);
     });
   }
@@ -154,31 +172,33 @@ export class AuthService {
       .catch((error) => {
         this.messageService.errorAlert(error);
       });
+    }
+
+    // Password Reset
+    passReset(email) {
+      this.afAuth.sendPasswordResetEmail(email)
+      .catch((error) => {
+        this.messageService.errorAlert(error);
+      });
   }
 
-  // Password Reset
-  passReset(email) {
-    this.afAuth.sendPasswordResetEmail(email);
-  }
-
-  getUser() {
-    const userData = localStorage.getItem('user');
-    return JSON.parse(userData);
-  }
+  // getUser() {
+  //   const userData = localStorage.getItem('user');
+  //   return JSON.parse(userData);
+  // }
 
   // Sign-out
   signOut() {
     return this.afAuth
       .signOut()
       .then(() => {
-        localStorage.setItem('user', null);
-        localStorage.removeItem('user');
+        // localStorage.setItem('user', null);
+        // localStorage.removeItem('user');
         this.messageService
-          .signOutToast()
-          .catch((err) => this.messageService.errorAlert(JSON.stringify(err)))
-          .then(() => this.router.navigate(['/home']));
+          .signOutToast();
+        this.router.navigate(['/home']);
       })
-      .catch((err) => this.messageService.errorAlert(JSON.stringify(err)));
+      .catch((error) => this.messageService.errorAlert(JSON.stringify(error)));
   }
 
   // Permissions

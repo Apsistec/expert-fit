@@ -67,7 +67,7 @@ export class TicketComponent implements OnInit {
         loading.dismiss();
         this.dismissModal();
       },
-      (err) => {
+      (error) => {
         loading.dismiss();
       }
     );

@@ -12,7 +12,7 @@ export class SpinnerService {
     const load = await this.loadingController
       .create({
         spinner: 'circles',
-        duration: 5000,
+        duration: 1600,
       })
       .then((a) => {
         a.present().then(() => {

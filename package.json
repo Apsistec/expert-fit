@@ -48,6 +48,7 @@
     "date-fns": "^2.17.0",
     "firebase": "^8.2.6",
     "ng-animate": "^0.3.4",
+    "ng2-pdf-viewer": "^6.4.0",
     "ngx-bar-rating": "^2.0.0",
     "ngx-quicklink": "^0.2.7",
     "prettier": "^2.2.1",

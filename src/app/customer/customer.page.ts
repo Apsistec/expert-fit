@@ -67,8 +67,8 @@ export class CustomerPage implements OnInit {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -80,8 +80,8 @@ export class CustomerPage implements OnInit {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -93,8 +93,8 @@ export class CustomerPage implements OnInit {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 }

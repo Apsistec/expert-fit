@@ -11,7 +11,6 @@ export class PhotoGalleryComponent implements OnInit {
   user: User;
   constructor(private authService: AuthService) {}
   ngOnInit() {
-    this.user = this.authService.getUser();
   }
 
   logoutAction() {

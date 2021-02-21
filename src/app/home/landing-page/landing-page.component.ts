@@ -56,8 +56,8 @@ export class LandingPageComponent implements OnInit {
         return this.messageService.generalToast('Thank you for watching the video');
       }
     });
-    return modal.present().catch((err) => {
-      return this.messageService.errorAlert(err);
+    return modal.present().catch((error) => {
+      return this.messageService.errorAlert(error);
     });
   }
 
