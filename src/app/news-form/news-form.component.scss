@@ -1,0 +1,32 @@
+:host{
+  --animate-duration: 0.3s;
+  --animate-delay: 0.3s;
+  --animate-repeat: 1;
+  --q-color-primary: #304895;
+  --q-color-secondary: #e57373;
+  --q-color-accent: #424242;
+  --q-color-positive: #4caf50;
+  --q-color-negative: #e57373;
+  --q-color-info: #0091ea;
+  --q-color-warning: #ffb300;
+  --q-color-dark: #1d1d1d;
+  --q-size-xs: 0;
+  --q-size-sm: 600px;
+  --q-size-md: 1024px;
+  --q-size-lg: 1440px;
+  --q-size-xl: 1920px;
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+  line-height: 1.5;
+  font-size: 14px;
+  -webkit-font-smoothing: auto;
+  direction: ltr;
+  font-weight: 500;
+  color: #424242!important;
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+  flex: 1 0 auto;
+  border-color: rgba(0,0,0,0.1);
+  height: auto;
+  min-height: 0;
+  max-height: 100%;
+}

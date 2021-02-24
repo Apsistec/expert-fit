@@ -12,6 +12,9 @@ import { PopoverService } from './services/popover.service';
 // import { LoginComponent } from './login/login.component';
 
 import { User } from './models/users.model';
+import { MessageService } from './services/message.service';
+import { IonicStorageModule } from '@ionic/storage';
+import { StorageService } from './services/storage.service';
 
 @Component({
   selector: 'app-root',
@@ -25,44 +28,56 @@ export class AppComponent implements OnInit {
   displayToken: string;
   showPushNotifyBar = true;
   @Input() choice;
-
+  @Input() pushReqRes: boolean;
+  response: boolean;
+  
   constructor(
-    updates: SwUpdate,
-    push: SwPush,
+    private swUpdate: SwUpdate,
+    private swPush: SwPush,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public router: Router,
     public modalController: ModalController,
     public authService: AuthService,
-    public popoverService: PopoverService
-  ) {
-    updates.available.subscribe((_) =>
-      updates.activateUpdate().then(() => {
-        console.warn('Update Available... Reloading to Update');
-        document.location.reload();
-      })
-    );
-    push.messages.subscribe((msg) => console.warn('push message: ', msg));
-    push.notificationClicks.subscribe((click) => console.warn('notification click: ', click));
-    if (!firebase.apps.length) {
-      firebase.initializeApp(environment.firebaseConfig);
-      navigator.serviceWorker.getRegistration().then(() =>
+    public popoverService: PopoverService,
+    private messageService: MessageService,
+    private store: StorageService
+    ) {
+      this.swPush.messages.subscribe((msg) => console.warn('push message: ', msg));
+      this.swPush.notificationClicks.subscribe((click) => console.warn('notification click: ', click));
+      if (!firebase.apps.length) {
+        firebase.initializeApp(environment.firebaseConfig);
+        navigator.serviceWorker.getRegistration().then(() =>
         firebase.messaging().getToken({
           vapidKey: 'BFZIBA94F79A9vt1yD4DBZX5BD460KEm3WWdRdzGV-FSBfIgGBoajnRhwWOUeHSEb9cUmIJejFHYlMYfCtVbN3c'
         })
-      );
+        );
+      }
+     
+      
     }
-  }
 
   ngOnInit() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-    // if (this.showPushNotifyBar) {
-    //   this.messageService.notifyOrCancel();
-    // }
+    this.platform.ready().then((readySource) => {
+      const source = readySource;
+      if (source === 'capacitor') {
+        this.statusBar.styleDefault();
+        this.splashScreen.hide();
+      } else {
+      }
+
+      });
+      
+    if (this.swUpdate.isEnabled) {
+        this.swUpdate.available.subscribe(() => {
+          if (confirm('New version available. Load New Version?')) {
+            window.location.reload();
+          }
+          return;
+        });
+      }
+      
   }
 
   cancelNotificationBar() {
@@ -74,10 +89,8 @@ export class AppComponent implements OnInit {
       const messaging = firebase.messaging();
       Notification.requestPermission();
       this.displayToken = await messaging.getToken();
-      console.warn('Token: ', this.displayToken);
       this.showPushNotifyBar = !this.showPushNotifyBar;
     } catch (error) {
-      console.warn('Unable to get permission to notify. Error: ', error);
     }
   }
 

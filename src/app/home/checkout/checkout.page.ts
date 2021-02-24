@@ -71,7 +71,7 @@ export class CheckoutPage implements OnInit, AfterViewInit {
     this.seoService.addTwitterCard(
       'Product and Subscription Purchase Page',
       'View and purchase Expert Fitness\' Subscriptions and other products at great prices',
-      '..//..//..//assets//logos//logo.png'
+      '..//..//..//assets//lazy//logos//logo.png'
     );
   }
 

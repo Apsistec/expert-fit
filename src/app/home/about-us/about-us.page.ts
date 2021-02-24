@@ -16,8 +16,8 @@ export class AboutUsPage implements OnInit {
   ngOnInit() {}
 
   dismissModal() {
-    this.modalController.dismiss().then(() => {
-      this.router.navigateByUrl('/home');
-    });
+    this.modalController.dismiss();
+    this.router.navigateByUrl('/home');
+
   }
 }

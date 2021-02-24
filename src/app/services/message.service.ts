@@ -6,6 +6,7 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class MessageService {
   choice;
+  pushReqRes: boolean;
 
   constructor(private toastController: ToastController, private alertController: AlertController) {}
 
@@ -180,11 +181,12 @@ export class MessageService {
     await alert.present();
   }
 
-  async registerSuccessAlert() {
+  async registerSuccessAlert(displayName) {
     const toast = await this.alertController.create({
       header: 'Registration Successful',
+      subHeader: 'Welcome ' + displayName + '!',
       message:
-        'You have successfully registered. Now, one last step.... to verify your email, check your inbox for instructions!',
+        'You have successfully registered and a verification request has been sent to your email. Check your email for instructions',
       cssClass: 'successA',
       keyboardClose: true,
       buttons: ['OK']
@@ -239,33 +241,32 @@ export class MessageService {
     await alert.present();
   }
 
-  async notifyOrCancel() {
+  async onPushRequest() {
     const alert = await this.alertController.create({
       header: 'Expert Fitness App Messages',
       subHeader: 'Push Notifications',
-      // tslint:disable-next-line: quotemark
-      message: "Press 'Okay' to start receiving push notifications",
+      message: `Press 'Okay' to start receiving push notifications`,
       backdropDismiss: false,
       cssClass: 'infoA',
       buttons: [
         {
           text: 'Okay',
-          role: 'okay'
+          role: 'true'
         },
         {
           text: 'Cancel',
-          role: 'cancel'
+          role: 'false'
         }
       ]
     });
     await alert.present();
-    await alert.onDidDismiss().then((data) => {
-      this.choice = data;
+    await alert.onDidDismiss().then((data): boolean => {
+      this.pushReqRes = !!data;
+      return this.pushReqRes;
     });
-    return this.choice;
   }
 
-  async resetWelcomeAlert(header: string, message: string) {
+  async resetWelcomeAlert( header: string, message: string ) {
     const alert = await this.alertController.create({
       header,
       message,
@@ -282,7 +283,6 @@ export class MessageService {
         }
       ]
     });
-
     await alert.present();
     await alert.onDidDismiss().then((data) => {
       this.choice = data;

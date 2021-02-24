@@ -24,14 +24,13 @@ export class LoginComponent implements OnInit {
     public modalController: ModalController,
     private messageService: MessageService,
     private loadingService: LoadingService,
-    private navController: NavController,
-    private router: Router
+    private router: Router,
+    private navController: NavController
   ) {}
 
   ngOnInit() {
     this.hide = true;
     this.createForm();
-    this.isSubmitted = false;
   }
 
   createForm() {
@@ -49,52 +48,31 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  get loginFormControl() {
+    return this.loginForm.controls;
+  }
+
   async onLogin() {
-    this.isSubmitted = true;
-    await this.loadingService.showLoading();
-    await this.authService.SignIn(this.loginForm.value);
-    this.isSubmitted = false;
-    await this.loadingService.dismissLoading().catch((error) => this.messageService.errorAlert(error));
+    this.loadingService.showLoading();
+    const res = await this.authService.SignIn(this.loginForm.value);
+    if (res !== null) {
+      this.dismissModal();
+      this.loadingService.dismissLoading().catch((error) => {
+        this.dismissModal();
+        this.messageService.errorAlert(error);
+      });
+    }
   }
 
   toggleHide() {
     this.hide = !this.hide;
   }
 
-  get loginFormControl() {
-    return this.loginForm.controls;
-  }
-
-  // async showForgotModal() {
-  //   this.dismissModal();
-  //   const modal = await this.modalController.create({
-  //     component: ForgotPasswordComponent,
-  //     componentProps: {
-  //       cssClass: 'modal-css'
-  //     }
-  //   });
-  //   await modal.present().catch((error) => this.messageService.errorAlert(error));
-  // }
-
   dismissModal() {
-    this.modalController
-      .dismiss()
-      .then(() => {
-        this.router.navigateByUrl('/home');
-      })
-      .catch((error) => {
-        this.messageService.errorAlert(error);
-      });
+    this.modalController.dismiss();
+    // .then(() => {
+    // this.router.navigateByUrl('/home');
+    // this.navController.back();
+    this.router.navigateByUrl('/home');
   }
-
-  // async showRegisterModal() {
-  //   this.dismissModal();
-  //   const modal = await this.modalController.create({
-  //     component: SignupComponent,
-  //     componentProps: {
-  //       cssClass: 'modal-css'
-  //     }
-  //   });
-  //   await modal.present().catch((error) => this.messageService.errorAlert(error));
-  // }
 }

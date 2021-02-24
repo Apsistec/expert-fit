@@ -22,7 +22,7 @@
   </ion-segment>
 
   <div [ngSwitch]="segment">
-      <ion-grid *ngSwitchDefault>
+      <div *ngSwitchDefault>
       <ion-row>
       <ion-col
 
@@ -59,10 +59,10 @@
         </ion-item>
       </ion-col>
     </ion-row>  
-      </ion-grid>
+      </div>
 
   
-      <ion-grid  *ngSwitchCase="myReviews">
+      <div  *ngSwitchCase="myReviews">
       <ion-row>
         <ion-col
           size-sm="12"
@@ -96,7 +96,7 @@
         </ion-col>
       </ion-row>
           
-      </ion-grid>
+      </div>
     </div>
   <app-footer></app-footer>
 </ion-content>

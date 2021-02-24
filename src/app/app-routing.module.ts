@@ -11,12 +11,12 @@ import {
   emailVerified,
   hasCustomClaim
 } from '@angular/fire/auth-guard';
-import { UnknownComponent } from './unknown/unknown.component';
-import { AboutAppComponent } from './shared/about-app/about-app.component';
-import { LoginComponent } from './login/login.component';
-import { PrivacyComponent } from './shared/privacy/privacy.component';
-import { TermsComponent } from './shared/terms/terms.component';
-import { SignupComponent } from './signup/signup.component';
+import { UnknownComponent } from './home/unknown/unknown.component';
+// import { AboutAppComponent } from './shared/about-app/about-app.component';
+// import { LoginComponent } from './shared/login/login.component';
+// import { PrivacyComponent } from './shared/privacy/privacy.component';
+// import { TermsComponent } from './shared/terms/terms.component';
+// import { SignupComponent } from './shared/signup/signup.component';
 // import { LoginGuard } from './guards/login.guard';
 import { PhotoGalleryComponent } from './shared/photo-gallery/photo-gallery.component';
 import { ModalViewComponent } from './modal-view/modal-view.component';
@@ -24,8 +24,8 @@ import { ModalViewComponent } from './modal-view/modal-view.component';
 const customerOnly = () => hasCustomClaim('customer');
 const employeeOnly = () => hasCustomClaim('employee');
 const adminOnly = () => hasCustomClaim('admin');
-const redirectLoggedInToDash = () => redirectLoggedInTo(['/user/dashboard']);
-const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['/home']);
+const redirectLoggedInToDash = () => redirectLoggedInTo(['/home']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
 const verifiedEmail = () => emailVerified;
 
 const routes: Routes = [
@@ -37,23 +37,20 @@ const routes: Routes = [
   {
     path: 'customer',
     loadChildren: () => import('./customer/customer.module').then((m) => m.CustomerPageModule),
-    ...canActivate(redirectUnauthorizedToHome),
-    ...canActivate(verifiedEmail),
+    ...canActivate(redirectUnauthorizedToLogin),
     canActivate: [PaidGuard, RoleGuard]
   },
   {
     path: 'employee',
     loadChildren: () => import('./employee/employee.module').then((m) => m.EmployeePageModule),
-    ...canActivate(verifiedEmail),
-    ...canActivate(redirectUnauthorizedToHome),
+    ...canActivate(redirectUnauthorizedToLogin),
     ...canActivate(adminOnly),
     canActivate: [PaidGuard, RoleGuard]
   },
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then((m) => m.AdminPageModule),
-    ...canActivate(redirectUnauthorizedToHome),
-    // ...canActivate(verifiedEmail),
+    ...canActivate(redirectUnauthorizedToLogin),
     ...canActivate(adminOnly),
     canActivate: [PaidGuard, RoleGuard]
   },
@@ -80,9 +77,8 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserPageModule),
-    ...canActivate(redirectUnauthorizedToHome),
+    ...canActivate(redirectUnauthorizedToLogin),
     ...canActivate(verifiedEmail),
-    canActivate: []
   },
   {
     path: '',

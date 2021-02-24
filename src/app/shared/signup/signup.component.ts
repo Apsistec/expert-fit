@@ -64,17 +64,6 @@ export class SignupComponent implements OnInit {
     this.hide = !this.hide;
   }
 
-  // async showLoginModal() {
-  //   this.dismissModal();
-  //   const modal = await this.modalController.create({
-  //     component: LoginComponent,
-  //     componentProps: {
-  //       cssClass: 'modal-css'
-  //     }
-  //   });
-  //   await modal.present().catch((error) => this.messageService.errorAlert(error));
-  // }
-
   dismissModal() {
     this.modalController
       .dismiss()

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Product, Price, Subscription } from 'src/app/models/products.model';
 // import { NgForm } from '@angular/forms';
@@ -22,16 +23,16 @@ import { Product, Price, Subscription } from 'src/app/models/products.model';
 })
 export class ProductsPage implements OnInit {
 
-  products; // : Product;
-  prices: Price;
-  subscriptions: Subscription;
+  products;
+  // prices: Price;
+  // subscriptions: Subscription;
 
   constructor(private afs: AngularFirestore, private fun: AngularFireFunctions) {}
 
 
   ngOnInit() {
-     this.afs
-      .collection<Product>('products', (ref) => ref.where('active', '==', true))
+     return this.afs
+      .collection('products', (ref) => ref.where('active', '==', true))
       .get()
       .pipe(
         map((querySnapshot) => {
