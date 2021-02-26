@@ -58,7 +58,7 @@ export const Benefits = [
   {
     id: 8,
     title: 'Healthy',
-    image: '../../assets/lazy/images/',
+    image: '../../assets/lazy/images/tensor-band-squats.jpg',
     content: `When completing their Certificate III in Fitness, every student is required to complete a module on nutrition and how it can affect fitness. Personal Trainers who complete their Certificate IV in Fitness have to then complete additional work on nutrition, and a number of Personal Trainers also add on additional education to their program by completing a Nutrition course such as those offered by the Australian Institute of Fitness.`
   },
   {

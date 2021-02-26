@@ -4,7 +4,7 @@
         <img [@bounceOutUp]="bounceOutUp" src="../../../assets/lazy/images/logo.png" class="ion-hide-md-down" />
         <img
           [@bounceOutUp]="bounceOutUp"
-          src="../../../assets/lazy/logos/logo.png" class="ion-hide-md-up" style="width:345px;padding-top:40px" />
+          src="../../../assets/lazy/images/logo.png" class="ion-hide-md-up" style="width:345px;padding-top:40px" />
         <ion-card class="main-heading-card ion-text-center shadow">
           <ion-card-title class="main-title" color="light"> Expert Fitness<sup>3D</sup> </ion-card-title>
           <ion-card-subtitle class="main-subtitle" color="warning">
@@ -23,7 +23,7 @@
           Get Started
         </ion-button>
       </ion-col>
-        <ion-fab  horizontal="end" vertical="top" >
+        <ion-fab fixed horizontal="end" vertical="top" >
           <img width="105" class="video pulsing" src="../../../assets/lazy/images/btn-play.svg" (click)="loadVideo()" />
         </ion-fab>
         <ion-fab   horizontal="center" vertical="bottom">
@@ -53,7 +53,7 @@
         </ion-fab>
       </ion-col>
     </ion-row>
-    <ion-row id="pageTwo">
+    <ion-row id="pageTwo" class="page-two">
       <ion-col >
         <app-home-page-two></app-home-page-two>
       </ion-col>

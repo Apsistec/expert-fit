@@ -33,7 +33,7 @@ export class FcmService {
 
   getPermission() {
     let token$;
-    if (this.platform.is('cordova')) {
+    if (this.platform.is('capacitor')) {
       token$ = from(this.getPermissionNative());
     } else {
       token$ = this.getPermissionWeb();

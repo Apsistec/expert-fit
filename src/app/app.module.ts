@@ -8,6 +8,7 @@ import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,15 +27,10 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { SchedulerModule } from 'angular-calendar-scheduler';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ErrorInterceptor } from './services/error.interceptor';
-
 import { ModalViewComponent } from './modal-view/modal-view.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SideMenuComponent,
-    ModalViewComponent,
-  ],
+  declarations: [AppComponent, SideMenuComponent, ModalViewComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -43,7 +39,9 @@ import { ModalViewComponent } from './modal-view/modal-view.component';
     FormsModule,
     IonicModule.forRoot(),
     IonicStorageModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('combined-sw.js', {
+      enabled: environment.production
+    }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthGuardModule,
     AngularFireAuthModule,
@@ -51,6 +49,7 @@ import { ModalViewComponent } from './modal-view/modal-view.component';
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireAnalyticsModule,
+    AngularFireMessagingModule,
     AppRoutingModule,
     QuicklinkModule,
     HttpClientModule,

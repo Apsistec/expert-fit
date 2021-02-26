@@ -1,5 +1,5 @@
 .scene-one {
-  height: 94vh;
+  height: 100vh;
   width: 100vw;
   background-color: var(--ion-color-medium);
   background: linear-gradient(
@@ -14,8 +14,8 @@
       rgba(10, 37, 39, 0.315) 15%,
       rgba(4, 32, 34, 0.123) 50%,
       rgba(3, 53, 68, 0.829) 100%
-    ),
-    url(../../../assets/lazy/images/fitness-balancing.jpg) center/ cover no-repeat;
+    ), center/ cover no-repeat
+    url(../../../assets/lazy/images/fitness-balancing.jpg) ;
 }
 
 .main-title {
@@ -36,6 +36,7 @@ sup {
   padding-bottom: 12px;
   background: var(--ion-color-dark-tint);
   border: 4px outset var(--ion-color-danger);
+  border-radius: 15px;
 }
 
 .video {
@@ -83,10 +84,12 @@ sup {
     center/ cover no-repeat url(../../../assets/lazy/images/platinum.png);
 }
 
-#pageTwo {
-  background: linear-gradient(to right, rgba(41, 41, 41, 0.767), rgba(77, 76, 76, 0.589)),
-    center/ cover no-repeat url('../../../assets/lazy/images/arm-back-muscles.jpg');
+
+.page-two{
+    background: linear-gradient(rgba(0, 0, 0, 0.767),rgba(0, 0, 0, 0.767)), url(../../../assets/lazy/images/upward-dog-pose.jpg) bottom/ cover no-repeat;
+  padding: 30px;
 }
+
 .up{
   ion-icon{
     color:var(--ion-color-warning-tint);

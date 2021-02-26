@@ -1,22 +1,22 @@
-<ion-row class="ion-justify-content-center ion-margin-top">
-  <ion-col>
-    <ion-card class="ion-text-center ion-margin bottom-card">
+<!-- <ion-row class="ion-justify-content-center ion-margin-top">
+  <ion-col> -->
+    <ion-card class="ion-text-center shadow page-two-card">
       <ion-card-header>
         <ion-card-title color="secondary"> Why limit yourself? </ion-card-title>
-        <ion-card-subtitle color="danger">At Expert Fitness YOU have it all! </ion-card-subtitle>
+        <ion-card-subtitle color="warning">At Expert Fitness YOU have it all </ion-card-subtitle>
       </ion-card-header>
     </ion-card>
-  </ion-col>
-</ion-row>
+  <!-- </ion-col>
+</ion-row> -->
 <ion-row class="ion-justify-content-around ion-hide-sm-down ion-margin-top">
   <ion-col size-md="5" size-lg="4" class="ion-align-self-center">
     <app-benefit-tracker [benefit]="benefitChosen"></app-benefit-tracker>
   </ion-col>
   <ion-col size-md="5" size-lg="4" class="ion-align-self-center">
-    <ion-text color="light" [@slideInRight]="slideInRight" class="ion-hide-sm-down ion-text-capitalize">
+    <ion-note  [@slideInRight]="slideInRight" class="ion-hide-sm-down ion-text-capitalize">
       Select to learn more
-    </ion-text>
-    <ion-item-group class="shadow ion-text-center">
+    </ion-note>
+    <ion-item-group class="item-group">
       <ion-item
         *ngFor="let benefit of benefits"
         class="benefit-item"
@@ -25,9 +25,9 @@
         (mouseenter)="chooseBenefit(benefit)"
         (mouseexit)="clear()"
       >
-        <ion-text color="tertiary">
+        <!-- <ion-text class="benefit-title" color="tertiary"> -->
           {{ benefit.title }}
-        </ion-text>
+        <!-- </ion-text> -->
       </ion-item>
     </ion-item-group>
   </ion-col>

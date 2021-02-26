@@ -1,5 +1,10 @@
-ion-toolbar{
-  --background: var(--ion-color-dark-tint);
-  // border-bottom: 3px solid var(--ion-color-tertiary);
-  // border-top: 3px solid var(--ion-color-tertiary-shade);
+
+
+.benefit-tracker-card{
+  height: fit-content;
+  height: 500px; 
+  border-radius: 15px;
+  border:3px solid var(--ion-color-secondary);
+  background: rgba(255, 255, 255, 0.15);
 }
+

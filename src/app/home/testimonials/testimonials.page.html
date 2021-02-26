@@ -4,99 +4,95 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen transparent>
+<ion-content fullscreen>
+  <ion-grid style="min-height: 100vh">
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button color="warning">
+        <ion-icon name="ribbon-sharp" value="default" color="secondary"></ion-icon>
+        <ion-text color="light"> Reviews </ion-text>
+      </ion-segment-button>
+      <ion-segment-button value="myReviews">
+        <ion-icon name="person-sharp" color="secondary"></ion-icon>
+        <ion-text color="light"> My Reviews </ion-text>
+      </ion-segment-button>
+    </ion-segment>
 
-  <ion-segment [(ngModel)]="segment">
-    <ion-segment-button color="warning">
-      <ion-icon name="ribbon-sharp" value="default" color="secondary"></ion-icon>
-      <ion-text color="light">
-        Reviews
-      </ion-text>
-    </ion-segment-button>
-    <ion-segment-button value="myReviews">
-      <ion-icon name="person-sharp" color="secondary"></ion-icon>
-      <ion-text color="light">
-        My Reviews
-      </ion-text>
-    </ion-segment-button>
-  </ion-segment>
-
-  <div [ngSwitch]="segment">
-      <div *ngSwitchDefault>
+    <div [ngSwitch]="segment">
       <ion-row>
-      <ion-col
+        <div *ngSwitchDefault>
+          <ion-col
+            class="shadow"
+            size-sm="10"
+            size-md="6"
+            size-lg="3"
+            size-xl="3"
+            *ngFor="let review of reviews | async"
+          >
+            <ion-card style="max-width: 500px">
+              <ion-grid>
+                <ion-row class="ion-justify-content-center">
+                  <ion-col size="5" class="ion-align-self-center">
+                    <ion-avatar>
+                      <img height="80" src="../../../assets/lazy/images/dummy-user.png" />
+                    </ion-avatar>
+                    <ion-text color="primary"> {{ review.displayName }} </ion-text>
+                    <br />
+                    <ion-text color="warning">{{ review.created_at }}</ion-text>
+                  </ion-col>
 
-      class="ion-padding"
-        size-sm="12"
-        size-md="6"
-        size-lg="4"
-        size-xl="3"
-        *ngFor="let review of reviews | async"
-      >
-        <ion-item class="shadow" >
-          <ion-row class="ion-align-items-center">
-            <ion-col size="4" class="ion-align-self-center">
-              <ion-avatar slot="start">
-                <img [src]="['../../../assets/lazy/images/dummy-user.png']" >
-              </ion-avatar>
-              <ion-text color="primary"> {{ review.displayName }} </ion-text>
-              <br />
-              <bar-rating
-                [(rate)]="review.stars"
-                (hover)="hover($event)"
-                style="color: var(--ion-color-danger)"
-                [theme]="'default'"
-                [max]="5"
-                readonly="true"
-              ></bar-rating>
-            </ion-col>
+                  <ion-col size="7" class="ion-align-self-center">
+                    <bar-rating
+                      [(rate)]="review.stars"
+                      (hover)="hover($event)"
+                      style="color: var(--ion-color-danger)"
+                      [theme]="'default'"
+                      [max]="5"
+                      readonly="true"
+                    ></bar-rating>
+                    <p>{{ review.message }}</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card>
+          </ion-col>
+        </div>
 
-            <ion-col size="8" class="ion-align-self-center">
-              <ion-text color="warning">{{ review.created_at }}</ion-text>
-              <p>{{ review.message }}</p>
+        <div *ngSwitchCase="myReviews">
+          <ion-row>
+            <ion-col
+              size-sm="12"
+              size-md="6"
+              size-lg="4"
+              size-xl="3"
+              class="ion-align-self-center ion-margin"
+              *ngFor="let myReview of myReviews | async"
+            >
+              <ion-item class="shadow" style="--inner-padding-top: 8px">
+                <ion-row class="ion-align-items-center">
+                  <ion-col size="4" class="ion-align-self-center">
+                    <ion-avatar slot="start">
+                      <ion-img [src]="['../../../assets/lazy/images/dummy-user.png']"></ion-img>
+                    </ion-avatar>
+                    <ion-text color="primary"> {{ myReview.displayName }} </ion-text>
+                    <br />
+                    <bar-rating
+                      [(rate)]="myReview.stars"
+                      (hover)="hover($event)"
+                      [theme]="'default'"
+                      [max]="5"
+                      readonly="true"
+                    ></bar-rating>
+                  </ion-col>
+                  <ion-col size="8" class="ion-align-self-center">
+                    <p>{{ myReview.message }}</p>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
             </ion-col>
           </ion-row>
-        </ion-item>
-      </ion-col>
-    </ion-row>  
-      </div>
-
-  
-      <div  *ngSwitchCase="myReviews">
-      <ion-row>
-        <ion-col
-          size-sm="12"
-          size-md="6"
-          size-lg="4"
-          size-xl="3"
-          class="ion-align-self-center ion-margin"
-          *ngFor="let myReview of myReviews | async"
-        >
-          <ion-item class="shadow" style="--inner-padding-top: 8px">
-            <ion-row class="ion-align-items-center">
-              <ion-col size="4" class="ion-align-self-center">
-                <ion-avatar slot="start">
-                  <ion-img [src]="['../../../assets/lazy/images/dummy-user.png']" ></ion-img>
-                </ion-avatar>
-                <ion-text color="primary"> {{ myReview.displayName }} </ion-text>
-                <br />
-                <bar-rating
-                  [(rate)]="myReview.stars"
-                  (hover)="hover($event)"
-                  [theme]="'default'"
-                  [max]="5"
-                  readonly="true"
-                ></bar-rating>
-              </ion-col>
-              <ion-col size="8" class="ion-align-self-center">
-                <p>{{ myReview.message }}</p>
-              </ion-col>
-            </ion-row>
-          </ion-item>
-        </ion-col>
+        </div>
       </ion-row>
-          
-      </div>
     </div>
+  </ion-grid>
   <app-footer></app-footer>
 </ion-content>

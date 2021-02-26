@@ -23,15 +23,13 @@
 </ion-row>
 <ion-row class="ion-justify-content-around ion-padding ion-margin">
   <ion-col size-xl="3" size-lg="4" size-md="5" class="ion-align-items-center ion-text-center ion-padding ion-margin">
-    <ion-img src="../../../assets/lazy/circleinfograph1.svg" ></ion-img>
+    <ion-img src="../../../assets/lazy/images/circleinfograph1.svg" ></ion-img>
   </ion-col>
   <ion-col size-xl="3" size-lg="4" size-md="6" class="ion-align-items-center ion-text-center ion-margin ion-padding">
-    <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" style=" height: 450px;width: 450px; border-radius: 15px;" >
+    <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" style=" height:500px;width:450px; border-radius:15px;" >
       <ion-slide  *ngFor="let phase of phases">
         <ion-card
-          style="border-radius: 15px;background: var(--ion-color-medium-shade); "
-          class="ion-no-margin"
-        >
+          style="border-radius: 15px;  background:rgba(255, 255, 255, 0.2);">
           <img [src]="[phase.image]" style="height:60%;width: 100%;" >
           <ion-toolbar>
             <ion-title>
@@ -43,7 +41,7 @@
               </ion-text>
             </ion-title>
           </ion-toolbar>
-          <ion-card-content style="background: var(--ion-color-medium-shade)">
+          <ion-card-content>
             <ion-text color="light">
               {{ phase.content }}
             </ion-text>

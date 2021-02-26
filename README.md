@@ -193,4 +193,4 @@ the acknowledgements section.](#acknowledgements)](https://github.com/apsistec/e
                      [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&amp;logo=linkedin&amp;colorB=555
                      [linkedin-url]: https://linkedin.com/in/apsistec
                      [product-screenshot]: src/assets/lazy/images/screenshot.png
-                     [logo-full]: src/assets/lazy/logos/logo.png
+                     [logo-full]: src/assets/lazy/images/logo.png

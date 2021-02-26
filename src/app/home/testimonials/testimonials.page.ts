@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, Subject } from 'rxjs';
-import { User } from 'src/app/models/users.model';
 import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
