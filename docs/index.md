@@ -1,16 +1,10 @@
+<h1 align="center">Expert Fitness App</h1>
 <!-- PROJECT LOGO -->
-<p align="center">
-<a href="https://github.com/apsistec/expert-fit">
-<img src="https://github.com/apsistec/expert-fit/src/assets/logos/logo.png" alt="Expert Fitness Logo" width="160" height="80">
-</a>
-</p>
+<p align="center"> The fitness app that becomes your trainer.  :muscle: </p>
 
-<h1 align="center">
-Expert Fitness App
-</h1>
+[![Expert Fitness Logo]][logo]
 
-<p align="center">
-The fitness app that becomes your trainer. :barbell:
+[Expert Fitness](https://github.com/apsistec/expert-fit)
 
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
@@ -20,18 +14,13 @@ The fitness app that becomes your trainer. :barbell:
 [![GNU General Public License v3.0][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<p align="center">
-<a href="https://github.com/apsistec/expert-fit">
-<strong>
-Explore the docs »
-</strong>
-</a>
-<br />
-<a href="https://github.com/apsistec/expert-fit">View Demo</a>
-·
-<a href="https://github.com/apsistec/expert-fit/issues">Report Bug</a>
-·
-<a href="https://github.com/apsistec/expert-fit/issues">Request Feature</a>
+[Explore the docs](https://github.com/apsistec/expert-fit")
+
+[View Demo](https://github.com/apsistec/expert-fit)
+
+[Report Bug](https://github.com/apsistec/expert-fit/issues)
+
+[Request Feature](https://github.com/apsistec/expert-fit/issues)
 
 ---
 
@@ -65,8 +54,7 @@ Explore the docs »
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![product-screenshot]](http://expert-fitness-midland-tx.web.app "Expert Fitness
-Landing Page")
+[![product-screenshot][Product Screenshot]][screenshot]
 
 There are many great fitness apps available on GitHub.
 However, I didn't find one that really suit my client's needs.
@@ -112,8 +100,8 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 1. Install
-   <!-- ```http -->
    [NodeJS](https://www.nodejs.com)
+
 2. Using npm, install:
 
     ```sh
@@ -273,3 +261,5 @@ Project Link: [https://github.com/apsistec/expert-fit](https://github.com/apsist
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/apsistec
 [product-screenshot]: src/assets/images/screenshot.png
+[logo]: https://github.com/apsistec/expert-fit/src/assets/logos/logo.png
+[screenshot]: http://expert-fitness-midland-tx.web.app

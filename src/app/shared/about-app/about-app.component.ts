@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, ModalController, NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ModalController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-about-app',
@@ -9,13 +10,15 @@ import { MenuController, ModalController, NavController } from '@ionic/angular';
 export class AboutAppComponent implements OnInit {
   constructor(
     private modalController: ModalController,
-    private navCtrl: NavController,
+    private navController: NavController
+
   ) {}
 
   ngOnInit() {  }
 
-  goBack() {
-    this.navCtrl.back();
-
- }
+  dismissModal() {
+    this.modalController.dismiss().then(() => {
+      this.navController.back();
+    });
+  }
 }

@@ -30,7 +30,7 @@ export class FaqPage {
   toggleSection(index) {
     this.faqs[index].open = !this.faqs[index].open;
     if (this.automaticClose && this.faqs[index].open) {
-      this.faqs.filter((faq, faqIndex) => faqIndex !== index).map((faq) => (faq.open = false));
+      this.faqs.filter((faq,faqIndex) => faqIndex !== index).map((faq) => (faq.open = !faq));
     }
   }
 }

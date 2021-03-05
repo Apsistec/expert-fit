@@ -1,63 +1,62 @@
-<!-- <ion-row class="ion-justify-content-center ion-margin-top">
-  <ion-col> -->
-    <ion-card class="ion-text-center shadow page-two-card">
-      <ion-card-header>
-        <ion-card-title color="secondary"> Why limit yourself? </ion-card-title>
-        <ion-card-subtitle color="warning">At Expert Fitness YOU have it all </ion-card-subtitle>
-      </ion-card-header>
-    </ion-card>
-  <!-- </ion-col>
-</ion-row> -->
-<ion-row class="ion-justify-content-around ion-hide-sm-down ion-margin-top">
-  <ion-col size-md="5" size-lg="4" class="ion-align-self-center">
-    <app-benefit-tracker [benefit]="benefitChosen"></app-benefit-tracker>
-  </ion-col>
-  <ion-col size-md="5" size-lg="4" class="ion-align-self-center">
-    <ion-note  [@slideInRight]="slideInRight" class="ion-hide-sm-down ion-text-capitalize">
-      Select to learn more
-    </ion-note>
-    <ion-item-group class="item-group">
-      <ion-item
-        *ngFor="let benefit of benefits"
-        class="benefit-item"
-        button
-        type="button"
-        (mouseenter)="chooseBenefit(benefit)"
-        (mouseexit)="clear()"
-      >
-        <!-- <ion-text class="benefit-title" color="tertiary"> -->
+<ion-grid>
+  <ion-row class="ion-justify-content-center ion-margin-vertical">
+    <ion-col class="ion-margin-vertical">
+      <ion-card class="ion-text-center shadow page-two-card">
+        <ion-card-header>
+          <ion-card-title color="light"> Why limit yourself? </ion-card-title>
+          <ion-card-subtitle color="warning">At Expert Fitness YOU have it all </ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-around ion-hide-sm-down ion-margin-vertical">
+    <ion-col size-sm="12" size-md="5" size-lg="4" size-xl="3" class="ion-align-self-center">
+      <app-benefit-tracker [benefit]="benefitChosen"></app-benefit-tracker>
+    </ion-col>
+    <ion-col size-sm="12" size-md="5" size-lg="4" size-xl="3" class="ion-align-self-center">
+      <ion-note [@slideInRight]="slideInRight" class="ion-hide-sm-down ion-text-capitalize">
+        Select to learn more
+      </ion-note>
+      <ion-item-group class="item-group">
+        <ion-item
+          lines="none"
+          *ngFor="let benefit of benefits"
+          class="benefit-item"
+          button
+          type="button"
+          (mouseenter)="chooseBenefit(benefit)"
+        >
+          <ion-text>
           {{ benefit.title }}
-        <!-- </ion-text> -->
-      </ion-item>
-    </ion-item-group>
-  </ion-col>
-</ion-row>
-<ion-row class="ion-justify-content-center ion-hide-sm-up">
-  <ion-col class="ion-align-self-center">
-    <app-benefits></app-benefits>
-  </ion-col>
-</ion-row>
-<ion-row class="ion-margin-top">
-  <ion-col class="ion-align-self-end ion-text-center">
-    <ion-button
-      class="cta"
-      strong
-      size="large"
-      fill="clear"
-      style="border: 2px solid var(--ion-color-light); background-color: rgba(255, 255, 255, 0.11); border-radius: 5px"
-      color="light"
-      routerLink="/home/about-us"
-      >About Us
-    </ion-button>
-    <ion-button
-      class="cta"
-      strong
-      size="large"
-      color="secondary"
-      routerLink="/login"
-      style="border-radius: 5px"
-    >
-      Get Started
-    </ion-button>
-  </ion-col>
-</ion-row>
+          </ion-text>
+        </ion-item>
+      </ion-item-group>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center ion-margin-vertical ion-hide-sm-up">
+    <ion-col class="ion-align-self-center">
+      <app-benefits></app-benefits>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-margin-vertical">
+    <ion-col class="ion-align-self-end ion-text-center ion-margin-vertical">
+      <ion-button
+        class="cta"
+        strong
+        size="large"
+        fill="clear"
+        style="
+          border: 2px solid var(--ion-color-light);
+          background-color: rgba(255, 255, 255, 0.11);
+          border-radius: 5px;
+        "
+        color="light"
+        routerLink="/home/about-us"
+        >About Us
+      </ion-button>
+      <ion-button class="cta cta-main" strong size="large" routerLink="/products" style="border-radius: 5px">
+        Get Started
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,6 +1,6 @@
-import { Input, OnChanges } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
-import { Benefit, Benefits } from 'src/app/models/benefits';
+import { Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { Benefit } from '../../models/benefits.model';
 
 @Component({
   selector: 'app-benefit-tracker',

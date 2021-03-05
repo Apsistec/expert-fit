@@ -15,9 +15,13 @@ const routes: Routes = [
         path: 'video', component: IntroVideoComponent
       },
       {
-        path: 'products',
-        loadChildren: () => import('./products/products.module').then((m) => m.ProductsPageModule)
+        path: 'pricing',
+        loadChildren: () => import('./pricing/pricing.module').then( m => m.PricingPageModule)
       },
+      // {
+      //   path: 'products',
+      //   loadChildren: () => import('./products/products.module').then((m) => m.ProductsPageModule)
+      // },
       {
         path: 'faqs',
         loadChildren: () => import('./faq/faq.module').then((m) => m.FaqPageModule)
@@ -63,7 +67,8 @@ const routes: Routes = [
         component: LandingPageComponent
       },
     ]
-  }
+  },
+
 
 ];
 

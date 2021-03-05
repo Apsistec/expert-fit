@@ -28,9 +28,13 @@ import { SchedulerModule } from 'angular-calendar-scheduler';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ErrorInterceptor } from './services/error.interceptor';
 import { ModalViewComponent } from './modal-view/modal-view.component';
+import { SQLite } from '@ionic-native/sqlite/ngx';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { LineChartComponent } from './charts/line-chart/line-chart.component';
+
 
 @NgModule({
-  declarations: [AppComponent, SideMenuComponent, ModalViewComponent],
+  declarations: [AppComponent, SideMenuComponent, LineChartComponent, ModalViewComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -56,9 +60,18 @@ import { ModalViewComponent } from './modal-view/modal-view.component';
     ReactiveFormsModule,
     FormsModule,
     SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    NgxEchartsModule.forRoot({
+      /**
+       * This will import all modules from echarts.
+       * If you only need custom modules,
+       * please refer to [Custom Build] section.
+       */
+      echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
+    }),
   ],
   providers: [
+    SQLite,
     DatePipe,
     StatusBar,
     SplashScreen,

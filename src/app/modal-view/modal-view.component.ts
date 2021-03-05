@@ -1,6 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-
+import { ModalController, NavController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -12,23 +11,25 @@ import { TermsComponent } from '../shared/terms/terms.component';
 import { SignupComponent } from '../shared/signup/signup.component';
 import { ForgotPasswordComponent } from '../shared/forgot-password/forgot-password.component';
 
-// import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
-
 @Component({
-  selector: 'app-modal-container',
-  template: ''
+  selector: 'app-root',
+  templateUrl: './modal-view.component.html',
+  styleUrls: ['./modal-view.component.scss']
 })
 export class ModalViewComponent implements OnInit, OnDestroy {
   destroy = new Subject<any>();
   modal;
   modalID;
+  userName;
+
   constructor(
     private modalController: ModalController,
     private messageService: MessageService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private navController: NavController
   ) {
-    this.route.params.pipe(takeUntil(this.destroy)).subscribe(params => {
+    this.route.params.pipe(takeUntil(this.destroy)).subscribe((params) => {
       this.modalID = params.id;
       console.log('modalID: ', this.modalID);
       if (this.modalID === 'about-app') {
@@ -45,17 +46,17 @@ export class ModalViewComponent implements OnInit, OnDestroy {
         this.showModalSignup();
       }
     });
-
   }
 
-  ngOnInit() {  }
+  ngOnInit() {}
 
   async showModalTerms() {
     const modal = await this.modalController.create({
       component: TermsComponent,
-      cssClass: 'modal-css',
+      cssClass: 'modal-css'
     });
-    return modal.present().catch((error) => {
+    modal.present().catch((error) => {
+      this.dismissModal();
       return this.messageService.errorAlert(error);
     });
   }
@@ -68,7 +69,8 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((error) => {
+    modal.present().catch((error) => {
+      this.dismissModal();
       return this.messageService.errorAlert(error);
     });
   }
@@ -81,7 +83,8 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((error) => {
+    modal.present().catch((error) => {
+      this.dismissModal();
       return this.messageService.errorAlert(error);
     });
   }
@@ -95,7 +98,8 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((error) => {
+    modal.present().catch((error) => {
+      this.dismissModal();
       return this.messageService.errorAlert(error);
     });
   }
@@ -109,13 +113,13 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((error) => {
+    modal.present().catch((error) => {
+      this.dismissModal();
       return this.messageService.errorAlert(error);
     });
   }
 
   async showModalLogin() {
-    this.modalController.dismiss();
     const modal = await this.modalController.create({
       component: LoginComponent,
       cssClass: 'modal-css',
@@ -123,20 +127,16 @@ export class ModalViewComponent implements OnInit, OnDestroy {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal
-      .present()
-      .then(
-        (result) => {
-          console.log('result: ', result);
-        },
-        (reason) => {
-          console.log('reason: ', reason);
-        }
-      )
+    modal.present().catch((error) => {
+      this.dismissModal();
+      return this.messageService.errorAlert(error);
+    });
+  }
 
-      .catch((error) => {
-        return this.messageService.errorAlert(error);
-      });
+  dismissModal() {
+    this.modalController.dismiss().then(() => {
+      this.navController.back();
+    });
   }
 
   ngOnDestroy() {

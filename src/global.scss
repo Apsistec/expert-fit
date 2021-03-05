@@ -28,20 +28,32 @@
 // rating
 @import '~ngx-bar-rating/themes/br-default-theme';
 
-a:hover {
+a :hover {
   cursor: pointer;
 }
-*::-moz-selection {
-  /* Code for Firefox */
-  color: var(--ion-color-secondary);
-  background: purple;
-}
 
-*::selection {
-  color: darkgrey;
-  background: purple;
-}
+// main.inner-scroll.scroll-y {
+//   overflow: hidden;
+// }
 
+// * ::selection {
+//   --color: darkgrey;
+//   --background: purple;
+// }
+
+// Main call to action buttons on landing page
+.cta-main {
+  --ripple-color: rgb(255, 255, 255);
+  --color: rgb(9, 255, 0);
+  --color-hover: rgb(255, 255, 255);
+  --color-focused: rgb(255, 255, 255);
+  --border-radius: 10px;
+  --border-color: rgb(30, 255, 0);
+  --border-style: solid;
+  --border-width: 5px;
+  --background: rgb(99, 3, 177);
+  // --background-hover: rgb(255, 0, 0);
+}
 // Page transition animation
 .bounceOutDown {
   animation: 1.5s ease-out infinite bounceoutdown;
@@ -66,15 +78,10 @@ a:hover {
 
 @keyframes bounceoutdown {
   50% {
-    transform: translate(0, 7px);
+    transform: translate(0, 4px);
     opacity: 0.4;
   }
 }
-
-// Classes
-// ion-content {
-//   // --background: var(--ion-color-light);
-// }
 
 // Logos
 .small-logo {
@@ -95,18 +102,18 @@ a:hover {
   margin: 10px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 827px) {
   .top-toolbar-lg {
     display: none;
   }
 }
 // media query standards: 650px, ...
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 828px) {
   .top-toolbar-sm {
     display: none;
   }
   .view-post {
-    max-width: 800px;
+    max-width: 500px;
     margin: auto;
     .bodyText {
       padding: 0 3em;
@@ -116,21 +123,15 @@ a:hover {
     }
     .container {
       justify-content: center;
-      width: 60%;
+      width: fit-content;
       margin: auto;
     }
-  }
-  #pageThree {
-    height: fit-content;
-  }
-  #pageFour {
-    height: fit-content;
   }
 }
 
 // Lists
 .list-header-global {
-  --background: var(--ion-color-medium-shade);
+  --background: var(--ion-color-medium);
   color: var(--ion-color-secondary-shade);
   text-transform: uppercase;
   text-align: left;
@@ -138,27 +139,29 @@ a:hover {
 
 // Cards
 .ion-card-global {
-  --background: var(--ion-color-medium-tint);
+  --background: var(--ion-color-medium);
   ion-card-header {
     text-align: center;
     border-bottom: 3px solid var(--ion-color-secondary);
     --background: var(--ion-color-primary);
     ion-card-title {
       text-transform: uppercase;
-      color: var(--ion-color-secondary-tint);
+      --color: var(--ion-color-secondary-tint);
       font-weight: 600;
     }
     ion-card-subtitle {
-      color: var(--ion-color-success-tint);
+      --color: var(--ion-color-success-tint);
       font-size: larger;
       font-weight: 600;
       text-transform: capitalize;
     }
   }
   ion-card-content {
-    padding-top: 20px;
-    color: black;
+    padding-top: 15px;
     text-align: left;
+  }
+  ion-item{
+    --ion-item-background: var(--ion-color-medium-tint)
   }
 }
 
@@ -178,78 +181,97 @@ a:hover {
   }
 }
 
-// items
-.items {
-  background-color: white;
-  border-radius: 5px;
-  height: 150px;
-}
 
-// Modals
-.modal-wrapper.modal-css{
+.video-css{
   --border-radius: 15px;
-  --width: 350px;
-  --height: 390px;
+  --background: transparent;
+  --height:90%;
+  --width:90%;
 }
-
-.modal-wrapper.video-css{
+.modal-css{
+  
   --border-radius: 15px;
-  --width: 640px;
-  height: 500px !important;
-
+  .modal-wrapper {
+  border-radius: 15px;
+  }
 }
 
 // Toasts and Alerts
 .successA {
-  --background: rgb(98, 153, 100);
+  --background: rgba(120, 167, 122, 0.685);
 }
 .successT {
-  --background: rgb(98, 153, 100);
-  --border-color: var(--ion-color-success-shade);
+  --background: rgba(120, 167, 122, 0.637);
+  --border-color: var(--ion-color-success-tint);
   --border-style: solid;
   --border-width: 3px;
-  --color: black;
-  --start: 50px;
+  --color: white;
 }
 
 .warningA {
-  --background: rgb(148, 143, 72);
+  --background: rgba(166, 167, 120, 0.671);
 }
+
 .warningT {
-  --background: rgb(148, 143, 72);
-  --border-color: var(--ion-color-warning-shade);
+  --background: rgba(166, 167, 120, 0.671);
+  --border-color: var(--ion-color-warning-tint);
   --border-style: solid;
   --border-width: 3px;
-  --color: black;
-  --start: 50px;
+  --color: white;
 }
 
 .dangerA {
-  --background: rgb(129, 74, 74);
+  --background: rgba(167, 120, 120, 0.63);
 }
+
 .dangerT {
-  --background: rgb(129, 74, 74);
-  --border-color: var(--ion-color-danger-shade);
+  --background: rgba(167, 120, 120, 0.61);
+  --border-color: var(--ion-color-danger-tint);
   --border-style: solid;
   --border-width: 3px;
-  --color: black;
-  --start: 50px;
+  --color: white;
 }
 
 .infoA {
-  --background: rgb(150, 153, 172);
+  --background: rgba(120, 123, 167, 0.61);
 }
+
 .infoT {
-  --background: rgb(150, 153, 172);
-  --border-color: var(--ion-color-primary-shade);
+  --background: rgba(120, 123, 167, 0.644);
+  --border-color: var(--ion-color-primary-tint);
   --border-style: solid;
   --border-width: 3px;
-  --color: black;
-  --start: 50px;
+  --color: white;
 }
 
 // any shadow
 .shadow {
-  box-shadow: 0px 2px 2px rgb(0, 0, 0), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-    0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.733), 0px 6px 6px rgba(0, 0, 0, 0.63), 0px 8px 8px rgba(0, 0, 0, 0.411),
+    0px 10px 15px rgba(0, 0, 0, 0.356), 0px 30px 30px rgba(0, 0, 0, 0.26), 0px 70px 60px rgba(0, 0, 0, 0.15);
+}
+
+
+// page-turning arrows on Sliders
+.pulsar {
+  animation: 2s ease-out infinite pulsing;
+  opacity: 80%;
+}
+
+@keyframes pulsing {
+  50% {
+    transform: translateX(5px);
+    opacity: 10%;
+  }
+}
+
+.revpulsar {
+  animation: 2s ease-out infinite revpulsing;
+  opacity: 80%;
+}
+
+@keyframes revpulsing {
+  50% {
+    transform: translateX(-5px);
+    opacity: 10%;
+  }
 }

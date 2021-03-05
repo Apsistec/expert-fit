@@ -1,27 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-intro-video',
   templateUrl: './intro-video.component.html',
-  styleUrls: ['./intro-video.component.scss'],
+  styleUrls: ['./intro-video.component.scss']
 })
 export class IntroVideoComponent implements OnInit {
-
   titleId = 'What Is Expert Fitness?';
 
-  constructor(
-    private modalController: ModalController,
-    private router: Router
-  ) {  }
+  constructor(private modalController: ModalController, private navController: NavController) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   dismissModal() {
     this.modalController.dismiss().then(() => {
-      this.router.navigateByUrl('/home');
+      this.navController.back();
     });
   }
 }

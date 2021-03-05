@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Router } from '@angular/router';
-import { LoadingController, ModalController } from '@ionic/angular';
+import { LoadingController, ModalController, NavController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
 import { StripeService } from '../../services/stripe.service';
 
@@ -19,13 +19,14 @@ export class CancelServiceComponent implements OnInit {
     public modalController: ModalController,
     public authService: AuthService,
     public stripeService: StripeService,
-    private router: Router
+    private navController: NavController
+
   ) {}
   ngOnInit() {}
 
   dismissModal() {
     this.modalController.dismiss().then(() => {
-        this.router.navigateByUrl('/home');
-      });
+      this.navController.back();
+    });
   }
 }

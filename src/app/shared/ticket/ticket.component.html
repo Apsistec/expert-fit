@@ -1,19 +1,9 @@
-<ion-header transparent>
-  <ion-toolbar>
-    <ion-title>
-      <h3 > Ticket Details </h3>
-    </ion-title>
-    <ion-buttons slot="end">
-      <ion-button  (click)="dismissModal()">
-        <ion-text>
-          Close
-        </ion-text>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-<ion-content fullscreen>
+
   <ion-card color="light">
+    
+  <ion-fab horizontal="end" vertical="top">
+    <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
+</ion-fab>
     <ion-card-header>
       <ion-card-title *ngIf="!id">
         <ion-text> New Ticket </ion-text>
@@ -76,4 +66,4 @@
       </form>
     </ion-card-content>
   </ion-card>
-</ion-content>
+<!-- </ion-content> -->

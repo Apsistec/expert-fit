@@ -9,13 +9,18 @@
 ion-label{
   color:var(--ion-color-tertiary);
 }
+.name-card{
+  border-top: 3px solid var(--ion-color-primary);
+  border-bottom: 3px solid var(--ion-color-primary);
+}
+
 .profile-card{
-  width: fit-content;
+  max-width: 500px;
+  border: 3px solid var(--ion-color-primary);
   --background: var(--ion-color-medium);
   ion-card-header {
     --background: var(--ion-color-medium-shade);
     text-align: center;
-    border-bottom: 3px solid var(--ion-color-primary);
     ion-card-title {
       text-transform: uppercase;
       color: var(--ion-color-primary);
@@ -35,4 +40,7 @@ ion-label{
   ion-text{
     color:black;
   }
+}
+ion-card{
+  border-radius: 15px;
 }

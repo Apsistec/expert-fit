@@ -1,5 +1,21 @@
-ion-toolbar{
-  --background: var(--ion-color-dark-tint);
+ion-toolbar {
+  --background: transparent;
   border-bottom: 3px solid var(--ion-color-tertiary-tint);
-  border-top: 4px solid var(--ion-color-tertiary-tint);
+  border-top: 3px solid var(--ion-color-tertiary-tint);
+}
+
+.slide-parent {
+  border-radius: 15px;
+}
+
+.slide {
+  height: 95%;
+  width: 100%;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  display: block;
+}
+
+.slide-image{
+  border-radius: 15px 15px 0 0;
 }

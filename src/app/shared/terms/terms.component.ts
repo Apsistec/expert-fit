@@ -17,7 +17,6 @@ export class TermsComponent implements OnInit {
 
   goBack() {
     this.modalController.dismiss();
-
     this.navCtrl.back();
   }
 }

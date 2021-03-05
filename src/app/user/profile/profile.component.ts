@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
 import { StripeService } from '../../services/stripe.service';
@@ -28,12 +28,14 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   constructor(
     private theme: ThemeService,
-    private modalCtrl: ModalController,
+    private modalController: ModalController,
     public authService: AuthService,
     public afAuth: AngularFireAuth,
     public afs: AngularFirestore,
     public stripe: StripeService,
     private router: Router,
+    private navController: NavController
+
   ) {}
 
   ngOnInit() {}
@@ -51,28 +53,30 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   // Stripe Account Administration Modals
   async presentCancelSubModal() {
-    const modal = await this.modalCtrl.create({
+    const modal = await this.modalController.create({
       component: CancelServiceComponent
     });
     return modal.present();
   }
 
   async presentInvoicesModal() {
-    const modal = await this.modalCtrl.create({
+    const modal = await this.modalController.create({
       component: InvoicesComponent
     });
     return modal.present();
   }
   async presentSettingsModal() {
-    const modal = await this.modalCtrl.create({
+    const modal = await this.modalController.create({
       component: SettingsComponent
     });
     return modal.present();
   }
 
   // dismiss Modals
-  onDismissModal() {
-    this.modalCtrl.dismiss();
+  dismissModal() {
+    this.modalController.dismiss().then(() => {
+      this.navController.back();
+    });
   }
 
   support() {

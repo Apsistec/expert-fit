@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { Observable, Subject } from 'rxjs';
 import { ReviewService } from 'src/app/services/review.service';
@@ -9,7 +9,7 @@ import { ReviewService } from 'src/app/services/review.service';
   templateUrl: './ratings.component.html',
   styleUrls: ['./ratings.component.scss']
 })
-export class RatingsComponent implements OnInit {
+export class RatingsComponent implements OnInit, AfterViewInit {
   private ngUnsubscribe: Subject<any> = new Subject();
   overStar: number | undefined;
   ratings: Observable<any>;
@@ -27,6 +27,9 @@ export class RatingsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.ratings = this.reviewService.getAllReviews();
+  } 
+   ngAfterViewInit() {
     this.ratings = this.reviewService.getAllReviews();
   }
 

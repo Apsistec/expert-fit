@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
+import { Product} from 'src/app/models/products.model';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Product, Price, Subscription } from 'src/app/models/products.model';
+import { map, switchMap } from 'rxjs/operators';
 // import { NgForm } from '@angular/forms';
 // import { map } from 'rxjs/operators';
 // import { AuthService } from '../../services/auth.service';
@@ -21,29 +21,28 @@ import { Product, Price, Subscription } from 'src/app/models/products.model';
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss']
 })
-export class ProductsPage implements OnInit {
+export class ProductsPage implements OnInit, AfterViewInit {
 
-  products;
-  // prices: Price;
-  // subscriptions: Subscription;
+  products; // : Observable<Product>;
 
   constructor(private afs: AngularFirestore, private fun: AngularFireFunctions) {}
 
-
   ngOnInit() {
-     return this.afs
-      .collection('products', (ref) => ref.where('active', '==', true))
-      .get()
-      .pipe(
-        map((querySnapshot) => {
-          querySnapshot.forEach(async (res) => {
-            console.log(res.id, ' => ', res.data());
-            const priceSnap = await res.ref.collection('prices').get();
-            priceSnap.docs.forEach((doc) => {
-              console.log(doc.id, ' => ', doc.data());
-            });
-          });
-        })
-      );
+  //  this.afs
+  //     .collection<Product>('products', ref => ref.where('active', '==', true)).get().pipe(switchMap(products: any[]) => {
+  //       const res = products.map((r: any) => {
+  //         return this.afs.collection(`products/${r.id}/pricing`).snapshotChanges().pipe(
+  //           map(pricing => Object.assign(product, {pricing}))
+  //         );
+  //       });
+  //       return combineLatest(...res);
+  //     })   
+  }
+
+  ngAfterViewInit() {
+    let productsRef = this.afs.collection<Product>('products', ref => ref.where('active', '==', true));
+    this.products = productsRef.valueChanges();
+
+        
   }
 }

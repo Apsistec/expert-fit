@@ -1,8 +1,8 @@
 .icon-card {
-  border: 3px solid var(--ion-color-dark);
   border-radius: 15px;
   margin: 20px;
   text-align: center;
+  background: rgba(155, 155, 155, 0.521);
   ion-item {
     border-top: 3px solid var(--ion-color-dark);
     font-family: Arial, Helvetica, sans-serif;
@@ -12,32 +12,24 @@
   }
 }
 
-.icon-card-button :hover{
+.icon-card-button :hover {
   @extend .key-down;
   // translate:0, 2px;
-
 }
 
-.page-four-title{
-  display:block;
-  width:fit-content;
-  margin:auto; 
+.page-four-title {
+  display: block;
+  width: fit-content;
+  margin: auto;
   border: 3px solid var(--ion-color-danger-tint);
   border-radius: 15px;
-  background: linear-gradient(
-    to bottom left,
-    rgba(211, 147, 87, 0.65) 0%,
-    rgba(185, 146, 95, 0.571) 33%,
-    rgba(145, 124, 85, 0.521) 66%,
-    rgba(175, 155, 101, 0.68) 100%
-  );
+  background: rgba(255, 255, 255, 0.397);
 }
 
 .key-down {
-
-    transform: translate(0, 2px);
+  transform: translate(0, 2px);
 }
 
-ion-icon{
-  font-size: 64px;
+ion-icon {
+  font-size: 80px;
 }

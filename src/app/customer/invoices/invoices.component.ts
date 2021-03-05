@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ModalController, NavController } from '@ionic/angular';
 import { StripeService } from '../../services/stripe.service';
 
 @Component({
@@ -10,17 +11,22 @@ import { StripeService } from '../../services/stripe.service';
 export class InvoicesComponent implements OnInit {
 
   constructor(
-    private modalCtrl: ModalController,
-    public stripeService: StripeService
+    private modalController: ModalController,
+    public stripeService: StripeService,
+    private router: Router,
+    private navController: NavController
+
   ) {}
 
   ngOnInit() {
-    // this.authService.checkInvoices();
+    this.router.setUpLocationChangeListener()
   }
 
 
 
-  async dismissModal() {
-    await this.modalCtrl.dismiss();
+  dismissModal() {
+    this.modalController.dismiss().then(() => {
+      this.navController.back();
+    });
   }
 }

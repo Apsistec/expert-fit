@@ -15,7 +15,7 @@ export class UserTicketsComponent implements OnInit {
   title = 'User Dashboard';
   constructor(
     public authService: AuthService,
-    private modalCtrl: ModalController,
+    private modalController: ModalController,
     private ticket: TicketService
   ) {}
 
@@ -24,13 +24,10 @@ export class UserTicketsComponent implements OnInit {
   }
 
   async openTicketModal() {
-    const modal = await this.modalCtrl.create({
+    const modal = await this.modalController.create({
       component: TicketComponent
     });
     await modal.present();
   }
 
-  // SignOut() {
-  //   this.authService.SignOut();
-  // }
 }

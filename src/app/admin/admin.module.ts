@@ -8,10 +8,7 @@ import { AdminPageRoutingModule } from './admin-routing.module';
 
 import { AdminPage } from './admin.page';
 import { SharedModule } from '../shared/shared.module';
-import { CreateUsersComponent } from './create-users/create-users.component';
-import { DetailUsersComponent } from './detail-users/detail-users.component';
-import { EditUsersComponent } from './edit-users/edit-users.component';
-import { ListUsersComponent } from './list-users/list-users.component';
+
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
@@ -25,10 +22,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
   declarations: [
     AdminPage,
     AdminDashboardComponent,
-    EditUsersComponent,
-    CreateUsersComponent,
-    DetailUsersComponent,
-    ListUsersComponent
+
   ]
 })
 export class AdminPageModule {}

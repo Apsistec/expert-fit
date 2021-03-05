@@ -1,12 +1,10 @@
 export interface Product {
-  active?: boolean;
-  name?: string;
-  description?: string;
-  role?: string;
-  images?: any; // string[];
-  prices?: any;  // Array<Price>;
-  metadata?: string;
-  id?: string;
+  active: boolean;
+  description: string;
+  documentId: string;
+  images: any; // string[];
+  name: string;
+  role: string;
 }
 
 export interface Price {

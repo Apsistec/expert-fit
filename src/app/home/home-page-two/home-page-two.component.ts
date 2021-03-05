@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Benefit, Benefits } from 'src/app/models/benefits';
+import { Benefit, Benefits } from 'src/app/models/benefits.model';
 import { slideInLeft, slideInRight } from 'ng-animate';
 import { transition, trigger, useAnimation } from '@angular/animations';
 
@@ -13,37 +13,36 @@ import { transition, trigger, useAnimation } from '@angular/animations';
         '* => *',
         useAnimation(slideInRight, {
           // Set the duration to 5seconds and delay to 2seconds
-          params: { timing: 1.5, delay: 0.5 },
+          params: { timing: 1.5, delay: 0.5 }
         })
-      ),
+      )
     ]),
     trigger('slideInLeft', [
       transition(
         '* => *',
         useAnimation(slideInLeft, {
           // Set the duration to 5seconds and delay to 2seconds
-          params: { timing: 1.5, delay: 0.5 },
+          params: { timing: 1.5, delay: 0.5 }
         })
-      ),
-    ]),
-  ],
+      )
+    ])
+  ]
 })
 export class HomePageTwoComponent {
-  benefits: Benefit[] =  Benefits;
+  benefits: Benefit[] = Benefits;
   slideInRight: any;
   slideInLeft: any;
   benefitChosen: Benefit | any;
 
-constructor() {
-  this.benefitChosen = this.benefits[0];
-}
+  constructor() {
+    this.benefitChosen = this.benefits[0];
+  }
 
   chooseBenefit(benefit: Benefit) {
     this.benefitChosen = benefit;
   }
 
-  clear(){
+  clear() {
     this.benefitChosen = '';
   }
-
 }

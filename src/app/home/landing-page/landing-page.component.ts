@@ -2,6 +2,7 @@ import { transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent, ModalController } from '@ionic/angular';
 import { bounceOutUp, flash } from 'ng-animate';
+import { ScrollService } from 'src/app/services/scroll.service';
 import { MessageService } from '../../services/message.service';
 import { IntroVideoComponent } from './../intro-video/intro-video.component';
 
@@ -35,28 +36,24 @@ export class LandingPageComponent implements OnInit {
   dataReturned;
   scrolledDown = false;
   @ViewChild(IonContent, { static: false }) content: IonContent;
-  constructor(private modalController: ModalController, private messageService: MessageService) {}
 
-  ngOnInit() {
-  }
-
+  constructor(private modalController: ModalController, private messageService: MessageService, public scrollService: ScrollService) {}
+  
+  ngOnInit() {}
+  
   async loadVideo() {
     const modal = await this.modalController.create({
       component: IntroVideoComponent,
-      componentProps: {
       cssClass: 'video-css',
       backdropDismiss: true,
       swipeToClose: true,
       showBackdrop: true
-      }
     });
-    modal.onDidDismiss().then((dataReturned) => {
-      if (dataReturned !== null) {
-        this.dataReturned = dataReturned.data;
-        return this.messageService.generalToast('Thank you for watching the video');
-      }
+    modal.onWillDismiss().then(() => {
+      return this.messageService.generalToast('Thank you for watching the video');
     });
-    return modal.present().catch((error) => {
+    modal.present().catch((error) => {
+      this.modalController.dismiss();
       return this.messageService.errorAlert(error);
     });
   }
@@ -73,4 +70,5 @@ export class LandingPageComponent implements OnInit {
   onScroll(event) {
     this.scrolledDown = event.detail.scrollTop > 700 ? true : false;
   }
+
 }

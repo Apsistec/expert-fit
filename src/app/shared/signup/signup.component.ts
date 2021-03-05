@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, NavController } from '@ionic/angular';
 import { MessageService } from '../../services/message.service';
 import { AuthService } from '../../services/auth.service';
-import { LoginComponent } from '../login/login.component';
 import { LoadingService } from '../../services/loading.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, AfterViewInit {
   loginTitle: boolean;
   hide: boolean;
   hid: boolean;
   registerForm: FormGroup;
+  error;
 
   constructor(
     private fb: FormBuilder,
@@ -23,12 +24,20 @@ export class SignupComponent implements OnInit {
     public loadingService: LoadingService,
     public modalController: ModalController,
     private messageService: MessageService,
-    public navController: NavController
+    public router: Router,
+    private navController: NavController
   ) {}
 
   ngOnInit() {
     this.hide = true;
     this.createForm();
+  }
+
+  ngAfterViewInit() {
+    if (!this.registerForm.valid && this.registerForm.dirty) {
+      this.error === true;
+    }
+    this.error === false;
   }
 
   createForm() {
@@ -43,7 +52,8 @@ export class SignupComponent implements OnInit {
           Validators.maxLength(25),
           Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')
         ]
-      ]
+      ],
+      verify: [ '', [Validators.required, Validators.minLength(8)]]
     });
   }
 
@@ -53,7 +63,7 @@ export class SignupComponent implements OnInit {
 
   async onRegister(credentials) {
     this.loadingService.showLoading();
-    if (this.registerForm.invalid){
+    if (this.registerForm.invalid) {
       return;
     }
     await this.authService.SignUp(credentials);
@@ -65,13 +75,10 @@ export class SignupComponent implements OnInit {
   }
 
   dismissModal() {
-    this.modalController
-      .dismiss()
-      .then(() => {
-        this.navController.back();
-      })
-      .catch((error) => {
-        this.messageService.errorAlert(error);
-      });
+    this.modalController.dismiss().then(() => {
+      this.navController.back();
+    });
   }
+
+
 }

@@ -1,63 +1,75 @@
-<ion-row class="ion-text-center ion-justify-content-center ion-margin ion-padding">
-  <ion-col size-xl="4" size-lg="4" size-md="8" size-sm="10" class="ion-align-self-center">
-    <ion-card class="title-card">
-      <ion-card-header>
-        <ion-card-title>
-          <ion-text class="ion-text-uppercase" color="warning">
-            Aim
-            <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
-            Achieve
-            <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
-            Analyze
-            <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
-            Align
-            <ion-icon color="tertiary" size="large" name="repeat-outline"></ion-icon>
-          </ion-text>
-        </ion-card-title>
-        <ion-card-subtitle>
-          <ion-text color="danger" class="ion-text-capitalize">A 4 Step Approach to fitness </ion-text>
-        </ion-card-subtitle>
-      </ion-card-header>
-    </ion-card>
-  </ion-col>
-</ion-row>
-<ion-row class="ion-justify-content-around ion-padding ion-margin">
-  <ion-col size-xl="3" size-lg="4" size-md="5" class="ion-align-items-center ion-text-center ion-padding ion-margin">
-    <ion-img src="../../../assets/lazy/images/circleinfograph1.svg" ></ion-img>
-  </ion-col>
-  <ion-col size-xl="3" size-lg="4" size-md="6" class="ion-align-items-center ion-text-center ion-margin ion-padding">
-    <ion-slides #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" style=" height:500px;width:450px; border-radius:15px;" >
-      <ion-slide  *ngFor="let phase of phases">
-        <ion-card
-          style="border-radius: 15px;  background:rgba(255, 255, 255, 0.2);">
-          <img [src]="[phase.image]" style="height:60%;width: 100%;" >
+<ion-grid>
+  <ion-row class="ion-text-center ion-justify-content-center">
+    <ion-col
+      size-xl="4"
+      size-lg="4"
+      size-md="8"
+      size-sm="10"
+      class="ion-align-self-center ion-padding-vertical ion-margin-vertical"
+    >
+      <ion-card class="title-card">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-text class="ion-text-uppercase" color="light">
+              Aim
+              <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+              Achieve
+              <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+              Analyze
+              <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+              Align
+              <ion-icon color="tertiary" size="large" name="repeat-outline"></ion-icon>
+            </ion-text>
+          </ion-card-title>
+          <ion-card-subtitle>
+            <ion-text color="warning" class="ion-text-capitalize">A 4 Step Approach to fitness </ion-text>
+          </ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-around">
+    <ion-col size-xl="3" size-lg="4" size-md="6" size-sm="8" class="ion-align-self-center ion-text-center">
+      <ion-img
+        style="min-height: 300px; min-width: 300px"
+        src="../../../assets/lazy/images/circleinfograph1.svg"
+      ></ion-img>
+    </ion-col>
+    <ion-col
+      size-xl="3"
+      size-lg="4"
+      size-md="6"
+      size-sm="12"
+      class="ion-align-items-center ion-padding-vertical ion-margin-vertical ion-text-center"
+    >
+    <ion-fab horizontal="start" vertical="center">
+      <ion-icon class="revpulsar" color="warning" size="large" name="chevron-back-outline" (click)="slidePrev( mySlider)"></ion-icon>
+    </ion-fab>
+    <ion-fab horizontal="end" vertical="center">
+      <ion-icon class="pulsar" size="large" color="warning" name="chevron-forward-outline" (click)="slideNext( mySlider)"></ion-icon>
+    </ion-fab>
+      <ion-slides #mySlider (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" class="slide-parent">
+        >
+        <ion-slide class="slide" *ngFor="let phase of phases.slideItems">
+          <img [src]="[phase.image]" class="slide-image" />
           <ion-toolbar>
-            <ion-title>
-              <ion-text color="warning" class="ion-text-capitalize" style="font-size: large;">
-                {{ phase.id }}.
-              </ion-text>
-              <ion-text color="warning" class="ion-text-uppercase" style="font-size: large;">
-                {{ phase.title }}
-              </ion-text>
+            <ion-title color="warning" class="ion-text-capitalize" style="font-size: large">
+              {{ phase.id }}.
+              {{ phase.title }}
             </ion-title>
           </ion-toolbar>
-          <ion-card-content>
+          <div style="padding: 10px">
             <ion-text color="light">
               {{ phase.content }}
             </ion-text>
-          </ion-card-content>
-        </ion-card>
-      </ion-slide>
-    </ion-slides>
-    <ion-button
-      color="secondary"
-      strong
-      size="large"
-      class="cta"
-      style="border-radius: 5px;"
-      routerLink="/home/products"
-    >
-      View Memberships
-    </ion-button>
-  </ion-col>
-</ion-row>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-padding-bottom ion-margin-bottom">
+    <ion-col class="ion-text-center ion-padding-vertical ion-margin-vertical">
+      <ion-button class="cta-main" strong size="large" routerLink="/home/pricing"> View Memberships </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

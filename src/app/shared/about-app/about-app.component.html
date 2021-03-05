@@ -1,12 +1,10 @@
-<ion-header color="dark">
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title> About App </ion-title>
-    <!-- <ion-buttons slot="end"> -->
-      <ion-button slot="end" size="small" (click)="goBack()" color="danger">Close</ion-button>
-    <!-- </ion-buttons> -->
+      <ion-fab horizontal="end" vertical="top">
+        <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
+    </ion-fab>  
   </ion-toolbar>
-</ion-header>
-<ion-content class="ion-padding">
+
     <ion-text style="font-weight: bold;font-size: large;"> Designed and Developed by Obliquity </ion-text>
     <p>
       The Expert Fitness App is a progressive web app (PWA) created for fitness and health enthusiast who are interested at reaching and maintaining higher levels of success within their training regimine. As a PWA, the Expert Fitness App is capable of working on most browsers including Safari, Chrome, Chrome based browsers, Edge, Samsung, and others. In addition, the PWA is capable of working on most devices including Apple, Linux, and Windows, which includes most operating systems (OS) such as iOS, Android, Windows, and smart TV OSs.
@@ -50,9 +48,8 @@
       <ion-button class="cta" target="_blank" size="small" href="https://obliquity.dev" color="success">
         Visit Obliquity
       </ion-button>
-      <ion-button class="cta" color="danger" size="small" (click)="goBack()"> Close </ion-button>
+      <ion-button class="cta" color="danger" size="small" (click)="dismissModal()"> Close </ion-button>
     </div>
 
     <hr>
     <a href='https://www.freepik.com/vectors/sports'>Sports vector created by freepik - www.freepik.com</a>
-  </ion-content>

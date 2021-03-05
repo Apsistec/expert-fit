@@ -7,43 +7,41 @@ import {
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
-  HttpResponse,
+  HttpResponse
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class InterceptorService implements HttpInterceptor {
-  loaderToShow: any;
+  loaderToShow;
+
   constructor(public loadingController: LoadingController) {}
 
-  intercept(
-    request: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = 'my-token-string-from-server';
 
     // Authentication by setting header with token value
     if (token) {
       request = request.clone({
         setHeaders: {
-          Authorization: token,
-        },
+          Authorization: token
+        }
       });
     }
 
     if (!request.headers.has('Content-Type')) {
       request = request.clone({
         setHeaders: {
-          'content-type': 'application/json',
-        },
+          'content-type': 'application/json'
+        }
       });
     }
 
     request = request.clone({
-      headers: request.headers.set('Accept', 'application/json'),
+      headers: request.headers.set('Accept', 'application/json')
     });
     this.showLoader();
     return next.handle(request).pipe(
@@ -55,7 +53,6 @@ export class InterceptorService implements HttpInterceptor {
         return event;
       }),
       catchError((error: HttpErrorResponse) => {
-        console.error(error);
         this.hideLoader();
         return throwError(error);
       })
@@ -65,16 +62,19 @@ export class InterceptorService implements HttpInterceptor {
   showLoader() {
     this.loaderToShow = this.loadingController
       .create({
-        message: 'Processing Server Request',
+        message: 'Processing Server Request'
       })
       .then((res) => {
         res.present();
-
         res.onDidDismiss().then((dis) => {
-          console.log('Loading dismissed!');
+          this.hideLoader();
         });
+      })
+      .catch((error) => {
+        this.hideLoader();
+        return throwError(error);
       });
-    this.hideLoader();
+    // this.hideLoader();
   }
 
   hideLoader() {

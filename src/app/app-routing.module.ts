@@ -18,8 +18,10 @@ import { UnknownComponent } from './home/unknown/unknown.component';
 // import { TermsComponent } from './shared/terms/terms.component';
 // import { SignupComponent } from './shared/signup/signup.component';
 // import { LoginGuard } from './guards/login.guard';
+
 import { PhotoGalleryComponent } from './shared/photo-gallery/photo-gallery.component';
 import { ModalViewComponent } from './modal-view/modal-view.component';
+import { LineChartComponent } from './charts/line-chart/line-chart.component';
 
 const customerOnly = () => hasCustomClaim('customer');
 const employeeOnly = () => hasCustomClaim('employee');
@@ -27,7 +29,6 @@ const adminOnly = () => hasCustomClaim('admin');
 const redirectLoggedInToDash = () => redirectLoggedInTo(['/home']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
 const verifiedEmail = () => emailVerified;
-
 const routes: Routes = [
   {
     path: 'home',
@@ -75,6 +76,14 @@ const routes: Routes = [
     component: PhotoGalleryComponent
   },
   {
+    path: 'database',
+    loadChildren: () => import('./database/database.module').then( m => m.DatabasePageModule)
+  },
+  {
+    path: 'line-chart',
+    component: LineChartComponent
+  },
+  {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserPageModule),
     ...canActivate(redirectUnauthorizedToLogin),
@@ -82,13 +91,14 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
   {
     path: '**',
     component: UnknownComponent
-  }
+  },
+
 ];
 @NgModule({
   imports: [

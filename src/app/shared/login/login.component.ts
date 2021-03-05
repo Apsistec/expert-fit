@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, NavController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
@@ -13,10 +13,11 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit {
   hide: boolean;
   loginForm: FormGroup;
   isSubmitted = false;
+  error;
 
   constructor(
     private fb: FormBuilder,
@@ -27,10 +28,18 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private navController: NavController
   ) {}
-
+  
   ngOnInit() {
     this.hide = true;
     this.createForm();
+    this.router.setUpLocationChangeListener();
+  }
+
+  ngAfterViewInit() {
+    if (!this.loginForm.valid && this.loginForm.dirty) {
+      this.error === true;
+    }
+    this.error === false;
   }
 
   createForm() {
@@ -47,7 +56,7 @@ export class LoginComponent implements OnInit {
       ]
     });
   }
-
+  
   get loginFormControl() {
     return this.loginForm.controls;
   }
@@ -70,9 +79,6 @@ export class LoginComponent implements OnInit {
 
   dismissModal() {
     this.modalController.dismiss();
-    // .then(() => {
-    // this.router.navigateByUrl('/home');
-    // this.navController.back();
-    this.router.navigateByUrl('/home');
+    this.navController.back();
   }
 }

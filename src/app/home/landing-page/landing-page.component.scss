@@ -1,5 +1,5 @@
 .scene-one {
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
   background-color: var(--ion-color-medium);
   background: linear-gradient(
@@ -14,8 +14,8 @@
       rgba(10, 37, 39, 0.315) 15%,
       rgba(4, 32, 34, 0.123) 50%,
       rgba(3, 53, 68, 0.829) 100%
-    ), center/ cover no-repeat
-    url(../../../assets/lazy/images/fitness-balancing.jpg) ;
+    ),
+    center/ cover no-repeat url(../../../assets/lazy/images/fitness-balancing.jpg);
 }
 
 .main-title {
@@ -45,10 +45,6 @@ sup {
   margin-right: 50px;
 }
 
-.video:hover {
-  text-decoration: underline;
-}
-
 .pulsing {
   animation: 4s ease-out infinite pulsar;
   // z-index: 99;
@@ -62,6 +58,7 @@ sup {
 }
 
 #pageThree {
+  min-height: 95vh;
   background: linear-gradient(
       to bottom left,
       rgba(0, 0, 0, 0.658) 0%,
@@ -80,32 +77,37 @@ sup {
 }
 
 .page-four {
-  background: linear-gradient(rgba(0, 0, 0, 0.952), rgba(71, 71, 71, 0.445)),
+  min-height: 95vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.808), rgba(71, 71, 71, 0.445)),
     center/ cover no-repeat url(../../../assets/lazy/images/platinum.png);
 }
 
-
-.page-two{
-    background: linear-gradient(rgba(0, 0, 0, 0.767),rgba(0, 0, 0, 0.767)), url(../../../assets/lazy/images/upward-dog-pose.jpg) bottom/ cover no-repeat;
-  padding: 30px;
+.page-two {
+  min-height: 95vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.767), rgba(0, 0, 0, 0.767)),
+    url(../../../assets/lazy/images/upward-dog-pose.jpg) bottom/ cover no-repeat;
 }
 
-.up{
-  ion-icon{
-    color:var(--ion-color-warning-tint);
+.up {
+  ion-icon {
+    color: var(--ion-color-warning-tint);
   }
   margin-right: 10px;
   --background: transparent;
-  --border-color:var(--ion-color-warning);
+  --border-color: var(--ion-color-warning);
   --border-width: 2px;
-  --border-style:solid;
-  --ripple-color:var(--ion-color-danger);
-  --background-hover:white;
-  --background-hover-opacity:.3;
+  --border-style: solid;
+  --ripple-color: var(--ion-color-danger);
+  --background-hover: white;
+  --background-hover-opacity: 0.3;
   --background-focused: white;
-  --background-focused-opacity: .3;
-  --background-activated:var(--ion-color-secondary-tint);;
-  --background-activated-opacity:.5;
+  --background-focused-opacity: 0.3;
+  --background-activated: var(--ion-color-secondary-tint);
+  --background-activated-opacity: 0.5;
   --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
-  0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
+    0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
 }
+
+
+
+

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoadingController, ModalController, NavParams } from '@ionic/angular';
+import { LoadingController, ModalController, NavController, NavParams } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
 import { TicketService } from '../../services/ticket.service';
 import { SeoService } from '../../services/seo.service';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-ticket',
@@ -17,11 +18,12 @@ export class TicketComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private modalCtrl: ModalController,
+    private modalController: ModalController,
     private loadingCtrl: LoadingController,
     private ticket: TicketService,
     private navParam: NavParams,
-    public authService: AuthService
+    public authService: AuthService,
+    private navController: NavController
   ) {}
 
   ngOnInit() {
@@ -42,19 +44,22 @@ export class TicketComponent implements OnInit {
 
         // this.ticketForm.controls['title'].disable();
         // this.ticketForm.controls['desc'].disable();
-
         this.ticket.getUser(
-          ticket['creator'].subscribe((user) => {
-            this.user = user.email;
-          })
-        );
+          // ticket['creator'].subscribe((user) => {
+          //   this.user = user.email;
+          // })
+          );
+        });
+      }
+    }
+    
+
+
+    dismissModal() {
+      this.modalController.dismiss().then(() => {
+        this.navController.back();
       });
     }
-  }
-
-  dismissModal() {
-    this.modalCtrl.dismiss();
-  }
 
   async saveOrUpdate() {
     const loading = await this.loadingCtrl.create({
@@ -66,6 +71,7 @@ export class TicketComponent implements OnInit {
       () => {
         loading.dismiss();
         this.dismissModal();
+        // this.messageService
       },
       (error) => {
         loading.dismiss();

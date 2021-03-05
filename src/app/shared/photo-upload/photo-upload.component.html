@@ -10,3 +10,33 @@
 <div *ngIf="barStatus">Uploading.....</div>
 
 <app-photos-list [imageUploads]="imageUploads"></app-photos-list>
+
+
+
+
+<div class="container">
+  <div class="row" style="margin-top: 5%;">
+      <div class="text-center col-md-12">
+          <input type="file" (change)="fileChangeEvent($event)" />
+      </div>
+  </div>
+  <div class="row" style="margin-top: 5%;">
+      <div class="text-center col-md-8">
+          <h5>Crop Image</h5>
+          <image-cropper 
+          [imageChangedEvent]="imageChangedEvent" 
+          [maintainAspectRatio]="true" 
+          [aspectRatio]="4 / 4"
+          [resizeToWidth]="256" 
+          format="png" 
+          (imageCropped)="imageCropped($event)" 
+          (imageLoaded)="imageLoaded()"
+          (cropperReady)="cropperReady()" 
+          (loadImageFailed)="loadImageFailed()"></image-cropper>
+      </div>
+      <div class="text-center col-md-4">
+          <h5>Preview</h5>
+          <img [src]="croppedImage" />
+      </div>
+  </div>
+</div>

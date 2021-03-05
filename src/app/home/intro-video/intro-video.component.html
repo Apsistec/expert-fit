@@ -1,20 +1,7 @@
 
-<ion-header>
-<ion-toolbar>
-		<ion-title>
-		<ion-text color="tertiary">
-			{{ titleId }}
-		</ion-text>
-	</ion-title>
-	<ion-buttons slot="end">
-		<ion-button color="danger" (click)="dismissModal()">Close</ion-button>
-	</ion-buttons>
-</ion-toolbar>
-</ion-header>
-<ion-content>
-	<!-- <div> -->
-		<video  autoplay poster="../../../assets/lazy/images/platinum.png" controlslist="nodownload" width="640" height="360"  >
-			<source src="../../../assets/videos/fitnessGoals.mp4" type="video/mp4">
-			</video>
-		<!-- </div> -->
-	</ion-content>
+  <ion-fab horizontal="end" vertical="top">
+      <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
+  </ion-fab>
+  <video autoplay poster="../../../assets/lazy/images/platinum.png" controlslist="nodownload" videoHeight="768" videoWidth="1024">
+    <source src="../../../assets/lazy/videos/fitnessGoals.mp4" type="video/mp4" />
+  </video>

@@ -11,6 +11,7 @@ import { Subject } from 'rxjs';
 })
 export class TicketService {
   private ngUnsubscribe: Subject<any> = new Subject();
+  user;
 
   constructor(
     private afs: AngularFirestore,
@@ -76,8 +77,10 @@ export class TicketService {
     return this.afs.doc(`tickets/${id}`).delete();
   }
 
-  getUser(uid) {
-    return this.afs.doc(`users/${uid}`).valueChanges().pipe(take(1));
+  getUser( ) { // uid) {
+    // return this.afs.doc(`users/${uid}`).valueChanges().pipe(take(1));
+    this.authService.user.subscribe(user => this.user = user.email)
+    return this.user;
   }
 
 }

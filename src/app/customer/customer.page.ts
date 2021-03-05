@@ -6,7 +6,6 @@ import { bounceOutUp, flash } from 'ng-animate';
 import { User } from '../models/users.model';
 import { AuthService } from '../services/auth.service';
 import { MessageService } from '../services/message.service';
-import { UserService } from '../services/user.service';
 import { AboutAppComponent } from '../shared/about-app/about-app.component';
 import { PrivacyComponent } from '../shared/privacy/privacy.component';
 import { TermsComponent } from '../shared/terms/terms.component';
@@ -51,7 +50,6 @@ export class CustomerPage implements OnInit {
 
   constructor(
     public authService: AuthService,
-    public userService: UserService,
     private modalController: ModalController,
     private messageService: MessageService,
     @Inject(DOCUMENT) private document: any
@@ -67,7 +65,8 @@ export class CustomerPage implements OnInit {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((error) => {
+    modal.present().catch((error) => {
+      this.modalController.dismiss();
       return this.messageService.errorAlert(error);
     });
   }
@@ -80,7 +79,8 @@ export class CustomerPage implements OnInit {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((error) => {
+    modal.present().catch((error) => {
+      this.modalController.dismiss();
       return this.messageService.errorAlert(error);
     });
   }
@@ -93,7 +93,8 @@ export class CustomerPage implements OnInit {
       swipeToClose: true,
       showBackdrop: true
     });
-    return modal.present().catch((error) => {
+    modal.present().catch((error) => {
+      this.modalController.dismiss();
       return this.messageService.errorAlert(error);
     });
   }

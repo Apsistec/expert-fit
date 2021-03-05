@@ -39,43 +39,31 @@ at a discounted rate. -->
 				are offered at a discounted rate.
 			</p> -->
 
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>Purchase</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
-  <ion-row>
-    <ion-col>
-        <ion-card *ngFor="let product of products | async">
-          <ion-card-header>
-            <ion-card-title>
-              {{product.name}}
-            </ion-card-title>
-          </ion-card-header>
-        </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-content>
-<!-- <ion-toolbar style="--background: var(--ion-color-medium-shade)">
-        <ion-segment [(ngModel)]="segment">
-          <ion-segment-button value="unsub" color="warning">
-            <ion-icon name="ribbon-sharp" color="warning"></ion-icon>
-            Individual Items
-          </ion-segment-button>
-          <ion-segment-button value="current">
-            <ion-icon name="person-add-sharp" color="warning"></ion-icon>
-            Online Subscriptions
-            </ion-segment-button>
-          </ion-segment>
-        </ion-toolbar> -->
 
-<!-- <ion-row class="ion-justify-content-center" [ngSwitch]="segment">
-          <ion-col size="12" *ngSwitchDefault>
-            <ion-card class="ion-card-global ion-text-center ion-padding">
-              <ion-card-header>
-                <ion-card-title> Online Training Platform plans </ion-card-title>
+  <!-- <ion-toolbar style="--background: var(--ion-color-medium-shade)">
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="unsub" color="warning">
+        <ion-icon name="ribbon-sharp" color="warning"></ion-icon>
+        Individual Items
+      </ion-segment-button>
+      <ion-segment-button value="current">
+        <ion-icon name="person-add-sharp" color="warning"></ion-icon>
+        Online Subscriptions
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar> -->
+  
+  <!-- <ion-row class="ion-justify-content-center" [ngSwitch]="segment">
+    <ion-col size="12" *ngSwitchDefault>
+      <ion-card class="ion-card-global ion-text-center ion-padding">
+        <ion-card-header>
+          <ion-card-title> Online Training Platform plans </ion-card-title>
                 <ion-card-subtitle> Choose the plan that works for you </ion-card-subtitle>
               </ion-card-header>
               <ion-card-content>

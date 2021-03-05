@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseUploadService } from './../../services/firebase-upload.service';
 
+import { ImageCroppedEvent } from 'ngx-image-cropper';
+
 @Component({
   selector: 'app-photo-upload',
   templateUrl: './photo-upload.component.html',
@@ -9,6 +11,12 @@ import { FirebaseUploadService } from './../../services/firebase-upload.service'
 export class PhotoUploadComponent implements OnInit {
   barStatus = false;
   imageUploads = [];
+
+  title = 'angular-image-uploader';
+
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
+
   constructor(private firebaseUploadService: FirebaseUploadService) {}
 
   ngOnInit() {}
@@ -28,5 +36,21 @@ export class PhotoUploadComponent implements OnInit {
         this.barStatus = false;
       }
     );
+  }
+
+  fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
+  }
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
+  }
+  imageLoaded() {
+    // show cropper
+  }
+  cropperReady() {
+    // cropper ready
+  }
+  loadImageFailed() {
+    // show message
   }
 }

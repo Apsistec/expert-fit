@@ -1,18 +1,25 @@
-<ion-slides style="border-radius: 15px;height: 310px; width:380px;" #mySlider pager="true" (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts">
-  <ion-slide  *ngFor="let benefit of benefits">
+<ion-fab horizontal="start" vertical="center">
+  <ion-icon class="revpulsar" color="tertiary" size="large" name="chevron-back-outline" (click)="slidePrev(mySlider)"></ion-icon>
+</ion-fab>
+<ion-fab horizontal="end" vertical="center">
+  <ion-icon class="pulsar" size="large" color="tertiary" name="chevron-forward-outline" (click)="slideNext(mySlider)"></ion-icon>
+</ion-fab>
+<ion-slides
+  class="slide-parent"
+  #mySlider
+  pager="true"
+  [options]="slideOpts"
+>
+  <ion-slide class="slide" *ngFor="let benefit of benefits">
+    <img [src]="benefit.image" class="slide-image" />
 
-    <ion-card class="ion-padding" style="height: fit-content;  background: var(--ion-color-dark-tint);">
-      <img [src]="[benefit.image]" style="width: 100%; height: 180px" />
-      <ion-toolbar >
-        <ion-title>
-          <ion-text color="tertiary" style="text-transform: uppercase;">
-            {{ benefit.title }}
-          </ion-text>
-        </ion-title>
-      </ion-toolbar>
-      <ion-card-content class="ion-text-left" style="background: var(--ion-color-dark-tint);">
-        <ion-text color="light" style="padding-top: 20px">{{ benefit.content }}</ion-text>
-      </ion-card-content>
-    </ion-card>
+    <ion-toolbar>
+      <ion-title color="tertiary" style="text-transform: uppercase">
+        {{ benefit.title }}
+      </ion-title>
+    </ion-toolbar>
+    <div style="padding: 10px; text-align: left">
+      <ion-text color="light">{{ benefit.content }}</ion-text>
+    </div>
   </ion-slide>
 </ion-slides>

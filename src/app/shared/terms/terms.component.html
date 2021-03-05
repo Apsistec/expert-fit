@@ -3,13 +3,14 @@
     <ion-title>
     Terms and conditions
     </ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="goBack()" color="danger">Close</ion-button>
-    </ion-buttons>
+
+    <ion-fab horizontal="end" vertical="top">
+      <ion-icon color="warning" size="large" name="close" (click)="goBack()"></ion-icon>
+  </ion-fab>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<!-- <ion-content class="ion-padding"> -->
   <blockquote>
     <i>Last updated: 2020-09-23</i>
   </blockquote>
@@ -582,4 +583,4 @@
   </p>
 
   <ion-button class="cta" (click)="goBack()"> Close </ion-button>
-</ion-content>
+<!-- </ion-content> -->

@@ -14,7 +14,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { BarRatingModule } from 'ngx-bar-rating';
 import { ReviewComponent } from './review/review.component';
 import { SharedDirectivesModule } from '../directives/shared-directives.module';
-import { MaterialModule } from './material/material.module';
+import { ImageCropperModule } from 'ngx-image-cropper';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -51,11 +51,11 @@ const routes: Routes = [];
     IonicModule,
     RouterModule.forChild(routes),
     CommonModule,
+    ImageCropperModule,
     FormsModule,
     ReactiveFormsModule,
     BarRatingModule,
     SharedDirectivesModule,
-    MaterialModule,
   ],
   exports: [
     FooterComponent,
@@ -66,11 +66,11 @@ const routes: Routes = [];
     SharedDirectivesModule,
     TicketComponent,
     PrivacyComponent,
+    ImageCropperModule,
     TermsComponent,
     RatingsComponent,
     BenefitsComponent,
     BarRatingModule,
-    MaterialModule,
     PhotosListComponent,
     PhotoUploadComponent,
     PhotoGalleryComponent,

@@ -1,37 +1,34 @@
 .accordion-list {
-  margin-bottom: 4px;
-  --ion-item-background: var(--ion-color-light);
-}
-
-.section,
-ion-item:disabled {
-  --ion-item-background: var(--ion-color-light-shade);
-  --ion-item-color: #000 !important;
-}
-
-.section-active {
-  font-weight: 500;
-}
-
-.info {
+  padding: 5px;
+  // margin-bottom: 4px;
   --ion-item-background: var(--ion-color-medium-tint);
 }
 
+.section-inactive {
+  // --ion-item-background: var(--ion-color-light-shade);
+  // --ion-item-color: #000 !important;
+}
+
+.section-active {
+  // font-weight: 500;
+  --ion-item-background: var(--ion-color-medium-shade);
+  --border-radius: 15px;
+  --padding-bottom: 15px;
+  --padding-top: 15px;
+  --padding-start: 15px;
+  --padding-end: 15px;
+  --ripple-color:white;
+}
+
+
+
+
 .info-text {
-  padding-top: 12px;
+  border-radius: 15px;
+  background: var(--ion-color-light-shade);
+  padding: 10px;
+  margin:10px;
   color: var(--ion-color-primary);
 }
-ion-toolbar{
-  --background: var(--ion-color-dark-tint);
-  border-bottom: 3px solid var(--ion-color-secondary-tint);
-  color:var(--ion-color-tertiary-tint);
-}
-expand-all-icon{
-  transform: rotate(90deg);
-}
-expand-icons :active{
-  transform: rotate(90deg);
-}
-expand-icons :hover{
-  transform: rotate(90deg);
-}
+
+

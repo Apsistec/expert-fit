@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import { MessageService } from 'src/app/services/message.service';
 import { AuthService } from '../../services/auth.service';
 import { CollectionService } from '../../services/collection.service';
 import { TicketService } from '../../services/ticket.service';
@@ -23,8 +24,9 @@ export class AdminDashboardComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private ticket: TicketService,
-    private modalCtrl: ModalController,
-    private collection: CollectionService
+    private modalController: ModalController,
+    private collection: CollectionService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -35,16 +37,16 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   async openTicket(id) {
-    const ticketModal = await this.modalCtrl.create({
+    const modal = await this.modalController.create({
       component: TicketComponent,
       componentProps: {
         id,
       },
     });
-    await ticketModal.present();
+    modal.present()
+    .catch((error) => {
+      this.modalController.dismiss();
+      return this.messageService.errorAlert(error);
+    });
   }
-
-  // signOut() {
-  //   this.auth.SignOut();
-  // }
 }

@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 
+
+
+export interface MyData {
+  name: string;
+  filepath: string;
+  size: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -33,3 +41,6 @@ export class FirebaseUploadService {
     } catch (e) {}
   }
 }
+
+
+

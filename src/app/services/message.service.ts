@@ -8,7 +8,10 @@ export class MessageService {
   choice;
   pushReqRes: boolean;
 
-  constructor(private toastController: ToastController, private alertController: AlertController) {}
+  constructor(
+    private toastController: ToastController,
+    private alertController: AlertController,
+  ) {}
 
   // Toasts
   async presentToast(infoMessage: string) {
@@ -16,9 +19,11 @@ export class MessageService {
       message: infoMessage,
       duration: 2000,
       cssClass: 'infoT',
-      position: 'top'
+      position: 'bottom'
     });
-    toast.present();
+    toast.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async loggedInToast(displayName) {
@@ -26,23 +31,27 @@ export class MessageService {
       header: 'Login Successful',
       message: 'Welcome Back ' + displayName || 'User' + '!',
       cssClass: 'successT',
-      position: 'top',
+      position: 'bottom',
       keyboardClose: true,
       duration: 2500
     });
-    await toast.present();
+    toast.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async signOutToast() {
     const toast = await this.toastController.create({
       header: 'Sign Out Successful',
       cssClass: 'successT',
-      message: 'Thank You for Stopping By!',
-      position: 'top',
+      message: 'Thank You for Sbottomping By!',
+      position: 'bottom',
       duration: 2500,
       keyboardClose: true
     });
-    await toast.present();
+    toast.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async deleteTicketToast() {
@@ -50,11 +59,13 @@ export class MessageService {
       header: 'Ticket Deleted',
       cssClass: 'successT',
       message: 'The ticket was successfully deleted.',
-      position: 'top',
+      position: 'bottom',
       duration: 2500,
       keyboardClose: true
     });
-    await toast.present();
+    toast.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async updateNameToast() {
@@ -62,11 +73,13 @@ export class MessageService {
       header: 'Update Successful',
       message: 'User info was updated',
       duration: 3000,
-      position: 'top',
+      position: 'bottom',
       cssClass: 'successT',
       keyboardClose: true
     });
-    await toast.present();
+    toast.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async subscribedToast() {
@@ -74,11 +87,13 @@ export class MessageService {
       header: 'Payment Successful',
       cssClass: 'successT',
       message: 'You are subscribed! Thank You!',
-      position: 'top',
+      position: 'bottom',
       duration: 3000,
       keyboardClose: true
     });
-    await toast.present();
+    toast.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async alreadySubscribedToast() {
@@ -86,34 +101,40 @@ export class MessageService {
       header: 'Invalid Request',
       cssClass: 'warningT',
       message: ' You are already Subscribed',
-      position: 'top',
+      position: 'bottom',
       duration: 3000,
       keyboardClose: true
     });
-    await toast.present();
+    toast.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async generalToast(message) {
     const toast = await this.toastController.create({
       header: 'Message Service',
-      cssClass: 'successT',
+      cssClass: 'infoT',
       message,
-      position: 'top',
+      position: 'bottom',
       duration: 2500,
       keyboardClose: true
     });
-    await toast.present();
+    toast.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async welcomeBackToast(data) {
     const toast = await this.toastController.create({
       header: 'Login Successful!',
-      message: 'Welcome Back ' + data.displayName,
+      message: 'Welcome Back ' + data.user.displayName,
       duration: 2000,
       cssClass: 'successT',
-      position: 'top'
+      position: 'bottom'
     });
-    toast.present();
+    toast.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   //  Alerts
@@ -125,7 +146,9 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'dangerA'
     });
-    await alert.present();
+    alert.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async pastDueAlert() {
@@ -135,7 +158,9 @@ export class MessageService {
       cssClass: 'dangerA',
       subHeader: 'Payment Past-due'
     });
-    alert.present();
+    alert.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async cancelledAlert() {
@@ -143,9 +168,11 @@ export class MessageService {
       subHeader: 'Account Cancelled',
       message:
         'Your account has successfully been cancelled, and service will end on the last day of your billing period(usually the last day of the month). Your card will not be charged again. In order to utilize the services, you will need to register a new account.',
-      cssClass: 'dangerA'
+      cssClass: 'successA'
     });
-    alert.present();
+    alert.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async needPaymentAlert() {
@@ -157,7 +184,9 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'dangerA'
     });
-    await alert.present();
+    alert.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async resetPasswordAlert() {
@@ -168,7 +197,9 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'successA'
     });
-    await alert.present();
+    alert.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async repurchaseAlert() {
@@ -178,7 +209,9 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'warningA'
     });
-    await alert.present();
+    alert.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async registerSuccessAlert(displayName) {
@@ -191,7 +224,9 @@ export class MessageService {
       keyboardClose: true,
       buttons: ['OK']
     });
-    return toast.present();
+    return toast.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async internalBlockPageAlert() {
@@ -202,7 +237,9 @@ export class MessageService {
       cssClass: 'warningA',
       buttons: ['OK']
     });
-    await alert.present();
+    alert.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async globalErrorAlert(error, router, page?) {
@@ -211,10 +248,11 @@ export class MessageService {
       subHeader: 'Location: ' + router.url,
       message: error.message,
       cssClass: 'warningA',
-      backdropDismiss: false,
-
+      backdropDismiss: false
     });
-    await alert.present();
+    alert.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async errorAlert(error: any) {
@@ -226,7 +264,9 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'warningA'
     });
-    await alert.present();
+    alert.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async authErrorAlert(error) {
@@ -238,7 +278,9 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'warningA'
     });
-    await alert.present();
+    alert.present().catch((error) => {
+      return this.errorAlert(error);
+    });
   }
 
   async onPushRequest() {
@@ -259,14 +301,19 @@ export class MessageService {
         }
       ]
     });
-    await alert.present();
-    await alert.onDidDismiss().then((data): boolean => {
-      this.pushReqRes = !!data;
-      return this.pushReqRes;
-    });
+    alert
+    .onDidDismiss()
+    .then((data): boolean => {
+        this.pushReqRes = !!data;
+        return this.pushReqRes;
+      })
+      alert.present()
+      .catch((error) => {
+        return this.errorAlert(error);
+      });
   }
 
-  async resetWelcomeAlert( header: string, message: string ) {
+  async resetWelcomeAlert(header: string, message: string) {
     const alert = await this.alertController.create({
       header,
       message,
@@ -283,11 +330,16 @@ export class MessageService {
         }
       ]
     });
-    await alert.present();
-    await alert.onDidDismiss().then((data) => {
+    alert
+    .onDidDismiss()
+    .then((data) => {
       this.choice = data;
-    });
-    return this.choice;
+      return this.choice;
+    })
+    alert.present()
+      .catch((error) => {
+        return this.errorAlert(error);
+      });
   }
 
   async deleteFeedAlert(feedId) {
@@ -308,12 +360,16 @@ export class MessageService {
         }
       ]
     });
-
-    await alert.present();
-    await alert.onDidDismiss().then((data) => {
+    alert
+    .onDidDismiss()
+    .then((data) => {
       this.choice = data;
-    });
-    return this.choice;
+      return this.choice;
+    })
+    alert.present()
+    .catch((error) => {
+        return this.errorAlert(error);
+      });
   }
 
   async updateOrCancel() {
@@ -334,10 +390,186 @@ export class MessageService {
         }
       ]
     });
-    await alert.present();
-    await alert.onDidDismiss().then((data) => {
+    alert
+    .onDidDismiss()
+    .then((data) => {
       this.choice = data;
-    });
-    return this.choice;
+      return this.choice;
+    })
+    alert.present()
+          .catch((error) => {
+        return this.errorAlert(error);
+      });
   }
+
+  // prompt alerts for quick tasks
+
+
+  changeEmailPrompt() {
+    this.alertController.create({
+      header: 'Link Email Address',
+      subHeader: 'Enter the email address you want to add to your account',
+      message: 'This will not replace your existing email address',
+      inputs: [
+        {
+          name: 'Place',
+          placeholder: 'fit@expertfitness.com',
+          
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: (data: any) => {
+            console.log('Canceled', data);
+          }
+        },
+        {
+          text: 'Done!',
+          handler: (data: any) => {
+            console.log('Saved Information', data);
+          }
+        }
+      ]
+    }).then(res => {
+      res.present();
+    });
+  }
+
+
+  showConfirm() {
+    this.alertController.create({
+      header: 'Confirm Alert',
+      subHeader: 'Beware lets confirm',
+      message: 'Are you sure? you want to leave without safty mask?',
+      buttons: [
+        {
+          text: 'Never',
+          handler: () => {
+            console.log('I care about humanity');
+          }
+        },
+        {
+          text: 'Not Sure',
+          handler: () => {
+            console.log('Let me think');
+          }
+        },
+        {
+          text: 'Yes!',
+          handler: () => {
+            console.log('Whatever');
+          }
+        }
+      ]
+    }).then(res => {
+      res.present();
+    });
+  }
+
+  radioPrompt() {
+    this.alertController.create({
+      header: 'Prompt Alert',
+      subHeader: 'Size Selection',
+      message: 'Select the sutable size for clothing',
+      inputs: [
+        {
+          type: 'radio',
+          label: 'Extra Small',
+          value: 'xs'
+        },
+        {
+          type: 'radio',
+          label: 'Small',
+          value: 's'
+        },
+        {
+          type: 'radio',
+          label: 'Medium',
+          value: 'm'
+        },
+        {
+          type: 'radio',
+          label: 'Large',
+          value: 'l'
+        },
+        {
+          type: 'radio',
+          label: 'Extra Large',
+          value: 'xl'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: (data: any) => {
+            console.log('Canceled', data);
+          }
+        },
+        {
+          text: 'Done!',
+          handler: (data: any) => {
+            console.log('Selected Information', data);
+          }
+        }
+      ]
+    }).then(res => {
+      res.present();
+    });
+  }
+
+
+  checkboxPrompt() {
+    this.alertController.create({
+      header: 'Prompt Alert',
+      subHeader: 'Member Selection',
+      message: 'Select family members',
+      inputs: [
+        {
+          type: 'checkbox',
+          label: 'Self',
+          value: 'self',
+          checked: true,
+          disabled: true
+        },
+        {
+          type: 'checkbox',
+          label: 'Mother',
+          value: 'mother'
+        },
+        {
+          type: 'checkbox',
+          label: 'Father',
+          value: 'father'
+        },
+        {
+          type: 'checkbox',
+          label: 'Son',
+          value: 'son'
+        },
+        {
+          type: 'checkbox',
+          label: 'Daughter',
+          value: 'daughter'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: (data: any) => {
+            console.log('Canceled', data);
+          }
+        },
+        {
+          text: 'Done!',
+          handler: (data: any) => {
+            console.log('Selected Information', data);
+          }
+        }
+      ]
+    }).then(res => {
+      res.present();
+    });
+  }
+  
 }

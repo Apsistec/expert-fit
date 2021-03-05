@@ -1,0 +1,41 @@
+<ion-content >
+  <ion-grid>
+    <ion-row class="title">
+      <ion-col>
+        <ion-title>
+          Expert Fitness Memberships
+        </ion-title>
+        <ion-text>
+          Select the right gym membership for you.
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-title>
+          Explore our Membership options
+        </ion-title>
+        <ion-text>
+          Plans include monthly subscriptions but you can also purchase individual services as add-ons.
+        </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xl="3" size-lg="3" size-md="10" size-sm="12" class="ion-align-items-center"  *ngFor="let product of products | async">
+        <ion-card color="medium" class="ion-text-center" >
+          <ion-card-header>
+            <ion-card-title>
+              <ion-text color="primary">
+                {{product.name}}
+              </ion-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{ product.description }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-content>

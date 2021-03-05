@@ -1,20 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { ModalController, Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { AuthService } from './services/auth.service';
-// import firebase from 'firebase/app';
-// import 'firebase/messaging';
 import { Router } from '@angular/router';
 import { SwUpdate, SwPush } from '@angular/service-worker';
-import { environment } from 'src/environments/environment';
 import { PopoverService } from './services/popover.service';
-// import { LoginComponent } from './login/login.component';
-
 import { User } from './models/users.model';
-import { MessageService } from './services/message.service';
-// import { IonicStorageModule } from '@ionic/storage';
-import { StorageService } from './services/storage.service';
+import { ScrollService } from './services/scroll.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -22,14 +16,14 @@ import { StorageService } from './services/storage.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  
   user: User;
   showBackButton: boolean;
   path;
   displayToken: string;
   showPushNotifyBar = true;
   @Input() choice;
-  // @Input() pushReqRes: boolean;
-  // response: boolean;
 
   constructor(
     private swUpdate: SwUpdate,
@@ -38,27 +32,24 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public router: Router,
-    public modalController: ModalController,
     public authService: AuthService,
     public popoverService: PopoverService,
-    private messageService: MessageService,
-    private store: StorageService
+    public scrollService: ScrollService,
+    private _location: Location,
+    public alertController: AlertController
   ) {
     this.swPush.messages.subscribe((msg) => console.warn('push message: ', msg));
     this.swPush.notificationClicks.subscribe((click) => console.warn('notification click: ', click));
-    // if (!firebase.apps.length) {
-    //   firebase.initializeApp(environment.firebaseConfig);
-    //   navigator.serviceWorker.getRegistration().then(() =>
-    //     firebase.messaging().getToken({
-    //       vapidKey: 'BFZIBA94F79A9vt1yD4DBZX5BD460KEm3WWdRdzGV-FSBfIgGBoajnRhwWOUeHSEb9cUmIJejFHYlMYfCtVbN3c'
-    //     })
-    //   );
-    // }
   }
 
   ngOnInit() {
+    this.initializeApp();
+  }
+
+  initializeApp() {
     this.platform.ready().then((readySource) => {
       const source = readySource;
+      console.log('source: ' + source);
       if (source === 'capacitor') {
         this.statusBar.styleDefault();
         this.splashScreen.hide();
@@ -76,21 +67,62 @@ export class AppComponent implements OnInit {
         return;
       });
     }
+
+    this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {
+      console.log('Back press handler!');
+      if (this._location.isCurrentPathEqualTo('/home')) {
+        // Show Exit Alert!
+        console.log('Show Exit Alert!');
+        this.showExitConfirm();
+        processNextHandler();
+      } else {
+        // Navigate to back page
+        console.log('Navigate to back page');
+        this._location.back();
+      }
+    });
+
+    this.platform.backButton.subscribeWithPriority(5, () => {
+      console.log('Handler called to force close!');
+      this.alertController
+        .getTop()
+        .then((r) => {
+          if (r) {
+            navigator['app'].exitApp();
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    });
   }
 
-  // cancelNotificationBar() {
-  //   this.showPushNotifyBar = !this.showPushNotifyBar;
-  // }
-
-  // async permitToNotify() {
-  //   try {
-  //     const messaging = firebase.messaging();
-  //     Notification.requestPermission();
-  //     this.displayToken = await messaging.getToken();
-  //     this.showPushNotifyBar = !this.showPushNotifyBar;
-  //   } catch (error) {
-  //   }
-  // }
+  showExitConfirm() {
+    this.alertController
+      .create({
+        header: 'App termination',
+        message: 'Do you want to close the app?',
+        backdropDismiss: false,
+        buttons: [
+          {
+            text: 'Stay',
+            role: 'cancel',
+            handler: () => {
+              console.log('Application exit prevented!');
+            }
+          },
+          {
+            text: 'Exit',
+            handler: () => {
+              navigator['app'].exitApp();
+            }
+          }
+        ]
+      })
+      .then((alert) => {
+        alert.present();
+      });
+  }
 
   clear() {
     this.popoverService.dismiss();

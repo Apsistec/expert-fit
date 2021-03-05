@@ -1,48 +1,43 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>FAQs</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content fullscreen >
-  <ion-grid style="min-height: 100vh;">
-    <ion-row class="ion-justify-content-center ion-align-items-start">
-      <ion-col size-sm="12" size-md="8" size-lg="6">
-        <ion-card class="ion-card-global ion-text-center ion-no-margin">
-          <ion-fab horizontal="end" vertical="top">
-            <ion-fab-button  color="warning" size="small" (click)="onToggleAutomatic()">
-              <ion-icon class="expand-icon" color="dark" name="resize-sharp" *ngIf="automaticClose"></ion-icon>
-              <ion-icon class="expand-all-icon" color="dark" name="crop-sharp" *ngIf="!automaticClose"></ion-icon>
-            </ion-fab-button>
-          </ion-fab>
+
+<ion-content  >
+
+    <ion-grid style="min-height: 100vh;" class=" ">
+      <ion-row >
+        <ion-col  class="ion-no-padding ion-no-margin">
+          <ion-card class="ion-card-global ion-no-margin ion-text-center" style="width: fit-content;">
           <ion-card-header >
-            <ion-card-title> Expert Fitness FAQs </ion-card-title>
+            <ion-fab horizontal="end" vertical="top">
+              <ion-icon  (click)="onToggleAutomatic()" class="expand-icon" size="large" color="warning" name="resize-sharp" *ngIf="automaticClose"></ion-icon>
+              <ion-icon  (click)="onToggleAutomatic()" class="expand-all-icon" size="large" color="warning" name="crop-sharp" *ngIf="!automaticClose"></ion-icon>
+            </ion-fab>
+            
+            <ion-card-title>FAQs </ion-card-title>
             <ion-card-subtitle> Answers to common questions </ion-card-subtitle>
           </ion-card-header>
-          <ion-list
+          <ion-card-content class="ion-no-padding">
+            <ion-list
             *ngFor="let faq of faqs; let i = index"
-            class="accordion-list ion-text-left ion-no-padding"
+            class="accordion-list"
             lines="none"
-            detail="false"
-          >
-            <ion-item
-              tappable
-              (mouseenter)="toggleSection(i)"
-              [ngClass]="{'section-active': faq.open, 'section': !faq.open}"
+            details="none"
             >
-              <ion-icon class="expand-icons" slot="start" color="primary" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
-              <ion-icon class="expand-icons" slot="start" color="danger" size="large" name="remove-sharp"  *ngIf="faq.open"></ion-icon>
-              <ion-label> {{ faq.title }} </ion-label>
-            </ion-item>
-            <ion-item class="info" *ngIf="faq.open">
-              <p class="info-text ion-text-left">{{ faq.info }}</p>
-            </ion-item>
-          </ion-list>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    </ion-grid>
+            <ion-item [ngClass]="{'section-active': faq.open, 'section-inactive': !faq.open}"
+            >
+            <ion-icon  tappable
+            (click)="toggleSection(i)" class="expand-icons" slot="start" color="primary" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
+            <ion-icon  tappable
+            (click)="toggleSection(i)" class="expand-icons" slot="start" color="danger" size="large" name="remove-sharp"  *ngIf="faq.open"></ion-icon>
+            <ion-text> {{ faq.title }} </ion-text>
+          </ion-item>
+          <p *ngIf="faq.open" class="section-active info-text ion-text-left">{{ faq.info }}</p>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+  </ion-row>
+</ion-grid>
 
-        <app-footer></app-footer>
-  
+<app-footer></app-footer>
 </ion-content>
+

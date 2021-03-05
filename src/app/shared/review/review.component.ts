@@ -16,7 +16,7 @@ export class ReviewComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private modalCtrl: ModalController,
+    private modalController: ModalController,
     private loadingCtrl: LoadingController,
     private reviewService: ReviewService,
     private navParam: NavParams,
@@ -48,7 +48,7 @@ export class ReviewComponent implements OnInit {
   }
 
   close() {
-    this.modalCtrl.dismiss();
+    this.modalController.dismiss();
   }
 
   async saveOrUpdate() {
@@ -70,7 +70,7 @@ export class ReviewComponent implements OnInit {
 
   deleteReview() {
     this.reviewService.deleteReview(this.id).then(() => {
-      this.modalCtrl.dismiss();
+      this.modalController.dismiss();
     });
   }
 }

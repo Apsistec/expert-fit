@@ -1,68 +1,83 @@
-<ion-content fullscreen scrollEvents="true" (ionScroll)="onScroll($event)">
+<ion-content  scrollEvents="true" (ionScroll)="onScroll($event)">
+  <ion-grid class="ion-no-padding">
     <ion-row id="top" class="scene-one ion-justify-content-center ion-align-items-center">
-      <ion-col size-sm="12" size-md="8" size-lg="6" size-xl="4" class="ion-text-center">
-        <img [@bounceOutUp]="bounceOutUp" src="../../../assets/lazy/images/logo.png" class="ion-hide-md-down" />
-        <img
-          [@bounceOutUp]="bounceOutUp"
-          src="../../../assets/lazy/images/logo.png" class="ion-hide-md-up" style="width:345px;padding-top:40px" />
-        <ion-card class="main-heading-card ion-text-center shadow">
-          <ion-card-title class="main-title" color="light"> Expert Fitness<sup>3D</sup> </ion-card-title>
-          <ion-card-subtitle class="main-subtitle" color="warning">
-            Train <ion-text color="light">|</ion-text> Review <ion-text color="light">|</ion-text> Grow
-          </ion-card-subtitle>
-        </ion-card>
-        <ion-button
-          [@flash]="flash"
-          size="large"
-          class="cta"
-          strong
-          color="secondary"
-          routerLink="/login"
-          style="border-radius:5px;"
-        >
-          Get Started
-        </ion-button>
-      </ion-col>
-        <ion-fab fixed horizontal="end" vertical="top" >
-          <img width="105" class="video pulsing" src="../../../assets/lazy/images/btn-play.svg" (click)="loadVideo()" />
-        </ion-fab>
-        <ion-fab   horizontal="center" vertical="bottom">
-          <ion-fab-button class="bounceOutDown" size="small" (click)="scrollToLabel('pageThree')
-          ">
-          <ion-icon name="chevron-down-sharp"></ion-icon>
-        </ion-fab-button>
+
+          <ion-col size-sm="12" size-md="8" size-lg="6" size-xl="4" class="ion-text-center">
+            <img [@bounceOutUp]="bounceOutUp" src="../../../assets/lazy/images/logo.png" class="ion-hide-md-down" />
+            <img
+            [@bounceOutUp]="bounceOutUp"
+            src="../../../assets/lazy/images/logo.png"
+            class="ion-hide-md-up"
+            style="width: 345px; padding-top: 40px"
+            />
+            <ion-card class="main-heading-card ion-text-center shadow">
+              <ion-card-title class="main-title" color="light"> Expert Fitness<sup>3D</sup> </ion-card-title>
+              <ion-card-subtitle class="main-subtitle" color="warning">
+                Train <ion-text color="light">|</ion-text> Review <ion-text color="light">|</ion-text> Grow
+              </ion-card-subtitle>
+            </ion-card>
+            <ion-button [@flash]="flash" size="large" class="cta cta-main" strong routerLink="/pricing">
+              Get Started
+            </ion-button>
+          </ion-col>
+
+      <ion-fab fixed horizontal="end" vertical="top">
+        <img width="105" class="video pulsing" src="../../../assets/lazy/images/btn-play.svg" (click)="loadVideo()" />
       </ion-fab>
+      <ion-fab  horizontal="center" vertical="bottom">
+        <ion-icon
+          size="large"
+          color="tertiary"
+          button
+          class="bounceOutDown "
+          name="chevron-down-sharp"
+          (click)="scrollToLabel('pageThree')"
+        ></ion-icon>
+      </ion-fab>
+
     </ion-row>
-    <ion-row id="pageThree" >
-      <ion-col class="ion-align-self-center" >
+    <ion-row id="pageThree" class="ion-padding-vertical">
+      <ion-col class="ion-padding-vertical">
         <app-home-page-three></app-home-page-three>
         <ion-fab horizontal="center" vertical="bottom">
-          <ion-fab-button  class="bounceOutDown" size="small"  (click)="scrollToLabel('pageFour')">
-            <ion-icon name="chevron-down-sharp"></ion-icon>
-          </ion-fab-button>
+          <ion-icon
+          size="large"
+          color="tertiary"
+          button
+          class="bounceOutDown "
+          name="chevron-down-sharp"
+          (click)="scrollToLabel('pageFour')"
+        ></ion-icon>            
         </ion-fab>
       </ion-col>
     </ion-row>
-    <ion-row id="pageFour" class="page-four">
-      <ion-col class="ion-align-self-center ion-padding-vertical" >
+    <ion-row id="pageFour" class="page-four ion-padding-vertical">
+      <ion-col class="ion-padding-vertical">
         <app-home-page-four></app-home-page-four>
         <ion-fab horizontal="center" vertical="bottom">
-          <ion-fab-button  class="bounceOutDown" size="small" (click)="scrollToLabel('pageTwo')">
-            <ion-icon name="chevron-down-sharp"></ion-icon>
-          </ion-fab-button>
+          <ion-icon
+          size="large"
+          color="tertiary"
+          button
+          class="bounceOutDown "
+          name="chevron-down-sharp"
+          (click)="scrollToLabel('pageTwo')"
+        ></ion-icon>
         </ion-fab>
       </ion-col>
     </ion-row>
-    <ion-row id="pageTwo" class="page-two">
-      <ion-col >
+    <ion-row id="pageTwo" class="page-two ion-padding-vertical">
+      <ion-col class="ion-padding-vertical">
         <app-home-page-two></app-home-page-two>
       </ion-col>
     </ion-row>
-    <app-footer style="height: fit-content;"></app-footer>
+  </ion-grid>
     
-    <ion-fab slot="fixed" horizontal="end" vertical="bottom">
-      <ion-fab-button id="up" [hidden]="!scrolledDown" class="up" size="small" (click)="scrollToTop()">
-        <ion-icon  name="chevron-up-sharp"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-</ion-content>
+  <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button id="up" [hidden]="!scrolledDown" class="up" size="small" (click)="scrollToTop()">
+      <ion-icon name="chevron-up-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <app-footer></app-footer>
+  </ion-content>
+  

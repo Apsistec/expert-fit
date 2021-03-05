@@ -6,24 +6,25 @@
 }
 
 .location-card{
-  background: var(--ion-color-light-shade);
-
+  --background: var(--ion-color-light-shade);
+  border-radius: 15px;
+  width: 100%
 }
 
-.center-fit{
-  width: fit-content;
-  display:block;
-  margin: auto;
-}
+// .center-fit{
+//   display:block;
+//   margin: auto;
+// }
 
 // Footer
 .footer {
-  position: absolute;
+  padding:  5px;
+  position: relative;
   background-color: var(--ion-color-dark);
-  width: 100vw;
+  // width: 100vw;
 }
 
-.bottom{
-  position: absolute;
-  bottom: 5px;
-}
+// .bottom{
+//   position: relative;
+//   bottom: 5px;
+// }
