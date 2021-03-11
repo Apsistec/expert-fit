@@ -76,9 +76,14 @@ export class SignupComponent implements OnInit, AfterViewInit {
 
   dismissModal() {
     this.modalController.dismiss().then(() => {
-      this.navController.back();
+      this.router.navigateByUrl('/home');
     });
   }
 
+  goToLogin(){
+    this.modalController.dismiss().then(() => {
+      this.router.navigateByUrl('/login');
+    })
+  }
 
 }

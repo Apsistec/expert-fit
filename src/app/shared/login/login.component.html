@@ -1,4 +1,4 @@
-  <ion-card color="medium" class="ion-text-center ion-card-global ion-no-margin" style="height: 100%;">
+  <ion-card color="medium" class="ion-text-center ion-card-global ion-no-margin ion-no-padding" style="height: 100%;">
     <ion-fab horizontal="end" vertical="top">
       <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
   </ion-fab>
@@ -70,7 +70,7 @@
   color="dark"
   fill="clear"
   type="button"
-  routerLink="/signup"
+  (click)="goToSignup()"
   >
   Need to signup?
 </ion-button>
@@ -80,7 +80,7 @@ size="small"
 color="dark"
 fill="clear"
 type="button"
-routerLink="/forgot-password"
+(click)="goToForgot()"
 >
 Forgot password?
 </ion-button>

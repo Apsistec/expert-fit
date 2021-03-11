@@ -84,8 +84,8 @@ sup {
 
 .page-two {
   min-height: 95vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.767), rgba(0, 0, 0, 0.767)),
-    url(../../../assets/lazy/images/upward-dog-pose.jpg) bottom/ cover no-repeat;
+  background: linear-gradient(rgba(0, 3, 37, 0.767), rgba(0, 0, 0, 0.767)),
+    url(../../../assets/lazy/images/upward-dog-pose.jpg) center left / cover no-repeat;
 }
 
 .up {
@@ -108,6 +108,17 @@ sup {
     0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
 }
 
-
-
-
+.ratings-banner {
+  width: 100vw;
+  min-height: 30vh;
+  max-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.466), rgba(0, 0, 0, 0.527)),
+    repeating-conic-gradient(
+      from 3deg at 50% 50%,
+      var(--ion-color-primary-shade),
+      var(--ion-color-primary-tint) 2deg 5deg,
+      var(--ion-color-primary-shade),
+      var(--ion-color-primary-tint) 15deg 18deg,
+      var(--ion-color-primary-tint) 20deg
+    );
+}

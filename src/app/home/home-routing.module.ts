@@ -5,23 +5,19 @@ import { HomePage } from './home.page';
 import { IntroVideoComponent } from './intro-video/intro-video.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
-
 const routes: Routes = [
   {
     path: '',
     component: HomePage,
     children: [
       {
-        path: 'video', component: IntroVideoComponent
+        path: '',
+        component: LandingPageComponent
       },
       {
         path: 'pricing',
-        loadChildren: () => import('./pricing/pricing.module').then( m => m.PricingPageModule)
+        loadChildren: () => import('./pricing/pricing.module').then((m) => m.PricingPageModule)
       },
-      // {
-      //   path: 'products',
-      //   loadChildren: () => import('./products/products.module').then((m) => m.ProductsPageModule)
-      // },
       {
         path: 'faqs',
         loadChildren: () => import('./faq/faq.module').then((m) => m.FaqPageModule)
@@ -37,6 +33,11 @@ const routes: Routes = [
       },
       {
         path: 'testimonials',
+        redirectTo: 'reviews',
+        pathMatch: 'full'
+      },
+      {
+        path: 'ratings',
         redirectTo: 'reviews',
         pathMatch: 'full'
       },
@@ -57,19 +58,9 @@ const routes: Routes = [
         path: 'contact',
         redirectTo: 'contact-us',
         pathMatch: 'full'
-      },
-      {
-        path: 'checkout',
-        component: CheckoutPage
-      },
-      {
-        path: '',
-        component: LandingPageComponent
-      },
+      }
     ]
-  },
-
-
+  }
 ];
 
 @NgModule({

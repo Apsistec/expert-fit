@@ -1,34 +1,36 @@
 .accordion-list {
-  padding: 5px;
-  // margin-bottom: 4px;
-  --ion-item-background: var(--ion-color-medium-tint);
+  background: transparent; // linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.5));
+  font-weight: 600;
 }
 
-.section-inactive {
-  // --ion-item-background: var(--ion-color-light-shade);
-  // --ion-item-color: #000 !important;
-}
+
 
 .section-active {
-  // font-weight: 500;
   --ion-item-background: var(--ion-color-medium-shade);
-  --border-radius: 15px;
-  --padding-bottom: 15px;
-  --padding-top: 15px;
+  --border-radius: 10px;
+  --padding-bottom: 5px;
+  --padding-top: 5px;
   --padding-start: 15px;
   --padding-end: 15px;
-  --ripple-color:white;
+  --ripple-color: white;
+}
+.negative-icon{
+  color:rgb(0, 4, 255);
 }
 
-
-
-
 .info-text {
-  border-radius: 15px;
-  background: var(--ion-color-light-shade);
+  border-radius: 10px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.5));
   padding: 10px;
-  margin:10px;
+  margin: 10px;
   color: var(--ion-color-primary);
 }
 
 
+.summary{
+  color: var(--ion-color-light-tint);
+}
+
+.summary-item{
+  --ion-item-background: transparent; // var(--ion-color-medium-tint);
+}

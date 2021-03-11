@@ -53,8 +53,8 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
 
   dismissModal() {
     this.modalController.dismiss().then(() => {
-      this.navController.back();
-    });
+      this.router.navigateByUrl('/home');
+    })
   }
 
   goToLogin() {

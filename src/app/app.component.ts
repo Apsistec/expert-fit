@@ -54,8 +54,7 @@ export class AppComponent implements OnInit {
         this.statusBar.styleDefault();
         this.splashScreen.hide();
       } else {
-        this.statusBar.hide();
-        this.splashScreen.hide();
+        return false;
       }
     });
 

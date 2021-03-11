@@ -1,4 +1,4 @@
-import * as fire from 'firebase/app';
+import firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './auth.service';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -28,10 +28,11 @@ export class TicketService {
 
   createOrUpdateTicket(id = null, info): Promise<any> {
     if (id) {
+      info.updated_at = firebase.firestore.Timestamp
       return this.afs.doc(`tickets/${id}`).update(info);
     } else {
       info.creator = this.authService.currentBehaviorUser.value.id;
-      info.created_at = fire.default.firestore.FieldValue.serverTimestamp();
+      info.created_at =firebase.firestore.Timestamp
       return this.afs.collection('tickets').add(info);
     }
   }

@@ -1,0 +1,27 @@
+<div id="recapta-container" style="display: none;"></div>
+
+<div *ngIf="!otpSent">
+<ion-note style="font-weight: bold;font-size: medium;"> 
+     Enter phone number you want to verify
+</ion-note>
+<ion-item>
+<ion-label position="floating">Phone Number</ion-label>
+<ion-input id="phoneNumber"></ion-input>
+</ion-item>
+<ion-button (click)="sendOTP()" style="float: right;margin-top: 30px;">
+     Send OTP
+</ion-button>
+</div>
+
+<div *ngIf="otpSent">
+<ion-note style="font-weight: bold;font-size: medium;"> 
+     Enter OTP sent to {{phoneNumber}}
+</ion-note>
+<ion-item>
+<ion-label position="floating">6 Digit OTP</ion-label>
+<ion-input id="otp"></ion-input>
+</ion-item>
+<ion-button (click)="verifyOTP()" style="float: right;margin-top: 30px;">
+     Verify OTP
+</ion-button>
+</div>

@@ -1,7 +1,15 @@
-
-  <ion-fab horizontal="end" vertical="top">
-      <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
+<ion-content style="background: black; display: block; margin: auto">
+  <ion-fab slot="fixed" horizontal="end" vertical="top">
+    <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
   </ion-fab>
-  <video autoplay poster="../../../assets/lazy/images/platinum.png" controlslist="nodownload" videoHeight="768" videoWidth="1024">
-    <source src="../../../assets/lazy/videos/fitnessGoals.mp4" type="video/mp4" />
-  </video>
+  <!-- <div style=""> -->
+    <video
+      autoplay
+      poster="../../../assets/lazy/images/platinum.png"
+      controlslist="nodownload"
+  style="display: block; margin: auto;"
+    >
+      <source src="../../../assets/lazy/videos/fitnessGoals.mp4" type="video/mp4" />
+    </video>
+  <!-- </div> -->
+</ion-content>

@@ -1,105 +1,42 @@
 import { DOCUMENT } from '@angular/common';
 import {
-  AfterViewInit,
   OnInit,
   Component,
-  ElementRef,
-  Inject,
-  ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController, Platform } from '@ionic/angular';
-import { ConferenceData  } from './conference-data';
-import { darkStyle } from './map-dark-style';
+import { ModalController } from '@ionic/angular';
+import { MessageService } from 'src/app/services/message.service';
+import { MapComponent } from 'src/app/shared/map/map.component';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.page.html',
   styleUrls: ['./contact.page.scss'],
 })
-export class ContactPage implements OnInit, AfterViewInit {
-  @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
+export class ContactPage implements OnInit {
 
   constructor(
-    @Inject(DOCUMENT) private doc: Document,
-    public confData: ConferenceData,
-    public platform: Platform,
+
+    // public platform: Platform,
     private modalController: ModalController,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
   }
 
-  async ngAfterViewInit() {
-    const appEl = this.doc.querySelector('ion-app');
-    let style = [];
-    // if (appEl.classList.contains('dark-theme')) {
-    style = darkStyle;
-    // }
-
-    const googleMaps = await this.getGoogleMaps(
-      'AIzaSyBiBxbmdVNvYMRdFSJDf-uWRsQ7Y7DPjbg'
-    );
-
-    let map;
-
-    this.confData.getMap().subscribe((mapData: any) => {
-      const mapEle = this.mapElement.nativeElement;
-
-      map = new googleMaps.Map(mapEle, {
-        center: mapData.find((d: any) => d.center),
-        zoom: 16,
-        styles: style,
-      });
-
-      mapData.forEach((markerData: any) => {
-        const infoWindow = new googleMaps.InfoWindow({
-          content: `<h3><b>${markerData.name}</b></h3><h5>${markerData.address}</h5><h4>${markerData.phone}</h4>`,
-        });
-
-        const marker = new googleMaps.Marker({
-          position: markerData,
-          map,
-          title: markerData.name,
-        });
-
-        infoWindow.open(map, marker);
-        marker.addListener('click', () => {
-          infoWindow.open(map, marker);
-        });
-      });
-
-      googleMaps.event.addListenerOnce(map, 'idle', () => {
-        mapEle.classList.add('show-map');
-      });
+  async showMapModal() {
+    const modal = await this.modalController.create({
+      component: MapComponent,
+      cssClass: 'modal-css'
+    });
+    modal.present().catch((error) => {
+      this.modalController.dismiss();
+      return this.messageService.errorAlert(error);
     });
   }
-
-
-  getGoogleMaps(apiKey: string): Promise<any> {
-    const win = window as any;
-    const googleModule = win.google;
-    if (googleModule && googleModule.maps) {
-      return Promise.resolve(googleModule.maps);
-    }
-
-    return new Promise((resolve, reject) => {
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=beta`;
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-      script.onload = () => {
-        const googleModule2 = win.google;
-        if (googleModule2 && googleModule2.maps) {
-          resolve(googleModule2.maps);
-        } else {
-          reject('google maps not available');
-        }
-      };
-    });
-}
+ 
 
 // function getGoogleMaps(apiKey: string): Promise<any> {
 //   const win = window as any;

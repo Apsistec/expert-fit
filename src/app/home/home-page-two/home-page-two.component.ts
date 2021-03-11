@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
-import { Benefit, Benefits } from 'src/app/models/benefits.model';
+import { Component, OnInit } from '@angular/core';
+import { Benefit } from '../../models/benefits.model';
 import { slideInLeft, slideInRight } from 'ng-animate';
 import { transition, trigger, useAnimation } from '@angular/animations';
+import { BenefitsService } from 'src/app/services/benefits.service';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home-page-two',
@@ -28,21 +31,19 @@ import { transition, trigger, useAnimation } from '@angular/animations';
     ])
   ]
 })
-export class HomePageTwoComponent {
-  benefits: Benefit[] = Benefits;
+export class HomePageTwoComponent implements OnInit {
   slideInRight: any;
   slideInLeft: any;
-  benefitChosen: Benefit | any;
+
+  benefitChosen: Benefit[];
 
   constructor() {
-    this.benefitChosen = this.benefits[0];
   }
+  
+  ngOnInit() {
+      }
 
-  chooseBenefit(benefit: Benefit) {
-    this.benefitChosen = benefit;
-  }
-
-  clear() {
-    this.benefitChosen = '';
-  }
+      onBenefitChosen(benefitChoice){
+        this.benefitChosen = benefitChoice;
+      }
 }

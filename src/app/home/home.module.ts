@@ -10,7 +10,11 @@ import { HomePageThreeComponent } from '../home/home-page-three/home-page-three.
 import { HomePageFourComponent } from '../home/home-page-four/home-page-four.component';
 import { IntroVideoComponent } from './intro-video/intro-video.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { UnknownComponent } from './unknown/unknown.component';
+import { RatingsBannerComponent } from './ratings-banner/ratings-banner.component';
+import { BenefitsComponent } from './benefits/benefits.component';
+import { BenefitsTrackerComponent } from './benefits-tracker/benefits-tracker.component';
+import { BenefitsTrackerResultsComponent } from './benefits-tracker-results/benefits-tracker-results.component';
+import { GetDownloadURLPipeModule } from '@angular/fire/storage';
 
 @NgModule({
   imports: [
@@ -19,16 +23,20 @@ import { UnknownComponent } from './unknown/unknown.component';
     IonicModule,
     HomePageRoutingModule,
     SharedModule,
+    GetDownloadURLPipeModule
 
   ],
   declarations: [
     HomePage,
     HomePageTwoComponent,
+    RatingsBannerComponent,
     HomePageThreeComponent,
     HomePageFourComponent,
     IntroVideoComponent,
     LandingPageComponent,
-    UnknownComponent
+    BenefitsTrackerResultsComponent,
+    BenefitsTrackerComponent,
+    BenefitsComponent
   ]
 })
 export class HomePageModule {}

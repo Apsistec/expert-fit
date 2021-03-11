@@ -42,6 +42,7 @@ a :hover {
 // }
 
 // Main call to action buttons on landing page
+
 .cta-main {
   --ripple-color: rgb(255, 255, 255);
   --color: rgb(9, 255, 0);
@@ -50,10 +51,16 @@ a :hover {
   --border-radius: 10px;
   --border-color: rgb(30, 255, 0);
   --border-style: solid;
-  --border-width: 5px;
+  --border-width: 3px;
   --background: rgb(99, 3, 177);
-  // --background-hover: rgb(255, 0, 0);
 }
+
+// side by side buttons call to action
+.cta {
+  margin: 10px;
+}
+
+
 // Page transition animation
 .bounceOutDown {
   animation: 1.5s ease-out infinite bounceoutdown;
@@ -76,38 +83,29 @@ a :hover {
     0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes bounceoutdown {
-  50% {
-    transform: translate(0, 4px);
-    opacity: 0.4;
-  }
-}
 
-// Logos
-.small-logo {
-  max-width: 35px;
-  max-height: 48px;
-  margin-right: 30px;
-  margin-left: 20px;
-}
+//segments
+.segment{
+  --background-checked: linear-gradient(to top right, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.11));
+  --background-hover: var(--ion-color-tertiary);
+  --background-hover-opacity: .15;
+  --background-focused: var(--ion-color-tertiary);
+  --background-focused-opacity: .1;
+  --indicator-color: var(--ion-color-secondary);
+  --indicator-height: .5em;
+  --color-hover: var(--ion-color-tertiary-tint);
+  --color: var(--ion-color-tertiary-shade);
+  --color-checked: var(--ion-color-tertiary-tint);
+  // --padding-bottom: 15px;
+  --margin-bottom: .5em;
 
-.full-logo {
-  max-width: 160px;
-  max-height: 48px;
-  margin-left: 20px;
 }
-
-// buttons call to action
-.cta {
-  margin: 10px;
-}
-
+// media query for headers etc
 @media screen and (max-width: 827px) {
   .top-toolbar-lg {
     display: none;
   }
 }
-// media query standards: 650px, ...
 @media screen and (min-width: 828px) {
   .top-toolbar-sm {
     display: none;
@@ -129,6 +127,22 @@ a :hover {
   }
 }
 
+// Logos
+.small-logo {
+  max-width: 35px;
+  max-height: 48px;
+  margin-right: 30px;
+  margin-left: 20px;
+}
+
+.full-logo {
+  max-width: 160px;
+  max-height: 48px;
+  margin-left: 20px;
+}
+
+
+
 // Lists
 .list-header-global {
   --background: var(--ion-color-medium);
@@ -139,11 +153,12 @@ a :hover {
 
 // Cards
 .ion-card-global {
-  --background: var(--ion-color-medium);
+  border-radius: 15px;
   ion-card-header {
     text-align: center;
     border-bottom: 3px solid var(--ion-color-secondary);
-    --background: var(--ion-color-primary);
+    --background: linear-gradient(to right, rgba(0, 29, 173, 0.5), rgba(0, 0, 0, 0.596), rgba(0, 29, 173, 0.5)),
+      center/cover no-repeat url(./assets/lazy/images/banner.png);
     ion-card-title {
       text-transform: uppercase;
       --color: var(--ion-color-secondary-tint);
@@ -157,11 +172,12 @@ a :hover {
     }
   }
   ion-card-content {
-    padding-top: 15px;
+    padding-top: 10px;
     text-align: left;
-  }
-  ion-item{
-    --ion-item-background: var(--ion-color-medium-tint)
+    background: linear-gradient(to right, rgba(36, 36, 36, 0.76), rgba(36, 36, 36, 0.938), rgba(36, 36, 36, 0.767)),
+      center/contain no-repeat url(./assets/icons/icon-192x192.png);
+    background-color: var(--ion-color-medium);
+    color: rgb(0, 216, 245);
   }
 }
 
@@ -181,39 +197,44 @@ a :hover {
   }
 }
 
+// Modals
+.video-css {
+  --border-radius: 15px;
+  --background: black;
+ --height: 73%;
+ --width: 67%;
 
-.video-css{
-  --border-radius: 15px;
-  --background: transparent;
-  --height:90%;
-  --width:90%;
-}
-.modal-css{
-  
-  --border-radius: 15px;
-  .modal-wrapper {
-  border-radius: 15px;
+  main.inner-scroll.scroll-y{
+    overflow: hidden;
   }
+}
+
+.modal-css {
+  --border-radius: 15px;
+  // .modal-wrapper {
+  //   border-radius: 15px;
+  // }
 }
 
 // Toasts and Alerts
 .successA {
-  --background: rgba(120, 167, 122, 0.685);
+  --background: rgb(83, 83, 83);
 }
+
 .successT {
-  --background: rgba(120, 167, 122, 0.637);
-  --border-color: var(--ion-color-success-tint);
+  --background: rgb(78, 78, 78);
+  --border-color: var(--ion-color-success);
   --border-style: solid;
   --border-width: 3px;
   --color: white;
 }
 
 .warningA {
-  --background: rgba(166, 167, 120, 0.671);
+  --background: rgb(77, 77, 77);
 }
 
 .warningT {
-  --background: rgba(166, 167, 120, 0.671);
+  --background: rgb(97, 97, 97);
   --border-color: var(--ion-color-warning-tint);
   --border-style: solid;
   --border-width: 3px;
@@ -221,37 +242,44 @@ a :hover {
 }
 
 .dangerA {
-  --background: rgba(167, 120, 120, 0.63);
+  --background: rgb(104, 104, 104);
 }
 
 .dangerT {
-  --background: rgba(167, 120, 120, 0.61);
-  --border-color: var(--ion-color-danger-tint);
+  --background: rgb(104, 103, 103);
+  --border-color: var(--ion-color-danger);
   --border-style: solid;
   --border-width: 3px;
   --color: white;
 }
 
 .infoA {
-  --background: rgba(120, 123, 167, 0.61);
+  --background: rgb(94, 93, 93);
 }
 
 .infoT {
-  --background: rgba(120, 123, 167, 0.644);
-  --border-color: var(--ion-color-primary-tint);
+  --background: rgb(99, 99, 99);
+  --border-color: var(--ion-color-secondary);
   --border-style: solid;
   --border-width: 3px;
   --color: white;
 }
 
-// any shadow
+// global box shadow
 .shadow {
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.733), 0px 6px 6px rgba(0, 0, 0, 0.63), 0px 8px 8px rgba(0, 0, 0, 0.411),
     0px 10px 15px rgba(0, 0, 0, 0.356), 0px 30px 30px rgba(0, 0, 0, 0.26), 0px 70px 60px rgba(0, 0, 0, 0.15);
 }
 
+// animations for fab button on landing page going down
+@keyframes bounceoutdown {
+  50% {
+    transform: translate(0, 4px);
+    opacity: 0.4;
+  }
+}
 
-// page-turning arrows on Sliders
+// page-turning animations for arrows on Sliders
 .pulsar {
   animation: 2s ease-out infinite pulsing;
   opacity: 80%;

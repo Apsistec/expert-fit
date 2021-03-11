@@ -11,6 +11,7 @@ import { Product} from 'src/app/models/products.model';
 export class PricingPage implements OnInit, AfterViewInit {
 
   products; // : Observable<Product>;
+  segment = "defualt";
 
   constructor(private afs: AngularFirestore, private fun: AngularFireFunctions) {}
 
@@ -24,11 +25,11 @@ export class PricingPage implements OnInit, AfterViewInit {
   //       });
   //       return combineLatest(...res);
   //     })   
+  let productsRef = this.afs.collection<Product>('products', ref => ref.where('active', '==', true));
+  this.products = productsRef.valueChanges();
   }
 
   ngAfterViewInit() {
-    let productsRef = this.afs.collection<Product>('products', ref => ref.where('active', '==', true));
-    this.products = productsRef.valueChanges();
 
         
   }

@@ -1,0 +1,22 @@
+
+
+
+
+<ion-note class="ion-hide-sm-down ion-text-capitalize">
+    Select to learn more
+  </ion-note>
+  <ion-item-group class="item-group">
+    <ion-item
+      lines="none"
+      *ngFor="let benefit of benefits | async"
+      class="benefit-item"
+      details="false"
+      type="button"
+      #benefitC
+      (mouseenter)="onChooseBenefit(benefitC)">
+      <ion-text color="white">
+      {{ benefit.title }}
+      </ion-text>
+    </ion-item>
+  </ion-item-group>
+  

@@ -16,8 +16,8 @@
                 Train <ion-text color="light">|</ion-text> Review <ion-text color="light">|</ion-text> Grow
               </ion-card-subtitle>
             </ion-card>
-            <ion-button [@flash]="flash" size="large" class="cta cta-main" strong routerLink="/pricing">
-              Get Started
+            <ion-button [@flash]="flash" size="large" class="cta cta-main" strong routerLink="/home/pricing">
+             View Pricing
             </ion-button>
           </ion-col>
 
@@ -64,6 +64,11 @@
           (click)="scrollToLabel('pageTwo')"
         ></ion-icon>
         </ion-fab>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ratings-banner">
+      <ion-col class="ion-padding-vertical">
+        <app-ratings-banner></app-ratings-banner>
       </ion-col>
     </ion-row>
     <ion-row id="pageTwo" class="page-two ion-padding-vertical">

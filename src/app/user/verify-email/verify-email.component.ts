@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { MessageService } from 'src/app/services/message.service';
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
@@ -16,14 +16,20 @@ export class VerifyEmailComponent implements OnInit {
     public authService: AuthService,
     public modalController: ModalController,
     public messageService: MessageService,
-    private navController: NavController
+    private router: Router
   ) {}
 
   ngOnInit() {}
 
   dismissModal() {
     this.modalController.dismiss().then(() => {
-      this.navController.back();
+      this.router.navigateByUrl('/home');
+    });
+  }
+
+  goToLogin() {
+    this.modalController.dismiss().then(() => {
+      this.router.navigateByUrl('/login');
     });
   }
 }

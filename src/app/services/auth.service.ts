@@ -7,7 +7,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import * as fire from 'firebase/app';
+import firebase from 'firebase/app';
+// import 'firebase/auth'
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +50,7 @@ export class AuthService {
           uid: data.user.uid,
           email: data.user.email,
           emailVerified: data.user.emailVerified,
-          lastUpdatedAt: fire.default.firestore.FieldValue.serverTimestamp()
+          lastUpdatedAt: firebase.firestore.Timestamp
         });
         this.modalController.dismiss().then(() => {
           this.messageService.loggedInToast(data);
@@ -73,7 +74,7 @@ export class AuthService {
             email: data.user.email,
             role: ['USER'],
             permissions: ['delete-ticket'],
-            createdAt: fire.default.firestore.Timestamp
+            createdAt: firebase.firestore.Timestamp
           },
           { merge: true }
         );
@@ -94,7 +95,7 @@ export class AuthService {
       url: 'https://expert-fitness-midland-tx.firebaseapp.com/vefified-email',
       handleCodeInApp: false
     };
-    fire.default
+    firebase
       .auth()
       .currentUser.sendEmailVerification(actionCodeSettings)
       .then(() => {
@@ -134,11 +135,11 @@ export class AuthService {
 
   // Sign in with 3rd party Oauth
   GoogleAuth() {
-    return this.AuthLogin(new fire.default.auth.GoogleAuthProvider());
+    return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
   }
 
   TwitterAuth() {
-    return this.AuthLogin(new fire.default.auth.TwitterAuthProvider());
+    return this.AuthLogin(new firebase.auth.TwitterAuthProvider());
   }
   // MicrosoftAuth() {
   //   this.AuthLogin(new fire.default.auth.OAuthProvider()).catch((error) => {
@@ -147,7 +148,7 @@ export class AuthService {
   // }
 
   FacebookAuth() {
-    return this.AuthLogin(new fire.default.auth.FacebookAuthProvider());
+    return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
   }
 
   // Password Reset

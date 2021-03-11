@@ -1,20 +1,17 @@
 ion-toolbar {
-  --background: var(--ion-color-dark-tint);
-  border-bottom: 3px solid var(--ion-color-secondary-shade);
-  color: var(--ion-color-tertiary-tint);
+  // --background: var(--ion-color-dark-tint);
+  --background: linear-gradient(rgba(0, 0, 0, 0.466), rgba(0, 0, 0, 0.527)),
+    repeating-conic-gradient(
+      from 3deg at 50% 50%,
+      var(--ion-color-primary-shade),
+      var(--ion-color-primary-tint) 2deg 5deg,
+      var(--ion-color-primary-shade),
+      var(--ion-color-primary-tint) 15deg 18deg,
+      var(--ion-color-primary-tint) 20deg
+    );
 }
-ion-content {
-  // --background: content-box
-    // conic-gradient(
-    //   var(--ion-color-primary-shade),
-    //   var(--ion-color-medium-shade),
-    //   var(--ion-color-primary),
-    //   var(--ion-color-medium),
-    //   var(--ion-color-primary-tint),
-    //   var(--ion-color-medium-tint)
-    // );
 
-  --background: repeating-conic-gradient(
-      from 3deg at 35% 48%,
-      var(--ion-color-primary-shade), var(--ion-color-primary-tint) 2deg 5deg, var(--ion-color-primary-shade), var(--ion-color-primary-tint) 15deg 18deg, var(--ion-color-primary-tint) 20deg);
-}
+// .testimonials{
+//   border-radius: 15px;
+// }
+

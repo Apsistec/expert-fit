@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { Observable, Subject } from 'rxjs';
+import { Review } from 'src/app/models/reviews.model';
 import { ReviewService } from 'src/app/services/review.service';
 
 
@@ -10,27 +11,25 @@ import { ReviewService } from 'src/app/services/review.service';
   styleUrls: ['./ratings.component.scss']
 })
 export class RatingsComponent implements OnInit, AfterViewInit {
-  private ngUnsubscribe: Subject<any> = new Subject();
   overStar: number | undefined;
-  ratings: Observable<any>;
+  ratings: Observable<Review[]>;
   @ViewChild('review') review: IonSlides;
 
   slideOpts = {
-    speed: 2500,
+    speed: 5000,
     loop: true,
     slidesPerView: 1,
-    spaceBetween: 680
+    spaceBetween: 600
   };
 
   constructor(
     private reviewService: ReviewService,
   ) {}
 
-  ngOnInit() {
-    this.ratings = this.reviewService.getAllReviews();
+  async ngOnInit() {
+    this.ratings = await this.reviewService.getAllReviews();
   } 
    ngAfterViewInit() {
-    this.ratings = this.reviewService.getAllReviews();
   }
 
   hover(value: any) {

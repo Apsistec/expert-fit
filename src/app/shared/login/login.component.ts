@@ -78,7 +78,20 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   dismissModal() {
-    this.modalController.dismiss();
-    this.navController.back();
+    this.modalController.dismiss().then(() => {
+      this.router.navigateByUrl('/home');
+    })
+  } 
+  
+  goToSignup() {
+    this.modalController.dismiss().then(() => {
+      this.router.navigateByUrl('/signup');
+    })
+  }  
+  
+  goToForgot() {
+    this.modalController.dismiss().then(() => {
+      this.router.navigateByUrl('/forgot-password');
+    })
   }
 }

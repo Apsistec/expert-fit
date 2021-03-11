@@ -1,28 +1,51 @@
 <ion-content >
   <ion-grid>
-    <ion-row class="title">
-      <ion-col>
-        <ion-title>
-          Expert Fitness Memberships
-        </ion-title>
-        <ion-text>
-          Select the right gym membership for you.
-        </ion-text>
+    <ion-row class="ion-justify-content-center">
+      <ion-col >
+        <ion-card color="primary" style="width: fit-content; display:block; margin:auto;" class="ion-text-center">
+          <ion-card-header>
+            <ion-card-title class="title" >
+              <ion-text color="secondary">
+                Expert Fitness Memberships
+              </ion-text>
+            </ion-card-title>
+            <ion-card-subtitle class="subtitle" >
+              <ion-text color="success">
+                Select the options that work best for you
+              </ion-text>
+            </ion-card-subtitle>     
+          </ion-card-header>
+        </ion-card>
+        <ion-toolbar color="primary">
+          <!-- <ion-buttons> -->
+            <ion-segment [(ngModel)]="segment" color="secondary" >
+              <ion-segment-button class="segment" mode="md" color="warning" value="default" >
+                <ion-icon name="ribbon-sharp"color="secondary"></ion-icon>
+                <ion-text color="light"> Memberships</ion-text>
+              </ion-segment-button>
+              <ion-segment-button class="segment" mode="md" value="addOns">
+                <ion-icon name="person-sharp" color="secondary"></ion-icon>
+                <ion-text color="light">Add-ons</ion-text>
+              </ion-segment-button>
+            </ion-segment>
+          <!-- </ion-buttons> -->
+      </ion-toolbar>
+        
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <ion-title>
-          Explore our Membership options
-        </ion-title>
-        <ion-text>
-          Plans include monthly subscriptions but you can also purchase individual services as add-ons.
-        </ion-text>
-      </ion-col>
+      <ion-col class="ion-text-center">
+          <ion-title color="primary">
+            Explore our Membership options
+          </ion-title>
+          <ion-text color="danger">
+            Plans include monthly subscriptions but you can also purchase individual services as add-ons.
+          </ion-text>
+        </ion-col>
     </ion-row>
 
     <ion-row class="ion-justify-content-center">
-      <ion-col size-xl="3" size-lg="3" size-md="10" size-sm="12" class="ion-align-items-center"  *ngFor="let product of products | async">
+      <ion-col size-xl="3" size-lg="3" size-md="10" size-sm="12" class="ion-align-items-stretch"  *ngFor="let product of products | async">
         <ion-card color="medium" class="ion-text-center" >
           <ion-card-header>
             <ion-card-title>

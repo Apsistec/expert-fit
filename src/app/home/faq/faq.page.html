@@ -1,34 +1,32 @@
 
 
-<ion-content  >
-
-    <ion-grid style="min-height: 100vh;" class=" ">
-      <ion-row >
-        <ion-col  class="ion-no-padding ion-no-margin">
-          <ion-card class="ion-card-global ion-no-margin ion-text-center" style="width: fit-content;">
+<ion-content>
+    <ion-grid style="min-height: 100vh;" >
+      <ion-row class="ion-justify-content-center">
+        <ion-col size-xs="100%" size-sm="100%" size-md="8" size-lg="6" size-xl="6" class="ion-no-padding ion-no-margin">
+          <ion-card class="ion-card-global ion-no-padding ion-text-center" style="width: 100%">
           <ion-card-header >
             <ion-fab horizontal="end" vertical="top">
-              <ion-icon  (click)="onToggleAutomatic()" class="expand-icon" size="large" color="warning" name="resize-sharp" *ngIf="automaticClose"></ion-icon>
-              <ion-icon  (click)="onToggleAutomatic()" class="expand-all-icon" size="large" color="warning" name="crop-sharp" *ngIf="!automaticClose"></ion-icon>
+              <ion-icon  (click)="onToggleAutomatic()" size="large" color="warning" name="resize-sharp" *ngIf="automaticClose"></ion-icon>
+              <ion-icon  (click)="onToggleAutomatic()" size="large" color="warning" name="crop-sharp" *ngIf="!automaticClose"></ion-icon>
             </ion-fab>
             
             <ion-card-title>FAQs </ion-card-title>
             <ion-card-subtitle> Answers to common questions </ion-card-subtitle>
           </ion-card-header>
-          <ion-card-content class="ion-no-padding">
+          <ion-card-content class="content ion-no-padding">
             <ion-list
             *ngFor="let faq of faqs; let i = index"
             class="accordion-list"
             lines="none"
-            details="none"
             >
-            <ion-item [ngClass]="{'section-active': faq.open, 'section-inactive': !faq.open}"
+            <ion-item button detail="false"  (click)="toggleSection(i)"  [ngClass]="{'section-active': faq.open, 'section-inactive': !faq.open}" class="summary-item"
             >
-            <ion-icon  tappable
-            (click)="toggleSection(i)" class="expand-icons" slot="start" color="primary" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
-            <ion-icon  tappable
-            (click)="toggleSection(i)" class="expand-icons" slot="start" color="danger" size="large" name="remove-sharp"  *ngIf="faq.open"></ion-icon>
-            <ion-text> {{ faq.title }} </ion-text>
+            <ion-icon  
+            slot="start" color="success" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
+            <ion-icon  
+            class="negative-icon" slot="start" size="large" name="remove-sharp"  *ngIf="faq.open"></ion-icon>
+            <ion-text class="summary"> {{ faq.title }} </ion-text>
           </ion-item>
           <p *ngIf="faq.open" class="section-active info-text ion-text-left">{{ faq.info }}</p>
         </ion-list>

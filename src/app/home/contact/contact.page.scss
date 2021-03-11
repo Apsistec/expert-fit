@@ -15,8 +15,14 @@
   color:black;
 }
 
-ion-toolbar{
-  --background: var(--ion-color-dark-tint);
+.toolbar{
+  height: 100px;
   border-bottom: 3px solid var(--ion-color-secondary-shade);
-  color:var(--ion-color-tertiary-tint);
+  --background: linear-gradient(to right, rgba(0, 29, 173, 0.5), rgba(0, 0, 0, 0.596), rgba(0, 29, 173, 0.5)),
+  center/cover no-repeat url(../../../assets/lazy/images/banner.png);
+  ion-text{
+    color:var(--ion-color-tertiary-tint);
+    font-weight: 800;
+    font-size: x-large;
+  }
 }

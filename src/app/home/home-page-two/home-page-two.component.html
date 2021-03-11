@@ -10,27 +10,14 @@
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-around ion-hide-sm-down ion-margin-vertical">
+
     <ion-col size-sm="12" size-md="5" size-lg="4" size-xl="3" class="ion-align-self-center">
-      <app-benefit-tracker [benefit]="benefitChosen"></app-benefit-tracker>
+      <app-benefits-tracker (benefitChosen)="onBenefitChosen($event)"></app-benefits-tracker>
     </ion-col>
+  </ion-row>
+  <ion-row>
     <ion-col size-sm="12" size-md="5" size-lg="4" size-xl="3" class="ion-align-self-center">
-      <ion-note [@slideInRight]="slideInRight" class="ion-hide-sm-down ion-text-capitalize">
-        Select to learn more
-      </ion-note>
-      <ion-item-group class="item-group">
-        <ion-item
-          lines="none"
-          *ngFor="let benefit of benefits"
-          class="benefit-item"
-          button
-          type="button"
-          (mouseenter)="chooseBenefit(benefit)"
-        >
-          <ion-text>
-          {{ benefit.title }}
-          </ion-text>
-        </ion-item>
-      </ion-item-group>
+      <app-benefits-tracker-results [benefit]="benefitChosen"></app-benefits-tracker-results>
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-center ion-margin-vertical ion-hide-sm-up">
@@ -54,8 +41,8 @@
         routerLink="/home/about-us"
         >About Us
       </ion-button>
-      <ion-button class="cta cta-main" strong size="large" routerLink="/products" style="border-radius: 5px">
-        Get Started
+      <ion-button class="cta cta-main" strong size="large" routerLink="/home/pricing" style="border-radius: 5px">
+        View Pricing
       </ion-button>
     </ion-col>
   </ion-row>
