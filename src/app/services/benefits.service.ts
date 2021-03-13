@@ -34,7 +34,7 @@ export class BenefitsService {
 
   getBenefits() {
     return this.afs
-      .collection<Benefit>('benefits')
+      .collection<Benefit>('benefits', (ref) => ref.where('active', '==', 'true'))
       .snapshotChanges()
       .pipe(
         map((actions) =>

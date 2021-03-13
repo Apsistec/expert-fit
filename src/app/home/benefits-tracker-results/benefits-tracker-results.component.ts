@@ -12,7 +12,7 @@ export class BenefitsTrackerResultsComponent implements OnInit {
   @Input() benefit: Benefit;
 
   
-  constructor(public storage: AngularFireStorage) { }
+  constructor() { }
 
   ngOnInit() {}
 

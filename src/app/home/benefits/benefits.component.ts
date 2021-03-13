@@ -23,7 +23,7 @@ export class BenefitsComponent implements OnInit {
     spaceBetween: 400
   };
 
-  constructor(private router: Router, private benefitsService: BenefitsService, public storage: AngularFireStorage) {}
+  constructor(private benefitsService: BenefitsService) {}
 
   async ngOnInit() {
     this.benefits = await this.benefitsService.getBenefits();
