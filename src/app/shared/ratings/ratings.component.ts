@@ -4,7 +4,6 @@ import { Observable, Subject } from 'rxjs';
 import { Review } from 'src/app/models/reviews.model';
 import { ReviewService } from 'src/app/services/review.service';
 
-
 @Component({
   selector: 'app-ratings',
   templateUrl: './ratings.component.html',
@@ -22,15 +21,12 @@ export class RatingsComponent implements OnInit, AfterViewInit {
     spaceBetween: 600
   };
 
-  constructor(
-    private reviewService: ReviewService,
-  ) {}
+  constructor(private reviewService: ReviewService) {}
 
   async ngOnInit() {
     this.ratings = await this.reviewService.getAllReviews();
-  } 
-   ngAfterViewInit() {
   }
+  ngAfterViewInit() {}
 
   hover(value: any) {
     this.overStar = value;

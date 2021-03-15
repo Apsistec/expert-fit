@@ -1,3 +1,13 @@
+<ion-card color="medium" class="ion-text-center ion-card-global ion-no-margin ion-no-padding" style="height: 100%;">
+     <ion-fab horizontal="end" vertical="top">
+       <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
+   </ion-fab>
+   <ion-card-header>
+ 
+     <ion-card-title>Phone Authentication</ion-card-title>
+   </ion-card-header>
+   <ion-card-content class="ion-no-margin ion-no-padding">
+
 <div id="recapta-container" style="display: none;"></div>
 
 <div *ngIf="!otpSent">
@@ -25,3 +35,5 @@
      Verify OTP
 </ion-button>
 </div>
+</ion-card-content>
+</ion-card>

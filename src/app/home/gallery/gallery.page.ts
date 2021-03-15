@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PhotoService } from '../../services/photo.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { PhotoService } from '../../services/photo.service';
   styleUrls: ['./gallery.page.scss'],
 })
 export class GalleryPage implements OnInit {
+
+  imageUploads = [];
 
   constructor(public photoService: PhotoService, ) { }
 

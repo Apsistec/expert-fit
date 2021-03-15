@@ -1,15 +1,31 @@
+<ion-content>
 
-    <ion-row>
-    <ion-col size="6" 
-      *ngFor="let photo of photoService.photos; index as position">
-        <ion-img [src]="[photo.webviewPath]"></ion-img>
-    </ion-col>
-    </ion-row>
   
-
- <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <app-photos-list [imageUploads]="imageUploads"></app-photos-list>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col size="6" 
+      *ngFor="let photo of photoService.photos; index as position">
+      <ion-img [src]="[photo.webviewPath]"></ion-img>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <app-photo-gallery></app-photo-gallery>
+    </ion-col>
+  </ion-row>
+  
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
     <ion-fab-button (click)="addImageToGallery()" tappable>
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
+</ion-grid>
+  <app-footer>
+  </app-footer>
+</ion-content>  

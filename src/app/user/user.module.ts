@@ -9,14 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfileComponent } from './profile/profile.component';
 
-
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, SharedModule, UserPageRoutingModule],
-  declarations: [
-    UserPage,
-    ProfileComponent,
-    CustomerDashboardComponent,
-    SettingsComponent
-  ]
+  declarations: [UserPage, ProfileComponent, CustomerDashboardComponent, SettingsComponent]
 })
 export class UserPageModule {}

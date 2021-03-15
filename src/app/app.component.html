@@ -1,11 +1,11 @@
 <ion-app>
   <app-side-menu></app-side-menu>
   <ion-header transparent>
-    <ion-toolbar color="dark" #toolbar class="top-toolbar-sm">
+    <ion-toolbar #toolbar class="top-toolbar-sm">
       <ion-buttons slot="start">
         <ion-menu-button color="tertiary"> </ion-menu-button>
       </ion-buttons>
-      <img src="../assets/icons/icon-144x144.png" slot="start" class="small-logo" routerLink="/home" />
+      <img src="../assets/icons/icon-512x512.png" slot="start" class="small-logo" routerLink="/home" />
       <ion-item
         class="ion-float-right"
         type="button"
@@ -26,14 +26,13 @@
       </ng-template>
     </ion-toolbar>
 
-    <ion-toolbar class="top-toolbar-lg" color="dark" #toolbar>
-      <ion-img src="..//assets//icons//icon-144x144.png" slot="start" class="small-logo" routerLink="/home"></ion-img>
+    <ion-toolbar class="top-toolbar-lg" #toolbar>
+      <ion-img src="..//assets//icons//icon-512x512.png" slot="start" class="small-logo" routerLink="/home"></ion-img>
 
       <ion-item
-        class="menu-font"
+        class="menu-item"
         button
         details="false"
-        color="dark"
         routerLink="/home"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -41,10 +40,9 @@
         <ion-label>Home</ion-label>
       </ion-item>
       <ion-item
-        class="menu-font"
+        class="menu-item"
         button
         details="false"
-        color="dark"
         routerLink="/home/pricing"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -53,11 +51,10 @@
       </ion-item>
 
       <ion-item
-        class="menu-font"
+        class="menu-item"
         button
         details="false"
         routerLink="/home/faqs"
-        color="dark"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -65,8 +62,7 @@
       </ion-item>
 
       <ion-item
-        color="dark"
-        class="menu-font"
+        class="menu-item"
         button
         details="false"
         routerLink="/home/reviews"
@@ -77,8 +73,7 @@
       </ion-item>
 
       <ion-item
-        color="dark"
-        class="menu-font"
+        class="menu-item"
         button
         details="false"
         routerLink="/home/about-us"
@@ -88,8 +83,7 @@
         <ion-label>About</ion-label>
       </ion-item>
       <ion-item
-        class="menu-font"
-        color="dark"
+        class="menu-item"
         button
         details="false"
         routerLink="/home/contact-us"
@@ -102,7 +96,6 @@
       <ion-item
         class="ion-float-right"
         type="button"
-        color="dark"
         (click)="popoverService.presentPopover($event)"
         lines="false"
         *ngIf="authService.user | async as user; else login"

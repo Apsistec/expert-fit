@@ -10,7 +10,8 @@ const routes: Routes = [
     component: UserPage,
     children: [
       {
-        path: 'dashboard', component: CustomerDashboardComponent
+        path: 'dashboard',
+        component: CustomerDashboardComponent
       },
       {
         path: '',
@@ -19,11 +20,10 @@ const routes: Routes = [
       }
     ]
   }
-
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class UserPageRoutingModule {}

@@ -10,13 +10,13 @@ import { SeoService } from '../../services/seo.service';
 export class TermsComponent implements OnInit {
   constructor(
     private modalController: ModalController,
-    private navCtrl: NavController
+    private navController: NavController
   ) {}
 
   ngOnInit() {}
 
   goBack() {
     this.modalController.dismiss();
-    this.navCtrl.back();
+    this.navController.back();
   }
 }

@@ -14,15 +14,11 @@ import firebase from 'firebase/app';
   providedIn: 'root'
 })
 export class AuthService {
-  // user$: Observable<User>;
-  // role: string[];
+
   user: Observable<User>;
-  // userData;
   currentBehaviorUser = new BehaviorSubject(null);
-  // userType;
   displayName;
   authState$ = this.afAuth.authState;
-  // loggedInState: boolean;
 
   constructor(
     public afs: AngularFirestore,
@@ -41,6 +37,9 @@ export class AuthService {
       })
     );
   }
+
+
+  /* Email User Login */
 
   SignIn(credentials) {
     return this.afAuth
@@ -61,6 +60,7 @@ export class AuthService {
       });
   }
 
+  /* New User Email Signup */
   SignUp(credentials) {
     this.displayName = credentials.displayName;
     this.afAuth
@@ -111,7 +111,7 @@ export class AuthService {
       });
   }
 
-  // Auth providers
+   /* Auth providers */
   AuthLogin(provider) {
     this.afAuth
       .signInWithRedirect(provider)
@@ -129,11 +129,11 @@ export class AuthService {
       })
       .catch((error) => {
         this.modalController.dismiss();
-        this.messageService.authErrorAlert(error);
+        this.messageService.authErrorAlert(error.message);
       });
   }
 
-  // Sign in with 3rd party Oauth
+   /* Sign in with 3rd party Oauth */
   GoogleAuth() {
     return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
   }
@@ -143,7 +143,7 @@ export class AuthService {
   }
   // MicrosoftAuth() {
   //   this.AuthLogin(new fire.default.auth.OAuthProvider()).catch((error) => {
-  //     this.messageService.errorAlert(error);
+  //     this.messageService.errorAlert(error.message);
   //   });
   // }
 
@@ -151,14 +151,14 @@ export class AuthService {
     return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
   }
 
-  // Password Reset
+   /* Password Reset */
   passReset(email) {
     this.afAuth.sendPasswordResetEmail(email).catch((error) => {
-      this.messageService.errorAlert(error);
+      this.messageService.errorAlert(error.message);
     });
   }
 
-  // Sign-out
+   /* Sign-out */
   signOut() {
     return this.afAuth
       .signOut()
@@ -166,16 +166,16 @@ export class AuthService {
         this.messageService.signOutToast();
         this.router.navigate(['/home']);
       })
-      .catch((error) => this.messageService.errorAlert(JSON.stringify(error)));
+      .catch((error) => this.messageService.errorAlert(JSON.stringify(error.message)));
   }
 
-  // Permissions
+  /* Permissions */
 
   canRead(user: User): boolean {
     return this.checkAuthorization(user);
   }
 
-  // determines if user is a member
+   /* determines if user is a member */
   private checkAuthorization(user: User): boolean {
     if (user && user.role.includes('PUBLIC' || 'CUSTOMER' || 'EMPLOYEE' || 'ADMIN')) {
       return true;

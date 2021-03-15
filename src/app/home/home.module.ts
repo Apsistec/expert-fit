@@ -13,8 +13,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RatingsBannerComponent } from './ratings-banner/ratings-banner.component';
 import { BenefitsComponent } from './benefits/benefits.component';
 import { BenefitsTrackerComponent } from './benefits-tracker/benefits-tracker.component';
-import { BenefitsTrackerResultsComponent } from './benefits-tracker-results/benefits-tracker-results.component';
-import { GetDownloadURLPipeModule } from '@angular/fire/storage';
+import { PricingComponent } from './pricing/pricing.component';
+// import { GetDownloadURLPipeModule } from '@angular/fire/storage';
 
 @NgModule({
   imports: [
@@ -22,8 +22,7 @@ import { GetDownloadURLPipeModule } from '@angular/fire/storage';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    SharedModule,
-    GetDownloadURLPipeModule
+    SharedModule
 
   ],
   declarations: [
@@ -34,9 +33,9 @@ import { GetDownloadURLPipeModule } from '@angular/fire/storage';
     HomePageFourComponent,
     IntroVideoComponent,
     LandingPageComponent,
-    BenefitsTrackerResultsComponent,
     BenefitsTrackerComponent,
-    BenefitsComponent
+    BenefitsComponent,
+    PricingComponent
   ]
 })
 export class HomePageModule {}

@@ -29,7 +29,6 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { ErrorInterceptor } from './services/error.interceptor';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 
-
 @NgModule({
   declarations: [AppComponent, SideMenuComponent],
   entryComponents: [],
@@ -57,7 +56,7 @@ import { SQLite } from '@ionic-native/sqlite/ngx';
     ReactiveFormsModule,
     FormsModule,
     SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [
     SQLite,

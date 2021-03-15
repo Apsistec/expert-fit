@@ -54,7 +54,7 @@ export class LandingPageComponent implements OnInit {
     });
     modal.present().catch((error) => {
       this.modalController.dismiss();
-      return this.messageService.errorAlert(error);
+      return this.messageService.errorAlert(error.message);
     });
   }
 

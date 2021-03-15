@@ -16,8 +16,6 @@ import { Location } from '@angular/common';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-
-  
   user: User;
   showBackButton: boolean;
   path;

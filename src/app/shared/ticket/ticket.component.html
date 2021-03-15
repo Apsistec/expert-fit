@@ -1,10 +1,9 @@
-
+<ion-content>
   <ion-card color="light">
-    
-  <ion-fab horizontal="end" vertical="top">
-    <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
-</ion-fab>
     <ion-card-header>
+      <ion-fab horizontal="end" vertical="top">
+        <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
+      </ion-fab>
       <ion-card-title *ngIf="!id">
         <ion-text> New Ticket </ion-text>
       </ion-card-title>
@@ -16,12 +15,7 @@
       <form (ngSubmit)="saveOrUpdate()" [formGroup]="ticketForm">
         <ion-item color="light" *ngIf="id">
           <ion-label position="stacked">User</ion-label>
-          <ion-input
-            type="text"
-            [(ngModel)]="user"
-            [ngModelOptions]="{ standalone: true }"
-            disabled="true"
-          ></ion-input>
+          <ion-input type="text" [(ngModel)]="user" [ngModelOptions]="{ standalone: true }" disabled="true"></ion-input>
         </ion-item>
         <ion-item color="light">
           <ion-label position="stacked">Problem</ion-label>
@@ -66,4 +60,4 @@
       </form>
     </ion-card-content>
   </ion-card>
-<!-- </ion-content> -->
+</ion-content>

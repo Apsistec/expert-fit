@@ -5,8 +5,11 @@
     "noUnusedLocals": true,
     "outDir": "lib",
     "sourceMap": true,
-    "strict": true,
-    "target": "es2017"
+    "strict": false,
+    "target": "es2017",
+    "esModuleInterop": true,
+    "lib": ["es2017"],
+    "types": ["./node_modules/stripe/types/2020-08-27"]
   },
   "compileOnSave": true,
   "include": [

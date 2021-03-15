@@ -5,14 +5,10 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.scss'],
+  styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-
-  constructor(
-    public afAuth: AngularFireAuth
-  ) { }
+  constructor(public afAuth: AngularFireAuth) {}
 
   ngOnInit() {}
-
 }

@@ -20,8 +20,6 @@ export class CustomerDashboardComponent implements OnInit {
 
   ngOnInit() {}
 
-
-
   onSignOut() {
     console.log('Sign-out successful!');
   }
@@ -33,5 +31,4 @@ export class CustomerDashboardComponent implements OnInit {
   createAccount() {
     console.log('create account has beeen requested');
   }
-
 }

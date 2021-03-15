@@ -35,7 +35,6 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     public stripe: StripeService,
     private router: Router,
     private navController: NavController
-
   ) {}
 
   ngOnInit() {}

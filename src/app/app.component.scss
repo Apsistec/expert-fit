@@ -1,4 +1,6 @@
-.menu-font {
+.menu-item {
+  border-radius: 10px;
+  --background: transparent;
   ion-label {
     font-size: larger;
     font-weight: 900;
@@ -8,7 +10,7 @@
   display: inline-flex;
 }
 
-.menu-font :hover {
+.menu-item :hover {
   ion-label {
     color: var(--ion-color-light);
   }
@@ -43,6 +45,16 @@
   }
 }
 
-ion-toolbar{
+ion-toolbar {
   border-bottom: 3px solid var(--ion-color-secondary);
+  --background: linear-gradient(rgba(0, 0, 0, 0.904), rgba(0, 0, 0, 0.904)),
+    url(../assets/icons/icon-512x512.png) center/ 40px 40px no-repeat,
+    repeating-conic-gradient(
+      from 3deg at 50% 50%,
+      var(--ion-color-primary-shade),
+      var(--ion-color-primary-tint) 2deg 5deg,
+      var(--ion-color-dark-tint),
+      var(--ion-color-warning-shade) 15deg 18deg,
+      var(--ion-color-primary-tint) 20deg
+    );
 }

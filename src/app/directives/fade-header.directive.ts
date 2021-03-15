@@ -9,7 +9,7 @@ export class FadeHeaderDirective implements OnInit {
   @Input('appFadeHeader') toolbar: any;
 
   constructor(
-    private domCtrl: DomController
+    private domController: DomController
   ) {}
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class FadeHeaderDirective implements OnInit {
     }
     const hexDist = distance.toString(16);
 
-    this.domCtrl.write(() => {
+    this.domController.write(() => {
       this.toolbar.style.setProperty('--background', `#f4f5f8${hexDist}`);
     });
   }

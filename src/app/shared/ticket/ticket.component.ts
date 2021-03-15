@@ -19,7 +19,7 @@ export class TicketComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private modalController: ModalController,
-    private loadingCtrl: LoadingController,
+    private loadingController: LoadingController,
     private ticket: TicketService,
     private navParam: NavParams,
     public authService: AuthService,
@@ -62,7 +62,7 @@ export class TicketComponent implements OnInit {
     }
 
   async saveOrUpdate() {
-    const loading = await this.loadingCtrl.create({
+    const loading = await this.loadingController.create({
       message: 'Loading...'
     });
     await loading.present();

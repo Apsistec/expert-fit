@@ -27,18 +27,18 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/home',
-    pathMatch: 'full',
+    pathMatch: 'full'
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule),
+    loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule)
   },
   {
     path: 'customer',
     loadChildren: () => import('./customer/customer.module').then((m) => m.CustomerPageModule),
-    ...canActivate( redirectUnauthorizedToLogin ),
-    ...canActivate( verifiedEmail ),
-    ... canActivate( customerOnly || adminOnly || employeeOnly ),
+    ...canActivate(redirectUnauthorizedToLogin),
+    ...canActivate(verifiedEmail),
+    ...canActivate(customerOnly || adminOnly || employeeOnly),
     canActivate: [PaidGuard, RoleGuard]
   },
   {
@@ -54,10 +54,6 @@ const routes: Routes = [
     ...canActivate(redirectUnauthorizedToLogin),
     ...canActivate(adminOnly),
     canActivate: [PaidGuard, RoleGuard]
-  },
-  {
-    path: 'checkout',
-    loadChildren: () => import('./home/checkout/checkout.module').then((m) => m.CheckoutPageModule)
   },
   {
     path: 'gallery',
@@ -77,7 +73,7 @@ const routes: Routes = [
   },
   {
     path: 'database',
-    loadChildren: () => import('./database/database.module').then( m => m.DatabasePageModule)
+    loadChildren: () => import('./database/database.module').then((m) => m.DatabasePageModule)
   },
   {
     path: 'line-chart',
@@ -86,17 +82,17 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserPageModule),
-    ...canActivate(redirectUnauthorizedToLogin)  },
+    ...canActivate(redirectUnauthorizedToLogin)
+  },
   {
     path: '**',
     component: UnknownComponent
-  },
-
+  }
 ];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: QuicklinkStrategy,
+      preloadingStrategy: QuicklinkStrategy
       // scrollPositionRestoration: 'enabled',
       // anchorScrolling: 'enabled'
       // enableTracing: true

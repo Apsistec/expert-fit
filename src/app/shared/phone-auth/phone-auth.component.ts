@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import * as firebase from 'firebase';
 
 @Component({
@@ -13,7 +15,7 @@ export class PhoneAuthComponent implements OnInit {
 
   phoneNumber: string; //set value after OTP is sent
 
-  constructor() {}
+  constructor(private router: Router, private modalController: ModalController) {}
 
   ngOnInit() {
     this.recaptchaVerifier = new firebase.default.auth.RecaptchaVerifier('recaptcha-container', { size: 'invisible' });
@@ -47,4 +49,10 @@ export class PhoneAuthComponent implements OnInit {
         alert(err);
       });
   }
+
+  dismissModal() {
+    this.modalController.dismiss().then(() => {
+      this.router.navigateByUrl('/home');
+    })
+  } 
 }

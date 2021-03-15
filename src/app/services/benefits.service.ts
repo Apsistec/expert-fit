@@ -33,19 +33,17 @@ export class BenefitsService {
   }
 
   getBenefits() {
-    return this.afs
-      .collection<Benefit>('benefits', (ref) => ref.where('active', '==', 'true'))
-      .snapshotChanges()
-      .pipe(
-        map((actions) =>
-          actions.map((a) => {
-            const data: any = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          })
-        ),
-        takeUntil(this.ngUnsubscribe)
-      );
+    const queryRef = this.afs.collection<Benefit>('benefits', (ref) => ref.where('active', '==', true));
+    return queryRef.snapshotChanges().pipe(
+      map((actions) =>
+        actions.map((a) => {
+          const data: any = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      ),
+      takeUntil(this.ngUnsubscribe)
+    );
   }
 
   getBenefit(id) {

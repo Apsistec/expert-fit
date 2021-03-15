@@ -63,7 +63,7 @@ const routes: Routes = [];
     FormsModule,
     ReactiveFormsModule,
     BarRatingModule,
-    SharedDirectivesModule,
+    SharedDirectivesModule
   ],
   exports: [
     FooterComponent,
@@ -86,7 +86,6 @@ const routes: Routes = [];
     ModalViewComponent,
     LocationComponent,
     MapComponent
-
   ]
 })
 export class SharedModule {}

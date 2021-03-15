@@ -22,7 +22,7 @@ export class MessageService {
       position: 'bottom'
     });
     toast.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -36,7 +36,7 @@ export class MessageService {
       duration: 2500
     });
     toast.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -50,7 +50,7 @@ export class MessageService {
       keyboardClose: true
     });
     toast.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -64,7 +64,7 @@ export class MessageService {
       keyboardClose: true
     });
     toast.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -78,7 +78,7 @@ export class MessageService {
       keyboardClose: true
     });
     toast.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -92,7 +92,7 @@ export class MessageService {
       keyboardClose: true
     });
     toast.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -106,7 +106,7 @@ export class MessageService {
       keyboardClose: true
     });
     toast.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -120,7 +120,7 @@ export class MessageService {
       keyboardClose: true
     });
     toast.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -133,7 +133,7 @@ export class MessageService {
       position: 'bottom'
     });
     toast.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -147,7 +147,7 @@ export class MessageService {
       cssClass: 'dangerA'
     });
     alert.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -159,7 +159,7 @@ export class MessageService {
       subHeader: 'Payment Past-due'
     });
     alert.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -171,7 +171,7 @@ export class MessageService {
       cssClass: 'successA'
     });
     alert.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -185,7 +185,7 @@ export class MessageService {
       cssClass: 'dangerA'
     });
     alert.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -198,7 +198,7 @@ export class MessageService {
       cssClass: 'successA'
     });
     alert.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -210,7 +210,7 @@ export class MessageService {
       cssClass: 'warningA'
     });
     alert.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -225,7 +225,7 @@ export class MessageService {
       buttons: ['OK']
     });
     return toast.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -238,7 +238,7 @@ export class MessageService {
       buttons: ['OK']
     });
     alert.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -251,7 +251,7 @@ export class MessageService {
       backdropDismiss: false
     });
     alert.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -265,7 +265,7 @@ export class MessageService {
       cssClass: 'warningA'
     });
     alert.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -279,7 +279,7 @@ export class MessageService {
       cssClass: 'warningA'
     });
     alert.present().catch((error) => {
-      return this.errorAlert(error);
+      return this.errorAlert(error.message);
     });
   }
 
@@ -309,7 +309,7 @@ export class MessageService {
       })
       alert.present()
       .catch((error) => {
-        return this.errorAlert(error);
+        return this.errorAlert(error.message);
       });
   }
 
@@ -338,7 +338,7 @@ export class MessageService {
     })
     alert.present()
       .catch((error) => {
-        return this.errorAlert(error);
+        return this.errorAlert(error.message);
       });
   }
 
@@ -368,7 +368,7 @@ export class MessageService {
     })
     alert.present()
     .catch((error) => {
-        return this.errorAlert(error);
+        return this.errorAlert(error.message);
       });
   }
 
@@ -398,7 +398,7 @@ export class MessageService {
     })
     alert.present()
           .catch((error) => {
-        return this.errorAlert(error);
+        return this.errorAlert(error.message);
       });
   }
 

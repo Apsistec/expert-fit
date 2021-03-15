@@ -1,56 +1,59 @@
 <ion-content>
-
   <div *ngIf="authService.user | async as user"></div>
   <ion-card
-  *ngIf="user.emailVerified"
-  class="ion-padding ion-text-center"
-  class="ion-card-global"
-  style="margin: auto; max-width: 500px"
->
-<ion-card-header>
-    <ion-card-title> Account Verification </ion-card-title>
-    <ion-card-subtitle> Verification Successful </ion-card-subtitle>
-  </ion-card-header>
-  <ion-card-content>
-    <p class="ion-text-start">
-      Congratulations! Your email,
-      <strong>{{ user.email }}</strong
-      >, has been verified.
-      <br />
-      Depending on your screen's dimensions, the navigation menus are either at top of this page for tv's, desktops &
-      tablets; yet for movile devices, click
-      <ion-icon name="menu-outline"></ion-icon> in the top left corner of the screen.
-    </p>
-  </ion-card-content>
-</ion-card>
+    *ngIf="user.emailVerified"
+    class="ion-padding ion-text-center"
+    class="ion-card-global"
+    style="margin: auto; max-width: 500px"
+  >
+    <ion-card-header>
+      <ion-card-title> Account Verification </ion-card-title>
+      <ion-card-subtitle> Verification Successful </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="ion-text-start">
+        Congratulations! Your email,
+        <strong>{{ user.email }}</strong
+        >, has been verified.
+        <br />
+        Depending on your screen's dimensions, the navigation menus are either at top of this page for tv's, desktops &
+        tablets; yet for movile devices, click
+        <ion-icon name="menu-outline"></ion-icon> in the top left corner of the screen.
+      </p>
+    </ion-card-content>
+  </ion-card>
 
-<ion-card
-class="ion-padding ion-text-center"
-class="ion-card-global"
-style="margin: auto; max-width: 500px"
-*ngIf="!user.emailVerified"
->
-<ion-card-header>
-  <ion-card-title> Account Verification </ion-card-title>
-</ion-card-header>
-<ion-card-subtitle> Verification Unsuccessful </ion-card-subtitle>
-<ion-card-content>
-  <p class="ion-text-start">
-      Didn't receive an email?
-      <br />
-      If for some reason you keep arriving back at this page, please check your email at
-      <strong> {{ user.email }} </strong>
-      , and click on the link to verfiy your account.
-      <br />
-      If you have not receieved an email, please click the button below to resend the email, then check your email
-      account for instructions. Thank you.
-    </p>
-    <ion-button color="warning" class="ion-text-capitalize" type="button" (click)="authService.sendVerificationMail()">
-      <ion-icon slot="end" color="dark" name="return-down-back-outline"></ion-icon>
-      Resend Verification
-    </ion-button>
-    <ion-button fill="outline" color="light" (click)="goToLogin()"> Login </ion-button>
-  </ion-card-content>
-</ion-card>
-
+  <ion-card
+    class="ion-padding ion-text-center"
+    class="ion-card-global"
+    style="margin: auto; max-width: 500px"
+    *ngIf="!user.emailVerified"
+  >
+    <ion-card-header>
+      <ion-card-title> Account Verification </ion-card-title>
+    </ion-card-header>
+    <ion-card-subtitle> Verification Unsuccessful </ion-card-subtitle>
+    <ion-card-content>
+      <p class="ion-text-start">
+        Didn't receive an email?
+        <br />
+        If for some reason you keep arriving back at this page, please check your email at
+        <strong> {{ user.email }} </strong>
+        , and click on the link to verfiy your account.
+        <br />
+        If you have not receieved an email, please click the button below to resend the email, then check your email
+        account for instructions. Thank you.
+      </p>
+      <ion-button
+        color="warning"
+        class="ion-text-capitalize"
+        type="button"
+        (click)="authService.sendVerificationMail()"
+      >
+        <ion-icon slot="end" color="dark" name="return-down-back-outline"></ion-icon>
+        Resend Verification
+      </ion-button>
+      <ion-button fill="outline" color="light" (click)="goToLogin()"> Login </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

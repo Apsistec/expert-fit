@@ -10,6 +10,7 @@ import { PrivacyComponent } from '../privacy/privacy.component';
 import { TermsComponent } from '../terms/terms.component';
 import { SignupComponent } from '../signup/signup.component';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { PhoneAuthComponent } from '../phone-auth/phone-auth.component';
 
 @Component({
   selector: 'app-root',
@@ -44,6 +45,8 @@ export class ModalViewComponent implements OnInit, OnDestroy {
         this.showModalForgotPassword();
       } else if (this.modalID === 'signup') {
         this.showModalSignup();
+      } else if (this.modalID === 'phone-auth') {
+        this.showModalPhoneAuth();
       }
       {
         return false;
@@ -58,7 +61,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error);
+      return this.messageService.errorAlert(error.message);
     });
   }
 
@@ -72,7 +75,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error);
+      return this.messageService.errorAlert(error.message);
     });
   }
 
@@ -86,7 +89,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error);
+      return this.messageService.errorAlert(error.message);
     });
   }
 
@@ -101,7 +104,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error);
+      return this.messageService.errorAlert(error.message);
     });
   }
 
@@ -116,7 +119,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error);
+      return this.messageService.errorAlert(error.message);
     });
   }
 
@@ -130,7 +133,21 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error);
+      return this.messageService.errorAlert(error.message);
+    });
+  }
+
+  async showModalPhoneAuth() {
+    const modal = await this.modalController.create({
+      component: PhoneAuthComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: false,
+      swipeToClose: false,
+      showBackdrop: true
+    });
+    modal.present().catch((error) => {
+      this.dismissModal();
+      return this.messageService.errorAlert(error.message);
     });
   }
 

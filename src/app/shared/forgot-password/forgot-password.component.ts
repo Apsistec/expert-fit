@@ -44,7 +44,7 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
     await this.loadingService.showLoading();
     await this.authService.passReset(email);
     await this.loadingService.dismissLoading();
-    await this.messageService.resetPasswordAlert().catch((error) => this.messageService.errorAlert(error));
+    await this.messageService.resetPasswordAlert().catch((error) => this.messageService.errorAlert(error.message));
   }
 
   get resetFormControl() {

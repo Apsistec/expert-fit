@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-popover-component',
   templateUrl: './popover.component.html',
-  styleUrls: ['./popover.component.scss'],
+  styleUrls: ['./popover.component.scss']
 })
 export class PopoverComponent {
   page;
@@ -18,8 +18,7 @@ export class PopoverComponent {
     private popoverController: PopoverController,
     public afAuth: AngularFireAuth,
     private router: Router,
-    private authService: AuthService,
-
+    private authService: AuthService
   ) {}
 
   // code for logout

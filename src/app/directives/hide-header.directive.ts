@@ -11,12 +11,12 @@ export class HideHeaderDirective implements OnInit {
 
   constructor(
     private renderer: Renderer2,
-    private domCtrl: DomController,
+    private domController: DomController,
   ) { }
 
   ngOnInit(): void {
     this.toolbar = this.toolbar.el;
-    this.domCtrl.read(() => {
+    this.domController.read(() => {
       this.toolbarHeight = this.toolbar.clientHeight;
     });
   }
@@ -31,7 +31,7 @@ export class HideHeaderDirective implements OnInit {
 
     const newOpacity = 1 - (newPosition / -this.toolbarHeight);
 
-    this.domCtrl.write(() => {
+    this.domController.write(() => {
       this.renderer.setStyle(this.toolbar, 'top', newPosition + 'px');
       this.renderer.setStyle(this.toolbar, 'opacity', newOpacity);
     });

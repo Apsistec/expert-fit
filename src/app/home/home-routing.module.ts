@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CheckoutPage } from './checkout/checkout.page';
 import { HomePage } from './home.page';
-import { IntroVideoComponent } from './intro-video/intro-video.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { PricingComponent } from './pricing/pricing.component';
 
 const routes: Routes = [
   {
@@ -16,7 +15,7 @@ const routes: Routes = [
       },
       {
         path: 'pricing',
-        loadChildren: () => import('./pricing/pricing.module').then((m) => m.PricingPageModule)
+        component: PricingComponent
       },
       {
         path: 'faqs',

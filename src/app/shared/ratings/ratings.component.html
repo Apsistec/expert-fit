@@ -1,17 +1,18 @@
-<ion-slides #review pager="true" (ionSlidesDidLoad)="slidesDidLoad(review)" [options]="slideOpts"  style="display: block; margin: auto; height:100%;">
-  <ion-slide *ngFor="let rating of ratings | async" routerLink="/home/ratings" style="height:fit-content;">
+<ion-slides #review pager="true" (ionSlidesDidLoad)="slidesDidLoad(review)" [options]="slideOpts"  style="display: block; margin: auto; height:fit-content;">
+  <ion-slide *ngFor="let rating of ratings | async" routerLink="/home/ratings" style="height:200px;">
     <ion-grid>
-      <ion-row class="ion-align-items-center"> 
+      <ion-row> 
         <ion-col size="3" class="ion-text-center ion-align-self-center">
           <ion-avatar style="display: block; margin: auto">
             <img style="height: 80px; width: 80px" src="../../../assets/lazy/images/dummy-user.png" />
           </ion-avatar>
           <ion-text color="secondary"> {{ rating.displayName }} </ion-text>
+          <br>
           <ion-text color="warning">
             {{ rating.created_at }}
           </ion-text>
         </ion-col>
-        <ion-col size="9" class="ion-align-self-center ion-text-left">
+        <ion-col size="9" class="ion-align-items-center ion-text-left">
           <bar-rating
             [(rate)]="rating.stars"
             (hover)="hover($event)"
@@ -23,5 +24,5 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-slide>
-</ion-slides>
+      </ion-slide>
+    </ion-slides>

@@ -67,7 +67,7 @@ export class SignupComponent implements OnInit, AfterViewInit {
       return;
     }
     await this.authService.SignUp(credentials);
-    this.loadingService.dismissLoading().catch((error) => this.messageService.errorAlert(error));
+    this.loadingService.dismissLoading().catch((error) => this.messageService.errorAlert(error.message));
   }
 
   toggleHide() {

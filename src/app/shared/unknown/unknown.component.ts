@@ -5,15 +5,14 @@ import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-unknown',
   templateUrl: './unknown.component.html',
-  styleUrls: ['./unknown.component.scss'],
+  styleUrls: ['./unknown.component.scss']
 })
 export class UnknownComponent implements OnInit {
-
-  constructor(private navCtrl: NavController) {}
+  constructor(private navController: NavController) {}
 
   ngOnInit() {}
 
   goBack() {
-    this.navCtrl.navigateRoot('/home');
+    this.navController.navigateRoot('/home');
   }
 }

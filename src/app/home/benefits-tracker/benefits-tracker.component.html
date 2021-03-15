@@ -3,7 +3,7 @@
 
 
 <ion-note color="light" class="ion-hide-sm-down ion-text-capitalize">
-    Select to learn more
+    Select or Hover to learn more
   </ion-note>
   <ion-item-group class="item-group">
     <ion-item
@@ -13,8 +13,7 @@
       details="false"
       type="button"
       #benefit
-      (mouseenter)="onChooseBenefit(benefit)"
-      >
+      (mouseenter)="onChooseBenefit(benefit)">
       <ion-title color="white">
       {{ benefit.title }}
       </ion-title>

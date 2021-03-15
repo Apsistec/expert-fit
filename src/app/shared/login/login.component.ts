@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       this.dismissModal();
       this.loadingService.dismissLoading().catch((error) => {
         this.dismissModal();
-        this.messageService.errorAlert(error);
+        this.messageService.errorAlert(error.message);
       });
     }
   }

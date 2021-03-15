@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, ModalController, NavParams } from '@ionic/angular';
 import { ReviewService } from '../../services/review.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-review',
@@ -17,10 +18,11 @@ export class NewReviewComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private modalController: ModalController,
-    private loadingCtrl: LoadingController,
+    private loadingController: LoadingController,
     private reviewService: ReviewService,
     private navParam: NavParams,
-    public authService: AuthService
+    public authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -31,16 +33,14 @@ export class NewReviewComponent implements OnInit {
 
     this.id = this.navParam.get('id');
     if (this.id) {
-      this.reviewService.getReview(this.id).subscribe(review => {
+      this.reviewService.getReview(this.id).subscribe((review) => {
         this.reviewForm.patchValue({
           desc: review['desc'],
           status: review['status']
         });
 
-        // this.ticketForm.controls['title'].disable();
-        // this.ticketForm.controls['desc'].disable();
 
-        this.reviewService.getReview(review['creator']).subscribe(user => {
+        this.reviewService.getReview(review['creator']).subscribe((user) => {
           this.user = user['email'];
         });
       });
@@ -52,7 +52,7 @@ export class NewReviewComponent implements OnInit {
   }
 
   async saveOrUpdate() {
-    const loading = await this.loadingCtrl.create({
+    const loading = await this.loadingController.create({
       message: 'Loading...'
     });
     await loading.present();
@@ -62,7 +62,7 @@ export class NewReviewComponent implements OnInit {
         loading.dismiss();
         this.close();
       },
-      error => {
+      (error) => {
         loading.dismiss();
       }
     );
@@ -73,4 +73,10 @@ export class NewReviewComponent implements OnInit {
       this.modalController.dismiss();
     });
   }
+
+  dismissModal() {
+    this.modalController.dismiss().then(() => {
+      this.router.navigateByUrl('/home');
+    })
+  } 
 }
