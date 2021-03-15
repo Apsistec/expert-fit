@@ -693,6 +693,8 @@ const createInvoice = async function ({
 
     // Create the individual invoice items for this customer from the items in payload
     const items: Array<Stripe.InvoiceItem> = await Promise.all(itemPromises);
+    //  In order to make error go away I made this:
+    console.log("items", items);
 
     const invoiceCreateParams: Stripe.InvoiceCreateParams = {
       customer: customer.id,
@@ -756,6 +758,7 @@ export const sendInvoice = functions.handler.firestore.document.onCreate(
       }
 
       // Check to see if there's a Stripe customer associated with the email address
+      // eslint-disable-next-line prefer-const
       let customers: Stripe.ApiList<Stripe.Customer> = await stripe.customers.list(
         { email }
       );
