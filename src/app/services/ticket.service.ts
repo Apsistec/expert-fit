@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './auth.service';
@@ -28,11 +29,11 @@ export class TicketService {
 
   createOrUpdateTicket(id = null, info): Promise<any> {
     if (id) {
-      info.updated_at = firebase.firestore.Timestamp
+      info.updated_at = firebase.firestore.Timestamp;
       return this.afs.doc(`tickets/${id}`).update(info);
     } else {
       info.creator = this.authService.currentBehaviorUser.value.id;
-      info.created_at =firebase.firestore.Timestamp
+      info.created_at =firebase.firestore.Timestamp;
       return this.afs.collection('tickets').add(info);
     }
   }
@@ -80,7 +81,7 @@ export class TicketService {
 
   getUser( ) { // uid) {
     // return this.afs.doc(`users/${uid}`).valueChanges().pipe(take(1));
-    this.authService.user.subscribe(user => this.user = user.email)
+    this.authService.user.subscribe(user => this.user = user.email);
     return this.user;
   }
 

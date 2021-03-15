@@ -28,14 +28,14 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
     this.resetForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]]
     });
-    this.error === false;
+    this.error = false;
   }
 
   ngAfterViewInit() {
     if (!this.resetForm.valid && this.resetForm.dirty) {
-      this.error === true;
+      this.error = true;
     }
-    this.error === false;
+    this.error = false;
   }
 
   // Recover password
@@ -54,7 +54,7 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
   dismissModal() {
     this.modalController.dismiss().then(() => {
       this.router.navigateByUrl('/home');
-    })
+    });
   }
 
   goToLogin() {

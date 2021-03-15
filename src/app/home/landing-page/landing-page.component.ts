@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent, ModalController } from '@ionic/angular';
@@ -38,9 +39,9 @@ export class LandingPageComponent implements OnInit {
   @ViewChild(IonContent, { static: false }) content: IonContent;
 
   constructor(private modalController: ModalController, private messageService: MessageService, public scrollService: ScrollService) {}
-  
+
   ngOnInit() {}
-  
+
   async loadVideo() {
     const modal = await this.modalController.create({
       component: IntroVideoComponent,
@@ -49,9 +50,7 @@ export class LandingPageComponent implements OnInit {
       swipeToClose: true,
       showBackdrop: true
     });
-    modal.onWillDismiss().then(() => {
-      return this.messageService.generalToast('Thank you for watching the video');
-    });
+    modal.onWillDismiss().then(() => this.messageService.generalToast('Thank you for watching the video'));
     modal.present().catch((error) => {
       this.modalController.dismiss();
       return this.messageService.errorAlert(error.message);

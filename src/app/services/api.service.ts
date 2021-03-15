@@ -9,17 +9,19 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class ApiService {
 
+  // Http Options
+  httpOptions = {
+    headers: new HttpHeaders({
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      'Content-Type': 'application/json'
+    })
+  };
   // API path
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   base_path = 'http://localhost:3000/students';
 
   constructor(private http: HttpClient) { }
 
-  // Http Options
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
 
   // Handle API errors
   handleError(error: HttpErrorResponse) {
@@ -46,7 +48,7 @@ export class ApiService {
       .pipe(
         retry(2),
         catchError(this.handleError)
-      )
+      );
   }
 
   // Get single student data by ID
@@ -56,7 +58,7 @@ export class ApiService {
       .pipe(
         retry(2),
         catchError(this.handleError)
-      )
+      );
   }
 
   // Get students data
@@ -66,7 +68,7 @@ export class ApiService {
       .pipe(
         retry(2),
         catchError(this.handleError)
-      )
+      );
   }
 
   // Update item by id
@@ -76,7 +78,7 @@ export class ApiService {
       .pipe(
         retry(2),
         catchError(this.handleError)
-      )
+      );
   }
 
   // Delete item by id
@@ -86,7 +88,7 @@ export class ApiService {
       .pipe(
         retry(2),
         catchError(this.handleError)
-      )
+      );
   }
 
 }

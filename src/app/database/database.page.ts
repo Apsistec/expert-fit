@@ -10,10 +10,10 @@ import { Platform } from '@ionic/angular';
 export class DatabasePage implements OnInit {
 
   databaseObj: SQLiteObject;
-  name_model: string = "";
+  name_model = '';
   row_data: any = [];
-  readonly database_name: string = "expertfit.db";
-  readonly table_name: string = "myexpertfittable";
+  readonly database_name: string = 'expertfit.db';
+  readonly table_name: string = 'myexpertfittable';
 
   // Handle Update Row Operation
   updateActive: boolean;
@@ -27,9 +27,9 @@ export class DatabasePage implements OnInit {
       this.createDB();
     }).catch(error => {
       console.log(error);
-    })
+    });
   }
-  
+
   ngOnInit(){}
 
   // Create DB if not there
@@ -43,7 +43,7 @@ export class DatabasePage implements OnInit {
         alert('expertfit_datatable Database Created!');
       })
       .catch(e => {
-        alert("error " + JSON.stringify(e))
+        alert('error ' + JSON.stringify(e));
       });
   }
 
@@ -56,7 +56,7 @@ export class DatabasePage implements OnInit {
         alert('Table Created!');
       })
       .catch(e => {
-        alert("error " + JSON.stringify(e))
+        alert('error ' + JSON.stringify(e));
       });
   }
 
@@ -64,7 +64,7 @@ export class DatabasePage implements OnInit {
   insertRow() {
     // Value should not be empty
     if (!this.name_model.length) {
-      alert("Enter Name");
+      alert('Enter Name');
       return;
     }
 
@@ -76,7 +76,7 @@ export class DatabasePage implements OnInit {
         this.getRows();
       })
       .catch(e => {
-        alert("error " + JSON.stringify(e))
+        alert('error ' + JSON.stringify(e));
       });
   }
 
@@ -89,28 +89,28 @@ export class DatabasePage implements OnInit {
       .then((res) => {
         this.row_data = [];
         if (res.rows.length > 0) {
-          for (var i = 0; i < res.rows.length; i++) {
+          for (let i = 0; i < res.rows.length; i++) {
             this.row_data.push(res.rows.item(i));
           }
         }
       })
       .catch(e => {
-        alert("error " + JSON.stringify(e))
+        alert('error ' + JSON.stringify(e));
       });
   }
 
-  // Delete single row 
+  // Delete single row
   deleteRow(item) {
     this.databaseObj.executeSql(`
       DELETE FROM ${this.table_name} WHERE pid = ${item.pid}
     `
       , [])
       .then((res) => {
-        alert("Row Deleted!");
+        alert('Row Deleted!');
         this.getRows();
       })
       .catch(e => {
-        alert("error " + JSON.stringify(e))
+        alert('error ' + JSON.stringify(e));
       });
   }
 
@@ -134,7 +134,7 @@ export class DatabasePage implements OnInit {
         this.getRows();
       })
       .catch(e => {
-        alert("error " + JSON.stringify(e))
+        alert('error ' + JSON.stringify(e));
       });
   }
 

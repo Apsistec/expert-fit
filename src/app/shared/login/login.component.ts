@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     private router: Router,
     private navController: NavController
   ) {}
-  
+
   ngOnInit() {
     this.hide = true;
     this.createForm();
@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     if (!this.loginForm.valid && this.loginForm.dirty) {
-      this.error === true;
+      this.error = true;
     }
-    this.error === false;
+    this.error = false;
   }
 
   createForm() {
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       ]
     });
   }
-  
+
   get loginFormControl() {
     return this.loginForm.controls;
   }
@@ -80,18 +80,18 @@ export class LoginComponent implements OnInit, AfterViewInit {
   dismissModal() {
     this.modalController.dismiss().then(() => {
       this.router.navigateByUrl('/home');
-    })
-  } 
-  
+    });
+  }
+
   goToSignup() {
     this.modalController.dismiss().then(() => {
       this.router.navigateByUrl('/signup');
-    })
-  }  
-  
+    });
+  }
+
   goToForgot() {
     this.modalController.dismiss().then(() => {
       this.router.navigateByUrl('/forgot-password');
-    })
+    });
   }
 }

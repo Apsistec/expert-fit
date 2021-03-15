@@ -77,6 +77,6 @@ export class NewReviewComponent implements OnInit {
   dismissModal() {
     this.modalController.dismiss().then(() => {
       this.router.navigateByUrl('/home');
-    })
-  } 
+    });
+  }
 }

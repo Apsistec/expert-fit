@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -20,10 +21,10 @@ export function objectExists(obj: any): boolean {
  * @param updatedObject - this object must have a unique uid property
  * @returns any[] - a new array with the specific value added or updated. (this is not the original array)
  */
-export function addOrReplaceByProp(array, property, value, updatedObject): any[] {
+export function addOrReplaceByProp(array: any, property: any, value: any, updatedObject: any): any[] {
   const newArray = array.slice();
   let index = -1;
-  newArray.filter((element, position) => {
+  newArray.filter((element: any, position: number) => {
     if (byString(element, property) === value) {
       delete newArray[(index = position)];
     }
@@ -38,15 +39,18 @@ export function addOrReplaceByProp(array, property, value, updatedObject): any[]
   return newArray;
 }
 
-/** Removes a single object from a given array without affecting the original array reference
+/**
+ *  Removes a single object from a given array without affecting the original array reference
  *
- * @param {any[]} array
+ *
+ *
+ * @param array
  * @param property
  * @param propertyValue
- * @returns {any[]} - a new array with the object corresponding to the given uid removed.
- (this is not the original array passed in)
+ * @returns - a new array with the object corresponding to the given uid removed.
+ * (this is not the original array passed in)
  */
-export function removeFromArrayByProp(array: any[], property: string, propertyValue: string): any[] {
+export function removeFromArrayByProp(array: any[], property: string, propertyValue: any): any[] {
   const newArray = array.slice();
   newArray.filter((element, position) => {
     if (byString(element, property) === propertyValue) {
@@ -58,12 +62,17 @@ export function removeFromArrayByProp(array: any[], property: string, propertyVa
 }
 
 /**
+ *
+ *
  * https://stackoverflow.com/questions/6491463/accessing-nested-javascript-objects-with-string-key
+ *
+ *
+ *
  * @param o
  * @param s
- * @returns {any}
+ * @returns
  */
-export const byString = (o, s) => {
+export const byString = (o: { [x: string]: any }, s: string) => {
   s = s.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties
   s = s.replace(/^\./, ''); // strip a leading dot
   const a = s.split('.');

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import firebase from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from './auth.service';

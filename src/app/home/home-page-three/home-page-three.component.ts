@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/prefer-for-of */
+/* eslint-disable @typescript-eslint/member-ordering */
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent, IonSlides } from '@ionic/angular';
@@ -22,7 +24,7 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
       isBeginningSlide: true,
       isEndSlide: false,
       slidesItems: Phases
-    }
+    };
     this.phases.slideItems = Phases;
   }
 
@@ -90,8 +92,8 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
                 );
                 $slideEl.append(shadowAfter);
               }
-              if (shadowBefore.length) shadowBefore[0].style.opacity = Math.max(-progress, 0);
-              if (shadowAfter.length) shadowAfter[0].style.opacity = Math.max(progress, 0);
+              if (shadowBefore.length) {shadowBefore[0].style.opacity = Math.max(-progress, 0);}
+              if (shadowAfter.length) {shadowAfter[0].style.opacity = Math.max(progress, 0);}
             }
             $slideEl.transform(`translate3d(${tx}px, ${ty}px, 0px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
           }
@@ -109,8 +111,8 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
             let eventTriggered = false;
             // eslint-disable-next-line
             slides.eq(activeIndex).transitionEnd(function onTransitionEnd() {
-              if (eventTriggered) return;
-              if (!swiper || swiper.destroyed) return;
+              if (eventTriggered) {return;}
+              if (!swiper || swiper.destroyed) {return;}
 
               eventTriggered = true;
               swiper.animating = false;

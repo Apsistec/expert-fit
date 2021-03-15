@@ -24,11 +24,11 @@ import {
 
 echarts.use(
   [
-    TitleComponent, 
-    TooltipComponent, 
-    GridComponent, 
-    BarChart, 
-    LineChart, 
+    TitleComponent,
+    TooltipComponent,
+    GridComponent,
+    BarChart,
+    LineChart,
     CanvasRenderer]
 );
 

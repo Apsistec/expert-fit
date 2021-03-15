@@ -21,7 +21,7 @@ export class StudentListPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    // Used ionViewWillEnter as ngOnInit is not 
+    // Used ionViewWillEnter as ngOnInit is not
     // called due to view persistence in Ionic
     this.getAllStudents();
   }
@@ -31,7 +31,7 @@ export class StudentListPage implements OnInit {
     this.apiService.getList().subscribe(response => {
       console.log(response);
       this.studentsData = response;
-    })
+    });
   }
 
 

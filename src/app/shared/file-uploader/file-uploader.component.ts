@@ -17,7 +17,7 @@ export class FileUploaderComponent {
                 reader.onload = (event1: any) => {
                    this.urls.push(event1.target.result);
                    console.log(this.urls);
-                }
+                };
 
                 reader.readAsDataURL(event.target.files[i]);
         }

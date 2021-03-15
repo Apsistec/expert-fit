@@ -24,7 +24,7 @@ export class PricingComponent implements OnInit, AfterViewInit {
     //       });
     //       return combineLatest(...res);
     //     })
-    let productsRef = this.afs.collection<Product>('products', (ref) => ref.where('active', '==', true));
+    const productsRef = this.afs.collection<Product>('products', (ref) => ref.where('active', '==', true));
     this.products = productsRef.valueChanges();
   }
 

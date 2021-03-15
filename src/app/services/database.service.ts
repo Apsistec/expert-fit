@@ -23,9 +23,7 @@ export class DatabaseService {
       .orderBy('createdOn', 'desc');
   }
 
-  getPost$ = (uid: string): Observable<BlogPost> => {
-    return this.database.doc<BlogPost>(`posts/${uid}`).valueChanges();
-  }
+  getPost$ = (uid: string): Observable<BlogPost> => this.database.doc<BlogPost>(`posts/${uid}`).valueChanges();
 
 
   updatePost(post: BlogPost): Promise<void> {

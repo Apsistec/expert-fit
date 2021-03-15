@@ -35,9 +35,9 @@ export class SignupComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     if (!this.registerForm.valid && this.registerForm.dirty) {
-      this.error === true;
+      this.error = true;
     }
-    this.error === false;
+    this.error = false;
   }
 
   createForm() {
@@ -83,7 +83,7 @@ export class SignupComponent implements OnInit, AfterViewInit {
   goToLogin(){
     this.modalController.dismiss().then(() => {
       this.router.navigateByUrl('/login');
-    })
+    });
   }
 
 }

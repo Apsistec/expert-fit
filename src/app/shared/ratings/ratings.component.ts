@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { Observable, Subject } from 'rxjs';
@@ -10,9 +11,8 @@ import { ReviewService } from 'src/app/services/review.service';
   styleUrls: ['./ratings.component.scss']
 })
 export class RatingsComponent implements OnInit, AfterViewInit {
+  constructor(private reviewService: ReviewService) {}
   overStar: number | undefined;
-  ratings: Observable<Review[]>;
-  @ViewChild('review') review: IonSlides;
 
   slideOpts = {
     speed: 5000,
@@ -21,11 +21,12 @@ export class RatingsComponent implements OnInit, AfterViewInit {
     spaceBetween: 600
   };
 
-  constructor(private reviewService: ReviewService) {}
+  ratings: Observable<Review[]>;
 
   async ngOnInit() {
     this.ratings = await this.reviewService.getAllReviews();
   }
+  @ViewChild('review') review: IonSlides;
   ngAfterViewInit() {}
 
   hover(value: any) {

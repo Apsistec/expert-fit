@@ -9,7 +9,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./phone-auth.component.scss']
 })
 export class PhoneAuthComponent implements OnInit {
-  otpSent: boolean = false; //OTP sent status
+  otpSent = false; //OTP sent status
   recaptchaVerifier;
   confirmationResult: firebase.default.auth.ConfirmationResult;
 
@@ -22,7 +22,8 @@ export class PhoneAuthComponent implements OnInit {
   }
 
   sendOTP() {
-    var phNo = (<HTMLInputElement>document.getElementById('phoneNumber')).value;
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const phNo = (<HTMLInputElement>document.getElementById('phoneNumber')).value;
 
     firebase.default
       .auth()
@@ -38,7 +39,8 @@ export class PhoneAuthComponent implements OnInit {
   }
 
   verifyOTP() {
-    var otp = (<HTMLInputElement>document.getElementById('otp')).value;
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const otp = (<HTMLInputElement>document.getElementById('otp')).value;
 
     this.confirmationResult
       .confirm(otp)
@@ -53,6 +55,6 @@ export class PhoneAuthComponent implements OnInit {
   dismissModal() {
     this.modalController.dismiss().then(() => {
       this.router.navigateByUrl('/home');
-    })
-  } 
+    });
+  }
 }

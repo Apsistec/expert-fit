@@ -1,7 +1,7 @@
 import { Injectable, NgModule, OnChanges } from '@angular/core';
 import { NetworkStatus, PluginListenerHandle, Plugins } from '@capacitor/core';
 
-const { Network } = Plugins;
+const { NETWORK } = Plugins;
 
 
 @Injectable({
@@ -12,7 +12,7 @@ const { Network } = Plugins;
   networkListener: PluginListenerHandle;
 
   constructor() {
-    this.networkListener = Network.addListener('networkStatusChange', (status) => {
+    this.networkListener = NETWORK.addListener('networkStatusChange', (status) => {
       this.networkStatus = status;
       console.log('Network status changed', status);
     });
@@ -20,7 +20,7 @@ const { Network } = Plugins;
   }
 
   async getNetWorkStatus() {
-    this.networkStatus = await Network.getStatus();
+    this.networkStatus = await NETWORK.getStatus();
     console.log(this.networkStatus);
   }
 

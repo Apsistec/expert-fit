@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { EventEmitter, OnInit, Output } from '@angular/core';
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -12,7 +13,7 @@ import { Benefit } from '../../models/benefits.model';
   styleUrls: ['./benefits-tracker.component.scss']
 })
 export class BenefitsTrackerComponent implements OnInit {
-  
+
   benefits: Observable<any[]>;
   private ngUnsubscribe: Subject<any> = new Subject();
   @Output() sendBenefit = new EventEmitter<Benefit>();

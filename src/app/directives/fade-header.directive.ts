@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Directive, OnInit, Input, HostListener } from '@angular/core';
 import { DomController } from '@ionic/angular';
 

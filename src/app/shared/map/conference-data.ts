@@ -139,29 +139,23 @@ export class ConferenceData {
 
   getEmployees() {
     return this.load().pipe(
-      map((data: any) => {
-        return data.employees.sort((a: any, b: any) => {
+      map((data: any) => data.employees.sort((a: any, b: any) => {
           const aName = a.name.split(' ').pop();
           const bName = b.name.split(' ').pop();
           return aName.localeCompare(bName);
-        });
-      })
+        }))
     );
   }
 
   getTracks() {
     return this.load().pipe(
-      map((data: any) => {
-        return data.tracks.sort();
-      })
+      map((data: any) => data.tracks.sort())
     );
   }
 
   getMap() {
     return this.load().pipe(
-      map((data: any) => {
-        return data.map;
-      })
+      map((data: any) => data.map)
     );
   }
 }

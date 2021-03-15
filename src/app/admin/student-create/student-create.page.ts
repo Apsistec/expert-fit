@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class StudentCreatePage implements OnInit {
 
-  data: Student
+  data: Student;
 
   constructor(
     public apiService: ApiService,

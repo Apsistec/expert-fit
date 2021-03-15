@@ -1,3 +1,4 @@
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -24,7 +25,7 @@ export class LineChartComponent implements OnInit {
         trigger: 'item',
         showDelay: 0,
         transitionDuration: 0.2,
-        formatter: function (params) {
+        formatter(params) {
           return `<b>${params['name']}</b> : $ ${params['value']}`;
         }
       },

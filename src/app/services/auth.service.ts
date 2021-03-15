@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
@@ -184,6 +185,7 @@ export class AuthService {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   hasPermissions(permissions: string[]): Observable<boolean> {
     for (const perm of permissions) {
       return this.user.pipe(

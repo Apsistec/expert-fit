@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BlogPost } from '../../models/blog-post.model';

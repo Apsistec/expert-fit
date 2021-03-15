@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { Injectable } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
 
@@ -21,9 +22,7 @@ export class MessageService {
       cssClass: 'infoT',
       position: 'bottom'
     });
-    toast.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    toast.present().catch((err) => this.errorAlert(err.message));
   }
 
   async loggedInToast(displayName) {
@@ -35,9 +34,7 @@ export class MessageService {
       keyboardClose: true,
       duration: 2500
     });
-    toast.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    toast.present().catch((err) => this.errorAlert(err.message));
   }
 
   async signOutToast() {
@@ -49,9 +46,7 @@ export class MessageService {
       duration: 2500,
       keyboardClose: true
     });
-    toast.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    toast.present().catch((err) => this.errorAlert(err.message));
   }
 
   async deleteTicketToast() {
@@ -63,9 +58,7 @@ export class MessageService {
       duration: 2500,
       keyboardClose: true
     });
-    toast.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    toast.present().catch((err) => this.errorAlert(err.message));
   }
 
   async updateNameToast() {
@@ -77,9 +70,7 @@ export class MessageService {
       cssClass: 'successT',
       keyboardClose: true
     });
-    toast.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    toast.present().catch((err) => this.errorAlert(err.message));
   }
 
   async subscribedToast() {
@@ -91,9 +82,7 @@ export class MessageService {
       duration: 3000,
       keyboardClose: true
     });
-    toast.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    toast.present().catch((err) => this.errorAlert(err.message));
   }
 
   async alreadySubscribedToast() {
@@ -105,9 +94,7 @@ export class MessageService {
       duration: 3000,
       keyboardClose: true
     });
-    toast.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    toast.present().catch((err) => this.errorAlert(err.message));
   }
 
   async generalToast(message) {
@@ -119,9 +106,7 @@ export class MessageService {
       duration: 2500,
       keyboardClose: true
     });
-    toast.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    toast.present().catch((err) => this.errorAlert(err.message));
   }
 
   async welcomeBackToast(data) {
@@ -132,9 +117,7 @@ export class MessageService {
       cssClass: 'successT',
       position: 'bottom'
     });
-    toast.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    toast.present().catch((err) => this.errorAlert(err.message));
   }
 
   //  Alerts
@@ -146,9 +129,7 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'dangerA'
     });
-    alert.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    alert.present().catch((err) => this.errorAlert(err.message));
   }
 
   async pastDueAlert() {
@@ -158,9 +139,7 @@ export class MessageService {
       cssClass: 'dangerA',
       subHeader: 'Payment Past-due'
     });
-    alert.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    alert.present().catch((err) => this.errorAlert(err.message));
   }
 
   async cancelledAlert() {
@@ -170,9 +149,7 @@ export class MessageService {
         'Your account has successfully been cancelled, and service will end on the last day of your billing period(usually the last day of the month). Your card will not be charged again. In order to utilize the services, you will need to register a new account.',
       cssClass: 'successA'
     });
-    alert.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    alert.present().catch((err) => this.errorAlert(err.message));
   }
 
   async needPaymentAlert() {
@@ -184,9 +161,7 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'dangerA'
     });
-    alert.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    alert.present().catch((err) => this.errorAlert(err.message));
   }
 
   async resetPasswordAlert() {
@@ -197,9 +172,7 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'successA'
     });
-    alert.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    alert.present().catch((err) => this.errorAlert(err.message));
   }
 
   async repurchaseAlert() {
@@ -209,9 +182,7 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'warningA'
     });
-    alert.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    alert.present().catch((err) => this.errorAlert(err.message));
   }
 
   async registerSuccessAlert(displayName) {
@@ -224,9 +195,7 @@ export class MessageService {
       keyboardClose: true,
       buttons: ['OK']
     });
-    return toast.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    return toast.present().catch((err) => this.errorAlert(err.message));
   }
 
   async internalBlockPageAlert() {
@@ -237,9 +206,7 @@ export class MessageService {
       cssClass: 'warningA',
       buttons: ['OK']
     });
-    alert.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    alert.present().catch((err) => this.errorAlert(err.message));
   }
 
   async globalErrorAlert(error, router, page?) {
@@ -250,9 +217,7 @@ export class MessageService {
       cssClass: 'warningA',
       backdropDismiss: false
     });
-    alert.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    alert.present().catch((err) => this.errorAlert(err.message));
   }
 
   async errorAlert(error: any) {
@@ -264,9 +229,7 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'warningA'
     });
-    alert.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    alert.present().catch((err) => this.errorAlert(err.message));
   }
 
   async authErrorAlert(error) {
@@ -278,9 +241,7 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'warningA'
     });
-    alert.present().catch((error) => {
-      return this.errorAlert(error.message);
-    });
+    alert.present().catch((err) => this.errorAlert(err.message));
   }
 
   async onPushRequest() {
@@ -306,11 +267,9 @@ export class MessageService {
     .then((data): boolean => {
         this.pushReqRes = !!data;
         return this.pushReqRes;
-      })
-      alert.present()
-      .catch((error) => {
-        return this.errorAlert(error.message);
       });
+      alert.present()
+      .catch((err) => this.errorAlert(err.message));
   }
 
   async resetWelcomeAlert(header: string, message: string) {
@@ -335,11 +294,9 @@ export class MessageService {
     .then((data) => {
       this.choice = data;
       return this.choice;
-    })
+    });
     alert.present()
-      .catch((error) => {
-        return this.errorAlert(error.message);
-      });
+      .catch((err) => this.errorAlert(err.message));
   }
 
   async deleteFeedAlert(feedId) {
@@ -365,11 +322,9 @@ export class MessageService {
     .then((data) => {
       this.choice = data;
       return this.choice;
-    })
+    });
     alert.present()
-    .catch((error) => {
-        return this.errorAlert(error.message);
-      });
+    .catch((err) => this.errorAlert(err.message));
   }
 
   async updateOrCancel() {
@@ -395,11 +350,9 @@ export class MessageService {
     .then((data) => {
       this.choice = data;
       return this.choice;
-    })
+    });
     alert.present()
-          .catch((error) => {
-        return this.errorAlert(error.message);
-      });
+          .catch((err) => this.errorAlert(err.message));
   }
 
   // prompt alerts for quick tasks
@@ -414,7 +367,7 @@ export class MessageService {
         {
           name: 'Place',
           placeholder: 'fit@expertfitness.com',
-          
+
         },
       ],
       buttons: [
@@ -571,5 +524,5 @@ export class MessageService {
       res.present();
     });
   }
-  
+
 }

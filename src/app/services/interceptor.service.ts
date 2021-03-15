@@ -27,6 +27,7 @@ export class InterceptorService implements HttpInterceptor {
     if (token) {
       request = request.clone({
         setHeaders: {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
           Authorization: token
         }
       });
@@ -58,5 +59,5 @@ export class InterceptorService implements HttpInterceptor {
     );
   }
 
-  
+
 }

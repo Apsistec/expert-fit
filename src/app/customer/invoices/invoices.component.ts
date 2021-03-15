@@ -19,7 +19,7 @@ export class InvoicesComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.router.setUpLocationChangeListener()
+    this.router.setUpLocationChangeListener();
   }
 
 

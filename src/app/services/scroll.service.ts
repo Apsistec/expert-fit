@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Injectable, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
 

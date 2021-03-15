@@ -143,7 +143,7 @@ export class EventService {
                 start: addHours(addDays(startOfHour(setHours(new Date(), 6)), 2), 1),
                 end: addHours(addDays(startOfHour(setHours(new Date(), 6)), 2), 2),
                 title: 'Event 52',
-                content: 'EARLY EVENT WITH LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG DESCRIPTION',
+                content: 'EARLY EVENT WITH  LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG LONG DESCRIPTION',
                 color: { primary: '#E0E0E0', secondary: '#EEEEEE' },
                 actions,
                 status: 'ok' as CalendarSchedulerEventStatus,

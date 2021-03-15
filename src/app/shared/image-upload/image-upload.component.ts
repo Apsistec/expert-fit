@@ -19,10 +19,10 @@ export interface ImageData {
 })
 
 export class ImageUploadComponent {
-  
+
   selectedFile: any;
 
-  // Upload Task 
+  // Upload Task
   task: AngularFireUploadTask;
 
   // Progress in percentage
@@ -37,13 +37,13 @@ export class ImageUploadComponent {
   //Uploaded Image List
   images: Observable<ImageData[]>;
 
-  //File details  
-  fileName:string;
-  fileSize:number;
+  //File details
+  fileName: string;
+  fileSize: number;
 
-  //Status check 
-  isUploading:boolean;
-  isUploaded:boolean;
+  //Status check
+  isUploading: boolean;
+  isUploaded: boolean;
 
   private imageCollection: AngularFirestoreCollection<ImageData>;
   constructor(private storage: AngularFireStorage, private database: AngularFirestore) {
@@ -54,20 +54,20 @@ export class ImageUploadComponent {
     this.images = this.imageCollection.valueChanges();
   }
 
-  chooseFile (event) {
+  chooseFile(event) {
     this.selectedFile = event.target.files;
     this.uploadFile(this.selectedFile);
   }
 
   uploadFile(files: FileList) {
-    
+
 
     // The File object
-    const file = files.item(0)
+    const file = files.item(0);
 
     // Validation for Images Only
-    if (file.type.split('/')[0] !== 'image') { 
-     console.error('unsupported file type :( ')
+    if (file.type.split('/')[0] !== 'image') {
+     console.error('unsupported file type :( ');
      return;
     }
 
@@ -92,11 +92,11 @@ export class ImageUploadComponent {
     // Get file progress percentage
     this.percentage = this.task.percentageChanges();
     this.snapshot = this.task.snapshotChanges().pipe(
-      
+
       finalize(() => {
         // Get uploaded file storage path
         this.UploadedFileURL = fileRef.getDownloadURL();
-        
+
         this.UploadedFileURL.subscribe(resp=>{
           this.addImagetoDB({
             name: file.name,
@@ -107,12 +107,12 @@ export class ImageUploadComponent {
           this.isUploaded = true;
         },error=>{
           console.error(error);
-        })
+        });
       }),
       tap(snap => {
           this.fileSize = snap.totalBytes;
       })
-    )
+    );
   }
 
   addImagetoDB(image: ImageData) {
@@ -123,7 +123,7 @@ export class ImageUploadComponent {
     this.imageCollection.doc(id).set(image).then(resp => {
       console.log(resp);
     }).catch(error => {
-      console.log("error " + error);
+      console.log('error ' + error);
     });
   }
 

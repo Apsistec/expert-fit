@@ -45,8 +45,8 @@ export class HomePageTwoComponent implements OnInit {
   }
   receiveBenefit(event){
     this.benefit = event;
-    console.log("event: ", event);
-    console.log("benefit-page-two: ", this.benefit);
+    console.log('event: ', event);
+    console.log('benefit-page-two: ', this.benefit);
 }
 
 }

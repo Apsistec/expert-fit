@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { CalendarDateFormatter, CalendarView, DateAdapter } from 'angular-calendar';
 import {
