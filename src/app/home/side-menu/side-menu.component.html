@@ -82,7 +82,7 @@
 
 
         <!-- SignedIn Menu Items -->
-        <div *ngIf="authService.user | async as user">
+        <ng-container *ngIf="authService.user | async as user">
           <ion-item
             color="medium"
             button
@@ -157,7 +157,7 @@
             <ion-icon color="primary" size="small" slot="start" name="log-out-sharp"></ion-icon>
             <ion-label class="side-menu-item">Logout</ion-label>
           </ion-item>
-        </div>
+        </ng-container>
        
       </ion-list>
     </ion-menu-toggle>

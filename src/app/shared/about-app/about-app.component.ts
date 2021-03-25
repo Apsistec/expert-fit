@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController, NavController } from '@ionic/angular';
-import { MessageService } from 'src/app/services/message.service';
-import { MapComponent } from '../map/map.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-about-app',
@@ -10,13 +8,13 @@ import { MapComponent } from '../map/map.component';
   styleUrls: ['./about-app.component.scss']
 })
 export class AboutAppComponent implements OnInit {
-  constructor(private modalController: ModalController, private navController: NavController) {}
+  constructor(private modalController: ModalController, private router: Router) {}
 
   ngOnInit() {}
 
   dismissModal() {
     this.modalController.dismiss().then(() => {
-      this.navController.back();
+      this.router.navigateByUrl('/home');
     });
   }
 }

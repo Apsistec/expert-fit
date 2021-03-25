@@ -10,11 +10,9 @@
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-around ion-hide-sm-down">
-    <ion-col size-md="5" size-lg="4" size-xl="3" class="ion-align-self-start">
-      <ion-card class="ion-text-center ion-padding shadow benefit-tracker-card" *ngIf="!benefit">
-        <!-- <div style=""> -->
-          <img src="../../../assets/icons/icon-512x512.png" style="display: block; margin: auto; height: 50%; width: 50%" />
-        <!-- </div> -->
+    <ion-col size-md="5" size-lg="4" size-xl="3" class="ion-align-self-center">
+      <ion-card class="ion-text-center shadow first-benefit-card" *ngIf="!benefit">
+          <img src="../../../assets/lazy/images/female-lifting.jpg" style="height: 250px; width: 100%"/>
       </ion-card>
       <ion-card class="ion-text-center shadow benefit-tracker-card" *ngIf="benefit">
         <img [src]="benefit.imageURL" style="height: 250px; width: 100%" />
@@ -30,7 +28,7 @@
         </ion-card-content>
       </ion-card>
     </ion-col>
-    <ion-col size-md="5" size-lg="4" size-xl="3" class="ion-align-self-start">
+    <ion-col size-md="5" size-lg="4" size-xl="3" class="ion-align-self-center">
       <app-benefits-tracker (sendBenefit)="receiveBenefit($event)"></app-benefits-tracker>
     </ion-col>
   </ion-row>

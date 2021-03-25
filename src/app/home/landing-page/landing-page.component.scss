@@ -1,14 +1,17 @@
 .scene-one {
   height: 95vh;
   width: 100vw;
+  // background-color: var(--ion-color-medium);
+  // background: linear-gradient(
+  //     to right,
+  //     rgba(25, 25, 56, 0.603) 0%,
+  //     rgba(16, 10, 37, 0.534) 50%,
+  //     rgba(24, 10, 1, 0.726) 100%
+  //   ),
+  background: linear-gradient(to bottom right, rgba(70, 69, 69, 0.76), rgba(131, 130, 130, 0.938), rgba(85, 84, 84, 0.767)),
+  center/ cover no-repeat url(../../../assets/lazy/images/fitness-balancing.jpg),
+  linear-gradient(to bottom left, rgba(70, 69, 69, 0.76), rgba(131, 130, 130, 0.938), rgba(85, 84, 84, 0.767));
   background-color: var(--ion-color-medium);
-  background: linear-gradient(
-      to right,
-      rgba(25, 25, 56, 0.603) 0%,
-      rgba(16, 10, 37, 0.534) 50%,
-      rgba(24, 10, 1, 0.726) 100%
-    ),
-    center/ cover no-repeat url(../../../assets/lazy/images/fitness-balancing.jpg);
 }
 
 .main-title {
@@ -103,7 +106,7 @@ sup {
 
 .ratings-banner {
   width: 100vw;
-  background: linear-gradient(rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.911)),
+  background: linear-gradient(rgba(58, 58, 58, 0.911), rgba(82, 81, 81, 0.911), rgba(58, 58, 58, 0.911)),
     repeating-conic-gradient(
       from 3deg at 20% 50%,
       var(--ion-color-primary-shade),

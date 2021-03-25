@@ -1,22 +1,15 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>User Posts</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-<ion-content transparent>
-  <div class="view-post" *ngIf="post$ | async as post">
-    <div>
-      <h1>{{ post.header }}</h1>
-    </div>
-    <div>
-      <h3 class="subheader">{{ post.subheader }}</h3>
-    </div>
-    <div>
-      <h5>Written by {{ post.author }}</h5>
-    </div>
-    <div class="container">
-      <div class="iframe-container">
+<ion-content >
+  <ion-card class="ion-card-global" *ngIf="post$ | async as post">
+    <ion-card-header>
+      <ion-card-title>{{ post.header }}</ion-card-title>
+      <ion-card-subtitle>
+        <h3 class="subheader">{{ post.subheader }}</h3>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Written by {{ post.author }}</ion-label>
+      <ng-container class="container">
+        <div class="iframe-container">
         <iframe
           class="responsive-iframe"
           [src]="[post.youtubeUrl]"
@@ -25,10 +18,9 @@
           allowfullscreen
         ></iframe>
       </div>
-    </div>
-    <div class="bodyText" [innerHTML]="post.content"></div>
-    <div>
+    </ng-container>
+    <ion-text class="bodyText" [innerHTML]="post.content"></ion-text>
       <ion-button class="readBtn" routerLink="/home">Home</ion-button>
-    </div>
-  </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

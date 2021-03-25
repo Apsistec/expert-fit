@@ -1,20 +1,11 @@
-import { Injectable } from '@angular/core';
 import {
-    CalendarSchedulerEvent,
-    CalendarSchedulerEventStatus,
-    CalendarSchedulerEventAction
+    CalendarSchedulerEvent, CalendarSchedulerEventAction, CalendarSchedulerEventStatus
 } from 'angular-calendar-scheduler';
 import {
-    addDays,
-    startOfHour,
-    addHours,
-    subHours,
-    setHours,
-    subMinutes,
-    addMinutes,
-    startOfDay,
-    setMinutes
+    addDays, addHours, addMinutes, setHours, setMinutes, startOfHour, subHours, subMinutes
 } from 'date-fns';
+
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class EventService {

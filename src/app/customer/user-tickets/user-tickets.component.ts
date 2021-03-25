@@ -1,6 +1,8 @@
+import { Observable } from 'rxjs';
+
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Observable } from 'rxjs';
+
 import { AuthService } from '../../services/auth.service';
 import { TicketService } from '../../services/ticket.service';
 import { TicketComponent } from '../../shared/ticket/ticket.component';

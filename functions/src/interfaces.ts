@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable camelcase */
 /*
  * Copyright 2020 Stripe, Inc.
  *
@@ -14,7 +16,7 @@
  * limitations under the License.
  */
 
-import Stripe from 'stripe';
+import Stripe from "stripe";
 
 export interface CustomerData {
   metadata: {
@@ -37,11 +39,11 @@ export interface Price {
   /**
    * One of `one_time` or `recurring` depending on whether the price is for a one-time purchase or a recurring (subscription) purchase.
    */
-  type: 'one_time' | 'recurring';
+  type: "one_time" | "recurring";
   /**
    * The frequency at which a subscription is billed. One of `day`, `week`, `month` or `year`.
    */
-  interval: 'day' | 'month' | 'week' | 'year' | null;
+  interval: "day" | "month" | "week" | "year" | null;
   /**
    * The number of intervals (specified in the `interval` attribute) between subscription billings. For example, `interval=month` and `interval_count=3` bills every 3 months.
    */
@@ -122,7 +124,7 @@ export interface Subscription {
   /**
    * The status of the subscription object
    */
-  status: 'active' | 'canceled' | 'incomplete' | 'incomplete_expired' | 'past_due' | 'trialing' | 'unpaid';
+  status: "active" | "canceled" | "incomplete" | "incomplete_expired" | "past_due" | "trialing" | "unpaid";
   /**
    * If true the subscription has been canceled by the user and will be deleted at the end of the billing period.
    */

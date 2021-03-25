@@ -7,12 +7,12 @@
     <ion-card-subtitle>Register A new account</ion-card-subtitle>
   </ion-card-header>
   <ion-card-content class="ion-no-margin ion-no-padding">
-    <form #registerform [formGroup]="registerForm" (ngSubmit)="onRegister(registerform)">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)">
       <ion-card color="medium">
         <ion-item color="light">
           <ion-label [color]="error ? 'danger' : 'dark'" position="floating">Full Name</ion-label>
           <ion-input
-            debounce="1600"
+            debounce="600"
             color="primary"
             type="text"
             inputmode="text"
@@ -25,18 +25,18 @@
           </ion-input>
         </ion-item>
       </ion-card>
-      <div *ngIf="!registerFormControl.displayName.valid && !registerFormControl.displayName.pristine">
+      <ng-container *ngIf="!registerFormControl.displayName.valid && !registerFormControl.displayName.pristine">
         <ion-text *ngIf="registerFormControl.displayName.errors.required" color="danger"> Name required. </ion-text>
         <ion-text *ngIf="registerFormControl.displayName.errors.minlength" color="danger">At least 3 letters</ion-text>
         <ion-text *ngIf="registerFormControl.displayName.errors.maxlength" color="danger">
           Less than 25 letters.
         </ion-text>
-      </div>
+      </ng-container>
       <ion-card>
         <ion-item color="light">
           <ion-label [color]="error ? 'danger' : 'dark'" position="floating">Email</ion-label>
           <ion-input
-            debounce="1600"
+            debounce="600"
             color="primary"
             type="email"
             inputmode="email"
@@ -46,15 +46,15 @@
           </ion-input>
         </ion-item>
       </ion-card>
-      <div *ngIf="!registerFormControl.email.valid && !registerFormControl.email.pristine">
+      <ng-container *ngIf="!registerFormControl.email.valid && !registerFormControl.email.pristine">
         <ion-text *ngIf="registerFormControl.email.errors.required" color="danger"> Email required. </ion-text>
         <ion-text *ngIf="registerFormControl.email.errors.email" color="danger"> Email not valid. </ion-text>
-      </div>
+      </ng-container>
       <ion-card>
         <ion-item color="light">
           <ion-label [color]="error ? 'danger' : 'dark'" position="floating">Password</ion-label>
           <ion-input
-            debounce="1600"
+            debounce="600"
             color="primary"
             [type]="hide ? 'password' : 'text'"
             inputmode="text"
@@ -67,7 +67,7 @@
           </ion-icon>
         </ion-item>
       </ion-card>
-      <div *ngIf="!registerFormControl.password.valid && !registerFormControl.password.pristine">
+      <ng-container *ngIf="!registerFormControl.password.valid && !registerFormControl.password.pristine">
         <ion-text *ngIf="registerFormControl.password.errors.required" color="danger"> Password required. </ion-text>
         <ion-text *ngIf="registerFormControl.password.errors.minlength" color="danger">
           At least 6 characters
@@ -78,12 +78,12 @@
         <ion-text *ngIf="registerFormControl.password.errors.pattern" color="danger">
           At least 1 uppercase, 1 lowercase and 1 number
         </ion-text>
-      </div>
+      </ng-container>
       <ion-card>
         <ion-item color="light">
           <ion-label [color]="error ? 'danger' : 'dark'" position="floating">Verify Password</ion-label>
           <ion-input
-            debounce="1600"
+            debounce="600"
             color="primary"
             [type]="hide ? 'password' : 'text'"
             inputmode="text"
@@ -92,7 +92,7 @@
           </ion-input>
         </ion-item>
       </ion-card>
-      <div *ngIf="!registerFormControl.verify.valid && !registerFormControl.verify.pristine">
+      <ng-container *ngIf="!registerFormControl.verify.valid && !registerFormControl.verify.pristine">
         <ion-text *ngIf="registerFormControl.verify.errors.required" color="danger"> Password required. </ion-text>
         <ion-text *ngIf="registerFormControl.verify.errors.minlength" color="danger">
           At least 6 characters
@@ -103,7 +103,7 @@
         <ion-text *ngIf="registerFormControl.verify.errors.pattern" color="danger">
           At least 1 uppercase, 1 lowercase and 1 number
         </ion-text>
-      </div>
+      </ng-container>
       <ion-button type="submit" color="tertiary" expand="full" [disabled]="!registerForm.valid">
         <ion-icon slot="start" name="person-add-sharp"></ion-icon>
         Register

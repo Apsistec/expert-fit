@@ -22,7 +22,7 @@ export class MessageService {
       cssClass: 'infoT',
       position: 'bottom'
     });
-    toast.present().catch((err) => this.errorAlert(err.message));
+    toast.present();
   }
 
   async loggedInToast(displayName) {
@@ -34,7 +34,7 @@ export class MessageService {
       keyboardClose: true,
       duration: 2500
     });
-    toast.present().catch((err) => this.errorAlert(err.message));
+    toast.present();
   }
 
   async signOutToast() {
@@ -46,7 +46,7 @@ export class MessageService {
       duration: 2500,
       keyboardClose: true
     });
-    toast.present().catch((err) => this.errorAlert(err.message));
+    toast.present();
   }
 
   async deleteTicketToast() {
@@ -58,7 +58,7 @@ export class MessageService {
       duration: 2500,
       keyboardClose: true
     });
-    toast.present().catch((err) => this.errorAlert(err.message));
+    toast.present();
   }
 
   async updateNameToast() {
@@ -70,7 +70,7 @@ export class MessageService {
       cssClass: 'successT',
       keyboardClose: true
     });
-    toast.present().catch((err) => this.errorAlert(err.message));
+    toast.present();
   }
 
   async subscribedToast() {
@@ -82,7 +82,7 @@ export class MessageService {
       duration: 3000,
       keyboardClose: true
     });
-    toast.present().catch((err) => this.errorAlert(err.message));
+    toast.present();
   }
 
   async alreadySubscribedToast() {
@@ -94,7 +94,7 @@ export class MessageService {
       duration: 3000,
       keyboardClose: true
     });
-    toast.present().catch((err) => this.errorAlert(err.message));
+    toast.present();
   }
 
   async generalToast(message) {
@@ -106,7 +106,7 @@ export class MessageService {
       duration: 2500,
       keyboardClose: true
     });
-    toast.present().catch((err) => this.errorAlert(err.message));
+    toast.present();
   }
 
   async welcomeBackToast(data) {
@@ -117,7 +117,7 @@ export class MessageService {
       cssClass: 'successT',
       position: 'bottom'
     });
-    toast.present().catch((err) => this.errorAlert(err.message));
+    toast.present();
   }
 
   //  Alerts
@@ -129,7 +129,7 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'dangerA'
     });
-    alert.present().catch((err) => this.errorAlert(err.message));
+    alert.present();
   }
 
   async pastDueAlert() {
@@ -139,7 +139,7 @@ export class MessageService {
       cssClass: 'dangerA',
       subHeader: 'Payment Past-due'
     });
-    alert.present().catch((err) => this.errorAlert(err.message));
+    alert.present();
   }
 
   async cancelledAlert() {
@@ -149,7 +149,7 @@ export class MessageService {
         'Your account has successfully been cancelled, and service will end on the last day of your billing period(usually the last day of the month). Your card will not be charged again. In order to utilize the services, you will need to register a new account.',
       cssClass: 'successA'
     });
-    alert.present().catch((err) => this.errorAlert(err.message));
+    alert.present();
   }
 
   async needPaymentAlert() {
@@ -161,7 +161,7 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'dangerA'
     });
-    alert.present().catch((err) => this.errorAlert(err.message));
+    alert.present();
   }
 
   async resetPasswordAlert() {
@@ -172,7 +172,7 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'successA'
     });
-    alert.present().catch((err) => this.errorAlert(err.message));
+    alert.present();
   }
 
   async repurchaseAlert() {
@@ -182,7 +182,7 @@ export class MessageService {
       buttons: ['OK'],
       cssClass: 'warningA'
     });
-    alert.present().catch((err) => this.errorAlert(err.message));
+    alert.present();
   }
 
   async registerSuccessAlert(displayName) {
@@ -195,7 +195,7 @@ export class MessageService {
       keyboardClose: true,
       buttons: ['OK']
     });
-    return toast.present().catch((err) => this.errorAlert(err.message));
+    return toast.present();
   }
 
   async internalBlockPageAlert() {
@@ -206,7 +206,7 @@ export class MessageService {
       cssClass: 'warningA',
       buttons: ['OK']
     });
-    alert.present().catch((err) => this.errorAlert(err.message));
+    alert.present();
   }
 
   async globalErrorAlert(error, router, page?) {
@@ -217,31 +217,31 @@ export class MessageService {
       cssClass: 'warningA',
       backdropDismiss: false
     });
-    alert.present().catch((err) => this.errorAlert(err.message));
+    alert.present();
   }
 
   async errorAlert(error: any) {
     const alert = await this.alertController.create({
-      header: 'Error',
-      subHeader: error.code,
+      header: 'General Error',
+      subHeader: error.code || null,
       backdropDismiss: false,
       message: error.message,
       buttons: ['OK'],
       cssClass: 'warningA'
     });
-    alert.present().catch((err) => this.errorAlert(err.message));
+    alert.present();
   }
 
   async authErrorAlert(error) {
     const alert = await this.alertController.create({
-      header: 'Authentication Error ' + error.number,
-      subHeader: 'Error Code: ' + error.code,
+      header: 'Authentication Error ' + error.number || 'Authentication Error',
+      subHeader: 'Code: ' + error.code || null,
       message: error.message,
       backdropDismiss: false,
       buttons: ['OK'],
       cssClass: 'warningA'
     });
-    alert.present().catch((err) => this.errorAlert(err.message));
+    alert.present();
   }
 
   async onPushRequest() {
@@ -269,7 +269,7 @@ export class MessageService {
         return this.pushReqRes;
       });
       alert.present()
-      .catch((err) => this.errorAlert(err.message));
+      ;
   }
 
   async resetWelcomeAlert(header: string, message: string) {
@@ -296,7 +296,7 @@ export class MessageService {
       return this.choice;
     });
     alert.present()
-      .catch((err) => this.errorAlert(err.message));
+      ;
   }
 
   async deleteFeedAlert(feedId) {
@@ -324,7 +324,7 @@ export class MessageService {
       return this.choice;
     });
     alert.present()
-    .catch((err) => this.errorAlert(err.message));
+    ;
   }
 
   async updateOrCancel() {
@@ -352,7 +352,7 @@ export class MessageService {
       return this.choice;
     });
     alert.present()
-          .catch((err) => this.errorAlert(err.message));
+          ;
   }
 
   // prompt alerts for quick tasks

@@ -1,14 +1,8 @@
 // import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import {
-  AfterViewInit,
-  OnInit,
-  Component,
-  ElementRef,
-  Inject,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+
 import { ConferenceData } from './conference-data';
 import { darkStyle } from './map-dark-style';
 

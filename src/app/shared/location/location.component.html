@@ -1,24 +1,38 @@
-<ion-card class="location-card ion-text-center" routerLink="/home/contact-us">
-  <ion-card-header>
-    <ion-card-title color="primary"> Expert Fitness Gym </ion-card-title>
-  </ion-card-header>
-  <ion-card-content >
-    <ion-item lines="none" detail="false">
-      <ion-text>
+<ion-grid>
+  <ion-row class="ion-text-center">
+    <ion-col>
+      <!-- <ion-title> -->
+        <ion-text class="ion-text-uppercase" style="font-size: x-large;" color="warning">
+          Expert Fitness Gym
+        </ion-text>
+      <!-- </ion-title> -->
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-label color="light">
         3000 North Garfield Street
         <br />
         Suite 159
         <br />
         Midland TX 79705
-      </ion-text>
-    </ion-item>
-    <ion-chip size="small" color="danger" href="tel://432-684-0844">
-      <ion-icon name="call-sharp"></ion-icon>
-      <ion-label color="primary"> (432) 684-0844 </ion-label>
-    </ion-chip>
-    <ion-chip color="danger" routerLink="/home/contact-us">
-      <ion-icon name="mail-sharp"></ion-icon>
-      <ion-label color="primary"> Contact </ion-label>
-    </ion-chip>
-  </ion-card-content>
-</ion-card>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-chip size="small" color="warning" href="tel://432-684-0844">
+        <ion-icon name="call-sharp"></ion-icon>
+        <ion-label color="secondary"> (432) 684-0844 </ion-label>
+      </ion-chip>
+      <ion-chip color="warning" routerLink="/email">
+        <ion-icon name="mail-sharp"></ion-icon>
+        <ion-label color="secondary"> info@expert-fitness.com </ion-label>
+      </ion-chip>
+      <ion-chip color="warning" (click)="showMapModal()">
+        <ion-icon name="map-sharp"></ion-icon>
+        <ion-label color="secondary"> View Map </ion-label>
+      </ion-chip>
+    </ion-col>
+  </ion-row>
+</ion-grid>

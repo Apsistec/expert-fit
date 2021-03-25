@@ -1,4 +1,4 @@
 .modal-view {
-  background: linear-gradient(to right, rgba(36, 36, 36, 0.76), rgba(36, 36, 36, 0.938), rgba(36, 36, 36, 0.767)),
-    center/contain no-repeat url(../../../assets/icons/icon-512x512.png);
+  --background: linear-gradient(to right, rgba(105, 105, 105, 0.76), rgba(148, 146, 146, 0.938), rgba(94, 94, 94, 0.767)),
+    url(../../../assets/lazy/images/iconImg.png) center;
 }

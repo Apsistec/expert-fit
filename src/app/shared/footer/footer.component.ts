@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/models/users.model';
-import { AuthService } from 'src/app/services/auth.service';
+
+import { Component } from '@angular/core';
+
+import { User } from '../../models/users.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-footer',

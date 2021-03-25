@@ -3,15 +3,15 @@
     <ion-row class="ion-justify-content-center">
       <ion-col size="12" class="ion-text-center">
         <ion-toolbar class="toolbar">
-          <ion-text> Contact Expert Fitness </ion-text>
+          <ion-title class="title">Contact Expert Fitness</ion-title>
         </ion-toolbar>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col size="3">
+    <ion-row class="ion-text-center">
+      <ion-col size="3" class="ion-hide-sm-down">
         <img src="../../../assets/lazy/images/squatting-exercise.jpg" style="height: 100%; width: 100%" />
       </ion-col>
-      <ion-col class="ion-align-items-stretch ion-align-self-center" size="6">
+      <ion-col class="ion-align-items-stretch ion-align-self-center" size-sm="100%" size-md="6">
         <ion-row>
           <ion-col>
             <img src="../../../assets/lazy/images/platinum.png" style="height: 100%; width: 100%" />
@@ -21,17 +21,21 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col class="ion-text-center ion-align-self-center">
+          <ion-col class="ion-text-center ion-align-self-center" size-sm="12" size-md="4">
             <app-location></app-location>
-            <ion-button color="secondary" (click)="showMapModal()"> View Map </ion-button>
           </ion-col>
-          <ion-col class="ion-text-center ion-align-items-center">
+          <ion-col class="ion-text-center ion-hide-sm-down ion-align-items-center">
             <img src="../../../assets/lazy/images/woman-lifts-free-weights.jpg" style="height: 100%; width: 100%" />
           </ion-col>
         </ion-row>
       </ion-col>
-      <ion-col size="3">
+      <ion-col size="3" class="ion-hide-sm-down">
         <img src="../../../assets/lazy/images/intense-exercise.jpg" style="height: 100%; width: 100%" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-toolbar class="toolbar-bottom"> </ion-toolbar>
       </ion-col>
     </ion-row>
   </ion-grid>

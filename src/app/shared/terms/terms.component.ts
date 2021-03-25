@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
-import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-terms',

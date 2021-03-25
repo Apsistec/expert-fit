@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, ModalController, NavController, NavParams } from '@ionic/angular';
+
 import { AuthService } from '../../services/auth.service';
 import { TicketService } from '../../services/ticket.service';
-import { SeoService } from '../../services/seo.service';
-import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-ticket',

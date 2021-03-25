@@ -1,15 +1,14 @@
-/* eslint-disable @typescript-eslint/member-ordering */
+import { Location } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SwPush, SwUpdate } from '@angular/service-worker';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AlertController, Platform } from '@ionic/angular';
+
 import { AuthService } from './services/auth.service';
-import { Router } from '@angular/router';
-import { SwUpdate, SwPush } from '@angular/service-worker';
 import { PopoverService } from './services/popover.service';
-import { User } from './models/users.model';
 import { ScrollService } from './services/scroll.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +16,13 @@ import { Location } from '@angular/common';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  user: User;
-  showBackButton: boolean;
-  path;
-  displayToken: string;
-  showPushNotifyBar = true;
   @Input() choice;
+
+  // private user: User;
+  // private showBackButton: boolean;
+  // private path;
+  // private displayToken: string;
+  // private showPushNotifyBar = true;
 
   constructor(
     private swUpdate: SwUpdate,
@@ -125,4 +125,5 @@ export class AppComponent implements OnInit {
   clear() {
     this.popoverService.dismiss();
   }
+
 }

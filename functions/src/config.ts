@@ -19,7 +19,7 @@ export default {
   stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
   productsCollectionPath: process.env.PRODUCTS_COLLECTION,
   customersCollectionPath: process.env.CUSTOMERS_COLLECTION,
-  syncUsersOnCreate: process.env.SYNC_USERS_ON_CREATE === 'Do not sync',
+  syncUsersOnCreate: process.env.SYNC_USERS_ON_CREATE === "Do not sync",
   daysUntilDue: Number(process.env.DAYS_UNTIL_DUE_DEFAULT),
   invoicesCollectionPath: process.env.INVOICES_COLLECTION,
 };

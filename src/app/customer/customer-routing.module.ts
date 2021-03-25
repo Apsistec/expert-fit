@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { VideosComponent } from './videos/videos.component';
+
 import { BasicContentComponent } from './basic-content/basic-content.component';
+import { CustomerPage } from './customer.page';
 import { PlatinumContentComponent } from './platinum-content/platinum-content.component';
 import { PremiumContentComponent } from './premium-content/premium-content.component';
-import { CustomerPage } from './customer.page';
+import { VideosComponent } from './videos/videos.component';
 
 const routes: Routes = [
   {

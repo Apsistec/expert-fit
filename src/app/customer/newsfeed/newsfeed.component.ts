@@ -1,12 +1,14 @@
+import { Observable } from 'rxjs';
+import { filter, map, pluck, switchMap } from 'rxjs/operators';
+
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+
 import { BlogPost } from '../../models/blog-post.model';
 import { DatabaseService } from '../../services/database.service';
-import { ActivatedRoute } from '@angular/router';
-import { filter, map, pluck, switchMap } from 'rxjs/operators';
 import { objectExists } from '../../services/utilities.service';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-newsfeed',

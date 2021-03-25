@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/member-ordering */
-import { Directive, OnInit, Input, HostListener, Renderer2 } from '@angular/core';
+import { Directive, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 import { DomController } from '@ionic/angular';
 
 @Directive({

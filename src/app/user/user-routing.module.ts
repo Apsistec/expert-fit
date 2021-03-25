@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { RouterModule, Routes } from '@angular/router';
 
+import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { UserPage } from './user.page';
 
 const routes: Routes = [
@@ -10,14 +10,14 @@ const routes: Routes = [
     component: UserPage,
     children: [
       {
+        path: '',
+        redirectTo: '/user/dashboard',
+        pathMatch: 'full'
+      },
+      {
         path: 'dashboard',
         component: CustomerDashboardComponent
       },
-      {
-        path: '',
-        redirectTo: 'dashboard',
-        pathMatch: 'full'
-      }
     ]
   }
 ];

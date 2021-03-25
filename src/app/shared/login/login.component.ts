@@ -1,12 +1,12 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalController, NavController } from '@ionic/angular';
-import { AuthService } from '../../services/auth.service';
-import { SignupComponent } from '../signup/signup.component';
-import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
-import { MessageService } from '../../services/message.service';
-import { LoadingService } from '../../services/loading.service';
 import { Router } from '@angular/router';
+import { ModalController, PopoverController } from '@ionic/angular';
+
+import { AuthService } from '../../services/auth.service';
+import { LoadingService } from '../../services/loading.service';
+import { MessageService } from '../../services/message.service';
+import { AuthPopoverComponent } from '../auth-popover/auth-popover.component';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   hide: boolean;
   loginForm: FormGroup;
   isSubmitted = false;
-  error;
+  error = false;
 
   constructor(
     private fb: FormBuilder,
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     private messageService: MessageService,
     private loadingService: LoadingService,
     private router: Router,
-    private navController: NavController
+    private popoverController: PopoverController
   ) {}
 
   ngOnInit() {
@@ -36,10 +36,29 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (!this.loginForm.valid && this.loginForm.dirty) {
+    if (!this.loginForm.valid && !this.loginForm.pristine) {
       this.error = true;
     }
     this.error = false;
+
+    if (!this.loginFormControl.password.valid && this.loginFormControl.password.dirty) {
+      if (this.loginFormControl.password.errors.required) {
+      } else if (this.loginFormControl.password.errors.minlength) {
+      } else if (this.loginFormControl.password.errors.maxlength) {
+      } else if (this.loginFormControl.password.errors.pattern) {
+        ('At least 1 uppercase, 1 lowercase, and 1 number');
+      }
+    }
+  }
+
+  async presentPopover(ev: any) {
+    const popover = await this.popoverController.create({
+      component: AuthPopoverComponent,
+      cssClass: 'my-custom-class',
+      event: ev,
+      translucent: true
+    });
+    return await popover.present();
   }
 
   createForm() {
@@ -53,7 +72,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
           Validators.maxLength(25),
           Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')
         ]
-      ]
+      ],
+      updateOn: 'blur'
     });
   }
 
@@ -62,13 +82,14 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   async onLogin() {
+    this.isSubmitted = true;
     this.loadingService.showLoading();
     const res = await this.authService.SignIn(this.loginForm.value);
     if (res !== null) {
       this.dismissModal();
       this.loadingService.dismissLoading().catch((error) => {
         this.dismissModal();
-        this.messageService.errorAlert(error.message);
+        this.messageService.errorAlert(error);
       });
     }
   }

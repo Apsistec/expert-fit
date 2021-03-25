@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 import { MessageService } from '../../services/message.service';
 import { AuthService } from '../../services/auth.service';
 import { LoadingService } from '../../services/loading.service';
@@ -25,7 +25,6 @@ export class SignupComponent implements OnInit, AfterViewInit {
     public modalController: ModalController,
     private messageService: MessageService,
     public router: Router,
-    private navController: NavController
   ) {}
 
   ngOnInit() {
@@ -58,7 +57,7 @@ export class SignupComponent implements OnInit, AfterViewInit {
   }
 
   get registerFormControl() {
-    return this.registerForm.controls;
+    return this.registerForm.value;
   }
 
   async onRegister(credentials) {

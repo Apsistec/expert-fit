@@ -1,13 +1,13 @@
+import { switchMap } from 'rxjs/operators';
+
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
-import { switchMap } from 'rxjs/operators';
+
 import { User } from '../models/users.model';
 import { MessageService } from './message.service';
-
-
 
 @Injectable({
   providedIn: 'root',

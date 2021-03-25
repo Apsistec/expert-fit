@@ -1,11 +1,13 @@
+import { bounceOutUp, flash } from 'ng-animate';
+
 /* eslint-disable @typescript-eslint/member-ordering */
 import { transition, trigger, useAnimation } from '@angular/animations';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent, ModalController } from '@ionic/angular';
-import { bounceOutUp, flash } from 'ng-animate';
-import { ScrollService } from 'src/app/services/scroll.service';
+
 import { MessageService } from '../../services/message.service';
-import { IntroVideoComponent } from './../intro-video/intro-video.component';
+import { ScrollService } from '../../services/scroll.service';
+import { IntroVideoComponent } from '../intro-video/intro-video.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -53,7 +55,7 @@ export class LandingPageComponent implements OnInit {
     modal.onWillDismiss().then(() => this.messageService.generalToast('Thank you for watching the video'));
     modal.present().catch((error) => {
       this.modalController.dismiss();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 

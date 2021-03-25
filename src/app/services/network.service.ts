@@ -1,4 +1,4 @@
-import { Injectable, NgModule, OnChanges } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { NetworkStatus, PluginListenerHandle, Plugins } from '@capacitor/core';
 
 const { NETWORK } = Plugins;

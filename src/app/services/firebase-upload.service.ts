@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 
-
-
 export interface MyData {
   name: string;
   filepath: string;

@@ -18,4 +18,6 @@ export interface User {
   lastUpdatedAt?: any;
   stripeStatus?: string;  // current, trialing, past-due, cancelled, needs-payment
   stripeRole?: string;   // basic, premium, platinum
+  method: string;
+  profile?: any;
 }

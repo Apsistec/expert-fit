@@ -1,19 +1,19 @@
-  <ion-card color="medium" class="ion-text-center ion-card-global ion-no-margin ion-no-padding" style="height: 100%;">
+  <ion-card  class="ion-text-center ion-no-margin ion-no-padding" style="height: 100%;">
     <ion-fab horizontal="end" vertical="top">
       <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
   </ion-fab>
   <ion-card-header>
 
-    <ion-card-title>Account Login</ion-card-title>
+    <ion-card-title color="tertiary">Account Login</ion-card-title>
   </ion-card-header>
-  <ion-card-content class="ion-no-margin ion-no-padding">
+  <ion-card-content class="ion-no-margin ion-no-padding ion-text-center">
 
-    <form #loginform [formGroup]="loginForm" (ngSubmit)="onLogin()">
-      <ion-list color="medium" class="ion-no-margin ion-no-padding">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <ion-card>
         <ion-item color="light" >
           <ion-label  [color]="error ? 'danger' : 'dark'" position="floating">Email</ion-label>
           <ion-input
-          debounce="1600"
+          debounce="600"
           color="primary"
           type="email"
           inputmode="email"
@@ -22,37 +22,37 @@
           >
         </ion-input>
       </ion-item>
-      <div *ngIf="loginFormControl.email.invalid && !loginFormControl.email.pristine">
-        <ion-text *ngIf="isSubmitted && loginFormControl.email.errors.required" color="danger"> Email required. </ion-text>
-        <ion-text *ngIf="isSubmitted && loginFormControl.email.errors.email" color="danger"> Email not Valid. </ion-text>
-      </div>
-      <ion-item color="light">
-        <ion-label  [color]="error ? 'danger' : 'dark'" position="floating">Password</ion-label>
-        <ion-input
-        debounce="1600"
-        color="primary"
-        [type]="hide ? 'password' : 'text'"
-        inputmode="text"
-        formControlName="password"
-        >
-      </ion-input>
-      <ion-icon color="dark" (click)="toggleHide()" slot="end" *ngIf="!hide" name="eye-sharp"> </ion-icon>
-      <ion-icon color="dark" size="small" (click)="toggleHide()" slot="end" *ngIf="hide" name="eye-off-sharp">
-      </ion-icon>
-    </ion-item>
-    <div *ngIf="!loginFormControl.password.valid && isSubmitted">
+      </ion-card>
+      <ng-container *ngIf="!loginFormControl.email.valid && loginFormControl.email.dirty">
+        <ion-text *ngIf="loginFormControl.email.errors.required" color="danger"> Email required. </ion-text>
+        <ion-text *ngIf="loginFormControl.email.errors.email" color="danger"> Email not Valid. </ion-text>
+      </ng-container>
+      <ion-card>
+
+        <ion-item color="light">
+          <ion-label  [color]="error ? 'danger' : 'dark'" position="floating">Password</ion-label>
+          <ion-input
+          debounce="600"
+          color="primary"
+          [type]="hide ? 'password' : 'text'"
+          inputmode="text"
+          formControlName="password"
+          >
+        </ion-input>
+        <ion-icon color="dark" (click)="toggleHide()" slot="end" *ngIf="!hide" name="eye-sharp"> </ion-icon>
+        <ion-icon color="dark" size="small" (click)="toggleHide()" slot="end" *ngIf="hide" name="eye-off-sharp">
+        </ion-icon>
+      </ion-item>
+    </ion-card>
+    <ng-container *ngIf="!loginFormControl.password.valid && loginFormControl.password.dirty">
       <ion-text *ngIf="loginFormControl.password.errors.required" color="danger"> Password required </ion-text>
-      <br>
       <ion-text *ngIf="loginFormControl.password.errors.minlength" color="danger"> At least 6 characters </ion-text>
-      <br>
       <ion-text *ngIf="loginFormControl.password.errors.maxlength" color="danger"> Less than 25 characters </ion-text>
-      <br>
       <ion-text *ngIf="loginFormControl.password.errors.pattern" color="danger">
         At least 1 uppercase, 1 lowercase, and 1 number
       </ion-text>
-    </div>
-  </ion-list>
-  <ion-button  color="tertiary" expand="full" type="submit">
+    </ng-container>
+  <ion-button  color="success" expand="full" type="submit"  [disabled]="!loginForm.valid">
     <ion-icon slot="start" name="log-in-sharp"> </ion-icon>
     Login
   </ion-button>
@@ -67,9 +67,8 @@
   <ion-button
   class="ion-float-left"
   size="small"
-  color="dark"
+  color="light"
   fill="clear"
-  type="button"
   (click)="goToSignup()"
   >
   Need to signup?
@@ -77,9 +76,8 @@
 <ion-button
 class="ion-float-right"
 size="small"
-color="dark"
+color="light"
 fill="clear"
-type="button"
 (click)="goToForgot()"
 >
 Forgot password?

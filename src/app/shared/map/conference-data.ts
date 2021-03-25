@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { User } from '../../models/users.model';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+import { User } from '../../models/users.model';
 import { UserService } from '../../services/user.service';
 
 @Injectable({

@@ -1,11 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
 
 import { StudentCreatePageRoutingModule } from './student-create-routing.module';
-
 import { StudentCreatePage } from './student-create.page';
 
 @NgModule({

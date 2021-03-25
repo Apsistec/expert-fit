@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { Faqs } from '../../models/faqs.model';
+
 // import { SeoService } from '../../services/seo.service';
 
 @Component({

@@ -1,5 +1,5 @@
-<ion-content >
-  <ion-grid >
+<ion-content class="content">
+  <ion-grid>
     <ion-row>
       <ion-col>
         <ion-card color="dark" class="toolbar-card ion-text-center">
@@ -23,10 +23,11 @@
               </ion-segment>
             </ion-toolbar>
             <br />
-            <ion-text color="success"> Subscriptions are typical but you can also purchase individual services </ion-text>
+            <ion-text color="success">
+              Subscriptions are typical but you can also purchase individual services
+            </ion-text>
           </ion-card-content>
         </ion-card>
-
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center">
@@ -38,26 +39,20 @@
         *ngFor="let product of products | async"
       >
         <ion-card color="dark" class="product-card ion-no-margin">
-          <img [src]="product.images[0]" style="height:200px; width: 200px;" />
           <ion-card-header class="product-card-header">
             <ion-card-title>
-              <ion-label color="warning"> {{product.name}} </ion-label>
+              <ion-label color="warning"> {{ product.name }} </ion-label>
             </ion-card-title>
           </ion-card-header>
+          <img [src]="product.images[0]" style="height: 200px; width: 100%" />
           <ion-card-content class="ion-padding ion-text-center">
-
-                
-  
-                        <ion-text style="float: right;">
-                        {{ product.description }} 
-                      </ion-text>
-               
-                      
-         
-                      
-                      <ion-button class="product-button"> Purchase {{product.name}} </ion-button>
-                    </ion-card-content>
-              </ion-card>
+            <!-- <ion-text *ngFor="let price of prices | async"> {{ price.interval }} }} </ion-text> -->
+            <ion-text>
+              {{ product.description }}
+            </ion-text>
+            <app-stripe-checkout [product]="product"></app-stripe-checkout>
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

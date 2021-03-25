@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FirebaseUploadService } from './../../services/firebase-upload.service';
-
 import { ImageCroppedEvent } from 'ngx-image-cropper';
+
+import { Component, OnInit } from '@angular/core';
+
+import { FirebaseUploadService } from '../../services/firebase-upload.service';
 
 @Component({
   selector: 'app-photo-upload',

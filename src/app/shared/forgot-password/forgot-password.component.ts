@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
+
 import { AuthService } from '../../services/auth.service';
 import { LoadingService } from '../../services/loading.service';
 import { MessageService } from '../../services/message.service';
@@ -13,7 +14,9 @@ import { MessageService } from '../../services/message.service';
 })
 export class ForgotPasswordComponent implements OnInit, AfterViewInit {
   resetForm: FormGroup;
-  error: boolean;
+  error = false;
+  isSubmitted = false;
+
   constructor(
     public modalController: ModalController,
     private fb: FormBuilder,
@@ -26,25 +29,27 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.resetForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]],
+      updateOn: 'blur'
     });
-    this.error = false;
   }
 
   ngAfterViewInit() {
-    if (!this.resetForm.valid && this.resetForm.dirty) {
+    if (!this.resetForm.valid && !this.resetForm.pristine) {
       this.error = true;
+    }{
+      this.error = false;
     }
-    this.error = false;
   }
 
   // Recover password
   async onReset() {
+    this.isSubmitted = true;
     const email = this.resetForm.value.email;
     await this.loadingService.showLoading();
     await this.authService.passReset(email);
     await this.loadingService.dismissLoading();
-    await this.messageService.resetPasswordAlert().catch((error) => this.messageService.errorAlert(error.message));
+    await this.messageService.resetPasswordAlert().catch((error) => this.messageService.errorAlert(error));
   }
 
   get resetFormControl() {

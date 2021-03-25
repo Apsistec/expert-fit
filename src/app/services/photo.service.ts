@@ -1,10 +1,14 @@
-import { MessageService } from './message.service';
-import { Injectable } from '@angular/core';
-import { Plugins, CameraResultType, Capacitor, FilesystemDirectory, CameraPhoto, CameraSource } from '@capacitor/core';
-import { Platform } from '@ionic/angular';
-import { AngularFireStorage, AngularFireStorageReference } from '@angular/fire/storage';
 import { from } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
+
+import { Injectable } from '@angular/core';
+import { AngularFireStorage, AngularFireStorageReference } from '@angular/fire/storage';
+import {
+    CameraPhoto, CameraResultType, CameraSource, FilesystemDirectory, Plugins
+} from '@capacitor/core';
+import { Platform } from '@ionic/angular';
+
+import { MessageService } from './message.service';
 
 const { CAMERA, FILESYSTEM, STORAGE } = Plugins;
 

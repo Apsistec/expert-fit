@@ -1,8 +1,11 @@
-import {Injectable} from '@angular/core';
-import {BlogPost} from '../models/blog-post.model';
-import {AngularFirestore} from '@angular/fire/firestore';
-import {Observable} from 'rxjs';
 import firebase from 'firebase';
+import { Observable } from 'rxjs';
+
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+import { BlogPost } from '../models/blog-post.model';
+
 import DocumentData = firebase.firestore.DocumentData;
 import Query = firebase.firestore.Query;
 

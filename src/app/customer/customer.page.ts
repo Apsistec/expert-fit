@@ -1,16 +1,17 @@
+import { bounceOutUp, flash } from 'ng-animate';
+
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { ModalController } from '@ionic/angular';
-import { bounceOutUp, flash } from 'ng-animate';
+
 import { User } from '../models/users.model';
 import { AuthService } from '../services/auth.service';
 import { MessageService } from '../services/message.service';
 import { AboutAppComponent } from '../shared/about-app/about-app.component';
 import { PrivacyComponent } from '../shared/privacy/privacy.component';
 import { TermsComponent } from '../shared/terms/terms.component';
-import { Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-customer',
@@ -67,7 +68,7 @@ export class CustomerPage implements OnInit {
     });
     modal.present().catch((error) => {
       this.modalController.dismiss();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -81,7 +82,7 @@ export class CustomerPage implements OnInit {
     });
     modal.present().catch((error) => {
       this.modalController.dismiss();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -95,7 +96,7 @@ export class CustomerPage implements OnInit {
     });
     modal.present().catch((error) => {
       this.modalController.dismiss();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 }

@@ -1,23 +1,16 @@
-/* eslint-disable @typescript-eslint/member-ordering */
-import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { CalendarDateFormatter, CalendarView, DateAdapter } from 'angular-calendar';
 import {
-  addPeriod,
-  CalendarSchedulerEvent,
-  CalendarSchedulerEventAction,
-  DAYS_IN_WEEK,
-  endOfPeriod,
-  SchedulerDateFormatter,
-  SchedulerEventTimesChangedEvent,
-  SchedulerViewDay,
-  SchedulerViewHour,
-  SchedulerViewHourSegment,
-  startOfPeriod,
-  subPeriod
+    addPeriod, CalendarSchedulerEvent, CalendarSchedulerEventAction, DAYS_IN_WEEK, endOfPeriod,
+    SchedulerDateFormatter, SchedulerEventTimesChangedEvent, SchedulerViewDay, SchedulerViewHour,
+    SchedulerViewHourSegment, startOfPeriod, subPeriod
 } from 'angular-calendar-scheduler';
 import { addMonths, endOfDay } from 'date-fns';
 import { Subject } from 'rxjs';
-import { EventService } from 'src/app/services/event.service';
+
+/* eslint-disable @typescript-eslint/member-ordering */
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
+
+import { EventService } from '../../services/event.service';
 
 @Component({
   selector: 'app-scheduler',

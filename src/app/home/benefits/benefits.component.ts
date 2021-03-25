@@ -1,11 +1,11 @@
+import { Observable } from 'rxjs';
+
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AngularFireStorage, GetDownloadURLPipe } from '@angular/fire/storage';
-import { Router } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
-import { Observable } from 'rxjs';
-import { Benefit } from 'src/app/models/benefits.model';
-import { BenefitsService } from 'src/app/services/benefits.service';
+
+import { Benefit } from '../../models/benefits.model';
+import { BenefitsService } from '../../services/benefits.service';
 
 @Component({
   selector: 'app-benefits',

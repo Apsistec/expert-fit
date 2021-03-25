@@ -72,7 +72,7 @@
           <ion-card-title> Subscription Details </ion-card-title>
         </ion-card-header>
         <ion-card-content class="ion-margin" class="ion-text-center">
-          <div *ngIf="stripe.subscriptions | async; then subData; else buy"></div>
+          <ng-container *ngIf="stripe.subscriptions | async; then subData; else buy"></ng-container>
           <ng-template #buy class="ion-text-center ion-align-items-center">
             <ion-button class="ion-text-capitalize" color="success" size="small" routerLink="/checkout">
               <ion-text> Buy Pro Package </ion-text>

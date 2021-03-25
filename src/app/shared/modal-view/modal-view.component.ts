@@ -1,16 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { LoginComponent } from '../login/login.component';
+
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ModalController, NavController } from '@ionic/angular';
+
 import { MessageService } from '../../services/message.service';
 import { AboutAppComponent } from '../about-app/about-app.component';
-import { PrivacyComponent } from '../privacy/privacy.component';
-import { TermsComponent } from '../terms/terms.component';
-import { SignupComponent } from '../signup/signup.component';
+import { EmailComponent } from '../email/email.component';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { LoginComponent } from '../login/login.component';
 import { PhoneAuthComponent } from '../phone-auth/phone-auth.component';
+import { PrivacyComponent } from '../privacy/privacy.component';
+import { SignupComponent } from '../signup/signup.component';
+import { TermsComponent } from '../terms/terms.component';
 
 @Component({
   selector: 'app-root',
@@ -47,9 +50,8 @@ export class ModalViewComponent implements OnInit, OnDestroy {
         this.showModalSignup();
       } else if (this.modalID === 'phone-auth') {
         this.showModalPhoneAuth();
-      }
-      {
-        return false;
+      } else if (this.modalID === 'email') {
+        this.showModalEmail();
       }
     });
   }
@@ -61,7 +63,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -75,7 +77,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -89,7 +91,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -104,7 +106,7 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -113,13 +115,13 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     const modal = await this.modalController.create({
       component: AboutAppComponent,
       cssClass: 'modal-css',
-      backdropDismiss: false,
-      swipeToClose: false,
+      backdropDismiss: true,
+      swipeToClose: true,
       showBackdrop: true
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -127,13 +129,13 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     const modal = await this.modalController.create({
       component: LoginComponent,
       cssClass: 'modal-css',
-      backdropDismiss: false,
-      swipeToClose: false,
+      backdropDismiss: true,
+      swipeToClose: true,
       showBackdrop: true
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 
@@ -147,7 +149,21 @@ export class ModalViewComponent implements OnInit, OnDestroy {
     });
     modal.present().catch((error) => {
       this.dismissModal();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
+    });
+  }
+
+  async showModalEmail() {
+    const modal = await this.modalController.create({
+      component: EmailComponent,
+      cssClass: 'modal-css',
+      backdropDismiss: false,
+      swipeToClose: false,
+      showBackdrop: true
+    });
+    modal.present().catch((error) => {
+      this.dismissModal();
+      return this.messageService.errorAlert(error);
     });
   }
 

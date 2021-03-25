@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/member-ordering */
-import { EventEmitter, OnInit, Output } from '@angular/core';
-import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
-import { BenefitsService } from 'src/app/services/benefits.service';
+
+/* eslint-disable @typescript-eslint/member-ordering */
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 import { Benefit } from '../../models/benefits.model';
+import { BenefitsService } from '../../services/benefits.service';
 
 @Component({
   selector: 'app-benefits-tracker',

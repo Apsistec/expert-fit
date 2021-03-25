@@ -1,9 +1,11 @@
+import { Observable } from 'rxjs';
+
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Observable } from 'rxjs';
-import { MessageService } from 'src/app/services/message.service';
+
 import { AuthService } from '../../services/auth.service';
 import { CollectionService } from '../../services/collection.service';
+import { MessageService } from '../../services/message.service';
 import { TicketService } from '../../services/ticket.service';
 import { TicketComponent } from '../../shared/ticket/ticket.component';
 
@@ -46,7 +48,7 @@ export class AdminDashboardComponent implements OnInit {
     modal.present()
     .catch((error) => {
       this.modalController.dismiss();
-      return this.messageService.errorAlert(error.message);
+      return this.messageService.errorAlert(error);
     });
   }
 }

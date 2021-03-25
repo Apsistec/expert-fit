@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { PopoverController } from '@ionic/angular';
+
 import { User } from '../../models/users.model';
 import { AuthService } from '../../services/auth.service';
 

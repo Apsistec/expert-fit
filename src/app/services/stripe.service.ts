@@ -1,12 +1,13 @@
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+
 import { User } from '../models/users.model';
-import { AuthService } from './auth.service';
 import { MessageService } from './message.service';
 import { SpinnerService } from './spinner.service';
 
@@ -70,7 +71,7 @@ export class StripeService {
       })
       .catch((error) => {
         this.spinner.dismissSpinner();
-        this.messageService.errorAlert(error.message);
+        this.messageService.errorAlert(error);
       });
     }
 

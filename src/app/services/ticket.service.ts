@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import firebase from 'firebase/app';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AuthService } from './auth.service';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Injectable } from '@angular/core';
-import { map, take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { map, take, takeUntil } from 'rxjs/operators';
+
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',

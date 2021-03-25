@@ -1,9 +1,11 @@
+import { Observable } from 'rxjs';
+
 /* eslint-disable @typescript-eslint/member-ordering */
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
-import { Observable, Subject } from 'rxjs';
-import { Review } from 'src/app/models/reviews.model';
-import { ReviewService } from 'src/app/services/review.service';
+
+import { Review } from '../../models/reviews.model';
+import { ReviewService } from '../../services/review.service';
 
 @Component({
   selector: 'app-ratings',

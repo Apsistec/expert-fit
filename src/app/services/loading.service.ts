@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -15,7 +16,7 @@ export class LoadingService {
       message: 'Loading...',
       keyboardClose: true
     });
-    await loading.present().catch((error) => this.messageService.errorAlert(error.message));
+    await loading.present().catch((error) => this.messageService.errorAlert(error));
   }
 
 
@@ -34,11 +35,11 @@ export class LoadingService {
       })
       .catch((error) => {
         this.dismissLoading();
-        return this.messageService.errorAlert(error.message);
+        return this.messageService.errorAlert(error);
       });
   }
 
   async dismissLoading() {
-    await this.loadingController.dismiss().catch((error) => this.messageService.errorAlert(error.message));
+    await this.loadingController.dismiss().catch((error) => this.messageService.errorAlert(error));
   }
 }

@@ -1,8 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
+import { FCM } from '@capacitor-community/fcm';
+import { Plugins, PushNotification } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 
-import { Plugins, PushNotification } from '@capacitor/core';
-import { FCM } from '@capacitor-community/fcm';
 import { MessageService } from './message.service';
 
 const { PushNotifications } = Plugins;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+
 import { User } from '../../models/users.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-side-menu',

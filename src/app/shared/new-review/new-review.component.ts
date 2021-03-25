@@ -1,9 +1,10 @@
-import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoadingController, ModalController, NavParams } from '@ionic/angular';
-import { ReviewService } from '../../services/review.service';
 import { Router } from '@angular/router';
+import { LoadingController, ModalController, NavParams } from '@ionic/angular';
+
+import { AuthService } from '../../services/auth.service';
+import { ReviewService } from '../../services/review.service';
 
 @Component({
   selector: 'app-new-review',

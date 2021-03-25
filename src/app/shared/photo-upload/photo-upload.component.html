@@ -1,40 +1,38 @@
-<div>
-  <form method="post" enctype="multipart/form-data">
-    <div>
-      <div><b>Upload photo</b></div>
-      <br />
+<ion-card class="ion-card-global">
+  <ion-card-header>
+    <ion-card-title> Upload photo </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <form method="post" enctype="multipart/form-data">
       <input type="file" (change)="uploadPhoto($event)" accept=".png,.jpg" multiple="true" />
-    </div>
-  </form>
-</div>
-<div *ngIf="barStatus">Uploading.....</div>
-
-
-
-
-<div class="container">
-  <div class="row" style="margin-top: 5%;">
-      <div class="text-center col-md-12">
-          <input type="file" (change)="fileChangeEvent($event)" />
-      </div>
-  </div>
-  <div class="row" style="margin-top: 5%;">
-      <div class="text-center col-md-8">
-          <h5>Crop Image</h5>
-          <image-cropper 
-          [imageChangedEvent]="imageChangedEvent" 
-          [maintainAspectRatio]="true" 
-          [aspectRatio]="4 / 4"
-          [resizeToWidth]="256" 
-          format="png" 
-          (imageCropped)="imageCropped($event)" 
-          (imageLoaded)="imageLoaded()"
-          (cropperReady)="cropperReady()" 
-          (loadImageFailed)="loadImageFailed()"></image-cropper>
-      </div>
-      <div class="text-center col-md-4">
-          <h5>Preview</h5>
-          <img [src]="croppedImage" />
-      </div>
-  </div>
-</div>
+    </form>
+  </ion-card-content>
+</ion-card>
+<ng-container *ngIf="barStatus">Uploading.....</ng-container>
+<ion-grid class="container">
+  <ion-row class="row" style="margin-top: 5%">
+    <ion-col class="text-center col-md-12">
+      <input type="file" (change)="fileChangeEvent($event)" />
+    </ion-col>
+  </ion-row>
+  <ion-row class="row" style="margin-top: 5%">
+    <ion-col class="text-center col-md-8">
+      <h5>Crop Image</h5>
+      <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="4 / 4"
+        [resizeToWidth]="256"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded()"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()"
+      ></image-cropper>
+    </ion-col>
+    <ion-col class="text-center col-md-4">
+      <h5>Preview</h5>
+      <img [src]="croppedImage" />
+    </ion-col>
+  </ion-row>
+</ion-grid>

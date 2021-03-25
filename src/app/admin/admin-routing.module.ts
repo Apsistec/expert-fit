@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { RouterModule, Routes } from '@angular/router';
 
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminPage } from './admin.page';
 
 const routes: Routes = [

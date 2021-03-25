@@ -3,6 +3,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent, IonSlides } from '@ionic/angular';
+
 import { Phases } from '../../models/phases.model';
 
 @Component({

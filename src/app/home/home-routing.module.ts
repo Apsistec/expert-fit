@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HomePage } from './home.page';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { PricingComponent } from './pricing/pricing.component';

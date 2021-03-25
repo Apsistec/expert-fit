@@ -1,25 +1,31 @@
+import firebase from 'firebase/app';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
-import { User } from '../models/users.model';
-import { MessageService } from './message.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import firebase from 'firebase/app';
+
+import { User } from '../models/users.model';
+import { MessageService } from './message.service';
+
 // import 'firebase/auth'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   user: Observable<User>;
   currentBehaviorUser = new BehaviorSubject(null);
-  displayName;
+  displayName: any;
   authState$ = this.afAuth.authState;
+  validUser = false;
+  validCustomer = false;
+  validEmployee = false;
+  validAdmin = false;
 
   constructor(
     public afs: AngularFirestore,
@@ -39,10 +45,8 @@ export class AuthService {
     );
   }
 
-
   /* Email User Login */
-
-  SignIn(credentials) {
+  SignIn(credentials: { email: string; password: string }) {
     return this.afAuth
       .signInWithEmailAndPassword(credentials.email, credentials.password)
       .then((data) => {
@@ -57,6 +61,7 @@ export class AuthService {
         });
       })
       .catch((error) => {
+        this.modalController.dismiss();
         this.messageService.authErrorAlert(error);
       });
   }
@@ -64,29 +69,29 @@ export class AuthService {
   /* New User Email Signup */
   SignUp(credentials) {
     this.displayName = credentials.displayName;
+    const email = credentials.email;
+    const password = credentials.password;
     this.afAuth
-      .createUserWithEmailAndPassword(credentials.email, credentials.password)
+      .createUserWithEmailAndPassword(email as string, password as string)
       .then((data) => {
         this.sendVerificationMail();
         this.afs.doc<User>(`users/${data.user.uid}`).set(
           {
             uid: data.user.uid,
-            displayName: credentials.displayName,
+            displayName: this.displayName,
             email: data.user.email,
             role: ['USER'],
             permissions: ['delete-ticket'],
+            method: data.credential.signInMethod,
+            profile: data.additionalUserInfo.profile,
             createdAt: firebase.firestore.Timestamp
           },
           { merge: true }
         );
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        if (errorCode === 'auth/weak-password') {
-          this.messageService.errorAlert('The password is too weak.');
-        }
-        this.messageService.errorAlert(errorMessage);
+        this.modalController.dismiss();
+        this.messageService.authErrorAlert(error);
       });
   }
 
@@ -103,17 +108,12 @@ export class AuthService {
         this.messageService.registerSuccessAlert(this.displayName);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        if (error.code) {
-          this.messageService.errorAlert(errorCode);
-        }
-        this.messageService.errorAlert(errorMessage);
+        this.messageService.authErrorAlert(error);
       });
   }
 
-   /* Auth providers */
-  AuthLogin(provider) {
+  /* Auth providers */
+  AuthLogin(provider: firebase.auth.AuthProvider) {
     this.afAuth
       .signInWithRedirect(provider)
       .then(() => {
@@ -130,11 +130,11 @@ export class AuthService {
       })
       .catch((error) => {
         this.modalController.dismiss();
-        this.messageService.authErrorAlert(error.message);
+        this.messageService.authErrorAlert(error);
       });
   }
 
-   /* Sign in with 3rd party Oauth */
+  /* Sign in with 3rd party Oauth */
   GoogleAuth() {
     return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
   }
@@ -142,24 +142,25 @@ export class AuthService {
   TwitterAuth() {
     return this.AuthLogin(new firebase.auth.TwitterAuthProvider());
   }
-  // MicrosoftAuth() {
-  //   this.AuthLogin(new fire.default.auth.OAuthProvider()).catch((error) => {
-  //     this.messageService.errorAlert(error.message);
-  //   });
-  // }
 
   FacebookAuth() {
     return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
   }
 
-   /* Password Reset */
-  passReset(email) {
+  // MicrosoftAuth() {
+  //   this.AuthLogin(new fire.default.auth.OAuthProvider()).catch((error) => {
+  //     this.messageService.errorAlert(error);
+  //   });
+  // }
+
+  /* Password Reset */
+  passReset(email: string) {
     this.afAuth.sendPasswordResetEmail(email).catch((error) => {
-      this.messageService.errorAlert(error.message);
+      this.messageService.errorAlert(error);
     });
   }
 
-   /* Sign-out */
+  /* Sign-out */
   signOut() {
     return this.afAuth
       .signOut()
@@ -171,21 +172,10 @@ export class AuthService {
   }
 
   /* Permissions */
-
   canRead(user: User): boolean {
     return this.checkAuthorization(user);
   }
 
-   /* determines if user is a member */
-  private checkAuthorization(user: User): boolean {
-    if (user && user.role.includes('PUBLIC' || 'CUSTOMER' || 'EMPLOYEE' || 'ADMIN')) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  // eslint-disable-next-line @typescript-eslint/member-ordering
   hasPermissions(permissions: string[]): Observable<boolean> {
     for (const perm of permissions) {
       return this.user.pipe(
@@ -197,6 +187,36 @@ export class AuthService {
           }
         })
       );
+    }
+  }
+
+  /* determines if user is a member */
+  private checkAuthorization(user: User): boolean {
+    if (user && user.role.includes('user' || 'customer' || 'employee' || 'admin')) {
+      return (this.validUser = true);
+    } else {
+      return (this.validUser = false);
+    }
+  }
+  private checkCustomerAuthorization(user: User): boolean {
+    if (user && user.role.includes('customer' || 'employee' || 'admin')) {
+      return (this.validCustomer = true);
+    } else {
+      return (this.validCustomer = false);
+    }
+  }
+  private checkEmployeeAuthorization(user: User): boolean {
+    if (user && user.role.includes('employee' || 'admin')) {
+      return (this.validEmployee = true);
+    } else {
+      return (this.validEmployee = false);
+    }
+  }
+  private checkAdminAuthorization(user: User): boolean {
+    if (user && user.role.includes('admin')) {
+      return (this.validAdmin = true);
+    } else {
+      return (this.validAdmin = false);
     }
   }
 }
