@@ -9,7 +9,7 @@ describe('LocationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LocationComponent ],
+      declarations: [LocationComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

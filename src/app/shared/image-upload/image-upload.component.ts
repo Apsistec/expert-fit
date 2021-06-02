@@ -1,7 +1,7 @@
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
 
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 
@@ -11,14 +11,13 @@ export interface ImageData {
   size: number;
 }
 
-
 @Component({
   selector: 'app-image-upload',
   templateUrl: './image-upload.component.html',
-  styleUrls: ['./image-upload.component.scss'],
+  styleUrls: ['./image-upload.component.scss']
 })
-
-export class ImageUploadComponent {
+export class ImageUploadComponent implements OnDestroy {
+  subs: Subscription = new Subscription();
 
   selectedFile: any;
 
@@ -60,20 +59,17 @@ export class ImageUploadComponent {
   }
 
   uploadFile(files: FileList) {
-
-
     // The File object
     const file = files.item(0);
 
     // Validation for Images Only
     if (file.type.split('/')[0] !== 'image') {
-     console.error('unsupported file type :( ');
-     return;
+      console.error('unsupported file type :( ');
+      return;
     }
 
     this.isUploading = true;
     this.isUploaded = false;
-
 
     this.fileName = file.name;
 
@@ -92,25 +88,27 @@ export class ImageUploadComponent {
     // Get file progress percentage
     this.percentage = this.task.percentageChanges();
     this.snapshot = this.task.snapshotChanges().pipe(
-
       finalize(() => {
         // Get uploaded file storage path
         this.UploadedFileURL = fileRef.getDownloadURL();
 
-        this.UploadedFileURL.subscribe(resp=>{
-          this.addImagetoDB({
-            name: file.name,
-            filepath: resp,
-            size: this.fileSize
-          });
-          this.isUploading = false;
-          this.isUploaded = true;
-        },error=>{
-          console.error(error);
-        });
+        this.UploadedFileURL.subscribe(
+          (resp) => {
+            this.addImagetoDB({
+              name: file.name,
+              filepath: resp,
+              size: this.fileSize
+            });
+            this.isUploading = false;
+            this.isUploaded = true;
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
       }),
-      tap(snap => {
-          this.fileSize = snap.totalBytes;
+      tap((snap) => {
+        this.fileSize = snap.totalBytes;
       })
     );
   }
@@ -120,12 +118,18 @@ export class ImageUploadComponent {
     const id = this.database.createId();
 
     //Set document id with value in database
-    this.imageCollection.doc(id).set(image).then(resp => {
-      console.log(resp);
-    }).catch(error => {
-      console.log('error ' + error);
-    });
+    this.imageCollection
+      .doc(id)
+      .set(image)
+      .then((resp) => {
+        console.log(resp);
+      })
+      .catch((error) => {
+        console.log('error ' + error);
+      });
   }
 
-
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+  }
 }

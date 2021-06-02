@@ -1,5 +1,7 @@
+import { Subscription } from 'rxjs';
+
 import { Location } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -15,14 +17,10 @@ import { ScrollService } from './services/scroll.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   @Input() choice;
 
-  // private user: User;
-  // private showBackButton: boolean;
-  // private path;
-  // private displayToken: string;
-  // private showPushNotifyBar = true;
+  subs: Subscription = new Subscription();
 
   constructor(
     private swUpdate: SwUpdate,
@@ -126,4 +124,7 @@ export class AppComponent implements OnInit {
     this.popoverService.dismiss();
   }
 
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+  }
 }

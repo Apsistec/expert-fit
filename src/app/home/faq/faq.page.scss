@@ -1,5 +1,5 @@
 .accordion-list {
-  background: transparent; // linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.5));
+  background: transparent;
   font-weight: 600;
 }
 
@@ -15,7 +15,7 @@
   --ripple-color: white;
 }
 .negative-icon{
-  color:rgb(0, 4, 255);
+  color:var(--ion-color-tertiary-shade);
 }
 
 .info-text {
@@ -32,5 +32,7 @@
 }
 
 .summary-item{
-  --ion-item-background: transparent; // var(--ion-color-medium-tint);
+  --ion-item-background: transparent; 
+  --inner-padding-top: 10px;
+  --inner-padding-bottom: 10px;
 }

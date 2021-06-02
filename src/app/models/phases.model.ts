@@ -30,5 +30,4 @@ export const Phases: Phase[] = [
     image: '../../assets/lazy/images/platinum.png',
     content: `Review your progress with your trainer and acknowledge your achievments then make any needed adjustments`
   }
-
 ];

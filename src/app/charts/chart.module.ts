@@ -13,29 +13,13 @@ import { LineChartComponent } from './line-chart/line-chart.component';
 
 // import 'echarts/theme/macarons.js';
 
-echarts.use(
-  [
-    TitleComponent,
-    TooltipComponent,
-    GridComponent,
-    BarChart,
-    LineChart,
-    CanvasRenderer]
-);
+echarts.use([TitleComponent, TooltipComponent, GridComponent, BarChart, LineChart, CanvasRenderer]);
 
 @NgModule({
-  declarations: [
-    LineChartComponent,
-  ],
+  declarations: [LineChartComponent],
   entryComponents: [],
-  imports: [
-
-    NgxEchartsModule.forRoot({ echarts }),
-
-  ],
-  providers: [
-
-  ],
+  imports: [NgxEchartsModule.forRoot({ echarts })],
+  providers: [],
   bootstrap: [],
   exports: []
 })

@@ -19,7 +19,6 @@ export class LoadingService {
     await loading.present().catch((error) => this.messageService.errorAlert(error));
   }
 
-
   /* Interceptor */
   serverLoader() {
     this.loadingController

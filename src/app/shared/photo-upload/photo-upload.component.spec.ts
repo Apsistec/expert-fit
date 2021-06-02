@@ -9,7 +9,7 @@ describe('PhotoUploadComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotoUploadComponent ],
+      declarations: [PhotoUploadComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

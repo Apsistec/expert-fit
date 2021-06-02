@@ -1,18 +1,19 @@
 'use strict';
 
-
-customElements.define('compodoc-menu', class extends HTMLElement {
+customElements.define(
+  'compodoc-menu',
+  class extends HTMLElement {
     constructor() {
-        super();
-        this.isNormalMode = this.getAttribute('mode') === 'normal';
+      super();
+      this.isNormalMode = this.getAttribute('mode') === 'normal';
     }
 
     connectedCallback() {
-        this.render(this.isNormalMode);
+      this.render(this.isNormalMode);
     }
 
     render(isNormalMode) {
-        let tp = lithtml.html(`
+      let tp = lithtml.html(`
         <nav>
             <ul class="list">
                 <li class="title">
@@ -22,7 +23,11 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                 </li>
 
                 <li class="divider"></li>
-                ${ isNormalMode ? `<div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>` : '' }
+                ${
+                  isNormalMode
+                    ? `<div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>`
+                    : ''
+                }
                 <li class="chapter">
                     <a data-type="chapter-link" href="index.html"><span class="icon ion-ios-home"></span>Getting started</a>
                     <ul class="links">
@@ -98,6 +103,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
             </ul>
         </nav>
         `);
-        this.innerHTML = tp.strings;
+      this.innerHTML = tp.strings;
     }
-});
+  }
+);

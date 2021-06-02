@@ -9,7 +9,7 @@ describe('PhotoGalleryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotoGalleryComponent ],
+      declarations: [PhotoGalleryComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

@@ -1,12 +1,12 @@
 export interface Product {
-  active: boolean;
-  description: string;
   id: string;
-  images: any;
+  active: boolean;
+  type: string;
   name: string;
+  description: string;
+  images: any;
   role: string;
+  stripe_metadata_productType: string;
+  stripe_metadata_firebasePlan?: string;
+  stripe_metadata_firebaseSubType?: string;
 }
-
-
-
-

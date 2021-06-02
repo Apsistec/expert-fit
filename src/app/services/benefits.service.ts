@@ -15,9 +15,7 @@ export class BenefitsService {
   private ngUnsubscribe: Subject<any> = new Subject();
 
   id;
-  constructor(private afs: AngularFirestore, private authService: AuthService, public afAuth: AngularFireAuth) {
-
-  }
+  constructor(private afs: AngularFirestore, private authService: AuthService, public afAuth: AngularFireAuth) {}
 
   // createOrUpdateBenefit(id = null, info): Promise<any> {
   //   const queryRef = this.afs.collection<Benefit>('benefits', (ref) => ref.where('active', '==', true));
@@ -44,8 +42,4 @@ export class BenefitsService {
       takeUntil(this.ngUnsubscribe)
     );
   }
-
-
-
-
 }

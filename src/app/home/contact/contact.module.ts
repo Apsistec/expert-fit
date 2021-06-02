@@ -8,13 +8,7 @@ import { ContactPageRoutingModule } from './contact-routing.module';
 import { ContactPage } from './contact.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    SharedModule,
-    IonicModule,
-    ContactPageRoutingModule,
-  ],
-  declarations: [ContactPage],
+  imports: [CommonModule, FormsModule, SharedModule, IonicModule, ContactPageRoutingModule],
+  declarations: [ContactPage]
 })
 export class ContactPageModule {}

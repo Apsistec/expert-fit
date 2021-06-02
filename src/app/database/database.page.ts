@@ -5,10 +5,9 @@ import { Platform } from '@ionic/angular';
 @Component({
   selector: 'app-database',
   templateUrl: './database.page.html',
-  styleUrls: ['./database.page.scss'],
+  styleUrls: ['./database.page.scss']
 })
 export class DatabasePage implements OnInit {
-
   databaseObj: SQLiteObject;
   name_model = '';
   row_data: any = [];
@@ -19,43 +18,48 @@ export class DatabasePage implements OnInit {
   updateActive: boolean;
   to_update_item: any;
 
-  constructor(
-    private platform: Platform,
-    private sqlite: SQLite
-  ) {
-    this.platform.ready().then(() => {
-      this.createDB();
-    }).catch(error => {
-      console.log(error);
-    });
+  constructor(private platform: Platform, private sqlite: SQLite) {
+    this.platform
+      .ready()
+      .then(() => {
+        this.createDB();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
-  ngOnInit(){}
+  ngOnInit() {}
 
   // Create DB if not there
   createDB() {
-    this.sqlite.create({
-      name: this.database_name,
-      location: 'default'
-    })
+    this.sqlite
+      .create({
+        name: this.database_name,
+        location: 'default'
+      })
       .then((db: SQLiteObject) => {
         this.databaseObj = db;
         alert('expertfit_datatable Database Created!');
       })
-      .catch(e => {
+      .catch((e) => {
         alert('error ' + JSON.stringify(e));
       });
   }
 
   // Create table
   createTable() {
-    this.databaseObj.executeSql(`
+    this.databaseObj
+      .executeSql(
+        `
     CREATE TABLE IF NOT EXISTS ${this.table_name}  (pid INTEGER PRIMARY KEY, Name varchar(255))
-    `, [])
+    `,
+        []
+      )
       .then(() => {
         alert('Table Created!');
       })
-      .catch(e => {
+      .catch((e) => {
         alert('error ' + JSON.stringify(e));
       });
   }
@@ -68,24 +72,31 @@ export class DatabasePage implements OnInit {
       return;
     }
 
-    this.databaseObj.executeSql(`
+    this.databaseObj
+      .executeSql(
+        `
       INSERT INTO ${this.table_name} (Name) VALUES ('${this.name_model}')
-    `, [])
+    `,
+        []
+      )
       .then(() => {
         alert('Row Inserted!');
         this.getRows();
       })
-      .catch(e => {
+      .catch((e) => {
         alert('error ' + JSON.stringify(e));
       });
   }
 
   // Retrieve rows from table
   getRows() {
-    this.databaseObj.executeSql(`
+    this.databaseObj
+      .executeSql(
+        `
     SELECT * FROM ${this.table_name}
-    `
-      , [])
+    `,
+        []
+      )
       .then((res) => {
         this.row_data = [];
         if (res.rows.length > 0) {
@@ -94,22 +105,25 @@ export class DatabasePage implements OnInit {
           }
         }
       })
-      .catch(e => {
+      .catch((e) => {
         alert('error ' + JSON.stringify(e));
       });
   }
 
   // Delete single row
   deleteRow(item) {
-    this.databaseObj.executeSql(`
+    this.databaseObj
+      .executeSql(
+        `
       DELETE FROM ${this.table_name} WHERE pid = ${item.pid}
-    `
-      , [])
+    `,
+        []
+      )
       .then((res) => {
         alert('Row Deleted!');
         this.getRows();
       })
-      .catch(e => {
+      .catch((e) => {
         alert('error ' + JSON.stringify(e));
       });
   }
@@ -123,19 +137,22 @@ export class DatabasePage implements OnInit {
 
   // Update row with saved row id
   updateRow() {
-    this.databaseObj.executeSql(`
+    this.databaseObj
+      .executeSql(
+        `
       UPDATE ${this.table_name}
       SET Name = '${this.name_model}'
       WHERE pid = ${this.to_update_item.pid}
-    `, [])
+    `,
+        []
+      )
       .then(() => {
         alert('Row Updated!');
         this.updateActive = false;
         this.getRows();
       })
-      .catch(e => {
+      .catch((e) => {
         alert('error ' + JSON.stringify(e));
       });
   }
-
 }

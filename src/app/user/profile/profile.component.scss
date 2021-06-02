@@ -5,9 +5,7 @@
 .center {
   align-items: center !important;
 }
-ion-label {
-  color: var(--ion-color-tertiary);
-}
+
 .name-card {
   border-top: 3px solid var(--ion-color-primary);
   border-bottom: 3px solid var(--ion-color-primary);
@@ -26,20 +24,26 @@ ion-label {
       font-weight: 600;
     }
     ion-card-subtitle {
-      color: var(--ion-color-tertiary);
+      color: var(--ion-color-success);
       font-size: larger;
       font-weight: 600;
       text-transform: capitalize;
     }
   }
   ion-card-content {
-    text-align: center;
+    text-align: left;
     padding: 10px;
+
   }
-  ion-text {
-    color: black;
+  ion-label {
+    color: var(--ion-color-primary);
+    text-transform: capitalize;
   }
+
 }
+
 ion-card {
+  color: var(--ion-color-dark);
   border-radius: 15px;
+  text-transform: capitalize;
 }

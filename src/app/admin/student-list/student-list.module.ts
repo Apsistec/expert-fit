@@ -7,12 +7,7 @@ import { StudentListPageRoutingModule } from './student-list-routing.module';
 import { StudentListPage } from './student-list.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    StudentListPageRoutingModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, StudentListPageRoutingModule],
   declarations: [StudentListPage]
 })
 export class StudentListPageModule {}

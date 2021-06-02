@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class SeoService {
   constructor(private title: Title, private meta: Meta) {}
@@ -15,12 +15,12 @@ export class SeoService {
     this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
     this.meta.updateTag({
       name: 'twitter:site',
-      content: '@apsistec',
+      content: '@apsistec'
     });
     this.meta.updateTag({ name: 'twitter:title', content: title });
     this.meta.updateTag({
       name: 'twitter:description',
-      content: description,
+      content: description
     });
     this.meta.updateTag({ name: 'twitter:image', content: img });
   }

@@ -1,4 +1,3 @@
-
 export interface Review {
   stars?: number;
   displayName?: string;

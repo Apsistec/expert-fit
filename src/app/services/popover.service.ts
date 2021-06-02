@@ -7,7 +7,6 @@ import { PopoverComponent } from '../shared/popover/popover.component';
   providedIn: 'root'
 })
 export class PopoverService {
-
   constructor(public popoverController: PopoverController) {}
 
   async presentPopover(ev: any) {
@@ -23,5 +22,4 @@ export class PopoverService {
   dismiss() {
     this.popoverController.dismiss();
   }
-
 }

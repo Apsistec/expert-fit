@@ -1,6 +1,10 @@
+import { Subscription } from 'rxjs';
+
 // import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import {
+    AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild
+} from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { ConferenceData } from './conference-data';
@@ -9,16 +13,17 @@ import { darkStyle } from './map-dark-style';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss'],
+  styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit, AfterViewInit {
+export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('mapCanvas', { static: true }) mapElement: ElementRef;
+  subs: Subscription = new Subscription();
 
   constructor(
     @Inject(DOCUMENT) private doc: Document,
     public confData: ConferenceData,
     private modalController: ModalController
-  ) { }
+  ) {}
 
   ngOnInit() {}
   async ngAfterViewInit() {
@@ -28,9 +33,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     style = darkStyle;
     // }
 
-    const googleMaps = await this.getGoogleMaps(
-      'AIzaSyBiBxbmdVNvYMRdFSJDf-uWRsQ7Y7DPjbg'
-    );
+    const googleMaps = await this.getGoogleMaps('AIzaSyBiBxbmdVNvYMRdFSJDf-uWRsQ7Y7DPjbg');
 
     let map;
 
@@ -40,18 +43,18 @@ export class MapComponent implements OnInit, AfterViewInit {
       map = new googleMaps.Map(mapEle, {
         center: mapData.find((d: any) => d.center),
         zoom: 16,
-        styles: style,
+        styles: style
       });
 
       mapData.forEach((markerData: any) => {
         const infoWindow = new googleMaps.InfoWindow({
-          content: `<h3><b>${markerData.name}</b></h3><h5>${markerData.address}</h5><h4>${markerData.phone}</h4>`,
+          content: `<h3><b>${markerData.name}</b></h3><h5>${markerData.address}</h5><h4>${markerData.phone}</h4>`
         });
 
         const marker = new googleMaps.Marker({
           position: markerData,
           map,
-          title: markerData.name,
+          title: markerData.name
         });
 
         infoWindow.open(map, marker);
@@ -88,9 +91,13 @@ export class MapComponent implements OnInit, AfterViewInit {
         }
       };
     });
-}
+  }
 
-dismissModal() {
-  this.modalController.dismiss();
-}
+  dismissModal() {
+    this.modalController.dismiss();
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+  }
 }

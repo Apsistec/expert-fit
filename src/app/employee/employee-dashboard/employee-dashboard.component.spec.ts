@@ -9,7 +9,7 @@ describe('EmployeeDashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmployeeDashboardComponent ],
+      declarations: [EmployeeDashboardComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

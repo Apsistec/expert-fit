@@ -7,12 +7,7 @@ import { DatabasePageRoutingModule } from './database-routing.module';
 import { DatabasePage } from './database.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    DatabasePageRoutingModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, DatabasePageRoutingModule],
   declarations: [DatabasePage]
 })
 export class DatabasePageModule {}

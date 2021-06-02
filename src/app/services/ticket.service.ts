@@ -1,3 +1,5 @@
+import 'firebase/firestore';
+
 /* eslint-disable @typescript-eslint/member-ordering */
 import firebase from 'firebase/app';
 import { Subject } from 'rxjs';
@@ -8,9 +10,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 import { AuthService } from './auth.service';
+import { MessageService } from './message.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class TicketService {
   private ngUnsubscribe: Subject<any> = new Subject();
@@ -19,6 +22,7 @@ export class TicketService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
+    private messageService: MessageService,
     public afAuth: AngularFireAuth
   ) {
     this.afAuth.authState.subscribe((user) => {
@@ -32,25 +36,31 @@ export class TicketService {
   createOrUpdateTicket(id = null, info): Promise<any> {
     if (id) {
       info.updated_at = firebase.firestore.Timestamp;
-      return this.afs.doc(`tickets/${id}`).update(info);
+      return this.afs
+        .doc(`tickets/${id}`)
+        .update(info)
+        .then(() => this.messageService.generalToast(`Ticket ${id} updated successfully.`));
     } else {
-      info.creator = this.authService.currentBehaviorUser.value.id;
-      info.created_at =firebase.firestore.Timestamp;
-      return this.afs.collection('tickets').add(info);
+      info.creator = this.authService.userId;
+      info.created_at = firebase.firestore.Timestamp;
+      return this.afs
+        .collection('tickets')
+        .add(info)
+        .then((res) => this.messageService.generalToast(`Ticket ${res.id} created successfully.`));
     }
   }
 
   getUserTickets() {
-    const id = this.authService.currentBehaviorUser.value.id;
+    const uid = this.authService.userId;
     return this.afs
-      .collection('tickets', (ref) => ref.where('creator', '==', id))
+      .collection('tickets', (ref) => ref.where('creator', '==', uid))
       .snapshotChanges()
       .pipe(
         map((actions) =>
           actions.map((a) => {
             const data: any = a.payload.doc.data();
-            const i = a.payload.doc.id;
-            return { i, ...data };
+            const id = a.payload.doc.id;
+            return { id, ...data };
           })
         ),
         takeUntil(this.ngUnsubscribe)
@@ -65,7 +75,7 @@ export class TicketService {
         map((actions) =>
           actions.map((a) => {
             const data: any = a.payload.doc.data();
-            const id  = a.payload.doc.id;
+            const id = a.payload.doc.id;
             return { id, ...data };
           })
         ),
@@ -74,17 +84,17 @@ export class TicketService {
   }
 
   getTicket(id) {
-    return this.afs.doc(`tickets/${id}`).valueChanges().pipe(take(1));
+    // return this.afs.doc(`tickets/${id}`).valueChanges().pipe(take(1));
+    return this.afs.doc(`tickets/${id}`).get();
   }
 
   deleteTicket(id) {
     return this.afs.doc(`tickets/${id}`).delete();
   }
 
-  getUser( ) { // uid) {
-    // return this.afs.doc(`users/${uid}`).valueChanges().pipe(take(1));
-    this.authService.user.subscribe(user => this.user = user.email);
-    return this.user;
+  getUser(uid) {
+    return this.afs.doc(`users/${uid}`).valueChanges().pipe(take(1));
+    // this.authService.user.subscribe(user => this.user = user.email);
+    // return this.user;
   }
-
 }

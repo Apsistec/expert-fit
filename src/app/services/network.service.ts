@@ -3,12 +3,11 @@ import { NetworkStatus, PluginListenerHandle, Plugins } from '@capacitor/core';
 
 const { NETWORK } = Plugins;
 
-
 @Injectable({
-    providedIn: 'root'
-  })
-  export class NetworkService  {
-  networkStatus: NetworkStatus ;
+  providedIn: 'root'
+})
+export class NetworkService {
+  networkStatus: NetworkStatus;
   networkListener: PluginListenerHandle;
 
   constructor() {
@@ -16,7 +15,6 @@ const { NETWORK } = Plugins;
       this.networkStatus = status;
       console.log('Network status changed', status);
     });
-
   }
 
   async getNetWorkStatus() {
@@ -29,5 +27,4 @@ const { NETWORK } = Plugins;
       this.networkListener.remove();
     }
   }
-
 }

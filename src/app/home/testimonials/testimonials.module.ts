@@ -8,14 +8,7 @@ import { TestimonialsPageRoutingModule } from './testimonials-routing.module';
 import { TestimonialsPage } from './testimonials.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    IonicModule,
-    TestimonialsPageRoutingModule,
-    SharedModule
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, IonicModule, TestimonialsPageRoutingModule, SharedModule],
   declarations: [TestimonialsPage]
 })
 export class TestimonialsPageModule {}

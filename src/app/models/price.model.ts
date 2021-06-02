@@ -1,4 +1,3 @@
-
 export interface Price {
   active: boolean;
   currency: string;

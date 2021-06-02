@@ -9,7 +9,7 @@ const { PushNotifications } = Plugins;
 const fcm = new FCM();
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AlertService {
   notifications: PushNotification[] = [];
@@ -18,23 +18,18 @@ export class AlertService {
   topicName = 'super-awesome-topic';
   remoteToken: string;
 
-  constructor( private platform: Platform, private zone: NgZone, private messageService: MessageService ) {
-
-
+  constructor(private platform: Platform, private zone: NgZone, private messageService: MessageService) {
     PushNotifications.addListener('registration', (data) => {
       this.messageService.generalToast(JSON.stringify(data));
       console.log(data);
     });
     PushNotifications.register().then(() => this.messageService.generalToast(`registered for push`));
-    PushNotifications.addListener(
-      'pushNotificationReceived',
-      (notification: PushNotification) => {
-        console.log('notification ' + JSON.stringify(notification));
-        this.zone.run(() => {
-          this.notifications.push(notification);
-        });
-      }
-    );
+    PushNotifications.addListener('pushNotificationReceived', (notification: PushNotification) => {
+      console.log('notification ' + JSON.stringify(notification));
+      this.zone.run(() => {
+        this.notifications.push(notification);
+      });
+    });
   }
 
   //
@@ -55,7 +50,9 @@ export class AlertService {
       .unsubscribeFrom({ topic: 'test' })
       .then((r) => this.messageService.generalToast(`unsubscribed from topic ${this.topicName}`))
       .catch((error) => console.log(error));
-    if (this.platform.is('android')) { fcm.deleteInstance(); }
+    if (this.platform.is('android')) {
+      fcm.deleteInstance();
+    }
   }
 
   getToken() {

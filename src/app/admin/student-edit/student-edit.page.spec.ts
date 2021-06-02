@@ -9,7 +9,7 @@ describe('StudentEditPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StudentEditPage ],
+      declarations: [StudentEditPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

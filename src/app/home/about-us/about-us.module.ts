@@ -8,13 +8,7 @@ import { AboutUsPageRoutingModule } from './about-us-routing.module';
 import { AboutUsPage } from './about-us.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    AboutUsPageRoutingModule,
-    SharedModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, AboutUsPageRoutingModule, SharedModule],
   declarations: [AboutUsPage]
 })
 export class AboutUsPageModule {}

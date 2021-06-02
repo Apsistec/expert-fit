@@ -9,7 +9,7 @@ describe('VerifyEmailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VerifyEmailComponent ],
+      declarations: [VerifyEmailComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

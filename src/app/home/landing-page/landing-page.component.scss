@@ -1,38 +1,37 @@
 .scene-one {
   height: 95vh;
-  width: 100vw;
-  // background-color: var(--ion-color-medium);
-  // background: linear-gradient(
-  //     to right,
-  //     rgba(25, 25, 56, 0.603) 0%,
-  //     rgba(16, 10, 37, 0.534) 50%,
-  //     rgba(24, 10, 1, 0.726) 100%
-  //   ),
-  background: linear-gradient(to bottom right, rgba(70, 69, 69, 0.76), rgba(131, 130, 130, 0.938), rgba(85, 84, 84, 0.767)),
-  center/ cover no-repeat url(../../../assets/lazy/images/fitness-balancing.jpg),
-  linear-gradient(to bottom left, rgba(70, 69, 69, 0.76), rgba(131, 130, 130, 0.938), rgba(85, 84, 84, 0.767));
+  width: 100%;
+  background: linear-gradient(
+      to bottom left,
+      rgba(0, 24, 90, 0.2) 0%,
+      rgba(20, 0, 109, 0.2) 50%,
+      rgba(0, 24, 90, 0.2) 100%
+    ),
+    linear-gradient(to bottom right, rgba(0, 24, 90, 0.8), rgba(131, 130, 130, 0.2), rgba(0, 24, 90, 0.8)),
+    url(../../../assets/lazy/images/fitness-balancing.jpg) center/ cover no-repeat;
   background-color: var(--ion-color-medium);
-}
 
-.main-title {
-  font: normal normal 800 32px/2 sans-serif;
-}
+  .main-title {
+    font: normal normal 800 32px/2 sans-serif;
+  }
 
-.main-subtitle {
-  font: normal normal 800 20px sans-serif;
-}
+  .main-subtitle {
+    font: normal normal 800 20px sans-serif;
+  }
 
-sup {
-  font: small-caps normal 800 18px;
-  color: var(--ion-color-secondary-tint);
-  text-shadow: 3px 1px 1px var(--ion-color-secondary-shade), 8px 4px 2px black;
-}
+  sup {
+    font: small-caps normal 800 18px;
+    color: var(--ion-color-tertiary);
+    text-shadow: 2px 2px 1px rgb(0, 0, 0), 0px 0px 8px rgb(255, 255, 255);
+  }
 
-.main-heading-card {
-  padding-bottom: 12px;
-  background: var(--ion-color-dark-tint);
-  border: 4px outset var(--ion-color-danger);
-  border-radius: 15px;
+  .main-heading-card {
+    padding-bottom: 12px;
+    background: linear-gradient(to bottom right, rgba(0, 2, 68, 0.544), rgba(0, 3, 95, 0.462), rgba(6, 0, 61, 0.475)),
+      linear-gradient(to bottom left, rgba(0, 0, 59, 0.544), rgba(0, 5, 94, 0.462), rgba(0, 0, 63, 0.475));
+    border: 4px outset var(--ion-color-warning);
+    border-radius: 15px;
+  }
 }
 
 .video {
@@ -42,15 +41,20 @@ sup {
 }
 
 .pulsing {
-  animation: 4s ease-out infinite pulsar;
+  animation: 2s ease-in-out 1s infinite alternate pulsar;
   // z-index: 99;
 }
 
 @keyframes pulsar {
-  50% {
-    transform: scale(0.8, 0.8);
-    opacity: 30%;
+  100% {
+    transform: scale(0.85, 0.85);
+    opacity: 60%;
   }
+}
+
+.page-two {
+  background: linear-gradient(rgba(0, 3, 37, 0.767), rgba(0, 0, 0, 0.767)),
+    url(../../../assets/lazy/images/upward-dog-pose.jpg) center left / cover no-repeat;
 }
 
 #pageThree {
@@ -78,12 +82,6 @@ sup {
     center/ cover no-repeat url(../../../assets/lazy/images/platinum.png);
 }
 
-.page-two {
-  min-height: 95vh;
-  background: linear-gradient(rgba(0, 3, 37, 0.767), rgba(0, 0, 0, 0.767)),
-    url(../../../assets/lazy/images/upward-dog-pose.jpg) center left / cover no-repeat;
-}
-
 .up {
   ion-icon {
     color: var(--ion-color-warning-tint);
@@ -93,7 +91,7 @@ sup {
   --border-color: var(--ion-color-warning);
   --border-width: 2px;
   --border-style: solid;
-  --ripple-color: var(--ion-color-danger);
+  --ripple-color: var(--ion-color-warning);
   --background-hover: white;
   --background-hover-opacity: 0.3;
   --background-focused: white;
@@ -105,14 +103,13 @@ sup {
 }
 
 .ratings-banner {
-  width: 100vw;
-  background: linear-gradient(rgba(58, 58, 58, 0.911), rgba(82, 81, 81, 0.911), rgba(58, 58, 58, 0.911)),
+  background: linear-gradient(rgba(0, 3, 19, 0.8), rgba(3, 0, 17, 0.8), rgba(0, 3, 27, 0.8)),
     repeating-conic-gradient(
-      from 3deg at 20% 50%,
+      from 3deg at 50% 50%,
       var(--ion-color-primary-shade),
       var(--ion-color-primary-tint) 2deg 5deg,
       var(--ion-color-dark-tint),
       var(--ion-color-warning-shade) 15deg 18deg,
       var(--ion-color-primary-tint) 20deg
-    )
+    );
 }

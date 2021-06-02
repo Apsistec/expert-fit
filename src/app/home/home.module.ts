@@ -13,31 +13,18 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { IntroVideoComponent } from './intro-video/intro-video.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { PricingComponent } from './pricing/pricing.component';
-import { RatingsBannerComponent } from './ratings-banner/ratings-banner.component';
-
-// import { GetDownloadURLPipeModule } from '@angular/fire/storage';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    HomePageRoutingModule,
-    SharedModule
-
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule, SharedModule],
   declarations: [
     HomePage,
     HomePageTwoComponent,
-    RatingsBannerComponent,
     HomePageThreeComponent,
     HomePageFourComponent,
     IntroVideoComponent,
     LandingPageComponent,
     BenefitsTrackerComponent,
-    BenefitsComponent,
-    PricingComponent
+    BenefitsComponent
   ]
 })
 export class HomePageModule {}

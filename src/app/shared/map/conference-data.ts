@@ -8,24 +8,19 @@ import { User } from '../../models/users.model';
 import { UserService } from '../../services/user.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ConferenceData {
   data: any;
   user: User;
 
-  constructor(
-    public http: HttpClient,
-    private userService: UserService
-    ) {}
+  constructor(public http: HttpClient, private userService: UserService) {}
 
   load(): any {
     if (this.data) {
       return of(this.data);
     } else {
-      return this.http
-        .get('/assets/_data/conference_data.json')
-        .pipe(map(this.processData, this));
+      return this.http.get('/assets/_data/conference_data.json').pipe(map(this.processData, this));
     }
   }
 
@@ -43,9 +38,7 @@ export class ConferenceData {
           session.employees = [];
           if (session.employeeNames) {
             session.employeeNames.forEach((employeeName: any) => {
-              const trainer = this.data.employees.find(
-                (s: any) => s.name === employeeName
-              );
+              const trainer = this.data.employees.find((s: any) => s.name === employeeName);
               if (trainer) {
                 session.employees.push(trainer);
                 trainer.sessions = trainer.sessions || [];
@@ -60,21 +53,14 @@ export class ConferenceData {
     return this.data;
   }
 
-  getTimeline(
-    dayIndex: number,
-    queryText = '',
-    excludeTracks: any[] = [],
-    segment = 'all'
-  ) {
+  getTimeline(dayIndex: number, queryText = '', excludeTracks: any[] = [], segment = 'all') {
     return this.load().pipe(
       map((data: any) => {
         const day = data.schedule[dayIndex];
         day.shownSessions = 0;
 
         queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
-        const queryWords = queryText
-          .split(' ')
-          .filter((w) => !!w.trim().length);
+        const queryWords = queryText.split(' ').filter((w) => !!w.trim().length);
 
         day.groups.forEach((group: any) => {
           group.hide = true;
@@ -96,12 +82,7 @@ export class ConferenceData {
     );
   }
 
-  filterSession(
-    session: any,
-    queryWords: string[],
-    excludeTracks: any[],
-    segment: string
-  ) {
+  filterSession(session: any, queryWords: string[], excludeTracks: any[], segment: string) {
     let matchesQueryText = false;
     if (queryWords.length) {
       // of any query word is in the session name than it passes the query test
@@ -141,23 +122,21 @@ export class ConferenceData {
 
   getEmployees() {
     return this.load().pipe(
-      map((data: any) => data.employees.sort((a: any, b: any) => {
+      map((data: any) =>
+        data.employees.sort((a: any, b: any) => {
           const aName = a.name.split(' ').pop();
           const bName = b.name.split(' ').pop();
           return aName.localeCompare(bName);
-        }))
+        })
+      )
     );
   }
 
   getTracks() {
-    return this.load().pipe(
-      map((data: any) => data.tracks.sort())
-    );
+    return this.load().pipe(map((data: any) => data.tracks.sort()));
   }
 
   getMap() {
-    return this.load().pipe(
-      map((data: any) => data.map)
-    );
+    return this.load().pipe(map((data: any) => data.map));
   }
 }

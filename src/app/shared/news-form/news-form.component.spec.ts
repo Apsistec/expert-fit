@@ -9,7 +9,7 @@ describe('NewsFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsFormComponent ],
+      declarations: [NewsFormComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

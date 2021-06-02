@@ -1,21 +1,21 @@
-<ion-card class="ion-card-global ion-no-margin" style="height: 100%">
+<ion-card class="ion-text-center ion-no-margin ion-no-padding" style="height: 100%">
   <ion-card-header class="ion-text-center">
     <ion-fab horizontal="end" vertical="top">
       <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
     </ion-fab>
-    <ion-card-title color="tertiary">Account Signup</ion-card-title>
-    <ion-card-subtitle>Register A new account</ion-card-subtitle>
+    <ion-card-title>Account Signup</ion-card-title>
+    <ion-card-subtitle *ngIf="errorMessage" color="danger">Error: {{ errorMessage }}</ion-card-subtitle>
   </ion-card-header>
   <ion-card-content class="ion-no-margin ion-no-padding">
-    <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm)">
-      <ion-card color="medium">
-        <ion-item color="light">
-          <ion-label [color]="error ? 'danger' : 'dark'" position="floating">Full Name</ion-label>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <ion-card>
+        <ion-item>
+          <ion-label [color]="formError ? 'danger' : 'dark'" position="floating">Full Name</ion-label>
           <ion-input
             debounce="600"
-            color="primary"
             type="text"
             inputmode="text"
+            autofocus="true"
             autocomplete="name"
             formControlName="displayName"
             autocapitalize="words"
@@ -33,8 +33,8 @@
         </ion-text>
       </ng-container>
       <ion-card>
-        <ion-item color="light">
-          <ion-label [color]="error ? 'danger' : 'dark'" position="floating">Email</ion-label>
+        <ion-item>
+          <ion-label [color]="formError ? 'danger' : 'dark'" position="floating">Email</ion-label>
           <ion-input
             debounce="600"
             color="primary"
@@ -51,27 +51,21 @@
         <ion-text *ngIf="registerFormControl.email.errors.email" color="danger"> Email not valid. </ion-text>
       </ng-container>
       <ion-card>
-        <ion-item color="light">
-          <ion-label [color]="error ? 'danger' : 'dark'" position="floating">Password</ion-label>
-          <ion-input
-            debounce="600"
-            color="primary"
-            [type]="hide ? 'password' : 'text'"
-            inputmode="text"
-            formControlName="password"
-          >
+        <ion-item>
+          <ion-label [color]="formError ? 'danger' : 'dark'" position="floating">Password</ion-label>
+          <ion-input debounce="600" [type]="hide ? 'password' : 'text'" inputmode="text" formControlName="password">
           </ion-input>
-          <ion-icon color="dark" size="small" (click)="toggleHide()" slot="end" *ngIf="!hide" name="eye-sharp">
-          </ion-icon>
-          <ion-icon color="dark" size="small" (click)="toggleHide()" slot="end" *ngIf="hide" name="eye-off-sharp">
-          </ion-icon>
+            <ion-icon color="dark" size="large" (click)="toggleHide()"  class="eye" *ngIf="!hide" name="eye-sharp">
+            </ion-icon>
+            <ion-icon color="dark" size="large" (click)="toggleHide()"  class="eye" *ngIf="hide" name="eye-off-sharp">
+            </ion-icon>
         </ion-item>
       </ion-card>
       <ng-container *ngIf="!registerFormControl.password.valid && !registerFormControl.password.pristine">
         <ion-text *ngIf="registerFormControl.password.errors.required" color="danger"> Password required. </ion-text>
         <ion-text *ngIf="registerFormControl.password.errors.minlength" color="danger">
           At least 6 characters
-        </ion-text>
+        </ion-text>danger
         <ion-text *ngIf="registerFormControl.password.errors.maxlength" color="danger">
           Less than 25 characters
         </ion-text>
@@ -80,44 +74,37 @@
         </ion-text>
       </ng-container>
       <ion-card>
-        <ion-item color="light">
-          <ion-label [color]="error ? 'danger' : 'dark'" position="floating">Verify Password</ion-label>
-          <ion-input
-            debounce="600"
-            color="primary"
-            [type]="hide ? 'password' : 'text'"
-            inputmode="text"
-            formControlName="verify"
-          >
+        <ion-item>
+          <ion-label [color]="formError ? 'danger' : 'dark'" position="floating">Verify Password</ion-label>
+          <ion-input debounce="600" [type]="hide ? 'password' : 'text'" inputmode="text" formControlName="verify">
           </ion-input>
         </ion-item>
       </ion-card>
-      <ng-container *ngIf="!registerFormControl.verify.valid && !registerFormControl.verify.pristine">
-        <ion-text *ngIf="registerFormControl.verify.errors.required" color="danger"> Password required. </ion-text>
-        <ion-text *ngIf="registerFormControl.verify.errors.minlength" color="danger">
-          At least 6 characters
-        </ion-text>
-        <ion-text *ngIf="registerFormControl.verify.errors.maxlength" color="danger">
-          Less than 25 characters
-        </ion-text>
-        <ion-text *ngIf="registerFormControl.verify.errors.pattern" color="danger">
-          At least 1 uppercase, 1 lowercase and 1 number
-        </ion-text>
-      </ng-container>
-      <ion-button type="submit" color="tertiary" expand="full" [disabled]="!registerForm.valid">
+      <ion-button type="submit" color="success" expand="full" [disabled]="!registerForm.valid">
         <ion-icon slot="start" name="person-add-sharp"></ion-icon>
         Register
       </ion-button>
-      <ion-button type="button" expand="full" color="danger" (click)="authService.GoogleAuth()">
+      <ion-button type="button" expand="full" color="danger" (click)="authService.GoogleAuthSignup()">
         <ion-icon slot="start" name="logo-google"> </ion-icon>
         Register with Google
       </ion-button>
-      <ion-button (click)="authService.GoogleAuth()" expand="full" color="secondary">
+      <ion-button (click)="authService.TwitterAuth()" expand="full" color="secondary">
         <ion-icon slot="start" name="logo-twitter"></ion-icon>
         Register with Twitter
       </ion-button>
-      <ion-button size="small" color="dark" expand="full" fill="clear" type="button" (click)="goToLogin()">
+      <ion-button size="small" color="light" expand="full" fill="clear" type="button" (click)="goToLogin()">
         Login Instead?
+      </ion-button>
+      <ion-button
+        *ngIf="errorMessage"
+        size="small"
+        color="light"
+        expand="full"
+        fill="clear"
+        type="button"
+        (click)="registerForm.reset()"
+      >
+        Reset Form
       </ion-button>
     </form>
   </ion-card-content>

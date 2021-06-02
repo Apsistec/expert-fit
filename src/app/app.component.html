@@ -1,11 +1,11 @@
 <ion-app>
   <app-side-menu></app-side-menu>
-  <ion-header transparent>
+  <ion-header >
     <ion-toolbar #toolbar class="top-toolbar-sm">
       <ion-buttons slot="start">
-        <ion-menu-button color="tertiary"> </ion-menu-button>
+        <ion-menu-button color="secondary"> </ion-menu-button>
       </ion-buttons>
-      <img src="../assets/icons/icon-512x512.png" slot="start" class="small-logo" routerLink="/home" />
+      <!-- <img src="../assets/icons/icon-512x512.png" slot="start" class="small-logo" routerLink="/home" /> -->
       <ion-item
         class="ion-float-right"
         type="button"
@@ -15,20 +15,18 @@
         *ngIf="authService.user | async as user; else login"
       >
         <ion-avatar slot="end">
-          <img [src]="['..//assets//lazy//images//dummy-user.png']" />
+          <ion-img [src]="user.photoURL || '..//assets//lazy//images//dummy-user.png'"></ion-img>
         </ion-avatar>
         <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
       </ion-item>
       <ng-template #login>
-        <ion-buttons slot="end">
-          <ion-button class="flashing" routerLink="/login" color="warning"> Login </ion-button>
+        <ion-buttons slot="end">  
+          <ion-button fill="clear" routerLink="/login" class="login-button-main" color="warning"> Login </ion-button>
         </ion-buttons>
       </ng-template>
     </ion-toolbar>
-
     <ion-toolbar class="top-toolbar-lg" #toolbar>
-      <ion-img src="..//assets//icons//icon-512x512.png" slot="start" class="small-logo" routerLink="/home"></ion-img>
-
+      <!-- <ion-img src="..//assets//icons//icon-512x512.png" slot="start" class="small-logo" routerLink="/home"></ion-img> -->
       <ion-item
         class="menu-item"
         button
@@ -43,7 +41,7 @@
         class="menu-item"
         button
         details="false"
-        routerLink="/home/pricing"
+        routerLink="/home/products"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -60,7 +58,6 @@
       >
         <ion-label>FAQs</ion-label>
       </ion-item>
-
       <ion-item
         class="menu-item"
         button
@@ -71,7 +68,6 @@
       >
         <ion-label>Reviews</ion-label>
       </ion-item>
-
       <ion-item
         class="menu-item"
         button
@@ -92,8 +88,8 @@
       >
         <ion-label>Contact</ion-label>
       </ion-item>
-
       <ion-item
+        color="dark"
         class="ion-float-right"
         type="button"
         (click)="popoverService.presentPopover($event)"
@@ -101,18 +97,18 @@
         *ngIf="authService.user | async as user; else login"
       >
         <ion-avatar slot="end">
-          <img [src]="['..//assets//lazy//images//dummy-user.png']" />
+          <ion-img [src]="user.photoURL || '..//assets//lazy//images//dummy-user.png'"></ion-img>
         </ion-avatar>
         <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
       </ion-item>
       <ng-template #login>
-        <ion-buttons slot="end">
-          <ion-button class="flashing" routerLink="/login" color="warning"> Login </ion-button>
-        </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" routerLink="/login" class="login-button-main" color="warning"> Login </ion-button>
+      </ion-buttons>
       </ng-template>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content class="content">
     <ion-router-outlet id="main"></ion-router-outlet>
   </ion-content>
 </ion-app>

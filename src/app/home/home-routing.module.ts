@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { PricingComponent } from './pricing/pricing.component';
 
 const routes: Routes = [
   {
@@ -11,12 +10,8 @@ const routes: Routes = [
     component: HomePage,
     children: [
       {
-        path: '',
-        component: LandingPageComponent
-      },
-      {
-        path: 'pricing',
-        component: PricingComponent
+        path: 'products',
+        loadChildren: () => import('./products/products.module').then((m) => m.ProductsPageModule)
       },
       {
         path: 'faqs',
@@ -51,6 +46,10 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
+        path: 'modal-view',
+        loadChildren: () => import('./modal-view/modal-view.module').then((m) => m.ModalViewPageModule)
+      },
+      {
         path: 'contact-us',
         loadChildren: () => import('./contact/contact.module').then((m) => m.ContactPageModule)
       },
@@ -58,6 +57,26 @@ const routes: Routes = [
         path: 'contact',
         redirectTo: 'contact-us',
         pathMatch: 'full'
+      },
+      {
+        path: 'facility',
+        loadChildren: () => import('./facility/facility.module').then((m) => m.FacilityPageModule)
+      },
+      {
+        path: 'nutrition',
+        loadChildren: () => import('./nutrition/nutrition.module').then((m) => m.NutritionPageModule)
+      },
+      {
+        path: 'safety',
+        loadChildren: () => import('./safety/safety.module').then((m) => m.SafetyPageModule)
+      },
+      {
+        path: 'choices',
+        loadChildren: () => import('./choices/choices.module').then((m) => m.ChoicesPageModule)
+      },
+      {
+        path: '',
+        component: LandingPageComponent
       }
     ]
   }

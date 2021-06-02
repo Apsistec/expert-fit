@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { ModalController } from '@ionic/angular';
+import { IonSlides, ModalController } from '@ionic/angular';
 
 import { MessageService } from '../../services/message.service';
 import { ReviewService } from '../../services/review.service';
@@ -12,34 +14,48 @@ import { NewReviewComponent } from '../../shared/new-review/new-review.component
   styleUrls: ['./testimonials.page.scss']
 })
 export class TestimonialsPage implements OnInit {
+  @ViewChild('slides', { static: true }) slider: IonSlides;
   max: number;
   formRating;
-  readonly: any;
   overStar: any;
   reviewForm;
   reviews: any; //  Observable<Review>;
   myReviews: any; // : Observable<any>;
-  segmentModel = 'all';
+  segment = 0;
   user;
-
+  review;
   constructor(
     private reviewService: ReviewService,
     public afAuth: AngularFireAuth,
     private modalController: ModalController,
-    private messageService: MessageService
-  ) {}
+    private messageService: MessageService,
+    public authService: AuthService
+  ) {
+    // this.review = {
+    //  set expandCard(value) {
+    //     this.review.expand = value;
+    //   }
+    // };
+  }
+  track(review) {
+    return review ? review.id : undefined;
+  }
+
+  async segmentChanged(ev: any) {
+    await this.slider.slideTo(this.segment);
+  }
+
+  async slideChanged() {
+    this.segment = await this.slider.getActiveIndex();
+  }
 
   ngOnInit() {
     this.reviews = this.reviewService.getAllReviews();
   }
 
-  getMyReviews(){
-    this.myReviews = this.reviewService.getUserReviews(this.user.uid);
+  getMyReviews() {
+    this.myReviews = this.reviewService.getUserReviews(this.authService.userId);
     console.log('myReviews' + this.myReviews);
-  }
-
-  segmentChanged(ev: any) {
-    console.log('Segment changed', ev);
   }
 
   async showModalNewReview() {

@@ -32,7 +32,7 @@ import { SideMenuComponent } from './home/side-menu/side-menu.component';
 import { ErrorInterceptor } from './services/error.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, SideMenuComponent,],
+  declarations: [AppComponent, SideMenuComponent],
   entryComponents: [],
   imports: [
     BrowserModule,

@@ -8,10 +8,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { PaidGuard } from './guards/paid.guard';
+import { PopulatedCartRouteGuard } from './guards/populated-cart.route-guard';
 import { RoleGuard } from './guards/role.guard';
-import { ModalViewComponent } from './shared/modal-view/modal-view.component';
+import { CheckoutComponent } from './home/checkout/checkout.component';
 import { PhotoGalleryComponent } from './shared/photo-gallery/photo-gallery.component';
 import { UnknownComponent } from './shared/unknown/unknown.component';
+import { OrderConfirmationComponent } from './user/order-confirmation/order-confirmation.component';
 
 // import { LoginGuard } from './guards/login.guard';
 
@@ -30,6 +32,12 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule)
+  },
+  { canActivate: [PopulatedCartRouteGuard], component: CheckoutComponent, path: 'checkout' },
+  {
+    canActivate: [PopulatedCartRouteGuard],
+    component: OrderConfirmationComponent,
+    path: 'confirmed'
   },
   {
     path: 'customer',
@@ -54,16 +62,13 @@ const routes: Routes = [
     canActivate: [PaidGuard, RoleGuard, AngularFireAuthGuard]
   },
   {
-    path: 'gallery',
-    loadChildren: () => import('./home/gallery/gallery.module').then((m) => m.GalleryPageModule)
-  },
-  {
     path: 'photo-gallery',
     component: PhotoGalleryComponent
   },
   {
     path: ':id',
-    component: ModalViewComponent
+    loadChildren: () => import('./home/modal-view/modal-view.module').then((m) => m.ModalViewPageModule),
+    ...canActivate(redirectLoggedInToDash)
   },
   {
     path: 'database',
@@ -78,7 +83,6 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then((m) => m.UserPageModule),
     ...canActivate(redirectUnauthorizedToLogin),
     canActivate: [AngularFireAuthGuard]
-
   },
   {
     path: '**',

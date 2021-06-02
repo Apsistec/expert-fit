@@ -1,12 +1,13 @@
+// import { LoadingService } from 'src/app/services/loading.service';
+
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalController, PopoverController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 
 import { AuthService } from '../../services/auth.service';
-import { LoadingService } from '../../services/loading.service';
-import { MessageService } from '../../services/message.service';
-import { AuthPopoverComponent } from '../auth-popover/auth-popover.component';
+
+// import { AuthPopoverComponent } from '../auth-popover/auth-popover.component';
 
 @Component({
   selector: 'app-login',
@@ -16,17 +17,16 @@ import { AuthPopoverComponent } from '../auth-popover/auth-popover.component';
 export class LoginComponent implements OnInit, AfterViewInit {
   hide: boolean;
   loginForm: FormGroup;
-  isSubmitted = false;
-  error = false;
+  formError = false;
+  errorMessage;
 
   constructor(
     private fb: FormBuilder,
     public authService: AuthService,
     public modalController: ModalController,
-    private messageService: MessageService,
-    private loadingService: LoadingService,
     private router: Router,
-    private popoverController: PopoverController
+    // private loadingService: LoadingService
+    private loadingController: LoadingController // private popoverController: PopoverController
   ) {}
 
   ngOnInit() {
@@ -36,30 +36,30 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (!this.loginForm.valid && !this.loginForm.pristine) {
-      this.error = true;
+    if (!this.loginForm.controls.valid && !this.loginForm.pristine) {
+      this.formError = true;
     }
-    this.error = false;
+    this.formError = false;
 
-    if (!this.loginFormControl.password.valid && this.loginFormControl.password.dirty) {
-      if (this.loginFormControl.password.errors.required) {
-      } else if (this.loginFormControl.password.errors.minlength) {
-      } else if (this.loginFormControl.password.errors.maxlength) {
-      } else if (this.loginFormControl.password.errors.pattern) {
-        ('At least 1 uppercase, 1 lowercase, and 1 number');
-      }
-    }
+    // if (!this.loginFormControl.password.valid && this.loginFormControl.password.dirty) {
+    //   if (this.loginFormControl.password.errors.required) {
+    //   } else if (this.loginFormControl.password.errors.minlength) {
+    //   } else if (this.loginFormControl.password.errors.maxlength) {
+    //   } else if (this.loginFormControl.password.errors.pattern) {
+    //     ('At least 1 uppercase, 1 lowercase, and 1 number');
+    //   }
+    // }
   }
 
-  async presentPopover(ev: any) {
-    const popover = await this.popoverController.create({
-      component: AuthPopoverComponent,
-      cssClass: 'my-custom-class',
-      event: ev,
-      translucent: true
-    });
-    return await popover.present();
-  }
+  // async presentPopover(ev: any) {
+  //   const popover = await this.popoverController.create({
+  //     component: AuthPopoverComponent,
+  //     cssClass: 'my-custom-class',
+  //     event: ev,
+  //     translucent: true
+  //   });
+  //   return await popover.present();
+  // }
 
   createForm() {
     this.loginForm = this.fb.group({
@@ -81,16 +81,22 @@ export class LoginComponent implements OnInit, AfterViewInit {
     return this.loginForm.controls;
   }
 
-  async onLogin() {
-    this.isSubmitted = true;
-    this.loadingService.showLoading();
-    const res = await this.authService.SignIn(this.loginForm.value);
-    if (res !== null) {
-      this.dismissModal();
-      this.loadingService.dismissLoading().catch((error) => {
-        this.dismissModal();
-        this.messageService.errorAlert(error);
+  async submit() {
+    const email = this.loginFormControl.email.value;
+    const password = this.loginFormControl.password.value;
+    try {
+      const loading = await this.loadingController.create({
+        message: 'Loading...',
+        keyboardClose: true,
+        showBackdrop: true,
+        translucent: true
       });
+      await loading.present();
+      await this.authService.SignIn(email, password);
+      loading.dismiss();
+    } catch (error) {
+      this.loadingController.dismiss();
+      this.errorMessage = error;
     }
   }
 

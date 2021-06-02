@@ -1,13 +1,11 @@
 .page-two-card {
   background: rgba(255, 255, 255, 0.1);
-  width: fit-content;
+  width: 500px;
   margin: auto;
-  text-transform: uppercase;
   display: block;
   border-radius: 15px;
   border: 3px solid var(--ion-color-secondary-tint);
 }
-
 
 .benefit-tracker-card{
   width: 500px;
@@ -16,10 +14,11 @@
   border:3px solid var(--ion-color-secondary);
   background: rgba(255, 255, 255, 0.219);
 }
+
 .first-benefit-card{
   width: 500px;
-  height: fit-content; 
+  height: 250px; 
   border-radius: 15px;
-  border:3px solid var(--ion-color-secondary);
+  border: 3px solid var(--ion-color-secondary);
   background: rgba(255, 255, 255, 0.219);
 }

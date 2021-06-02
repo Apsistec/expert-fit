@@ -8,14 +8,16 @@ import { MessageService } from './message.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-    constructor(private messageService: MessageService) {}
+  constructor(private messageService: MessageService) {}
 
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        return next.handle(request).pipe(catchError(error => {
-            // error.error?.message || error.statusText;
-            this.messageService.errorAlert(error);
-            console.error(error);
-            return throwError(error);
-        }));
-    }
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(request).pipe(
+      catchError((error) => {
+        // error.error?.message || error.statusText;
+        this.messageService.errorAlert(error);
+        console.error(error);
+        return throwError(error);
+      })
+    );
+  }
 }

@@ -4,9 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class UtilitiesService {
-
-}
+export class UtilitiesService {}
 
 export function objectExists(obj: any): boolean {
   return !!obj;

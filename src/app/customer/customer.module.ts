@@ -19,14 +19,7 @@ import { VideosComponent } from './videos/videos.component';
 import { WorkoutsComponent } from './workouts/workouts.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    CustomerRoutingModule,
-    SharedModule,
-    SharedDirectivesModule,
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, CustomerRoutingModule, SharedModule, SharedDirectivesModule],
   declarations: [
     CustomerPage,
     BasicContentComponent,

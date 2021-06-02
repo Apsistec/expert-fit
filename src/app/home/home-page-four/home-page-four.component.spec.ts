@@ -9,7 +9,7 @@ describe('HomePageFourComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePageFourComponent ],
+      declarations: [HomePageFourComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

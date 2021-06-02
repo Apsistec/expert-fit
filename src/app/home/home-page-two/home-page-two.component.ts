@@ -1,7 +1,7 @@
 import { slideInLeft, slideInRight } from 'ng-animate';
 
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home-page-two',
@@ -28,22 +28,13 @@ import { Component, OnInit } from '@angular/core';
     ])
   ]
 })
-export class HomePageTwoComponent implements OnInit {
+export class HomePageTwoComponent {
   slideInRight: any;
   slideInLeft: any;
-  // choice: Benefit;
   benefit;
 
-  constructor() {
-  }
-
-  async ngOnInit() {
-
-
-  }
-  receiveBenefit(event){
+  receiveBenefit(event) {
     this.benefit = event;
     console.log('event: ', event);
-}
-
+  }
 }

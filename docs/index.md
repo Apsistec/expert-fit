@@ -7,6 +7,7 @@
 [Expert Fitness](https://github.com/apsistec/expert-fit)
 
 <!-- PROJECT SHIELDS -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -51,10 +52,12 @@
 </details>
 
 ---
+
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
-[![product-screenshot][Product Screenshot]][screenshot]
+[![product-screenshot][product screenshot]][screenshot]
 
 There are many great fitness apps available on GitHub.
 However, I didn't find one that really suit my client's needs.
@@ -65,11 +68,11 @@ I think this is it.
 
 Here's why:
 
-* Time should be focused on creating something amazing. A project that solves a
+- Time should be focused on creating something amazing. A project that solves a
   problem and helps others
-* Clients shouldn't be using a plain website now that progressive web apps have
+- Clients shouldn't be using a plain website now that progressive web apps have
   entered the market
-* We should implement DRY coding principles to the app code :barbell:
+- We should implement DRY coding principles to the app code :barbell:
 
 Of course, this is a continued work in progress. I will constantly add to this
 project any updates and additional features that are relevant to the industry
@@ -86,13 +89,14 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 The major frameworks I used to build the project. Add-ons/plugins are listed in
 the acknowledgements section.
 
-* [Ionic](https://ionicframework.com)
-* [Angular](https://angular.io)
-* [Angular Material](https://material.angular.io)
-* [Firebase](https://firebase.com)
-* [Stripe](https://stripe.com)
+- [Ionic](https://ionicframework.com)
+- [Angular](https://angular.io)
+- [Angular Material](https://material.angular.io)
+- [Firebase](https://firebase.com)
+- [Stripe](https://stripe.com)
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -104,21 +108,21 @@ To get a local copy up and running follow these simple example steps.
 
 2. Using npm, install:
 
-    ```sh
-    npm install npm@latest -global
-    ```
+   ```sh
+   npm install npm@latest -global
+   ```
 
-    ```sh
-    npm install @angular/cli@latest -global
-    ```
+   ```sh
+   npm install @angular/cli@latest -global
+   ```
 
-    ```sh
-    npm install @ionic/cli@latest -global
-    ```
+   ```sh
+   npm install @ionic/cli@latest -global
+   ```
 
-    ```sh
-    npm install firebase-tools@latest -global
-    ````
+   ```sh
+   npm install firebase-tools@latest -global
+   ```
 
 ### Acquire APIs
 
@@ -150,21 +154,21 @@ To get a local copy up and running follow these simple example steps.
 4. Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
 
    ```js
-    export const environment = {
-      production: 'boolean',
-      firebaseConfig: {
-        apiKey: '...',
-        authDomain: '...',
-        databaseURL: '...',
-        projectId: '...',
-        storageBucket: '...',
-        messagingSenderId: '...',
-        appId: '...',
-        measurementId: '...'
-      },
-      stripePubKey: 'pk_test_ API',
-      taxRates: ['enter API']
-    }
+   export const environment = {
+     production: 'boolean',
+     firebaseConfig: {
+       apiKey: '...',
+       authDomain: '...',
+       databaseURL: '...',
+       projectId: '...',
+       storageBucket: '...',
+       messagingSenderId: '...',
+       appId: '...',
+       measurementId: '...'
+     },
+     stripePubKey: 'pk_test_ API',
+     taxRates: ['enter API']
+   };
    ```
 
 5. Compile the function code
@@ -194,7 +198,7 @@ To get a local copy up and running follow these simple example steps.
 7. Work on the app code with hot-reload
 
    ```sh
-   ionic serve 
+   ionic serve
    ```
 
 8. Deploy to Firebase Authentication, Hosting, Database, Serverless and Storage
@@ -204,6 +208,7 @@ To get a local copy up and running follow these simple example steps.
    ```
 
 <!-- USAGE EXAMPLES -->
+
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
@@ -211,11 +216,13 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- ROADMAP -->
+
 ## Roadmap
 
 See the [open issues](https://github.com/apsistec/expert-fit/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -227,11 +234,13 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
+
 ## Contact
 
 Doug White - [@apsistec](https://twitter.com/apsistec) - doug@apsistec.app
@@ -239,15 +248,17 @@ Doug White - [@apsistec](https://twitter.com/apsistec) - doug@apsistec.app
 Project Link: [https://github.com/apsistec/expert-fit](https://github.com/apsistec/expert-fit)
 
 <!-- ACKNOWLEDGEMENTS -->
+
 ## Acknowledgements
 
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Pages](https://pages.github.com)
-* [Ion Icons](https://ionicons.com)
+- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+- [Img Shields](https://shields.io)
+- [Choose an Open Source License](https://choosealicense.com)
+- [GitHub Pages](https://pages.github.com)
+- [Ion Icons](https://ionicons.com)
 
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/apsistec/expert-fit.svg?style=for-the-badge
 [contributors-url]: https://github.com/apsistec/expert-fit/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/apsistec/expert-fit.svg?style=for-the-badge
@@ -264,9 +275,7 @@ Project Link: [https://github.com/apsistec/expert-fit](https://github.com/apsist
 [logo]: https://github.com/apsistec/expert-fit/src/assets/logos/logo.png
 [screenshot]: http://expert-fitness-midland-tx.web.app
 
-
-
-# 🏋️‍♂️ 🥡 🍎 Expert Fitness App   🍏 ⚖️ 🏋️‍♀️
+# 🏋️‍♂️ 🥡 🍎 Expert Fitness App 🍏 ⚖️ 🏋️‍♀️
 
 ## The fitness app that becomes your trainer
 
@@ -281,7 +290,7 @@ Update-Help -UICulture en-USspan
 [![GNU General Public License v3.0][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-[![logo-full]](http://expert-fitness-midland-tx.web.app "Expert Fitness Landing Page")
+[![logo-full]](http://expert-fitness-midland-tx.web.app 'Expert Fitness Landing Page')
 
 <!-- PROJECT Screenshot -->
 
@@ -313,11 +322,11 @@ The goal has been simple, to develop a fitness app capable of guiding users effe
 
 [[Here&#39;s why:](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
 
-* [[Time should be focused on creating something amazing. A project that solves a
+- [[Time should be focused on creating something amazing. A project that solves a
   problem and helps others](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
-* [[Clients shouldn&#39;t be using a plain website now that progressive web apps have
+- [[Clients shouldn&#39;t be using a plain website now that progressive web apps have
   entered the market](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
-* [[We should implement DRY coding principles to the app code :barbell:](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
+- [[We should implement DRY coding principles to the app code :barbell:](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
 
 [[Of course, this is a continued work in progress. I will constantly add to this
 project any updates and additional features that are relevant to the industry
@@ -334,11 +343,11 @@ this template!](#acknowledgements)](https://github.com/apsistec/expert-fit/issue
 [[The major frameworks I used to build the project. Add-ons/plugins are listed in
 the acknowledgements section.](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
 
-* [[[Ionic](https://ionicframework.com)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
-* [[[Angular](https://angular.io)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
-* [[[Angular Material](https://material.angular.io)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
-* [[[Firebase](https://firebase.com)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
-* [[[Stripe](https://stripe.com)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
+- [[[Ionic](https://ionicframework.com)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
+- [[[Angular](https://angular.io)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
+- [[[Angular Material](https://material.angular.io)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
+- [[[Firebase](https://firebase.com)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
+- [[[Stripe](https://stripe.com)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
 
 ### [[Getting Started](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
 
@@ -349,6 +358,7 @@ the acknowledgements section.](#acknowledgements)](https://github.com/apsistec/e
 1. [[Install](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
 
    [[[NodeJS](https://www.nodejs.com)](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
+
 2. [[Using npm, install:](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
 
    ```shnpm
@@ -358,7 +368,7 @@ the acknowledgements section.](#acknowledgements)](https://github.com/apsistec/e
    npm install @ionic/cli@latest -global
 
    npm install firebase-tools@latest -global
-   ````
+   ```
 
 ##### [[Acquire APIs](#acknowledgements)
 
@@ -374,7 +384,7 @@ the acknowledgements section.](#acknowledgements)](https://github.com/apsistec/e
 
 1. [[Clone the repo](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
 
-   ```sh git clone https://github.com/apsistec/expert-fit.git
+   ````sh git clone https://github.com/apsistec/expert-fit.git
    ```2. [[Install NPM packages](#acknowledgements)](https://github.com/apsistec/expert-fit/issues)
 
       ```shnpm install
@@ -468,3 +478,4 @@ the acknowledgements section.](#acknowledgements)](https://github.com/apsistec/e
                      [linkedin-url]: https://linkedin.com/in/apsistec
                      [product-screenshot]: src/assets/lazy/images/screenshot.png
                      [logo-full]: src/assets/lazy/images/logo.png
+   ````

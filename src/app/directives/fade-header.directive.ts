@@ -6,12 +6,9 @@ import { DomController } from '@ionic/angular';
   selector: '[appFadeHeader]'
 })
 export class FadeHeaderDirective implements OnInit {
-
   @Input('appFadeHeader') toolbar: any;
 
-  constructor(
-    private domController: DomController
-  ) {}
+  constructor(private domController: DomController) {}
 
   ngOnInit(): void {
     this.toolbar = this.toolbar.el;

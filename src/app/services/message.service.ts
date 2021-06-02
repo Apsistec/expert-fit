@@ -9,18 +9,17 @@ export class MessageService {
   choice;
   pushReqRes: boolean;
 
-  constructor(
-    private toastController: ToastController,
-    private alertController: AlertController,
-  ) {}
+  constructor(private toastController: ToastController, private alertController: AlertController) {}
 
-  // Toasts
-  async presentToast(infoMessage: string) {
+  /* Toasts */
+  async registeredOauthToast(displayName) {
     const toast = await this.toastController.create({
-      message: infoMessage,
-      duration: 2000,
-      cssClass: 'infoT',
-      position: 'bottom'
+      header: 'Registration Successful',
+      message: 'Welcome ' + displayName || 'User' + '!',
+      cssClass: 'successT',
+      position: 'top',
+      keyboardClose: true,
+      duration: 2500
     });
     toast.present();
   }
@@ -30,9 +29,9 @@ export class MessageService {
       header: 'Login Successful',
       message: 'Welcome Back ' + displayName || 'User' + '!',
       cssClass: 'successT',
-      position: 'bottom',
+      position: 'top',
       keyboardClose: true,
-      duration: 2500
+      duration: 2000
     });
     toast.present();
   }
@@ -41,9 +40,9 @@ export class MessageService {
     const toast = await this.toastController.create({
       header: 'Sign Out Successful',
       cssClass: 'successT',
-      message: 'Thank You for Sbottomping By!',
-      position: 'bottom',
-      duration: 2500,
+      message: 'Thank You for stopping by!',
+      position: 'top',
+      duration: 2000,
       keyboardClose: true
     });
     toast.present();
@@ -52,10 +51,10 @@ export class MessageService {
   async deleteTicketToast() {
     const toast = await this.toastController.create({
       header: 'Ticket Deleted',
-      cssClass: 'successT',
+      cssClass: 'dangerT',
       message: 'The ticket was successfully deleted.',
-      position: 'bottom',
-      duration: 2500,
+      position: 'top',
+      duration: 2000,
       keyboardClose: true
     });
     toast.present();
@@ -65,8 +64,8 @@ export class MessageService {
     const toast = await this.toastController.create({
       header: 'Update Successful',
       message: 'User info was updated',
-      duration: 3000,
-      position: 'bottom',
+      duration: 2000,
+      position: 'top',
       cssClass: 'successT',
       keyboardClose: true
     });
@@ -78,8 +77,8 @@ export class MessageService {
       header: 'Payment Successful',
       cssClass: 'successT',
       message: 'You are subscribed! Thank You!',
-      position: 'bottom',
-      duration: 3000,
+      position: 'top',
+      duration: 2000,
       keyboardClose: true
     });
     toast.present();
@@ -90,8 +89,8 @@ export class MessageService {
       header: 'Invalid Request',
       cssClass: 'warningT',
       message: ' You are already Subscribed',
-      position: 'bottom',
-      duration: 3000,
+      position: 'top',
+      duration: 2000,
       keyboardClose: true
     });
     toast.present();
@@ -102,20 +101,20 @@ export class MessageService {
       header: 'Message Service',
       cssClass: 'infoT',
       message,
-      position: 'bottom',
-      duration: 2500,
+      position: 'top',
+      duration: 2000,
       keyboardClose: true
     });
     toast.present();
   }
 
-  async welcomeBackToast(data) {
+  async oAuthLoggedInToast(displayName) {
     const toast = await this.toastController.create({
       header: 'Login Successful!',
-      message: 'Welcome Back ' + data.user.displayName,
+      message: 'Welcome Back ' + displayName,
       duration: 2000,
       cssClass: 'successT',
-      position: 'bottom'
+      position: 'top'
     });
     toast.present();
   }
@@ -124,27 +123,29 @@ export class MessageService {
   async noExistFederatedUserAlert() {
     const alert = await this.alertController.create({
       header: 'Error Occurred',
-      subHeader: 'That email address is not in our system',
+      subHeader: 'Address Not Found',
       message: 'Try another account. If you continue to have trouble, \n open a trouble ticket and we will assist you',
       buttons: ['OK'],
-      cssClass: 'dangerA'
+      cssClass: 'warningA'
     });
     alert.present();
   }
 
   async pastDueAlert() {
     const alert = await this.alertController.create({
+      header: 'Account Past Due',
+      subHeader: 'Payment Necessary',
       message:
         'Currently, your account is Past Due. You can update your account with a valid card and make a payment in order to restore access immediately',
-      cssClass: 'dangerA',
-      subHeader: 'Payment Past-due'
+      cssClass: 'warningA'
     });
     alert.present();
   }
 
   async cancelledAlert() {
     const alert = await this.alertController.create({
-      subHeader: 'Account Cancelled',
+      header: 'Account Cancellation',
+      subHeader: 'Cancelled Successfully',
       message:
         'Your account has successfully been cancelled, and service will end on the last day of your billing period(usually the last day of the month). Your card will not be charged again. In order to utilize the services, you will need to register a new account.',
       cssClass: 'successA'
@@ -157,18 +158,18 @@ export class MessageService {
       header: 'Access Denied',
       subHeader: 'Active Membership Required',
       message:
-        'We have not been able to process a payment with the card on file. Please apply a valid card and we will process your payment immediately in order to provide access to your new account',
+        'We have not been able to process a payment with the card on file. Please apply a valid card and we will process your payment immediately in order to provide access to your new account.',
       buttons: ['OK'],
       cssClass: 'dangerA'
     });
     alert.present();
   }
 
-  async resetPasswordAlert() {
+  async resetPasswordAlert(email) {
     const alert = await this.alertController.create({
-      header: 'Request Successful',
-      subHeader: 'Password Reset Request Sent',
-      message: 'Check your email for a link to RESET your password',
+      header: 'Request Email Sent',
+      subHeader: 'Password Reset Request',
+      message: 'Password Reset Request email was sent to' + email + 'Check your email for further instructions.',
       buttons: ['OK'],
       cssClass: 'successA'
     });
@@ -178,6 +179,7 @@ export class MessageService {
   async repurchaseAlert() {
     const alert = await this.alertController.create({
       header: 'Invalid Request',
+      subHeader: 'Subscription Found',
       message: 'You are already Subscribed',
       buttons: ['OK'],
       cssClass: 'warningA'
@@ -262,14 +264,11 @@ export class MessageService {
         }
       ]
     });
-    alert
-    .onDidDismiss()
-    .then((data): boolean => {
-        this.pushReqRes = !!data;
-        return this.pushReqRes;
-      });
-      alert.present()
-      ;
+    alert.onDidDismiss().then((data): boolean => {
+      this.pushReqRes = !!data;
+      return this.pushReqRes;
+    });
+    alert.present();
   }
 
   async resetWelcomeAlert(header: string, message: string) {
@@ -289,14 +288,11 @@ export class MessageService {
         }
       ]
     });
-    alert
-    .onDidDismiss()
-    .then((data) => {
+    alert.onDidDismiss().then((data) => {
       this.choice = data;
       return this.choice;
     });
-    alert.present()
-      ;
+    alert.present();
   }
 
   async deleteFeedAlert(feedId) {
@@ -317,14 +313,11 @@ export class MessageService {
         }
       ]
     });
-    alert
-    .onDidDismiss()
-    .then((data) => {
+    alert.onDidDismiss().then((data) => {
       this.choice = data;
       return this.choice;
     });
-    alert.present()
-    ;
+    alert.present();
   }
 
   async updateOrCancel() {
@@ -345,184 +338,184 @@ export class MessageService {
         }
       ]
     });
-    alert
-    .onDidDismiss()
-    .then((data) => {
+    alert.onDidDismiss().then((data) => {
       this.choice = data;
       return this.choice;
     });
-    alert.present()
-          ;
+    alert.present();
   }
 
   // prompt alerts for quick tasks
 
-
   changeEmailPrompt() {
-    this.alertController.create({
-      header: 'Link Email Address',
-      subHeader: 'Enter the email address you want to add to your account',
-      message: 'This will not replace your existing email address',
-      inputs: [
-        {
-          name: 'Place',
-          placeholder: 'fit@expertfitness.com',
-
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: (data: any) => {
-            console.log('Canceled', data);
+    this.alertController
+      .create({
+        header: 'Link Email Address',
+        subHeader: 'Enter the email address you want to add to your account',
+        message: 'This will not replace your existing email address',
+        inputs: [
+          {
+            name: 'Place',
+            placeholder: 'fit@expertfitness.com'
           }
-        },
-        {
-          text: 'Done!',
-          handler: (data: any) => {
-            console.log('Saved Information', data);
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: (data: any) => {
+              console.log('Canceled', data);
+            }
+          },
+          {
+            text: 'Done!',
+            handler: (data: any) => {
+              console.log('Saved Information', data);
+            }
           }
-        }
-      ]
-    }).then(res => {
-      res.present();
-    });
+        ]
+      })
+      .then((res) => {
+        res.present();
+      });
   }
 
-
   showConfirm() {
-    this.alertController.create({
-      header: 'Confirm Alert',
-      subHeader: 'Beware lets confirm',
-      message: 'Are you sure? you want to leave without safty mask?',
-      buttons: [
-        {
-          text: 'Never',
-          handler: () => {
-            console.log('I care about humanity');
+    this.alertController
+      .create({
+        header: 'Confirm Alert',
+        subHeader: 'Beware lets confirm',
+        message: 'Are you sure? you want to leave without safty mask?',
+        buttons: [
+          {
+            text: 'Never',
+            handler: () => {
+              console.log('I care about humanity');
+            }
+          },
+          {
+            text: 'Not Sure',
+            handler: () => {
+              console.log('Let me think');
+            }
+          },
+          {
+            text: 'Yes!',
+            handler: () => {
+              console.log('Whatever');
+            }
           }
-        },
-        {
-          text: 'Not Sure',
-          handler: () => {
-            console.log('Let me think');
-          }
-        },
-        {
-          text: 'Yes!',
-          handler: () => {
-            console.log('Whatever');
-          }
-        }
-      ]
-    }).then(res => {
-      res.present();
-    });
+        ]
+      })
+      .then((res) => {
+        res.present();
+      });
   }
 
   radioPrompt() {
-    this.alertController.create({
-      header: 'Prompt Alert',
-      subHeader: 'Size Selection',
-      message: 'Select the sutable size for clothing',
-      inputs: [
-        {
-          type: 'radio',
-          label: 'Extra Small',
-          value: 'xs'
-        },
-        {
-          type: 'radio',
-          label: 'Small',
-          value: 's'
-        },
-        {
-          type: 'radio',
-          label: 'Medium',
-          value: 'm'
-        },
-        {
-          type: 'radio',
-          label: 'Large',
-          value: 'l'
-        },
-        {
-          type: 'radio',
-          label: 'Extra Large',
-          value: 'xl'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: (data: any) => {
-            console.log('Canceled', data);
+    this.alertController
+      .create({
+        header: 'Prompt Alert',
+        subHeader: 'Size Selection',
+        message: 'Select the sutable size for clothing',
+        inputs: [
+          {
+            type: 'radio',
+            label: 'Extra Small',
+            value: 'xs'
+          },
+          {
+            type: 'radio',
+            label: 'Small',
+            value: 's'
+          },
+          {
+            type: 'radio',
+            label: 'Medium',
+            value: 'm'
+          },
+          {
+            type: 'radio',
+            label: 'Large',
+            value: 'l'
+          },
+          {
+            type: 'radio',
+            label: 'Extra Large',
+            value: 'xl'
           }
-        },
-        {
-          text: 'Done!',
-          handler: (data: any) => {
-            console.log('Selected Information', data);
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: (data: any) => {
+              console.log('Canceled', data);
+            }
+          },
+          {
+            text: 'Done!',
+            handler: (data: any) => {
+              console.log('Selected Information', data);
+            }
           }
-        }
-      ]
-    }).then(res => {
-      res.present();
-    });
+        ]
+      })
+      .then((res) => {
+        res.present();
+      });
   }
-
 
   checkboxPrompt() {
-    this.alertController.create({
-      header: 'Prompt Alert',
-      subHeader: 'Member Selection',
-      message: 'Select family members',
-      inputs: [
-        {
-          type: 'checkbox',
-          label: 'Self',
-          value: 'self',
-          checked: true,
-          disabled: true
-        },
-        {
-          type: 'checkbox',
-          label: 'Mother',
-          value: 'mother'
-        },
-        {
-          type: 'checkbox',
-          label: 'Father',
-          value: 'father'
-        },
-        {
-          type: 'checkbox',
-          label: 'Son',
-          value: 'son'
-        },
-        {
-          type: 'checkbox',
-          label: 'Daughter',
-          value: 'daughter'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: (data: any) => {
-            console.log('Canceled', data);
+    this.alertController
+      .create({
+        header: 'Prompt Alert',
+        subHeader: 'Member Selection',
+        message: 'Select family members',
+        inputs: [
+          {
+            type: 'checkbox',
+            label: 'Self',
+            value: 'self',
+            checked: true,
+            disabled: true
+          },
+          {
+            type: 'checkbox',
+            label: 'Mother',
+            value: 'mother'
+          },
+          {
+            type: 'checkbox',
+            label: 'Father',
+            value: 'father'
+          },
+          {
+            type: 'checkbox',
+            label: 'Son',
+            value: 'son'
+          },
+          {
+            type: 'checkbox',
+            label: 'Daughter',
+            value: 'daughter'
           }
-        },
-        {
-          text: 'Done!',
-          handler: (data: any) => {
-            console.log('Selected Information', data);
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: (data: any) => {
+              console.log('Canceled', data);
+            }
+          },
+          {
+            text: 'Done!',
+            handler: (data: any) => {
+              console.log('Selected Information', data);
+            }
           }
-        }
-      ]
-    }).then(res => {
-      res.present();
-    });
+        ]
+      })
+      .then((res) => {
+        res.present();
+      });
   }
-
 }

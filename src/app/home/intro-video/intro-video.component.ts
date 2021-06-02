@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-intro-video',
@@ -9,13 +9,11 @@ import { ModalController, NavController } from '@ionic/angular';
 export class IntroVideoComponent implements OnInit {
   titleId = 'What Is Expert Fitness?';
 
-  constructor(private modalController: ModalController, private navController: NavController) {}
+  constructor(private modalController: ModalController) {}
 
   ngOnInit() {}
 
   dismissModal() {
-    this.modalController.dismiss().then(() => {
-      this.navController.back();
-    });
+    this.modalController.dismiss();
   }
 }

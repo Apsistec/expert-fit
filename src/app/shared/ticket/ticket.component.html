@@ -15,7 +15,7 @@
       <form (ngSubmit)="saveOrUpdate()" [formGroup]="ticketForm">
         <ion-item color="light" *ngIf="id">
           <ion-label position="stacked">User</ion-label>
-          <ion-input type="text" [(ngModel)]="user" [ngModelOptions]="{ standalone: true }" disabled="true"></ion-input>
+          <ion-input type="text" [(ngModel)]="userId" [ngModelOptions]="{ standalone: true }" disabled="true"></ion-input>
         </ion-item>
         <ion-item color="light">
           <ion-label position="stacked">Problem</ion-label>

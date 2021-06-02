@@ -1,10 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
-import { MessageService } from '../../services/message.service';
-import { AuthService } from '../../services/auth.service';
-import { LoadingService } from '../../services/loading.service';
 import { Router } from '@angular/router';
+import { LoadingController, ModalController } from '@ionic/angular';
+
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,30 +12,30 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit, AfterViewInit {
   loginTitle: boolean;
-  hide: boolean;
+  hide = true;
   hid: boolean;
   registerForm: FormGroup;
-  error;
+  formError: boolean;
+  errorMessage;
 
   constructor(
     private fb: FormBuilder,
     public authService: AuthService,
-    public loadingService: LoadingService,
+    public loadingController: LoadingController,
     public modalController: ModalController,
-    private messageService: MessageService,
-    public router: Router,
+    public router: Router
   ) {}
 
   ngOnInit() {
-    this.hide = true;
     this.createForm();
+    this.router.setUpLocationChangeListener();
   }
 
   ngAfterViewInit() {
-    if (!this.registerForm.valid && this.registerForm.dirty) {
-      this.error = true;
+    if (!this.registerForm.controls.valid && this.registerForm.dirty) {
+      return this.formError;
     }
-    this.error = false;
+    return !this.formError;
   }
 
   createForm() {
@@ -52,21 +51,37 @@ export class SignupComponent implements OnInit, AfterViewInit {
           Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')
         ]
       ],
-      verify: [ '', [Validators.required, Validators.minLength(8)]]
+      verify: ['', [Validators.required]],
+      updateOn: 'blur'
     });
   }
 
   get registerFormControl() {
-    return this.registerForm.value;
+    return this.registerForm.controls;
   }
 
-  async onRegister(credentials) {
-    this.loadingService.showLoading();
-    if (this.registerForm.invalid) {
-      return;
+  get passwordDoesMatch() {
+    return this.registerFormControl.password.value === this.registerFormControl.verify.value;
+  }
+
+  async submit() {
+    const displayName = this.registerFormControl.displayName.value;
+    const email = this.registerFormControl.email.value;
+    const password = this.registerFormControl.password.value;
+    try {
+      const loading = await this.loadingController.create({
+        message: 'Loading...',
+        keyboardClose: true,
+        showBackdrop: true,
+        translucent: true
+      });
+      await loading.present();
+      await this.authService.SignUp(displayName, email, password);
+      loading.dismiss();
+    } catch (error) {
+      await this.loadingController.dismiss();
+      this.errorMessage = error;
     }
-    await this.authService.SignUp(credentials);
-    this.loadingService.dismissLoading().catch((error) => this.messageService.errorAlert(error.message));
   }
 
   toggleHide() {
@@ -74,15 +89,12 @@ export class SignupComponent implements OnInit, AfterViewInit {
   }
 
   dismissModal() {
-    this.modalController.dismiss().then(() => {
-      this.router.navigateByUrl('/home');
-    });
+    this.modalController.dismiss();
+    this.router.navigateByUrl('/home');
   }
 
-  goToLogin(){
-    this.modalController.dismiss().then(() => {
-      this.router.navigateByUrl('/login');
-    });
+  goToLogin() {
+    this.modalController.dismiss();
+    this.router.navigateByUrl('/login');
   }
-
 }

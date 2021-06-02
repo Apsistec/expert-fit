@@ -1,3 +1,5 @@
+import 'firebase/firestore';
+
 /* eslint-disable @typescript-eslint/member-ordering */
 import firebase from 'firebase/app';
 import { Observable, Subject } from 'rxjs';
@@ -32,34 +34,34 @@ export class ReviewService {
 
   getUserReviews(uid): Observable<any[]> {
     return this.afs
-      .collection<Review>('reviews', (ref) => ref.where('id', '==', uid))
-      .snapshotChanges()
-      .pipe(
-        map((actions) =>
-          actions.map((a) => {
-            const data: any = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          })
-        ),
-        takeUntil(this.ngUnsubscribe)
-      );
+      .collection<Review>('reviews', (ref) => ref.where('id', '==', uid)).valueChanges();
+      // .snapshotChanges()
+      // .pipe(
+      //   map((actions) =>
+      //     actions.map((a) => {
+      //       const data: any = a.payload.doc.data();
+      //       const id = a.payload.doc.id;
+      //       return { id, ...data };
+      //     })
+      //   ),
+      //   takeUntil(this.ngUnsubscribe)
+      // );
   }
 
   getAllReviews() {
     return this.afs
-      .collection<Review>('reviews')
-      .snapshotChanges()
-      .pipe(
-        map((actions) =>
-          actions.map((a) => {
-            const data: any = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          })
-        ),
-        takeUntil(this.ngUnsubscribe)
-      );
+      .collection<Review>('reviews', (ref) => ref.orderBy('displayName')).valueChanges();
+      // .snapshotChanges()
+      // .pipe(
+      //   map((actions) =>
+      //     actions.map((a) => {
+      //       const data: any = a.payload.doc.data();
+      //       const id = a.payload.doc.id;
+      //       return { id, ...data };
+      //     })
+      //   ),
+      //   takeUntil(this.ngUnsubscribe)
+      // );
   }
 
   getReview(id) {

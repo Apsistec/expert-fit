@@ -38,11 +38,10 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
           swiper.classNames.push(`${swiper.params.containerModifierClass}3d`);
           const overwriteParams = {
             slidesPerView: 1,
-            slidesPerColumn: 1,
-            slidesPerGroup: 1,
             watchSlidesProgress: true,
-            spaceBetween: 0,
             virtualTranslate: true,
+            loop: true,
+            speed: 2000
           };
           swiper.params = Object.assign(swiper.params, overwriteParams);
           swiper.originalParams = Object.assign(swiper.originalParams, overwriteParams);
@@ -93,8 +92,12 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
                 );
                 $slideEl.append(shadowAfter);
               }
-              if (shadowBefore.length) {shadowBefore[0].style.opacity = Math.max(-progress, 0);}
-              if (shadowAfter.length) {shadowAfter[0].style.opacity = Math.max(progress, 0);}
+              if (shadowBefore.length) {
+                shadowBefore[0].style.opacity = Math.max(-progress, 0);
+              }
+              if (shadowAfter.length) {
+                shadowAfter[0].style.opacity = Math.max(progress, 0);
+              }
             }
             $slideEl.transform(`translate3d(${tx}px, ${ty}px, 0px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
           }
@@ -112,9 +115,12 @@ export class HomePageThreeComponent implements OnInit, AfterViewInit {
             let eventTriggered = false;
             // eslint-disable-next-line
             slides.eq(activeIndex).transitionEnd(function onTransitionEnd() {
-              if (eventTriggered) {return;}
-              if (!swiper || swiper.destroyed) {return;}
-
+              if (eventTriggered) {
+                return;
+              }
+              if (!swiper || swiper.destroyed) {
+                return;
+              }
               eventTriggered = true;
               swiper.animating = false;
               const triggerEvents = ['webkitTransitionEnd', 'transitionend'];

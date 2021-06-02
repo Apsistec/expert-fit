@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { MessageService } from 'src/app/services/message.service';
+
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, ModalController, NavController, NavParams } from '@ionic/angular';
 
@@ -10,19 +13,21 @@ import { TicketService } from '../../services/ticket.service';
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.scss']
 })
-export class TicketComponent implements OnInit {
+export class TicketComponent implements OnInit, OnDestroy {
   ticketForm: FormGroup;
   id = null;
-  user = '';
+  userId = ''; //  user= '';
+  subs: Subscription = new Subscription();
 
   constructor(
     private fb: FormBuilder,
     private modalController: ModalController,
     private loadingController: LoadingController,
-    private ticket: TicketService,
+    private ticketService: TicketService,
     private navParam: NavParams,
     public authService: AuthService,
-    private navController: NavController
+    private navController: NavController,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -34,7 +39,7 @@ export class TicketComponent implements OnInit {
 
     this.id = this.navParam.get('id');
     if (this.id) {
-      this.ticket.getTicket(this.id).subscribe((ticket) => {
+      this.ticketService.getTicket(this.id).subscribe((ticket) => {
         this.ticketForm.patchValue({
           title: ticket['title'],
           desc: ticket['desc'],
@@ -43,22 +48,20 @@ export class TicketComponent implements OnInit {
 
         // this.ticketForm.controls['title'].disable();
         // this.ticketForm.controls['desc'].disable();
-        this.ticket.getUser(
-          // ticket['creator'].subscribe((user) => {
-          //   this.user = user.email;
-          // })
-          );
-        });
-      }
-    }
-
-
-
-    dismissModal() {
-      this.modalController.dismiss().then(() => {
-        this.navController.back();
+        this.ticketService.getUser(
+          ticket['creator'].subscribe((user) => {
+            this.userId = user.uid; //  user.email;
+          })
+        );
       });
     }
+  }
+
+  dismissModal() {
+    this.modalController.dismiss().then(() => {
+      this.navController.back();
+    });
+  }
 
   async saveOrUpdate() {
     const loading = await this.loadingController.create({
@@ -66,21 +69,25 @@ export class TicketComponent implements OnInit {
     });
     await loading.present();
 
-    this.ticket.createOrUpdateTicket(this.id, this.ticketForm.value).then(
+    this.ticketService.createOrUpdateTicket(this.id, this.ticketForm.value).then(
       () => {
         loading.dismiss();
         this.dismissModal();
-        // this.messageService
       },
       (error) => {
         loading.dismiss();
+        this.messageService.errorAlert(error);
       }
     );
   }
 
   deleteTicket() {
-    this.ticket.deleteTicket(this.id).then(() => {
+    this.ticketService.deleteTicket(this.id).then(() => {
       this.dismissModal();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

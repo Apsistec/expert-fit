@@ -1,6 +1,8 @@
 import { BarRatingModule } from 'ngx-bar-rating';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,13 +13,13 @@ import { SharedDirectivesModule } from '../directives/shared-directives.module';
 import { VerifyEmailComponent } from '../user/verify-email/verify-email.component';
 import { AboutAppComponent } from './about-app/about-app.component';
 import { AuthPopoverComponent } from './auth-popover/auth-popover.component';
+import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { FooterComponent } from './footer/footer.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { LocationComponent } from './location/location.component';
 import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
-import { ModalViewComponent } from './modal-view/modal-view.component';
 import { NewReviewComponent } from './new-review/new-review.component';
 import { NewsFormComponent } from './news-form/news-form.component';
 import { PhoneAuthComponent } from './phone-auth/phone-auth.component';
@@ -29,6 +31,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { SignupComponent } from './signup/signup.component';
 import { StripeCheckoutComponent } from './stripe-checkout/stripe-checkout.component';
+import { SupportComponent } from './support/support.component';
 import { TermsComponent } from './terms/terms.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { UnknownComponent } from './unknown/unknown.component';
@@ -55,12 +58,13 @@ const routes: Routes = [];
     VerifyEmailComponent,
     UnknownComponent,
     ImageUploadComponent,
-    ModalViewComponent,
     LocationComponent,
     MapComponent,
     NewsFormComponent,
     StripeCheckoutComponent,
-    AuthPopoverComponent
+    AuthPopoverComponent,
+    SupportComponent,
+    FileUploaderComponent
   ],
   providers: [DatePipe],
   imports: [
@@ -68,10 +72,13 @@ const routes: Routes = [];
     RouterModule.forChild(routes),
     CommonModule,
     ImageCropperModule,
+    ReactiveFormsModule,
     FormsModule,
     ReactiveFormsModule,
     BarRatingModule,
     SharedDirectivesModule,
+    NgScrollbarModule,
+    ScrollingModule
   ],
   exports: [
     FooterComponent,
@@ -81,17 +88,20 @@ const routes: Routes = [];
     LocationComponent,
     BarRatingModule,
     UnknownComponent,
+    NgScrollbarModule,
+    ScrollingModule,
+    SupportComponent,
     // PhoneAuthComponent,
-    // AboutAppComponent,
+    AboutAppComponent,
     // PopoverComponent,
     // SharedDirectivesModule,
-    // PrivacyComponent,
+    PrivacyComponent,
     // ImageCropperModule,
-    // TermsComponent,
-    // RatingsComponent,
-    // PhotosListComponent,
+    TermsComponent,
+    RatingsComponent,
+    PhotosListComponent,
     // PhotoUploadComponent,
-    // PhotoGalleryComponent,
+    PhotoGalleryComponent
     // ImageUploadComponent,
     // MapComponent,
     // NewsFormComponent,

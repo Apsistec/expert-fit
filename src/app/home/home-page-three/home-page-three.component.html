@@ -7,18 +7,18 @@
       size-sm="10"
       class="ion-align-self-center ion-padding-vertical ion-margin-vertical"
     >
-      <ion-card class="title-card">
+      <ion-card class="title-card shadow">
         <ion-card-header>
           <ion-card-title>
             <ion-text class="ion-text-uppercase" color="light">
               Aim
-              <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+              <ion-icon color="success" name="chevron-forward"></ion-icon>
               Achieve
-              <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+              <ion-icon color="success" name="chevron-forward"></ion-icon>
               Analyze
-              <ion-icon color="tertiary" name="chevron-forward"></ion-icon>
+              <ion-icon color="success" name="chevron-forward"></ion-icon>
               Align
-              <ion-icon color="tertiary" size="large" name="repeat-outline"></ion-icon>
+              <ion-icon color="success" size="large" name="repeat-outline"></ion-icon>
             </ion-text>
           </ion-card-title>
           <ion-card-subtitle>
@@ -29,7 +29,6 @@
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-around">
-
     <ion-col
       size-xl="3"
       size-lg="4"
@@ -37,27 +36,43 @@
       size-sm="12"
       class="ion-align-items-center ion-padding-vertical ion-margin-vertical ion-text-center"
     >
-    <ion-fab horizontal="start" vertical="center">
-      <ion-icon class="revpulsar" color="warning" size="large" name="chevron-back-outline" (click)="slidePrev( mySlider)"></ion-icon>
-    </ion-fab>
-    <ion-fab horizontal="end" vertical="center">
-      <ion-icon class="pulsar" size="large" color="warning" name="chevron-forward-outline" (click)="slideNext( mySlider)"></ion-icon>
-    </ion-fab>
+      <ion-fab horizontal="start" vertical="center">
+        <ion-icon
+          class="revpulsar"
+          color="success"
+          size="large"
+          name="chevron-back-outline"
+          (click)="slidePrev(mySlider)"
+        ></ion-icon>
+      </ion-fab>
+      <ion-fab horizontal="end" vertical="center">
+        <ion-icon
+          class="pulsar"
+          size="large"
+          color="success"
+          name="chevron-forward-outline"
+          (click)="slideNext(mySlider)"
+        ></ion-icon>
+      </ion-fab>
       <ion-slides #mySlider (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" class="slide-parent">
-        >
-        <ion-slide class="slide" *ngFor="let phase of phases.slideItems">
-          <img [src]="[phase.image]" class="slide-image" />
-          <ion-toolbar>
-            <ion-title color="warning" class="ion-text-capitalize" style="font-size: large">
-              {{ phase.id }}.
-              {{ phase.title }}
-            </ion-title>
-          </ion-toolbar>
-          <div style="margin: 10px" >
-            <ion-text color="light">
-              {{ phase.content }}
-            </ion-text>
-          </div>
+        <ion-slide *ngFor="let phase of phases.slideItems">
+          <ion-card style="height: 500px; border-radius: 15px;" color="medium">
+            <img [src]="[phase.image]" class="slide-image" />
+            <ion-card-header style="border-top: 2px solid var(--ion-color-light);border-bottom: 2px solid var(--ion-color-light);">
+              <ion-card-title >
+                <ion-text color="success" class="ion-text-capitalize" >
+                  <b>
+                    {{ phase.title }}
+                  </b>
+                </ion-text>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="ion-margin">
+              <ion-text color="primary">
+                {{ phase.content }}
+              </ion-text>
+            </ion-card-content>
+          </ion-card>
         </ion-slide>
       </ion-slides>
     </ion-col>
@@ -70,7 +85,7 @@
   </ion-row>
   <ion-row class="ion-padding-bottom ion-margin-bottom">
     <ion-col class="ion-text-center ion-padding-vertical ion-margin-vertical">
-      <ion-button class="cta-main" strong size="large" routerLink="/home/pricing"> Get Started </ion-button>
+      <ion-button class="cta-main" strong size="large" routerLink="/home/products"> Get Started </ion-button>
     </ion-col>
   </ion-row>
 </ion-grid>

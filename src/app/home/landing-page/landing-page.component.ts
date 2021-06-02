@@ -18,7 +18,7 @@ import { IntroVideoComponent } from '../intro-video/intro-video.component';
       transition(
         '* => *',
         useAnimation(bounceOutUp, {
-          params: { timing: 1.75, delay: 2.4 }
+          params: { timing: 2.75, delay: 2.4 }
         })
       )
     ]),
@@ -40,7 +40,11 @@ export class LandingPageComponent implements OnInit {
   scrolledDown = false;
   @ViewChild(IonContent, { static: false }) content: IonContent;
 
-  constructor(private modalController: ModalController, private messageService: MessageService, public scrollService: ScrollService) {}
+  constructor(
+    private modalController: ModalController,
+    private messageService: MessageService,
+    public scrollService: ScrollService
+  ) {}
 
   ngOnInit() {}
 
@@ -71,5 +75,4 @@ export class LandingPageComponent implements OnInit {
   onScroll(event) {
     this.scrolledDown = event.detail.scrollTop > 700 ? true : false;
   }
-
 }

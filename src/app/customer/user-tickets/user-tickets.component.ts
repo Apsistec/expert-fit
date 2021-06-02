@@ -31,5 +31,4 @@ export class UserTicketsComponent implements OnInit {
     });
     await modal.present();
   }
-
 }

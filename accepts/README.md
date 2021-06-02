@@ -32,7 +32,7 @@ $ npm install accepts
 <!-- eslint-disable no-unused-vars -->
 
 ```js
-var accepts = require('accepts')
+var accepts = require('accepts');
 ```
 
 ### accepts(req)
@@ -93,36 +93,37 @@ preferences in order and will get back the best match between the client and
 server.
 
 ```js
-var accepts = require('accepts')
-var http = require('http')
+var accepts = require('accepts');
+var http = require('http');
 
-function app (req, res) {
-  var accept = accepts(req)
+function app(req, res) {
+  var accept = accepts(req);
 
   // the order of this list is significant; should be server preferred order
   switch (accept.type(['json', 'html'])) {
     case 'json':
-      res.setHeader('Content-Type', 'application/json')
-      res.write('{"hello":"world!"}')
-      break
+      res.setHeader('Content-Type', 'application/json');
+      res.write('{"hello":"world!"}');
+      break;
     case 'html':
-      res.setHeader('Content-Type', 'text/html')
-      res.write('<b>hello, world!</b>')
-      break
+      res.setHeader('Content-Type', 'text/html');
+      res.write('<b>hello, world!</b>');
+      break;
     default:
       // the fallback is text/plain, so no need to specify it above
-      res.setHeader('Content-Type', 'text/plain')
-      res.write('hello, world!')
-      break
+      res.setHeader('Content-Type', 'text/plain');
+      res.write('hello, world!');
+      break;
   }
 
-  res.end()
+  res.end();
 }
 
-http.createServer(app).listen(3000)
+http.createServer(app).listen(3000);
 ```
 
 You can test this out with the cURL program:
+
 ```sh
 curl -I -H'Accept: text/html' http://localhost:3000/
 ```

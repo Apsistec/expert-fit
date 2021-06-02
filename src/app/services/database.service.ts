@@ -10,27 +10,23 @@ import DocumentData = firebase.firestore.DocumentData;
 import Query = firebase.firestore.Query;
 
 @Injectable({
-              providedIn: 'root'
-            })
+  providedIn: 'root'
+})
 export class DatabaseService {
-
-  constructor(private database: AngularFirestore) { }
+  constructor(private database: AngularFirestore) {}
 
   getPosts$(): Observable<BlogPost[]> {
     return this.database.collection<BlogPost>('posts').valueChanges();
   }
 
   getPublishedPosts(): Query<DocumentData> {
-    return this.database.collection('posts').ref
-      .where('isPublished', '==', true)
-      .orderBy('createdOn', 'desc');
+    return this.database.collection('posts').ref.where('isPublished', '==', true).orderBy('createdOn', 'desc');
   }
 
   getPost$ = (uid: string): Observable<BlogPost> => this.database.doc<BlogPost>(`posts/${uid}`).valueChanges();
 
-
   updatePost(post: BlogPost): Promise<void> {
-    return this.database.doc<BlogPost>(`posts/${post.uid}`).set(post, {merge: true});
+    return this.database.doc<BlogPost>(`posts/${post.uid}`).set(post, { merge: true });
   }
 
   deletePost(post: BlogPost): Promise<void> {
@@ -42,6 +38,6 @@ export class DatabaseService {
   }
 
   set(data, path): Promise<void> {
-    return this.database.doc(path).set(data, {merge: true});
+    return this.database.doc(path).set(data, { merge: true });
   }
 }

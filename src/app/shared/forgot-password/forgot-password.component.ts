@@ -1,11 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ModalController, NavController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
 
 import { AuthService } from '../../services/auth.service';
-import { LoadingService } from '../../services/loading.service';
-import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -14,17 +12,15 @@ import { MessageService } from '../../services/message.service';
 })
 export class ForgotPasswordComponent implements OnInit, AfterViewInit {
   resetForm: FormGroup;
-  error = false;
-  isSubmitted = false;
+  formError = false;
+  errorMessage;
 
   constructor(
     public modalController: ModalController,
     private fb: FormBuilder,
     public authService: AuthService,
-    private messageService: MessageService,
-    private loadingService: LoadingService,
-    public navController: NavController,
-    private router: Router
+    private router: Router,
+    private loadingController: LoadingController
   ) {}
 
   ngOnInit() {
@@ -32,27 +28,38 @@ export class ForgotPasswordComponent implements OnInit, AfterViewInit {
       email: ['', [Validators.required, Validators.email]],
       updateOn: 'blur'
     });
+    this.router.setUpLocationChangeListener();
   }
 
   ngAfterViewInit() {
-    if (!this.resetForm.valid && !this.resetForm.pristine) {
-      this.error = true;
-    }{
-      this.error = false;
+    if (!this.resetForm.controls.valid && !this.resetForm.pristine) {
+      this.formError = true;
+    }
+    {
+      this.formError = false;
     }
   }
 
   // Recover password
   async onReset() {
-    this.isSubmitted = true;
-    const email = this.resetForm.value.email;
-    await this.loadingService.showLoading();
-    await this.authService.passReset(email);
-    await this.loadingService.dismissLoading();
-    await this.messageService.resetPasswordAlert().catch((error) => this.messageService.errorAlert(error));
+    try {
+      const loading = await this.loadingController.create({
+        message: 'Loading...',
+        keyboardClose: true,
+        showBackdrop: true,
+        translucent: true
+      });
+      await loading.present();
+      const email = this.resetFormControls.email.value;
+      await this.authService.passReset(email);
+      loading.dismiss();
+    } catch (error) {
+      await this.loadingController.dismiss();
+      this.errorMessage = error;
+    }
   }
 
-  get resetFormControl() {
+  get resetFormControls() {
     return this.resetForm.controls;
   }
 

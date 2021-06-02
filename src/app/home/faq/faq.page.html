@@ -4,7 +4,7 @@
     <ion-grid style="min-height: 100vh;" >
       <ion-row class="ion-justify-content-center">
         <ion-col size-xs="100%" size-sm="100%" size-md="8" size-lg="6" size-xl="6" class="ion-no-padding ion-no-margin">
-          <ion-card class="ion-card-global ion-no-padding ion-text-center" style="width: 100%">
+          <ion-card class="ion-card-global ion-no-padding ion-text-center ion-no-margin" style="width: 100%">
           <ion-card-header >
             <ion-fab horizontal="end" vertical="top">
               <ion-icon  (click)="onToggleAutomatic()" size="large" color="warning" name="resize-sharp" *ngIf="automaticClose"></ion-icon>
@@ -16,22 +16,23 @@
           </ion-card-header>
           <ion-card-content class="content ion-no-padding">
             <ion-list
-            *ngFor="let faq of faqs; let i = index"
+            *ngFor="let faq of faqs | async; let i = index"
             class="accordion-list"
             lines="none"
             >
-            <ion-item button detail="false"  (click)="toggleSection(i)"  [ngClass]="{'section-active': faq.open, 'section-inactive': !faq.open}" class="summary-item"
+            <ion-item button detail="false"  (click)="toggleSection(i)" [ngClass]="{'section-active': i.expanded, 'section-inactive': !i.expanded}" class="summary-item"
             >
             <ion-icon  
-            slot="start" color="success" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
+            slot="start" color="success" size="large" name="add-sharp" (click)="toggle()" *ngIf="!expanded"></ion-icon>
             <ion-icon  
-            class="negative-icon" slot="start" size="large" name="remove-sharp"  *ngIf="faq.open"></ion-icon>
+            class="negative-icon" slot="start" size="large" name="remove-sharp"  (click)="toggle()" *ngIf="expanded"></ion-icon>
             <ion-text class="summary"> {{ faq.title }} </ion-text>
           </ion-item>
-          <p *ngIf="faq.open" class="section-active info-text ion-text-left">{{ faq.info }}</p>
+          <p *ngIf="expanded" class="section-active info-text ion-text-left">{{ faq.info }}</p>
         </ion-list>
       </ion-card-content>
     </ion-card>
+
   </ion-col>
   </ion-row>
 </ion-grid>

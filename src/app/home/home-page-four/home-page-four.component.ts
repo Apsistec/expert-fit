@@ -4,12 +4,12 @@ import { IonContent } from '@ionic/angular';
 @Component({
   selector: 'app-home-page-four',
   templateUrl: './home-page-four.component.html',
-  styleUrls: ['./home-page-four.component.scss'],
+  styleUrls: ['./home-page-four.component.scss']
 })
 export class HomePageFourComponent implements OnInit {
   @ViewChild(IonContent, { static: false }) content: IonContent;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
 

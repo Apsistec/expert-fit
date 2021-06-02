@@ -18,6 +18,10 @@ const routes: Routes = [
         path: 'dashboard',
         component: CustomerDashboardComponent
       },
+      {
+        path: 'gallery',
+        loadChildren: () => import('./gallery/gallery.module').then((m) => m.GalleryPageModule)
+      }
     ]
   }
 ];

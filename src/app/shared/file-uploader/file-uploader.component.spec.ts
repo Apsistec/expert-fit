@@ -9,7 +9,7 @@ describe('FileUploaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FileUploaderComponent ],
+      declarations: [FileUploaderComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

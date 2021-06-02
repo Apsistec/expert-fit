@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class SpinnerService {
   isLoading = false;
@@ -12,7 +12,7 @@ export class SpinnerService {
     const load = await this.loadingController
       .create({
         spinner: 'circles',
-        duration: 1600,
+        duration: 1600
       })
       .then((a) => {
         a.present().then(() => {

@@ -39,6 +39,3 @@ export class FirebaseUploadService {
     } catch (e) {}
   }
 }
-
-
-

@@ -1,62 +1,68 @@
-<ion-grid>
-
-  <ion-row class="ion-justify-content-between ion-padding">
+  <ion-row class="ion-justify-content-between ion-margin-top">
     <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="10" class="ion-align-items-start ion-padding">
       <ion-card class="icon-card shadow">
         <ion-card-header class="clear">
+          <ion-icon color="primary" name="trophy-outline"></ion-icon>
           <ion-card-title>
-            <ion-icon color="primary" name="trophy-outline"></ion-icon>
-            <hr />
-            <ion-text color="tertiary"> Surpassing Expectations </ion-text>
+            <ion-text color="success"> Surpassing Expectations </ion-text>
           </ion-card-title>
-          <ion-card-subtitle>
-            <ion-text color="light"> Real-time motivation, progress reports & coaching </ion-text>
+          <ion-card-subtitle class="ion-text-capitalize" color="light">
+            Real-time motivation, progress reports & coaching
           </ion-card-subtitle>
         </ion-card-header>
-        <div class="icon-card-button" >
-          <ion-item style="--detail-icon-color:black;"   detail="true" button color="danger"  strong routerLink="/home/about-us">
-            <ion-text color="dark"> Learn More </ion-text>
+        <div class="icon-card-button">
+          <ion-item
+            style="--detail-icon-color: black"
+            detail="true"
+            button
+            color="warning"
+            strong
+            routerLink="/home/about-us"
+          >
+            <ion-button fill="clear" strong routerLink="facility" color="dark"> Learn More </ion-button>
           </ion-item>
-        </div >
+        </div>
       </ion-card>
     </ion-col>
     <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="10" class="ion-align-items-end ion-padding">
-      <ion-card  class="icon-card shadow">
+      <ion-card class="icon-card shadow">
         <ion-card-header class="clear">
+          <ion-icon color="primary" name="barbell-outline"></ion-icon>
           <ion-card-title>
-            <ion-icon  color="primary" name="barbell-outline"></ion-icon>
-            <hr />
-            <ion-text color="tertiary"> Enabling Options </ion-text>
+            <ion-text class="ion-text-uppercase" color="success"> Enabling Options </ion-text>
           </ion-card-title>
-          <ion-card-subtitle>
-            <ion-text color="light"> Private, semi-private & home sessions available <br /> </ion-text>
+          <ion-card-subtitle class="ion-text-capitalize" color="light">
+            Private, semi-private & home session accessability
           </ion-card-subtitle>
         </ion-card-header>
-        <div class="icon-card-button" >
-          <ion-item  style="--detail-icon-color:black;"  detail="true" button color="danger"  strong routerLink="/home/about-us">
-            <ion-text color="dark"> Learn More </ion-text>
+        <div class="icon-card-button">
+          <ion-item
+            style="--detail-icon-color: black"
+            detail="true"
+            button
+            color="warning"
+            strong
+            routerLink="/home/about-us"
+          >
+            <ion-button fill="clear" strong routerLink="choices" color="dark"> Learn More </ion-button>
           </ion-item>
-        </div >
+        </div>
       </ion-card>
     </ion-col>
   </ion-row>
-  <ion-row >
+  <ion-row>
     <ion-col>
-      <ion-card class="ion-text-center ion-padding ion-margin-vertical page-four-title shadow" >
+      <ion-card class="ion-text-center ion-padding ion-margin-vertical page-four-title shadow">
         <ion-card-header>
           <ion-card-title>
-            <ion-text color="primary" > 
-              Expert Fitness App
-            </ion-text>
+            <ion-text color="primary"> Expert Fitness App </ion-text>
           </ion-card-title>
-          <ion-card-subtitle>
-            <ion-text class="ion-text-capitalize" color="dark"  style="font-size: large; font-weight: 500;"> New dimensions in Fitness</ion-text>
+          <ion-card-subtitle class="ion-text-capitalize" color="dark" style="font-size: large; font-weight: 500">
+            New dimensions in Fitness
           </ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          <ion-button strong class="cta cta-main" routerLink="/home/pricing">
-            Get Started
-          </ion-button>
+          <ion-button strong class="cta-main" routerLink="/home/products"> View Options </ion-button>
         </ion-card-content>
       </ion-card>
     </ion-col>
@@ -65,43 +71,51 @@
     <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="10" class="ion-padding ion-align-self-start ion-padding">
       <ion-card class="icon-card shadow">
         <ion-card-header class="clear">
+          <ion-icon color="primary" name="expand-outline"></ion-icon>
           <ion-card-title>
-            <ion-icon  color="primary" name="expand-outline"></ion-icon>
-            <hr />
-            <ion-text color="tertiary">
-              Lasting Techniques 
-            </ion-text>
+            <ion-text class="ion-text-uppercase" color="success"> Holistic Approach </ion-text>
           </ion-card-title>
-          <ion-card-subtitle>
-            <ion-text color="light"> Establish growth & maintenance routines to keep forever </ion-text>
+          <ion-card-subtitle class="ion-text-capitalize" color="light">
+            Whole body fitness including nutrition for lasting health and fitness
           </ion-card-subtitle>
         </ion-card-header>
-        <div class="icon-card-button" >
-          <ion-item  style="--detail-icon-color:black;"  detail="true" button color="danger"  strong routerLink="/home/about-us">
-            <ion-text color="dark"> Learn More </ion-text>
+        <div class="icon-card-button">
+          <ion-item
+            style="--detail-icon-color: black"
+            detail="true"
+            button
+            color="warning"
+            strong
+            routerLink="/home/about-us"
+          >
+            <ion-button fill="clear" strong routerLink="nutrition" color="dark"> Learn More </ion-button>
           </ion-item>
-        </div >
+        </div>
       </ion-card>
     </ion-col>
     <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="10" class="ion-align-self-end ion-padding">
-      <ion-card  class="icon-card shadow">
+      <ion-card class="icon-card shadow">
         <ion-card-header class="clear">
+          <ion-icon color="primary" name="medkit-outline"></ion-icon>
           <ion-card-title>
-            <ion-icon  color="primary" name="medkit-outline"></ion-icon>
-            <hr />
-            <ion-text color="tertiary">Reducing Potential Downtime</ion-text>
+            <ion-text class="ion-text-uppercase" color="success">Reducing Potential Downtime</ion-text>
           </ion-card-title>
-          <ion-card-subtitle>
-            <ion-text color="light"> Minimize injuries using safe, balanced techniques </ion-text>
+          <ion-card-subtitle class="ion-text-capitalize" color="light">
+            Minimize injuries using safe, balanced techniques
           </ion-card-subtitle>
         </ion-card-header>
-        <div class="icon-card-button" >
-          <ion-item  style="--detail-icon-color:black;"  detail="true" button color="danger"  strong routerLink="/home/about-us">
-            <ion-text color="dark"> Learn More </ion-text>
+        <div class="icon-card-button">
+          <ion-item
+            style="--detail-icon-color: black"
+            detail="true"
+            button
+            color="warning"
+            strong
+            routerLink="/home/about-us"
+          >
+            <ion-button fill="clear" strong routerLink="safety" color="dark"> Learn More </ion-button>
           </ion-item>
-        </div >
+        </div>
       </ion-card>
     </ion-col>
   </ion-row>
-
-</ion-grid>

@@ -9,7 +9,7 @@ describe('PlatinumContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlatinumContentComponent ],
+      declarations: [PlatinumContentComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

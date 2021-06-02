@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'toHttps',
+  name: 'toHttps'
 })
 export class ToHttpsPipe implements PipeTransform {
   transform(value: unknown, ...args: unknown[]): unknown {

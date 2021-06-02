@@ -12,11 +12,7 @@ export class SideMenuComponent implements OnInit {
   yearDate: any = Date.now();
   user: User;
 
-  constructor(
-    public authService: AuthService,
+  constructor(public authService: AuthService) {}
 
-  ) {}
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

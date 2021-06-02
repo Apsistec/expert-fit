@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ModalController, NavParams } from '@ionic/angular';
@@ -11,7 +13,8 @@ import { ReviewService } from '../../services/review.service';
   templateUrl: './new-review.component.html',
   styleUrls: ['./new-review.component.scss']
 })
-export class NewReviewComponent implements OnInit {
+export class NewReviewComponent implements OnInit, OnDestroy {
+  subs: Subscription = new Subscription();
   reviewForm: FormGroup;
   id = null;
   user = '';
@@ -39,7 +42,6 @@ export class NewReviewComponent implements OnInit {
           desc: review['desc'],
           status: review['status']
         });
-
 
         this.reviewService.getReview(review['creator']).subscribe((user) => {
           this.user = user['email'];
@@ -79,5 +81,9 @@ export class NewReviewComponent implements OnInit {
     this.modalController.dismiss().then(() => {
       this.router.navigateByUrl('/home');
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

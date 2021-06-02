@@ -1,29 +1,33 @@
-.side-content-back{
+.side-toolbar {
+  --background: var(--ion-color-dark-tint);
+  border-bottom: 3px solid var(--ion-color-secondary);
+}
+
+.side-content-back {
   background-color: var(--ion-color-light-shade);
-  background: linear-gradient(
+  --background: linear-gradient(
       to bottom left,
       rgba(0, 0, 0, 0.45) 15%,
       rgba(71, 0, 0, 0.55) 50%,
       rgba(0, 0, 0, 0.45) 85%
     ),
-    linear-gradient(
-      to right,
-      rgba(92, 0, 8, 0.35) 0%,
-      rgba(17, 0, 2, 0.45) 50%,
-      rgba(83, 0, 7, 0.35) 100%
-    ),
+    linear-gradient(to right, rgba(92, 0, 8, 0.35) 0%, rgba(17, 0, 2, 0.45) 50%, rgba(83, 0, 7, 0.35) 100%);
 }
 
-
 .active-item {
-  border-left: 0.625em solid var(--ion-color-danger);
-  color: var(--ion-color-tertiary-tint)
+  border-left: 0.325em solid var(--ion-color-success);
+  ion-label {
+    --color: var(--ion-color-light);
+  }
 }
 
 ion-item {
-  border-left: 0.625em solid var(--ion-color-medium);
-  --color: var(--ion-color-dark-tint);
+  border-left: 0.325em solid var(--ion-color-medium);
+  ion-label {
+    --color: var(--ion-color-primary);
+  }
 }
-ion-toolbar{
+
+.bottom-toolbar {
   --background: var(--ion-color-dark-tint);
 }

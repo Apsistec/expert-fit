@@ -12,7 +12,6 @@ import { BenefitsService } from '../../services/benefits.service';
   styleUrls: ['./benefits-tracker.component.scss']
 })
 export class BenefitsTrackerComponent implements OnInit {
-
   benefits: Observable<any[]>;
   private ngUnsubscribe: Subject<any> = new Subject();
   @Output() sendBenefit = new EventEmitter<Benefit>();
@@ -27,5 +26,4 @@ export class BenefitsTrackerComponent implements OnInit {
   onChooseBenefit(benefit: Benefit) {
     this.sendBenefit.emit(benefit);
   }
-
 }

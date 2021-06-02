@@ -10,7 +10,6 @@ import { Student } from '../models/student';
   providedIn: 'root'
 })
 export class ApiService {
-
   // Http Options
   httpOptions = {
     headers: new HttpHeaders({
@@ -22,8 +21,7 @@ export class ApiService {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   base_path = 'http://localhost:3000/students';
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
 
   // Handle API errors
   handleError(error: HttpErrorResponse) {
@@ -33,64 +31,40 @@ export class ApiService {
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
+      console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error}`);
     }
     // return an observable with a user-facing error message
-    return throwError(
-      'Something bad happened; please try again later.');
-  };
-
+    return throwError('Something bad happened; please try again later.');
+  }
 
   // Create a new item
   createItem(item): Observable<Student> {
     return this.http
       .post<Student>(this.base_path, JSON.stringify(item), this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
+      .pipe(retry(2), catchError(this.handleError));
   }
 
   // Get single student data by ID
   getItem(id): Observable<Student> {
-    return this.http
-      .get<Student>(this.base_path + '/' + id)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
+    return this.http.get<Student>(this.base_path + '/' + id).pipe(retry(2), catchError(this.handleError));
   }
 
   // Get students data
   getList(): Observable<Student> {
-    return this.http
-      .get<Student>(this.base_path)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
+    return this.http.get<Student>(this.base_path).pipe(retry(2), catchError(this.handleError));
   }
 
   // Update item by id
   updateItem(id, item): Observable<Student> {
     return this.http
       .put<Student>(this.base_path + '/' + id, JSON.stringify(item), this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
+      .pipe(retry(2), catchError(this.handleError));
   }
 
   // Delete item by id
   deleteItem(id) {
     return this.http
       .delete<Student>(this.base_path + '/' + id, this.httpOptions)
-      .pipe(
-        retry(2),
-        catchError(this.handleError)
-      );
+      .pipe(retry(2), catchError(this.handleError));
   }
-
 }

@@ -1,18 +1,14 @@
 import { Observable } from 'rxjs';
 
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 
 import { AuthService } from '../../services/auth.service';
 import { CollectionService } from '../../services/collection.service';
-import { MessageService } from '../../services/message.service';
-import { TicketService } from '../../services/ticket.service';
-import { TicketComponent } from '../../shared/ticket/ticket.component';
 
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
-  styleUrls: ['./admin-dashboard.component.scss'],
+  styleUrls: ['./admin-dashboard.component.scss']
 })
 export class AdminDashboardComponent implements OnInit {
   tickets: Observable<any>;
@@ -23,32 +19,11 @@ export class AdminDashboardComponent implements OnInit {
   feed;
   employees;
 
-  constructor(
-    public authService: AuthService,
-    private ticket: TicketService,
-    private modalController: ModalController,
-    private collection: CollectionService,
-    private messageService: MessageService
-  ) {}
+  constructor(public authService: AuthService, private collection: CollectionService) {}
 
   ngOnInit() {
     this.users = this.collection.getUsers();
     this.customers = this.collection.getCurrentCustomers();
     this.employees = this.collection.getEmployees();
-    this.tickets = this.ticket.getAdminTickets();
-  }
-
-  async openTicket(id) {
-    const modal = await this.modalController.create({
-      component: TicketComponent,
-      componentProps: {
-        id,
-      },
-    });
-    modal.present()
-    .catch((error) => {
-      this.modalController.dismiss();
-      return this.messageService.errorAlert(error);
-    });
   }
 }

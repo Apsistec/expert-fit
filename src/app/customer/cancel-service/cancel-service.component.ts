@@ -20,7 +20,6 @@ export class CancelServiceComponent implements OnInit {
     public authService: AuthService,
     public stripeService: StripeService,
     private navController: NavController
-
   ) {}
   ngOnInit() {}
 

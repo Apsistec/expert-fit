@@ -5,21 +5,20 @@
     font-size: larger;
     font-weight: 900;
     text-transform: uppercase;
-    color: var(--ion-color-secondary);
+    color: var(--ion-color-light);
   }
   display: inline-flex;
 }
 
-.menu-item :hover {
-  ion-label {
-    color: var(--ion-color-light);
-  }
+.menu-item :hover,
+ion-label {
+  color: var(--ion-color-secondary);
 }
 
 .active-link {
   ion-label {
-    color: var(--ion-color-tertiary);
-    border-bottom: 0.3125em solid var(--ion-color-warning-shade);
+    color: var(--ion-color-secondary);
+    border-bottom: 0.2025em solid var(--ion-color-success);
   }
 }
 
@@ -47,8 +46,9 @@
 
 ion-toolbar {
   border-bottom: 3px solid var(--ion-color-secondary);
-  --background: linear-gradient(rgba(0, 0, 0, 0.904), rgba(0, 0, 0, 0.904)),
-    url(../assets/icons/icon-512x512.png) center/ 40px 40px no-repeat,
+  --background: 
+  linear-gradient(to right, rgba(0, 0, 0, 0.9) , rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.9) ),
+    url(../assets/icons/icon-512x512.png) center/ 50px 50px no-repeat,
     repeating-conic-gradient(
       from 3deg at 50% 50%,
       var(--ion-color-primary-shade),

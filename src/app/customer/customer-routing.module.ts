@@ -12,22 +12,21 @@ const routes: Routes = [
     path: '',
     component: CustomerPage,
     children: [
-
       {
         path: 'basic',
-        component: BasicContentComponent,
+        component: BasicContentComponent
       },
       {
         path: 'premium',
-        component: PremiumContentComponent,
+        component: PremiumContentComponent
       },
       {
         path: 'platinum',
-        component: PlatinumContentComponent,
+        component: PlatinumContentComponent
       },
       {
         path: 'videos',
-        component: VideosComponent,
+        component: VideosComponent
       }
     ]
   }

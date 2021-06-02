@@ -8,11 +8,11 @@ import { MapComponent } from '../map/map.component';
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
-  styleUrls: ['./location.component.scss'],
+  styleUrls: ['./location.component.scss']
 })
 export class LocationComponent implements OnInit {
-
-  constructor(private modalController: ModalController,
+  constructor(
+    private modalController: ModalController,
     private router: Router,
     private messageService: MessageService
   ) {}

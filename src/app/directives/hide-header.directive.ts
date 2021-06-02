@@ -6,14 +6,10 @@ import { DomController } from '@ionic/angular';
   selector: '[appHideHeader]'
 })
 export class HideHeaderDirective implements OnInit {
-
   @Input('appHideHeader') toolbar: any;
   private toolbarHeight = 44;
 
-  constructor(
-    private renderer: Renderer2,
-    private domController: DomController,
-  ) { }
+  constructor(private renderer: Renderer2, private domController: DomController) {}
 
   ngOnInit(): void {
     this.toolbar = this.toolbar.el;
@@ -24,13 +20,13 @@ export class HideHeaderDirective implements OnInit {
 
   @HostListener('ionScroll', ['$event']) onContentScroll($event: any) {
     const scrollTop: number = $event.detail.scrollTop;
-    let newPosition = - (scrollTop / 5);
+    let newPosition = -(scrollTop / 5);
 
     if (newPosition < -this.toolbarHeight) {
       newPosition = -this.toolbarHeight;
     }
 
-    const newOpacity = 1 - (newPosition / -this.toolbarHeight);
+    const newOpacity = 1 - newPosition / -this.toolbarHeight;
 
     this.domController.write(() => {
       this.renderer.setStyle(this.toolbar, 'top', newPosition + 'px');

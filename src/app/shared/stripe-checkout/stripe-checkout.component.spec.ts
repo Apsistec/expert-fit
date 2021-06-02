@@ -9,7 +9,7 @@ describe('StripeCheckoutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StripeCheckoutComponent ],
+      declarations: [StripeCheckoutComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

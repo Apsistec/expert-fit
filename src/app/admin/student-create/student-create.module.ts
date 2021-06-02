@@ -7,12 +7,7 @@ import { StudentCreatePageRoutingModule } from './student-create-routing.module'
 import { StudentCreatePage } from './student-create.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    StudentCreatePageRoutingModule
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, StudentCreatePageRoutingModule],
   declarations: [StudentCreatePage]
 })
 export class StudentCreatePageModule {}

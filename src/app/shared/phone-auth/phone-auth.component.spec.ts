@@ -9,7 +9,7 @@ describe('PhoneAuthComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhoneAuthComponent ],
+      declarations: [PhoneAuthComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

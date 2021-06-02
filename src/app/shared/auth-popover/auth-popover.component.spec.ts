@@ -9,7 +9,7 @@ describe('AuthPopoverComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthPopoverComponent ],
+      declarations: [AuthPopoverComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

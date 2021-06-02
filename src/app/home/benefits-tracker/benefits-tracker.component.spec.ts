@@ -9,7 +9,7 @@ describe('BenefitTrackerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BenefitsTrackerComponent ],
+      declarations: [BenefitsTrackerComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

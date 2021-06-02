@@ -11,11 +11,8 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-
   yearDate: any = Date.now();
 
   user: Observable<User>;
   constructor(public authService: AuthService) {}
-
-
 }

@@ -1,1 +1,1 @@
-var ROUTES_INDEX = {"name":"<root>","kind":"module","className":"AppModule","children":[]}
+var ROUTES_INDEX = { name: '<root>', kind: 'module', className: 'AppModule', children: [] };

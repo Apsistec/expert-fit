@@ -1,8 +1,9 @@
+import 'firebase/auth';
+
 import firebase from 'firebase/app';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
-/* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -12,13 +13,12 @@ import { ModalController } from '@ionic/angular';
 import { User } from '../models/users.model';
 import { MessageService } from './message.service';
 
-// import 'firebase/auth'
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   user: Observable<User>;
+  userId;
   currentBehaviorUser = new BehaviorSubject(null);
   displayName: any;
   authState$ = this.afAuth.authState;
@@ -45,97 +45,116 @@ export class AuthService {
     );
   }
 
-  /* Email User Login */
-  SignIn(credentials: { email: string; password: string }) {
-    return this.afAuth
-      .signInWithEmailAndPassword(credentials.email, credentials.password)
-      .then((data) => {
-        this.afs.doc<User>(`users/${data.user.uid}`).update({
-          uid: data.user.uid,
-          email: data.user.email,
-          emailVerified: data.user.emailVerified,
-          lastUpdatedAt: firebase.firestore.Timestamp
-        });
-        this.modalController.dismiss().then(() => {
-          this.messageService.loggedInToast(data);
-        });
-      })
-      .catch((error) => {
-        this.modalController.dismiss();
-        this.messageService.authErrorAlert(error);
-      });
-  }
-
   /* New User Email Signup */
-  SignUp(credentials) {
-    this.displayName = credentials.displayName;
-    const email = credentials.email;
-    const password = credentials.password;
-    this.afAuth
-      .createUserWithEmailAndPassword(email as string, password as string)
-      .then((data) => {
-        this.sendVerificationMail();
-        this.afs.doc<User>(`users/${data.user.uid}`).set(
-          {
-            uid: data.user.uid,
-            displayName: this.displayName,
-            email: data.user.email,
-            role: ['USER'],
-            permissions: ['delete-ticket'],
-            method: data.credential.signInMethod,
-            profile: data.additionalUserInfo.profile,
-            createdAt: firebase.firestore.Timestamp
-          },
-          { merge: true }
-        );
-      })
-      .catch((error) => {
+  SignUp(displayName: string, email: string, password: string) {
+    this.displayName = displayName;
+    return this.afAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential: firebase.auth.UserCredential) => {
         this.modalController.dismiss();
-        this.messageService.authErrorAlert(error);
-      });
-  }
-
-  /* Send email verfificaiton when new user sign up */
-  sendVerificationMail() {
-    const actionCodeSettings = {
-      url: 'https://expert-fitness-midland-tx.firebaseapp.com/vefified-email',
-      handleCodeInApp: false
-    };
-    firebase
-      .auth()
-      .currentUser.sendEmailVerification(actionCodeSettings)
-      .then(() => {
+        this.router.navigateByUrl('/home');
         this.messageService.registerSuccessAlert(this.displayName);
-      })
-      .catch((error) => {
-        this.messageService.authErrorAlert(error);
-      });
-  }
-
-  /* Auth providers */
-  AuthLogin(provider: firebase.auth.AuthProvider) {
-    this.afAuth
-      .signInWithRedirect(provider)
-      .then(() => {
-        this.afAuth.getRedirectResult().then((result) => {
-          this.modalController.dismiss();
-          this.messageService.loggedInToast(result.user.displayName);
-          this.afs.doc<User>(`users/${result.user.uid}`).update({
-            uid: result.user.uid,
-            photoURL: result.user.photoURL,
-            email: result.user.email,
-            emailVerified: result.user.emailVerified
-          });
+        this.sendVerificationMail();
+        this.afs.doc<User>(`users/${userCredential.user.uid}`).set({
+          uid: userCredential.user.uid,
+          displayName: this.displayName,
+          email: userCredential.user.email,
+          role: ['USER'],
+          permissions: ['delete-ticket'],
+          photoURL: userCredential.user.photoURL,
+          phoneNumber: '',
+          createdAt: userCredential.user.metadata.creationTime,
+          providerId: userCredential.additionalUserInfo.providerId,
+          signInMethod: userCredential.credential.signInMethod,
+          emailVerified: userCredential.user.emailVerified
         });
       })
-      .catch((error) => {
+      .catch((error) => this.messageService.errorAlert(error));
+  }
+
+  /* Email User Login */
+  SignIn(email: string, password: string) {
+    return this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
         this.modalController.dismiss();
-        this.messageService.authErrorAlert(error);
-      });
+        this.router.navigateByUrl('/home');
+        this.messageService.loggedInToast(userCredential.user.displayName);
+        this.afs.doc<User>(`users/${userCredential.user.uid}`).update({
+          uid: userCredential.user.uid,
+          displayName: this.displayName,
+          email: userCredential.user.email,
+          photoURL: userCredential.user.photoURL,
+          phoneNumber: '',
+          lastUpdatedAt: userCredential.user.metadata.lastSignInTime || '--',
+          providerId: userCredential.additionalUserInfo.providerId || '',
+          signInMethod: userCredential.credential.signInMethod,
+          emailVerified: userCredential.user.emailVerified
+        });
+      })
+      .catch((error) => this.messageService.errorAlert(error));
+  }
+
+  /* OAuth providers Signup*/
+  AuthSignup(provider: firebase.auth.AuthProvider) {
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then((userCredential) => {
+        this.modalController.dismiss();
+        this.router.navigateByUrl('/home');
+        if (userCredential.user.emailVerified) {
+          this.messageService.registeredOauthToast(userCredential.user.displayName);
+        }
+        {
+          this.sendVerificationMail();
+          this.messageService.registerSuccessAlert(userCredential.user.displayName);
+        }
+        this.afs.doc<User>(`users/${userCredential.user.uid}`).set({
+          uid: userCredential.user.uid,
+          displayName: firebase.auth().currentUser.displayName,
+          email: userCredential.user.email,
+          role: ['USER'],
+          permissions: ['delete-ticket'],
+          photoURL: userCredential.user.photoURL,
+          phoneNumber: '',
+          createdAt: userCredential.user.metadata.creationTime,
+          providerId: userCredential.additionalUserInfo.providerId,
+          signInMethod: userCredential.credential.signInMethod,
+          emailVerified: userCredential.user.emailVerified
+        });
+      })
+      .catch((error) => this.messageService.errorAlert(error));
+  }
+
+  /* OAuth providers Login*/
+  AuthLogin(provider: firebase.auth.AuthProvider) {
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then((userCredential) => {
+        this.modalController.dismiss();
+        this.router.navigateByUrl('/home');
+        this.messageService.loggedInToast(userCredential.user.displayName);
+        this.afs.doc<User>(`users/${userCredential.user.uid}`).update({
+          uid: userCredential.user.uid,
+          displayName: firebase.auth().currentUser.displayName,
+          email: userCredential.user.email,
+          photoURL: userCredential.user.photoURL,
+          phoneNumber: '',
+          lastUpdatedAt: userCredential.user.metadata.lastSignInTime,
+          providerId: userCredential.additionalUserInfo.providerId,
+          signInMethod: userCredential.credential.signInMethod,
+          emailVerified: userCredential.user.emailVerified
+        });
+      })
+      .catch((error) => this.messageService.errorAlert(error));
   }
 
   /* Sign in with 3rd party Oauth */
-  GoogleAuth() {
+  GoogleAuthSignup() {
+    return this.AuthSignup(new firebase.auth.GoogleAuthProvider());
+  }
+
+  GoogleAuthLogin() {
     return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
   }
 
@@ -153,9 +172,29 @@ export class AuthService {
   //   });
   // }
 
+  /* Dismiss Modal and goto /home to be auto redirected if logged in */
+
+  /* Send email verfificaiton when new user sign up */
+  sendVerificationMail() {
+    const actionCodeSettings = {
+      url: 'https://apsistec.page.link/finish_task',
+      handleCodeInApp: false
+    };
+    firebase
+      .auth()
+      .currentUser.sendEmailVerification(actionCodeSettings)
+      .catch((error) => {
+        this.messageService.authErrorAlert(error);
+      });
+  }
+
   /* Password Reset */
   passReset(email: string) {
-    this.afAuth.sendPasswordResetEmail(email).catch((error) => {
+    const actionCodeSettings = {
+      url: 'https://apsistec.page.link/PassReset',
+      handleCodeInApp: false
+    };
+    this.afAuth.sendPasswordResetEmail(email, actionCodeSettings).catch((error) => {
       this.messageService.errorAlert(error);
     });
   }
@@ -190,7 +229,7 @@ export class AuthService {
     }
   }
 
-  /* determines if user is a member */
+  /* determines current userRole */
   private checkAuthorization(user: User): boolean {
     if (user && user.role.includes('user' || 'customer' || 'employee' || 'admin')) {
       return (this.validUser = true);
@@ -198,6 +237,7 @@ export class AuthService {
       return (this.validUser = false);
     }
   }
+
   private checkCustomerAuthorization(user: User): boolean {
     if (user && user.role.includes('customer' || 'employee' || 'admin')) {
       return (this.validCustomer = true);
@@ -205,6 +245,7 @@ export class AuthService {
       return (this.validCustomer = false);
     }
   }
+
   private checkEmployeeAuthorization(user: User): boolean {
     if (user && user.role.includes('employee' || 'admin')) {
       return (this.validEmployee = true);
@@ -212,6 +253,7 @@ export class AuthService {
       return (this.validEmployee = false);
     }
   }
+
   private checkAdminAuthorization(user: User): boolean {
     if (user && user.role.includes('admin')) {
       return (this.validAdmin = true);

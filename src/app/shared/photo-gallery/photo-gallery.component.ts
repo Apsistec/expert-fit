@@ -11,8 +11,7 @@ import { AuthService } from '../../services/auth.service';
 export class PhotoGalleryComponent implements OnInit {
   user: User;
   constructor(private authService: AuthService) {}
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   logoutAction() {
     this.authService.signOut();

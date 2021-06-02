@@ -1,7 +1,34 @@
-<ion-content>
-  <ion-grid>
-    <ion-row class="ion-justify-content-center">
+<ion-grid>
+  <ion-row class="ion-justify-content-center">
+    <ion-col *ngIf="authService.user | async as user">
       <app-profile></app-profile>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+      <ion-card
+        class="ion-text-center"
+        color="medium"
+        *ngIf="user.emailVerified === false"
+        style="width: fit-content; border: 3px solid var(--ion-color-warning); border-radius: 15px"
+      >
+        <ion-card-header>
+          <ion-card-title class="ion-text-uppercase"> 
+            <ion-text color="warning">
+              Email Verification Sent 
+          </ion-text> 
+        </ion-card-title>
+        </ion-card-header>
+        <ion-card-content >
+          <ion-text color="light">
+            Check your email 
+            <ion-text color="primary" style="font-weight: bold;">
+            {{user.email}} 
+          </ion-text>
+            for further instructions.
+          </ion-text>
+          <br>
+          <ion-text color="primary" style="font-weight: bolder;">
+              Thank you!
+          </ion-text>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

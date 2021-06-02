@@ -1,7 +1,7 @@
 ion-toolbar {
   --background: transparent;
-  border-bottom: 3px solid var(--ion-color-tertiary-tint);
-  border-top: 3px solid var(--ion-color-tertiary-tint);
+  border-bottom: 3px solid var(--ion-color-success-tint);
+  border-top: 3px solid var(--ion-color-success-tint);
 }
 
 .slide-parent {
@@ -18,4 +18,5 @@ ion-toolbar {
 
 .slide-image{
   border-radius: 15px 15px 0 0;
+  width: 100%;
 }

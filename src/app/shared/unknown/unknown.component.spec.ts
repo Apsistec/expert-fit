@@ -9,7 +9,7 @@ describe('UnknownComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UnknownComponent ],
+      declarations: [UnknownComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

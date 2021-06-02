@@ -1,0 +1,33 @@
+<ion-card color="medium">
+  <ion-card-header>
+    <ion-card-title>
+      <ion-label color="secondary"> Trouble Tickets </ion-label>
+    </ion-card-title>
+  </ion-card-header>
+  <ion-list>
+    <ion-item
+      button
+      *ngFor="let ticket of tickets | async"
+      class="ion-text-wrap"
+      (click)="openTicket(ticket.id)"
+    >
+      <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>
+      <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>
+      <ion-label>
+        <ion-text color="dark">
+          <h2>{{ ticket.title }}</h2>
+        </ion-text>
+        <ion-text color="light">
+          <p class="ion-text-wrap">{{ ticket.desc }}</p>
+        </ion-text>
+      </ion-label>
+      <ion-label slot="start">
+        <ion-note color="dark"> {{ ticket.id }} </ion-note>
+        <br />
+        <ion-note color="dark">
+          {{ ticket.created_at?.seconds * 1000 | date: 'MMM d H:HH' }}
+        </ion-note>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-card>

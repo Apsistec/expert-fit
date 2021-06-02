@@ -8,13 +8,7 @@ import { FaqPageRoutingModule } from './faq-routing.module';
 import { FaqPage } from './faq.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    SharedModule,
-    FaqPageRoutingModule,
-  ],
+  imports: [CommonModule, FormsModule, IonicModule, SharedModule, FaqPageRoutingModule],
   declarations: [FaqPage]
 })
 export class FaqPageModule {}
