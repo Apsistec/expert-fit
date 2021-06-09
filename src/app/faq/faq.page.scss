@@ -1,0 +1,33 @@
+.accordion-list {
+  background: transparent;
+  font-weight: 600;
+}
+
+.detail-item {
+  --background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  --padding-top: 5px;
+  margin-bottom: 5px;
+  --padding-bottom: 5px;
+}
+.negative-icon {
+  color: var(--ion-color-tertiary-shade);
+}
+
+.section {
+  display: none;
+}
+
+.detail-text {
+  color: var(--ion-color-primary);
+}
+
+.faq-title {
+  color: var(--ion-color-light-tint);
+}
+
+.summary-item {
+  border-radius: 10px;
+  --ion-item-background: transparent;
+  --inner-padding-bottom: 1px;
+}

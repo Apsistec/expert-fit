@@ -1,10 +1,10 @@
-<h1 align="center"> 🏋️‍♂️ 🥡 🍎 Expert Fitness App   🍏 ⚖️ 🏋️‍♀️</h1>
+<h1 align="center"> 🏋️‍♂️ 🥡 🍎 X Fitness Studio App   🍏 ⚖️ 🏋️‍♀️</h1>
 <!-- PROJECT LOGO -->
 <p align="center"> The fitness app that becomes your trainer.  :muscle: </p>
 
-[![Expert Fitness Logo]][logo]
+[![X Fitness Studio Logo]][logo]
 
-[Expert Fitness](https://github.com/apsistec/expert-fit)
+[X Fitness Studio](https://github.com/apsistec/expert-fit)
 
 <!-- PROJECT SHIELDS -->
 
@@ -310,5 +310,5 @@ Doug White
 [linkedin-url]: https://linkedin.com/in/apsistec
 [product-screenshot]: src/assets/images/screenshot.png
 [logo]: https://github.com/apsistec/expert-fit/src/assets/logos/logo.png
-[screenshot]: https://expert-fitness-midland-tx.web.app
+[screenshot]: https://xfitness.studio-midland-tx.web.app
 [project]: https://github.com/apsistec/expert-fit

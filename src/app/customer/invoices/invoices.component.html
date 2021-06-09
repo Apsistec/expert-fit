@@ -1,20 +1,11 @@
-
-
-    <ion-card color="dark" *ngIf="stripeService.invoices | async as invoice">
-        <ion-card-content>
-          Date: {{ invoice.data[0].created * 1000 | date }}
-          <br />
-          Paid: {{ invoice.data[0].amount_paid / 100 | currency }}
-          <br />
-          <ion-button
-            class="ion-text-capitalize"
-            [href]="invoice.data[0].hosted_invoice_url"
-            size="small"
-          >
-            <ion-text> View Full Invoice </ion-text>
-          </ion-button>
-        </ion-card-content>
-      </ion-card>
-  
-  
-  
+<ion-card color="dark" *ngIf="stripeService.invoices | async as invoice">
+  <ion-card-content>
+    Date: {{ invoice.data[0].created * 1000 | date }}
+    <br />
+    Paid: {{ invoice.data[0].amount_paid / 100 | currency }}
+    <br />
+    <ion-button class="ion-text-capitalize" [href]="invoice.data[0].hosted_invoice_url" size="small">
+      <ion-text> View Full Invoice </ion-text>
+    </ion-button>
+  </ion-card-content>
+</ion-card>

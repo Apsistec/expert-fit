@@ -1,0 +1,52 @@
+<ion-content class="content">
+  <ion-grid style="min-height: 95vh">
+    <ion-row>
+      <ion-col>
+        <ion-card color="dark" class="toolbar-card ion-text-center">
+          <ion-card-header>
+            <ion-card-title class="title"> X Fitness Studio Pricing </ion-card-title>
+            <ion-card-subtitle class="subtitle">
+              <ion-text color="warning"> Select the options that work best for you </ion-text>
+            </ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col
+        size-xl="3"
+        size-lg="6"
+        size-md="8"
+        class="product-col ion-margin ion-align-items-stretch ion-text-center"
+        *ngFor="let product of products | async"
+      >
+        <ion-card color="dark" class="product-card ion-no-margin">
+          <ion-card-header class="product-card-header">
+            <ion-card-title>
+              <ion-label color="warning"> {{ product.name }} </ion-label>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-img
+            class="product-img ion-margin"
+            [src]="product.images[0]"
+            style="height: 200px; width: 100%"
+          ></ion-img>
+          <ion-card-content class="ion-text-center">
+            <ion-text> {{ product.description }} </ion-text>
+            <ion-item class="ion-margin">
+              <ion-label>Price</ion-label>
+              <ion-select placeholder="Select One">
+                <ion-select-option *ngFor="let price of prices | async" [value]="price.unit_amount"
+                  >${{ price.unit_amount / 100 }}</ion-select-option
+                >
+              </ion-select>
+            </ion-item>
+
+            <ion-button>Add to Cart</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer></app-footer>
+</ion-content>

@@ -248,7 +248,7 @@ export class MessageService {
 
   async onPushRequest() {
     const alert = await this.alertController.create({
-      header: 'Expert Fitness App Messages',
+      header: 'X Fitness Studio App Messages',
       subHeader: 'Push Notifications',
       message: `Press 'Okay' to start receiving push notifications`,
       backdropDismiss: false,
@@ -356,7 +356,7 @@ export class MessageService {
         inputs: [
           {
             name: 'Place',
-            placeholder: 'fit@expertfitness.com'
+            placeholder: 'fit@xfitness.studio'
           }
         ],
         buttons: [

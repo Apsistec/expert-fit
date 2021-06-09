@@ -1,14 +1,14 @@
 body {
-    counter-reset: user1;
+  counter-reset: user1;
+}
+.userlist {
+  ion-item::before {
+    counter-increment: user1;
+    content: counter(user1) ': ';
   }
-  .userlist{
-    ion-item::before {
-      counter-increment: user1;
-      content: counter(user1) ': ';
-    }
-  }
-  ion-toolbar{
-    --background: var(--ion-color-dark-tint);
-    border-bottom: 3px solid var(--ion-color-secondary-shade);
-    color:var(--ion-color-secondary-tint);
-  }
+}
+ion-toolbar {
+  --background: var(--ion-color-dark-tint);
+  border-bottom: 3px solid var(--ion-color-secondary-shade);
+  color: var(--ion-color-secondary-tint);
+}

@@ -26,6 +26,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   user: User;
   email: any;
   subs: any;
+  dark: boolean;
+  darkSetting;
 
   constructor(
     private theme: ThemeService,
@@ -81,5 +83,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
   support() {
     this.router.navigateByUrl('/user/dashboard');
+  }
+
+  toggle() {
+    document.body.classList.toggle('dark');
   }
 }

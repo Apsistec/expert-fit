@@ -1576,9 +1576,8 @@
       ],
       47: [
         function (e, t, r) {
-          t.exports = 'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'.split(
-            ','
-          );
+          t.exports =
+            'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'.split(',');
         },
         {}
       ],
@@ -2750,9 +2749,10 @@
             })),
             a(a.G + a.W + a.F * !W, { Symbol: P });
           for (
-            var te = 'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'.split(
-                ','
-              ),
+            var te =
+                'hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'.split(
+                  ','
+                ),
               re = 0;
             te.length > re;
 

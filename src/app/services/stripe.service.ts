@@ -19,6 +19,7 @@ export class StripeService {
   subscriptions: Observable<any>;
   confirmation; // : Observable<any>;
   invoices: Observable<any>;
+  couponCode;
   discount;
   isLoading = false;
 
@@ -67,13 +68,13 @@ export class StripeService {
     })
       .toPromise()
       .then(() => {
-        this.isLoading= false;
+        this.isLoading = false;
         this.spinner.dismissSpinner();
         this.messageService.cancelledAlert();
         this.router.navigate(['/home']);
       })
       .catch((error) => {
-        this.isLoading= false;
+        this.isLoading = false;
         this.spinner.dismissSpinner();
         this.messageService.errorAlert(error);
       });
@@ -85,15 +86,15 @@ export class StripeService {
   }
 
   // Coupons
-  // getCoupon() {
-  //   const coupon: any = document.getElementById('couponForm');
-  //   const couponFun = this.functions.httpsCallable('stripeGetCoupon');
-  //   coupon.onblur = async () => {
-  //     const couponCode: Coupon = await couponFun({ coupon });
-  //     if ( couponCode.name === coupon.name ) {
-  //       this.discount = couponCode.value;
-  //       this.messageService.generalToast('');
-  //     }
-  //   };
-  // }
+  getCoupon() {
+    const coupon: any = document.getElementById('couponForm');
+    const couponFun = this.functions.httpsCallable('stripeGetCoupon');
+    coupon.onblur = async () => {
+      this.couponCode = await couponFun({ coupon });
+      if (this.couponCode.name === coupon.name) {
+        this.discount = this.couponCode.value;
+        this.messageService.generalToast(this.couponCode.name + 'applied a discount of ' + this.couponCode.value);
+      }
+    };
+  }
 }

@@ -22,7 +22,7 @@
         <td>{{ item.age }}</td>
         <td>{{ item.address }}</td>
         <td style="display: flex">
-          <ion-button color="warning" size="small" routerLink='/admin/student-edit/{{item.id}}'>
+          <ion-button color="warning" size="small" routerLink="/admin/student-edit/{{item.id}}">
             <ion-icon name="create"></ion-icon>
           </ion-button>
           <ion-button color="warning" size="small" (click)="delete(item)">
@@ -32,7 +32,5 @@
       </tr>
     </tbody>
   </table>
-  <ion-button [routerLink]="['/admin/student-create']">
-    Add Student
-  </ion-button>
+  <ion-button [routerLink]="['/admin/student-create']"> Add Student </ion-button>
 </ion-content>

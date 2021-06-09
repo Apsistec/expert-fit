@@ -1,13 +1,15 @@
 <ion-grid *ngIf="authService.user | async as user">
   <ion-row class="ion-justify-content-between">
     <ion-col class="ion-align-self-center">
-      <ion-card class="profile-card ">
+      <ion-card class="profile-card">
         <ion-row>
           <ion-col class="ion-no-margin ion-no-padding">
             <ion-row>
               <ion-col>
-                <ion-img style="height: 200px;width: 100%;"
-                  [src]="user.photoURL || '..//..//assets//lazy//images//dummy-user.png'"></ion-img>
+                <ion-img
+                  style="height: 200px; width: 100%"
+                  [src]="user.photoURL || '..//..//assets//lazy//images//dummy-user.png'"
+                ></ion-img>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -49,7 +51,8 @@
               <ion-button class="ion-text-capitalize" size="small" color="warning" (click)="presentSettingsModal()">
                 Edit User
               </ion-button>
-              <ion-button class="ion-text-capitalize" size="small" color="danger" (click)="authService.signOut()">Logout
+              <ion-button class="ion-text-capitalize" size="small" color="danger" (click)="authService.signOut()"
+                >Logout
               </ion-button>
             </ion-col>
           </ion-row>
@@ -76,10 +79,8 @@
             <ion-label color="primary" *ngIf="user.stripeStatus === 'trialing'"> <b> Trial Ends: </b> </ion-label><br />
             {{ subs.data[0].trial_end * 1000 | date }}
             <ion-label>
-              <b>
-                Monthly Dues:
-              </b>
-            </ion-label><br />
+              <b> Monthly Dues: </b> </ion-label
+            ><br />
             {{ subs.data[0].plan.amount / 100 | currency }}
             <ion-label color="primary">Membership Created:</ion-label><br />
             {{ subs.data[0].center_date * 1000 | date }}
@@ -145,8 +146,12 @@
         </ion-card-header>
         <ion-card-content class="ion-margin">
           <ng-container *ngIf="stripe.subscriptions | async as subs; else purchase">
-            <ion-button class="ion-text-capitalize" size="small" color="primary"
-              [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice">
+            <ion-button
+              class="ion-text-capitalize"
+              size="small"
+              color="primary"
+              [href]="'https://pay.stripe.com/invoice/' + subs.data[0].latest_invoice"
+            >
               Current app-invoices
             </ion-button>
             <ion-button class="ion-text-capitalize" size="small" color="primary" (click)="presentInvoicesModal()">
@@ -166,8 +171,9 @@
           <ion-card-title> Theme Options </ion-card-title>
         </ion-card-header>
         <ion-card-content class="ion-margin ion-text-center">
-          <ion-button class="ion-text-capitalize" (click)="enableDark()" color="dark">Dark</ion-button>
-          <ion-button class="ion-text-capitalize" (click)="enableLight()" color="light">Light</ion-button>
+          <ion-icon color="warning" name="sunny"></ion-icon>
+          <ion-toggle [checked]="!darkSetting" (click)="toggle()"></ion-toggle>
+          <ion-icon color="light" name="moon"></ion-icon>
         </ion-card-content>
       </ion-card>
     </ion-col>

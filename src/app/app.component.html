@@ -1,6 +1,6 @@
 <ion-app>
   <app-side-menu></app-side-menu>
-  <ion-header >
+  <ion-header>
     <ion-toolbar #toolbar class="top-toolbar-sm">
       <ion-buttons slot="start">
         <ion-menu-button color="secondary"> </ion-menu-button>
@@ -20,7 +20,7 @@
         <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
       </ion-item>
       <ng-template #login>
-        <ion-buttons slot="end">  
+        <ion-buttons slot="end">
           <ion-button fill="clear" routerLink="/login" class="login-button-main" color="warning"> Login </ion-button>
         </ion-buttons>
       </ng-template>
@@ -41,7 +41,7 @@
         class="menu-item"
         button
         details="false"
-        routerLink="/home/products"
+        routerLink="/pricing"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -52,7 +52,7 @@
         class="menu-item"
         button
         details="false"
-        routerLink="/home/faqs"
+        routerLink="/faqs"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -62,7 +62,7 @@
         class="menu-item"
         button
         details="false"
-        routerLink="/home/reviews"
+        routerLink="/reviews"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -72,7 +72,7 @@
         class="menu-item"
         button
         details="false"
-        routerLink="/home/about-us"
+        routerLink="/about-us"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -82,7 +82,7 @@
         class="menu-item"
         button
         details="false"
-        routerLink="/home/contact-us"
+        routerLink="/contact-us"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
       >
@@ -102,9 +102,9 @@
         <ion-icon size="small" slot="end" name="caret-down-sharp"></ion-icon>
       </ion-item>
       <ng-template #login>
-      <ion-buttons slot="end">
-        <ion-button fill="clear" routerLink="/login" class="login-button-main" color="warning"> Login </ion-button>
-      </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button fill="clear" routerLink="/login" class="login-button-main" color="warning"> Login </ion-button>
+        </ion-buttons>
       </ng-template>
     </ion-toolbar>
   </ion-header>

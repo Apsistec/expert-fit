@@ -1,0 +1,12 @@
+ion-row {
+  min-height: 100vh;
+  display: flex;
+  place-content: center;
+}
+
+p {
+  color: var(--ion-text-color);
+}
+b{
+  color: var(--ion-color-secondary);
+}

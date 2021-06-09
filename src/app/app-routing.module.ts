@@ -2,18 +2,18 @@ import { QuicklinkStrategy } from 'ngx-quicklink';
 
 import { NgModule } from '@angular/core';
 import {
-    AngularFireAuthGuard, canActivate, emailVerified, redirectLoggedInTo, redirectUnauthorizedTo
+  AngularFireAuthGuard,
+  canActivate,
+  emailVerified,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo
 } from '@angular/fire/auth-guard';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { PaidGuard } from './guards/paid.guard';
-import { PopulatedCartRouteGuard } from './guards/populated-cart.route-guard';
 import { RoleGuard } from './guards/role.guard';
-import { CheckoutComponent } from './home/checkout/checkout.component';
-import { PhotoGalleryComponent } from './shared/photo-gallery/photo-gallery.component';
+// import { PhotoGalleryComponent } from './shared/photo-gallery/photo-gallery.component';
 import { UnknownComponent } from './shared/unknown/unknown.component';
-import { OrderConfirmationComponent } from './user/order-confirmation/order-confirmation.component';
 
 // import { LoginGuard } from './guards/login.guard';
 
@@ -33,12 +33,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule)
   },
-  { canActivate: [PopulatedCartRouteGuard], component: CheckoutComponent, path: 'checkout' },
-  {
-    canActivate: [PopulatedCartRouteGuard],
-    component: OrderConfirmationComponent,
-    path: 'confirmed'
-  },
+
   {
     path: 'customer',
     loadChildren: () => import('./customer/customer.module').then((m) => m.CustomerPageModule),
@@ -61,28 +56,85 @@ const routes: Routes = [
     // ...canActivate(adminOnly),
     canActivate: [PaidGuard, RoleGuard, AngularFireAuthGuard]
   },
-  {
-    path: 'photo-gallery',
-    component: PhotoGalleryComponent
-  },
-  {
-    path: ':id',
-    loadChildren: () => import('./home/modal-view/modal-view.module').then((m) => m.ModalViewPageModule),
-    ...canActivate(redirectLoggedInToDash)
-  },
-  {
-    path: 'database',
-    loadChildren: () => import('./database/database.module').then((m) => m.DatabasePageModule)
-  },
-  {
-    path: 'line-chart',
-    component: LineChartComponent
-  },
+
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserPageModule),
     ...canActivate(redirectUnauthorizedToLogin),
     canActivate: [AngularFireAuthGuard]
+  },
+  {
+    path: 'pricing',
+    loadChildren: () => import('./products/products.module').then((m) => m.ProductsPageModule)
+  },
+  {
+    path: 'faqs',
+    loadChildren: () => import('./faq/faq.module').then((m) => m.FaqPageModule)
+  },
+  {
+    path: 'faq',
+    redirectTo: 'faqs',
+    pathMatch: 'full'
+  },
+  {
+    path: 'reviews',
+    loadChildren: () => import('./testimonials/testimonials.module').then((m) => m.TestimonialsPageModule)
+  },
+  {
+    path: 'testimonials',
+    redirectTo: 'reviews',
+    pathMatch: 'full'
+  },
+  {
+    path: 'ratings',
+    redirectTo: 'reviews',
+    pathMatch: 'full'
+  },
+  {
+    path: 'about-us',
+    loadChildren: () => import('./about-us/about-us.module').then((m) => m.AboutUsPageModule)
+  },
+  {
+    path: 'about',
+    redirectTo: 'about-us',
+    pathMatch: 'full'
+  },
+  // {
+  //   path: 'modal-view',
+  //   loadChildren: () =>
+  //     import('./modal-view/modal-view.module').then(
+  //       m => m.ModalViewPageModule,
+  //     ),
+  // },
+  {
+    path: 'contact-us',
+    loadChildren: () => import('./contact/contact.module').then((m) => m.ContactPageModule)
+  },
+  {
+    path: 'contact',
+    redirectTo: 'contact-us',
+    pathMatch: 'full'
+  },
+  {
+    path: 'facility',
+    loadChildren: () => import('./facility/facility.module').then((m) => m.FacilityPageModule)
+  },
+  {
+    path: 'nutrition',
+    loadChildren: () => import('./nutrition/nutrition.module').then((m) => m.NutritionPageModule)
+  },
+  {
+    path: 'safety',
+    loadChildren: () => import('./safety/safety.module').then((m) => m.SafetyPageModule)
+  },
+  {
+    path: 'choices',
+    loadChildren: () => import('./choices/choices.module').then((m) => m.ChoicesPageModule)
+  },
+
+  {
+    path: ':id',
+    loadChildren: () => import('./modal-view/modal-view.module').then((m) => m.ModalViewPageModule)
   },
   {
     path: '**',

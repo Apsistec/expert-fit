@@ -184,26 +184,28 @@ Accepts.prototype.charset = Accepts.prototype.charsets = function (charsets_) {
  * @public
  */
 
-Accepts.prototype.lang = Accepts.prototype.langs = Accepts.prototype.language = Accepts.prototype.languages = function (
-  languages_
-) {
-  var languages = languages_;
+Accepts.prototype.lang =
+  Accepts.prototype.langs =
+  Accepts.prototype.language =
+  Accepts.prototype.languages =
+    function (languages_) {
+      var languages = languages_;
 
-  // support flattened arguments
-  if (languages && !Array.isArray(languages)) {
-    languages = new Array(arguments.length);
-    for (var i = 0; i < languages.length; i++) {
-      languages[i] = arguments[i];
-    }
-  }
+      // support flattened arguments
+      if (languages && !Array.isArray(languages)) {
+        languages = new Array(arguments.length);
+        for (var i = 0; i < languages.length; i++) {
+          languages[i] = arguments[i];
+        }
+      }
 
-  // no languages, return all requested languages
-  if (!languages || languages.length === 0) {
-    return this.negotiator.languages();
-  }
+      // no languages, return all requested languages
+      if (!languages || languages.length === 0) {
+        return this.negotiator.languages();
+      }
 
-  return this.negotiator.languages(languages)[0] || false;
-};
+      return this.negotiator.languages(languages)[0] || false;
+    };
 
 /**
  * Convert extnames to mime.

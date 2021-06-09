@@ -1,17 +1,24 @@
 <ion-fab horizontal="start" vertical="center">
-  <ion-icon class="revpulsar" color="secondary" size="large" name="chevron-back-outline" (click)="slidePrev(mySlider)"></ion-icon>
+  <ion-icon
+    class="revpulsar"
+    color="secondary"
+    size="large"
+    name="chevron-back-outline"
+    (click)="slidePrev(mySlider)"
+  ></ion-icon>
 </ion-fab>
 <ion-fab horizontal="end" vertical="center">
-  <ion-icon class="pulsar" size="large" color="secondary" name="chevron-forward-outline" (click)="slideNext(mySlider)"></ion-icon>
+  <ion-icon
+    class="pulsar"
+    size="large"
+    color="secondary"
+    name="chevron-forward-outline"
+    (click)="slideNext(mySlider)"
+  ></ion-icon>
 </ion-fab>
-<ion-slides
-  class="slide-parent"
-  #mySlider
-  pager="true"
-  [options]="slideOpts"
->
+<ion-slides class="slide-parent" #mySlider pager="true" [options]="slideOpts">
   <ion-slide class="slide" *ngFor="let benefit of benefits | async">
-    <ion-img [src]="benefit.imageURL"  class="slide-image" ></ion-img>
+    <ion-img [src]="benefit.imageURL" class="slide-image"></ion-img>
 
     <ion-toolbar>
       <ion-title color="tertiary" style="text-transform: uppercase">

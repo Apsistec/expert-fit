@@ -77,7 +77,7 @@ export class ImageUploadComponent implements OnDestroy {
     const path = `benefitImages/${new Date().getTime()}_${file.name}`;
 
     // Totally optional metadata
-    const customMetadata = { app: 'Expert Fitness App' };
+    const customMetadata = { app: 'X Fitness Studio App' };
 
     //File reference
     const fileRef = this.storage.ref(path);

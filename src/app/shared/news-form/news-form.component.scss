@@ -1,4 +1,4 @@
-:host{
+:host {
   --animate-duration: 0.3s;
   --animate-delay: 0.3s;
   --animate-repeat: 1;
@@ -15,17 +15,18 @@
   --q-size-md: 1024px;
   --q-size-lg: 1440px;
   --q-size-xl: 1920px;
-  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto,
+    segoe ui, arial, sans-serif;
   line-height: 1.5;
   font-size: 14px;
   -webkit-font-smoothing: auto;
   direction: ltr;
   font-weight: 500;
-  color: #424242!important;
+  color: #424242 !important;
   box-sizing: inherit;
   -webkit-tap-highlight-color: transparent;
   flex: 1 0 auto;
-  border-color: rgba(0,0,0,0.1);
+  border-color: rgba(0, 0, 0, 0.1);
   height: auto;
   min-height: 0;
   max-height: 100%;

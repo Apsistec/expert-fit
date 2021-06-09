@@ -1,39 +1,29 @@
-<ion-card color="medium" class="ion-text-center ion-card-global ion-no-margin ion-no-padding" style="height: 100%;">
-     <ion-fab horizontal="end" vertical="top">
-       <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
-   </ion-fab>
-   <ion-card-header>
- 
-     <ion-card-title>Phone Authentication</ion-card-title>
-   </ion-card-header>
-   <ion-card-content class="ion-no-margin ion-no-padding">
+<ion-card color="medium" class="ion-text-center ion-card-global ion-no-margin ion-no-padding" style="height: 100%">
+  <ion-fab horizontal="end" vertical="top">
+    <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
+  </ion-fab>
+  <ion-card-header>
+    <ion-card-title>Phone Authentication</ion-card-title>
+  </ion-card-header>
+  <ion-card-content class="ion-no-margin ion-no-padding">
+    <ng-container id="recapta-container" style="display: none"></ng-container>
 
-<ng-container id="recapta-container" style="display: none;"></ng-container>
+    <ng-container *ngIf="!otpSent">
+      <ion-note style="font-weight: bold; font-size: medium"> Enter phone number you want to verify </ion-note>
+      <ion-item>
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input id="phoneNumber"></ion-input>
+      </ion-item>
+      <ion-button (click)="sendOTP()" style="float: right; margin-top: 30px"> Send OTP </ion-button>
+    </ng-container>
 
-<ng-container *ngIf="!otpSent">
-<ion-note style="font-weight: bold;font-size: medium;"> 
-     Enter phone number you want to verify
-</ion-note>
-<ion-item>
-<ion-label position="floating">Phone Number</ion-label>
-<ion-input id="phoneNumber"></ion-input>
-</ion-item>
-<ion-button (click)="sendOTP()" style="float: right;margin-top: 30px;">
-     Send OTP
-</ion-button>
-</ng-container>
-
-<ng-container *ngIf="otpSent">
-<ion-note style="font-weight: bold;font-size: medium;"> 
-     Enter OTP sent to {{phoneNumber}}
-</ion-note>
-<ion-item>
-<ion-label position="floating">6 Digit OTP</ion-label>
-<ion-input id="otp"></ion-input>
-</ion-item>
-<ion-button (click)="verifyOTP()" style="float: right;margin-top: 30px;">
-     Verify OTP
-</ion-button>
-</ng-container>
-</ion-card-content>
+    <ng-container *ngIf="otpSent">
+      <ion-note style="font-weight: bold; font-size: medium"> Enter OTP sent to {{ phoneNumber }} </ion-note>
+      <ion-item>
+        <ion-label position="floating">6 Digit OTP</ion-label>
+        <ion-input id="otp"></ion-input>
+      </ion-item>
+      <ion-button (click)="verifyOTP()" style="float: right; margin-top: 30px"> Verify OTP </ion-button>
+    </ng-container>
+  </ion-card-content>
 </ion-card>

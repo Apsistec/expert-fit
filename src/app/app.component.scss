@@ -46,8 +46,7 @@ ion-label {
 
 ion-toolbar {
   border-bottom: 3px solid var(--ion-color-secondary);
-  --background: 
-  linear-gradient(to right, rgba(0, 0, 0, 0.9) , rgba(0, 0, 0, 0.5) , rgba(0, 0, 0, 0.9) ),
+  --background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)),
     url(../assets/icons/icon-512x512.png) center/ 50px 50px no-repeat,
     repeating-conic-gradient(
       from 3deg at 50% 50%,

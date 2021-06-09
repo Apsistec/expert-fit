@@ -29,7 +29,7 @@
 @import '~ngx-bar-rating/themes/br-default-theme';
 
 /* Swiper CSS */
-@import '~swiper/swiper-bundle';
+// @import '~swiper/swiper-bundle';
 
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Kufam&family=Lemonada&family=Recursive&display=swap');
@@ -48,6 +48,7 @@ a :hover {
 .text {
   font-family: 'Kufam', cursive;
 }
+
 /* Ratings/Testimonials */
 .rating {
   font-family: 'Recursive', sans-serif;
@@ -77,14 +78,9 @@ a :hover {
 
 /* silver gradient for ion-content */
 .content {
-  --background: linear-gradient(
-      to bottom right,
-      rgba(70, 69, 69, 0.76),
-      rgba(131, 130, 130, 0.938),
-      rgba(85, 84, 84, 0.767)
-    ),
-    linear-gradient(to bottom left, rgba(70, 69, 69, 0.76), rgba(131, 130, 130, 0.938), rgba(85, 84, 84, 0.767));
+
   --background-color: var(--ion-color-medium);
+    --background: linear-gradient(to bottom right, rgba(70, 69, 69, 0.527), rgba(131, 130, 130, 0.705), rgba(85, 84, 84, 0.562)), linear-gradient(to bottom left, rgba(70, 69, 69, 0.644), rgba(131, 130, 130, 0.788), rgba(85, 84, 84, 0.575)), url(./assets/lazy/images/iconImg.png) center;
 }
 
 /* Main call to action buttons on landing page */
@@ -130,6 +126,7 @@ a :hover {
     display: none;
   }
 }
+
 @media screen and (min-width: 828px) {
   .top-toolbar-sm {
     display: none;

@@ -10,7 +10,7 @@ export const Phases: Phase[] = [
     id: 1,
     title: 'Aim',
     image: '../../assets/lazy/images/upward-dog-pose.jpg',
-    content: `Set up access to the Expert Fitness App then notate assessment measurements so you can create a plan, shedule sessions and make commitments`
+    content: `Set up access to the X Fitness Studio App then notate assessment measurements so you can create a plan, shedule sessions and make commitments`
   },
   {
     id: 2,

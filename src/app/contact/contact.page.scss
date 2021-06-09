@@ -1,0 +1,36 @@
+.map-canvas {
+  position: relative;
+
+  height: 86vh;
+
+  background-color: grey;
+
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+}
+
+.show-map {
+  opacity: 0.65;
+  background: darkslategray;
+  color: black;
+}
+
+.toolbar {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-bottom: 3px solid var(--ion-color-secondary-shade);
+  --background: linear-gradient(to right, rgba(0, 29, 173, 0.5), rgba(0, 0, 0, 0.596), rgba(0, 29, 173, 0.5)),
+    center/cover no-repeat url(./../../assets/lazy/images/banner.png);
+}
+.toolbar-bottom {
+  // height: 100px;
+  border-top: 3px solid var(--ion-color-secondary-shade);
+  --background: linear-gradient(to right, rgba(0, 29, 173, 0.5), rgba(0, 0, 0, 0.596), rgba(0, 29, 173, 0.5)),
+    center/cover no-repeat url(./../../assets/lazy/images/banner.png);
+}
+
+.title {
+  font-family: 'Trebuchet MS', sans-serif;
+  color: var(--ion-color-warning);
+  font-size: x-large;
+}

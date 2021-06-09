@@ -7,7 +7,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./intro-video.component.scss']
 })
 export class IntroVideoComponent implements OnInit {
-  titleId = 'What Is Expert Fitness?';
+  titleId = 'What Is X Fitness Studio?';
 
   constructor(private modalController: ModalController) {}
 

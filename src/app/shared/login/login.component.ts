@@ -1,4 +1,4 @@
-// import { LoadingService } from 'src/app/services/loading.service';
+// import { LoadingService } from '../services/loading.service';
 
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';

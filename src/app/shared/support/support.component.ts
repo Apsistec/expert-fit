@@ -1,9 +1,8 @@
-import { MessageService } from 'src/app/services/message.service';
-import { TicketService } from 'src/app/services/ticket.service';
-
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
+import { MessageService } from '../../services/message.service';
+import { TicketService } from '../../services/ticket.service';
 import { TicketComponent } from '../ticket/ticket.component';
 
 @Component({

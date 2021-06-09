@@ -1,0 +1,56 @@
+<ion-content class="content">
+  <ion-grid style="min-height: 100vh">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size-xs="12" size-sm="12" size-md="8" size-lg="6" size-xl="6" class="ion-align-items-center">
+        <ion-card class="ion-card-global ion-text-center" style="width: 100%">
+          <ion-card-header>
+            <ion-fab horizontal="end" vertical="top" (click)="allClose = !allClose">
+              <ion-icon
+                (click)="close()"
+                size="large"
+                color="warning"
+                name="resize-sharp"
+                *ngIf="allClose"
+              ></ion-icon>
+              <ion-icon
+                (click)="close()"
+                size="large"
+                color="warning"
+                name="crop-sharp"
+                *ngIf="!allClose"
+              ></ion-icon>
+            </ion-fab>
+
+            <ion-card-title>FAQs </ion-card-title>
+            <ion-card-subtitle> Answers to common questions </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content class="content">
+            <ion-list
+              class="accordion-list"
+              lines="none"
+              *ngFor="let faq of faqs; let i= index"
+
+            >
+              <ion-item button detail="false" class="summary-item" (click)="toggleSection(i)">
+                <ion-icon slot="start" color="success" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
+                <ion-icon
+                  class="negative-icon"
+                  slot="start"
+                  size="large"
+                  name="remove-sharp"
+                  *ngIf="faq.open"
+                ></ion-icon>
+                <ion-text class="faq-title"> {{ faq.title }} </ion-text>
+              </ion-item>
+              <ion-item   *ngIf="faq.open"  class="detail-item">
+                <p class="detail-text ion-text-left">{{ faq.info }}</p>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <app-footer></app-footer>
+</ion-content>

@@ -10,12 +10,12 @@
           style="width: 345px; padding-top: 40px"
         />
         <ion-card class="main-heading-card ion-text-center shadow">
-          <ion-card-title class="main-title" color="secondary"> Expert Fitness<sup>3D</sup> </ion-card-title>
+          <ion-card-title class="main-title" color="secondary"> X Fitness Studio<sup>3D</sup> </ion-card-title>
           <ion-card-subtitle class="main-subtitle" color="warning">
             Train <ion-text color="light">|</ion-text> Review <ion-text color="light">|</ion-text> Grow
           </ion-card-subtitle>
         </ion-card>
-        <ion-button [@flash]="flash" size="large" class="cta-main" strong routerLink="/home/products">
+        <ion-button [@flash]="flash" size="large" class="cta-main" strong routerLink="/pricing">
           Start Today
         </ion-button>
       </ion-col>
@@ -23,17 +23,15 @@
         <img width="105" class="video pulsing" src="../../../assets/lazy/images/btn-play.svg" (click)="loadVideo()" />
       </ion-fab>
       <ion-fab class="bounceOutDown ion-text-center" horizontal="center" vertical="bottom">
-          <ion-note color="primary">
-            Scroll Down
-          </ion-note>
-          <br>
-          <ion-icon
+        <ion-note color="tertiary"> Scroll Down </ion-note>
+        <br />
+        <ion-icon
           size="large"
           color="success"
           button
           name="chevron-down-sharp"
           (click)="scrollToLabel('pageTwo')"
-          ></ion-icon>
+        ></ion-icon>
       </ion-fab>
     </ion-row>
     <ion-row id="pageTwo" class="page-two ion-padding-vertical">
@@ -53,7 +51,7 @@
     </ion-row>
     <ion-row class="ratings-banner ion-padding-vertical ion-justify-content-center">
       <ion-col class="ion-align-items-center ion-padding-vertical">
-        <app-ratings routerLink="/home/reviews"></app-ratings>
+        <app-ratings routerLink="/reviews"></app-ratings>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -1,7 +1,5 @@
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { SchedulerModule } from 'angular-calendar-scheduler';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { QuicklinkModule } from 'ngx-quicklink';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 
 import { DatePipe } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -20,7 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { SQLite } from '@ionic-native/sqlite/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
@@ -28,8 +25,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SideMenuComponent } from './home/side-menu/side-menu.component';
 import { ErrorInterceptor } from './services/error.interceptor';
+import { SideMenuComponent } from './side-menu/side-menu.component';
 
 @NgModule({
   declarations: [AppComponent, SideMenuComponent],
@@ -57,11 +54,9 @@ import { ErrorInterceptor } from './services/error.interceptor';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    SchedulerModule.forRoot({ locale: 'en', headerDateFormat: 'daysRange' }),
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    NgScrollbarModule
   ],
   providers: [
-    SQLite,
     DatePipe,
     StatusBar,
     SplashScreen,

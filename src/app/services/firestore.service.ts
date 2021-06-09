@@ -6,8 +6,13 @@ import { expand, map, mergeMap, take, takeWhile, tap } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 import {
-    Action, AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
-    DocumentChangeAction, DocumentSnapshotDoesNotExist, DocumentSnapshotExists
+  Action,
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument,
+  DocumentChangeAction,
+  DocumentSnapshotDoesNotExist,
+  DocumentSnapshotExists
 } from '@angular/fire/firestore';
 
 type CollectionPredicate<T> = string | AngularFirestoreCollection<T>;
@@ -194,7 +199,7 @@ export class FirestoreService {
   /**
    * Delete a collection, in batches of batchSize. Note that this does
    * not recursively delete subcollections of documents in the collection
-   * from: https://github.com/AngularFirebase/80-delete-firestore-collections/blob/master/src/app/firestore.service.ts
+   * from: https://github.com/AngularFirebase/80-delete-firestore-collections/blob/master/../firestore.service.ts
    */
   deleteCollection(path: string, batchSize: number): Observable<any> {
     const source = this.deleteBatch(path, batchSize);

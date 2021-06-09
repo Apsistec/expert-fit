@@ -2,9 +2,7 @@ import { Subscription } from 'rxjs';
 
 // import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import {
-    AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 import { ConferenceData } from './conference-data';

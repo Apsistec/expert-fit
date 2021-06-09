@@ -3,7 +3,7 @@ import 'firebase/firestore';
 /* eslint-disable @typescript-eslint/member-ordering */
 import firebase from 'firebase/app';
 import { Observable, Subject } from 'rxjs';
-import { map, take, takeUntil } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -33,35 +33,33 @@ export class ReviewService {
   }
 
   getUserReviews(uid): Observable<any[]> {
-    return this.afs
-      .collection<Review>('reviews', (ref) => ref.where('id', '==', uid)).valueChanges();
-      // .snapshotChanges()
-      // .pipe(
-      //   map((actions) =>
-      //     actions.map((a) => {
-      //       const data: any = a.payload.doc.data();
-      //       const id = a.payload.doc.id;
-      //       return { id, ...data };
-      //     })
-      //   ),
-      //   takeUntil(this.ngUnsubscribe)
-      // );
+    return this.afs.collection<Review>('reviews', (ref) => ref.where('id', '==', uid)).valueChanges();
+    // .snapshotChanges()
+    // .pipe(
+    //   map((actions) =>
+    //     actions.map((a) => {
+    //       const data: any = a.payload.doc.data();
+    //       const id = a.payload.doc.id;
+    //       return { id, ...data };
+    //     })
+    //   ),
+    //   takeUntil(this.ngUnsubscribe)
+    // );
   }
 
   getAllReviews() {
-    return this.afs
-      .collection<Review>('reviews', (ref) => ref.orderBy('displayName')).valueChanges();
-      // .snapshotChanges()
-      // .pipe(
-      //   map((actions) =>
-      //     actions.map((a) => {
-      //       const data: any = a.payload.doc.data();
-      //       const id = a.payload.doc.id;
-      //       return { id, ...data };
-      //     })
-      //   ),
-      //   takeUntil(this.ngUnsubscribe)
-      // );
+    return this.afs.collection<Review>('reviews', (ref) => ref.orderBy('displayName')).valueChanges();
+    // .snapshotChanges()
+    // .pipe(
+    //   map((actions) =>
+    //     actions.map((a) => {
+    //       const data: any = a.payload.doc.data();
+    //       const id = a.payload.doc.id;
+    //       return { id, ...data };
+    //     })
+    //   ),
+    //   takeUntil(this.ngUnsubscribe)
+    // );
   }
 
   getReview(id) {
