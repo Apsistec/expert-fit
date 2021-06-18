@@ -1,3 +1,9 @@
+.main{
+  display: flex;
+  place-content: center;
+  padding-top: 60px;
+}
+
 .is-success {
   --color: red;
 }

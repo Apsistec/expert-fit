@@ -1,52 +1,45 @@
-import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { ModalController } from '@ionic/angular';
-
-import { environment } from '../../environments/environment';
-import { ProductService } from '../services/product.service';
-
-declare let Stripe: stripe.StripeStatic;
+// import { map, switchMap } from 'rxjs/operators';
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
+import { Price, Product } from './products';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss']
 })
-export class ProductsPage implements OnInit, OnDestroy {
-  stripe: stripe.Stripe;
+export class ProductsPage implements OnInit {
+  iOptions: any;
+  prices;
+  products: Observable<Product[]>;
+  // products;
 
-  products; //: Observable<any>;
-  prices; //: Observable<any>;
-  sub: Subscription = new Subscription();
-  doc: AngularFirestoreDocument;
-  constructor(private afs: AngularFirestore, public modal: ModalController, private productService: ProductService) {}
+  constructor(private afs: AngularFirestore, public modal: ModalController) {}
 
   ngOnInit() {
-    this.stripe = Stripe(environment.STRIPE_PUBLISHABLE_KEY);
+    this.iOptions = {
+      header: 'Available Pricing',
+      subHeader: 'Select One',
+      cssClass: 'selectOptions'
+    };
 
-    const query = this.afs.collection('products', (ref) => ref.where('active', '==', true));
-    this.products = query.valueChanges();
-    // .subscribe((products) => {
-    //   this.products = products;
-    // });
+    this.products = this.afs.collection<Product>('products', ref => ref.where('active', '==', true)).valueChanges();
 
-    this.prices = this.products.array.forEach((document) => {
-      this.doc = document;
-      this.doc.collection('prices', (ref) => ref.where('active', '==', true).orderBy('unit_amount')).valueChanges();
-      // .subscribe((prices) => {
-      //   this.prices = prices;
-      // });
-    });
-
-    // this.products.array.forEach(prices => {
-    //   this.prices =
-    // });
-    // });
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+  //  this.prices = firebase.default
+  //     .app()
+  //     .firestore()
+  //     .collection('products')
+  //     .where('active', '==', true)
+  //     .get()
+  //     .then(function (querySnapshot) {
+  //       querySnapshot.forEach(async function (doc) {
+  //         await doc.ref.collection('prices').where('active', '==', true).orderBy('unit_amount').get();
+  //       });
+  //     });
   }
 }

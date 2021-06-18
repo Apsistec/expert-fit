@@ -42,13 +42,12 @@ export class StripeService {
     );
   }
 
-  async subscribeUser(source, planId) {
+  async subscribeUser(priceId) {
     this.isLoading = true;
     const fun = this.functions.httpsCallable('stripeCreateSubscription');
     this.confirmation = await fun({
-      source: source.id,
       uid: this.user.uid,
-      plan: planId
+      price: priceId
     }).toPromise();
   }
 

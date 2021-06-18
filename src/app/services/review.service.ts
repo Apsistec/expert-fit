@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import 'firebase/firestore';
 
-/* eslint-disable @typescript-eslint/member-ordering */
-import firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 import { Observable, Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -23,11 +23,11 @@ export class ReviewService {
 
   createOrUpdateReview(id = null, info): Promise<any> {
     if (id) {
-      info.updated_at = firebase.firestore.Timestamp;
+      info.updated_at = firebase.default.firestore.Timestamp;
       return this.afs.doc(`reviews/${id}`).update(info);
     } else {
       info.displayName = this.authService.currentBehaviorUser.value.id;
-      info.created_at = firebase.firestore.Timestamp;
+      info.created_at = firebase.default.firestore.Timestamp;
       return this.afs.collection('reviews').add(info);
     }
   }

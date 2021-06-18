@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import 'firebase/firestore';
 
-/* eslint-disable @typescript-eslint/member-ordering */
-import firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 import { Subject } from 'rxjs';
 import { map, take, takeUntil } from 'rxjs/operators';
 
@@ -35,14 +35,14 @@ export class TicketService {
 
   createOrUpdateTicket(id = null, info): Promise<any> {
     if (id) {
-      info.updated_at = firebase.firestore.Timestamp;
+      info.updated_at = firebase.default.firestore.Timestamp;
       return this.afs
         .doc(`tickets/${id}`)
         .update(info)
         .then(() => this.messageService.generalToast(`Ticket ${id} updated successfully.`));
     } else {
       info.creator = this.authService.userId;
-      info.created_at = firebase.firestore.Timestamp;
+      info.created_at = firebase.default.firestore.Timestamp;
       return this.afs
         .collection('tickets')
         .add(info)

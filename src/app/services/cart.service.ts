@@ -2,7 +2,6 @@ import { BehaviorSubject } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 
-import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,7 @@ export class CartService {
   private cart = [];
   private cartItemCount = new BehaviorSubject(0);
 
-  constructor(private productService: ProductService) {}
+  constructor() {}
 
   getProducts() {
     return this.getProducts();

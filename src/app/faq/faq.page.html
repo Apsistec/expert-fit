@@ -1,10 +1,10 @@
 <ion-content class="content">
-  <ion-grid style="min-height: 100vh">
+  <ion-grid >
     <ion-row class="ion-justify-content-center">
-      <ion-col size-xs="12" size-sm="12" size-md="8" size-lg="6" size-xl="6" class="ion-align-items-center">
+      <ion-col size-xs="12" size-sm="12" size-md="8" size-lg="6" size-xl="6" class="ion-align-self-center ion-align-items-center main-column">
         <ion-card class="ion-card-global ion-text-center" style="width: 100%">
           <ion-card-header>
-            <ion-fab horizontal="end" vertical="top" (click)="allClose = !allClose">
+            <!-- <ion-fab horizontal="end" vertical="top" (click)="allClose = !allClose">
               <ion-icon
                 (click)="close()"
                 size="large"
@@ -19,7 +19,7 @@
                 name="crop-sharp"
                 *ngIf="!allClose"
               ></ion-icon>
-            </ion-fab>
+            </ion-fab> -->
 
             <ion-card-title>FAQs </ion-card-title>
             <ion-card-subtitle> Answers to common questions </ion-card-subtitle>
@@ -31,7 +31,7 @@
               *ngFor="let faq of faqs; let i= index"
 
             >
-              <ion-item button detail="false" class="summary-item" (click)="toggleSection(i)">
+              <ion-item button detail="false" class="summary-item" (click)="toggleSection(i)" >
                 <ion-icon slot="start" color="success" size="large" name="add-sharp" *ngIf="!faq.open"></ion-icon>
                 <ion-icon
                   class="negative-icon"

@@ -37,6 +37,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     HttpClientModule,
     FormsModule,
     IonicModule.forRoot(),
+    NgScrollbarModule,
     IonicStorageModule.forRoot(),
     ServiceWorkerModule.register('combined-sw.js', {
       enabled: environment.production
@@ -46,7 +47,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     AngularFireAuthModule,
     AngularFireFunctionsModule,
     AngularFireStorageModule,
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence({synchronizeTabs: true}),
     AngularFireAnalyticsModule,
     AngularFireMessagingModule,
     AppRoutingModule,
@@ -54,7 +55,6 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    NgScrollbarModule
   ],
   providers: [
     DatePipe,

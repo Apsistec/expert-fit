@@ -16,27 +16,34 @@ export class FaqPage implements OnInit, OnDestroy {
   index;
   index1;
   allClose = true;
-  faqs: any[];
+  faqs: FAQ[] = [];
   faqCollection: AngularFirestoreCollection<FAQ>;
   expanded;
-  subs: Subscription = new Subscription()
+  subs: Subscription = new Subscription();
   constructor(private afs: AngularFirestore) {}
 
   ngOnInit() {
     this.getFaqs();
     // Automatically open the first level if want
+    // for (const [index, faq] of this.faqs.entries()) {
+    //   if (index === 0) {
+    // faq[0].open = true;
+    // }
+    // }
     this.allClose = true;
-    this.faqs[0].open = true;
   }
 
   getFaqs() {
-    this.faqCollection = this.afs.collection<FAQ>('faqs');
-    this.faqCollection.valueChanges().subscribe((faqs) => {
-      this.faqs = faqs;
-    });
+    this.afs
+      .collection<FAQ>('faqs')
+      .valueChanges()
+      .subscribe((faqs) => {
+        this.faqs = faqs;
+        this.faqs[0].open = true;
+      });
   }
 
-  close(){
+  close() {
     this.allClose = !this.allClose;
   }
 
@@ -44,7 +51,7 @@ export class FaqPage implements OnInit, OnDestroy {
     this.faqs[index].open = !this.faqs[index].open;
 
     if (this.allClose && this.faqs[index].open) {
-      this.faqs.filter((item, itemIndex) => itemIndex != index).map((item) => (item.open = false));
+      this.faqs.filter((faq, itemIndex) => itemIndex != index).map((faq) => (faq.open = false));
     }
   }
 

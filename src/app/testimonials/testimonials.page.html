@@ -1,104 +1,122 @@
 <ion-content class="content">
-  <ion-grid style="min-height: 95vh">
-    <ion-card class="segment-container">
-      <ion-segment color="secondary" mode="md" (ionChange)="segmentChanged($event)" [(ngModel)]="segment">
-        <ion-segment-button class="segment" value="0">
-          <ion-icon name="ribbon-sharp" color="success"></ion-icon>
-          <ion-label> Reviews </ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="1" class="segment" (click)="getMyReviews()">
-          <ion-icon name="person-sharp" color="success"></ion-icon>
-          <ion-label> Create a Reviews </ion-label>
-        </ion-segment-button>
-      </ion-segment>
-    </ion-card>
+  <!-- <ion-grid style="min-height: 100vh">
+    <ion-row>
+      <ion-col> -->
+        <ion-card class="segment-container">
+          <ion-segment color="secondary" mode="md" (ionChange)="segmentChanged($event)" [(ngModel)]="segment">
+            <ion-segment-button class="segment" value="0">
+              <ion-icon name="ribbon-sharp" color="success"></ion-icon>
+              <ion-label> Reviews </ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="1" class="segment" (click)="getMyReviews()">
+              <ion-icon name="person-sharp" color="success"></ion-icon>
+              <ion-label> Create a Reviews </ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-card>
 
-    <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
-      <ion-slide style="min-height: 85vh">
-        <ion-row class="ion-justify-content-center">
-          <ion-col
-            size-xs="12"
-            size-sm="12"
-            size-md="8"
-            size-lg="4"
-            size-xl="4"
-            *ngFor="let review of reviews | async; let i = index; trackBy: review?.id"
-          >
-            <ion-card style="width: 500px; padding-left: 10px; height: 120px">
-              <ion-row style="height: 100%">
-                <ion-col size="auto" class="ion-no-padding-horizontal ion-text-center">
-                  <bar-rating
-                    [(rate)]="review.stars"
-                    style="color: var(--ion-color-warning)"
-                    [theme]="'default'"
-                    [max]="5"
-                    [readOnly]="true"
-                  ></bar-rating>
-                  <ion-text class="rating" color="secondary">{{ review.created_at }}</ion-text>
-                </ion-col>
-                <ion-col class="ion-padding-horizontal-5px ion-text-left ion-padding-top">
-                  <!-- <ng-scrollbar> -->
-                  <div class="ion-padding-horizontal">
-                    <ion-text class="rating">{{ review.displayName }} </ion-text>
-                    <br />
-                    <ion-text style="font-weight: 500" class="italics">{{ review.message }}</ion-text>
-                  </div>
-                  <!-- </ng-scrollbar> -->
+        <ion-slides #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+          <ion-slide style="min-height: 85vh">
+            <ion-grid>
+
+              <ion-row class="ion-justify-content-center">
+                <ion-col
+                size-xs="12"
+                size-sm="12"
+                size-md="8"
+                size-lg="4"
+                size-xl="4"
+                *ngFor="let review of reviews | async; let i = index; trackBy: review?.id"
+                >
+                <ion-card style="width: 100%; height: 120px">
+                  <ion-row style="height: 100%">
+                    <ion-col size="auto" class="ion-no-padding-horizontal ion-text-center">
+                      <bar-rating
+                      [(rate)]="review.stars"
+                      style="color: var(--ion-color-warning)"
+                      [theme]="'default'"
+                      [max]="5"
+                      [readOnly]="true"
+                      ></bar-rating>
+                      <ion-text class="italics">{{ review.created_at }}</ion-text>
+                    </ion-col>
+                    <ion-col class="ion-padding-horizontal-5px ion-text-left ion-padding-top">
+                      <ng-scrollbar>
+                        <div class="ion-padding-horizontal">
+                          <ion-text class="rating">{{ review.displayName }} </ion-text>
+                          <br />
+                          <ion-text style="font-weight: 500" class="italics">{{ review.message }}</ion-text>
+                        </div>
+                      </ng-scrollbar>
+                    </ion-col>
+                  </ion-row>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          </ion-slide>
+          <ion-slide>
+            <ng-container *ngIf="authService.user | async as user; else login">
+              <ion-grid>
+
+                <ion-row>
+                  <ion-col
+                  class="shadow"
+                  size-sm="12"
+                  size-md="6"
+                  size-lg="3"
+                  size-xl="3"
+                  *ngFor="let myReview of myReviews | async"
+                  >
+                  <ion-item class="shadow" style="--inner-padding-left: 8px">
+                    <ion-row>
+                      <ion-col size="4" class="ion-align-self-center">
+                        <ion-avatar slot="start">
+                          <ion-img [src]="['../../../assets/lazy/images/dummy-user.png']"></ion-img>
+                        </ion-avatar>
+                        <ion-text color="primary"> {{ myReview.displayName }} </ion-text>
+                        <br />
+                        <bar-rating
+                        [(rate)]="myReview.stars"
+                        [theme]="'default'"
+                        [max]="5"
+                        readonly="true"
+                        ></bar-rating>
+                      </ion-col>
+                      <ion-col size="8" class="ion-align-self-center">
+                        <ion-text class="italics">{{ myReview.message }}</ion-text>
+                      </ion-col>
+                    </ion-row>
+                  </ion-item>
+                  <ion-fab horizontal="end" vertical="bottom">
+                    <ion-fab-button color="success" size="large" (click)="showModalNewReview()">
+                      <ion-icon color="warning" size="large" name="plus-sharp"></ion-icon>
+                    </ion-fab-button>
+                  </ion-fab>
                 </ion-col>
               </ion-row>
-            </ion-card>
-          </ion-col>
-        </ion-row>
-      </ion-slide>
-      <ion-slide>
-        <ng-container *ngIf="authService.user | async as user; else login">
-          <ion-row>
-            <ion-col
-              class="shadow"
-              size-sm="12"
-              size-md="6"
-              size-lg="3"
-              size-xl="3"
-              *ngFor="let myReview of myReviews | async"
-            >
-              <ion-item class="shadow" style="--inner-padding-left: 8px">
+            </ion-grid>
+            </ng-container>
+            <ng-template #login>
+              <ion-grid>
+
                 <ion-row>
-                  <ion-col size="4" class="ion-align-self-center">
-                    <ion-avatar slot="start">
-                      <ion-img [src]="['../../../assets/lazy/images/dummy-user.png']"></ion-img>
-                    </ion-avatar>
-                    <ion-text color="primary"> {{ myReview.displayName }} </ion-text>
-                    <br />
-                    <bar-rating [(rate)]="myReview.stars" [theme]="'default'" [max]="5" readonly="true"></bar-rating>
-                  </ion-col>
-                  <ion-col size="8" class="ion-align-self-center">
-                    <ion-text class="italics">{{ myReview.message }}</ion-text>
+                  <ion-col class="ion-align-self-center">
+                    <ion-card color="medium" class="ion-padding ion-text-center" style="width: fit-content">
+                      <ion-card-title class="ion-text-capitalize">
+                        You need to login in order to see your reviews
+                      </ion-card-title>
+                      <!-- <br> -->
+                      <ion-button color="success" routerLink="/login"> Login </ion-button>
+                    </ion-card>
                   </ion-col>
                 </ion-row>
-              </ion-item>
-              <ion-fab horizontal="end" vertical="bottom">
-                <ion-fab-button color="success" size="large" (click)="showModalNewReview()">
-                  <ion-icon color="warning" size="large" name="plus-sharp"></ion-icon>
-                </ion-fab-button>
-              </ion-fab>
-            </ion-col>
-          </ion-row>
-        </ng-container>
-        <ng-template #login>
-          <ion-row>
-            <ion-col class="ion-align-self-center">
-              <ion-card color="medium" class="ion-padding ion-text-center" style="width: fit-content">
-                <ion-card-title class="ion-text-capitalize">
-                  You need to login in order to see your reviews
-                </ion-card-title>
-                <!-- <br> -->
-                <ion-button color="success" routerLink="/login"> Login </ion-button>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ng-template>
-      </ion-slide>
-    </ion-slides>
-  </ion-grid>
+              </ion-grid>
+              </ng-template>
+            </ion-slide>
+        </ion-slides>
+      <!-- </ion-col>
+    </ion-row>
+  </ion-grid> -->
   <app-footer></app-footer>
 </ion-content>

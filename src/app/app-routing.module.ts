@@ -14,6 +14,7 @@ import { PaidGuard } from './guards/paid.guard';
 import { RoleGuard } from './guards/role.guard';
 // import { PhotoGalleryComponent } from './shared/photo-gallery/photo-gallery.component';
 import { UnknownComponent } from './shared/unknown/unknown.component';
+import { WebrtcComponent } from './shared/webrtc/webrtc.component';
 
 // import { LoginGuard } from './guards/login.guard';
 
@@ -75,6 +76,9 @@ const routes: Routes = [
     path: 'faq',
     redirectTo: 'faqs',
     pathMatch: 'full'
+  },
+  {
+    path: 'webrtc', component: WebrtcComponent, canActivate: [AngularFireAuthGuard]
   },
   {
     path: 'reviews',

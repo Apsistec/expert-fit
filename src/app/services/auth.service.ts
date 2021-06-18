@@ -1,6 +1,6 @@
 import 'firebase/auth';
 
-import firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
@@ -50,7 +50,7 @@ export class AuthService {
     this.displayName = displayName;
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
-      .then((userCredential: firebase.auth.UserCredential) => {
+      .then((userCredential: firebase.default.auth.UserCredential) => {
         this.modalController.dismiss();
         this.router.navigateByUrl('/home');
         this.messageService.registerSuccessAlert(this.displayName);
@@ -96,7 +96,7 @@ export class AuthService {
   }
 
   /* OAuth providers Signup*/
-  AuthSignup(provider: firebase.auth.AuthProvider) {
+  AuthSignup(provider: firebase.default.auth.AuthProvider) {
     return this.afAuth
       .signInWithPopup(provider)
       .then((userCredential) => {
@@ -111,7 +111,7 @@ export class AuthService {
         }
         this.afs.doc<User>(`users/${userCredential.user.uid}`).set({
           uid: userCredential.user.uid,
-          displayName: firebase.auth().currentUser.displayName,
+          displayName: firebase.default.auth().currentUser.displayName,
           email: userCredential.user.email,
           role: ['USER'],
           permissions: ['delete-ticket'],
@@ -127,7 +127,7 @@ export class AuthService {
   }
 
   /* OAuth providers Login*/
-  AuthLogin(provider: firebase.auth.AuthProvider) {
+  AuthLogin(provider: firebase.default.auth.AuthProvider) {
     return this.afAuth
       .signInWithPopup(provider)
       .then((userCredential) => {
@@ -136,7 +136,7 @@ export class AuthService {
         this.messageService.loggedInToast(userCredential.user.displayName);
         this.afs.doc<User>(`users/${userCredential.user.uid}`).update({
           uid: userCredential.user.uid,
-          displayName: firebase.auth().currentUser.displayName,
+          displayName: firebase.default.auth().currentUser.displayName,
           email: userCredential.user.email,
           photoURL: userCredential.user.photoURL,
           phoneNumber: '',
@@ -151,19 +151,19 @@ export class AuthService {
 
   /* Sign in with 3rd party Oauth */
   GoogleAuthSignup() {
-    return this.AuthSignup(new firebase.auth.GoogleAuthProvider());
+    return this.AuthSignup(new firebase.default.auth.GoogleAuthProvider());
   }
 
   GoogleAuthLogin() {
-    return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
+    return this.AuthLogin(new firebase.default.auth.GoogleAuthProvider());
   }
 
   TwitterAuth() {
-    return this.AuthLogin(new firebase.auth.TwitterAuthProvider());
+    return this.AuthLogin(new firebase.default.auth.TwitterAuthProvider());
   }
 
   FacebookAuth() {
-    return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
+    return this.AuthLogin(new firebase.default.auth.FacebookAuthProvider());
   }
 
   // MicrosoftAuth() {
@@ -180,7 +180,7 @@ export class AuthService {
       url: 'https://apsistec.page.link/finish_task',
       handleCodeInApp: false
     };
-    firebase
+    firebase.default
       .auth()
       .currentUser.sendEmailVerification(actionCodeSettings)
       .catch((error) => {

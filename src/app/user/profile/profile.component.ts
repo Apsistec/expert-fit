@@ -3,6 +3,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
+import { MessageService } from 'src/app/services/message.service';
+import { WebrtcComponent } from 'src/app/shared/webrtc/webrtc.component';
 
 import { CancelServiceComponent } from '../../customer/cancel-service/cancel-service.component';
 import { InvoicesComponent } from '../../customer/invoices/invoices.component';
@@ -37,7 +39,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     public afs: AngularFirestore,
     public stripe: StripeService,
     private router: Router,
-    private navController: NavController
+    private navController: NavController,
+    private messageService: MessageService,
   ) {}
 
   ngOnInit() {}
@@ -88,4 +91,18 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   toggle() {
     document.body.classList.toggle('dark');
   }
+
+  // async showModalWebrtc() {
+  //   const modal = await this.modalController.create({
+  //     component: WebrtcComponent,
+  //     cssClass: 'modal-css',
+  //     backdropDismiss: false,
+  //     swipeToClose: false,
+  //     showBackdrop: true
+  //   });
+  //   modal.present().catch((error) => {
+  //     this.dismissModal();
+  //     return this.messageService.errorAlert(error);
+  //   });
+  // }
 }

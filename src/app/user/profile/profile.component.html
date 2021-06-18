@@ -1,5 +1,5 @@
 <ion-grid *ngIf="authService.user | async as user">
-  <ion-row class="ion-justify-content-between">
+  <ion-row class="ion-justify-content-between main">
     <ion-col class="ion-align-self-center">
       <ion-card class="profile-card">
         <ion-row>
@@ -78,9 +78,7 @@
             {{ subs.data[0].status | uppercase }}
             <ion-label color="primary" *ngIf="user.stripeStatus === 'trialing'"> <b> Trial Ends: </b> </ion-label><br />
             {{ subs.data[0].trial_end * 1000 | date }}
-            <ion-label>
-              <b> Monthly Dues: </b> </ion-label
-            ><br />
+            <ion-label> <b> Monthly Dues: </b> </ion-label><br />
             {{ subs.data[0].plan.amount / 100 | currency }}
             <ion-label color="primary">Membership Created:</ion-label><br />
             {{ subs.data[0].center_date * 1000 | date }}
@@ -137,6 +135,18 @@
           <br />
           <app-support></app-support>
         </ion-card-content>
+      </ion-card>
+      <ion-card class="ion-text-center profile-card">
+        <ion-card-header>
+          <ion-card-title> Live Stream Player </ion-card-title>
+          <ion-card-subtitle> For Remote Workout Sessions </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content class="ion-text-center">
+          <ion-text>
+            Player will open in a popup player. You will need to follow the instructions to connect to server.
+          </ion-text>
+        </ion-card-content>
+        <ion-button class="ion-margin" color="primary" routerLink="/webrtc">Open Live Stream</ion-button>
       </ion-card>
 
       <!-- Account Management -->

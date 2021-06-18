@@ -1,3 +1,9 @@
+ion-row {
+  min-height: 100vh;
+  display: flex;
+  place-content: center;
+}
+
 .shayke {
   box-shadow: 0 0 0.5rem rgb(255, 255, 255);
   border-radius: 15px;
@@ -5,14 +11,11 @@
   width: 200px;
   margin: 15px;
 }
+
 b {
   color: white;
 }
-ion-row {
-  min-height: 100vh;
-  display: flex;
-  place-content: center;
-}
+
 
 p {
   color: var(--ion-text-color);

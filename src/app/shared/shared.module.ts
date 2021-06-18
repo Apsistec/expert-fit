@@ -34,6 +34,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { ToggleComponent } from './toggle/toggle.component';
 import { UnknownComponent } from './unknown/unknown.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { WebrtcComponent } from './webrtc/webrtc.component';
 
 const routes: Routes = [];
 
@@ -63,7 +64,8 @@ const routes: Routes = [];
     SupportComponent,
     ToggleComponent,
     FileUploaderComponent,
-    CartviewComponent
+    CartviewComponent,
+    WebrtcComponent
   ],
   providers: [DatePipe],
   imports: [
@@ -95,7 +97,8 @@ const routes: Routes = [];
     TermsComponent,
     RatingsComponent,
     PhotosListComponent,
-    PhotoGalleryComponent
+    PhotoGalleryComponent,
+    WebrtcComponent
   ]
 })
 export class SharedModule {}

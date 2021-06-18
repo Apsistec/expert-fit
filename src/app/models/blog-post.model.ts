@@ -1,14 +1,14 @@
-import 'firebase/firestore';
+// import 'firebase/firestore';
 
-import firebase from 'firebase/app';
+// import * as firebase from 'firebase/app';
 
 export interface BlogPost {
   header: string;
   subheader: string;
   prettyUrl: string;
   isPublished: boolean; // is the blog in draft state or publicly viewable?
-  updatedOn: firebase.firestore.Timestamp;
-  createdOn: firebase.firestore.Timestamp;
+  updatedOn: firebase.default.firestore.Timestamp;
+  createdOn: firebase.default.firestore.Timestamp;
   uid: string;
   author: string;
   previewImage: string;

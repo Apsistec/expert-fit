@@ -1,0 +1,37 @@
+<ion-content>
+
+
+  <div class="main">
+
+
+    <h2>1. Start your Webcam</h2>
+    <div class="videos">
+      <span>
+        <h3>Local Stream</h3>
+        <video id="webcamVideo" aut="disabled"oplay playsinline></video>
+      </span>
+      <span>
+        <h3>Remote Stream</h3>
+        <video id="remoteVideo" autoplay playsinline></video>
+      </span>
+
+
+    </div>
+
+    <ion-button id="webcamButton">Start webcam</ion-button>
+    <h2>2. Create a new Call</h2>
+    <ion-button id="callButton" [disabled]="callButton.disabled">Create Call (offer)</ion-button>
+
+    <h2>3. Join a Call</h2>
+    <p>Answer the call from a different browser window or device</p>
+
+    <input id="callInput" />
+    <ion-button id="answerButton" [disabled]="answerButton.disabled">Answer</ion-button>
+
+    <h2>4. Hangup</h2>
+
+    <ion-button id="hangupButton" [disabled]="hangupButton.disabled">Hangup</ion-button>
+
+  </div>
+
+</ion-content>

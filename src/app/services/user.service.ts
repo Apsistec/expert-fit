@@ -1,6 +1,6 @@
 import 'firebase/auth';
 
-import firebase from 'firebase/app';
+import * as firebase from 'firebase/app';
 import { of } from 'rxjs';
 
 import { Injectable } from '@angular/core';
@@ -59,7 +59,7 @@ export class UserService {
   }
 
   setEmail(email: string): Promise<any> {
-    firebase.auth().currentUser.updateEmail(email);
+    firebase.default.auth().currentUser.updateEmail(email);
     return this.afs
       .doc(`users/${this.user.uid}`)
       .update({
