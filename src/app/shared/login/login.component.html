@@ -8,9 +8,9 @@
   </ion-card-header>
   <ion-card-content class="ion-no-margin ion-no-padding ion-text-center">
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
-      <ion-card>
-        <ion-item color="light">
-          <ion-label [color]="formError ? 'danger' : 'dark'" position="floating">Email</ion-label>
+
+        <ion-item color="light" lines="none">
+          <ion-label [color]="formError ? 'danger' : 'dark'" position="stacked">Email</ion-label>
           <ion-input
             debounce="600"
             autofocus="true"
@@ -19,24 +19,31 @@
             formControlName="email"
             autocomplete="email"
           >
+                   <ion-icon
+                    class="input-icon"
+                    color="tertiary"
+                    slot="none"
+                    name="mail-sharp"
+                  ></ion-icon>
           </ion-input>
         </ion-item>
-      </ion-card>
+
       <ng-container *ngIf="!loginFormControl.email.valid && loginFormControl.email.dirty">
         <ion-text *ngIf="loginFormControl.email.errors.required" color="danger"> Email required. </ion-text>
         <ion-text *ngIf="loginFormControl.email.errors.email" color="danger"> Email not Valid. </ion-text>
       </ng-container>
-      <ion-card>
+
         <ion-item color="light">
-          <ion-label [color]="formError ? 'danger' : 'dark'" position="floating">Password</ion-label>
+          <ion-label [color]="formError ? 'danger' : 'dark'" position="stacked">Password</ion-label>
           <ion-input debounce="600" [type]="hide ? 'password' : 'text'" inputmode="text" formControlName="password">
-          </ion-input>
-          <ion-icon color="dark" (click)="toggleHide()" class="eye" size="large" *ngIf="!hide" name="eye-sharp">
+                 <ion-icon color="dark" (click)="toggleHide()" class="eye" size="large" *ngIf="!hide" name="eye-sharp">
           </ion-icon>
           <ion-icon color="dark" size="large" (click)="toggleHide()" class="eye" *ngIf="hide" name="eye-off-sharp">
           </ion-icon>
+          </ion-input>
+
         </ion-item>
-      </ion-card>
+
       <ng-container *ngIf="!loginFormControl.password.valid && loginFormControl.password.dirty">
         <ion-text *ngIf="loginFormControl.password.errors.required" color="danger"> Password required </ion-text>
         <ion-text *ngIf="loginFormControl.password.errors.minlength" color="danger"> At least 6 characters </ion-text>
