@@ -35,6 +35,7 @@ import { ToggleComponent } from './toggle/toggle.component';
 import { UnknownComponent } from './unknown/unknown.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { WebrtcComponent } from './webrtc/webrtc.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 const routes: Routes = [];
 
@@ -77,8 +78,8 @@ const routes: Routes = [];
     FormsModule,
     ReactiveFormsModule,
     BarRatingModule,
-    SharedDirectivesModule
-    // NgScrollbarModule,
+    SharedDirectivesModule,
+    GoogleMapsModule
   ],
   exports: [
     VerifyEmailComponent,
@@ -89,7 +90,7 @@ const routes: Routes = [];
     LocationComponent,
     BarRatingModule,
     UnknownComponent,
-    // NgScrollbarModule,
+    GoogleMapsModule,
     SupportComponent,
     ToggleComponent,
     AboutAppComponent,

@@ -1,5 +1,5 @@
 .segment-container {
-  margin-top: 10px;
+  margin-top: 70px;
   --background: linear-gradient(rgba(0, 0, 0, 0.466), rgba(0, 0, 0, 0.527)),
     repeating-conic-gradient(
       from 3deg at 50% 100%,
@@ -15,7 +15,7 @@ ng-scrollbar {
   --scrollbar-border-radius: 7px;
   --scrollbar-padding: 4px;
   --scrollbar-track-color: transparent;
-  --scrollbar-thumb-color: rgba(66, 57, 104, 0.486);
+  --scrollbar-thumb-color: rgba(1, 95, 124, 0.699);
   --scrollbar-thumb-hover-color: var(--scrollbar-thumb-color);
   --scrollbar-size: 5px;
   --scrollbar-hover-size: var(--scrollbar-size);
@@ -27,4 +27,9 @@ ng-scrollbar {
 
 .segment:hover ion-label {
   color: var(--ion-color-secondary-shade);
+}
+.testimonial{
+  border-radius: 15px;
+  background-color: var(--ion-color-dark-tint);
+  height: 150px;
 }

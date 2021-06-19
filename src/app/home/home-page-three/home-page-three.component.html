@@ -1,11 +1,10 @@
-<ion-grid>
-  <ion-row class="ion-text-center ion-justify-content-center">
+  <ion-row class="ion-text-center ion-justify-content-center ion-margin-vertical">
     <ion-col
       size-xl="4"
       size-lg="4"
       size-md="8"
       size-sm="10"
-      class="ion-align-self-center ion-padding-vertical ion-margin-vertical"
+      class=" ion-padding-vertical"
     >
       <ion-card class="title-card shadow">
         <ion-card-header>
@@ -28,13 +27,13 @@
       </ion-card>
     </ion-col>
   </ion-row>
-  <ion-row class="ion-justify-content-around">
+  <ion-row class="ion-justify-content-around ion-margin-vertical">
     <ion-col
       size-xl="3"
       size-lg="4"
       size-md="6"
       size-sm="12"
-      class="ion-align-items-center ion-padding-vertical ion-margin-vertical ion-text-center"
+      class="ion-align-self-stretch  ion-padding-vertical ion-text-center"
     >
       <ion-fab horizontal="start" vertical="center">
         <ion-icon
@@ -56,7 +55,7 @@
       </ion-fab>
       <ion-slides #mySlider (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" class="slide-parent">
         <ion-slide *ngFor="let phase of phases.slideItems">
-          <ion-card style="height: 500px; border-radius: 15px" color="medium">
+          <ion-card style="height: 500px; border-radius: 15px" color="medium" class="shadow">
             <img [src]="[phase.image]" class="slide-image" />
             <ion-card-header
               style="border-top: 2px solid var(--ion-color-light); border-bottom: 2px solid var(--ion-color-light)"
@@ -78,16 +77,15 @@
         </ion-slide>
       </ion-slides>
     </ion-col>
-    <ion-col size-xl="3" size-lg="4" size-md="6" size-sm="8" class="ion-align-self-center ion-text-center">
+    <ion-col size-xl="3" size-lg="4" size-md="6" size-sm="8" class="ion-align-self-center ion-text-center ion-padding-vertical">
       <ion-img
         style="min-height: 300px; min-width: 300px"
         src="../../../assets/lazy/images/circleinfograph1.svg"
       ></ion-img>
     </ion-col>
   </ion-row>
-  <ion-row class="ion-padding-bottom ion-margin-bottom">
-    <ion-col class="ion-text-center ion-padding-vertical ion-margin-vertical">
+  <ion-row class="ion-margin-vertical">
+    <ion-col class="ion-text-center ion-margin ion-padding-vertical">
       <ion-button class="cta-main" strong size="large" routerLink="/pricing"> Get Started </ion-button>
     </ion-col>
   </ion-row>
-</ion-grid>

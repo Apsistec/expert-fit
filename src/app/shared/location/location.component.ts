@@ -24,9 +24,6 @@ export class LocationComponent implements OnInit {
       component: MapComponent,
       cssClass: 'modal-css'
     });
-    modal.present().catch((error) => {
-      this.modalController.dismiss();
-      return this.messageService.errorAlert(error);
-    });
+    modal.present()
   }
 }

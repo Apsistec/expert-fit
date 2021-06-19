@@ -1,22 +1,14 @@
-<ion-grid>
   <ion-row class="ion-justify-content-center ion-margin-vertical">
-    <ion-col class="ion-margin-vertical">
-      <ion-card class="ion-text-center shadow page-two-card ion-margin">
+    <ion-col class=" ion-padding-vertical">
+      <ion-card class="ion-text-center shadow page-two-card">
         <ion-card-header>
           <ion-card-title class="ion-text-uppercase" color="light"> Why limit yourself? </ion-card-title>
           <ion-card-subtitle class="ion-text-capitalize" color="warning"
             >At X Fitness Studio You can have it all
           </ion-card-subtitle>
         </ion-card-header>
-        <ion-card-content class="ion-margin ion-text-left">
+        <ion-card-content class="ion-text-left">
           <ion-text color="light" class="text">
-            We take great pride in providing our clients with the best that a personal fitness and training studio can
-            provide. We know you have choices, so we strive for greatness and offer exceptionality as a standard. If you
-            take your health seriously, we have the skills to guide you toward reaching your goals effeciently. Our
-            dedication to you will be tough to find elsewhere. Here are some examples of how we stand apart from our
-            competition, but don't take our word for it. Schedule an appointment and come in to see for yourself.
-          </ion-text>
-          <ion-text color="light">
             We take great pride in providing our clients with the best that a personal fitness and training studio can
             provide. We know you have choices, so we strive for greatness and offer exceptionality as a standard. If you
             take your health seriously, we have the skills to guide you toward reaching your goals effeciently. Our
@@ -27,8 +19,8 @@
       </ion-card>
     </ion-col>
   </ion-row>
-  <ion-row class="ion-justify-content-around ion-hide-sm-down ion-margin">
-    <ion-col size-md="5" size-lg="4" size-xl="3" class="ion-align-self-center ion-margin">
+  <ion-row class="ion-justify-content-around ion-hide-sm-down ion-margin-vertical">
+    <ion-col size-md="5" size-lg="4" size-xl="3" class="ion-align-self-center ion-padding-vertical ">
       <ion-card class="shadow first-benefit-card" *ngIf="!benefit">
         <img src="../../../assets/lazy/images/female-lifting.jpg" style="height: 250px; width: 100%" />
       </ion-card>
@@ -41,27 +33,26 @@
             </ion-text>
           </ion-card-title>
         </ion-card-header>
-        <ion-card-content class="ion-text-left benefit-tracker-card-content">
+        <ion-card-content class="ion-text-left ion-padding">
           <ion-text color="light">{{ benefit.message }}</ion-text>
         </ion-card-content>
       </ion-card>
     </ion-col>
-    <ion-col size-md="5" size-lg="4" size-xl="3" class="ion-align-self-center">
+    <ion-col size-md="5" size-lg="4" size-xl="3" class="ion-align-self-center ion-padding-vertical">
       <app-benefits-tracker (sendBenefit)="receiveBenefit($event)"></app-benefits-tracker>
     </ion-col>
   </ion-row>
   <ion-row class="ion-justify-content-center ion-margin-vertical ion-hide-sm-up">
-    <ion-col class="ion-align-self-center">
+    <ion-col class="ion-align-self-stretch ion-padding">
       <app-benefits></app-benefits>
     </ion-col>
   </ion-row>
-  <ion-row class="ion-margin-vertical">
-    <ion-col class="ion-align-self-end ion-text-center ion-margin-vertical">
+  <ion-row class="ion-margin">
+    <ion-col class=" ion-text-center">
       <ion-button
         strong
         size="large"
         fill="outline"
-        style="background-color: rgba(255, 255, 255, 0.11)"
         color="light"
         routerLink="/about-us"
         >About Us
@@ -69,4 +60,3 @@
       <ion-button class="cta-main" strong size="large" routerLink="/pricing"> View Pricing </ion-button>
     </ion-col>
   </ion-row>
-</ion-grid>

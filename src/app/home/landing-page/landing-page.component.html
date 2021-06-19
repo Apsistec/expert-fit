@@ -1,5 +1,5 @@
-<ion-content scrollEvents="true" (ionScroll)="onScroll($event)">
-  <ion-grid>
+<ion-content scrollEvents="true" (ionScroll)="onScroll($event)" class="content">
+  <ion-grid class="ion-no-padding">
     <ion-row id="top" class="scene-one ion-justify-content-center ion-align-items-center">
       <ion-col size-sm="12" size-md="8" size-lg="6" size-xl="4" class="ion-text-center content">
         <img [@bounceOutUp]="bounceOutUp" src="../../../assets/lazy/images/logo.png" class="ion-hide-md-down" />
@@ -34,23 +34,23 @@
         ></ion-icon>
       </ion-fab>
     </ion-row>
-    <ion-row id="pageTwo" class="page-two ion-padding-vertical">
-      <ion-col class="ion-padding-vertical">
+    <ion-row id="pageTwo" class="page-two ion-margin-vertical">
+      <ion-col class=" ion-align-self-center">
         <app-home-page-two></app-home-page-two>
       </ion-col>
     </ion-row>
-    <ion-row id="pageThree" class="ion-padding-vertical">
-      <ion-col class="ion-padding-vertical">
+    <ion-row id="pageThree" class="ion-margin-vertical">
+      <ion-col class=" ion-align-self-center">
         <app-home-page-three></app-home-page-three>
       </ion-col>
     </ion-row>
-    <ion-row id="pageFour" class="page-four ion-padding-vertical">
-      <ion-col class="ion-padding-vertical">
+    <ion-row id="pageFour" class="page-four ion-margin-vertical">
+      <ion-col class=" ion-align-self-center">
         <app-home-page-four></app-home-page-four>
       </ion-col>
     </ion-row>
-    <ion-row class="ratings-banner ion-padding-vertical ion-justify-content-center">
-      <ion-col class="ion-align-items-center ion-padding-vertical">
+    <ion-row class="ratings-banner ion-margin-vertical ion-justify-content-center">
+      <ion-col class="ion-align-self-center">
         <app-ratings routerLink="/reviews"></app-ratings>
       </ion-col>
     </ion-row>

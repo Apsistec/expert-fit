@@ -1,4 +1,14 @@
-<ion-fab horizontal="end" vertical="top">
-  <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
-</ion-fab>
-<div #mapCanvas class="map-canvas"></div>
+<!-- <ion-content> -->
+
+  <ion-fab horizontal="end" vertical="top" style="margin-right: 60px">
+    <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>
+  </ion-fab>
+<google-map   height="700px"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+    [options]="options"
+  ></google-map>
+<ion-button (click)="zoomIn()">Zoom in</ion-button>
+<ion-button (click)="zoomOut()">Zoom out</ion-button>
+  <!-- </ion-content> -->

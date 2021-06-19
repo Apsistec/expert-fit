@@ -1,5 +1,6 @@
 <ion-fab horizontal="start" vertical="center">
   <ion-icon
+    button tappable
     class="revpulsar"
     color="secondary"
     size="large"
@@ -9,6 +10,7 @@
 </ion-fab>
 <ion-fab horizontal="end" vertical="center">
   <ion-icon
+  button tappable
     class="pulsar"
     size="large"
     color="secondary"
@@ -16,7 +18,7 @@
     (click)="slideNext(mySlider)"
   ></ion-icon>
 </ion-fab>
-<ion-slides class="slide-parent" #mySlider pager="true" [options]="slideOpts">
+<ion-slides class="shadow slide-parent" #mySlider pager="true" [options]="slideOpts">
   <ion-slide class="slide" *ngFor="let benefit of benefits | async">
     <ion-img [src]="benefit.imageURL" class="slide-image"></ion-img>
 

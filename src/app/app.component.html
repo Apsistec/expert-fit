@@ -11,7 +11,8 @@
         type="button"
         color="dark"
         (click)="popoverService.presentPopover($event)"
-        lines="false"
+        lines="none"
+        detail="false"
         *ngIf="authService.user | async as user; else login"
       >
         <ion-avatar slot="end">
@@ -30,7 +31,7 @@
       <ion-item
         class="menu-item"
         button
-        details="false"
+        detail="false"
         routerLink="/home"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -40,7 +41,7 @@
       <ion-item
         class="menu-item"
         button
-        details="false"
+        detail="false"
         routerLink="/pricing"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -51,7 +52,7 @@
       <ion-item
         class="menu-item"
         button
-        details="false"
+        detail="false"
         routerLink="/faqs"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -61,7 +62,7 @@
       <ion-item
         class="menu-item"
         button
-        details="false"
+        detail="false"
         routerLink="/reviews"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -71,7 +72,7 @@
       <ion-item
         class="menu-item"
         button
-        details="false"
+        detail="false"
         routerLink="/about-us"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
@@ -81,7 +82,7 @@
       <ion-item
         class="menu-item"
         button
-        details="false"
+        detail="false"
         routerLink="/contact-us"
         routerLinkActive="active-link"
         [routerLinkActiveOptions]="{ exact: true }"
