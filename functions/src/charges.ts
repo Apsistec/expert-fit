@@ -1,7 +1,7 @@
-import * as functions from 'firebase-functions';
-import { assert, assertUID, catchErrors } from './helpers';
-import { stripe } from './config';
-import { getOrCreateCustomer } from './customers';
+import * as functions from "firebase-functions";
+import { assert, assertUID, catchErrors } from "./helpers";
+import { stripe } from "./config";
+import { getOrCreateCustomer } from "./customers";
 // import { attachSource } from './sources';
 
 /**
@@ -51,7 +51,7 @@ export const createPaymentIntent = async (uid: string, items: any, idempotency_k
   const paymentIntent = await stripe.paymentIntents.create(
     {
       amount: calculateTotal(items),
-      currency: 'usd',
+      currency: "usd",
       receipt_email: customer.email
     },
     { idempotency_key }
@@ -66,10 +66,10 @@ export const createPaymentIntent = async (uid: string, items: any, idempotency_k
 
 export const stripeCreatePaymentIntent = functions.https.onCall(async (data, context) => {
   const uid = assertUID(context);
-  const items = assert(data, 'items');
+  const items = assert(data, "items");
 
   // Optional
-  const idempotency_key = assert(data, 'itempotency_key');
+  const idempotency_key = assert(data, "itempotency_key");
 
   return catchErrors(createPaymentIntent(uid, items, idempotency_key));
 });

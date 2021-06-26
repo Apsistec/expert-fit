@@ -1,16 +1,1 @@
 
-.map-canvas {
-  position: relative;
-
-  height:100vh;
-  width: 100vw;
-
-  background-color: transparent;
-
-  opacity: 0;
-  transition: opacity 150ms ease-in;
-}
-
-.show-map {
-  opacity: 1;
-}

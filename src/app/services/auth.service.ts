@@ -28,7 +28,7 @@ export class AuthService {
   validAdmin = false;
 
   constructor(
-    public afs: AngularFirestore,
+    public db: AngularFirestore,
     public afAuth: AngularFireAuth,
     private messageService: MessageService,
     private router: Router,
@@ -37,7 +37,7 @@ export class AuthService {
     this.user = this.afAuth.authState.pipe(
       switchMap((user) => {
         if (user) {
-          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          return this.db.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           return of(null);
         }
@@ -55,7 +55,7 @@ export class AuthService {
         this.router.navigateByUrl('/home');
         this.messageService.registerSuccessAlert(this.displayName);
         this.sendVerificationMail();
-        this.afs.doc<User>(`users/${userCredential.user.uid}`).set({
+        this.db.doc<User>(`users/${userCredential.user.uid}`).set({
           uid: userCredential.user.uid,
           displayName: this.displayName,
           email: userCredential.user.email,
@@ -80,7 +80,7 @@ export class AuthService {
         this.modalController.dismiss();
         this.router.navigateByUrl('/home');
         this.messageService.loggedInToast(userCredential.user.displayName);
-        this.afs.doc<User>(`users/${userCredential.user.uid}`).update({
+        this.db.doc<User>(`users/${userCredential.user.uid}`).update({
           uid: userCredential.user.uid,
           displayName: this.displayName,
           email: userCredential.user.email,
@@ -109,7 +109,7 @@ export class AuthService {
           this.sendVerificationMail();
           this.messageService.registerSuccessAlert(userCredential.user.displayName);
         }
-        this.afs.doc<User>(`users/${userCredential.user.uid}`).set({
+        this.db.doc<User>(`users/${userCredential.user.uid}`).set({
           uid: userCredential.user.uid,
           displayName: firebase.default.auth().currentUser.displayName,
           email: userCredential.user.email,
@@ -134,7 +134,7 @@ export class AuthService {
         this.modalController.dismiss();
         this.router.navigateByUrl('/home');
         this.messageService.loggedInToast(userCredential.user.displayName);
-        this.afs.doc<User>(`users/${userCredential.user.uid}`).update({
+        this.db.doc<User>(`users/${userCredential.user.uid}`).update({
           uid: userCredential.user.uid,
           displayName: firebase.default.auth().currentUser.displayName,
           email: userCredential.user.email,

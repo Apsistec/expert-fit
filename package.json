@@ -42,6 +42,7 @@
     "@ionic/core": "^5.6.9",
     "@ionic/pwa-elements": "^3.0.2",
     "@ionic/storage": "^2.3.1",
+    "@stripe/stripe-js": "^1.15.1",
     "angular-archwizard": "^7.0.0",
     "angular-calendar": "^0.28.24",
     "echarts": "^5.1.1",

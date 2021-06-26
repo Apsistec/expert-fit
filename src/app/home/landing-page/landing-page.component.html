@@ -1,27 +1,51 @@
 <ion-content scrollEvents="true" (ionScroll)="onScroll($event)" class="content">
   <ion-grid class="ion-no-padding">
-    <ion-row id="top" class="scene-one ion-justify-content-center ion-align-items-center">
-      <ion-col size-sm="12" size-md="8" size-lg="6" size-xl="4" class="ion-text-center content">
-        <img [@bounceOutUp]="bounceOutUp" src="../../../assets/lazy/images/logo.png" class="ion-hide-md-down" />
-        <img
-          [@bounceOutUp]="bounceOutUp"
-          src="../../../assets/lazy/images/logo.png"
-          class="ion-hide-md-up"
-          style="width: 345px; padding-top: 40px"
-        />
-        <ion-card class="main-heading-card ion-text-center shadow">
-          <ion-card-title class="main-title" color="secondary"> X Fitness Studio<sup>3D</sup> </ion-card-title>
-          <ion-card-subtitle class="main-subtitle" color="warning">
-            Train <ion-text color="light">|</ion-text> Review <ion-text color="light">|</ion-text> Grow
-          </ion-card-subtitle>
-        </ion-card>
-        <ion-button [@flash]="flash" size="large" class="cta-main" strong routerLink="/pricing">
-          Start Today
-        </ion-button>
+    <ion-row class="scene-one ion-justify-content-center">
+      <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="4" size-xl="3" class="ion-align-self-center">
+
+        <ion-row class="ion-text-left ion-hide-md-up">
+          <ion-col class="main-logo-div ion-text-center">
+            <img src="../../../assets/lazy/images/logo.png" class="lifting landing-logo">
+              <ion-text class="logoText slideIntoPlace">
+                <h1 class="main-title pert tachyon">pert</h1>
+                <h1 class="main-title fitness ion-no-margin tachyon">Fitness</h1>
+              </ion-text>
+          </ion-col>
+          </ion-row>
+
+        <ion-row class=" ion-text-left ion-hide-sm-down">
+          <ion-col class="main-logo-div-lg ion-text-center">
+            <img src="../../../assets/lazy/images/logo.png" class="lifting landing-logo-lg">
+              <ion-text class="logoText-lg slideIntoPlace">
+                <h1 class="main-title-lg pert-lg tachyon">pert</h1>
+                <h1 class="main-title-lg fitness-lg ion-no-margin tachyon">Fitness</h1>
+              </ion-text>
+          </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-align-self-start ion-text-center ion-no-margin">
+              <h2>
+                <ion-text color="tertiary" class="main-subtitle">
+              Train
+              <ion-text color="light"> | </ion-text>
+              Review
+              <ion-text color="light"> | </ion-text>
+              Grow
+            </ion-text>
+          </h2>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-center ion-align-items-bottom">
+        <ion-col class="ion-text-center">
+          <ion-button [@flash]="flash" size="large" shape="round" class="cta-main" strong routerLink="/pricing">
+            Start Today
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+
+
       </ion-col>
-      <ion-fab fixed horizontal="end" vertical="top">
-        <img width="105" class="video pulsing" src="../../../assets/lazy/images/btn-play.svg" (click)="loadVideo()" />
-      </ion-fab>
       <ion-fab class="bounceOutDown ion-text-center" horizontal="center" vertical="bottom">
         <ion-note color="tertiary"> Scroll Down </ion-note>
         <br />
@@ -35,17 +59,17 @@
       </ion-fab>
     </ion-row>
     <ion-row id="pageTwo" class="page-two ion-margin-vertical">
-      <ion-col class=" ion-align-self-center">
+      <ion-col class="ion-align-self-center">
         <app-home-page-two></app-home-page-two>
       </ion-col>
     </ion-row>
     <ion-row id="pageThree" class="ion-margin-vertical">
-      <ion-col class=" ion-align-self-center">
+      <ion-col class="ion-align-self-center">
         <app-home-page-three></app-home-page-three>
       </ion-col>
     </ion-row>
     <ion-row id="pageFour" class="page-four ion-margin-vertical">
-      <ion-col class=" ion-align-self-center">
+      <ion-col class="ion-align-self-center">
         <app-home-page-four></app-home-page-four>
       </ion-col>
     </ion-row>

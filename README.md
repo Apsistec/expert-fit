@@ -1,10 +1,10 @@
-<h1 align="center"> 🏋️‍♂️ 🥡 🍎 X Fitness Studio App   🍏 ⚖️ 🏋️‍♀️</h1>
+<h1 align="center"> 🏋️‍♂️ 🥡 🍎 Xpert Fitness App   🍏 ⚖️ 🏋️‍♀️</h1>
 <!-- PROJECT LOGO -->
 <p align="center"> The fitness app that becomes your trainer.  :muscle: </p>
 
-[![X Fitness Studio Logo]][logo]
+[![Xpert Fitness Logo]][logo]
 
-[X Fitness Studio](https://github.com/apsistec/expert-fit)
+[Xpert Fitness](https://github.com/apsistec/expert-fit)
 
 <!-- PROJECT SHIELDS -->
 

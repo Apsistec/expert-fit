@@ -1,6 +1,8 @@
+
+
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+
 import { FAQ } from '../models/faqs.model';
 
 @Injectable({
@@ -9,12 +11,16 @@ import { FAQ } from '../models/faqs.model';
 export class FaqService {
   faqs;
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private db: AngularFirestore) {}
 
-  getFaqs(){
-   return this.afs.collection<FAQ>('faqs').valueChanges()
-    .subscribe((faqs) => {
-      this.faqs = faqs;
-    });
+  getFaqs() {
+    return this.db
+      
+     .collection<FAQ>('faqs')
+      
+     .valueChanges()
+       .subscribe((faqs) => {
+         this.faqs = faqs;
+       });
   }
 }

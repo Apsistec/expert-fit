@@ -15,22 +15,22 @@ export class BenefitsService {
   private ngUnsubscribe: Subject<any> = new Subject();
 
   id;
-  constructor(private afs: AngularFirestore, private authService: AuthService, public afAuth: AngularFireAuth) {}
+  constructor(private db: AngularFirestore, private authService: AuthService, public afAuth: AngularFireAuth) {}
 
   // createOrUpdateBenefit(id = null, info): Promise<any> {
-  //   const queryRef = this.afs.collection<Benefit>('benefits', (ref) => ref.where('active', '==', true));
+  //   const queryRef = this.db.collection<Benefit>('benefits', (ref) => ref.where('active', '==', true));
   //   if (id) {
   //     info.updated_at = firebase.firestore.Timestamp;
   //     return this.queryRef.update(info);
   //   } else {
   //     info.displayName = this.authService.currentBehaviorUser.value.id;
   //     info.created_at = firebase.firestore.Timestamp;
-  //     return this.afs.collection('benefits').add(info);
+  //     return this.db.collection('benefits').add(info);
   //   }
   // }
 
   getBenefits() {
-    const queryRef = this.afs.collection<Benefit>('benefits', (ref) => ref.where('active', '==', true));
+    const queryRef = this.db.collection<Benefit>('benefits', (ref) => ref.where('active', '==', true));
     return queryRef.snapshotChanges().pipe(
       map((actions) =>
         actions.map((a) => {

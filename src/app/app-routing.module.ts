@@ -2,11 +2,7 @@ import { QuicklinkStrategy } from 'ngx-quicklink';
 
 import { NgModule } from '@angular/core';
 import {
-  AngularFireAuthGuard,
-  canActivate,
-  emailVerified,
-  redirectLoggedInTo,
-  redirectUnauthorizedTo
+    AngularFireAuthGuard, canActivate, emailVerified, redirectLoggedInTo, redirectUnauthorizedTo
 } from '@angular/fire/auth-guard';
 import { RouterModule, Routes } from '@angular/router';
 

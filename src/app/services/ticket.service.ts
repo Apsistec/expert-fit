@@ -20,7 +20,7 @@ export class TicketService {
   user;
 
   constructor(
-    private afs: AngularFirestore,
+    private db: AngularFirestore,
     private authService: AuthService,
     private messageService: MessageService,
     public afAuth: AngularFireAuth
@@ -36,14 +36,14 @@ export class TicketService {
   createOrUpdateTicket(id = null, info): Promise<any> {
     if (id) {
       info.updated_at = firebase.default.firestore.Timestamp;
-      return this.afs
+      return this.db
         .doc(`tickets/${id}`)
         .update(info)
         .then(() => this.messageService.generalToast(`Ticket ${id} updated successfully.`));
     } else {
       info.creator = this.authService.userId;
       info.created_at = firebase.default.firestore.Timestamp;
-      return this.afs
+      return this.db
         .collection('tickets')
         .add(info)
         .then((res) => this.messageService.generalToast(`Ticket ${res.id} created successfully.`));
@@ -52,7 +52,7 @@ export class TicketService {
 
   getUserTickets() {
     const uid = this.authService.userId;
-    return this.afs
+    return this.db
       .collection('tickets', (ref) => ref.where('creator', '==', uid))
       .snapshotChanges()
       .pipe(
@@ -68,7 +68,7 @@ export class TicketService {
   }
 
   getAdminTickets() {
-    return this.afs
+    return this.db
       .collection('tickets')
       .snapshotChanges()
       .pipe(
@@ -84,16 +84,16 @@ export class TicketService {
   }
 
   getTicket(id) {
-    // return this.afs.doc(`tickets/${id}`).valueChanges().pipe(take(1));
-    return this.afs.doc(`tickets/${id}`).get();
+    // return this.db.doc(`tickets/${id}`).valueChanges().pipe(take(1));
+    return this.db.doc(`tickets/${id}`).get();
   }
 
   deleteTicket(id) {
-    return this.afs.doc(`tickets/${id}`).delete();
+    return this.db.doc(`tickets/${id}`).delete();
   }
 
   getUser(uid) {
-    return this.afs.doc(`users/${uid}`).valueChanges().pipe(take(1));
+    return this.db.doc(`users/${uid}`).valueChanges().pipe(take(1));
     // this.authService.user.subscribe(user => this.user = user.email);
     // return this.user;
   }

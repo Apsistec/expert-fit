@@ -29,12 +29,12 @@ export class StripeService {
     private messageService: MessageService,
     private router: Router,
     private spinner: SpinnerService,
-    private afs: AngularFirestore
+    private db: AngularFirestore
   ) {
     this.afAuth.user.pipe(
       map((user) => {
         if (user) {
-          this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+          this.db.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           of(null);
         }

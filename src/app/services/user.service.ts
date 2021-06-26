@@ -21,7 +21,7 @@ export class UserService {
   constructor(
     public storage: Storage,
     public afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
+    private db: AngularFirestore,
     private messageService: MessageService
   ) {
     this.afAuth.authState.subscribe((user) => {
@@ -60,7 +60,7 @@ export class UserService {
 
   setEmail(email: string): Promise<any> {
     firebase.default.auth().currentUser.updateEmail(email);
-    return this.afs
+    return this.db
       .doc(`users/${this.user.uid}`)
       .update({
         email
@@ -84,7 +84,7 @@ export class UserService {
   }
 
   setDisplayName(displayName: string): Promise<any> {
-    return this.afs
+    return this.db
       .doc(`users/${this.user.uid}`)
       .update({
         displayName

@@ -6,13 +6,8 @@ import { expand, map, mergeMap, take, takeWhile, tap } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 import {
-  Action,
-  AngularFirestore,
-  AngularFirestoreCollection,
-  AngularFirestoreDocument,
-  DocumentChangeAction,
-  DocumentSnapshotDoesNotExist,
-  DocumentSnapshotExists
+    Action, AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
+    DocumentChangeAction, DocumentSnapshotDoesNotExist, DocumentSnapshotExists
 } from '@angular/fire/firestore';
 
 type CollectionPredicate<T> = string | AngularFirestoreCollection<T>;
@@ -22,18 +17,18 @@ type DocPredicate<T> = string | AngularFirestoreDocument<T>;
   providedIn: 'root'
 })
 export class FirestoreService {
-  constructor(private afs: AngularFirestore) {}
+  constructor(private db: AngularFirestore) {}
 
   /// **************
   /// Get a Reference
   /// **************
 
   col<T>(ref: CollectionPredicate<T>, queryFn?): AngularFirestoreCollection<T> {
-    return typeof ref === 'string' ? this.afs.collection<T>(ref, queryFn) : ref;
+    return typeof ref === 'string' ? this.db.collection<T>(ref, queryFn) : ref;
   }
 
   doc<T>(ref: DocPredicate<T>): AngularFirestoreDocument<T> {
-    return typeof ref === 'string' ? this.afs.doc<T>(ref) : ref;
+    return typeof ref === 'string' ? this.db.doc<T>(ref) : ref;
   }
 
   /// **************
@@ -213,13 +208,13 @@ export class FirestoreService {
 
   // Detetes documents as batched transaction
   private deleteBatch(path: string, batchSize: number): Observable<any> {
-    const colRef = this.afs.collection(path, (ref) => ref.orderBy('__name__').limit(batchSize));
+    const colRef = this.db.collection(path, (ref) => ref.orderBy('__name__').limit(batchSize));
 
     return colRef.snapshotChanges().pipe(
       take(1),
       mergeMap((snapshot: DocumentChangeAction<unknown>[]) => {
         // Delete documents in a batch
-        const batch = this.afs.firestore.batch();
+        const batch = this.db.firestore.batch();
         snapshot.forEach((doc) => {
           batch.delete(doc.payload.doc.ref);
         });

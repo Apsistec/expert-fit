@@ -15,37 +15,37 @@ export class CollectionService {
   // user: User;
   // collectionVar: AngularFirestoreCollection;
 
-  constructor(private afs: AngularFirestore, private authService: AuthService, private afAuth: AngularFireAuth) {}
+  constructor(private db: AngularFirestore, private authService: AuthService, private afAuth: AngularFireAuth) {}
 
   getUsers() {
-    return this.afs.collection('users', (ref) => ref.where('role', '==', 'USER')).valueChanges();
+    return this.db.collection('users', (ref) => ref.where('role', '==', 'USER')).valueChanges();
   }
   getEmployees() {
-    return this.afs.collection('users', (ref) => ref.where('role', '==', 'EMPLOYEE')).valueChanges();
+    return this.db.collection('users', (ref) => ref.where('role', '==', 'EMPLOYEE')).valueChanges();
   }
   getMembers() {
-    return this.afs.collection('users', (ref) => ref.where('role', '==', 'MEMBER')).valueChanges();
+    return this.db.collection('users', (ref) => ref.where('role', '==', 'MEMBER')).valueChanges();
   }
   getAdmins() {
-    return this.afs.collection('users', (ref) => ref.where('role', '==', 'ADMIN')).valueChanges();
+    return this.db.collection('users', (ref) => ref.where('role', '==', 'ADMIN')).valueChanges();
   }
   getPremiumSubs() {
-    return this.afs.collection('users', (ref) => ref.where('stripeRole', '==', 'premium')).valueChanges();
+    return this.db.collection('users', (ref) => ref.where('stripeRole', '==', 'premium')).valueChanges();
   }
   getPlatinumSubs() {
-    return this.afs.collection('users', (ref) => ref.where('stripeRole', '==', 'platinum')).valueChanges();
+    return this.db.collection('users', (ref) => ref.where('stripeRole', '==', 'platinum')).valueChanges();
   }
   getBasicSubs() {
-    return this.afs.collection('users', (ref) => ref.where('stripeRole', '==', 'basic')).valueChanges();
+    return this.db.collection('users', (ref) => ref.where('stripeRole', '==', 'basic')).valueChanges();
   }
 
   getCurrentCustomers() {
-    return this.afs.collection('users', (ref) => ref.where('subStatus', '==', 'current' || 'trialing')).valueChanges();
+    return this.db.collection('users', (ref) => ref.where('subStatus', '==', 'current' || 'trialing')).valueChanges();
   }
   getTroubledCustomers() {
-    return this.afs.collection('users', (ref) => ref.where('subStatus', '==', 'past_due' || 'unpaid')).valueChanges();
+    return this.db.collection('users', (ref) => ref.where('subStatus', '==', 'past_due' || 'unpaid')).valueChanges();
   }
   getPastDueCustomers() {
-    return this.afs.collection('users', (ref) => ref.where('subStatus', '==', 'cancelled')).valueChanges();
+    return this.db.collection('users', (ref) => ref.where('subStatus', '==', 'cancelled')).valueChanges();
   }
 }

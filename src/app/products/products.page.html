@@ -1,107 +1,151 @@
 <ion-content class="content">
   <!-- <div class="main-content"> -->
-  <ion-grid class="ion-no-padding main-content">
-    <ion-fab slot="fixed" horizontal="end" vertical="top" edge>
-      <ion-fab-button>
-        <ion-icon name="cart-sharp" size="large"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+  <ion-grid class="ion-no-padding ion-padding-vertical main-content">
     <ion-row class="ion-justify-content-center ion-margin-vertical">
       <ion-col size="12">
         <ion-card color="dark" class="toolbar-card ion-text-center">
           <ion-card-header>
-            <ion-card-title class="title"> X Fitness Studio Pricing </ion-card-title>
+            <ion-card-title class="title"> Xpert Fitness Pricing </ion-card-title>
             <ion-card-subtitle class="subtitle">
-              <ion-text color="warning"> Select the options that work best for you </ion-text>
+              <ion-text color="warning"> 1. Login/Register </ion-text>
+              <br />
+              <ion-text color="warning"> 2. Select Price for an Item</ion-text>
+              <br />
+              <ion-text color="warning"> 3. Click "Add To Cart" </ion-text>
+              <br />
+              <ion-text color="warning">
+                4. To Checkout, click on cart (<ion-icon
+                  style="position: relative; bottom: 0"
+                  size="large"
+                  name="cart-sharp"
+                  color="light"
+                ></ion-icon
+                >)
+              </ion-text>
             </ion-card-subtitle>
           </ion-card-header>
         </ion-card>
       </ion-col>
     </ion-row>
 
-    <!-- <ion-card class="category-card ion-margin-vertical ion-no-margin">
-      <ion-toolbar class="ion-text-center">
-        <ion-text class="section-headers"> Body Composition Analysis </ion-text>
-      </ion-toolbar>
+    <ion-fab class="fav" horizontal="end" vertical="top">
+      <ion-fab-button class="fab" (click)="goToCart()">
+        <ion-icon name="cart-sharp" size="large"> </ion-icon>
+        <ion-badge color="success">11</ion-badge>
+      </ion-fab-button>
+    </ion-fab>
 
-      <ion-row class="ion-justify-content-around">
-        <ion-col
-          size-sm="12"
-          size-xs="12"
-          size-xl="3"
-          size-lg="6"
-          size-md="8"
-          class="product-col ion-align-self-start ion-text-center"
-          *ngFor="let product of analysis | async"
-        >
-          <ion-card class="product-card">
-            <ion-card-header class="product-card-header">
-              <ion-card-title>
-                <ion-text color="warning"> {{ product.name }} </ion-text>
-              </ion-card-title>
-            </ion-card-header>
-            <ion-img [src]="product.images[0]" class="product-image"></ion-img>
-            <ion-card-content class="product-card-content ion-text-center">
-              <ion-text> {{ product.description }} </ion-text>
 
-              <ion-item lines="none" class="price-item ion-margin-vertical">
-                <ion-label>Price</ion-label>
-                <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover">
-                  <ion-select-option class="iso" *ngFor="let price of prices | async" [value]="price.unit_amount">
-                    {{ price.unit_amount /100 | currency }} {{price.interval}}
-                  </ion-select-option>
-                </ion-select>
-              </ion-item>
+      <!-- <ion-card class="category-card ion-padding-vertical ion-margin-vertical ion-no-margin">
+        <ion-toolbar class="ion-text-center">
+          <ion-text class="section-headers"> Fitness Training Options </ion-text>
+        </ion-toolbar>
 
-              <ion-button>Add to Cart</ion-button>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-card>
+        <ion-row class="ion-justify-content-around category-row ">
+          <ion-col
+            size-sm="12"
+            size-xs="12"
+            size-xl="3"
+            size-lg="6"
+            size-md="8"
+            class="product-col ion-align-self-stretch ion-margin ion-text-center"
+            *ngFor="let product of services"
+          >
+            <ion-card class="product-card ">
+              <ion-card-header class="product-card-header">
+                <ion-card-title>
+                  <ion-label color="warning"> {{ product.name }} </ion-label>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-img [src]="product.images[0]" class="product-image"></ion-img>
+              <ion-grid>
+                <ion-row>
+                  <ion-col class="ion-align-items-end ion-padding ion-text-left">
+                    <ion-text style="color: var(--ion-text-color); font-size: large">
+                      {{ product.description }}
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col class="ion-align-items-stretch ion-padding">
+                    <ion-item lines="none" class="price-item ion-margin-vertical">
+                      <ion-label>Price</ion-label>
+                      <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover">
+                        <ion-select-option
+                          class="iso"
+                          [value]="price.unit_amount"
+                          *ngFor="let price of servicesPrices"
+                        >
+                          {{ price.unit_amount /100 | currency }} {{ price.interval }}
+                        </ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                    <ion-button (click)="addToCart()" class="add-to-cart-btn">Add to Cart</ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-card>
 
-    <ion-card class="category-card ion-margin-vertical ion-no-margin">
-      <ion-toolbar class="ion-text-center">
-        <ion-text class="section-headers"> Fitness Coaching Plans </ion-text>
-      </ion-toolbar>
 
-      <ion-row class="ion-justify-content-around category-row">
-        <ion-col
-          size-sm="12"
-          size-xs="12"
-          size-xl="3"
-          size-lg="6"
-          size-md="8"
-          class="product-col ion-align-self-start ion-text-center"
-          *ngFor="let product of services | async"
-        >
-          <ion-card class="product-card">
-            <ion-card-header class="product-card-header">
-              <ion-card-title>
-                <ion-label color="warning"> {{ product.name }} </ion-label>
-              </ion-card-title>
-            </ion-card-header>
-            <ion-img [src]="product.images[0]" class="product-image"></ion-img>
-            <ion-card-content class="product-card-content ion-text-center">
-              <ion-text> {{ product.description }} </ion-text>
+      <ion-card class="category-card ion-padding-vertical ion-margin-vertical ion-no-margin">
+        <ion-toolbar class="ion-text-center">
+          <ion-text class="section-headers"> Fitness Analysis </ion-text>
+        </ion-toolbar>
 
-              <ion-item lines="none" class="price-item ion-margin-vertical">
-                <ion-label>Price</ion-label>
-                <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover">
-                  <ion-select-option class="iso" *ngFor="let price of prices | async" [value]="price.unit_amount">
-                    {{ price.unit_amount /100 | currency }} {{price.interval}}
-                  </ion-select-option>
-                </ion-select>
-              </ion-item>
+        <ion-row class="ion-justify-content-around category-row">
+          <ion-col
+            size-sm="12"
+            size-xs="12"
+            size-xl="3"
+            size-lg="6"
+            size-md="8"
+            class="product-col ion-align-self-stretch ion-margin ion-text-center"
+            *ngFor="let product of analysis"
+          >
+            <ion-card class="product-card">
+              <ion-card-header class="product-card-header">
+                <ion-card-title>
+                  <ion-label color="warning"> {{ product.name }} </ion-label>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-img [src]="product.images[0]" class="product-image"></ion-img>
+              <ion-grid>
+                <ion-row>
+                  <ion-col class="ion-align-items-end ion-padding ion-text-left">
+                    <ion-text style="color: var(--ion-text-color); font-size: large">
+                      {{ product.description }}
+                    </ion-text>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col class="ion-align-items-stretch ion-padding">
+                    <ion-item lines="none" class="price-item ion-margin-vertical">
+                      <ion-label>Price</ion-label>
+                      <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover">
+                        <ion-select-option
+                          class="iso"
+                          [value]="price.unit_amount"
+                          *ngFor="let price of analysisPrices "
+                        >
+                          {{ price.unit_amount /100 | currency }} {{ price.interval }}
+                        </ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                    <ion-button (click)="addToCart()" class="add-to-cart-btn">Add to Cart</ion-button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-card>
 
-              <ion-button>Add to Cart</ion-button>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-card> -->
+  -->
 
-    <ion-card class="category-card ion-margin-vertical ion-no-margin">
+    <ion-card class="category-card ion-padding-vertical ion-margin-vertical ion-no-margin">
       <ion-toolbar class="ion-text-center">
         <ion-text class="section-headers"> Fitness Add-Ons </ion-text>
       </ion-toolbar>
@@ -113,8 +157,8 @@
           size-xl="3"
           size-lg="6"
           size-md="8"
-          class="product-col ion-align-self-start ion-text-center"
-          *ngFor="let product of products | async"
+          class="product-col ion-align-self-stretch ion-margin ion-text-center"
+          *ngFor="let product of items | async"
         >
           <ion-card class="product-card">
             <ion-card-header class="product-card-header">
@@ -123,20 +167,32 @@
               </ion-card-title>
             </ion-card-header>
             <ion-img [src]="product.images[0]" class="product-image"></ion-img>
-            <ion-card-content class="product-card-content ion-text-left">
-              <ion-text> {{ product.description }} </ion-text>
-
-              <ion-item lines="none" class="price-item ion-margin-vertical">
-                <ion-label>Price</ion-label>
-                <ion-select placeholder="Select" *ngFor="let price of prices" [interfaceOptions]="iOptions" interface="popover">
-                  <ion-select-option class="iso" [value]="price.unit_amount">
-                    {{ price.unit_amount /100 | currency }} {{ price.interval }}
-                  </ion-select-option>
-                </ion-select>
-              </ion-item>
-
-              <ion-button>Add to Cart</ion-button>
-            </ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col class="ion-align-items-end ion-padding ion-text-left">
+                  <ion-text style="color: var(--ion-text-color); font-size: large">
+                    {{ product.description }}
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="ion-align-items-stretch ion-padding">
+                  <!-- <ion-item lines="none" class="price-item ion-margin-vertical">
+                    <ion-label>Price</ion-label>
+                    <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover">
+                      <ion-select-option
+                        class="iso"
+                         [value]="price.unit_amount"
+                        *ngFor="let price of itemPrices "
+                      >
+                        {{ price.unit_amount /100 | currency }} {{ price.interval }}
+                      </ion-select-option>
+                    </ion-select>
+                  </ion-item> -->
+                  <ion-button (click)="addToCart()" class="add-to-cart-btn">Add to Cart</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
           </ion-card>
         </ion-col>
       </ion-row>

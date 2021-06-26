@@ -1,10 +1,10 @@
+import { MessageService } from 'src/app/services/message.service';
+
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
-import { MessageService } from 'src/app/services/message.service';
-import { WebrtcComponent } from 'src/app/shared/webrtc/webrtc.component';
 
 import { CancelServiceComponent } from '../../customer/cancel-service/cancel-service.component';
 import { InvoicesComponent } from '../../customer/invoices/invoices.component';
@@ -36,11 +36,11 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     private modalController: ModalController,
     public authService: AuthService,
     public afAuth: AngularFireAuth,
-    public afs: AngularFirestore,
+    public db: AngularFirestore,
     public stripe: StripeService,
     private router: Router,
     private navController: NavController,
-    private messageService: MessageService,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {}

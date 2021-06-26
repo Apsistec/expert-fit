@@ -122,37 +122,3 @@ export const Items = [
 ]
 
 
-export interface Product {
-  id: string;
-  name: string;
-  images: string[];
-  description: string;
-  role: string;
-  stripe_metadata_productType?: string;
-  stripe_metadata_firebaseSubType?: string;
-  stripe_metadata_firebasePlan?: string;
-  // price: Price;
-}
-export interface Item{
-  id: string;
-  name: string;
-  images: any;
-  description: string;
-  active: boolean;
-  // price: Price;
-}
-export interface Analysis{
-  id: string;
-  name: string;
-  images: any;
-  description: string;
-  // price: Price;
-}
-
-export interface Price {
-  active: boolean;
-  id: string;
-  type: string;
-  unit_amount: number;
-  interval?: string;
-}

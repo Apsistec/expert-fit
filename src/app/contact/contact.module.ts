@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { SharedModule } from '../shared/shared.module';
-
 import { ContactPageRoutingModule } from './contact-routing.module';
 import { ContactPage } from './contact.page';
 

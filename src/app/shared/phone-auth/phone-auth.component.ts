@@ -1,9 +1,12 @@
 
+import 'firebase/auth';
+
+import * as firebase from 'firebase/app';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
+
 @Component({
   selector: 'app-phone-auth',
   templateUrl: './phone-auth.component.html',

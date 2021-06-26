@@ -3,7 +3,7 @@
       <ion-slides #review (ionSlidesDidLoad)="slidesDidLoad(review)" [options]="slideOpts">
         <ion-slide *ngFor="let rating of ratings | async" routerLink="/ratings">
           <div class="ion-text-left">
-            <ion-text class="rating" color="secondary"> {{ rating.displayName }} </ion-text>
+            <ion-text class="rating" color="tertiary"> {{ rating.displayName }} </ion-text>
             <br />
             <ion-text color="light" class="italics">"{{ rating.message }}"</ion-text>
           </div>

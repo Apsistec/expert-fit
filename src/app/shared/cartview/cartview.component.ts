@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 
-import { Product } from '../../models/cart.model';
+import { Cart } from '../../models/cart.model';
 import { CartService } from '../../services/cart.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./cartview.component.scss']
 })
 export class CartviewComponent implements OnInit {
-  cart: Product[] = [];
+  cart: Cart[] = [];
 
   constructor(
     private cartService: CartService,

@@ -10,7 +10,7 @@
       </ion-segment-button>
       <ion-segment-button value="1" class="segment" (click)="getMyReviews()">
         <ion-icon name="person-sharp" color="success"></ion-icon>
-        <ion-label> Create a Reviews </ion-label>
+        <ion-label> Create a Review </ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-card>
@@ -20,7 +20,7 @@
       <ion-grid>
         <ion-row class="ion-justify-content-center">
           <ion-col
-           class="shadow ion-padding testimonial ion-margin"
+           class=" testimonial ion-margin ion-text-left"
             size-xs="12"
             size-sm="12"
             size-md="8"
@@ -29,27 +29,30 @@
             *ngFor="let review of reviews | async; let i = index; trackBy: review?.id"
           >
             <!-- <ion-card style="width: 100%; height: 120px"> -->
-              <ion-row style="height: 100%">
-                <ion-col size="auto" class="ion-no-padding-horizontal ion-text-center">
-                  <bar-rating
+              <!-- <ion-row style="height: 100%">
+                <ion-col size="auto" class="ion-no-padding-horizontal ion-text-center"> -->
+                  <div class="rating-name-div">
+                    <ion-text class="rating">{{ review.displayName }} </ion-text>
+                    <ion-text class="rating">{{ review.created_at }}</ion-text>
+                  </div>
+                  <ion-card class="shadow test-card ion-no-margin ion-no-padding ion-padding-horizontal ion-padding-bottom">
+                    <ng-scrollbar>
+
+                    <bar-rating
                     [(rate)]="review.stars"
-                    style="color: var(--ion-color-warning)"
+                    style="color: var(--ion-color-warning); margin-top:-10px;"
                     [theme]="'default'"
                     [max]="5"
                     [readOnly]="true"
-                  ></bar-rating>
-                  <ion-text class="italics">{{ review.created_at }}</ion-text>
-                </ion-col>
-                <ion-col class=" ion-text-left">
-                  <ng-scrollbar>
-                    <div class="ion-padding-horizontal">
-                      <ion-text class="rating">{{ review.displayName }} </ion-text>
-                      <br />
-                      <ion-text style="font-weight: 400" class="italics">{{ review.message }}</ion-text>
-                    </div>
-                  </ng-scrollbar>
-                </ion-col>
-              </ion-row>
+                    ></bar-rating>
+                    <!-- </ion-col>
+                      <ion-col class=" ion-text-left"> -->
+
+                          <ion-text class="italics">{{ review.message }}</ion-text>
+                        </ng-scrollbar>
+                        </ion-card>
+                <!-- </ion-col>
+              </ion-row> -->
             <!-- </ion-card> -->
           </ion-col>
         </ion-row>
@@ -62,15 +65,14 @@
             <ion-col class="shadow ion-padding testimonial" size-xs="12" size-sm="12" size-md="8" size-lg="4" size-xl="4" *ngFor="let myReview of myReviews | async">
               <!-- <ion-item lines="none" > -->
                 <ion-row>
-                  <ion-col size="4" class="ion-align-self-center">
+                  <ion-col size="2" class="ion-align-self-center">
                     <ion-avatar slot="start">
                       <ion-img [src]="['../../../assets/lazy/images/dummy-user.png']"></ion-img>
                     </ion-avatar>
                     <ion-text color="primary"> {{ myReview.displayName }} </ion-text>
-                    <br />
-                    <bar-rating [(rate)]="myReview.stars" [theme]="'default'" [max]="5" readonly="true"></bar-rating>
-                  </ion-col>
-                  <ion-col size="8" class="ion-align-self-center">
+                    <bar-rating  [(rate)]="myReview.stars" [theme]="'default'" [max]="5" readonly="true"></bar-rating>
+                  <!-- </ion-col>
+                  <ion-col size="10" class="ion-align-self-center"> -->
                     <ion-text class="italics">{{ myReview.message }}</ion-text>
                   </ion-col>
                 </ion-row>

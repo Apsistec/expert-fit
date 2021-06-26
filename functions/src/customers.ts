@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import { assertUID, catchErrors } from "./helpers";
 import { db, stripe } from "./config";
-import Stripe from 'stripe';
-import * as functions from 'firebase-functions';
+import Stripe from "stripe";
+import * as functions from "firebase-functions";
 
 // /**
 // Read the user document from Firestore
@@ -35,7 +36,7 @@ import * as functions from 'firebase-functions';
 Read the stripe customer ID from firestore, or create a new one if missing
 */
 export async function getOrCreateCustomer(uid: string, params?: Stripe.CustomerCreateParams){
-  const userSnapshot = await db.collection('users').doc(uid).get();
+  const userSnapshot = await db.collection("users").doc(uid).get();
 
   const { stripeCustomerId, email } = userSnapshot.data();
 
@@ -61,14 +62,14 @@ export async function getOrCreateCustomer(uid: string, params?: Stripe.CustomerC
 // /**
 //  * Creates a SetupIntent used to save a credit card for later use
 //  */
-// export async function createSetupIntent(userId: string) {
+export async function createSetupIntent(uid: string) {
 
-//     const customer = await getOrCreateCustomer(userId);
+    const customer = await getOrCreateCustomer(uid);
 
-//     return stripe.setupIntents.create({
-//         customer: customer.id,
-//     })
-// }
+    return stripe.setupIntents.create({
+        customer: customer.id,
+    })
+}
 
 /**
  * Returns all payment sources associated to the user
@@ -78,7 +79,7 @@ export async function listPaymentMethods(uid: string) {
 
     return stripe.paymentMethods.list({
         customer: customer.id,
-        type: 'card',
+        type: "card",
     });
 }
 // ///// DEPLOYABLE FUNCTIONS ////////

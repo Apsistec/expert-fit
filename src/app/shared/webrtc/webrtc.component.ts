@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase/app';
 import 'firebase/firestore';
+
+import * as firebase from 'firebase/app';
+
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-webrtc',

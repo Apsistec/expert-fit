@@ -1,4 +1,4 @@
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -20,7 +20,7 @@ export class FaqPage implements OnInit, OnDestroy {
   faqCollection: AngularFirestoreCollection<FAQ>;
   expanded;
   subs: Subscription = new Subscription();
-  constructor(private afs: AngularFirestore) {}
+  constructor(private db: AngularFirestore) {}
 
   ngOnInit() {
     this.getFaqs();
@@ -34,7 +34,7 @@ export class FaqPage implements OnInit, OnDestroy {
   }
 
   getFaqs() {
-    this.afs
+    this.db
       .collection<FAQ>('faqs')
       .valueChanges()
       .subscribe((faqs) => {

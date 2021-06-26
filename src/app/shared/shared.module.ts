@@ -5,6 +5,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
@@ -35,7 +36,6 @@ import { ToggleComponent } from './toggle/toggle.component';
 import { UnknownComponent } from './unknown/unknown.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { WebrtcComponent } from './webrtc/webrtc.component';
-import { GoogleMapsModule } from '@angular/google-maps';
 
 const routes: Routes = [];
 

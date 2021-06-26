@@ -1,37 +1,95 @@
 .scene-one {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background: linear-gradient(
       to bottom left,
       rgba(0, 24, 90, 0.2) 0%,
       rgba(20, 0, 109, 0.2) 50%,
       rgba(0, 24, 90, 0.2) 100%
     ),
-    linear-gradient(to bottom right, rgba(0, 24, 90, 0.8), rgba(131, 130, 130, 0.2), rgba(0, 24, 90, 0.8)),
+    linear-gradient(to bottom right, rgba(38, 48, 75, 0.623), rgba(255, 255, 255, 0.247), rgba(28, 44, 87, 0.61)),
     url(../../../assets/lazy/images/fitness-balancing.jpg) center/ cover no-repeat;
   background-color: var(--ion-color-medium);
+}
 
-  .main-title {
-    font: normal normal 800 32px/2 sans-serif;
-  }
+.main-logo-div {
+  position: relative;
+  left: -30px;
+}
 
-  .main-subtitle {
-    font: normal normal 800 20px sans-serif;
-  }
+.landing-logo {
+  height: 200px;
+  filter: drop-shadow(0 0 10px var(--ion-color-light-tint));
+}
 
-  sup {
-    font: small-caps normal 800 18px;
-    color: var(--ion-color-tertiary);
-    text-shadow: 2px 2px 1px rgb(0, 0, 0), 0px 0px 8px rgb(255, 255, 255);
-  }
+.main-title {
+  font-weight: 400;
+  font-size: 30px;
+  background-clip: text;
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255), 50%, rgb(0, 4, 37));
+  filter: drop-shadow(1px 1px 3px var(--ion-color-light-tint));
+  color: transparent;
+}
 
-  .main-heading-card {
-    padding-bottom: 12px;
-    background: linear-gradient(to bottom right, rgba(0, 2, 68, 0.544), rgba(0, 3, 95, 0.462), rgba(6, 0, 61, 0.475)),
-      linear-gradient(to bottom left, rgba(0, 0, 59, 0.544), rgba(0, 5, 94, 0.462), rgba(0, 0, 63, 0.475));
-    border: 4px outset var(--ion-color-warning);
-    border-radius: 15px;
-  }
+.fitness {
+  position: relative;
+  left: -100px;
+}
+
+.logoText {
+  position: absolute;
+  top: 41%;
+  text-align: left;
+}
+
+.pert {
+  position: relative;
+  left: -120px;
+}
+
+.logoText-lg {
+  position: absolute;
+  top: 43%;
+  text-align: left;
+}
+
+.pert-lg {
+  position: relative;
+  left: -190px;
+}
+
+.main-logo-div-lg {
+  height: 400px;
+  position: relative;
+  left: -30px;
+}
+
+.landing-logo-lg {
+  height: 400px;
+  filter: drop-shadow(0 0 10px white);
+}
+
+.main-title-lg {
+  font-weight: 400;
+  font-size: 50px;
+  background-clip: text;
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255), 30%, rgb(3, 9, 59));
+  filter: drop-shadow(1px 1px 5px white);
+  color: transparent;
+}
+
+.fitness-lg {
+  position: relative;
+  left: -170px;
+}
+
+.main-subtitle {
+  font: normal small-caps 800 36px Kufam;
+}
+
+.scene-one-card {
+  border-radius: 15px;
+  background: transparent;
 }
 
 .video {
@@ -42,7 +100,6 @@
 
 .pulsing {
   animation: 2s ease-in-out 1s infinite alternate pulsar;
-  // z-index: 99;
 }
 
 @keyframes pulsar {
@@ -113,4 +170,28 @@
       var(--ion-color-warning-shade) 15deg 18deg,
       var(--ion-color-primary-tint) 20deg
     );
+}
+
+.lifting {
+  animation: 2s ease-in-out 2s 2 lift;
+  z-index: 99;
+}
+
+@keyframes lift {
+  50% {
+    transform: scaleY(50%);
+  }
+}
+
+.slideIntoPlace {
+  animation: 5s ease-in 0.8s 1 slide;
+  z-index: 99;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(1000px);
+  }
+  100% {
+  }
 }
