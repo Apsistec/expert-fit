@@ -1,8 +1,8 @@
   <ion-row class="ion-justify-content-center ion-margin-vertical">
     <ion-col size-sm="12" size-md="8" size-lg="4" class="ion-align-self-center ion-padding ion-text-left ">
       <ion-slides #review (ionSlidesDidLoad)="slidesDidLoad(review)" [options]="slideOpts">
-        <ion-slide *ngFor="let rating of ratings | async" routerLink="/ratings">
-          <div class="ion-text-left">
+        <ion-slide *ngFor="let rating of ratings | async" routerLink="/ratings" class="ion-text-left">
+          <div >
             <ion-text class="rating" color="tertiary"> {{ rating.displayName }} </ion-text>
             <br />
             <ion-text color="light" class="italics">"{{ rating.message }}"</ion-text>
