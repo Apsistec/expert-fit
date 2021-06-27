@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 import { User } from '../models/users.model';
 import { MessageService } from './message.service';
-import { SpinnerService } from './spinner.service';
+import { LoadingService } from './loading.service';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class StripeService {
     private functions: AngularFireFunctions,
     private messageService: MessageService,
     private router: Router,
-    private spinner: SpinnerService,
+    private spinner: LoadingService,
     private db: AngularFirestore
   ) {
     this.afAuth.user.pipe(

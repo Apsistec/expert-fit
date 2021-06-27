@@ -1,0 +1,2402 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expert-fit documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">expert-fit documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>MessageService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/message.service.ts</code>
+        </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#choice">choice</a>
+                            </li>
+                            <li>
+                                <a href="#pushReqRes">pushReqRes</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#alreadySubscribedToast">alreadySubscribedToast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#authErrorAlert">authErrorAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#cancelledAlert">cancelledAlert</a>
+                            </li>
+                            <li>
+                                <a href="#changeEmailPrompt">changeEmailPrompt</a>
+                            </li>
+                            <li>
+                                <a href="#checkboxPrompt">checkboxPrompt</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteFeedAlert">deleteFeedAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteTicketToast">deleteTicketToast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#errorAlert">errorAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#generalToast">generalToast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#globalErrorAlert">globalErrorAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#internalBlockPageAlert">internalBlockPageAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#loggedInToast">loggedInToast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#needPaymentAlert">needPaymentAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#noExistFederatedUserAlert">noExistFederatedUserAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#oAuthLoggedInToast">oAuthLoggedInToast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onPushRequest">onPushRequest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#pastDueAlert">pastDueAlert</a>
+                            </li>
+                            <li>
+                                <a href="#radioPrompt">radioPrompt</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#registeredOauthToast">registeredOauthToast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#registerSuccessAlert">registerSuccessAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#repurchaseAlert">repurchaseAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#resetPasswordAlert">resetPasswordAlert</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#resetWelcomeAlert">resetWelcomeAlert</a>
+                            </li>
+                            <li>
+                                <a href="#showConfirm">showConfirm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#signOutToast">signOutToast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#subscribedToast">subscribedToast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateNameToast">updateNameToast</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateOrCancel">updateOrCancel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(toastController: ToastController, alertController: AlertController)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/message.service.ts:10</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>toastController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>alertController</td>
+                                                  
+                                                        <td>
+                                                                    <code>AlertController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alreadySubscribedToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            alreadySubscribedToast
+                        </b>
+                        <a href="#alreadySubscribedToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>alreadySubscribedToast()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/services/message.service.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authErrorAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            authErrorAlert
+                        </b>
+                        <a href="#authErrorAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>authErrorAlert(error)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="237"
+                            class="link-to-prism">src/app/services/message.service.ts:237</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelledAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            cancelledAlert
+                        </b>
+                        <a href="#cancelledAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>cancelledAlert()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">src/app/services/message.service.ts:145</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeEmailPrompt"></a>
+                    <span class="name">
+                        <b>
+                            changeEmailPrompt
+                        </b>
+                        <a href="#changeEmailPrompt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeEmailPrompt()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="350"
+                            class="link-to-prism">src/app/services/message.service.ts:350</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkboxPrompt"></a>
+                    <span class="name">
+                        <b>
+                            checkboxPrompt
+                        </b>
+                        <a href="#checkboxPrompt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkboxPrompt()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="467"
+                            class="link-to-prism">src/app/services/message.service.ts:467</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteFeedAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            deleteFeedAlert
+                        </b>
+                        <a href="#deleteFeedAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteFeedAlert(feedId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="298"
+                            class="link-to-prism">src/app/services/message.service.ts:298</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>feedId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTicketToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            deleteTicketToast
+                        </b>
+                        <a href="#deleteTicketToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteTicketToast()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/services/message.service.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            errorAlert
+                        </b>
+                        <a href="#errorAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>errorAlert(error: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="225"
+                            class="link-to-prism">src/app/services/message.service.ts:225</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generalToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            generalToast
+                        </b>
+                        <a href="#generalToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generalToast(message)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/app/services/message.service.ts:99</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>message</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="globalErrorAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            globalErrorAlert
+                        </b>
+                        <a href="#globalErrorAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>globalErrorAlert(error, router, page?)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="214"
+                            class="link-to-prism">src/app/services/message.service.ts:214</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>router</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>page</td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="internalBlockPageAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            internalBlockPageAlert
+                        </b>
+                        <a href="#internalBlockPageAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>internalBlockPageAlert()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">src/app/services/message.service.ts:203</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loggedInToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            loggedInToast
+                        </b>
+                        <a href="#loggedInToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loggedInToast(displayName)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/services/message.service.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>displayName</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="needPaymentAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            needPaymentAlert
+                        </b>
+                        <a href="#needPaymentAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>needPaymentAlert()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">src/app/services/message.service.ts:156</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="noExistFederatedUserAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            noExistFederatedUserAlert
+                        </b>
+                        <a href="#noExistFederatedUserAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>noExistFederatedUserAlert()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">src/app/services/message.service.ts:123</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="oAuthLoggedInToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            oAuthLoggedInToast
+                        </b>
+                        <a href="#oAuthLoggedInToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>oAuthLoggedInToast(displayName)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">src/app/services/message.service.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>displayName</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPushRequest"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            onPushRequest
+                        </b>
+                        <a href="#onPushRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onPushRequest()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="249"
+                            class="link-to-prism">src/app/services/message.service.ts:249</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pastDueAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            pastDueAlert
+                        </b>
+                        <a href="#pastDueAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>pastDueAlert()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">src/app/services/message.service.ts:134</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="radioPrompt"></a>
+                    <span class="name">
+                        <b>
+                            radioPrompt
+                        </b>
+                        <a href="#radioPrompt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>radioPrompt()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="414"
+                            class="link-to-prism">src/app/services/message.service.ts:414</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registeredOauthToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            registeredOauthToast
+                        </b>
+                        <a href="#registeredOauthToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>registeredOauthToast(displayName)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/services/message.service.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>displayName</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registerSuccessAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            registerSuccessAlert
+                        </b>
+                        <a href="#registerSuccessAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>registerSuccessAlert(displayName)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="190"
+                            class="link-to-prism">src/app/services/message.service.ts:190</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>displayName</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="repurchaseAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            repurchaseAlert
+                        </b>
+                        <a href="#repurchaseAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>repurchaseAlert()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">src/app/services/message.service.ts:179</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetPasswordAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            resetPasswordAlert
+                        </b>
+                        <a href="#resetPasswordAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetPasswordAlert(email)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">src/app/services/message.service.ts:168</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>email</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetWelcomeAlert"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            resetWelcomeAlert
+                        </b>
+                        <a href="#resetWelcomeAlert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetWelcomeAlert(header: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="274"
+                            class="link-to-prism">src/app/services/message.service.ts:274</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>header</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>message</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showConfirm"></a>
+                    <span class="name">
+                        <b>
+                            showConfirm
+                        </b>
+                        <a href="#showConfirm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showConfirm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="382"
+                            class="link-to-prism">src/app/services/message.service.ts:382</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signOutToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            signOutToast
+                        </b>
+                        <a href="#signOutToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>signOutToast()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/services/message.service.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscribedToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            subscribedToast
+                        </b>
+                        <a href="#subscribedToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>subscribedToast()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/services/message.service.ts:75</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateNameToast"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            updateNameToast
+                        </b>
+                        <a href="#updateNameToast"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateNameToast()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/services/message.service.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateOrCancel"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            updateOrCancel
+                        </b>
+                        <a href="#updateOrCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateOrCancel()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="323"
+                            class="link-to-prism">src/app/services/message.service.ts:323</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="choice"></a>
+                        <span class="name">
+                            <b>
+                            choice</b>
+                            <a href="#choice"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/services/message.service.ts:9</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="pushReqRes"></a>
+                        <span class="name">
+                            <b>
+                            pushReqRes</b>
+                            <a href="#pushReqRes"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/services/message.service.ts:10</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { AlertController, ToastController } from &#x27;@ionic/angular&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class MessageService {
+  choice;
+  pushReqRes: boolean;
+
+  constructor(private toastController: ToastController, private alertController: AlertController) {}
+
+  /* Toasts */
+  async registeredOauthToast(displayName) {
+    const toast &#x3D; await this.toastController.create({
+      header: &#x27;Registration Successful&#x27;,
+      message: &#x27;Welcome &#x27; + displayName || &#x27;User&#x27; + &#x27;!&#x27;,
+      cssClass: &#x27;successT&#x27;,
+      position: &#x27;top&#x27;,
+      keyboardClose: true,
+      duration: 2500
+    });
+    toast.present();
+  }
+
+  async loggedInToast(displayName) {
+    const toast &#x3D; await this.toastController.create({
+      header: &#x27;Login Successful&#x27;,
+      message: &#x27;Welcome Back &#x27; + displayName || &#x27;User&#x27; + &#x27;!&#x27;,
+      cssClass: &#x27;successT&#x27;,
+      position: &#x27;top&#x27;,
+      keyboardClose: true,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async signOutToast() {
+    const toast &#x3D; await this.toastController.create({
+      header: &#x27;Sign Out Successful&#x27;,
+      cssClass: &#x27;successT&#x27;,
+      message: &#x27;Thank You for stopping by!&#x27;,
+      position: &#x27;top&#x27;,
+      duration: 2000,
+      keyboardClose: true
+    });
+    toast.present();
+  }
+
+  async deleteTicketToast() {
+    const toast &#x3D; await this.toastController.create({
+      header: &#x27;Ticket Deleted&#x27;,
+      cssClass: &#x27;dangerT&#x27;,
+      message: &#x27;The ticket was successfully deleted.&#x27;,
+      position: &#x27;top&#x27;,
+      duration: 2000,
+      keyboardClose: true
+    });
+    toast.present();
+  }
+
+  async updateNameToast() {
+    const toast &#x3D; await this.toastController.create({
+      header: &#x27;Update Successful&#x27;,
+      message: &#x27;User info was updated&#x27;,
+      duration: 2000,
+      position: &#x27;top&#x27;,
+      cssClass: &#x27;successT&#x27;,
+      keyboardClose: true
+    });
+    toast.present();
+  }
+
+  async subscribedToast() {
+    const toast &#x3D; await this.toastController.create({
+      header: &#x27;Payment Successful&#x27;,
+      cssClass: &#x27;successT&#x27;,
+      message: &#x27;You are subscribed! Thank You!&#x27;,
+      position: &#x27;top&#x27;,
+      duration: 2000,
+      keyboardClose: true
+    });
+    toast.present();
+  }
+
+  async alreadySubscribedToast() {
+    const toast &#x3D; await this.toastController.create({
+      header: &#x27;Invalid Request&#x27;,
+      cssClass: &#x27;warningT&#x27;,
+      message: &#x27; You are already Subscribed&#x27;,
+      position: &#x27;top&#x27;,
+      duration: 2000,
+      keyboardClose: true
+    });
+    toast.present();
+  }
+
+  async generalToast(message) {
+    const toast &#x3D; await this.toastController.create({
+      header: &#x27;Message Service&#x27;,
+      cssClass: &#x27;infoT&#x27;,
+      message,
+      position: &#x27;top&#x27;,
+      duration: 2000,
+      keyboardClose: true
+    });
+    toast.present();
+  }
+
+  async oAuthLoggedInToast(displayName) {
+    const toast &#x3D; await this.toastController.create({
+      header: &#x27;Login Successful!&#x27;,
+      message: &#x27;Welcome Back &#x27; + displayName,
+      duration: 2000,
+      cssClass: &#x27;successT&#x27;,
+      position: &#x27;top&#x27;
+    });
+    toast.present();
+  }
+
+  //  Alerts
+  async noExistFederatedUserAlert() {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Error Occurred&#x27;,
+      subHeader: &#x27;Address Not Found&#x27;,
+      message: &#x27;Try another account. If you continue to have trouble, \n open a trouble ticket and we will assist you&#x27;,
+      buttons: [&#x27;OK&#x27;],
+      cssClass: &#x27;warningA&#x27;
+    });
+    alert.present();
+  }
+
+  async pastDueAlert() {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Account Past Due&#x27;,
+      subHeader: &#x27;Payment Necessary&#x27;,
+      message:
+        &#x27;Currently, your account is Past Due. You can update your account with a valid card and make a payment in order to restore access immediately&#x27;,
+      cssClass: &#x27;warningA&#x27;
+    });
+    alert.present();
+  }
+
+  async cancelledAlert() {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Account Cancellation&#x27;,
+      subHeader: &#x27;Cancelled Successfully&#x27;,
+      message:
+        &#x27;Your account has successfully been cancelled, and service will end on the last day of your billing period(usually the last day of the month). Your card will not be charged again. In order to utilize the services, you will need to register a new account.&#x27;,
+      cssClass: &#x27;successA&#x27;
+    });
+    alert.present();
+  }
+
+  async needPaymentAlert() {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Access Denied&#x27;,
+      subHeader: &#x27;Active Membership Required&#x27;,
+      message:
+        &#x27;We have not been able to process a payment with the card on file. Please apply a valid card and we will process your payment immediately in order to provide access to your new account.&#x27;,
+      buttons: [&#x27;OK&#x27;],
+      cssClass: &#x27;dangerA&#x27;
+    });
+    alert.present();
+  }
+
+  async resetPasswordAlert(email) {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Request Email Sent&#x27;,
+      subHeader: &#x27;Password Reset Request&#x27;,
+      message: &#x27;Password Reset Request email was sent to&#x27; + email + &#x27;Check your email for further instructions.&#x27;,
+      buttons: [&#x27;OK&#x27;],
+      cssClass: &#x27;successA&#x27;
+    });
+    alert.present();
+  }
+
+  async repurchaseAlert() {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Invalid Request&#x27;,
+      subHeader: &#x27;Subscription Found&#x27;,
+      message: &#x27;You are already Subscribed&#x27;,
+      buttons: [&#x27;OK&#x27;],
+      cssClass: &#x27;warningA&#x27;
+    });
+    alert.present();
+  }
+
+  async registerSuccessAlert(displayName) {
+    const toast &#x3D; await this.alertController.create({
+      header: &#x27;Registration Successful&#x27;,
+      subHeader: &#x27;Welcome &#x27; + displayName + &#x27;!&#x27;,
+      message:
+        &#x27;You have successfully registered and a verification request has been sent to your email. Check your email for instructions&#x27;,
+      cssClass: &#x27;successA&#x27;,
+      keyboardClose: true,
+      buttons: [&#x27;OK&#x27;]
+    });
+    return toast.present();
+  }
+
+  async internalBlockPageAlert() {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Invalid Request&#x27;,
+      subHeader: &#x27;You are already Signed In&#x27;,
+      message: &#x27;Your account does not need access to this area&#x27;,
+      cssClass: &#x27;warningA&#x27;,
+      buttons: [&#x27;OK&#x27;]
+    });
+    alert.present();
+  }
+
+  async globalErrorAlert(error, router, page?) {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Page: &#x27; + page,
+      subHeader: &#x27;Location: &#x27; + router.url,
+      message: error.message,
+      cssClass: &#x27;warningA&#x27;,
+      backdropDismiss: false
+    });
+    alert.present();
+  }
+
+  async errorAlert(error: any) {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;General Error&#x27;,
+      subHeader: error.code || null,
+      backdropDismiss: false,
+      message: error.message,
+      buttons: [&#x27;OK&#x27;],
+      cssClass: &#x27;warningA&#x27;
+    });
+    alert.present();
+  }
+
+  async authErrorAlert(error) {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Authentication Error &#x27; + error.number || &#x27;Authentication Error&#x27;,
+      subHeader: &#x27;Code: &#x27; + error.code || null,
+      message: error.message,
+      backdropDismiss: false,
+      buttons: [&#x27;OK&#x27;],
+      cssClass: &#x27;warningA&#x27;
+    });
+    alert.present();
+  }
+
+  async onPushRequest() {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Xpert Fitness App Messages&#x27;,
+      subHeader: &#x27;Push Notifications&#x27;,
+      message: &#x60;Press &#x27;Okay&#x27; to start receiving push notifications&#x60;,
+      backdropDismiss: false,
+      cssClass: &#x27;infoA&#x27;,
+      buttons: [
+        {
+          text: &#x27;Okay&#x27;,
+          role: &#x27;true&#x27;
+        },
+        {
+          text: &#x27;Cancel&#x27;,
+          role: &#x27;false&#x27;
+        }
+      ]
+    });
+    alert.onDidDismiss().then((data): boolean &#x3D;&gt; {
+      this.pushReqRes &#x3D; !!data;
+      return this.pushReqRes;
+    });
+    alert.present();
+  }
+
+  async resetWelcomeAlert(header: string, message: string) {
+    const alert &#x3D; await this.alertController.create({
+      header,
+      message,
+      backdropDismiss: false,
+      cssClass: &#x27;infoA&#x27;,
+      buttons: [
+        {
+          text: &#x27;Cancel&#x27;,
+          role: &#x27;cancel&#x27;
+        },
+        {
+          text: &#x27;Okay&#x27;,
+          role: &#x27;okay&#x27;
+        }
+      ]
+    });
+    alert.onDidDismiss().then((data) &#x3D;&gt; {
+      this.choice &#x3D; data;
+      return this.choice;
+    });
+    alert.present();
+  }
+
+  async deleteFeedAlert(feedId) {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Delete Post&#x27;,
+      subHeader: feedId,
+      message: &#x27;Are you sure you want to delete this post?&#x27;,
+      cssClass: &#x27;warningA&#x27;,
+      backdropDismiss: false,
+      buttons: [
+        {
+          text: &#x27;Cancel&#x27;,
+          role: &#x27;cancel&#x27;
+        },
+        {
+          text: &#x27;Delete&#x27;,
+          role: &#x27;delete&#x27;
+        }
+      ]
+    });
+    alert.onDidDismiss().then((data) &#x3D;&gt; {
+      this.choice &#x3D; data;
+      return this.choice;
+    });
+    alert.present();
+  }
+
+  async updateOrCancel() {
+    const alert &#x3D; await this.alertController.create({
+      header: &#x27;Update Available?&#x27;,
+      subHeader: &#x27;An update is available by reloading&#x27;,
+      message: &#x27;Press Update to reload the page and apply the new update or press cancel to close.&#x27;,
+      backdropDismiss: false,
+      cssClass: &#x27;infoA&#x27;,
+      buttons: [
+        {
+          text: &#x27;Cancel&#x27;,
+          role: &#x27;cancel&#x27;
+        },
+        {
+          text: &#x27;Update&#x27;,
+          role: &#x27;update&#x27;
+        }
+      ]
+    });
+    alert.onDidDismiss().then((data) &#x3D;&gt; {
+      this.choice &#x3D; data;
+      return this.choice;
+    });
+    alert.present();
+  }
+
+  // prompt alerts for quick tasks
+
+  changeEmailPrompt() {
+    this.alertController
+      .create({
+        header: &#x27;Link Email Address&#x27;,
+        subHeader: &#x27;Enter the email address you want to add to your account&#x27;,
+        message: &#x27;This will not replace your existing email address&#x27;,
+        inputs: [
+          {
+            name: &#x27;Place&#x27;,
+            placeholder: &#x27;fit@xfitness.studio&#x27;
+          }
+        ],
+        buttons: [
+          {
+            text: &#x27;Cancel&#x27;,
+            handler: (data: any) &#x3D;&gt; {
+              console.log(&#x27;Canceled&#x27;, data);
+            }
+          },
+          {
+            text: &#x27;Done!&#x27;,
+            handler: (data: any) &#x3D;&gt; {
+              console.log(&#x27;Saved Information&#x27;, data);
+            }
+          }
+        ]
+      })
+      .then((res) &#x3D;&gt; {
+        res.present();
+      });
+  }
+
+  showConfirm() {
+    this.alertController
+      .create({
+        header: &#x27;Confirm Alert&#x27;,
+        subHeader: &#x27;Beware lets confirm&#x27;,
+        message: &#x27;Are you sure? you want to leave without safty mask?&#x27;,
+        buttons: [
+          {
+            text: &#x27;Never&#x27;,
+            handler: () &#x3D;&gt; {
+              console.log(&#x27;I care about humanity&#x27;);
+            }
+          },
+          {
+            text: &#x27;Not Sure&#x27;,
+            handler: () &#x3D;&gt; {
+              console.log(&#x27;Let me think&#x27;);
+            }
+          },
+          {
+            text: &#x27;Yes!&#x27;,
+            handler: () &#x3D;&gt; {
+              console.log(&#x27;Whatever&#x27;);
+            }
+          }
+        ]
+      })
+      .then((res) &#x3D;&gt; {
+        res.present();
+      });
+  }
+
+  radioPrompt() {
+    this.alertController
+      .create({
+        header: &#x27;Prompt Alert&#x27;,
+        subHeader: &#x27;Size Selection&#x27;,
+        message: &#x27;Select the sutable size for clothing&#x27;,
+        inputs: [
+          {
+            type: &#x27;radio&#x27;,
+            label: &#x27;Extra Small&#x27;,
+            value: &#x27;xs&#x27;
+          },
+          {
+            type: &#x27;radio&#x27;,
+            label: &#x27;Small&#x27;,
+            value: &#x27;s&#x27;
+          },
+          {
+            type: &#x27;radio&#x27;,
+            label: &#x27;Medium&#x27;,
+            value: &#x27;m&#x27;
+          },
+          {
+            type: &#x27;radio&#x27;,
+            label: &#x27;Large&#x27;,
+            value: &#x27;l&#x27;
+          },
+          {
+            type: &#x27;radio&#x27;,
+            label: &#x27;Extra Large&#x27;,
+            value: &#x27;xl&#x27;
+          }
+        ],
+        buttons: [
+          {
+            text: &#x27;Cancel&#x27;,
+            handler: (data: any) &#x3D;&gt; {
+              console.log(&#x27;Canceled&#x27;, data);
+            }
+          },
+          {
+            text: &#x27;Done!&#x27;,
+            handler: (data: any) &#x3D;&gt; {
+              console.log(&#x27;Selected Information&#x27;, data);
+            }
+          }
+        ]
+      })
+      .then((res) &#x3D;&gt; {
+        res.present();
+      });
+  }
+
+  checkboxPrompt() {
+    this.alertController
+      .create({
+        header: &#x27;Prompt Alert&#x27;,
+        subHeader: &#x27;Member Selection&#x27;,
+        message: &#x27;Select family members&#x27;,
+        inputs: [
+          {
+            type: &#x27;checkbox&#x27;,
+            label: &#x27;Self&#x27;,
+            value: &#x27;self&#x27;,
+            checked: true,
+            disabled: true
+          },
+          {
+            type: &#x27;checkbox&#x27;,
+            label: &#x27;Mother&#x27;,
+            value: &#x27;mother&#x27;
+          },
+          {
+            type: &#x27;checkbox&#x27;,
+            label: &#x27;Father&#x27;,
+            value: &#x27;father&#x27;
+          },
+          {
+            type: &#x27;checkbox&#x27;,
+            label: &#x27;Son&#x27;,
+            value: &#x27;son&#x27;
+          },
+          {
+            type: &#x27;checkbox&#x27;,
+            label: &#x27;Daughter&#x27;,
+            value: &#x27;daughter&#x27;
+          }
+        ],
+        buttons: [
+          {
+            text: &#x27;Cancel&#x27;,
+            handler: (data: any) &#x3D;&gt; {
+              console.log(&#x27;Canceled&#x27;, data);
+            }
+          },
+          {
+            text: &#x27;Done!&#x27;,
+            handler: (data: any) &#x3D;&gt; {
+              console.log(&#x27;Selected Information&#x27;, data);
+            }
+          }
+        ]
+      })
+      .then((res) &#x3D;&gt; {
+        res.present();
+      });
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'MessageService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

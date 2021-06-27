@@ -1,0 +1,1212 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expert-fit documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">expert-fit documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>LandingPageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/home/landing-page/landing-page.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-landing-page</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./landing-page.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./landing-page.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#bounceOutUp">bounceOutUp</a>
+                            </li>
+                            <li>
+                                <a href="#content">content</a>
+                            </li>
+                            <li>
+                                <a href="#dataReturned">dataReturned</a>
+                            </li>
+                            <li>
+                                <a href="#flash">flash</a>
+                            </li>
+                            <li>
+                                <a href="#scrolledDown">scrolledDown</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#scrollService">scrollService</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#loadVideo">loadVideo</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onScroll">onScroll</a>
+                            </li>
+                            <li>
+                                <a href="#scrollToLabel">scrollToLabel</a>
+                            </li>
+                            <li>
+                                <a href="#scrollToTop">scrollToTop</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(modalController: ModalController, messageService: <a href="../injectables/MessageService.html">MessageService</a>, scrollService: <a href="../injectables/ScrollService.html">ScrollService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>messageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MessageService.html" target="_self" >MessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>scrollService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ScrollService.html" target="_self" >ScrollService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadVideo"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            loadVideo
+                        </b>
+                        <a href="#loadVideo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadVideo()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onScroll"></a>
+                    <span class="name">
+                        <b>
+                            onScroll
+                        </b>
+                        <a href="#onScroll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onScroll(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:75</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollToLabel"></a>
+                    <span class="name">
+                        <b>
+                            scrollToLabel
+                        </b>
+                        <a href="#scrollToLabel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>scrollToLabel(label)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:70</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>label</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollToTop"></a>
+                    <span class="name">
+                        <b>
+                            scrollToTop
+                        </b>
+                        <a href="#scrollToTop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>scrollToTop()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="bounceOutUp"></a>
+                        <span class="name">
+                            <b>
+                            bounceOutUp</b>
+                            <a href="#bounceOutUp"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="content"></a>
+                        <span class="name">
+                            <b>
+                            content</b>
+                            <a href="#content"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>IonContent</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(IonContent, {static: false})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataReturned"></a>
+                        <span class="name">
+                            <b>
+                            dataReturned</b>
+                            <a href="#dataReturned"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="flash"></a>
+                        <span class="name">
+                            <b>
+                            flash</b>
+                            <a href="#flash"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="scrolledDown"></a>
+                        <span class="name">
+                            <b>
+                            scrolledDown</b>
+                            <a href="#scrolledDown"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="scrollService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            scrollService</b>
+                            <a href="#scrollService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/ScrollService.html" target="_self" >ScrollService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <span class="name">
+                            <b>
+                            title</b>
+                            <a href="#title"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;Home Page&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/home/landing-page/landing-page.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { bounceOutUp, flash } from &#x27;ng-animate&#x27;;
+
+/* eslint-disable @typescript-eslint/member-ordering */
+import { transition, trigger, useAnimation } from &#x27;@angular/animations&#x27;;
+import { Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { IonContent, ModalController } from &#x27;@ionic/angular&#x27;;
+
+import { MessageService } from &#x27;../../services/message.service&#x27;;
+import { ScrollService } from &#x27;../../services/scroll.service&#x27;;
+import { IntroVideoComponent } from &#x27;../intro-video/intro-video.component&#x27;;
+
+@Component({
+  selector: &#x27;app-landing-page&#x27;,
+  templateUrl: &#x27;./landing-page.component.html&#x27;,
+  styleUrls: [&#x27;./landing-page.component.scss&#x27;],
+  animations: [
+    trigger(&#x27;bounceOutUp&#x27;, [
+      transition(
+        &#x27;* &#x3D;&gt; *&#x27;,
+        useAnimation(bounceOutUp, {
+          params: { timing: 2.75, delay: 2.4 }
+        })
+      )
+    ]),
+    trigger(&#x27;flash&#x27;, [
+      transition(
+        &#x27;* &#x3D;&gt; *&#x27;,
+        useAnimation(flash, {
+          params: { timing: 0.66, delay: 3.95 }
+        })
+      )
+    ])
+  ]
+})
+export class LandingPageComponent implements OnInit {
+  title &#x3D; &#x27;Home Page&#x27;;
+  bounceOutUp: any;
+  flash: any;
+  dataReturned;
+  scrolledDown &#x3D; false;
+  @ViewChild(IonContent, { static: false }) content: IonContent;
+
+  constructor(
+    private modalController: ModalController,
+    private messageService: MessageService,
+    public scrollService: ScrollService
+  ) {}
+
+  ngOnInit() {}
+
+  async loadVideo() {
+    const modal &#x3D; await this.modalController.create({
+      component: IntroVideoComponent,
+      cssClass: &#x27;video-css&#x27;,
+      backdropDismiss: true,
+      swipeToClose: true,
+      showBackdrop: true
+    });
+    modal.onWillDismiss().then(() &#x3D;&gt; this.messageService.generalToast(&#x27;Thank you for watching the video&#x27;));
+    modal.present().catch((error) &#x3D;&gt; {
+      this.modalController.dismiss();
+      return this.messageService.errorAlert(error);
+    });
+  }
+
+  scrollToTop() {
+    this.content.scrollToTop(750);
+  }
+
+  scrollToLabel(label) {
+    const section &#x3D; document.getElementById(label);
+    this.content.scrollToPoint(0, section.offsetTop, 750);
+  }
+
+  onScroll(event) {
+    this.scrolledDown &#x3D; event.detail.scrollTop &gt; 700 ? true : false;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content scrollEvents&#x3D;&quot;true&quot; (ionScroll)&#x3D;&quot;onScroll($event)&quot;&gt;
+  &lt;ion-grid class&#x3D;&quot;ion-no-padding&quot;&gt;
+    &lt;ion-row class&#x3D;&quot;scene-one ion-justify-content-center&quot;&gt;
+      &lt;ion-col size-xs&#x3D;&quot;12&quot; size-sm&#x3D;&quot;12&quot; size-md&#x3D;&quot;6&quot; size-lg&#x3D;&quot;4&quot; size-xl&#x3D;&quot;3&quot; class&#x3D;&quot;ion-align-self-center&quot;&gt;
+
+        &lt;ion-row class&#x3D;&quot;ion-text-left ion-hide-sm-up&quot;&gt;
+          &lt;ion-col class&#x3D;&quot;main-logo-div ion-text-center&quot;&gt;
+            &lt;img src&#x3D;&quot;../../../assets/lazy/images/logo.png&quot; class&#x3D;&quot;lifting landing-logo&quot;&gt;
+              &lt;ion-text class&#x3D;&quot;logoText slideIntoPlace&quot;&gt;
+                &lt;h1 class&#x3D;&quot;main-title pert tachyon&quot;&gt;pert&lt;/h1&gt;
+                &lt;h1 class&#x3D;&quot;main-title fitness ion-no-margin tachyon&quot;&gt;Fitness&lt;/h1&gt;
+              &lt;/ion-text&gt;
+          &lt;/ion-col&gt;
+          &lt;/ion-row&gt;
+
+        &lt;ion-row class&#x3D;&quot; ion-text-left ion-hide-sm-down&quot;&gt;
+          &lt;ion-col class&#x3D;&quot;main-logo-div-lg ion-text-center&quot;&gt;
+            &lt;img src&#x3D;&quot;../../../assets/lazy/images/logo.png&quot; class&#x3D;&quot;lifting landing-logo-lg&quot;&gt;
+              &lt;ion-text class&#x3D;&quot;logoText-lg slideIntoPlace&quot;&gt;
+                &lt;h1 class&#x3D;&quot;main-title-lg pert-lg tachyon&quot;&gt;pert&lt;/h1&gt;
+                &lt;h1 class&#x3D;&quot;main-title-lg fitness-lg ion-no-margin tachyon&quot;&gt;Fitness&lt;/h1&gt;
+              &lt;/ion-text&gt;
+          &lt;/ion-col&gt;
+          &lt;/ion-row&gt;
+          &lt;ion-row&gt;
+            &lt;ion-col class&#x3D;&quot;ion-align-self-start ion-text-center ion-no-margin&quot;&gt;
+              &lt;h2&gt;
+                &lt;ion-text color&#x3D;&quot;tertiary&quot; class&#x3D;&quot;main-subtitle&quot;&gt;
+              Train
+              &lt;ion-text color&#x3D;&quot;light&quot;&gt; | &lt;/ion-text&gt;
+              Review
+              &lt;ion-text color&#x3D;&quot;light&quot;&gt; | &lt;/ion-text&gt;
+              Grow
+            &lt;/ion-text&gt;
+          &lt;/h2&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+      &lt;ion-row class&#x3D;&quot;ion-justify-content-center ion-align-items-bottom&quot;&gt;
+        &lt;ion-col class&#x3D;&quot;ion-text-center&quot;&gt;
+          &lt;ion-button [@flash]&#x3D;&quot;flash&quot; size&#x3D;&quot;large&quot; shape&#x3D;&quot;round&quot; class&#x3D;&quot;cta-main&quot; strong routerLink&#x3D;&quot;/pricing&quot;&gt;
+            Start Today
+          &lt;/ion-button&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+
+
+
+      &lt;/ion-col&gt;
+      &lt;ion-fab class&#x3D;&quot;bounceOutDown ion-text-center&quot; horizontal&#x3D;&quot;center&quot; vertical&#x3D;&quot;bottom&quot;&gt;
+        &lt;ion-note color&#x3D;&quot;secondary&quot;&gt; Scroll Down &lt;/ion-note&gt;
+        &lt;br /&gt;
+        &lt;ion-icon
+          size&#x3D;&quot;large&quot;
+          color&#x3D;&quot;secondaryion&quot;
+          button
+          name&#x3D;&quot;chevron-down-sharp&quot;
+          (click)&#x3D;&quot;scrollToLabel(&#x27;pageTwo&#x27;)&quot;
+        &gt;&lt;/ion-icon&gt;
+      &lt;/ion-fab&gt;
+    &lt;/ion-row&gt;
+    &lt;ion-row id&#x3D;&quot;pageTwo&quot; class&#x3D;&quot;page-two ion-margin-vertical&quot;&gt;
+      &lt;ion-col class&#x3D;&quot;ion-align-self-center&quot;&gt;
+        &lt;app-home-page-two&gt;&lt;/app-home-page-two&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+    &lt;ion-row id&#x3D;&quot;pageThree&quot; class&#x3D;&quot;ion-margin-vertical&quot;&gt;
+      &lt;ion-col class&#x3D;&quot;ion-align-self-center&quot;&gt;
+        &lt;app-home-page-three&gt;&lt;/app-home-page-three&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+    &lt;ion-row id&#x3D;&quot;pageFour&quot; class&#x3D;&quot;page-four ion-margin-vertical&quot;&gt;
+      &lt;ion-col class&#x3D;&quot;ion-align-self-center&quot;&gt;
+        &lt;app-home-page-four&gt;&lt;/app-home-page-four&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+    &lt;ion-row class&#x3D;&quot;ratings-banner ion-margin-vertical ion-justify-content-center&quot;&gt;
+      &lt;ion-col class&#x3D;&quot;ion-align-self-center&quot;&gt;
+        &lt;app-ratings routerLink&#x3D;&quot;/reviews&quot;&gt;&lt;/app-ratings&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+  &lt;/ion-grid&gt;
+  &lt;ion-fab slot&#x3D;&quot;fixed&quot; horizontal&#x3D;&quot;end&quot; vertical&#x3D;&quot;bottom&quot;&gt;
+    &lt;ion-fab-button id&#x3D;&quot;up&quot; [hidden]&#x3D;&quot;!scrolledDown&quot; class&#x3D;&quot;up&quot; size&#x3D;&quot;small&quot; (click)&#x3D;&quot;scrollToTop()&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;chevron-up-sharp&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-fab-button&gt;
+  &lt;/ion-fab&gt;
+  &lt;app-footer&gt;&lt;/app-footer&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./landing-page.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.scene-one {
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient( rgba(133, 133, 133, 0.99), 10%, rgba(0, 0, 0, 0.596),rgba(0, 0, 0, 0.473)),
+    url(../../../assets/lazy/images/fitness-balancing.jpg) center/ cover no-repeat;
+}
+
+.main-logo-div {
+  position: relative;
+  left: -30px;
+}
+
+.landing-logo {
+  height: 200px;
+  filter: drop-shadow(0 0 10px var(--ion-color-light-tint));
+}
+
+.main-title {
+  font-weight: 400;
+  font-size: 30px;
+  background-clip: text;
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255), 50%, rgb(0, 10, 121));
+  filter: drop-shadow(-1px 1px 8px 8px var(--ion-color-light-tint));
+  color: transparent;
+}
+
+.fitness {
+  position: relative;
+  left: -100px;
+}
+
+.logoText {
+  position: absolute;
+  top: 41%;
+  text-align: left;
+}
+
+.pert {
+  position: relative;
+  left: -120px;
+}
+
+.logoText-lg {
+  position: absolute;
+  top: 43%;
+  text-align: left;
+}
+
+.pert-lg {
+  position: relative;
+  left: -190px;
+}
+
+.main-logo-div-lg {
+  height: 400px;
+  position: relative;
+  left: -30px;
+}
+
+.landing-logo-lg {
+  height: 400px;
+  filter: drop-shadow(0 0 10px white);
+}
+
+.main-title-lg {
+  font-weight: 400;
+  font-size: 60px;
+  background-clip: text;
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255), 30%, rgb(0, 7, 71));
+  filter: drop-shadow(2px 2px 10px white);
+  color: transparent;
+}
+
+.fitness-lg {
+  position: relative;
+  left: -170px;
+}
+
+.main-subtitle {
+  font: normal small-caps 800 36px Kufam;
+}
+
+.scene-one-card {
+  border-radius: 15px;
+  background: transparent;
+}
+
+.video {
+  cursor: pointer;
+  margin-top: 50px;
+  margin-right: 50px;
+}
+
+.pulsing {
+  animation: 2s ease-in-out 1s infinite alternate pulsar;
+}
+
+@keyframes pulsar {
+  100% {
+    transform: scale(0.85, 0.85);
+    opacity: 60%;
+  }
+}
+
+.page-two {
+  min-height: 95vh;
+  background: linear-gradient(rgba(0, 3, 37, 0.767), rgba(0, 0, 0, 0.767)),
+    url(../../../assets/lazy/images/upward-dog-pose.jpg) center left / cover no-repeat;
+}
+
+#pageThree {
+  min-height: 95vh;
+  background: linear-gradient(
+      to bottom left,
+      rgba(0, 0, 0, 0.658) 0%,
+      rgba(7, 9, 17, 0.822) 33%,
+      rgba(47, 67, 110, 0.615) 66%,
+      rgba(30, 40, 56, 0.629) 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(5, 2, 2, 0.453) 0%,
+      rgba(148, 85, 85, 0.123) 33%,
+      rgba(105, 79, 79, 0.415) 66%,
+      rgba(46, 31, 31, 0.229) 100%
+    ),
+    center / cover url(../../../assets/lazy/images/smiling-workout.jpg);
+}
+
+.page-four {
+  min-height: 95vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.808), rgba(71, 71, 71, 0.445)),
+    center/ cover no-repeat url(../../../assets/lazy/images/platinum.png);
+}
+
+.up {
+  ion-icon {
+    color: var(--ion-color-warning-tint);
+  }
+  margin-right: 10px;
+  --background: transparent;
+  --border-color: var(--ion-color-warning);
+  --border-width: 2px;
+  --border-style: solid;
+  --ripple-color: var(--ion-color-warning);
+  --background-hover: white;
+  --background-hover-opacity: 0.3;
+  --background-focused: white;
+  --background-focused-opacity: 0.3;
+  --background-activated: var(--ion-color-secondary-tint);
+  --background-activated-opacity: 0.5;
+  --box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05), 0px 6px 6px rgba(0, 0, 0, 0.1), 0px 8px 8px rgba(0, 0, 0, 0.05),
+    0px 10px 15px rgba(0, 0, 0, 0.03), 0px 30px 30px rgba(0, 0, 0, 0.15), 0px 70px 60px rgba(0, 0, 0, 0.15);
+}
+
+.ratings-banner {
+  background: linear-gradient(rgba(0, 3, 19, 0.8), rgba(3, 0, 17, 0.8), rgba(0, 3, 27, 0.8)),
+    repeating-conic-gradient(
+      from 3deg at 50% 50%,
+      var(--ion-color-primary-shade),
+      var(--ion-color-primary-tint) 2deg 5deg,
+      var(--ion-color-dark-tint),
+      var(--ion-color-warning-shade) 15deg 18deg,
+      var(--ion-color-primary-tint) 20deg
+    );
+}
+
+.lifting {
+  animation: 2s ease-in-out 2s 2 lift;
+  z-index: 99;
+}
+
+
+@keyframes lift {
+  50% {
+    transform: scaleY(50%) translateY(200px);
+  }
+}
+
+.slideIntoPlace {
+  animation: 1.2s ease-in 5s 1 forwards slide;
+  z-index: 99;
+  transform: translateX(1000px);
+}
+
+@keyframes slide {
+
+  85% {
+    transform: translateX(0px);
+  }
+  90% {
+    transform: skew(23deg);
+  }
+  95% {
+    transform: skew(-18deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content scrollEvents="true" (ionScroll)="onScroll($event)">  <ion-grid class="ion-no-padding">    <ion-row class="scene-one ion-justify-content-center">      <ion-col size-xs="12" size-sm="12" size-md="6" size-lg="4" size-xl="3" class="ion-align-self-center">        <ion-row class="ion-text-left ion-hide-sm-up">          <ion-col class="main-logo-div ion-text-center">            <img src="../../../assets/lazy/images/logo.png" class="lifting landing-logo">              <ion-text class="logoText slideIntoPlace">                <h1 class="main-title pert tachyon">pert</h1>                <h1 class="main-title fitness ion-no-margin tachyon">Fitness</h1>              </ion-text>          </ion-col>          </ion-row>        <ion-row class=" ion-text-left ion-hide-sm-down">          <ion-col class="main-logo-div-lg ion-text-center">            <img src="../../../assets/lazy/images/logo.png" class="lifting landing-logo-lg">              <ion-text class="logoText-lg slideIntoPlace">                <h1 class="main-title-lg pert-lg tachyon">pert</h1>                <h1 class="main-title-lg fitness-lg ion-no-margin tachyon">Fitness</h1>              </ion-text>          </ion-col>          </ion-row>          <ion-row>            <ion-col class="ion-align-self-start ion-text-center ion-no-margin">              <h2>                <ion-text color="tertiary" class="main-subtitle">              Train              <ion-text color="light"> | </ion-text>              Review              <ion-text color="light"> | </ion-text>              Grow            </ion-text>          </h2>        </ion-col>      </ion-row>      <ion-row class="ion-justify-content-center ion-align-items-bottom">        <ion-col class="ion-text-center">          <ion-button [@flash]="flash" size="large" shape="round" class="cta-main" strong routerLink="/pricing">            Start Today          </ion-button>        </ion-col>      </ion-row>      </ion-col>      <ion-fab class="bounceOutDown ion-text-center" horizontal="center" vertical="bottom">        <ion-note color="secondary"> Scroll Down </ion-note>        <br />        <ion-icon          size="large"          color="secondaryion"          button          name="chevron-down-sharp"          (click)="scrollToLabel(\'pageTwo\')"        ></ion-icon>      </ion-fab>    </ion-row>    <ion-row id="pageTwo" class="page-two ion-margin-vertical">      <ion-col class="ion-align-self-center">        <app-home-page-two></app-home-page-two>      </ion-col>    </ion-row>    <ion-row id="pageThree" class="ion-margin-vertical">      <ion-col class="ion-align-self-center">        <app-home-page-three></app-home-page-three>      </ion-col>    </ion-row>    <ion-row id="pageFour" class="page-four ion-margin-vertical">      <ion-col class="ion-align-self-center">        <app-home-page-four></app-home-page-four>      </ion-col>    </ion-row>    <ion-row class="ratings-banner ion-margin-vertical ion-justify-content-center">      <ion-col class="ion-align-self-center">        <app-ratings routerLink="/reviews"></app-ratings>      </ion-col>    </ion-row>  </ion-grid>  <ion-fab slot="fixed" horizontal="end" vertical="bottom">    <ion-fab-button id="up" [hidden]="!scrolledDown" class="up" size="small" (click)="scrollToTop()">      <ion-icon name="chevron-up-sharp"></ion-icon>    </ion-fab-button>  </ion-fab>  <app-footer></app-footer></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitsTrackerComponent', 'selector': 'app-benefits-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CartviewComponent', 'selector': 'app-cartview'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ChoicesPage', 'selector': 'app-choices'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'FacilityPage', 'selector': 'app-facility'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageFourComponent', 'selector': 'app-home-page-four'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'IntroVideoComponent', 'selector': 'app-intro-video'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LineChartComponent', 'selector': 'app-line-chart'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'ModalViewPage', 'selector': 'app-modal-view'},{'name': 'NewReviewComponent', 'selector': 'app-new-review'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NewsFormComponent', 'selector': 'app-news-form'},{'name': 'NutritionPage', 'selector': 'app-nutrition'},{'name': 'PhoneAuthComponent', 'selector': 'app-phone-auth'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SafetyPage', 'selector': 'app-safety'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StudentCreatePage', 'selector': 'app-student-create'},{'name': 'StudentDetailPage', 'selector': 'app-student-detail'},{'name': 'StudentEditPage', 'selector': 'app-student-edit'},{'name': 'StudentListPage', 'selector': 'app-student-list'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserDashboardComponent', 'selector': 'app-user-dashboard'},{'name': 'UserPage', 'selector': 'app-user'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WebrtcComponent', 'selector': 'app-webrtc'}];
+    var DIRECTIVES = [{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
+    var ACTUAL_COMPONENT = {'name': 'LandingPageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LandingPageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,721 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expert-fit documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">expert-fit documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>PhoneAuthComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/phone-auth/phone-auth.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-phone-auth</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./phone-auth.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./phone-auth.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#confirmationResult">confirmationResult</a>
+                            </li>
+                            <li>
+                                <a href="#otpSent">otpSent</a>
+                            </li>
+                            <li>
+                                <a href="#phoneNumber">phoneNumber</a>
+                            </li>
+                            <li>
+                                <a href="#recaptchaVerifier">recaptchaVerifier</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dismissModal">dismissModal</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#sendOTP">sendOTP</a>
+                            </li>
+                            <li>
+                                <a href="#verifyOTP">verifyOTP</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, modalController: ModalController)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/shared/phone-auth/phone-auth.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dismissModal"></a>
+                    <span class="name">
+                        <b>
+                            dismissModal
+                        </b>
+                        <a href="#dismissModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dismissModal()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/shared/phone-auth/phone-auth.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/shared/phone-auth/phone-auth.component.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendOTP"></a>
+                    <span class="name">
+                        <b>
+                            sendOTP
+                        </b>
+                        <a href="#sendOTP"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sendOTP()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/shared/phone-auth/phone-auth.component.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="verifyOTP"></a>
+                    <span class="name">
+                        <b>
+                            verifyOTP
+                        </b>
+                        <a href="#verifyOTP"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>verifyOTP()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/shared/phone-auth/phone-auth.component.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="confirmationResult"></a>
+                        <span class="name">
+                            <b>
+                            confirmationResult</b>
+                            <a href="#confirmationResult"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>firebase.default.auth.ConfirmationResult</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/shared/phone-auth/phone-auth.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="otpSent"></a>
+                        <span class="name">
+                            <b>
+                            otpSent</b>
+                            <a href="#otpSent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shared/phone-auth/phone-auth.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="phoneNumber"></a>
+                        <span class="name">
+                            <b>
+                            phoneNumber</b>
+                            <a href="#phoneNumber"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/shared/phone-auth/phone-auth.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="recaptchaVerifier"></a>
+                        <span class="name">
+                            <b>
+                            recaptchaVerifier</b>
+                            <a href="#recaptchaVerifier"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/phone-auth/phone-auth.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import &#x27;firebase/auth&#x27;;
+
+import * as firebase from &#x27;firebase/app&#x27;;
+
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+
+@Component({
+  selector: &#x27;app-phone-auth&#x27;,
+  templateUrl: &#x27;./phone-auth.component.html&#x27;,
+  styleUrls: [&#x27;./phone-auth.component.scss&#x27;]
+})
+export class PhoneAuthComponent implements OnInit {
+  otpSent &#x3D; false; //OTP sent status
+  recaptchaVerifier;
+  confirmationResult: firebase.default.auth.ConfirmationResult;
+
+  phoneNumber: string; //set value after OTP is sent
+
+  constructor(private router: Router, private modalController: ModalController) {}
+
+  ngOnInit() {
+    this.recaptchaVerifier &#x3D; new firebase.default.auth.RecaptchaVerifier(&#x27;recaptcha-container&#x27;, { size: &#x27;invisible&#x27; });
+  }
+
+  sendOTP() {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const phNo &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&#x27;phoneNumber&#x27;)).value;
+
+    firebase.default
+      .auth()
+      .signInWithPhoneNumber(phNo, this.recaptchaVerifier)
+      .then((result) &#x3D;&gt; {
+        this.phoneNumber &#x3D; phNo;
+        this.otpSent &#x3D; true;
+        this.confirmationResult &#x3D; result;
+      })
+      .catch((err) &#x3D;&gt; {
+        alert(err);
+      });
+  }
+
+  verifyOTP() {
+    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+    const otp &#x3D; (&lt;HTMLInputElement&gt;document.getElementById(&#x27;otp&#x27;)).value;
+
+    this.confirmationResult
+      .confirm(otp)
+      .then((data) &#x3D;&gt; {
+        alert(&#x27;Success&#x27;);
+      })
+      .catch((err) &#x3D;&gt; {
+        alert(err);
+      });
+  }
+
+  dismissModal() {
+    this.modalController.dismiss().then(() &#x3D;&gt; {
+      this.router.navigateByUrl(&#x27;/home&#x27;);
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-card color&#x3D;&quot;medium&quot; class&#x3D;&quot;ion-text-center ion-card-global ion-no-margin ion-no-padding&quot; style&#x3D;&quot;height: 100%&quot;&gt;
+  &lt;ion-fab horizontal&#x3D;&quot;end&quot; vertical&#x3D;&quot;top&quot;&gt;
+    &lt;ion-icon color&#x3D;&quot;warning&quot; size&#x3D;&quot;large&quot; name&#x3D;&quot;close&quot; (click)&#x3D;&quot;dismissModal()&quot;&gt;&lt;/ion-icon&gt;
+  &lt;/ion-fab&gt;
+  &lt;ion-card-header&gt;
+    &lt;ion-card-title&gt;Phone Authentication&lt;/ion-card-title&gt;
+  &lt;/ion-card-header&gt;
+  &lt;ion-card-content class&#x3D;&quot;ion-no-margin ion-no-padding&quot;&gt;
+    &lt;ng-container id&#x3D;&quot;recapta-container&quot; style&#x3D;&quot;display: none&quot;&gt;&lt;/ng-container&gt;
+
+    &lt;ng-container *ngIf&#x3D;&quot;!otpSent&quot;&gt;
+      &lt;ion-note style&#x3D;&quot;font-weight: bold; font-size: medium&quot;&gt; Enter phone number you want to verify &lt;/ion-note&gt;
+      &lt;ion-item&gt;
+        &lt;ion-label position&#x3D;&quot;floating&quot;&gt;Phone Number&lt;/ion-label&gt;
+        &lt;ion-input id&#x3D;&quot;phoneNumber&quot;&gt;&lt;/ion-input&gt;
+      &lt;/ion-item&gt;
+      &lt;ion-button (click)&#x3D;&quot;sendOTP()&quot; style&#x3D;&quot;float: right; margin-top: 30px&quot;&gt; Send OTP &lt;/ion-button&gt;
+    &lt;/ng-container&gt;
+
+    &lt;ng-container *ngIf&#x3D;&quot;otpSent&quot;&gt;
+      &lt;ion-note style&#x3D;&quot;font-weight: bold; font-size: medium&quot;&gt; Enter OTP sent to {{ phoneNumber }} &lt;/ion-note&gt;
+      &lt;ion-item&gt;
+        &lt;ion-label position&#x3D;&quot;floating&quot;&gt;6 Digit OTP&lt;/ion-label&gt;
+        &lt;ion-input id&#x3D;&quot;otp&quot;&gt;&lt;/ion-input&gt;
+      &lt;/ion-item&gt;
+      &lt;ion-button (click)&#x3D;&quot;verifyOTP()&quot; style&#x3D;&quot;float: right; margin-top: 30px&quot;&gt; Verify OTP &lt;/ion-button&gt;
+    &lt;/ng-container&gt;
+  &lt;/ion-card-content&gt;
+&lt;/ion-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./phone-auth.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-card color="medium" class="ion-text-center ion-card-global ion-no-margin ion-no-padding" style="height: 100%">  <ion-fab horizontal="end" vertical="top">    <ion-icon color="warning" size="large" name="close" (click)="dismissModal()"></ion-icon>  </ion-fab>  <ion-card-header>    <ion-card-title>Phone Authentication</ion-card-title>  </ion-card-header>  <ion-card-content class="ion-no-margin ion-no-padding">    <ng-container id="recapta-container" style="display: none"></ng-container>    <ng-container *ngIf="!otpSent">      <ion-note style="font-weight: bold; font-size: medium"> Enter phone number you want to verify </ion-note>      <ion-item>        <ion-label position="floating">Phone Number</ion-label>        <ion-input id="phoneNumber"></ion-input>      </ion-item>      <ion-button (click)="sendOTP()" style="float: right; margin-top: 30px"> Send OTP </ion-button>    </ng-container>    <ng-container *ngIf="otpSent">      <ion-note style="font-weight: bold; font-size: medium"> Enter OTP sent to {{ phoneNumber }} </ion-note>      <ion-item>        <ion-label position="floating">6 Digit OTP</ion-label>        <ion-input id="otp"></ion-input>      </ion-item>      <ion-button (click)="verifyOTP()" style="float: right; margin-top: 30px"> Verify OTP </ion-button>    </ng-container>  </ion-card-content></ion-card></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitsTrackerComponent', 'selector': 'app-benefits-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CartviewComponent', 'selector': 'app-cartview'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ChoicesPage', 'selector': 'app-choices'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'FacilityPage', 'selector': 'app-facility'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageFourComponent', 'selector': 'app-home-page-four'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'IntroVideoComponent', 'selector': 'app-intro-video'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LineChartComponent', 'selector': 'app-line-chart'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'ModalViewPage', 'selector': 'app-modal-view'},{'name': 'NewReviewComponent', 'selector': 'app-new-review'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NewsFormComponent', 'selector': 'app-news-form'},{'name': 'NutritionPage', 'selector': 'app-nutrition'},{'name': 'PhoneAuthComponent', 'selector': 'app-phone-auth'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SafetyPage', 'selector': 'app-safety'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StudentCreatePage', 'selector': 'app-student-create'},{'name': 'StudentDetailPage', 'selector': 'app-student-detail'},{'name': 'StudentEditPage', 'selector': 'app-student-edit'},{'name': 'StudentListPage', 'selector': 'app-student-list'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserDashboardComponent', 'selector': 'app-user-dashboard'},{'name': 'UserPage', 'selector': 'app-user'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WebrtcComponent', 'selector': 'app-webrtc'}];
+    var DIRECTIVES = [{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
+    var ACTUAL_COMPONENT = {'name': 'PhoneAuthComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PhoneAuthComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

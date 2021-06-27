@@ -1,7 +1,7 @@
 import { Subscription } from 'rxjs';
 
 import { Location } from '@angular/common';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, AfterViewInit, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -17,8 +17,9 @@ import { ScrollService } from './services/scroll.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() choice;
+  darkSetting;
 
   subs: Subscription = new Subscription();
 
@@ -118,6 +119,13 @@ export class AppComponent implements OnInit, OnDestroy {
       .then((alert) => {
         alert.present();
       });
+  }
+
+  ngAfterViewInit() {
+    this.darkSetting = window.matchMedia('(prefers-color-scheme: dark)');
+    if (this.darkSetting.matches === true) {
+      document.body.classList.toggle('dark');
+    }
   }
 
   clear() {

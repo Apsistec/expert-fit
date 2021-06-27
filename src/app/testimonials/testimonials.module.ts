@@ -10,7 +10,15 @@ import { TestimonialsPageRoutingModule } from './testimonials-routing.module';
 import { TestimonialsPage } from './testimonials.page';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, NgScrollbarModule, ReactiveFormsModule, IonicModule, TestimonialsPageRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgScrollbarModule,
+    ReactiveFormsModule,
+    IonicModule,
+    TestimonialsPageRoutingModule,
+    SharedModule
+  ],
   declarations: [TestimonialsPage],
   providers: []
 })

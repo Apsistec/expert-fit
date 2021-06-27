@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserPage } from './user.page';
+import { WebrtcComponent } from './webrtc/webrtc.component';
 
 const routes: Routes = [
   {
@@ -10,21 +11,25 @@ const routes: Routes = [
     component: UserPage,
     children: [
       {
-        path: '',
-        redirectTo: '/user/dashboard',
-        pathMatch: 'full'
+        path: 'dashboard',
+        component: UserDashboardComponent
       },
       {
-        path: 'dashboard',
-        component: CustomerDashboardComponent
+        path: 'webrtc',
+        component: WebrtcComponent
       },
       {
         path: 'gallery',
         loadChildren: () => import('./gallery/gallery.module').then((m) => m.GalleryPageModule)
-      }
+      },
+      {
+        path: '',
+        redirectTo: '/user/dashboard',
+        pathMatch: 'full'
+      },
     ]
   }
-];
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

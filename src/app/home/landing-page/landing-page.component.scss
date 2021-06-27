@@ -1,15 +1,8 @@
 .scene-one {
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(
-      to bottom left,
-      rgba(0, 24, 90, 0.2) 0%,
-      rgba(20, 0, 109, 0.2) 50%,
-      rgba(0, 24, 90, 0.2) 100%
-    ),
-    linear-gradient(to bottom right, rgba(38, 48, 75, 0.623), rgba(255, 255, 255, 0.247), rgba(28, 44, 87, 0.61)),
+  background: radial-gradient( rgba(133, 133, 133, 0.99), 10%, rgba(0, 0, 0, 0.596),rgba(0, 0, 0, 0.473)),
     url(../../../assets/lazy/images/fitness-balancing.jpg) center/ cover no-repeat;
-  background-color: var(--ion-color-medium);
 }
 
 .main-logo-div {
@@ -26,8 +19,8 @@
   font-weight: 400;
   font-size: 30px;
   background-clip: text;
-  background-image: linear-gradient(to bottom, rgb(255, 255, 255), 50%, rgb(0, 4, 37));
-  filter: drop-shadow(1px 1px 3px var(--ion-color-light-tint));
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255), 50%, rgb(0, 10, 121));
+  filter: drop-shadow(-1px 1px 8px 8px var(--ion-color-light-tint));
   color: transparent;
 }
 
@@ -71,10 +64,10 @@
 
 .main-title-lg {
   font-weight: 400;
-  font-size: 50px;
+  font-size: 60px;
   background-clip: text;
-  background-image: linear-gradient(to bottom, rgb(255, 255, 255), 30%, rgb(3, 9, 59));
-  filter: drop-shadow(1px 1px 5px white);
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255), 30%, rgb(0, 7, 71));
+  filter: drop-shadow(2px 2px 10px white);
   color: transparent;
 }
 
@@ -177,21 +170,31 @@
   z-index: 99;
 }
 
+
 @keyframes lift {
   50% {
-    transform: scaleY(50%);
+    transform: scaleY(50%) translateY(200px);
   }
 }
 
 .slideIntoPlace {
-  animation: 5s ease-in 0.8s 1 slide;
+  animation: 1.2s ease-in 5s 1 forwards slide;
   z-index: 99;
+  transform: translateX(1000px);
 }
 
 @keyframes slide {
-  0% {
-    transform: translateX(1000px);
+
+  85% {
+    transform: translateX(0px);
+  }
+  90% {
+    transform: skew(23deg);
+  }
+  95% {
+    transform: skew(-18deg);
   }
   100% {
+    transform: skew(0deg);
   }
 }

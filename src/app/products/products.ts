@@ -57,8 +57,8 @@ export const Services = [
         unit_amount: '7500'
       }
     ]
-  },
-]
+  }
+];
 
 export const Analysis = [
   {
@@ -76,8 +76,8 @@ export const Analysis = [
         unit_amount: '5000'
       }
     ]
-  },
-]
+  }
+];
 
 export const Items = [
   {
@@ -119,6 +119,4 @@ export const Items = [
     name: 'Yoga mat',
     prices: [{ id: 'price_1IUvr8KgDdcItEX8OGbRQxdl', interval: '', type: 'one_time', unit_amount: '3000' }]
   }
-]
-
-
+];

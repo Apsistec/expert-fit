@@ -10,8 +10,9 @@ if (environment.production) {
 }
 
 /* Normal Mode */
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(error => console.error(error));
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((error) => console.error(error));
 
 /* Debug Mode */
 // platformBrowserDynamic()

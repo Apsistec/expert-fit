@@ -1,5 +1,3 @@
-
-
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -15,12 +13,12 @@ export class FaqService {
 
   getFaqs() {
     return this.db
-      
-     .collection<FAQ>('faqs')
-      
-     .valueChanges()
-       .subscribe((faqs) => {
-         this.faqs = faqs;
-       });
+
+      .collection<FAQ>('faqs')
+
+      .valueChanges()
+      .subscribe((faqs) => {
+        this.faqs = faqs;
+      });
   }
 }

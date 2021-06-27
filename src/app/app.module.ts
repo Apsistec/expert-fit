@@ -1,4 +1,4 @@
-import { QuicklinkModule } from 'ngx-quicklink';
+// import { QuicklinkModule } from 'ngx-quicklink';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
 import { DatePipe } from '@angular/common';
@@ -47,14 +47,14 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     AngularFireAuthModule,
     AngularFireFunctionsModule,
     AngularFireStorageModule,
-    AngularFirestoreModule.enablePersistence({synchronizeTabs: true}),
+    AngularFirestoreModule.enablePersistence({ synchronizeTabs: true }),
     AngularFireAnalyticsModule,
     AngularFireMessagingModule,
     AppRoutingModule,
-    QuicklinkModule,
+    // QuicklinkModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [
     DatePipe,

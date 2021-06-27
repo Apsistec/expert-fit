@@ -1,0 +1,1108 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expert-fit documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">expert-fit documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ProductsPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/products/products.page.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-products</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./products.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./products.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#iOptions">iOptions</a>
+                            </li>
+                            <li>
+                                <a href="#items">items</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#modal">modal</a>
+                            </li>
+                            <li>
+                                <a href="#prices">prices</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addToCart">addToCart</a>
+                            </li>
+                            <li>
+                                <a href="#goToCart">goToCart</a>
+                            </li>
+                            <li>
+                                <a href="#loadProductsbyCategory">loadProductsbyCategory</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#reloadProducts">reloadProducts</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(db: AngularFirestore, modal: ModalController)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/products/products.page.ts:28</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>db</td>
+                                                  
+                                                        <td>
+                                                                    <code>AngularFirestore</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modal</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addToCart"></a>
+                    <span class="name">
+                        <b>
+                            addToCart
+                        </b>
+                        <a href="#addToCart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addToCart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/app/products/products.page.ts:99</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToCart"></a>
+                    <span class="name">
+                        <b>
+                            goToCart
+                        </b>
+                        <a href="#goToCart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToCart()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/app/products/products.page.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadProductsbyCategory"></a>
+                    <span class="name">
+                        <b>
+                            loadProductsbyCategory
+                        </b>
+                        <a href="#loadProductsbyCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadProductsbyCategory(category: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/app/products/products.page.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>category</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Product.html" target="_self" >Observable&lt;Product[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/products/products.page.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reloadProducts"></a>
+                    <span class="name">
+                        <b>
+                            reloadProducts
+                        </b>
+                        <a href="#reloadProducts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>reloadProducts()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/products/products.page.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="iOptions"></a>
+                        <span class="name">
+                            <b>
+                            iOptions</b>
+                            <a href="#iOptions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/products/products.page.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="items"></a>
+                        <span class="name">
+                            <b>
+                            items</b>
+                            <a href="#items"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Product.html" target="_self" >Observable&lt;Product[]&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/products/products.page.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modal"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            modal</b>
+                            <a href="#modal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>ModalController</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/products/products.page.ts:34</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="prices"></a>
+                        <span class="name">
+                            <b>
+                            prices</b>
+                            <a href="#prices"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/products/products.page.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &#x27;rxjs&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+
+import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { AngularFirestore } from &#x27;@angular/fire/firestore&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+
+import { Price } from &#x27;../models/price.model&#x27;;
+import { Product } from &#x27;../models/product.model&#x27;;
+// import { ProductService } from &#x27;../services/product.service&#x27;;
+import { convertSnaps } from &#x27;../services/db-utils&#x27;;
+import { dataTool } from &#x27;echarts/core&#x27;;
+// declare var stripe;
+
+// stripe.Sripe
+
+@Component({
+  selector: &#x27;app-products&#x27;,
+  templateUrl: &#x27;./products.page.html&#x27;,
+  styleUrls: [&#x27;./products.page.scss&#x27;]
+})
+export class ProductsPage implements OnInit {
+  iOptions: any;
+
+  // @Input()
+  items: Observable&lt;Product[]&gt;;
+  // @Input()
+  prices; //: Observable&lt;Price[]&gt;;
+  // services: Observable&lt;Product[]&gt;;
+  // analysis: Observable&lt;Product[]&gt;;
+  // servicesPrices: Observable&lt;Price[]&gt;;
+  // analysisPrices: Observable&lt;Price[]&gt;;
+
+  constructor(private db: AngularFirestore, public modal: ModalController) {}
+
+  async ngOnInit() {
+    this.iOptions &#x3D; {
+      header: &#x27;Available Pricing&#x27;,
+      subHeader: &#x27;Select One&#x27;,
+      cssClass: &#x27;selectOptions&#x27;
+    };
+
+    this.reloadProducts();
+  }
+
+  reloadProducts() {
+    this.items &#x3D; this.loadProductsbyCategory(&#x27;item&#x27;);
+    // this.productService.loadPricesbyCategory(&#x27;item&#x27;, product.id);
+    // this.productService.loadPricesbyCategory(&#x27;item&#x27;, this.items).pipe
+    // console.log(&#x27;items: &#x27;, this.items);
+    console.log(&#x27;items2: &#x27;, this.items);
+    console.log(&#x27;items$2: &#x27;, this.prices);
+    // this.services &#x3D; this.loadProductsbyCategory(&#x27;service&#x27;);
+    // this.analysis &#x3D; this.loadProductsbyCategory(&#x27;analysis&#x27;);
+    // this.servicesPrices$ &#x3D; this.loadPricesbyProduct(this.services$)
+    // this.analysisPrices$ &#x3D; this.loadPricesbyProduct(this.analysis$)
+  }
+
+  loadProductsbyCategory(category: string): Observable&lt;Product[]&gt; {
+    return this.db
+      .collection&lt;Product&gt;(&#x27;products&#x27;, (ref) &#x3D;&gt;
+        ref.where(&#x27;active&#x27;, &#x27;&#x3D;&#x3D;&#x27;, true).where(&#x27;stripe_metadata_productType&#x27;, &#x27;&#x3D;&#x3D;&#x27;, category)
+      )
+      .get()
+      .pipe(
+        map((products) &#x3D;&gt;
+          products.docs.map((product) &#x3D;&gt; {
+            const id &#x3D; product.id;
+            const data &#x3D; product.data();
+            const items &#x3D; { id, ...data };
+            console.log(&#x27;items: &#x27;, this.items);
+            product.ref.collection(&#x27;prices&#x27;).onSnapshot(
+              (result) &#x3D;&gt;
+                result.forEach((r) &#x3D;&gt; {
+                  // const id &#x3D; r.id;
+                  // const data &#x3D; r.data();
+                  // this.price[id] &#x3D; ...data ;
+                  this.prices &#x3D; [{ id: r.id, data: r.data() }];
+                  console.log(&#x27;items$: &#x27;, this.prices);
+                })
+
+              // result.docs.map((prices) &#x3D;&gt; {
+              //   const id &#x3D; prices.id;
+              //   const data &#x3D; prices.data();
+              //   this.price &#x3D; { id, ...(&lt;any&gt;data) };
+              //   return this.price;
+              // }
+            );
+            return items;
+          })
+        )
+      );
+  }
+
+  //       )
+  //     );
+  // }
+
+  addToCart() {}
+
+  goToCart() {}
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content class&#x3D;&quot;content&quot;&gt;
+  &lt;!-- &lt;div class&#x3D;&quot;main-content&quot;&gt; --&gt;
+  &lt;ion-grid class&#x3D;&quot;ion-no-padding ion-padding-vertical main-content&quot;&gt;
+    &lt;ion-row class&#x3D;&quot;ion-justify-content-center ion-margin-vertical&quot;&gt;
+      &lt;ion-col size&#x3D;&quot;12&quot;&gt;
+        &lt;ion-card color&#x3D;&quot;dark&quot; class&#x3D;&quot;toolbar-card ion-text-center&quot;&gt;
+          &lt;ion-card-header&gt;
+            &lt;ion-card-title class&#x3D;&quot;title&quot;&gt; Xpert Fitness Pricing &lt;/ion-card-title&gt;
+            &lt;ion-card-subtitle class&#x3D;&quot;subtitle&quot;&gt;
+              &lt;ion-text color&#x3D;&quot;warning&quot;&gt; 1. Login/Register &lt;/ion-text&gt;
+              &lt;br /&gt;
+              &lt;ion-text color&#x3D;&quot;warning&quot;&gt; 2. Select Price for an Item&lt;/ion-text&gt;
+              &lt;br /&gt;
+              &lt;ion-text color&#x3D;&quot;warning&quot;&gt; 3. Click &quot;Add To Cart&quot; &lt;/ion-text&gt;
+              &lt;br /&gt;
+              &lt;ion-text color&#x3D;&quot;warning&quot;&gt;
+                4. To Checkout, click on cart (&lt;ion-icon
+                  style&#x3D;&quot;position: relative; bottom: 0&quot;
+                  size&#x3D;&quot;large&quot;
+                  name&#x3D;&quot;cart-sharp&quot;
+                  color&#x3D;&quot;light&quot;
+                &gt;&lt;/ion-icon
+                &gt;)
+              &lt;/ion-text&gt;
+            &lt;/ion-card-subtitle&gt;
+          &lt;/ion-card-header&gt;
+        &lt;/ion-card&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+
+    &lt;ion-fab class&#x3D;&quot;fav&quot; horizontal&#x3D;&quot;end&quot; vertical&#x3D;&quot;top&quot;&gt;
+      &lt;ion-fab-button class&#x3D;&quot;fab&quot; (click)&#x3D;&quot;goToCart()&quot;&gt;
+        &lt;ion-icon name&#x3D;&quot;cart-sharp&quot; size&#x3D;&quot;large&quot;&gt; &lt;/ion-icon&gt;
+        &lt;ion-badge color&#x3D;&quot;success&quot;&gt;11&lt;/ion-badge&gt;
+      &lt;/ion-fab-button&gt;
+    &lt;/ion-fab&gt;
+
+
+      &lt;!-- &lt;ion-card class&#x3D;&quot;category-card ion-padding-vertical ion-margin-vertical ion-no-margin&quot;&gt;
+        &lt;ion-toolbar class&#x3D;&quot;ion-text-center&quot;&gt;
+          &lt;ion-text class&#x3D;&quot;section-headers&quot;&gt; Fitness Training Options &lt;/ion-text&gt;
+        &lt;/ion-toolbar&gt;
+
+        &lt;ion-row class&#x3D;&quot;ion-justify-content-around category-row &quot;&gt;
+          &lt;ion-col
+            size-sm&#x3D;&quot;12&quot;
+            size-xs&#x3D;&quot;12&quot;
+            size-xl&#x3D;&quot;3&quot;
+            size-lg&#x3D;&quot;6&quot;
+            size-md&#x3D;&quot;8&quot;
+            class&#x3D;&quot;product-col ion-align-self-stretch ion-margin ion-text-center&quot;
+            *ngFor&#x3D;&quot;let product of services&quot;
+          &gt;
+            &lt;ion-card class&#x3D;&quot;product-card &quot;&gt;
+              &lt;ion-card-header class&#x3D;&quot;product-card-header&quot;&gt;
+                &lt;ion-card-title&gt;
+                  &lt;ion-label color&#x3D;&quot;warning&quot;&gt; {{ product.name }} &lt;/ion-label&gt;
+                &lt;/ion-card-title&gt;
+              &lt;/ion-card-header&gt;
+              &lt;ion-img [src]&#x3D;&quot;product.images[0]&quot; class&#x3D;&quot;product-image&quot;&gt;&lt;/ion-img&gt;
+              &lt;ion-grid&gt;
+                &lt;ion-row&gt;
+                  &lt;ion-col class&#x3D;&quot;ion-align-items-end ion-padding ion-text-left&quot;&gt;
+                    &lt;ion-text style&#x3D;&quot;color: var(--ion-text-color); font-size: large&quot;&gt;
+                      {{ product.description }}
+                    &lt;/ion-text&gt;
+                  &lt;/ion-col&gt;
+                &lt;/ion-row&gt;
+                &lt;ion-row&gt;
+                  &lt;ion-col class&#x3D;&quot;ion-align-items-stretch ion-padding&quot;&gt;
+                    &lt;ion-item lines&#x3D;&quot;none&quot; class&#x3D;&quot;price-item ion-margin-vertical&quot;&gt;
+                      &lt;ion-label&gt;Price&lt;/ion-label&gt;
+                      &lt;ion-select placeholder&#x3D;&quot;Select&quot; [interfaceOptions]&#x3D;&quot;iOptions&quot; interface&#x3D;&quot;popover&quot;&gt;
+                        &lt;ion-select-option
+                          class&#x3D;&quot;iso&quot;
+                          [value]&#x3D;&quot;price.unit_amount&quot;
+                          *ngFor&#x3D;&quot;let price of servicesPrices&quot;
+                        &gt;
+                          {{ price.unit_amount /100 | currency }} {{ price.interval }}
+                        &lt;/ion-select-option&gt;
+                      &lt;/ion-select&gt;
+                    &lt;/ion-item&gt;
+                    &lt;ion-button (click)&#x3D;&quot;addToCart()&quot; class&#x3D;&quot;add-to-cart-btn&quot;&gt;Add to Cart&lt;/ion-button&gt;
+                  &lt;/ion-col&gt;
+                &lt;/ion-row&gt;
+              &lt;/ion-grid&gt;
+            &lt;/ion-card&gt;
+          &lt;/ion-col&gt;
+        &lt;/ion-row&gt;
+      &lt;/ion-card&gt;
+
+
+      &lt;ion-card class&#x3D;&quot;category-card ion-padding-vertical ion-margin-vertical ion-no-margin&quot;&gt;
+        &lt;ion-toolbar class&#x3D;&quot;ion-text-center&quot;&gt;
+          &lt;ion-text class&#x3D;&quot;section-headers&quot;&gt; Fitness Analysis &lt;/ion-text&gt;
+        &lt;/ion-toolbar&gt;
+
+        &lt;ion-row class&#x3D;&quot;ion-justify-content-around category-row&quot;&gt;
+          &lt;ion-col
+            size-sm&#x3D;&quot;12&quot;
+            size-xs&#x3D;&quot;12&quot;
+            size-xl&#x3D;&quot;3&quot;
+            size-lg&#x3D;&quot;6&quot;
+            size-md&#x3D;&quot;8&quot;
+            class&#x3D;&quot;product-col ion-align-self-stretch ion-margin ion-text-center&quot;
+            *ngFor&#x3D;&quot;let product of analysis&quot;
+          &gt;
+            &lt;ion-card class&#x3D;&quot;product-card&quot;&gt;
+              &lt;ion-card-header class&#x3D;&quot;product-card-header&quot;&gt;
+                &lt;ion-card-title&gt;
+                  &lt;ion-label color&#x3D;&quot;warning&quot;&gt; {{ product.name }} &lt;/ion-label&gt;
+                &lt;/ion-card-title&gt;
+              &lt;/ion-card-header&gt;
+              &lt;ion-img [src]&#x3D;&quot;product.images[0]&quot; class&#x3D;&quot;product-image&quot;&gt;&lt;/ion-img&gt;
+              &lt;ion-grid&gt;
+                &lt;ion-row&gt;
+                  &lt;ion-col class&#x3D;&quot;ion-align-items-end ion-padding ion-text-left&quot;&gt;
+                    &lt;ion-text style&#x3D;&quot;color: var(--ion-text-color); font-size: large&quot;&gt;
+                      {{ product.description }}
+                    &lt;/ion-text&gt;
+                  &lt;/ion-col&gt;
+                &lt;/ion-row&gt;
+                &lt;ion-row&gt;
+                  &lt;ion-col class&#x3D;&quot;ion-align-items-stretch ion-padding&quot;&gt;
+                    &lt;ion-item lines&#x3D;&quot;none&quot; class&#x3D;&quot;price-item ion-margin-vertical&quot;&gt;
+                      &lt;ion-label&gt;Price&lt;/ion-label&gt;
+                      &lt;ion-select placeholder&#x3D;&quot;Select&quot; [interfaceOptions]&#x3D;&quot;iOptions&quot; interface&#x3D;&quot;popover&quot;&gt;
+                        &lt;ion-select-option
+                          class&#x3D;&quot;iso&quot;
+                          [value]&#x3D;&quot;price.unit_amount&quot;
+                          *ngFor&#x3D;&quot;let price of analysisPrices &quot;
+                        &gt;
+                          {{ price.unit_amount /100 | currency }} {{ price.interval }}
+                        &lt;/ion-select-option&gt;
+                      &lt;/ion-select&gt;
+                    &lt;/ion-item&gt;
+                    &lt;ion-button (click)&#x3D;&quot;addToCart()&quot; class&#x3D;&quot;add-to-cart-btn&quot;&gt;Add to Cart&lt;/ion-button&gt;
+                  &lt;/ion-col&gt;
+                &lt;/ion-row&gt;
+              &lt;/ion-grid&gt;
+            &lt;/ion-card&gt;
+          &lt;/ion-col&gt;
+        &lt;/ion-row&gt;
+      &lt;/ion-card&gt;
+
+  --&gt;
+
+    &lt;ion-card class&#x3D;&quot;category-card ion-padding-vertical ion-margin-vertical ion-no-margin&quot;&gt;
+      &lt;ion-toolbar class&#x3D;&quot;ion-text-center&quot;&gt;
+        &lt;ion-text class&#x3D;&quot;section-headers&quot;&gt; Fitness Add-Ons &lt;/ion-text&gt;
+      &lt;/ion-toolbar&gt;
+
+      &lt;ion-row class&#x3D;&quot;ion-justify-content-around category-row&quot;&gt;
+        &lt;ion-col
+          size-sm&#x3D;&quot;12&quot;
+          size-xs&#x3D;&quot;12&quot;
+          size-xl&#x3D;&quot;3&quot;
+          size-lg&#x3D;&quot;6&quot;
+          size-md&#x3D;&quot;8&quot;
+          class&#x3D;&quot;product-col ion-align-self-stretch ion-margin ion-text-center&quot;
+          *ngFor&#x3D;&quot;let product of items | async&quot;
+        &gt;
+          &lt;ion-card class&#x3D;&quot;product-card&quot;&gt;
+            &lt;ion-card-header class&#x3D;&quot;product-card-header&quot;&gt;
+              &lt;ion-card-title&gt;
+                &lt;ion-label color&#x3D;&quot;warning&quot;&gt; {{ product.name }} &lt;/ion-label&gt;
+              &lt;/ion-card-title&gt;
+            &lt;/ion-card-header&gt;
+            &lt;ion-img [src]&#x3D;&quot;product.images[0]&quot; class&#x3D;&quot;product-image&quot;&gt;&lt;/ion-img&gt;
+            &lt;ion-grid&gt;
+              &lt;ion-row&gt;
+                &lt;ion-col class&#x3D;&quot;ion-align-items-end ion-padding ion-text-left&quot;&gt;
+                  &lt;ion-text style&#x3D;&quot;color: var(--ion-text-color); font-size: large&quot;&gt;
+                    {{ product.description }}
+                  &lt;/ion-text&gt;
+                &lt;/ion-col&gt;
+              &lt;/ion-row&gt;
+              &lt;ion-row&gt;
+                &lt;ion-col class&#x3D;&quot;ion-align-items-stretch ion-padding&quot;&gt;
+                  &lt;ion-item lines&#x3D;&quot;none&quot; class&#x3D;&quot;price-item ion-margin-vertical&quot;&gt;
+                    &lt;ion-label&gt;Price&lt;/ion-label&gt;
+                    &lt;ion-select placeholder&#x3D;&quot;Select&quot; [interfaceOptions]&#x3D;&quot;iOptions&quot; interface&#x3D;&quot;popover&quot; [value]&#x3D;&quot;price.id&quot; *ngFor&#x3D;&quot;let price of prices&quot;
+&gt;
+                      &lt;ion-select-option
+                        class&#x3D;&quot;iso&quot;
+                      &gt;
+                        {{ price.data.unit_amount /100 | currency }} {{ price.interval }}
+                      &lt;/ion-select-option&gt;
+                    &lt;/ion-select&gt;
+                  &lt;/ion-item&gt;
+                  &lt;ion-button (click)&#x3D;&quot;addToCart()&quot; class&#x3D;&quot;add-to-cart-btn&quot;&gt;Add to Cart&lt;/ion-button&gt;
+                &lt;/ion-col&gt;
+              &lt;/ion-row&gt;
+            &lt;/ion-grid&gt;
+          &lt;/ion-card&gt;
+        &lt;/ion-col&gt;
+      &lt;/ion-row&gt;
+    &lt;/ion-card&gt;
+  &lt;/ion-grid&gt;
+  &lt;app-footer&gt;&lt;/app-footer&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./products.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.main-content{
+  min-height: 100vh;
+  height: fit-content;
+  display: grid;
+  place-content: center;
+  margin-top: 60px;
+}
+
+.title {
+  font-family: &#x27;Trebuchet MS&#x27;;
+  font-weight: 700;
+  font-size: x-large;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: &#x27;Trebuchet MS&#x27;;
+  font-weight: 600;
+  font-size: large;
+  text-transform: capitalize;
+  color: var(--ion-color-warning);
+}
+
+.toolbar {
+  --background: linear-gradient(to right, rgba(0, 29, 173, 0.5), rgba(0, 0, 0, 0.596), rgba(0, 29, 173, 0.5));
+  border-radius: 15px;
+}
+
+.toolbar-card {
+  text-align: center;
+  width: fit-content;
+  border-radius: 15px;
+  display: block;
+  margin: 5px auto;
+  border: 3px solid var(--ion-color-warning);
+}
+
+.product-image{
+  max-height: 295px;
+  height: 295px;
+  // max-width: 427.25px;
+  // min-width: 100%;
+  // width: 100%;
+  background-color: var(--ion-color-dark-tint);
+
+}
+
+.segment {
+  --background-checked: var(--ion-color-success);
+  --indicator-color: var(--ion-color-light);
+  --indicator-height: 0.25em;
+  --color-checked: var(--ion-color-warning);
+}
+
+  .product-card {
+  border: 3px solid var(--ion-color-warning);
+  height: 100%;
+  border-radius: 15px;
+  background: var(--ion-color-dark-tint);
+}
+
+.product-card-header {
+  // border-bottom: 3px solid var(--ion-color-light);
+  border-radius: 15px 15px  0 0;
+  --background: linear-gradient(to right, rgba(0, 29, 173, 0.5), rgba(0, 0, 0, 0.596), rgba(0, 29, 173, 0.5)),
+    center/cover no-repeat url(./../../assets/lazy/images/banner.png);
+}
+
+
+.price-item{
+  border-radius: 10px;
+}
+
+.section-headers{
+  text-transform: uppercase;
+  color: var(--ion-color-tertiary-tint);
+  font-weight: 800;
+  text-align: center;
+  font-size: larger;
+}
+
+.category-card{
+  --background: linear-gradient(to bottom, rgba(21, 15, 53, 0.404),  rgba(28, 18, 65, 0.466));
+}
+
+.add-to-cart-btn{
+  margin: auto;
+  display: block;
+}
+
+.fab{
+  margin-top: 60px;
+}
+
+.fav{
+  position: fixed;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content class="content">  <!-- <div class="main-content"> -->  <ion-grid class="ion-no-padding ion-padding-vertical main-content">    <ion-row class="ion-justify-content-center ion-margin-vertical">      <ion-col size="12">        <ion-card color="dark" class="toolbar-card ion-text-center">          <ion-card-header>            <ion-card-title class="title"> Xpert Fitness Pricing </ion-card-title>            <ion-card-subtitle class="subtitle">              <ion-text color="warning"> 1. Login/Register </ion-text>              <br />              <ion-text color="warning"> 2. Select Price for an Item</ion-text>              <br />              <ion-text color="warning"> 3. Click "Add To Cart" </ion-text>              <br />              <ion-text color="warning">                4. To Checkout, click on cart (<ion-icon                  style="position: relative; bottom: 0"                  size="large"                  name="cart-sharp"                  color="light"                ></ion-icon                >)              </ion-text>            </ion-card-subtitle>          </ion-card-header>        </ion-card>      </ion-col>    </ion-row>    <ion-fab class="fav" horizontal="end" vertical="top">      <ion-fab-button class="fab" (click)="goToCart()">        <ion-icon name="cart-sharp" size="large"> </ion-icon>        <ion-badge color="success">11</ion-badge>      </ion-fab-button>    </ion-fab>      <!-- <ion-card class="category-card ion-padding-vertical ion-margin-vertical ion-no-margin">        <ion-toolbar class="ion-text-center">          <ion-text class="section-headers"> Fitness Training Options </ion-text>        </ion-toolbar>        <ion-row class="ion-justify-content-around category-row ">          <ion-col            size-sm="12"            size-xs="12"            size-xl="3"            size-lg="6"            size-md="8"            class="product-col ion-align-self-stretch ion-margin ion-text-center"            *ngFor="let product of services"          >            <ion-card class="product-card ">              <ion-card-header class="product-card-header">                <ion-card-title>                  <ion-label color="warning"> {{ product.name }} </ion-label>                </ion-card-title>              </ion-card-header>              <ion-img [src]="product.images[0]" class="product-image"></ion-img>              <ion-grid>                <ion-row>                  <ion-col class="ion-align-items-end ion-padding ion-text-left">                    <ion-text style="color: var(--ion-text-color); font-size: large">                      {{ product.description }}                    </ion-text>                  </ion-col>                </ion-row>                <ion-row>                  <ion-col class="ion-align-items-stretch ion-padding">                    <ion-item lines="none" class="price-item ion-margin-vertical">                      <ion-label>Price</ion-label>                      <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover">                        <ion-select-option                          class="iso"                          [value]="price.unit_amount"                          *ngFor="let price of servicesPrices"                        >                          {{ price.unit_amount /100 | currency }} {{ price.interval }}                        </ion-select-option>                      </ion-select>                    </ion-item>                    <ion-button (click)="addToCart()" class="add-to-cart-btn">Add to Cart</ion-button>                  </ion-col>                </ion-row>              </ion-grid>            </ion-card>          </ion-col>        </ion-row>      </ion-card>      <ion-card class="category-card ion-padding-vertical ion-margin-vertical ion-no-margin">        <ion-toolbar class="ion-text-center">          <ion-text class="section-headers"> Fitness Analysis </ion-text>        </ion-toolbar>        <ion-row class="ion-justify-content-around category-row">          <ion-col            size-sm="12"            size-xs="12"            size-xl="3"            size-lg="6"            size-md="8"            class="product-col ion-align-self-stretch ion-margin ion-text-center"            *ngFor="let product of analysis"          >            <ion-card class="product-card">              <ion-card-header class="product-card-header">                <ion-card-title>                  <ion-label color="warning"> {{ product.name }} </ion-label>                </ion-card-title>              </ion-card-header>              <ion-img [src]="product.images[0]" class="product-image"></ion-img>              <ion-grid>                <ion-row>                  <ion-col class="ion-align-items-end ion-padding ion-text-left">                    <ion-text style="color: var(--ion-text-color); font-size: large">                      {{ product.description }}                    </ion-text>                  </ion-col>                </ion-row>                <ion-row>                  <ion-col class="ion-align-items-stretch ion-padding">                    <ion-item lines="none" class="price-item ion-margin-vertical">                      <ion-label>Price</ion-label>                      <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover">                        <ion-select-option                          class="iso"                          [value]="price.unit_amount"                          *ngFor="let price of analysisPrices "                        >                          {{ price.unit_amount /100 | currency }} {{ price.interval }}                        </ion-select-option>                      </ion-select>                    </ion-item>                    <ion-button (click)="addToCart()" class="add-to-cart-btn">Add to Cart</ion-button>                  </ion-col>                </ion-row>              </ion-grid>            </ion-card>          </ion-col>        </ion-row>      </ion-card>  -->    <ion-card class="category-card ion-padding-vertical ion-margin-vertical ion-no-margin">      <ion-toolbar class="ion-text-center">        <ion-text class="section-headers"> Fitness Add-Ons </ion-text>      </ion-toolbar>      <ion-row class="ion-justify-content-around category-row">        <ion-col          size-sm="12"          size-xs="12"          size-xl="3"          size-lg="6"          size-md="8"          class="product-col ion-align-self-stretch ion-margin ion-text-center"          *ngFor="let product of items | async"        >          <ion-card class="product-card">            <ion-card-header class="product-card-header">              <ion-card-title>                <ion-label color="warning"> {{ product.name }} </ion-label>              </ion-card-title>            </ion-card-header>            <ion-img [src]="product.images[0]" class="product-image"></ion-img>            <ion-grid>              <ion-row>                <ion-col class="ion-align-items-end ion-padding ion-text-left">                  <ion-text style="color: var(--ion-text-color); font-size: large">                    {{ product.description }}                  </ion-text>                </ion-col>              </ion-row>              <ion-row>                <ion-col class="ion-align-items-stretch ion-padding">                  <ion-item lines="none" class="price-item ion-margin-vertical">                    <ion-label>Price</ion-label>                    <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover" [value]="price.id" *ngFor="let price of prices">                      <ion-select-option                        class="iso"                      >                        {{ price.data.unit_amount /100 | currency }} {{ price.interval }}                      </ion-select-option>                    </ion-select>                  </ion-item>                  <ion-button (click)="addToCart()" class="add-to-cart-btn">Add to Cart</ion-button>                </ion-col>              </ion-row>            </ion-grid>          </ion-card>        </ion-col>      </ion-row>    </ion-card>  </ion-grid>  <app-footer></app-footer></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitsTrackerComponent', 'selector': 'app-benefits-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CartviewComponent', 'selector': 'app-cartview'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ChoicesPage', 'selector': 'app-choices'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'FacilityPage', 'selector': 'app-facility'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageFourComponent', 'selector': 'app-home-page-four'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'IntroVideoComponent', 'selector': 'app-intro-video'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LineChartComponent', 'selector': 'app-line-chart'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'ModalViewPage', 'selector': 'app-modal-view'},{'name': 'NewReviewComponent', 'selector': 'app-new-review'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NewsFormComponent', 'selector': 'app-news-form'},{'name': 'NutritionPage', 'selector': 'app-nutrition'},{'name': 'PhoneAuthComponent', 'selector': 'app-phone-auth'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SafetyPage', 'selector': 'app-safety'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StudentCreatePage', 'selector': 'app-student-create'},{'name': 'StudentDetailPage', 'selector': 'app-student-detail'},{'name': 'StudentEditPage', 'selector': 'app-student-edit'},{'name': 'StudentListPage', 'selector': 'app-student-list'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserDashboardComponent', 'selector': 'app-user-dashboard'},{'name': 'UserPage', 'selector': 'app-user'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WebrtcComponent', 'selector': 'app-webrtc'}];
+    var DIRECTIVES = [{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
+    var ACTUAL_COMPONENT = {'name': 'ProductsPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProductsPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

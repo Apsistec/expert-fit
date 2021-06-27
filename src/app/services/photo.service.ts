@@ -3,9 +3,7 @@ import { map, switchMap } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 import { AngularFireStorage, AngularFireStorageReference } from '@angular/fire/storage';
-import {
-    CameraPhoto, CameraResultType, CameraSource, FilesystemDirectory, Plugins
-} from '@capacitor/core';
+import { CameraPhoto, CameraResultType, CameraSource, FilesystemDirectory, Plugins } from '@capacitor/core';
 import { Platform } from '@ionic/angular';
 
 import { MessageService } from './message.service';

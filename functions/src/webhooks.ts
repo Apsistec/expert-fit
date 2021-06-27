@@ -1,7 +1,7 @@
-import {db, stripe} from "./config";
-import * as functions from "firebase-functions";
+import { db, stripe } from './config';
+import * as functions from 'firebase-functions';
 // eslint-disable-next-line no-unused-vars
-import { Stripe } from "stripe";
+import { Stripe } from 'stripe';
 
 export const stripeWebhookSignature = functions.config().stripe.webhook_signature;
 
@@ -47,34 +47,34 @@ const webhookHandlers = {
   // "payment_intent.payment_failed": async (data: Stripe.PaymentIntent) => {
   //   // Add your business logic here
   // },
-  "customer.subscription.deleted": async (data: Stripe.Subscription) => {
+  'customer.subscription.deleted': async (data: Stripe.Subscription) => {
     const customer = (await stripe.customers.retrieve(data.customer as string)) as Stripe.Customer;
     const userId = customer.metadata.firebaseUID;
-    const userRef = db.collection("users").doc(userId);
+    const userRef = db.collection('users').doc(userId);
 
     await userRef.update({
       [data.id]: [data.status]
     });
   },
-  "customer.subscription.created": async (data: Stripe.Subscription) => {
+  'customer.subscription.created': async (data: Stripe.Subscription) => {
     const customer = (await stripe.customers.retrieve(data.customer as string)) as Stripe.Customer;
     const userId = customer.metadata.firebaseUID;
-    const userRef = db.collection("users").doc(userId);
+    const userRef = db.collection('users').doc(userId);
 
     await userRef.update({
       [data.id]: [data.status]
     });
   },
-  "invoice.payment_succeeded": async (data: Stripe.Invoice) => {
-      const customer = (await stripe.customers.retrieve(data.customer as string)) as Stripe.Customer;
-      const userSnapshot = await db.collection("users").doc(customer.metadata.firebaseUID).get();
-      await userSnapshot.ref.update({ account_status: "CURRENT" });
-  },
-  "invoice.payment_failed": async (data: Stripe.Invoice) => {
+  'invoice.payment_succeeded': async (data: Stripe.Invoice) => {
     const customer = (await stripe.customers.retrieve(data.customer as string)) as Stripe.Customer;
-    const userSnapshot = await db.collection("users").doc(customer.metadata.firebaseUID).get();
-    await userSnapshot.ref.update({ account_status: "PAST_DUE" });
+    const userSnapshot = await db.collection('users').doc(customer.metadata.firebaseUID).get();
+    await userSnapshot.ref.update({ account_status: 'CURRENT' });
   },
+  'invoice.payment_failed': async (data: Stripe.Invoice) => {
+    const customer = (await stripe.customers.retrieve(data.customer as string)) as Stripe.Customer;
+    const userSnapshot = await db.collection('users').doc(customer.metadata.firebaseUID).get();
+    await userSnapshot.ref.update({ account_status: 'PAST_DUE' });
+  }
   // "product.created": async (data: Stripe.Invoice) => {
 
   // },
@@ -128,15 +128,15 @@ const webhookHandlers = {
 /**
  * Validate the stripe webhook secret, then call the handler for the event type
  */
-export const handleStripeWebhook = async(req, res) => {
-  const sig = req.headers["stripe-signature"];
-  const event = stripe.webhooks.constructEvent(req["rawBody"], sig, process.env.STRIPE_WEBHOOK_SECRET);
+export const handleStripeWebhook = async (req, res) => {
+  const sig = req.headers['stripe-signature'];
+  const event = stripe.webhooks.constructEvent(req['rawBody'], sig, process.env.STRIPE_WEBHOOK_SECRET);
 
   try {
     await webhookHandlers[event.type](event.data.object);
-    res.send({received: true});
+    res.send({ received: true });
   } catch (err) {
-    console.error(err)
+    console.error(err);
     res.status(400).send(`Webhook Error: ${err.message}`);
   }
-}
+};

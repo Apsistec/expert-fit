@@ -1,23 +1,21 @@
-import { QuicklinkStrategy } from 'ngx-quicklink';
+// import { QuicklinkStrategy } from 'ngx-quicklink';
 
 import { NgModule } from '@angular/core';
 import {
-    AngularFireAuthGuard, canActivate, emailVerified, redirectLoggedInTo, redirectUnauthorizedTo
+  canActivate,
+  emailVerified,
+  redirectUnauthorizedTo
 } from '@angular/fire/auth-guard';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PaidGuard } from './guards/paid.guard';
 import { RoleGuard } from './guards/role.guard';
-// import { PhotoGalleryComponent } from './shared/photo-gallery/photo-gallery.component';
-import { UnknownComponent } from './shared/unknown/unknown.component';
-import { WebrtcComponent } from './shared/webrtc/webrtc.component';
 
-// import { LoginGuard } from './guards/login.guard';
 
 // const customerOnly = () => hasCustomClaim('customer');
 // const employeeOnly = () => hasCustomClaim('employee');
 // const adminOnly = () => hasCustomClaim('admin');
-const redirectLoggedInToDash = () => redirectLoggedInTo(['/user/dashboard']);
+// const redirectLoggedInToDash = () => redirectLoggedInTo(['/user/dashboard']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
 const verifiedEmail = () => emailVerified;
 const routes: Routes = [
@@ -30,35 +28,17 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomePageModule)
   },
-
-  {
-    path: 'customer',
-    loadChildren: () => import('./customer/customer.module').then((m) => m.CustomerPageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
-    ...canActivate(verifiedEmail),
-    // ...canActivate(customerOnly || adminOnly || employeeOnly),
-    canActivate: [PaidGuard, RoleGuard, AngularFireAuthGuard]
-  },
-  {
-    path: 'employee',
-    loadChildren: () => import('./employee/employee.module').then((m) => m.EmployeePageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
-    // ...canActivate(employeeOnly || adminOnly),
-    canActivate: [PaidGuard, RoleGuard, AngularFireAuthGuard]
-  },
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then((m) => m.AdminPageModule),
     ...canActivate(redirectUnauthorizedToLogin),
-    // ...canActivate(adminOnly),
-    canActivate: [PaidGuard, RoleGuard, AngularFireAuthGuard]
+    canActivate: [PaidGuard, RoleGuard]
   },
 
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserPageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
-    canActivate: [AngularFireAuthGuard]
+    ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'pricing',
@@ -70,24 +50,22 @@ const routes: Routes = [
   },
   {
     path: 'faq',
-    redirectTo: 'faqs',
+    redirectTo: '/faqs',
     pathMatch: 'full'
   },
-  {
-    path: 'webrtc', component: WebrtcComponent, canActivate: [AngularFireAuthGuard]
-  },
+
   {
     path: 'reviews',
     loadChildren: () => import('./testimonials/testimonials.module').then((m) => m.TestimonialsPageModule)
   },
   {
     path: 'testimonials',
-    redirectTo: 'reviews',
+    redirectTo: '/reviews',
     pathMatch: 'full'
   },
   {
     path: 'ratings',
-    redirectTo: 'reviews',
+    redirectTo: '/reviews',
     pathMatch: 'full'
   },
   {
@@ -96,23 +74,16 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    redirectTo: 'about-us',
+    redirectTo: '/about-us',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'modal-view',
-  //   loadChildren: () =>
-  //     import('./modal-view/modal-view.module').then(
-  //       m => m.ModalViewPageModule,
-  //     ),
-  // },
   {
     path: 'contact-us',
     loadChildren: () => import('./contact/contact.module').then((m) => m.ContactPageModule)
   },
   {
     path: 'contact',
-    redirectTo: 'contact-us',
+    redirectTo: '/contact-us',
     pathMatch: 'full'
   },
   {
@@ -138,16 +109,21 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: UnknownComponent
+    redirectTo: '/unknown',
+    pathMatch: 'full'
+  },
+  {
+    path: 'unknown',
+    loadChildren: () => import('./unknown/unknown.module').then((m) => m.UnknownPageModule)
   }
 ];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: QuicklinkStrategy
-      // scrollPositionRestoration: 'enabled',
+      // preloadingStrategy: QuicklinkStrategy
+      scrollPositionRestoration: 'enabled',
       // anchorScrolling: 'enabled'
-      // enableTracing: true
+      enableTracing: true
     })
   ],
   exports: [RouterModule]

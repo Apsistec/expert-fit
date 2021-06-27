@@ -8,6 +8,7 @@ import { MessageService } from './message.service';
 })
 export class LoadingService {
   loading;
+  isLoading= false;
 
   constructor(public loadingController: LoadingController, public messageService: MessageService) {}
 
@@ -40,5 +41,26 @@ export class LoadingService {
 
   async dismissLoading() {
     await this.loadingController.dismiss().catch((error) => this.messageService.errorAlert(error));
+  }
+
+  async loadSpinner() {
+    const load = await this.loadingController
+      .create({
+        spinner: 'circles',
+        duration: 1600
+      })
+      .then((a) => {
+        a.present().then(() => {
+          if (!this.isLoading) {
+            a.dismiss();
+          }
+        });
+      });
+  }
+
+  async dismissSpinner() {
+    this.isLoading = false;
+
+    await this.loadingController.dismiss().then(() => console.log('dismissed'));
   }
 }

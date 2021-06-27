@@ -5,7 +5,7 @@ import { IonSlides, ModalController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { MessageService } from '../services/message.service';
 import { ReviewService } from '../services/review.service';
-import { NewReviewComponent } from '../shared/new-review/new-review.component';
+import { NewReviewComponent } from '../user/new-review/new-review.component';
 
 @Component({
   selector: 'app-testimonials',

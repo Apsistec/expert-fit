@@ -1,9 +1,9 @@
-import * as functions from "firebase-functions";
-import { assert, assertUID, catchErrors } from "./helpers";
-import { stripe, db } from "./config";
-import { getOrCreateCustomer } from "./customers";
+import * as functions from 'firebase-functions';
+import { assert, assertUID, catchErrors } from './helpers';
+import { stripe, db } from './config';
+import { getOrCreateCustomer } from './customers';
 // eslint-disable-next-line no-unused-vars
-import {Stripe} from "stripe";
+import { Stripe } from 'stripe';
 /**
 Gets a user's subscriptions
 */
@@ -44,7 +44,7 @@ export async function createSubscription(
           price
         }
       ],
-      expand: ["latest_invoice.payment.intent"]
+      expand: ['latest_invoice.payment.intent']
     },
     { idempotency_key }
   );
@@ -56,7 +56,7 @@ export async function createSubscription(
   const docData = {
     [subscription.id]: [subscription.status]
   };
-  if (payment_intent.status === "succeeded") {
+  if (payment_intent.status === 'succeeded') {
     await db.doc(`users/${uid}`).set(docData, { merge: true });
   }
   return subscription;
@@ -68,7 +68,7 @@ export async function createSubscription(
 export const cancelSubscription = async (uid: string, subId: string) => {
   const subscription = await stripe.subscriptions.del(subId);
 
-  if (subscription.status === "canceled") {
+  if (subscription.status === 'canceled') {
     await db.doc(`users/${uid}`).update({
       [subscription.id]: [subscription.status]
     });
@@ -81,15 +81,15 @@ export const cancelSubscription = async (uid: string, subId: string) => {
 
 export const stripeCreateSubscription = functions.https.onCall(async (data, context) => {
   const uid = assertUID(context);
-  const price = assert(data, "price");
-  const coupon = assert(data, "coupon");
-  const idempotency_key = assert(data, "idempotency_key");
+  const price = assert(data, 'price');
+  const coupon = assert(data, 'coupon');
+  const idempotency_key = assert(data, 'idempotency_key');
   return catchErrors(createSubscription(uid, price, coupon, idempotency_key));
 });
 
 export const stripeCancelSubscription = functions.https.onCall(async (data, context) => {
   const uid = assertUID(context);
-  const subId = assert(data, "subId");
+  const subId = assert(data, 'subId');
   return catchErrors(cancelSubscription(uid, subId));
 });
 

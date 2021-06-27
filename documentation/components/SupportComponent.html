@@ -1,0 +1,564 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expert-fit documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">expert-fit documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SupportComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/user/support/support.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-support</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./support.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./support.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#tickets">tickets</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#openTicket">openTicket</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ticketService: <a href="../injectables/TicketService.html">TicketService</a>, modalController: ModalController, messageService: <a href="../injectables/MessageService.html">MessageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/user/support/support.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ticketService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TicketService.html" target="_self" >TicketService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>messageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MessageService.html" target="_self" >MessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/user/support/support.component.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openTicket"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            openTicket
+                        </b>
+                        <a href="#openTicket"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openTicket(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/user/support/support.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="tickets"></a>
+                        <span class="name">
+                            <b>
+                            tickets</b>
+                            <a href="#tickets"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/user/support/support.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+
+import { MessageService } from &#x27;../../services/message.service&#x27;;
+import { TicketService } from &#x27;../../services/ticket.service&#x27;;
+import { TicketComponent } from &#x27;../ticket/ticket.component&#x27;;
+
+@Component({
+  selector: &#x27;app-support&#x27;,
+  templateUrl: &#x27;./support.component.html&#x27;,
+  styleUrls: [&#x27;./support.component.scss&#x27;]
+})
+export class SupportComponent implements OnInit {
+  tickets;
+
+  constructor(
+    private ticketService: TicketService,
+    private modalController: ModalController,
+    private messageService: MessageService
+  ) {}
+
+  ngOnInit() {
+    this.tickets &#x3D; this.ticketService.getAdminTickets();
+  }
+
+  async openTicket(id) {
+    const modal &#x3D; await this.modalController.create({
+      component: TicketComponent,
+      componentProps: {
+        id
+      }
+    });
+    modal.present().catch((error) &#x3D;&gt; {
+      this.modalController.dismiss();
+      return this.messageService.errorAlert(error);
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-card color&#x3D;&quot;medium&quot;&gt;
+  &lt;ion-card-header&gt;
+    &lt;ion-card-title&gt;
+      &lt;ion-label color&#x3D;&quot;secondary&quot;&gt; Trouble Tickets &lt;/ion-label&gt;
+    &lt;/ion-card-title&gt;
+  &lt;/ion-card-header&gt;
+  &lt;ion-list&gt;
+    &lt;ion-item button *ngFor&#x3D;&quot;let ticket of tickets | async&quot; class&#x3D;&quot;ion-text-wrap&quot; (click)&#x3D;&quot;openTicket(ticket.id)&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;radio-button-off&quot; color&#x3D;&quot;light&quot; *ngIf&#x3D;&quot;ticket.status &#x3D;&#x3D; 0&quot; slot&#x3D;&quot;start&quot;&gt;&lt;/ion-icon&gt;
+      &lt;ion-icon name&#x3D;&quot;done-all&quot; color&#x3D;&quot;success&quot; *ngIf&#x3D;&quot;ticket.status &#x3D;&#x3D; 1&quot; slot&#x3D;&quot;start&quot;&gt;&lt;/ion-icon&gt;
+      &lt;ion-label&gt;
+        &lt;ion-text color&#x3D;&quot;dark&quot;&gt;
+          &lt;h2&gt;{{ ticket.title }}&lt;/h2&gt;
+        &lt;/ion-text&gt;
+        &lt;ion-text color&#x3D;&quot;light&quot;&gt;
+          &lt;p class&#x3D;&quot;ion-text-wrap&quot;&gt;{{ ticket.desc }}&lt;/p&gt;
+        &lt;/ion-text&gt;
+      &lt;/ion-label&gt;
+      &lt;ion-label slot&#x3D;&quot;start&quot;&gt;
+        &lt;ion-note color&#x3D;&quot;dark&quot;&gt; {{ ticket.id }} &lt;/ion-note&gt;
+        &lt;br /&gt;
+        &lt;ion-note color&#x3D;&quot;dark&quot;&gt;
+          {{ ticket.created_at?.seconds * 1000 | date: &#x27;MMM d H:HH&#x27; }}
+        &lt;/ion-note&gt;
+      &lt;/ion-label&gt;
+    &lt;/ion-item&gt;
+  &lt;/ion-list&gt;
+&lt;/ion-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./support.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-card color="medium">  <ion-card-header>    <ion-card-title>      <ion-label color="secondary"> Trouble Tickets </ion-label>    </ion-card-title>  </ion-card-header>  <ion-list>    <ion-item button *ngFor="let ticket of tickets | async" class="ion-text-wrap" (click)="openTicket(ticket.id)">      <ion-icon name="radio-button-off" color="light" *ngIf="ticket.status == 0" slot="start"></ion-icon>      <ion-icon name="done-all" color="success" *ngIf="ticket.status == 1" slot="start"></ion-icon>      <ion-label>        <ion-text color="dark">          <h2>{{ ticket.title }}</h2>        </ion-text>        <ion-text color="light">          <p class="ion-text-wrap">{{ ticket.desc }}</p>        </ion-text>      </ion-label>      <ion-label slot="start">        <ion-note color="dark"> {{ ticket.id }} </ion-note>        <br />        <ion-note color="dark">          {{ ticket.created_at?.seconds * 1000 | date: \'MMM d H:HH\' }}        </ion-note>      </ion-label>    </ion-item>  </ion-list></ion-card></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitsTrackerComponent', 'selector': 'app-benefits-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CartviewComponent', 'selector': 'app-cartview'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ChoicesPage', 'selector': 'app-choices'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'FacilityPage', 'selector': 'app-facility'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageFourComponent', 'selector': 'app-home-page-four'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'IntroVideoComponent', 'selector': 'app-intro-video'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LineChartComponent', 'selector': 'app-line-chart'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'ModalViewPage', 'selector': 'app-modal-view'},{'name': 'NewReviewComponent', 'selector': 'app-new-review'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NewsFormComponent', 'selector': 'app-news-form'},{'name': 'NutritionPage', 'selector': 'app-nutrition'},{'name': 'PhoneAuthComponent', 'selector': 'app-phone-auth'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SafetyPage', 'selector': 'app-safety'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StudentCreatePage', 'selector': 'app-student-create'},{'name': 'StudentDetailPage', 'selector': 'app-student-detail'},{'name': 'StudentEditPage', 'selector': 'app-student-edit'},{'name': 'StudentListPage', 'selector': 'app-student-list'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserDashboardComponent', 'selector': 'app-user-dashboard'},{'name': 'UserPage', 'selector': 'app-user'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WebrtcComponent', 'selector': 'app-webrtc'}];
+    var DIRECTIVES = [{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
+    var ACTUAL_COMPONENT = {'name': 'SupportComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SupportComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

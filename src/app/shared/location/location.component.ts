@@ -24,6 +24,6 @@ export class LocationComponent implements OnInit {
       component: MapComponent,
       cssClass: 'modal-css'
     });
-    modal.present()
+    modal.present();
   }
 }

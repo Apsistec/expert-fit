@@ -1,14 +1,15 @@
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ModalController } from '@ionic/angular';
 
 import { Price } from '../models/price.model';
 import { Product } from '../models/product.model';
-import { ProductService } from '../services/product.service';
-
+// import { ProductService } from '../services/product.service';
+import { convertSnaps } from '../services/db-utils';
+import { dataTool } from 'echarts/core';
 // declare var stripe;
 
 // stripe.Sripe
@@ -20,16 +21,17 @@ import { ProductService } from '../services/product.service';
 })
 export class ProductsPage implements OnInit {
   iOptions: any;
-  items; //: Observable<Product[]>;
-  services: Observable<Product[]>;
-  analysis: Observable<Product[]>;
-  servicesPrices: Observable<Price[]>;
-  analysisPrices: Observable<Price[]>;
-  itemPrices: Observable<Price[]>;
 
-  id;
+  // @Input()
+  items: Observable<Product[]>;
+  // @Input()
+  prices; //: Observable<Price[]>;
+  // services: Observable<Product[]>;
+  // analysis: Observable<Product[]>;
+  // servicesPrices: Observable<Price[]>;
+  // analysisPrices: Observable<Price[]>;
 
-  constructor(private db: AngularFirestore, public modal: ModalController, private productService: ProductService) {}
+  constructor(private db: AngularFirestore, public modal: ModalController) {}
 
   async ngOnInit() {
     this.iOptions = {
@@ -43,72 +45,55 @@ export class ProductsPage implements OnInit {
 
   reloadProducts() {
     this.items = this.loadProductsbyCategory('item');
+    // this.productService.loadPricesbyCategory('item', product.id);
+    // this.productService.loadPricesbyCategory('item', this.items).pipe
+    // console.log('items: ', this.items);
+    console.log('items2: ', this.items);
+    console.log('items$2: ', this.prices);
     // this.services = this.loadProductsbyCategory('service');
     // this.analysis = this.loadProductsbyCategory('analysis');
     // this.servicesPrices$ = this.loadPricesbyProduct(this.services$)
     // this.analysisPrices$ = this.loadPricesbyProduct(this.analysis$)
-    // this.itemPrices$ = this.loadPricesbyProduct(this.items$)
   }
 
   loadProductsbyCategory(category: string): Observable<Product[]> {
-   const dbRef = this.db
+    return this.db
       .collection<Product>('products', (ref) =>
         ref.where('active', '==', true).where('stripe_metadata_productType', '==', category)
       )
-      return dbRef.valueChanges((snapshot: any) => {
-        const data = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        console.log('product: ', data.id);
-        console.log('productdata: ', data);
-      });
+      .get()
+      .pipe(
+        map((products) =>
+          products.docs.map((product) => {
+            const id = product.id;
+            const data = product.data();
+            const items = { id, ...data };
+            console.log('items: ', this.items);
+            product.ref.collection('prices').onSnapshot(
+              (result) =>
+                result.forEach((r) => {
+                  // const id = r.id;
+                  // const data = r.data();
+                  // this.price[id] = ...data ;
+                  this.prices = [{ id: r.id, data: r.data() }];
+                  console.log('items$: ', this.prices);
+                })
+
+              // result.docs.map((prices) => {
+              //   const id = prices.id;
+              //   const data = prices.data();
+              //   this.price = { id, ...(<any>data) };
+              //   return this.price;
+              // }
+            );
+            return items;
+          })
+        )
+      );
   }
-  // .pipe(
-  //   map((result) =>
-  //     result.docs.map(forEach((products) => {
-  //       products.ref.collection('prices').get().then(prices => convertSnaps(prices);
-  //     })
-  //   )
-  // );
-  // .pipe(
-  //   map((result) =>
-  //     result.docs.map((snap) => {
-  //       snap.ref.collection('prices').onSnapshot(prices => this.itemPrices$ = prices)
-  //       return {
-  //         id: snap.id,
-  //         ...(<any>snap.data())
-  //       };
-  //     })
-  //   )
-  // )
-  // );
-  // }
 
-  // listPrices(){
-  //   const prices = await stripe.prices.list({
-  //     limit: 3,
-  //   })
-  // }
-
-  // loadProductsbyCategory(category: string): Observable<Product[]> {
-  // return this.db
-  //   .collection('products', (ref) =>
-  //     ref.where('active', '==', true).where('stripe_metadata_productType', '==', category)
-  //   )
-  //   .get()
-  //   .pipe(
-  //     map(
-  //       result =>
-  //         result
-  //           .docs
-  //           .map((snap) => {
-  //             return {
-  //               id: snap.id,
-  //               ...<any>snap.data()
-  //             };
-  //           })
-  //   ))
+  //       )
+  //     );
   // }
 
   addToCart() {}

@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { assertUID, catchErrors } from "./helpers";
-import { db, stripe } from "./config";
-import Stripe from "stripe";
-import * as functions from "firebase-functions";
+import { assertUID, catchErrors } from './helpers';
+import { db, stripe } from './config';
+import Stripe from 'stripe';
+import * as functions from 'firebase-functions';
 
 // /**
 // Read the user document from Firestore
@@ -30,13 +30,11 @@ import * as functions from "firebase-functions";
 //   return await db.collection("users").doc(uid).set(data, {merge: true});
 // };
 
-
-
 /**
 Read the stripe customer ID from firestore, or create a new one if missing
 */
-export async function getOrCreateCustomer(uid: string, params?: Stripe.CustomerCreateParams){
-  const userSnapshot = await db.collection("users").doc(uid).get();
+export async function getOrCreateCustomer(uid: string, params?: Stripe.CustomerCreateParams) {
+  const userSnapshot = await db.collection('users').doc(uid).get();
 
   const { stripeCustomerId, email } = userSnapshot.data();
 
@@ -55,7 +53,7 @@ export async function getOrCreateCustomer(uid: string, params?: Stripe.CustomerC
     });
     return customer;
   } else {
-    return await stripe.customers.retrieve(stripeCustomerId) as Stripe.Customer;
+    return (await stripe.customers.retrieve(stripeCustomerId)) as Stripe.Customer;
   }
 }
 
@@ -63,27 +61,25 @@ export async function getOrCreateCustomer(uid: string, params?: Stripe.CustomerC
 //  * Creates a SetupIntent used to save a credit card for later use
 //  */
 export async function createSetupIntent(uid: string) {
+  const customer = await getOrCreateCustomer(uid);
 
-    const customer = await getOrCreateCustomer(uid);
-
-    return stripe.setupIntents.create({
-        customer: customer.id,
-    })
+  return stripe.setupIntents.create({
+    customer: customer.id
+  });
 }
 
 /**
  * Returns all payment sources associated to the user
  */
 export async function listPaymentMethods(uid: string) {
-    const customer = await getOrCreateCustomer(uid);
+  const customer = await getOrCreateCustomer(uid);
 
-    return stripe.paymentMethods.list({
-        customer: customer.id,
-        type: "card",
-    });
+  return stripe.paymentMethods.list({
+    customer: customer.id,
+    type: 'card'
+  });
 }
 // ///// DEPLOYABLE FUNCTIONS ////////
-
 
 export const stripeListPaymentMethods = functions.https.onCall(async (data, context) => {
   const uid = assertUID(context);

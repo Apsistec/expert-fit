@@ -1,7 +1,7 @@
-import {stripe} from "./config";
-import {assert, catchErrors} from "./helpers";
+import { stripe } from './config';
+import { assert, catchErrors } from './helpers';
 
-import * as functions from "firebase-functions";
+import * as functions from 'firebase-functions';
 
 /**
 Returns a coupon from Stripe
@@ -11,6 +11,6 @@ export function getCoupon(coupon: string) {
 }
 
 export const stripeGetCoupon = functions.https.onCall(async (data) => {
-  const coupon = assert(data, "coupon");
+  const coupon = assert(data, 'coupon');
   return catchErrors(getCoupon(coupon));
 });

@@ -9,4 +9,3 @@ export interface Product {
   stripe_metadata_firebasePlan?: string;
   // price: Price;
 }
-

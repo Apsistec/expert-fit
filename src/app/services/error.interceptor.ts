@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 
 import { MessageService } from './message.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(private messageService: MessageService) {}
 

@@ -6,8 +6,13 @@ import { expand, map, mergeMap, take, takeWhile, tap } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
 import {
-    Action, AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument,
-    DocumentChangeAction, DocumentSnapshotDoesNotExist, DocumentSnapshotExists
+  Action,
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument,
+  DocumentChangeAction,
+  DocumentSnapshotDoesNotExist,
+  DocumentSnapshotExists
 } from '@angular/fire/firestore';
 
 type CollectionPredicate<T> = string | AngularFirestoreCollection<T>;

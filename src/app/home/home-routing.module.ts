@@ -5,7 +5,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   {
-    path: '', loadChildren: () => import('./home.module').then((m) => m.HomePageModule),
+    path: '',
+    loadChildren: () => import('./home.module').then((m) => m.HomePageModule),
     children: [
       {
         path: '',

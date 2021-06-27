@@ -1,0 +1,324 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expert-fit documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">expert-fit documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ContactPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/contact/contact.page.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-contact</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./contact.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./contact.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-contact&#x27;,
+  templateUrl: &#x27;./contact.page.html&#x27;,
+  styleUrls: [&#x27;./contact.page.scss&#x27;]
+})
+export class ContactPage {}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-content class&#x3D;&quot;ion-text-center&quot;&gt;
+  &lt;ion-grid class&#x3D;&quot;ion-no-padding&quot;&gt;
+    &lt;ion-row class&#x3D;&quot;ion-justify-content-center&quot;&gt;
+      &lt;ion-col class&#x3D;&quot;ion-text-center&quot;&gt;
+        &lt;ion-toolbar class&#x3D;&quot;toolbar&quot;&gt;
+          &lt;ion-title class&#x3D;&quot;title&quot;&gt;Contact Xpert Fitness&lt;/ion-title&gt;
+        &lt;/ion-toolbar&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+    &lt;ion-row class&#x3D;&quot;ion-text-center ion-justify-content-center&quot;&gt;
+      &lt;ion-col size&#x3D;&quot;3&quot; class&#x3D;&quot;ion-hide-sm-down&quot;&gt;
+        &lt;ion-img src&#x3D;&quot;../../../assets/lazy/images/squatting-exercise.jpg&quot; style&#x3D;&quot;height: 100%; width: 100%&quot;&gt;&lt;/ion-img&gt;
+      &lt;/ion-col&gt;
+      &lt;ion-col class&#x3D;&quot;ion-align-items-stretch ion-align-self-center&quot; size-sm&#x3D;&quot;100%&quot; size-md&#x3D;&quot;6&quot;&gt;
+        &lt;ion-row&gt;
+          &lt;ion-col&gt;
+            &lt;ion-img src&#x3D;&quot;../../../assets/lazy/images/platinum.png&quot; style&#x3D;&quot;height: 100%; width: 100%&quot;&gt;&lt;/ion-img&gt;
+          &lt;/ion-col&gt;
+          &lt;ion-col class&#x3D;&quot;ion-text-center&quot;&gt;
+            &lt;ion-img src&#x3D;&quot;../../../assets/lazy/images/logo.png&quot; style&#x3D;&quot;height: 100%; width: 100%&quot;&gt;&lt;/ion-img&gt;
+          &lt;/ion-col&gt;
+        &lt;/ion-row&gt;
+        &lt;ion-row&gt;
+          &lt;ion-col class&#x3D;&quot;ion-text-center ion-align-self-center&quot; size-sm&#x3D;&quot;12&quot; size-md&#x3D;&quot;4&quot;&gt;
+            &lt;app-location&gt;&lt;/app-location&gt;
+          &lt;/ion-col&gt;
+          &lt;ion-col class&#x3D;&quot;ion-text-center ion-hide-sm-down ion-align-items-center&quot;&gt;
+            &lt;ion-img
+              src&#x3D;&quot;../../../assets/lazy/images/woman-lifts-free-weights.jpg&quot;
+              style&#x3D;&quot;height: 100%; width: 100%&quot;
+            &gt;&lt;/ion-img&gt;
+          &lt;/ion-col&gt;
+        &lt;/ion-row&gt;
+      &lt;/ion-col&gt;
+      &lt;ion-col size&#x3D;&quot;3&quot; class&#x3D;&quot;ion-hide-sm-down&quot;&gt;
+        &lt;ion-img src&#x3D;&quot;../../../assets/lazy/images/intense-exercise.jpg&quot; style&#x3D;&quot;height: 100%; width: 100%&quot;&gt;&lt;/ion-img&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+    &lt;ion-row&gt;
+      &lt;ion-col size&#x3D;&quot;12&quot;&gt;
+        &lt;ion-toolbar class&#x3D;&quot;toolbar-bottom&quot;&gt; &lt;/ion-toolbar&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+  &lt;/ion-grid&gt;
+
+  &lt;app-footer&gt; &lt;/app-footer&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./contact.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.map-canvas {
+  position: relative;
+  height: 86vh;
+  background-color: grey;
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+}
+
+.show-map {
+  opacity: 0.65;
+  background: darkslategray;
+  color: black;
+}
+
+.toolbar {
+  margin-top: 80px;
+  border-bottom: 3px solid var(--ion-color-secondary-shade);
+  --background: linear-gradient(to right, rgba(0, 29, 173, 0.5), rgba(0, 0, 0, 0.596), rgba(0, 29, 173, 0.5)),
+    center/cover no-repeat url(./../../assets/lazy/images/banner.png);
+}
+
+.toolbar-bottom {
+  // height: 100px;
+  border-top: 3px solid var(--ion-color-secondary-shade);
+  --background: linear-gradient(to right, rgba(0, 29, 173, 0.5), rgba(0, 0, 0, 0.596), rgba(0, 29, 173, 0.5)),
+    center/cover no-repeat url(./../../assets/lazy/images/banner.png);
+}
+
+.title {
+  font-family: &#x27;Trebuchet MS&#x27;, sans-serif;
+  color: var(--ion-color-warning);
+  font-size: x-large;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-content class="ion-text-center">  <ion-grid class="ion-no-padding">    <ion-row class="ion-justify-content-center">      <ion-col class="ion-text-center">        <ion-toolbar class="toolbar">          <ion-title class="title">Contact Xpert Fitness</ion-title>        </ion-toolbar>      </ion-col>    </ion-row>    <ion-row class="ion-text-center ion-justify-content-center">      <ion-col size="3" class="ion-hide-sm-down">        <ion-img src="../../../assets/lazy/images/squatting-exercise.jpg" style="height: 100%; width: 100%"></ion-img>      </ion-col>      <ion-col class="ion-align-items-stretch ion-align-self-center" size-sm="100%" size-md="6">        <ion-row>          <ion-col>            <ion-img src="../../../assets/lazy/images/platinum.png" style="height: 100%; width: 100%"></ion-img>          </ion-col>          <ion-col class="ion-text-center">            <ion-img src="../../../assets/lazy/images/logo.png" style="height: 100%; width: 100%"></ion-img>          </ion-col>        </ion-row>        <ion-row>          <ion-col class="ion-text-center ion-align-self-center" size-sm="12" size-md="4">            <app-location></app-location>          </ion-col>          <ion-col class="ion-text-center ion-hide-sm-down ion-align-items-center">            <ion-img              src="../../../assets/lazy/images/woman-lifts-free-weights.jpg"              style="height: 100%; width: 100%"            ></ion-img>          </ion-col>        </ion-row>      </ion-col>      <ion-col size="3" class="ion-hide-sm-down">        <ion-img src="../../../assets/lazy/images/intense-exercise.jpg" style="height: 100%; width: 100%"></ion-img>      </ion-col>    </ion-row>    <ion-row>      <ion-col size="12">        <ion-toolbar class="toolbar-bottom"> </ion-toolbar>      </ion-col>    </ion-row>  </ion-grid>  <app-footer> </app-footer></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitsTrackerComponent', 'selector': 'app-benefits-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CartviewComponent', 'selector': 'app-cartview'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ChoicesPage', 'selector': 'app-choices'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'FacilityPage', 'selector': 'app-facility'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageFourComponent', 'selector': 'app-home-page-four'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'IntroVideoComponent', 'selector': 'app-intro-video'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LineChartComponent', 'selector': 'app-line-chart'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'ModalViewPage', 'selector': 'app-modal-view'},{'name': 'NewReviewComponent', 'selector': 'app-new-review'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NewsFormComponent', 'selector': 'app-news-form'},{'name': 'NutritionPage', 'selector': 'app-nutrition'},{'name': 'PhoneAuthComponent', 'selector': 'app-phone-auth'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SafetyPage', 'selector': 'app-safety'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StudentCreatePage', 'selector': 'app-student-create'},{'name': 'StudentDetailPage', 'selector': 'app-student-detail'},{'name': 'StudentEditPage', 'selector': 'app-student-edit'},{'name': 'StudentListPage', 'selector': 'app-student-list'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserDashboardComponent', 'selector': 'app-user-dashboard'},{'name': 'UserPage', 'selector': 'app-user'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WebrtcComponent', 'selector': 'app-webrtc'}];
+    var DIRECTIVES = [{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
+    var ACTUAL_COMPONENT = {'name': 'ContactPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ContactPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

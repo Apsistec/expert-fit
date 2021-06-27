@@ -1,0 +1,272 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expert-fit documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">expert-fit documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content module">
+                   <div class="content-data">
+
+
+
+<ol class="breadcrumb">
+    <li>Modules</li>
+    <li>AppRoutingModule</li>
+</ol>
+
+
+<ul class="nav nav-tabs" role="tablist">
+    <li  class="active" >
+        <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+    <li >
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/app-routing.module.ts</code>
+        </p>
+
+
+
+
+        <div class="container-fluid module">
+            <div class="row">
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">// import { QuicklinkStrategy } from &#x27;ngx-quicklink&#x27;;
+
+import { NgModule } from &#x27;@angular/core&#x27;;
+import {
+  canActivate,
+  emailVerified,
+  redirectUnauthorizedTo
+} from &#x27;@angular/fire/auth-guard&#x27;;
+import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
+
+import { PaidGuard } from &#x27;./guards/paid.guard&#x27;;
+import { RoleGuard } from &#x27;./guards/role.guard&#x27;;
+
+
+// const customerOnly &#x3D; () &#x3D;&gt; hasCustomClaim(&#x27;customer&#x27;);
+// const employeeOnly &#x3D; () &#x3D;&gt; hasCustomClaim(&#x27;employee&#x27;);
+// const adminOnly &#x3D; () &#x3D;&gt; hasCustomClaim(&#x27;admin&#x27;);
+// const redirectLoggedInToDash &#x3D; () &#x3D;&gt; redirectLoggedInTo([&#x27;/user/dashboard&#x27;]);
+const redirectUnauthorizedToLogin &#x3D; () &#x3D;&gt; redirectUnauthorizedTo([&#x27;/login&#x27;]);
+const verifiedEmail &#x3D; () &#x3D;&gt; emailVerified;
+const routes: Routes &#x3D; [
+  {
+    path: &#x27;&#x27;,
+    redirectTo: &#x27;/home&#x27;,
+    pathMatch: &#x27;full&#x27;
+  },
+  {
+    path: &#x27;home&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./home/home.module&#x27;).then((m) &#x3D;&gt; m.HomePageModule)&quot;
+  },
+  {
+    path: &#x27;admin&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./admin/admin.module&#x27;).then((m) &#x3D;&gt; m.AdminPageModule)&quot;,
+    ...&quot;canActivate(redirectUnauthorizedToLogin)&quot;,
+    canActivate: [PaidGuard, RoleGuard]
+  },
+
+  {
+    path: &#x27;user&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./user/user.module&#x27;).then((m) &#x3D;&gt; m.UserPageModule)&quot;,
+    ...&quot;canActivate(redirectUnauthorizedToLogin)&quot;
+  },
+  {
+    path: &#x27;pricing&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./products/products.module&#x27;).then((m) &#x3D;&gt; m.ProductsPageModule)&quot;
+  },
+  {
+    path: &#x27;faqs&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./faq/faq.module&#x27;).then((m) &#x3D;&gt; m.FaqPageModule)&quot;
+  },
+  {
+    path: &#x27;faq&#x27;,
+    redirectTo: &#x27;/faqs&#x27;,
+    pathMatch: &#x27;full&#x27;
+  },
+
+  {
+    path: &#x27;reviews&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./testimonials/testimonials.module&#x27;).then((m) &#x3D;&gt; m.TestimonialsPageModule)&quot;
+  },
+  {
+    path: &#x27;testimonials&#x27;,
+    redirectTo: &#x27;/reviews&#x27;,
+    pathMatch: &#x27;full&#x27;
+  },
+  {
+    path: &#x27;ratings&#x27;,
+    redirectTo: &#x27;/reviews&#x27;,
+    pathMatch: &#x27;full&#x27;
+  },
+  {
+    path: &#x27;about-us&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./about-us/about-us.module&#x27;).then((m) &#x3D;&gt; m.AboutUsPageModule)&quot;
+  },
+  {
+    path: &#x27;about&#x27;,
+    redirectTo: &#x27;/about-us&#x27;,
+    pathMatch: &#x27;full&#x27;
+  },
+  {
+    path: &#x27;contact-us&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./contact/contact.module&#x27;).then((m) &#x3D;&gt; m.ContactPageModule)&quot;
+  },
+  {
+    path: &#x27;contact&#x27;,
+    redirectTo: &#x27;/contact-us&#x27;,
+    pathMatch: &#x27;full&#x27;
+  },
+  {
+    path: &#x27;facility&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./facility/facility.module&#x27;).then((m) &#x3D;&gt; m.FacilityPageModule)&quot;
+  },
+  {
+    path: &#x27;nutrition&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./nutrition/nutrition.module&#x27;).then((m) &#x3D;&gt; m.NutritionPageModule)&quot;
+  },
+  {
+    path: &#x27;safety&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./safety/safety.module&#x27;).then((m) &#x3D;&gt; m.SafetyPageModule)&quot;
+  },
+  {
+    path: &#x27;choices&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./choices/choices.module&#x27;).then((m) &#x3D;&gt; m.ChoicesPageModule)&quot;
+  },
+
+  {
+    path: &#x27;:id&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./modal-view/modal-view.module&#x27;).then((m) &#x3D;&gt; m.ModalViewPageModule)&quot;
+  },
+  {
+    path: &#x27;**&#x27;,
+    redirectTo: &#x27;/unknown&#x27;,
+    pathMatch: &#x27;full&#x27;
+  },
+  {
+    path: &#x27;unknown&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./unknown/unknown.module&#x27;).then((m) &#x3D;&gt; m.UnknownPageModule)&quot;
+  }
+];
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      // preloadingStrategy: QuicklinkStrategy
+      scrollPositionRestoration: &#x27;enabled&#x27;,
+      // anchorScrolling: &#x27;enabled&#x27;
+      enableTracing: true
+    })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppRoutingModule.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

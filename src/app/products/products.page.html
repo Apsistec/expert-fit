@@ -177,18 +177,17 @@
               </ion-row>
               <ion-row>
                 <ion-col class="ion-align-items-stretch ion-padding">
-                  <!-- <ion-item lines="none" class="price-item ion-margin-vertical">
+                  <ion-item lines="none" class="price-item ion-margin-vertical">
                     <ion-label>Price</ion-label>
-                    <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover">
+                    <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover" [value]="price.id" *ngFor="let price of prices"
+>
                       <ion-select-option
                         class="iso"
-                         [value]="price.unit_amount"
-                        *ngFor="let price of itemPrices "
                       >
-                        {{ price.unit_amount /100 | currency }} {{ price.interval }}
+                        {{ price.data.unit_amount /100 | currency }} {{ price.interval }}
                       </ion-select-option>
                     </ion-select>
-                  </ion-item> -->
+                  </ion-item>
                   <ion-button (click)="addToCart()" class="add-to-cart-btn">Add to Cart</ion-button>
                 </ion-col>
               </ion-row>

@@ -1,0 +1,1617 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expert-fit documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">expert-fit documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ProfileComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/user/profile/profile.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-profile</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./profile.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./profile.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#afAuth">afAuth</a>
+                            </li>
+                            <li>
+                                <a href="#atp">atp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#authService">authService</a>
+                            </li>
+                            <li>
+                                <a href="#buy">buy</a>
+                            </li>
+                            <li>
+                                <a href="#dark">dark</a>
+                            </li>
+                            <li>
+                                <a href="#darkSetting">darkSetting</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#db">db</a>
+                            </li>
+                            <li>
+                                <a href="#email">email</a>
+                            </li>
+                            <li>
+                                <a href="#planId">planId</a>
+                            </li>
+                            <li>
+                                <a href="#purchase">purchase</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stripe">stripe</a>
+                            </li>
+                            <li>
+                                <a href="#subs">subs</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                            <li>
+                                <a href="#user">user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dismissModal">dismissModal</a>
+                            </li>
+                            <li>
+                                <a href="#enableDark">enableDark</a>
+                            </li>
+                            <li>
+                                <a href="#enableLight">enableLight</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#presentCancelSubModal">presentCancelSubModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#presentInvoicesModal">presentInvoicesModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#presentSettingsModal">presentSettingsModal</a>
+                            </li>
+                            <li>
+                                <a href="#support">support</a>
+                            </li>
+                            <li>
+                                <a href="#toggle">toggle</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(theme: <a href="../injectables/ThemeService.html">ThemeService</a>, modalController: ModalController, authService: <a href="../injectables/AuthService.html">AuthService</a>, afAuth: AngularFireAuth, db: AngularFirestore, stripe: <a href="../injectables/StripeService.html">StripeService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, navController: NavController, messageService: <a href="../injectables/MessageService.html">MessageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/user/profile/profile.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>theme</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ThemeService.html" target="_self" >ThemeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>afAuth</td>
+                                                  
+                                                        <td>
+                                                                    <code>AngularFireAuth</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>db</td>
+                                                  
+                                                        <td>
+                                                                    <code>AngularFirestore</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>stripe</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StripeService.html" target="_self" >StripeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>navController</td>
+                                                  
+                                                        <td>
+                                                                    <code>NavController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>messageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MessageService.html" target="_self" >MessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dismissModal"></a>
+                    <span class="name">
+                        <b>
+                            dismissModal
+                        </b>
+                        <a href="#dismissModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dismissModal()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/app/user/profile/profile.component.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableDark"></a>
+                    <span class="name">
+                        <b>
+                            enableDark
+                        </b>
+                        <a href="#enableDark"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableDark()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/user/profile/profile.component.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableLight"></a>
+                    <span class="name">
+                        <b>
+                            enableLight
+                        </b>
+                        <a href="#enableLight"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enableLight()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">src/app/user/profile/profile.component.ts:55</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewInit
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/user/profile/profile.component.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/user/profile/profile.component.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="presentCancelSubModal"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            presentCancelSubModal
+                        </b>
+                        <a href="#presentCancelSubModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>presentCancelSubModal()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/user/profile/profile.component.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="presentInvoicesModal"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            presentInvoicesModal
+                        </b>
+                        <a href="#presentInvoicesModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>presentInvoicesModal()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/app/user/profile/profile.component.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="presentSettingsModal"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
+                            presentSettingsModal
+                        </b>
+                        <a href="#presentSettingsModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>presentSettingsModal()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/user/profile/profile.component.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="support"></a>
+                    <span class="name">
+                        <b>
+                            support
+                        </b>
+                        <a href="#support"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>support()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">src/app/user/profile/profile.component.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggle"></a>
+                    <span class="name">
+                        <b>
+                            toggle
+                        </b>
+                        <a href="#toggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggle()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/app/user/profile/profile.component.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="afAuth"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            afAuth</b>
+                            <a href="#afAuth"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>AngularFireAuth</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/user/profile/profile.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="atp"></a>
+                        <span class="name">
+                            <b>
+                            atp</b>
+                            <a href="#atp"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/user/profile/profile.component.ts:25</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="authService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            authService</b>
+                            <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/user/profile/profile.component.ts:37</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="buy"></a>
+                        <span class="name">
+                            <b>
+                            buy</b>
+                            <a href="#buy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/user/profile/profile.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dark"></a>
+                        <span class="name">
+                            <b>
+                            dark</b>
+                            <a href="#dark"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/user/profile/profile.component.ts:31</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="darkSetting"></a>
+                        <span class="name">
+                            <b>
+                            darkSetting</b>
+                            <a href="#darkSetting"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/user/profile/profile.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="db"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            db</b>
+                            <a href="#db"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>AngularFirestore</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/user/profile/profile.component.ts:39</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="email"></a>
+                        <span class="name">
+                            <b>
+                            email</b>
+                            <a href="#email"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/user/profile/profile.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="planId"></a>
+                        <span class="name">
+                            <b>
+                            planId</b>
+                            <a href="#planId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/user/profile/profile.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="purchase"></a>
+                        <span class="name">
+                            <b>
+                            purchase</b>
+                            <a href="#purchase"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/user/profile/profile.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="stripe"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            stripe</b>
+                            <a href="#stripe"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/StripeService.html" target="_self" >StripeService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/user/profile/profile.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="subs"></a>
+                        <span class="name">
+                            <b>
+                            subs</b>
+                            <a href="#subs"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/user/profile/profile.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <span class="name">
+                            <b>
+                            title</b>
+                            <a href="#title"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;User Profile&#x27;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/user/profile/profile.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="user"></a>
+                        <span class="name">
+                            <b>
+                            user</b>
+                            <a href="#user"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/user/profile/profile.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MessageService } from &#x27;src/app/services/message.service&#x27;;
+
+import { AfterViewInit, Component, OnInit } from &#x27;@angular/core&#x27;;
+import { AngularFireAuth } from &#x27;@angular/fire/auth&#x27;;
+import { AngularFirestore } from &#x27;@angular/fire/firestore&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { ModalController, NavController } from &#x27;@ionic/angular&#x27;;
+
+import { CancelServiceComponent } from &#x27;../cancel-service/cancel-service.component&#x27;;
+import { InvoicesComponent } from &#x27;../invoices/invoices.component&#x27;;
+import { User } from &#x27;../../models/users.model&#x27;;
+import { AuthService } from &#x27;../../services/auth.service&#x27;;
+import { StripeService } from &#x27;../../services/stripe.service&#x27;;
+import { ThemeService } from &#x27;../../services/theme.service&#x27;;
+import { SettingsComponent } from &#x27;../settings/settings.component&#x27;;
+
+@Component({
+  selector: &#x27;app-profile&#x27;,
+  templateUrl: &#x27;./profile.component.html&#x27;,
+  styleUrls: [&#x27;./profile.component.scss&#x27;]
+})
+export class ProfileComponent implements OnInit, AfterViewInit {
+  title &#x3D; &#x27;User Profile&#x27;;
+  planId;
+  atp;
+  buy;
+  purchase;
+  user: User;
+  email: any;
+  subs: any;
+  dark: boolean;
+  darkSetting;
+
+  constructor(
+    private theme: ThemeService,
+    private modalController: ModalController,
+    public authService: AuthService,
+    public afAuth: AngularFireAuth,
+    public db: AngularFirestore,
+    public stripe: StripeService,
+    private router: Router,
+    private navController: NavController,
+    private messageService: MessageService
+  ) {}
+
+  ngOnInit() {}
+
+  ngAfterViewInit() {}
+
+  // Themes
+  enableDark() {
+    this.theme.enableDark();
+  }
+
+  enableLight() {
+    this.theme.enableLight();
+  }
+
+  // Stripe Account Administration Modals
+  async presentCancelSubModal() {
+    const modal &#x3D; await this.modalController.create({
+      component: CancelServiceComponent
+    });
+    return modal.present();
+  }
+
+  async presentInvoicesModal() {
+    const modal &#x3D; await this.modalController.create({
+      component: InvoicesComponent
+    });
+    return modal.present();
+  }
+  async presentSettingsModal() {
+    const modal &#x3D; await this.modalController.create({
+      component: SettingsComponent
+    });
+    return modal.present();
+  }
+
+  // dismiss Modals
+  dismissModal() {
+    this.modalController.dismiss().then(() &#x3D;&gt; {
+      this.navController.back();
+    });
+  }
+
+  support() {
+    this.router.navigateByUrl(&#x27;/user/dashboard&#x27;);
+  }
+
+  toggle() {
+    document.body.classList.toggle(&#x27;dark&#x27;);
+  }
+
+  // async showModalWebrtc() {
+  //   const modal &#x3D; await this.modalController.create({
+  //     component: WebrtcComponent,
+  //     cssClass: &#x27;modal-css&#x27;,
+  //     backdropDismiss: false,
+  //     swipeToClose: false,
+  //     showBackdrop: true
+  //   });
+  //   modal.present().catch((error) &#x3D;&gt; {
+  //     this.dismissModal();
+  //     return this.messageService.errorAlert(error);
+  //   });
+  // }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-grid *ngIf&#x3D;&quot;authService.user | async as user&quot;&gt;
+  &lt;ion-row class&#x3D;&quot;ion-justify-content-between main&quot;&gt;
+    &lt;ion-col class&#x3D;&quot;ion-align-self-center&quot;&gt;
+      &lt;ion-card class&#x3D;&quot;profile-card&quot;&gt;
+        &lt;ion-row&gt;
+          &lt;ion-col class&#x3D;&quot;ion-no-margin ion-no-padding&quot;&gt;
+            &lt;ion-row&gt;
+              &lt;ion-col&gt;
+                &lt;ion-img
+                  style&#x3D;&quot;height: 200px; width: 100%&quot;
+                  [src]&#x3D;&quot;user.photoURL || &#x27;..//..//assets//lazy//images//dummy-user.png&#x27;&quot;
+                &gt;&lt;/ion-img&gt;
+              &lt;/ion-col&gt;
+            &lt;/ion-row&gt;
+            &lt;ion-row&gt;
+              &lt;ion-col class&#x3D;&quot;ion-no-margin ion-no-padding&quot;&gt;
+                &lt;ion-card-header class&#x3D;&quot;name-card&quot;&gt;
+                  &lt;ion-card-title&gt;
+                    {{ user.displayName || &#x27;User&#x27; }}
+                  &lt;/ion-card-title&gt;
+                &lt;/ion-card-header&gt;
+              &lt;/ion-col&gt;
+            &lt;/ion-row&gt;
+          &lt;/ion-col&gt;
+        &lt;/ion-row&gt;
+        &lt;ion-card-content&gt;
+          &lt;ion-row&gt;
+            &lt;ion-col&gt;
+              &lt;ion-label&gt; &lt;b&gt; Email: &lt;/b&gt; &lt;/ion-label&gt;&lt;br /&gt;
+              {{ user.email }}
+              &lt;br /&gt;
+              &lt;ion-label&gt; &lt;b&gt; Phone Number &lt;/b&gt; &lt;/ion-label&gt;&lt;br /&gt;
+              {{ user.phoneNumber || &#x27;--&#x27; }}
+              &lt;br /&gt;
+              &lt;ion-label&gt; &lt;b&gt; Account Roles: &lt;/b&gt; &lt;/ion-label&gt;&lt;br /&gt;
+              {{ user.role }}
+            &lt;/ion-col&gt;
+            &lt;ion-col&gt;
+              &lt;ion-label&gt; &lt;b&gt; Email Verified: &lt;/b&gt; &lt;/ion-label&gt;&lt;br /&gt;
+              {{ user.emailVerified }}
+              &lt;br /&gt;
+              &lt;ion-label&gt; &lt;b&gt; User Since: &lt;/b&gt; &lt;/ion-label&gt;&lt;br /&gt;
+              {{ user.createdAt || &#x27;--&#x27; }}
+              &lt;br /&gt;
+              &lt;ion-label&gt; &lt;b&gt; Last Logged In: &lt;/b&gt; &lt;/ion-label&gt;&lt;br /&gt;
+              {{ user.lastUpdatedAt || &#x27;--&#x27; }}
+            &lt;/ion-col&gt;
+          &lt;/ion-row&gt;
+          &lt;ion-row class&#x3D;&quot;ion-text-center&quot;&gt;
+            &lt;ion-col&gt;
+              &lt;ion-button class&#x3D;&quot;ion-text-capitalize&quot; size&#x3D;&quot;small&quot; color&#x3D;&quot;warning&quot; (click)&#x3D;&quot;presentSettingsModal()&quot;&gt;
+                Edit User
+              &lt;/ion-button&gt;
+              &lt;ion-button class&#x3D;&quot;ion-text-capitalize&quot; size&#x3D;&quot;small&quot; color&#x3D;&quot;danger&quot; (click)&#x3D;&quot;authService.signOut()&quot;
+                &gt;Logout
+              &lt;/ion-button&gt;
+            &lt;/ion-col&gt;
+          &lt;/ion-row&gt;
+        &lt;/ion-card-content&gt;
+      &lt;/ion-card&gt;
+    &lt;/ion-col&gt;
+    &lt;ion-col class&#x3D;&quot;ion-align-self-center&quot;&gt;
+      &lt;ion-card class&#x3D;&quot;profile-card&quot;&gt;
+        &lt;ion-card-header&gt;
+          &lt;ion-card-title&gt; Subscription Details &lt;/ion-card-title&gt;
+        &lt;/ion-card-header&gt;
+        &lt;ion-card-content class&#x3D;&quot;ion-margin&quot; class&#x3D;&quot;ion-text-center&quot;&gt;
+          &lt;ng-container *ngIf&#x3D;&quot;stripe.subscriptions | async; then subData; else buy&quot;&gt;&lt;/ng-container&gt;
+          &lt;ng-template #buy class&#x3D;&quot;ion-text-center ion-align-items-center&quot;&gt;
+            &lt;ion-button class&#x3D;&quot;ion-text-capitalize&quot; color&#x3D;&quot;success&quot; strong size&#x3D;&quot;small&quot; routerLink&#x3D;&quot;/checkout&quot;&gt;
+              Purchase Membership
+            &lt;/ion-button&gt;
+          &lt;/ng-template&gt;
+          &lt;ng-template #subData&gt;
+            &lt;ion-label&gt; &lt;b&gt; Plan: &lt;/b&gt; &lt;/ion-label&gt;&lt;br /&gt;
+            {{ subs.data[0].plan.id | uppercase }}
+            &lt;ion-label color&#x3D;&quot;primary&quot;&gt; &lt;b&gt; Status: &lt;/b&gt; &lt;/ion-label&gt;&lt;br /&gt;
+            {{ subs.data[0].status | uppercase }}
+            &lt;ion-label color&#x3D;&quot;primary&quot; *ngIf&#x3D;&quot;user.stripeStatus &#x3D;&#x3D;&#x3D; &#x27;trialing&#x27;&quot;&gt; &lt;b&gt; Trial Ends: &lt;/b&gt; &lt;/ion-label&gt;&lt;br /&gt;
+            {{ subs.data[0].trial_end * 1000 | date }}
+            &lt;ion-label&gt; &lt;b&gt; Monthly Dues: &lt;/b&gt; &lt;/ion-label&gt;&lt;br /&gt;
+            {{ subs.data[0].plan.amount / 100 | currency }}
+            &lt;ion-label color&#x3D;&quot;primary&quot;&gt;Membership Created:&lt;/ion-label&gt;&lt;br /&gt;
+            {{ subs.data[0].center_date * 1000 | date }}
+            &lt;ion-label color&#x3D;&quot;primary&quot;&gt;Billing center:&lt;/ion-label&gt;&lt;br /&gt;
+            {{ subs.data[0].current_period_center * 1000 | date }}
+            &lt;ion-label color&#x3D;&quot;primary&quot;&gt;Billing End:&lt;/ion-label&gt;&lt;br /&gt;
+            {{ subs.data[0].current_period_end * 1000 | date }}
+          &lt;/ng-template&gt;
+        &lt;/ion-card-content&gt;
+      &lt;/ion-card&gt;
+
+      &lt;!-- Admin Dash --&gt;
+      &lt;ng-component *ngIf&#x3D;&quot;user.role.includes(&#x27;admin&#x27;)&quot;&gt;
+        &lt;ion-card class&#x3D;&quot;ion-text-center profile-card&quot;&gt;
+          &lt;ion-card-header&gt;
+            &lt;ion-card-title&gt; Admin Dashboard &lt;/ion-card-title&gt;
+            &lt;ion-card-subtitle&gt; Reports &amp; Admin Functions &lt;/ion-card-subtitle&gt;
+          &lt;/ion-card-header&gt;
+          &lt;ion-card-content class&#x3D;&quot;ion-margin&quot;&gt;
+            &lt;ion-button class&#x3D;&quot;ion-text-capitalize&quot; size&#x3D;&quot;small&quot; color&#x3D;&quot;dark&quot; routerLink&#x3D;&quot;/admin&quot;&gt;
+              &lt;ion-icon slot&#x3D;&quot;end&quot; color&#x3D;&quot;dark&quot; name&#x3D;&quot;glasses&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-icon slot&#x3D;&quot;center&quot; color&#x3D;&quot;dark&quot; name&#x3D;&quot;glasses&quot;&gt;&lt;/ion-icon&gt;
+              Admin Dashboard
+            &lt;/ion-button&gt;
+          &lt;/ion-card-content&gt;
+        &lt;/ion-card&gt;
+      &lt;/ng-component&gt;
+
+      &lt;!-- Employee Dash --&gt;
+      &lt;ng-component *ngIf&#x3D;&quot;user.role.includes(&#x27;employee&#x27;)&quot;&gt;
+        &lt;ion-card class&#x3D;&quot;ion-text-center profile-card&quot;&gt;
+          &lt;ion-card-header&gt;
+            &lt;ion-card-title&gt; Employee Dashboard &lt;/ion-card-title&gt;
+            &lt;ion-card-subtitle&gt; Reports &amp; Employee Functions &lt;/ion-card-subtitle&gt;
+          &lt;/ion-card-header&gt;
+          &lt;ion-card-content class&#x3D;&quot;ion-margin&quot;&gt;
+            &lt;ion-button class&#x3D;&quot;ion-text-capitalize&quot; size&#x3D;&quot;small&quot; color&#x3D;&quot;dark&quot; routerLink&#x3D;&quot;/admin&quot;&gt;
+              &lt;ion-icon slot&#x3D;&quot;end&quot; color&#x3D;&quot;dark&quot; name&#x3D;&quot;glasses&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-icon slot&#x3D;&quot;center&quot; color&#x3D;&quot;dark&quot; name&#x3D;&quot;glasses&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-text color&#x3D;&quot;success&quot;&gt; Admin Dashboard &lt;/ion-text&gt;
+            &lt;/ion-button&gt;
+          &lt;/ion-card-content&gt;
+        &lt;/ion-card&gt;
+      &lt;/ng-component&gt;
+
+      &lt;!-- Support Dashboard--&gt;
+      &lt;ion-card class&#x3D;&quot;ion-text-center profile-card&quot; *ngIf&#x3D;&quot;user.role.includes(&#x27;user&#x27;)&quot;&gt;
+        &lt;ion-card-header&gt;
+          &lt;ion-card-title&gt; User Support Dashboard &lt;/ion-card-title&gt;
+          &lt;ion-card-subtitle&gt; Not finding the answers you need? &lt;/ion-card-subtitle&gt;
+        &lt;/ion-card-header&gt;
+        &lt;ion-card-content&gt;
+          &lt;ion-text color&#x3D;&quot;dark&quot;&gt; Open a support request, and we will get back to you ASAP! &lt;/ion-text&gt;
+          &lt;br /&gt;
+          &lt;app-support&gt;&lt;/app-support&gt;
+        &lt;/ion-card-content&gt;
+      &lt;/ion-card&gt;
+      &lt;ion-card class&#x3D;&quot;ion-text-center profile-card&quot;&gt;
+        &lt;ion-card-header&gt;
+          &lt;ion-card-title&gt; Live Stream Player &lt;/ion-card-title&gt;
+          &lt;ion-card-subtitle&gt; For Remote Workout Sessions &lt;/ion-card-subtitle&gt;
+        &lt;/ion-card-header&gt;
+        &lt;ion-card-content class&#x3D;&quot;ion-text-center&quot;&gt;
+          &lt;ion-text&gt;
+            Player will open in a popup player. You will need to follow the instructions to connect to server.
+          &lt;/ion-text&gt;
+        &lt;/ion-card-content&gt;
+        &lt;ion-button class&#x3D;&quot;ion-margin&quot; color&#x3D;&quot;primary&quot; routerLink&#x3D;&quot;/webrtc&quot;&gt;Open Live Stream&lt;/ion-button&gt;
+      &lt;/ion-card&gt;
+
+      &lt;!-- Account Management --&gt;
+      &lt;ion-card class&#x3D;&quot;ion-text-center profile-card&quot; *ngIf&#x3D;&quot;user.stripeRole &#x3D;&#x3D;&#x3D; &#x27;premium&#x27;&quot;&gt;
+        &lt;ion-card-header&gt;
+          &lt;ion-card-title&gt; Account Management &lt;/ion-card-title&gt;
+        &lt;/ion-card-header&gt;
+        &lt;ion-card-content class&#x3D;&quot;ion-margin&quot;&gt;
+          &lt;ng-container *ngIf&#x3D;&quot;stripe.subscriptions | async as subs; else purchase&quot;&gt;
+            &lt;ion-button
+              class&#x3D;&quot;ion-text-capitalize&quot;
+              size&#x3D;&quot;small&quot;
+              color&#x3D;&quot;primary&quot;
+              [href]&#x3D;&quot;&#x27;https://pay.stripe.com/invoice/&#x27; + subs.data[0].latest_invoice&quot;
+            &gt;
+              Current app-invoices
+            &lt;/ion-button&gt;
+            &lt;ion-button class&#x3D;&quot;ion-text-capitalize&quot; size&#x3D;&quot;small&quot; color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;presentInvoicesModal()&quot;&gt;
+              Invoice History
+            &lt;/ion-button&gt;
+            &lt;br /&gt;
+            &lt;ion-button class&#x3D;&quot;ion-text-capitalize&quot; size&#x3D;&quot;small&quot; color&#x3D;&quot;warning&quot; (click)&#x3D;&quot;presentCancelSubModal()&quot;&gt;
+              Cancel Subscription
+            &lt;/ion-button&gt;
+          &lt;/ng-container&gt;
+        &lt;/ion-card-content&gt;
+      &lt;/ion-card&gt;
+
+      &lt;!-- Theme --&gt;
+      &lt;ion-card class&#x3D;&quot;profile-card ion-text-center&quot;&gt;
+        &lt;ion-card-header&gt;
+          &lt;ion-card-title&gt; Theme Options &lt;/ion-card-title&gt;
+        &lt;/ion-card-header&gt;
+        &lt;ion-card-content class&#x3D;&quot;ion-margin ion-text-center&quot;&gt;
+          &lt;ion-icon color&#x3D;&quot;warning&quot; name&#x3D;&quot;sunny&quot;&gt;&lt;/ion-icon&gt;
+          &lt;ion-toggle [checked]&#x3D;&quot;!darkSetting&quot; (click)&#x3D;&quot;toggle()&quot;&gt;&lt;/ion-toggle&gt;
+          &lt;ion-icon color&#x3D;&quot;light&quot; name&#x3D;&quot;moon&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/ion-card-content&gt;
+      &lt;/ion-card&gt;
+    &lt;/ion-col&gt;
+  &lt;/ion-row&gt;
+&lt;/ion-grid&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./profile.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.main{
+  display: flex;
+  place-content: center;
+  padding-top: 60px;
+}
+
+.is-success {
+  --color: red;
+}
+
+.center {
+  align-items: center !important;
+}
+
+.name-card {
+  border-top: 3px solid var(--ion-color-primary);
+  border-bottom: 3px solid var(--ion-color-primary);
+}
+
+.profile-card {
+  max-width: 500px;
+  border: 3px solid var(--ion-color-primary);
+  --background: var(--ion-color-medium);
+  ion-card-header {
+    --background: var(--ion-color-medium-shade);
+    text-align: center;
+    ion-card-title {
+      text-transform: uppercase;
+      color: var(--ion-color-primary);
+      font-weight: 600;
+    }
+    ion-card-subtitle {
+      color: var(--ion-color-success);
+      font-size: larger;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+  ion-card-content {
+    text-align: left;
+    padding: 10px;
+  }
+  ion-label {
+    color: var(--ion-color-primary);
+    text-transform: capitalize;
+  }
+}
+
+ion-card {
+  color: var(--ion-color-dark);
+  border-radius: 15px;
+  text-transform: capitalize;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-grid *ngIf="authService.user | async as user">  <ion-row class="ion-justify-content-between main">    <ion-col class="ion-align-self-center">      <ion-card class="profile-card">        <ion-row>          <ion-col class="ion-no-margin ion-no-padding">            <ion-row>              <ion-col>                <ion-img                  style="height: 200px; width: 100%"                  [src]="user.photoURL || \'..//..//assets//lazy//images//dummy-user.png\'"                ></ion-img>              </ion-col>            </ion-row>            <ion-row>              <ion-col class="ion-no-margin ion-no-padding">                <ion-card-header class="name-card">                  <ion-card-title>                    {{ user.displayName || \'User\' }}                  </ion-card-title>                </ion-card-header>              </ion-col>            </ion-row>          </ion-col>        </ion-row>        <ion-card-content>          <ion-row>            <ion-col>              <ion-label> <b> Email: </b> </ion-label><br />              {{ user.email }}              <br />              <ion-label> <b> Phone Number </b> </ion-label><br />              {{ user.phoneNumber || \'--\' }}              <br />              <ion-label> <b> Account Roles: </b> </ion-label><br />              {{ user.role }}            </ion-col>            <ion-col>              <ion-label> <b> Email Verified: </b> </ion-label><br />              {{ user.emailVerified }}              <br />              <ion-label> <b> User Since: </b> </ion-label><br />              {{ user.createdAt || \'--\' }}              <br />              <ion-label> <b> Last Logged In: </b> </ion-label><br />              {{ user.lastUpdatedAt || \'--\' }}            </ion-col>          </ion-row>          <ion-row class="ion-text-center">            <ion-col>              <ion-button class="ion-text-capitalize" size="small" color="warning" (click)="presentSettingsModal()">                Edit User              </ion-button>              <ion-button class="ion-text-capitalize" size="small" color="danger" (click)="authService.signOut()"                >Logout              </ion-button>            </ion-col>          </ion-row>        </ion-card-content>      </ion-card>    </ion-col>    <ion-col class="ion-align-self-center">      <ion-card class="profile-card">        <ion-card-header>          <ion-card-title> Subscription Details </ion-card-title>        </ion-card-header>        <ion-card-content class="ion-margin" class="ion-text-center">          <ng-container *ngIf="stripe.subscriptions | async; then subData; else buy"></ng-container>          <ng-template #buy class="ion-text-center ion-align-items-center">            <ion-button class="ion-text-capitalize" color="success" strong size="small" routerLink="/checkout">              Purchase Membership            </ion-button>          </ng-template>          <ng-template #subData>            <ion-label> <b> Plan: </b> </ion-label><br />            {{ subs.data[0].plan.id | uppercase }}            <ion-label color="primary"> <b> Status: </b> </ion-label><br />            {{ subs.data[0].status | uppercase }}            <ion-label color="primary" *ngIf="user.stripeStatus === \'trialing\'"> <b> Trial Ends: </b> </ion-label><br />            {{ subs.data[0].trial_end * 1000 | date }}            <ion-label> <b> Monthly Dues: </b> </ion-label><br />            {{ subs.data[0].plan.amount / 100 | currency }}            <ion-label color="primary">Membership Created:</ion-label><br />            {{ subs.data[0].center_date * 1000 | date }}            <ion-label color="primary">Billing center:</ion-label><br />            {{ subs.data[0].current_period_center * 1000 | date }}            <ion-label color="primary">Billing End:</ion-label><br />            {{ subs.data[0].current_period_end * 1000 | date }}          </ng-template>        </ion-card-content>      </ion-card>      <!-- Admin Dash -->      <ng-component *ngIf="user.role.includes(\'admin\')">        <ion-card class="ion-text-center profile-card">          <ion-card-header>            <ion-card-title> Admin Dashboard </ion-card-title>            <ion-card-subtitle> Reports & Admin Functions </ion-card-subtitle>          </ion-card-header>          <ion-card-content class="ion-margin">            <ion-button class="ion-text-capitalize" size="small" color="dark" routerLink="/admin">              <ion-icon slot="end" color="dark" name="glasses"></ion-icon>              <ion-icon slot="center" color="dark" name="glasses"></ion-icon>              Admin Dashboard            </ion-button>          </ion-card-content>        </ion-card>      </ng-component>      <!-- Employee Dash -->      <ng-component *ngIf="user.role.includes(\'employee\')">        <ion-card class="ion-text-center profile-card">          <ion-card-header>            <ion-card-title> Employee Dashboard </ion-card-title>            <ion-card-subtitle> Reports & Employee Functions </ion-card-subtitle>          </ion-card-header>          <ion-card-content class="ion-margin">            <ion-button class="ion-text-capitalize" size="small" color="dark" routerLink="/admin">              <ion-icon slot="end" color="dark" name="glasses"></ion-icon>              <ion-icon slot="center" color="dark" name="glasses"></ion-icon>              <ion-text color="success"> Admin Dashboard </ion-text>            </ion-button>          </ion-card-content>        </ion-card>      </ng-component>      <!-- Support Dashboard-->      <ion-card class="ion-text-center profile-card" *ngIf="user.role.includes(\'user\')">        <ion-card-header>          <ion-card-title> User Support Dashboard </ion-card-title>          <ion-card-subtitle> Not finding the answers you need? </ion-card-subtitle>        </ion-card-header>        <ion-card-content>          <ion-text color="dark"> Open a support request, and we will get back to you ASAP! </ion-text>          <br />          <app-support></app-support>        </ion-card-content>      </ion-card>      <ion-card class="ion-text-center profile-card">        <ion-card-header>          <ion-card-title> Live Stream Player </ion-card-title>          <ion-card-subtitle> For Remote Workout Sessions </ion-card-subtitle>        </ion-card-header>        <ion-card-content class="ion-text-center">          <ion-text>            Player will open in a popup player. You will need to follow the instructions to connect to server.          </ion-text>        </ion-card-content>        <ion-button class="ion-margin" color="primary" routerLink="/webrtc">Open Live Stream</ion-button>      </ion-card>      <!-- Account Management -->      <ion-card class="ion-text-center profile-card" *ngIf="user.stripeRole === \'premium\'">        <ion-card-header>          <ion-card-title> Account Management </ion-card-title>        </ion-card-header>        <ion-card-content class="ion-margin">          <ng-container *ngIf="stripe.subscriptions | async as subs; else purchase">            <ion-button              class="ion-text-capitalize"              size="small"              color="primary"              [href]="\'https://pay.stripe.com/invoice/\' + subs.data[0].latest_invoice"            >              Current app-invoices            </ion-button>            <ion-button class="ion-text-capitalize" size="small" color="primary" (click)="presentInvoicesModal()">              Invoice History            </ion-button>            <br />            <ion-button class="ion-text-capitalize" size="small" color="warning" (click)="presentCancelSubModal()">              Cancel Subscription            </ion-button>          </ng-container>        </ion-card-content>      </ion-card>      <!-- Theme -->      <ion-card class="profile-card ion-text-center">        <ion-card-header>          <ion-card-title> Theme Options </ion-card-title>        </ion-card-header>        <ion-card-content class="ion-margin ion-text-center">          <ion-icon color="warning" name="sunny"></ion-icon>          <ion-toggle [checked]="!darkSetting" (click)="toggle()"></ion-toggle>          <ion-icon color="light" name="moon"></ion-icon>        </ion-card-content>      </ion-card>    </ion-col>  </ion-row></ion-grid></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitsTrackerComponent', 'selector': 'app-benefits-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CartviewComponent', 'selector': 'app-cartview'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ChoicesPage', 'selector': 'app-choices'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'FacilityPage', 'selector': 'app-facility'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageFourComponent', 'selector': 'app-home-page-four'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'IntroVideoComponent', 'selector': 'app-intro-video'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LineChartComponent', 'selector': 'app-line-chart'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'ModalViewPage', 'selector': 'app-modal-view'},{'name': 'NewReviewComponent', 'selector': 'app-new-review'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NewsFormComponent', 'selector': 'app-news-form'},{'name': 'NutritionPage', 'selector': 'app-nutrition'},{'name': 'PhoneAuthComponent', 'selector': 'app-phone-auth'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SafetyPage', 'selector': 'app-safety'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StudentCreatePage', 'selector': 'app-student-create'},{'name': 'StudentDetailPage', 'selector': 'app-student-detail'},{'name': 'StudentEditPage', 'selector': 'app-student-edit'},{'name': 'StudentListPage', 'selector': 'app-student-list'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserDashboardComponent', 'selector': 'app-user-dashboard'},{'name': 'UserPage', 'selector': 'app-user'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WebrtcComponent', 'selector': 'app-webrtc'}];
+    var DIRECTIVES = [{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
+    var ACTUAL_COMPONENT = {'name': 'ProfileComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProfileComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

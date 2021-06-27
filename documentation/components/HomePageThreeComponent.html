@@ -1,0 +1,1085 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>expert-fit documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/stripe.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">expert-fit documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>HomePageThreeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/home/home-page-three/home-page-three.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-home-page-three</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./home-page-three.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./home-page-three.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#content">content</a>
+                            </li>
+                            <li>
+                                <a href="#phases">phases</a>
+                            </li>
+                            <li>
+                                <a href="#slideOpts">slideOpts</a>
+                            </li>
+                            <li>
+                                <a href="#slider">slider</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#scrollToLabel">scrollToLabel</a>
+                            </li>
+                            <li>
+                                <a href="#slideNext">slideNext</a>
+                            </li>
+                            <li>
+                                <a href="#slidePrev">slidePrev</a>
+                            </li>
+                            <li>
+                                <a href="#slidesDidLoad">slidesDidLoad</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewInit
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollToLabel"></a>
+                    <span class="name">
+                        <b>
+                            scrollToLabel
+                        </b>
+                        <a href="#scrollToLabel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>scrollToLabel(label)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="150"
+                            class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:150</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>label</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="slideNext"></a>
+                    <span class="name">
+                        <b>
+                            slideNext
+                        </b>
+                        <a href="#slideNext"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>slideNext(slides)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:141</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slides</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="slidePrev"></a>
+                    <span class="name">
+                        <b>
+                            slidePrev
+                        </b>
+                        <a href="#slidePrev"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>slidePrev(slides)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:146</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slides</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="slidesDidLoad"></a>
+                    <span class="name">
+                        <b>
+                            slidesDidLoad
+                        </b>
+                        <a href="#slidesDidLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>slidesDidLoad(slides: IonSlides)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:137</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>slides</td>
+                                    <td>
+                                            <code>IonSlides</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="content"></a>
+                        <span class="name">
+                            <b>
+                            content</b>
+                            <a href="#content"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>IonContent</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(IonContent, {static: false})<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="phases"></a>
+                        <span class="name">
+                            <b>
+                            phases</b>
+                            <a href="#phases"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="slideOpts"></a>
+                        <span class="name">
+                            <b>
+                            slideOpts</b>
+                            <a href="#slideOpts"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="slider"></a>
+                        <span class="name">
+                            <b>
+                            slider</b>
+                            <a href="#slider"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>IonSlides</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;mySlider&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/home/home-page-three/home-page-three.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { IonContent, IonSlides } from &#x27;@ionic/angular&#x27;;
+
+import { Phases } from &#x27;../../models/phases.model&#x27;;
+
+@Component({
+  selector: &#x27;app-home-page-three&#x27;,
+  templateUrl: &#x27;./home-page-three.component.html&#x27;,
+  styleUrls: [&#x27;./home-page-three.component.scss&#x27;]
+})
+export class HomePageThreeComponent implements OnInit, AfterViewInit {
+  phases; // &#x3D; Phases;
+  @ViewChild(&#x27;mySlider&#x27;) slider: IonSlides;
+  @ViewChild(IonContent, { static: false }) content: IonContent;
+
+  slideOpts;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.phases &#x3D; {
+      isBeginningSlide: true,
+      isEndSlide: false,
+      slidesItems: Phases
+    };
+    this.phases.slideItems &#x3D; Phases;
+  }
+
+  ngAfterViewInit() {
+    this.slideOpts &#x3D; {
+      on: {
+        beforeInit() {
+          const swiper &#x3D; this;
+          swiper.classNames.push(&#x60;${swiper.params.containerModifierClass}flip&#x60;);
+          swiper.classNames.push(&#x60;${swiper.params.containerModifierClass}3d&#x60;);
+          const overwriteParams &#x3D; {
+            slidesPerView: 1,
+            watchSlidesProgress: true,
+            virtualTranslate: true,
+            loop: true,
+            speed: 2000
+          };
+          swiper.params &#x3D; Object.assign(swiper.params, overwriteParams);
+          swiper.originalParams &#x3D; Object.assign(swiper.originalParams, overwriteParams);
+        },
+        setTranslate() {
+          const swiper &#x3D; this;
+          const { $, slides, rtlTranslate: rtl } &#x3D; swiper;
+          for (let i &#x3D; 0; i &lt; slides.length; i +&#x3D; 1) {
+            const $slideEl &#x3D; slides.eq(i);
+            let progress &#x3D; $slideEl[0].progress;
+            if (swiper.params.flipEffect.limitRotation) {
+              progress &#x3D; Math.max(Math.min($slideEl[0].progress, 1), -1);
+            }
+            const offset$$1 &#x3D; $slideEl[0].swiperSlideOffset;
+            const rotate &#x3D; -180 * progress;
+            let rotateY &#x3D; rotate;
+            let rotateX &#x3D; 0;
+            let tx &#x3D; -offset$$1;
+            let ty &#x3D; 0;
+            if (!swiper.isHorizontal()) {
+              ty &#x3D; tx;
+              tx &#x3D; 0;
+              rotateX &#x3D; -rotateY;
+              rotateY &#x3D; 0;
+            } else if (rtl) {
+              rotateY &#x3D; -rotateY;
+            }
+
+            $slideEl[0].style.zIndex &#x3D; -Math.abs(Math.round(progress)) + slides.length;
+
+            if (swiper.params.flipEffect.slideShadows) {
+              // Set shadows
+              let shadowBefore &#x3D; swiper.isHorizontal()
+                ? $slideEl.find(&#x27;.swiper-slide-shadow-left&#x27;)
+                : $slideEl.find(&#x27;.swiper-slide-shadow-top&#x27;);
+              let shadowAfter &#x3D; swiper.isHorizontal()
+                ? $slideEl.find(&#x27;.swiper-slide-shadow-right&#x27;)
+                : $slideEl.find(&#x27;.swiper-slide-shadow-bottom&#x27;);
+              if (shadowBefore.length &#x3D;&#x3D;&#x3D; 0) {
+                shadowBefore &#x3D; swiper.$(
+                  &#x60;&lt;div class&#x3D;&quot;swiper-slide-shadow-${swiper.isHorizontal() ? &#x27;left&#x27; : &#x27;top&#x27;}&quot;&gt;&lt;/div&gt;&#x60;
+                );
+                $slideEl.append(shadowBefore);
+              }
+              if (shadowAfter.length &#x3D;&#x3D;&#x3D; 0) {
+                shadowAfter &#x3D; swiper.$(
+                  &#x60;&lt;div class&#x3D;&quot;swiper-slide-shadow-${swiper.isHorizontal() ? &#x27;right&#x27; : &#x27;bottom&#x27;}&quot;&gt;&lt;/div&gt;&#x60;
+                );
+                $slideEl.append(shadowAfter);
+              }
+              if (shadowBefore.length) {
+                shadowBefore[0].style.opacity &#x3D; Math.max(-progress, 0);
+              }
+              if (shadowAfter.length) {
+                shadowAfter[0].style.opacity &#x3D; Math.max(progress, 0);
+              }
+            }
+            $slideEl.transform(&#x60;translate3d(${tx}px, ${ty}px, 0px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)&#x60;);
+          }
+        },
+        setTransition(duration) {
+          const swiper &#x3D; this;
+          const { slides, activeIndex, $wrapperEl } &#x3D; swiper;
+          slides
+            .transition(duration)
+            .find(
+              &#x27;.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left&#x27;
+            )
+            .transition(duration);
+          if (swiper.params.virtualTranslate &amp;&amp; duration !&#x3D;&#x3D; 0) {
+            let eventTriggered &#x3D; false;
+            // eslint-disable-next-line
+            slides.eq(activeIndex).transitionEnd(function onTransitionEnd() {
+              if (eventTriggered) {
+                return;
+              }
+              if (!swiper || swiper.destroyed) {
+                return;
+              }
+              eventTriggered &#x3D; true;
+              swiper.animating &#x3D; false;
+              const triggerEvents &#x3D; [&#x27;webkitTransitionEnd&#x27;, &#x27;transitionend&#x27;];
+              for (let i &#x3D; 0; i &lt; triggerEvents.length; i +&#x3D; 1) {
+                $wrapperEl.trigger(triggerEvents[i]);
+              }
+            });
+          }
+        }
+      }
+    };
+  }
+
+  slidesDidLoad(slides: IonSlides) {
+    slides.startAutoplay();
+  }
+  //Move to Next slide
+  slideNext(slides) {
+    slides.slideNext(500);
+  }
+
+  //Move to previous slide
+  slidePrev(slides) {
+    slides.slidePrev(500);
+  }
+
+  scrollToLabel(label) {
+    const section &#x3D; document.getElementById(label);
+    this.content.scrollToPoint(0, section.offsetTop, 750);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">  &lt;ion-row class&#x3D;&quot;ion-text-center ion-justify-content-center ion-margin-vertical&quot;&gt;
+    &lt;ion-col
+      size-xl&#x3D;&quot;4&quot;
+      size-lg&#x3D;&quot;4&quot;
+      size-md&#x3D;&quot;8&quot;
+      size-sm&#x3D;&quot;10&quot;
+      class&#x3D;&quot; ion-padding-vertical&quot;
+    &gt;
+      &lt;ion-card class&#x3D;&quot;title-card shadow&quot;&gt;
+        &lt;ion-card-header&gt;
+          &lt;ion-card-title&gt;
+            &lt;ion-text class&#x3D;&quot;ion-text-uppercase&quot; color&#x3D;&quot;light&quot;&gt;
+              Aim
+              &lt;ion-icon color&#x3D;&quot;success&quot; name&#x3D;&quot;chevron-forward&quot;&gt;&lt;/ion-icon&gt;
+              Achieve
+              &lt;ion-icon color&#x3D;&quot;success&quot; name&#x3D;&quot;chevron-forward&quot;&gt;&lt;/ion-icon&gt;
+              Analyze
+              &lt;ion-icon color&#x3D;&quot;success&quot; name&#x3D;&quot;chevron-forward&quot;&gt;&lt;/ion-icon&gt;
+              Align
+              &lt;ion-icon color&#x3D;&quot;success&quot; size&#x3D;&quot;large&quot; name&#x3D;&quot;repeat-outline&quot;&gt;&lt;/ion-icon&gt;
+            &lt;/ion-text&gt;
+          &lt;/ion-card-title&gt;
+          &lt;ion-card-subtitle&gt;
+            &lt;ion-text color&#x3D;&quot;warning&quot; class&#x3D;&quot;ion-text-capitalize&quot;&gt;A 4 Step Approach to fitness &lt;/ion-text&gt;
+          &lt;/ion-card-subtitle&gt;
+        &lt;/ion-card-header&gt;
+      &lt;/ion-card&gt;
+    &lt;/ion-col&gt;
+  &lt;/ion-row&gt;
+  &lt;ion-row class&#x3D;&quot;ion-justify-content-around ion-margin-vertical&quot;&gt;
+    &lt;ion-col
+      size-xl&#x3D;&quot;3&quot;
+      size-lg&#x3D;&quot;4&quot;
+      size-md&#x3D;&quot;6&quot;
+      size-sm&#x3D;&quot;12&quot;
+      class&#x3D;&quot;ion-align-self-stretch  ion-padding-vertical ion-text-center&quot;
+    &gt;
+      &lt;ion-fab horizontal&#x3D;&quot;start&quot; vertical&#x3D;&quot;center&quot;&gt;
+        &lt;ion-icon
+          class&#x3D;&quot;revpulsar&quot;
+          color&#x3D;&quot;success&quot;
+          size&#x3D;&quot;large&quot;
+          name&#x3D;&quot;chevron-back-outline&quot;
+          (click)&#x3D;&quot;slidePrev(mySlider)&quot;
+        &gt;&lt;/ion-icon&gt;
+      &lt;/ion-fab&gt;
+      &lt;ion-fab horizontal&#x3D;&quot;end&quot; vertical&#x3D;&quot;center&quot;&gt;
+        &lt;ion-icon
+          class&#x3D;&quot;pulsar&quot;
+          size&#x3D;&quot;large&quot;
+          color&#x3D;&quot;success&quot;
+          name&#x3D;&quot;chevron-forward-outline&quot;
+          (click)&#x3D;&quot;slideNext(mySlider)&quot;
+        &gt;&lt;/ion-icon&gt;
+      &lt;/ion-fab&gt;
+      &lt;ion-slides #mySlider (ionSlidesDidLoad)&#x3D;&quot;slidesDidLoad(mySlider)&quot; [options]&#x3D;&quot;slideOpts&quot; class&#x3D;&quot;slide-parent&quot;&gt;
+        &lt;ion-slide *ngFor&#x3D;&quot;let phase of phases.slideItems&quot;&gt;
+          &lt;ion-card style&#x3D;&quot;height: 500px; border-radius: 15px&quot; color&#x3D;&quot;medium&quot; class&#x3D;&quot;shadow&quot;&gt;
+            &lt;img [src]&#x3D;&quot;[phase.image]&quot; class&#x3D;&quot;slide-image&quot; /&gt;
+            &lt;ion-card-header
+              style&#x3D;&quot;border-top: 2px solid var(--ion-color-light); border-bottom: 2px solid var(--ion-color-light)&quot;
+            &gt;
+              &lt;ion-card-title&gt;
+                &lt;ion-text color&#x3D;&quot;success&quot; class&#x3D;&quot;ion-text-capitalize&quot;&gt;
+                  &lt;b&gt;
+                    {{ phase.title }}
+                  &lt;/b&gt;
+                &lt;/ion-text&gt;
+              &lt;/ion-card-title&gt;
+            &lt;/ion-card-header&gt;
+            &lt;ion-card-content class&#x3D;&quot;ion-margin&quot;&gt;
+              &lt;ion-text color&#x3D;&quot;primary&quot;&gt;
+                {{ phase.content }}
+              &lt;/ion-text&gt;
+            &lt;/ion-card-content&gt;
+          &lt;/ion-card&gt;
+        &lt;/ion-slide&gt;
+      &lt;/ion-slides&gt;
+    &lt;/ion-col&gt;
+    &lt;ion-col size-xl&#x3D;&quot;3&quot; size-lg&#x3D;&quot;4&quot; size-md&#x3D;&quot;6&quot; size-sm&#x3D;&quot;8&quot; class&#x3D;&quot;ion-align-self-center ion-text-center ion-padding-vertical&quot;&gt;
+      &lt;ion-img
+        style&#x3D;&quot;min-height: 300px; min-width: 300px&quot;
+        src&#x3D;&quot;../../../assets/lazy/images/circleinfograph1.svg&quot;
+      &gt;&lt;/ion-img&gt;
+    &lt;/ion-col&gt;
+  &lt;/ion-row&gt;
+  &lt;ion-row class&#x3D;&quot;ion-margin-vertical&quot;&gt;
+    &lt;ion-col class&#x3D;&quot;ion-text-center ion-margin ion-padding-vertical&quot;&gt;
+      &lt;ion-button class&#x3D;&quot;cta-main&quot; strong size&#x3D;&quot;large&quot; routerLink&#x3D;&quot;/pricing&quot;&gt; Get Started &lt;/ion-button&gt;
+    &lt;/ion-col&gt;
+  &lt;/ion-row&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./home-page-three.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.title-card {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  border: 2px solid var(--ion-color-light);
+}
+
+.slide-image {
+  max-height: 350px;
+  width: 100%;
+}
+
+.slide-parent{
+  height: 100%;
+  width: 100%;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>  <ion-row class="ion-text-center ion-justify-content-center ion-margin-vertical">    <ion-col      size-xl="4"      size-lg="4"      size-md="8"      size-sm="10"      class=" ion-padding-vertical"    >      <ion-card class="title-card shadow">        <ion-card-header>          <ion-card-title>            <ion-text class="ion-text-uppercase" color="light">              Aim              <ion-icon color="success" name="chevron-forward"></ion-icon>              Achieve              <ion-icon color="success" name="chevron-forward"></ion-icon>              Analyze              <ion-icon color="success" name="chevron-forward"></ion-icon>              Align              <ion-icon color="success" size="large" name="repeat-outline"></ion-icon>            </ion-text>          </ion-card-title>          <ion-card-subtitle>            <ion-text color="warning" class="ion-text-capitalize">A 4 Step Approach to fitness </ion-text>          </ion-card-subtitle>        </ion-card-header>      </ion-card>    </ion-col>  </ion-row>  <ion-row class="ion-justify-content-around ion-margin-vertical">    <ion-col      size-xl="3"      size-lg="4"      size-md="6"      size-sm="12"      class="ion-align-self-stretch  ion-padding-vertical ion-text-center"    >      <ion-fab horizontal="start" vertical="center">        <ion-icon          class="revpulsar"          color="success"          size="large"          name="chevron-back-outline"          (click)="slidePrev(mySlider)"        ></ion-icon>      </ion-fab>      <ion-fab horizontal="end" vertical="center">        <ion-icon          class="pulsar"          size="large"          color="success"          name="chevron-forward-outline"          (click)="slideNext(mySlider)"        ></ion-icon>      </ion-fab>      <ion-slides #mySlider (ionSlidesDidLoad)="slidesDidLoad(mySlider)" [options]="slideOpts" class="slide-parent">        <ion-slide *ngFor="let phase of phases.slideItems">          <ion-card style="height: 500px; border-radius: 15px" color="medium" class="shadow">            <img [src]="[phase.image]" class="slide-image" />            <ion-card-header              style="border-top: 2px solid var(--ion-color-light); border-bottom: 2px solid var(--ion-color-light)"            >              <ion-card-title>                <ion-text color="success" class="ion-text-capitalize">                  <b>                    {{ phase.title }}                  </b>                </ion-text>              </ion-card-title>            </ion-card-header>            <ion-card-content class="ion-margin">              <ion-text color="primary">                {{ phase.content }}              </ion-text>            </ion-card-content>          </ion-card>        </ion-slide>      </ion-slides>    </ion-col>    <ion-col size-xl="3" size-lg="4" size-md="6" size-sm="8" class="ion-align-self-center ion-text-center ion-padding-vertical">      <ion-img        style="min-height: 300px; min-width: 300px"        src="../../../assets/lazy/images/circleinfograph1.svg"      ></ion-img>    </ion-col>  </ion-row>  <ion-row class="ion-margin-vertical">    <ion-col class="ion-text-center ion-margin ion-padding-vertical">      <ion-button class="cta-main" strong size="large" routerLink="/pricing"> Get Started </ion-button>    </ion-col>  </ion-row></div>'
+    var COMPONENTS = [{'name': 'AboutAppComponent', 'selector': 'app-about-app'},{'name': 'AboutUsPage', 'selector': 'app-about-us'},{'name': 'AdminDashboardComponent', 'selector': 'app-admin-dashboard'},{'name': 'AdminPage', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BenefitsComponent', 'selector': 'app-benefits'},{'name': 'BenefitsTrackerComponent', 'selector': 'app-benefits-tracker'},{'name': 'CancelServiceComponent', 'selector': 'app-cancel-service'},{'name': 'CartviewComponent', 'selector': 'app-cartview'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ChoicesPage', 'selector': 'app-choices'},{'name': 'ContactPage', 'selector': 'app-contact'},{'name': 'FacilityPage', 'selector': 'app-facility'},{'name': 'FaqPage', 'selector': 'app-faq'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GalleryPage', 'selector': 'app-gallery'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'HomePageFourComponent', 'selector': 'app-home-page-four'},{'name': 'HomePageThreeComponent', 'selector': 'app-home-page-three'},{'name': 'HomePageTwoComponent', 'selector': 'app-home-page-two'},{'name': 'IntroVideoComponent', 'selector': 'app-intro-video'},{'name': 'InvoicesComponent', 'selector': 'app-invoices'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LineChartComponent', 'selector': 'app-line-chart'},{'name': 'LocationComponent', 'selector': 'app-location'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'ModalViewPage', 'selector': 'app-modal-view'},{'name': 'NewReviewComponent', 'selector': 'app-new-review'},{'name': 'NewsfeedComponent', 'selector': 'app-newsfeed'},{'name': 'NewsFormComponent', 'selector': 'app-news-form'},{'name': 'NutritionPage', 'selector': 'app-nutrition'},{'name': 'PhoneAuthComponent', 'selector': 'app-phone-auth'},{'name': 'PopoverComponent', 'selector': 'app-popover-component'},{'name': 'PrivacyComponent', 'selector': 'app-privacy'},{'name': 'ProductsPage', 'selector': 'app-products'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RatingsComponent', 'selector': 'app-ratings'},{'name': 'SafetyPage', 'selector': 'app-safety'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'SideMenuComponent', 'selector': 'app-side-menu'},{'name': 'SignupComponent', 'selector': 'app-signup'},{'name': 'StudentCreatePage', 'selector': 'app-student-create'},{'name': 'StudentDetailPage', 'selector': 'app-student-detail'},{'name': 'StudentEditPage', 'selector': 'app-student-edit'},{'name': 'StudentListPage', 'selector': 'app-student-list'},{'name': 'SupportComponent', 'selector': 'app-support'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'TestimonialsPage', 'selector': 'app-testimonials'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'ToggleComponent', 'selector': 'app-toggle'},{'name': 'UnknownPage', 'selector': 'app-unknown'},{'name': 'UserDashboardComponent', 'selector': 'app-user-dashboard'},{'name': 'UserPage', 'selector': 'app-user'},{'name': 'UserTicketsComponent', 'selector': 'app-user-tickets'},{'name': 'VerifyEmailComponent', 'selector': 'app-verify-email'},{'name': 'WebrtcComponent', 'selector': 'app-webrtc'}];
+    var DIRECTIVES = [{'name': 'FadeHeaderDirective', 'selector': '[appFadeHeader]'},{'name': 'HasPermissionDirective', 'selector': '[appHasPermission]'},{'name': 'HideHeaderDirective', 'selector': '[appHideHeader]'}];
+    var ACTUAL_COMPONENT = {'name': 'HomePageThreeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HomePageThreeComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
