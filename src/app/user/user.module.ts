@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { SharedModule } from '../shared/shared.module';
@@ -13,12 +13,17 @@ import { WebrtcComponent } from './webrtc/webrtc.component';
 import { CancelServiceComponent } from './cancel-service/cancel-service.component';
 import { CartviewComponent } from './cartview/cartview.component';
 import { NewReviewComponent } from './new-review/new-review.component';
-import { SupportComponent } from './support/support.component';
+// import { SupportComponent } from '../shared/support/support.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { NewsFormComponent } from './news-form/news-form.component';
+import { TicketComponent } from './ticket/ticket.component';
+// import { NewsfeedComponent } from './newsfeed/newsfeed.component';
+import { InvoicesComponent } from './invoices/invoices.component';
+import { UserTicketsComponent } from './user-tickets/user-tickets.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, SharedModule, UserPageRoutingModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, IonicModule, SharedModule, UserPageRoutingModule],
   declarations: [
     UserPage,
     ProfileComponent,
@@ -30,9 +35,14 @@ import { NewsFormComponent } from './news-form/news-form.component';
     VerifyEmailComponent,
     NewReviewComponent,
     CartviewComponent,
-    SupportComponent,
+    // SupportComponent,
     NewsFormComponent,
-    SupportComponent,
+    // SupportComponent,
+    TicketComponent,
+    // NewsfeedComponent,
+    InvoicesComponent,
+    UserTicketsComponent,
+    CheckoutComponent,
   ]
 })
 export class UserPageModule {}

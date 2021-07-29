@@ -5,7 +5,7 @@ import { ModalController } from '@ionic/angular';
 
 import { AuthService } from '../../services/auth.service';
 import { TicketService } from '../../services/ticket.service';
-import { TicketComponent } from '../../shared/ticket/ticket.component';
+import { TicketComponent } from '../../user/ticket/ticket.component';
 
 @Component({
   selector: 'app-user-tickets',

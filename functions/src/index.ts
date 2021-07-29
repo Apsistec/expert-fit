@@ -1,4 +1,4 @@
-import * as functions from 'firebase-functions';
+import * as functions from "firebase-functions";
 
 // A simple callable function for a sanity check
 export const testFunction = functions.https.onCall(async (data, context) => {
@@ -12,12 +12,14 @@ export const testFunction = functions.https.onCall(async (data, context) => {
 //     stripeAttachSource
 // } from './sources';
 
-export { stripeCreatePaymentIntent } from './charges';
+export { stripeCreatePaymentIntent } from "./charges";
 
-export { stripeCreateSubscription, stripeGetSubscriptions, stripeCancelSubscription } from './subscriptions';
+export { stripeCreateSubscription, stripeGetSubscriptions, stripeCancelSubscription } from "./subscriptions";
 
-export { handleStripeWebhook } from './webhooks';
+export { handleStripeWebhook } from "./webhooks";
 
-export { stripeGetCoupon } from './coupons';
+export { stripeGetCoupon } from "./coupons";
 
-export { stripeListPaymentMethods } from './customers';
+export { stripeListPaymentMethods } from "./customers";
+
+export { stripeGetPrices, stripeGetProducts } from "./products";

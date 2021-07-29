@@ -35,8 +35,7 @@
       </ion-fab-button>
     </ion-fab>
 
-
-      <!-- <ion-card class="category-card ion-padding-vertical ion-margin-vertical ion-no-margin">
+    <!-- <ion-card class="category-card ion-padding-vertical ion-margin-vertical ion-no-margin">
         <ion-toolbar class="ion-text-center">
           <ion-text class="section-headers"> Fitness Training Options </ion-text>
         </ion-toolbar>
@@ -145,7 +144,10 @@
 
   -->
 
-    <ion-card class="category-card ion-padding-vertical ion-margin-vertical ion-no-margin">
+    <ion-row class="category-card ion-padding-vertical ion-margin-vertical ion-no-margin">
+      <ion-col>
+        <ion-card>
+
       <ion-toolbar class="ion-text-center">
         <ion-text class="section-headers"> Fitness Add-Ons </ion-text>
       </ion-toolbar>
@@ -158,20 +160,28 @@
           size-lg="6"
           size-md="8"
           class="product-col ion-align-self-stretch ion-margin ion-text-center"
-          *ngFor="let product of items | async"
+          *ngFor="let item of items | async"
         >
-          <ion-card class="product-card">
+          <ion-card>
+            <ion-text> {{ item | json }} </ion-text>
+          </ion-card>
+
+          <ion-card ngModel="item.price">
+
+          </ion-card>
+
+          <!-- <ion-card class="product-card">
             <ion-card-header class="product-card-header">
               <ion-card-title>
-                <ion-label color="warning"> {{ product.name }} </ion-label>
+                <ion-label color="warning"> {{ item.name }} </ion-label>
               </ion-card-title>
             </ion-card-header>
-            <ion-img [src]="product.images[0]" class="product-image"></ion-img>
+            <ion-img [src]="item.images[0]" class="product-image"></ion-img>
             <ion-grid>
               <ion-row>
                 <ion-col class="ion-align-items-end ion-padding ion-text-left">
                   <ion-text style="color: var(--ion-text-color); font-size: large">
-                    {{ product.description }}
+                    {{ item.description }}
                   </ion-text>
                 </ion-col>
               </ion-row>
@@ -179,23 +189,38 @@
                 <ion-col class="ion-align-items-stretch ion-padding">
                   <ion-item lines="none" class="price-item ion-margin-vertical">
                     <ion-label>Price</ion-label>
-                    <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover" [value]="price.id" *ngFor="let price of prices"
->
+                    <ion-select placeholder="Select" [interfaceOptions]="iOptions" interface="popover" >
                       <ion-select-option
+                      *ngFor="let price of prices"
+                      [value]="price.id"
                         class="iso"
                       >
-                        {{ price.data.unit_amount /100 | currency }} {{ price.interval }}
+                        {{ price.unit_amount /100 | currency }}
                       </ion-select-option>
                     </ion-select>
                   </ion-item>
+                  <ion-card >
+
+                    <ion-text>{{item.price | json}}</ion-text>
+                  </ion-card>
                   <ion-button (click)="addToCart()" class="add-to-cart-btn">Add to Cart</ion-button>
                 </ion-col>
               </ion-row>
             </ion-grid>
+          </ion-card> -->
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-text> dfsafdsafdsaf </ion-text>
           </ion-card>
         </ion-col>
       </ion-row>
-    </ion-card>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
   <app-footer></app-footer>
 </ion-content>

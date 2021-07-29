@@ -19,6 +19,7 @@ import { SignupComponent } from './signup/signup.component';
 import { TermsComponent } from './terms/terms.component';
 import { ToggleComponent } from './toggle/toggle.component';
 import { SharedDirectivesModule } from './directives/shared-directives.module';
+import { SupportComponent } from './support/support.component';
 
 const routes: Routes = [];
 
@@ -35,25 +36,21 @@ const routes: Routes = [];
     LoginComponent,
     ForgotPasswordComponent,
     LocationComponent,
+    SupportComponent,
     MapComponent,
-    ToggleComponent,
-
+    ToggleComponent
   ],
   providers: [],
   imports: [
     IonicModule,
     RouterModule.forChild(routes),
     CommonModule,
-
-
-
     ReactiveFormsModule,
     FormsModule,
     ReactiveFormsModule,
     BarRatingModule,
     GoogleMapsModule,
     SharedDirectivesModule,
-
   ],
   exports: [
     SharedDirectivesModule,
@@ -66,7 +63,7 @@ const routes: Routes = [];
     PrivacyComponent,
     TermsComponent,
     RatingsComponent,
-
+    SupportComponent,
   ]
 })
 export class SharedModule {}

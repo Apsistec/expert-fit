@@ -89,8 +89,8 @@ import { RoleGuard } from &#x27;./guards/role.guard&#x27;;
 // const employeeOnly &#x3D; () &#x3D;&gt; hasCustomClaim(&#x27;employee&#x27;);
 // const adminOnly &#x3D; () &#x3D;&gt; hasCustomClaim(&#x27;admin&#x27;);
 // const redirectLoggedInToDash &#x3D; () &#x3D;&gt; redirectLoggedInTo([&#x27;/user/dashboard&#x27;]);
-const redirectUnauthorizedToLogin &#x3D; () &#x3D;&gt; redirectUnauthorizedTo([&#x27;/login&#x27;]);
-const verifiedEmail &#x3D; () &#x3D;&gt; emailVerified;
+// const redirectUnauthorizedToLogin &#x3D; () &#x3D;&gt; redirectUnauthorizedTo([&#x27;/login&#x27;]);
+// const verifiedEmail &#x3D; () &#x3D;&gt; emailVerified;
 const routes: Routes &#x3D; [
   {
     path: &#x27;&#x27;,
@@ -104,14 +104,14 @@ const routes: Routes &#x3D; [
   {
     path: &#x27;admin&#x27;,
     loadChildren: () &#x3D;&gt; &quot;import(&#x27;./admin/admin.module&#x27;).then((m) &#x3D;&gt; m.AdminPageModule)&quot;,
-    ...&quot;canActivate(redirectUnauthorizedToLogin)&quot;,
+    // ...canActivate(redirectUnauthorizedToLogin),
     canActivate: [PaidGuard, RoleGuard]
   },
 
   {
     path: &#x27;user&#x27;,
     loadChildren: () &#x3D;&gt; &quot;import(&#x27;./user/user.module&#x27;).then((m) &#x3D;&gt; m.UserPageModule)&quot;,
-    ...&quot;canActivate(redirectUnauthorizedToLogin)&quot;
+    // ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: &#x27;pricing&#x27;,
@@ -192,12 +192,14 @@ const routes: Routes &#x3D; [
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
+    RouterModule.forRoot(routes
+      // , {
       // preloadingStrategy: QuicklinkStrategy
-      scrollPositionRestoration: &#x27;enabled&#x27;,
+      // scrollPositionRestoration: &#x27;enabled&#x27;,
       // anchorScrolling: &#x27;enabled&#x27;
-      enableTracing: true
-    })
+      // enableTracing: true
+    // }
+    )
   ],
   exports: [RouterModule]
 })

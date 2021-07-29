@@ -83,22 +83,22 @@ const routes: Routes &#x3D; [
     component: AdminPage,
     children: [
       { path: &#x27;&#x27;, redirectTo: &#x27;student-list&#x27;, pathMatch: &#x27;full&#x27; },
-      {
-        path: &#x27;student-create&#x27;,
-        loadChildren: () &#x3D;&gt; &quot;import(&#x27;./student-create/student-create.module&#x27;).then((m) &#x3D;&gt; m.StudentCreatePageModule)&quot;
-      },
-      {
-        path: &#x27;student-edit/:id&#x27;,
-        loadChildren: () &#x3D;&gt; &quot;import(&#x27;./student-edit/student-edit.module&#x27;).then((m) &#x3D;&gt; m.StudentEditPageModule)&quot;
-      },
-      {
-        path: &#x27;student-list&#x27;,
-        loadChildren: () &#x3D;&gt; &quot;import(&#x27;./student-list/student-list.module&#x27;).then((m) &#x3D;&gt; m.StudentListPageModule)&quot;
-      },
-      {
-        path: &#x27;student-detail&#x27;,
-        loadChildren: () &#x3D;&gt; &quot;import(&#x27;./student-detail/student-detail.module&#x27;).then((m) &#x3D;&gt; m.StudentDetailPageModule)&quot;
-      },
+      // {
+      //   path: &#x27;student-create&#x27;,
+      //   loadChildren: () &#x3D;&gt; import(&#x27;./student-create/student-create.module&#x27;).then((m) &#x3D;&gt; m.StudentCreatePageModule)
+      // },
+      // {
+      //   path: &#x27;student-edit/:id&#x27;,
+      //   loadChildren: () &#x3D;&gt; import(&#x27;./student-edit/student-edit.module&#x27;).then((m) &#x3D;&gt; m.StudentEditPageModule)
+      // },
+      // {
+      //   path: &#x27;student-list&#x27;,
+      //   loadChildren: () &#x3D;&gt; import(&#x27;./student-list/student-list.module&#x27;).then((m) &#x3D;&gt; m.StudentListPageModule)
+      // },
+      // {
+      //   path: &#x27;student-detail&#x27;,
+      //   loadChildren: () &#x3D;&gt; import(&#x27;./student-detail/student-detail.module&#x27;).then((m) &#x3D;&gt; m.StudentDetailPageModule)
+      // },
       {
         path: &#x27;dashboard&#x27;,
         component: AdminDashboardComponent

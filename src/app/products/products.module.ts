@@ -3,13 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { SharedDirectivesModule } from '../shared/directives/shared-directives.module.module';
 import { SharedModule } from '../shared/shared.module';
 import { ProductsPageRoutingModule } from './products-routing.module';
 import { ProductsPage } from './products.page';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, ProductsPageRoutingModule, SharedModule, SharedDirectivesModule],
+  imports: [CommonModule, FormsModule, IonicModule, ProductsPageRoutingModule, SharedModule],
   declarations: [ProductsPage]
 })
 export class ProductsPageModule {}

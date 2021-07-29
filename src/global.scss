@@ -343,12 +343,25 @@ a :hover {
   }
 }
 
-.selectOptions .alert-wrapper {
-  border-radius: 15px;
-  // --background: var(--ion-color-dark-tint);
-
-  width: 100%;
+/* Alert Interface: set color for alert options (single selection) */
+.my-custom-interface .select-interface-option .alert-radio-label {
+  color: var(--ion-color-light-shade);
 }
+
+/* Alert Interface: set color for alert options (multiple selection) */
+// .my-custom-interface .select-interface-option .alert-checkbox-label {
+//   color: var(--ion-color-success);
+// }
+
+/* Alert Interface: set color for checked alert options (single selection) */
+.my-custom-interface .select-interface-option[aria-checked=true] .alert-radio-label {
+  color: var(--ion-color-success);
+}
+
+/* Alert Interface: set color for checked alert options (multiple selection) */
+// .my-custom-interface .select-interface-option[aria-checked=true] .alert-checkbox-label {
+//   color: var(--ion-color-success);
+// }
 
 .map-canvas {
   position: relative;

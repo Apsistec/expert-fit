@@ -28,223 +28,1634 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content getting-started">
+               <div class="content overview">
                    <div class="content-data">
 
-<h1 align="center"> 🏋️‍♂️ 🥡 🍎 Xpert Fitness App   🍏 ⚖️ 🏋️‍♀️</h1>
-<!-- PROJECT LOGO -->
-<p align="center"> The fitness app that becomes your trainer.  :muscle: </p>
 
-<p><a href="src/assets/lazy/images/logo.png">![Xpert Fitness Logo]</a></p>
-<p><a href="https://github.com/apsistec/expert-fit">Xpert Fitness</a></p>
-<!-- PROJECT SHIELDS -->
-
-<p><a href="https://github.com/apsistec/expert-fit/graphs/contributors"><img src="https://img.shields.io/github/contributors/apsistec/expert-fit.svg?style=for-the-badge" alt="Contributors" class="img-responsive"></a>
-<a href="https://github.com/apsistec/expert-fit/network/members"><img src="https://img.shields.io/github/forks/apsistec/expert-fit.svg?style=for-the-badge" alt="Forks" class="img-responsive"></a>
-<a href="https://github.com/apsistec/expert-fit/stargazers"><img src="https://img.shields.io/github/stars/apsistec/expert-fit.svg?style=for-the-badge" alt="Stargazers" class="img-responsive"></a>
-<a href="https://github.com/apsistec/expert-fit/issues"><img src="https://img.shields.io/github/issues/apsistec/expert-fit.svg?style=for-the-badge" alt="Issues" class="img-responsive"></a>
-<a href="https://github.com/apsistec/expert-fit/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/apsistec/expert-fit.svg?style=for-the-badge" alt="GNU General Public License v3.0" class="img-responsive"></a>
-<a href="https://linkedin.com/in/apsistec"><img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="LinkedIn" class="img-responsive"></a></p>
-<p><a href="https://github.com/apsistec/expert-fit%22">Explore the docs</a></p>
-<p><a href="https://github.com/apsistec/expert-fit">View Demo</a></p>
-<p><a href="https://github.com/apsistec/expert-fit/issues">Report Bug</a></p>
-<p><a href="https://github.com/apsistec/expert-fit/issues">Request Feature</a></p>
-<hr>
-<!-- TABLE OF CONTENTS -->
-<details open>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-  </ol>
-</details>
-
-<!-- ABOUT THE PROJECT -->
-
-<h2 id="about-the-project">About The Project</h2>
-<p><a href="https://xfitness.studio-midland-tx.web.app">![product-screenshot][product screenshot]</a></p>
-<p>The goal has been simple, to develop a fitness app capable of guiding users
-effeciently to help them reach their peak fitness goals and then help
-them maintain. THe app needs to be easy to access, easy to use, and is an
-interesting tool that is rewarding to use. The app is a tool in the
-toolbox capable of providing users with realtime reports and has
-numerous novel views about their current progress and how it relates to
-others. The app provides access to dashboards and reports from
-personally attained data on the user&#39;s own smart devices and comparing
-that to available fitness related datasets. The app provides access to
-the latest proven and well documented information on techniques and
-diets that are safe and effective. The app also providees access to many
-of the latest safe and effective fitness products available in the
-market. Using the app is rewarding and more effective at helping users
-reach their personal goals and then maintaining them.</p>
-<p>Here&#39;s why:</p>
-<ul>
-<li>Time should be focused on creating something amazing. A project that solves a
-problem and helps others</li>
-<li>Clients shouldn&#39;t be using a plain website now that progressive web apps have
-entered the market</li>
-<li>We should implement DRY coding principles to the app code</li>
-</ul>
-<p>Of course, this is a continued work in progress. I will constantly add to this
-project any updates and additional features that are relevant to the industry
-and/or to progressive web apps in general. You may also suggest changes by
-forking this repo and creating a pull request or opening an issue.</p>
-<p>A list of commonly used resources that I find helpful are listed in the acknowledgements.</p>
-<p>Thanks to all the people have have contributed to expanding
-this template!</p>
-<h3 id="built-with">Built With</h3>
-<p>The major frameworks I used to build the project. Add-ons/plugins are listed in
-the acknowledgements section.</p>
-<ul>
-<li><a href="https://ionicframework.com">Ionic</a></li>
-<li><a href="https://angular.io">Angular</a></li>
-<li><a href="https://material.angular.io">Angular Material</a></li>
-<li><a href="https://firebase.com">Firebase</a></li>
-<li><a href="https://stripe.com">Stripe</a></li>
-</ul>
-<!-- GETTING STARTED -->
-
-<h2 id="getting-started">Getting Started</h2>
-<p>To get a local copy up and running follow these simple example steps.</p>
-<h3 id="prerequisites">Prerequisites</h3>
-<ol>
-<li><p>Install
-<a href="https://www.nodejs.com">NodeJS</a></p>
-</li>
-<li><p>Using npm, install:</p>
-<div><pre class="line-numbers"><code class="language-sh">npm install npm&#64;latest -global</code></pre></div><div><pre class="line-numbers"><code class="language-sh">npm install &#64;angular/cli&#64;latest -global</code></pre></div><div><pre class="line-numbers"><code class="language-sh">npm install &#64;ionic/cli&#64;latest -global</code></pre></div><div><pre class="line-numbers"><code class="language-sh">npm install firebase-tools&#64;latest -global</code></pre></div></li>
+<ol class="breadcrumb">
+    <li>Overview</li>
 </ol>
-<h3 id="acquire-apis">Acquire APIs</h3>
-<ol>
-<li>Get a free Stripe API Key at <a href="https://dashboard.stripe.com/apikeys">https://dashboard.stripe.com/apikeys</a></li>
-<li>Get a free Stripe Tax Rates API Key at <a href="https://dashboard.stripe.com/tax-rates">https://dashboard.stripe.com/tax-rates</a></li>
-<li>Get a free Firebase API Key at <a href="https://firebase.com">https://firebase.com</a></li>
-<li>Get a free MailStart API Key at <a href="https://mailstart.com">https://mailstart.com</a></li>
-</ol>
-<h2 id="installation">Installation</h2>
-<details open>
-<summary>Installation Steps:</summary>
-<ol>
-<li>Clone the repo
+  
+<div class="text-center module-graph-container">
+    <div id="module-graph-svg">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.47.0 (20210316.0004)
+ -->
+<!-- Title: dependencies Pages: 1 -->
+<svg width="13230pt" height="355pt"
+ viewBox="0.00 0.00 13230.00 355.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 351)">
+<title>dependencies</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-351 13226,-351 13226,4 -4,4"/>
+<text text-anchor="start" x="6590.01" y="-42.4" font-family="sans-serif" font-weight="bold" font-size="14.00">Legend</text>
+<polygon fill="#ffffb3" stroke="transparent" points="6377,-10 6377,-30 6397,-30 6397,-10 6377,-10"/>
+<text text-anchor="start" x="6400.63" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Declarations</text>
+<polygon fill="#8dd3c7" stroke="transparent" points="6490,-10 6490,-30 6510,-30 6510,-10 6490,-10"/>
+<text text-anchor="start" x="6513.73" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Module</text>
+<polygon fill="#80b1d3" stroke="transparent" points="6576,-10 6576,-30 6596,-30 6596,-10 6576,-10"/>
+<text text-anchor="start" x="6599.78" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Bootstrap</text>
+<polygon fill="#fdb462" stroke="transparent" points="6673,-10 6673,-30 6693,-30 6693,-10 6673,-10"/>
+<text text-anchor="start" x="6696.67" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Providers</text>
+<polygon fill="#fb8072" stroke="transparent" points="6769,-10 6769,-30 6789,-30 6789,-10 6769,-10"/>
+<text text-anchor="start" x="6792.73" y="-15.4" font-family="sans-serif" font-size="14.00"> &#160;Exports</text>
+<g id="clust1" class="cluster">
+<title>cluster_AboutUsPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="2110,-214 2110,-339 2558,-339 2558,-214 2110,-214"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_AboutUsPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="2118,-222 2118,-274 2228,-274 2228,-222 2118,-222"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_AboutUsPageModule_imports</title>
+<polygon fill="none" stroke="black" points="2236,-222 2236,-274 2550,-274 2550,-222 2236,-222"/>
+</g>
+<g id="clust14" class="cluster">
+<title>cluster_AdminPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="3529,-214 3529,-339 4035,-339 4035,-214 3529,-214"/>
+</g>
+<g id="clust15" class="cluster">
+<title>cluster_AdminPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="3731,-222 3731,-274 4027,-274 4027,-222 3731,-222"/>
+</g>
+<g id="clust18" class="cluster">
+<title>cluster_AdminPageModule_imports</title>
+<polygon fill="none" stroke="black" points="3537,-222 3537,-274 3723,-274 3723,-222 3537,-222"/>
+</g>
+<g id="clust28" class="cluster">
+<title>cluster_AppModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="11696,-70 11696,-282 12314,-282 12314,-70 11696,-70"/>
+</g>
+<g id="clust29" class="cluster">
+<title>cluster_AppModule_declarations</title>
+<polygon fill="none" stroke="black" points="12028,-78 12028,-130 12306,-130 12306,-78 12028,-78"/>
+</g>
+<g id="clust32" class="cluster">
+<title>cluster_AppModule_imports</title>
+<polygon fill="none" stroke="black" points="11876,-78 11876,-130 12020,-130 12020,-78 11876,-78"/>
+</g>
+<g id="clust34" class="cluster">
+<title>cluster_AppModule_bootstrap</title>
+<polygon fill="none" stroke="black" points="11964,-222 11964,-274 12088,-274 12088,-222 11964,-222"/>
+</g>
+<g id="clust35" class="cluster">
+<title>cluster_AppModule_providers</title>
+<polygon fill="none" stroke="black" points="11704,-78 11704,-130 11868,-130 11868,-78 11704,-78"/>
+</g>
+<g id="clust42" class="cluster">
+<title>cluster_ChoicesPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="4043,-214 4043,-339 4363,-339 4363,-214 4043,-214"/>
+</g>
+<g id="clust43" class="cluster">
+<title>cluster_ChoicesPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="4251,-222 4251,-274 4355,-274 4355,-222 4251,-222"/>
+</g>
+<g id="clust45" class="cluster">
+<title>cluster_ChoicesPageModule_imports</title>
+<polygon fill="none" stroke="black" points="4051,-222 4051,-274 4243,-274 4243,-222 4051,-222"/>
+</g>
+<g id="clust55" class="cluster">
+<title>cluster_ContactPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="4371,-214 4371,-339 4689,-339 4689,-214 4371,-214"/>
+</g>
+<g id="clust56" class="cluster">
+<title>cluster_ContactPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="4579,-222 4579,-274 4681,-274 4681,-222 4579,-222"/>
+</g>
+<g id="clust58" class="cluster">
+<title>cluster_ContactPageModule_imports</title>
+<polygon fill="none" stroke="black" points="4379,-222 4379,-274 4571,-274 4571,-222 4379,-222"/>
+</g>
+<g id="clust68" class="cluster">
+<title>cluster_FacilityPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="4697,-214 4697,-339 5013,-339 5013,-214 4697,-214"/>
+</g>
+<g id="clust69" class="cluster">
+<title>cluster_FacilityPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="4903,-222 4903,-274 5005,-274 5005,-222 4903,-222"/>
+</g>
+<g id="clust71" class="cluster">
+<title>cluster_FacilityPageModule_imports</title>
+<polygon fill="none" stroke="black" points="4705,-222 4705,-274 4895,-274 4895,-222 4705,-222"/>
+</g>
+<g id="clust81" class="cluster">
+<title>cluster_FaqPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="5021,-214 5021,-339 5293,-339 5293,-214 5021,-214"/>
+</g>
+<g id="clust82" class="cluster">
+<title>cluster_FaqPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="5205,-222 5205,-274 5285,-274 5285,-222 5205,-222"/>
+</g>
+<g id="clust84" class="cluster">
+<title>cluster_FaqPageModule_imports</title>
+<polygon fill="none" stroke="black" points="5029,-222 5029,-274 5197,-274 5197,-222 5029,-222"/>
+</g>
+<g id="clust94" class="cluster">
+<title>cluster_GalleryPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="5301,-214 5301,-339 6297,-339 6297,-214 5301,-214"/>
+</g>
+<g id="clust95" class="cluster">
+<title>cluster_GalleryPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="5507,-222 5507,-274 6289,-274 6289,-222 5507,-222"/>
+</g>
+<g id="clust101" class="cluster">
+<title>cluster_GalleryPageModule_imports</title>
+<polygon fill="none" stroke="black" points="5309,-222 5309,-274 5499,-274 5499,-222 5309,-222"/>
+</g>
+<g id="clust111" class="cluster">
+<title>cluster_HomePageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="6305,-214 6305,-339 7840,-339 7840,-214 6305,-214"/>
+</g>
+<g id="clust112" class="cluster">
+<title>cluster_HomePageModule_declarations</title>
+<polygon fill="none" stroke="black" points="6503,-222 6503,-274 7832,-274 7832,-222 6503,-222"/>
+</g>
+<g id="clust121" class="cluster">
+<title>cluster_HomePageModule_imports</title>
+<polygon fill="none" stroke="black" points="6313,-222 6313,-274 6495,-274 6495,-222 6313,-222"/>
+</g>
+<g id="clust131" class="cluster">
+<title>cluster_LineChartModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="12322,-70 12322,-198 12492,-198 12492,-70 12322,-70"/>
+</g>
+<g id="clust132" class="cluster">
+<title>cluster_LineChartModule_declarations</title>
+<polygon fill="none" stroke="black" points="12330,-78 12330,-130 12484,-130 12484,-78 12330,-78"/>
+</g>
+<g id="clust138" class="cluster">
+<title>cluster_ModalViewPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="12500,-70 12500,-198 12864,-198 12864,-70 12500,-70"/>
+</g>
+<g id="clust139" class="cluster">
+<title>cluster_ModalViewPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="12730,-78 12730,-130 12856,-130 12856,-78 12730,-78"/>
+</g>
+<g id="clust141" class="cluster">
+<title>cluster_ModalViewPageModule_imports</title>
+<polygon fill="none" stroke="black" points="12508,-78 12508,-130 12722,-130 12722,-78 12508,-78"/>
+</g>
+<g id="clust151" class="cluster">
+<title>cluster_NutritionPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="7848,-214 7848,-339 8182,-339 8182,-214 7848,-214"/>
+</g>
+<g id="clust152" class="cluster">
+<title>cluster_NutritionPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="8064,-222 8064,-274 8174,-274 8174,-222 8064,-222"/>
+</g>
+<g id="clust154" class="cluster">
+<title>cluster_NutritionPageModule_imports</title>
+<polygon fill="none" stroke="black" points="7856,-222 7856,-274 8056,-274 8056,-222 7856,-222"/>
+</g>
+<g id="clust164" class="cluster">
+<title>cluster_ProductsPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8190,-214 8190,-339 8518,-339 8518,-214 8190,-214"/>
+</g>
+<g id="clust165" class="cluster">
+<title>cluster_ProductsPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="8402,-222 8402,-274 8510,-274 8510,-222 8402,-222"/>
+</g>
+<g id="clust167" class="cluster">
+<title>cluster_ProductsPageModule_imports</title>
+<polygon fill="none" stroke="black" points="8198,-222 8198,-274 8394,-274 8394,-222 8198,-222"/>
+</g>
+<g id="clust177" class="cluster">
+<title>cluster_SafetyPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8526,-214 8526,-339 8828,-339 8828,-214 8526,-214"/>
+</g>
+<g id="clust178" class="cluster">
+<title>cluster_SafetyPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="8726,-222 8726,-274 8820,-274 8820,-222 8726,-222"/>
+</g>
+<g id="clust180" class="cluster">
+<title>cluster_SafetyPageModule_imports</title>
+<polygon fill="none" stroke="black" points="8534,-222 8534,-274 8718,-274 8718,-222 8534,-222"/>
+</g>
+<g id="clust190" class="cluster">
+<title>cluster_SharedDirectivesModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="3138,-70 3138,-282 3521,-282 3521,-70 3138,-70"/>
+</g>
+<g id="clust191" class="cluster">
+<title>cluster_SharedDirectivesModule_declarations</title>
+<polygon fill="none" stroke="black" points="3149,-78 3149,-130 3505,-130 3505,-78 3149,-78"/>
+</g>
+<g id="clust196" class="cluster">
+<title>cluster_SharedDirectivesModule_exports</title>
+<polygon fill="none" stroke="black" points="3146,-222 3146,-274 3513,-274 3513,-222 3146,-222"/>
+</g>
+<g id="clust199" class="cluster">
+<title>cluster_SharedModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-138 8,-206 3130,-206 3130,-138 8,-138"/>
+</g>
+<g id="clust200" class="cluster">
+<title>cluster_SharedModule_declarations</title>
+<polygon fill="none" stroke="black" points="1227,-146 1227,-198 3122,-198 3122,-146 1227,-146"/>
+</g>
+<g id="clust215" class="cluster">
+<title>cluster_SharedModule_exports</title>
+<polygon fill="none" stroke="black" points="16,-146 16,-198 1219,-198 1219,-146 16,-146"/>
+</g>
+<g id="clust218" class="cluster">
+<title>cluster_TestimonialsPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8836,-214 8836,-339 9212,-339 9212,-214 8836,-214"/>
+</g>
+<g id="clust219" class="cluster">
+<title>cluster_TestimonialsPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="9072,-222 9072,-274 9204,-274 9204,-222 9072,-222"/>
+</g>
+<g id="clust221" class="cluster">
+<title>cluster_TestimonialsPageModule_imports</title>
+<polygon fill="none" stroke="black" points="8844,-222 8844,-274 9064,-274 9064,-222 8844,-222"/>
+</g>
+<g id="clust231" class="cluster">
+<title>cluster_UnknownPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="12872,-70 12872,-198 13214,-198 13214,-70 12872,-70"/>
+</g>
+<g id="clust232" class="cluster">
+<title>cluster_UnknownPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="13092,-78 13092,-130 13206,-130 13206,-78 13092,-78"/>
+</g>
+<g id="clust234" class="cluster">
+<title>cluster_UnknownPageModule_imports</title>
+<polygon fill="none" stroke="black" points="12880,-78 12880,-130 13084,-130 13084,-78 12880,-78"/>
+</g>
+<g id="clust244" class="cluster">
+<title>cluster_UserPageModule</title>
+<polygon fill="none" stroke="black" stroke-dasharray="1,5" points="9220,-214 9220,-339 11688,-339 11688,-214 9220,-214"/>
+</g>
+<g id="clust245" class="cluster">
+<title>cluster_UserPageModule_declarations</title>
+<polygon fill="none" stroke="black" points="9410,-222 9410,-274 11680,-274 11680,-222 9410,-222"/>
+</g>
+<g id="clust261" class="cluster">
+<title>cluster_UserPageModule_imports</title>
+<polygon fill="none" stroke="black" points="9228,-222 9228,-274 9402,-274 9402,-222 9228,-222"/>
+</g>
+<!-- AboutUsPage -->
+<g id="node1" class="node">
+<title>AboutUsPage</title>
+<polygon fill="#ffffb3" stroke="black" points="2219.76,-266 2126.24,-266 2126.24,-230 2219.76,-230 2219.76,-266"/>
+<text text-anchor="middle" x="2173" y="-243.8" font-family="Times,serif" font-size="14.00">AboutUsPage</text>
+</g>
+<!-- AboutUsPageModule -->
+<g id="node2" class="node">
+<title>AboutUsPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="2403.81,-331 2400.81,-335 2379.81,-335 2376.81,-331 2266.19,-331 2266.19,-295 2403.81,-295 2403.81,-331"/>
+<text text-anchor="middle" x="2335" y="-308.8" font-family="Times,serif" font-size="14.00">AboutUsPageModule</text>
+</g>
+<!-- AboutUsPage&#45;&gt;AboutUsPageModule -->
+<g id="edge1" class="edge">
+<title>AboutUsPage&#45;&gt;AboutUsPageModule</title>
+<path fill="none" stroke="black" d="M2173,-266.11C2173,-285.34 2173,-313 2173,-313 2173,-313 2256.3,-313 2256.3,-313"/>
+<polygon fill="black" stroke="black" points="2256.3,-316.5 2266.3,-313 2256.3,-309.5 2256.3,-316.5"/>
+</g>
+<!-- AboutUsPageRoutingModule -->
+<g id="node3" class="node">
+<title>AboutUsPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="2426.43,-266 2423.43,-270 2402.43,-270 2399.43,-266 2243.57,-266 2243.57,-230 2426.43,-230 2426.43,-266"/>
+<text text-anchor="middle" x="2335" y="-243.8" font-family="Times,serif" font-size="14.00">AboutUsPageRoutingModule</text>
+</g>
+<!-- AboutUsPageRoutingModule&#45;&gt;AboutUsPageModule -->
+<g id="edge2" class="edge">
+<title>AboutUsPageRoutingModule&#45;&gt;AboutUsPageModule</title>
+<path fill="none" stroke="black" d="M2335,-266.11C2335,-266.11 2335,-284.99 2335,-284.99"/>
+<polygon fill="black" stroke="black" points="2331.5,-284.99 2335,-294.99 2338.5,-284.99 2331.5,-284.99"/>
+</g>
+<!-- SharedModule -->
+<g id="node4" class="node">
+<title>SharedModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="2542.42,-266 2539.42,-270 2518.42,-270 2515.42,-266 2443.58,-266 2443.58,-230 2542.42,-230 2542.42,-266"/>
+<text text-anchor="middle" x="2493" y="-243.8" font-family="Times,serif" font-size="14.00">SharedModule</text>
+</g>
+<!-- SharedModule&#45;&gt;AboutUsPageModule -->
+<g id="edge3" class="edge">
+<title>SharedModule&#45;&gt;AboutUsPageModule</title>
+<path fill="none" stroke="black" d="M2528.15,-266.28C2528.15,-287.32 2528.15,-319 2528.15,-319 2528.15,-319 2413.91,-319 2413.91,-319"/>
+<polygon fill="black" stroke="black" points="2413.91,-315.5 2403.91,-319 2413.91,-322.5 2413.91,-315.5"/>
+</g>
+<!-- AdminPageModule -->
+<g id="node7" class="node">
+<title>AdminPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="3767.65,-331 3764.65,-335 3743.65,-335 3740.65,-331 3642.35,-331 3642.35,-295 3767.65,-295 3767.65,-331"/>
+<text text-anchor="middle" x="3705" y="-308.8" font-family="Times,serif" font-size="14.00">AdminPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;AdminPageModule -->
+<g id="edge7" class="edge">
+<title>SharedModule&#45;&gt;AdminPageModule</title>
+<path fill="none" stroke="black" d="M2535.18,-266.02C2535.18,-283.37 2535.18,-307 2535.18,-307 2535.18,-307 3632.11,-307 3632.11,-307"/>
+<polygon fill="black" stroke="black" points="3632.11,-310.5 3642.11,-307 3632.11,-303.5 3632.11,-310.5"/>
+</g>
+<!-- ChoicesPageModule -->
+<g id="node16" class="node">
+<title>ChoicesPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="4212.86,-331 4209.86,-335 4188.86,-335 4185.86,-331 4081.14,-331 4081.14,-295 4212.86,-295 4212.86,-331"/>
+<text text-anchor="middle" x="4147" y="-308.8" font-family="Times,serif" font-size="14.00">ChoicesPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;ChoicesPageModule -->
+<g id="edge15" class="edge">
+<title>SharedModule&#45;&gt;ChoicesPageModule</title>
+<path fill="none" stroke="black" d="M2450.82,-266.04C2450.82,-278.56 2450.82,-293 2450.82,-293 2450.82,-293 4125.02,-293 4125.02,-293 4125.02,-293 4125.02,-293.18 4125.02,-293.18"/>
+<polygon fill="black" stroke="black" points="4121.52,-284.85 4125.02,-294.85 4128.52,-284.85 4121.52,-284.85"/>
+</g>
+<!-- ContactPageModule -->
+<g id="node19" class="node">
+<title>ContactPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="4540.31,-331 4537.31,-335 4516.31,-335 4513.31,-331 4409.69,-331 4409.69,-295 4540.31,-295 4540.31,-331"/>
+<text text-anchor="middle" x="4475" y="-308.8" font-family="Times,serif" font-size="14.00">ContactPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;ContactPageModule -->
+<g id="edge18" class="edge">
+<title>SharedModule&#45;&gt;ContactPageModule</title>
+<path fill="none" stroke="black" d="M2457.85,-266.49C2457.85,-278.14 2457.85,-291 2457.85,-291 2457.85,-291 4453.28,-291 4453.28,-291 4453.28,-291 4453.28,-291.38 4453.28,-291.38"/>
+<polygon fill="black" stroke="black" points="4449.78,-284.83 4453.28,-294.83 4456.78,-284.83 4449.78,-284.83"/>
+</g>
+<!-- FacilityPageModule -->
+<g id="node22" class="node">
+<title>FacilityPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="4864.54,-331 4861.54,-335 4840.54,-335 4837.54,-331 4735.46,-331 4735.46,-295 4864.54,-295 4864.54,-331"/>
+<text text-anchor="middle" x="4800" y="-308.8" font-family="Times,serif" font-size="14.00">FacilityPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;FacilityPageModule -->
+<g id="edge21" class="edge">
+<title>SharedModule&#45;&gt;FacilityPageModule</title>
+<path fill="none" stroke="black" d="M2464.88,-266.13C2464.88,-276.71 2464.88,-288 2464.88,-288 2464.88,-288 4778.41,-288 4778.41,-288 4778.41,-288 4778.41,-288.68 4778.41,-288.68"/>
+<polygon fill="black" stroke="black" points="4774.91,-284.83 4778.41,-294.83 4781.91,-284.83 4774.91,-284.83"/>
+</g>
+<!-- FaqPageModule -->
+<g id="node25" class="node">
+<title>FaqPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="5166.76,-331 5163.76,-335 5142.76,-335 5139.76,-331 5059.24,-331 5059.24,-295 5166.76,-295 5166.76,-331"/>
+<text text-anchor="middle" x="5113" y="-308.8" font-family="Times,serif" font-size="14.00">FaqPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;FaqPageModule -->
+<g id="edge24" class="edge">
+<title>SharedModule&#45;&gt;FaqPageModule</title>
+<path fill="none" stroke="black" d="M2471.91,-266.11C2471.91,-275.9 2471.91,-286 2471.91,-286 2471.91,-286 5095.04,-286 5095.04,-286 5095.04,-286 5095.04,-286.88 5095.04,-286.88"/>
+<polygon fill="black" stroke="black" points="5091.54,-284.84 5095.04,-294.84 5098.54,-284.84 5091.54,-284.84"/>
+</g>
+<!-- GalleryPageModule -->
+<g id="node32" class="node">
+<title>GalleryPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="5823.24,-331 5820.24,-335 5799.24,-335 5796.24,-331 5694.76,-331 5694.76,-295 5823.24,-295 5823.24,-331"/>
+<text text-anchor="middle" x="5759" y="-308.8" font-family="Times,serif" font-size="14.00">GalleryPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;GalleryPageModule -->
+<g id="edge31" class="edge">
+<title>SharedModule&#45;&gt;GalleryPageModule</title>
+<path fill="none" stroke="black" d="M2478.94,-266.32C2478.94,-274.79 2478.94,-283 2478.94,-283 2478.94,-283 5737.54,-283 5737.54,-283 5737.54,-283 5737.54,-284.86 5737.54,-284.86"/>
+<polygon fill="black" stroke="black" points="5734.04,-284.86 5737.54,-294.86 5741.04,-284.86 5734.04,-284.86"/>
+</g>
+<!-- HomePageModule -->
+<g id="node42" class="node">
+<title>HomePageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="7105.47,-331 7102.47,-335 7081.47,-335 7078.47,-331 6984.53,-331 6984.53,-295 7105.47,-295 7105.47,-331"/>
+<text text-anchor="middle" x="7045" y="-308.8" font-family="Times,serif" font-size="14.00">HomePageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;HomePageModule -->
+<g id="edge41" class="edge">
+<title>SharedModule&#45;&gt;HomePageModule</title>
+<path fill="none" stroke="black" d="M2485.97,-266.04C2485.97,-273.75 2485.97,-281 2485.97,-281 2485.97,-281 7009.54,-281 7009.54,-281 7009.54,-281 7009.54,-284.76 7009.54,-284.76"/>
+<polygon fill="black" stroke="black" points="7006.04,-284.76 7009.54,-294.76 7013.04,-284.76 7006.04,-284.76"/>
+</g>
+<!-- NutritionPageModule -->
+<g id="node50" class="node">
+<title>NutritionPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="8025.09,-331 8022.09,-335 8001.09,-335 7998.09,-331 7886.91,-331 7886.91,-295 8025.09,-295 8025.09,-331"/>
+<text text-anchor="middle" x="7956" y="-308.8" font-family="Times,serif" font-size="14.00">NutritionPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;NutritionPageModule -->
+<g id="edge47" class="edge">
+<title>SharedModule&#45;&gt;NutritionPageModule</title>
+<path fill="none" stroke="black" d="M2493,-266.03C2493,-272.85 2493,-279 2493,-279 2493,-279 7932.98,-279 7932.98,-279 7932.98,-279 7932.98,-284.81 7932.98,-284.81"/>
+<polygon fill="black" stroke="black" points="7929.48,-284.81 7932.98,-294.81 7936.48,-284.81 7929.48,-284.81"/>
+</g>
+<!-- ProductsPageModule -->
+<g id="node53" class="node">
+<title>ProductsPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="8363.75,-331 8360.75,-335 8339.75,-335 8336.75,-331 8228.25,-331 8228.25,-295 8363.75,-295 8363.75,-331"/>
+<text text-anchor="middle" x="8296" y="-308.8" font-family="Times,serif" font-size="14.00">ProductsPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;ProductsPageModule -->
+<g id="edge50" class="edge">
+<title>SharedModule&#45;&gt;ProductsPageModule</title>
+<path fill="none" stroke="black" d="M2500.03,-266.21C2500.03,-271.55 2500.03,-276 2500.03,-276 2500.03,-276 8273.37,-276 8273.37,-276 8273.37,-276 8273.37,-284.93 8273.37,-284.93"/>
+<polygon fill="black" stroke="black" points="8269.87,-284.93 8273.37,-294.93 8276.87,-284.93 8269.87,-284.93"/>
+</g>
+<!-- SafetyPageModule -->
+<g id="node56" class="node">
+<title>SafetyPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="8687.03,-331 8684.03,-335 8663.03,-335 8660.03,-331 8564.97,-331 8564.97,-295 8687.03,-295 8687.03,-331"/>
+<text text-anchor="middle" x="8626" y="-308.8" font-family="Times,serif" font-size="14.00">SafetyPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;SafetyPageModule -->
+<g id="edge53" class="edge">
+<title>SharedModule&#45;&gt;SafetyPageModule</title>
+<path fill="none" stroke="black" d="M2507.06,-266.06C2507.06,-270.49 2507.06,-274 2507.06,-274 2507.06,-274 8605.58,-274 8605.58,-274 8605.58,-274 8605.58,-284.87 8605.58,-284.87"/>
+<polygon fill="black" stroke="black" points="8602.08,-284.87 8605.58,-294.87 8609.08,-284.87 8602.08,-284.87"/>
+</g>
+<!-- AboutAppComponent  -->
+<g id="node78" class="node">
+<title>AboutAppComponent </title>
+<polygon fill="#fb8072" stroke="black" points="605.94,-190 462.06,-190 462.06,-154 605.94,-154 605.94,-190"/>
+<text text-anchor="middle" x="534" y="-167.8" font-family="Times,serif" font-size="14.00">AboutAppComponent </text>
+</g>
+<!-- SharedModule&#45;&gt;AboutAppComponent  -->
+<g id="edge74" class="edge">
+<title>SharedModule&#45;&gt;AboutAppComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2451.92,-229.84C2451.92,-224.96 2451.92,-221 2451.92,-221 2451.92,-221 534,-221 534,-221 534,-221 534,-200.25 534,-200.25"/>
+<polygon fill="black" stroke="black" points="537.5,-200.25 534,-190.25 530.5,-200.25 537.5,-200.25"/>
+</g>
+<!-- FooterComponent  -->
+<g id="node79" class="node">
+<title>FooterComponent </title>
+<polygon fill="#fb8072" stroke="black" points="443.88,-190 322.12,-190 322.12,-154 443.88,-154 443.88,-190"/>
+<text text-anchor="middle" x="383" y="-167.8" font-family="Times,serif" font-size="14.00">FooterComponent </text>
+</g>
+<!-- SharedModule&#45;&gt;FooterComponent  -->
+<g id="edge75" class="edge">
+<title>SharedModule&#45;&gt;FooterComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2449.89,-229.83C2449.89,-225.95 2449.89,-223 2449.89,-223 2449.89,-223 383,-223 383,-223 383,-223 383,-200.12 383,-200.12"/>
+<polygon fill="black" stroke="black" points="386.5,-200.12 383,-190.12 379.5,-200.12 386.5,-200.12"/>
+</g>
+<!-- LocationComponent  -->
+<g id="node80" class="node">
+<title>LocationComponent </title>
+<polygon fill="#fb8072" stroke="black" points="304.1,-190 169.9,-190 169.9,-154 304.1,-154 304.1,-190"/>
+<text text-anchor="middle" x="237" y="-167.8" font-family="Times,serif" font-size="14.00">LocationComponent </text>
+</g>
+<!-- SharedModule&#45;&gt;LocationComponent  -->
+<g id="edge76" class="edge">
+<title>SharedModule&#45;&gt;LocationComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2447.86,-229.83C2447.86,-227.55 2447.86,-226 2447.86,-226 2447.86,-226 237,-226 237,-226 237,-226 237,-200.28 237,-200.28"/>
+<polygon fill="black" stroke="black" points="240.5,-200.28 237,-190.28 233.5,-200.28 240.5,-200.28"/>
+</g>
+<!-- PrivacyComponent  -->
+<g id="node81" class="node">
+<title>PrivacyComponent </title>
+<polygon fill="#fb8072" stroke="black" points="151.6,-190 24.4,-190 24.4,-154 151.6,-154 151.6,-190"/>
+<text text-anchor="middle" x="88" y="-167.8" font-family="Times,serif" font-size="14.00">PrivacyComponent </text>
+</g>
+<!-- SharedModule&#45;&gt;PrivacyComponent  -->
+<g id="edge77" class="edge">
+<title>SharedModule&#45;&gt;PrivacyComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2445.82,-229.85C2445.82,-228.7 2445.82,-228 2445.82,-228 2445.82,-228 88,-228 88,-228 88,-228 88,-200.03 88,-200.03"/>
+<polygon fill="black" stroke="black" points="91.5,-200.03 88,-190.03 84.5,-200.03 91.5,-200.03"/>
+</g>
+<!-- RatingsComponent  -->
+<g id="node82" class="node">
+<title>RatingsComponent </title>
+<polygon fill="#fb8072" stroke="black" points="1210.61,-190 1083.39,-190 1083.39,-154 1210.61,-154 1210.61,-190"/>
+<text text-anchor="middle" x="1147" y="-167.8" font-family="Times,serif" font-size="14.00">RatingsComponent </text>
+</g>
+<!-- SharedModule&#45;&gt;RatingsComponent  -->
+<g id="edge78" class="edge">
+<title>SharedModule&#45;&gt;RatingsComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2460.06,-229.58C2460.06,-220.72 2460.06,-212 2460.06,-212 2460.06,-212 1147,-212 1147,-212 1147,-212 1147,-200.13 1147,-200.13"/>
+<polygon fill="black" stroke="black" points="1150.5,-200.13 1147,-190.13 1143.5,-200.13 1150.5,-200.13"/>
+</g>
+<!-- SharedDirectivesModule  -->
+<g id="node83" class="node">
+<title>SharedDirectivesModule </title>
+<polygon fill="#fb8072" stroke="black" points="1064.95,-190 905.05,-190 905.05,-154 1064.95,-154 1064.95,-190"/>
+<text text-anchor="middle" x="985" y="-167.8" font-family="Times,serif" font-size="14.00">SharedDirectivesModule </text>
+</g>
+<!-- SharedModule&#45;&gt;SharedDirectivesModule  -->
+<g id="edge79" class="edge">
+<title>SharedModule&#45;&gt;SharedDirectivesModule </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2458.02,-229.81C2458.02,-221.72 2458.02,-214 2458.02,-214 2458.02,-214 985,-214 985,-214 985,-214 985,-200.06 985,-200.06"/>
+<polygon fill="black" stroke="black" points="988.5,-200.06 985,-190.06 981.5,-200.06 988.5,-200.06"/>
+</g>
+<!-- TermsComponent  -->
+<g id="node84" class="node">
+<title>TermsComponent </title>
+<polygon fill="#fb8072" stroke="black" points="887.1,-190 766.9,-190 766.9,-154 887.1,-154 887.1,-190"/>
+<text text-anchor="middle" x="827" y="-167.8" font-family="Times,serif" font-size="14.00">TermsComponent </text>
+</g>
+<!-- SharedModule&#45;&gt;TermsComponent  -->
+<g id="edge80" class="edge">
+<title>SharedModule&#45;&gt;TermsComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2455.99,-229.76C2455.99,-222.57 2455.99,-216 2455.99,-216 2455.99,-216 827,-216 827,-216 827,-216 827,-200.15 827,-200.15"/>
+<polygon fill="black" stroke="black" points="830.5,-200.15 827,-190.15 823.5,-200.15 830.5,-200.15"/>
+</g>
+<!-- ToggleComponent  -->
+<g id="node85" class="node">
+<title>ToggleComponent </title>
+<polygon fill="#fb8072" stroke="black" points="748.49,-190 623.51,-190 623.51,-154 748.49,-154 748.49,-190"/>
+<text text-anchor="middle" x="686" y="-167.8" font-family="Times,serif" font-size="14.00">ToggleComponent </text>
+</g>
+<!-- SharedModule&#45;&gt;ToggleComponent  -->
+<g id="edge81" class="edge">
+<title>SharedModule&#45;&gt;ToggleComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M2453.96,-229.8C2453.96,-223.97 2453.96,-219 2453.96,-219 2453.96,-219 686,-219 686,-219 686,-219 686,-200.04 686,-200.04"/>
+<polygon fill="black" stroke="black" points="689.5,-200.04 686,-190.04 682.5,-200.04 689.5,-200.04"/>
+</g>
+<!-- TestimonialsPageModule -->
+<g id="node87" class="node">
+<title>TestimonialsPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="9033.59,-331 9030.59,-335 9009.59,-335 9006.59,-331 8874.41,-331 8874.41,-295 9033.59,-295 9033.59,-331"/>
+<text text-anchor="middle" x="8954" y="-308.8" font-family="Times,serif" font-size="14.00">TestimonialsPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;TestimonialsPageModule -->
+<g id="edge83" class="edge">
+<title>SharedModule&#45;&gt;TestimonialsPageModule</title>
+<path fill="none" stroke="black" d="M2514.09,-266.12C2514.09,-268.97 2514.09,-271 2514.09,-271 2514.09,-271 8927.49,-271 8927.49,-271 8927.49,-271 8927.49,-284.94 8927.49,-284.94"/>
+<polygon fill="black" stroke="black" points="8923.99,-284.94 8927.49,-294.94 8930.99,-284.94 8923.99,-284.94"/>
+</g>
+<!-- UserPageModule -->
+<g id="node107" class="node">
+<title>UserPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="10496.69,-331 10493.69,-335 10472.69,-335 10469.69,-331 10383.31,-331 10383.31,-295 10496.69,-295 10496.69,-331"/>
+<text text-anchor="middle" x="10440" y="-308.8" font-family="Times,serif" font-size="14.00">UserPageModule</text>
+</g>
+<!-- SharedModule&#45;&gt;UserPageModule -->
+<g id="edge104" class="edge">
+<title>SharedModule&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M2521.12,-266.08C2521.12,-267.85 2521.12,-269 2521.12,-269 2521.12,-269 10421.14,-269 10421.14,-269 10421.14,-269 10421.14,-284.85 10421.14,-284.85"/>
+<polygon fill="black" stroke="black" points="10417.64,-284.85 10421.14,-294.85 10424.64,-284.85 10417.64,-284.85"/>
+</g>
+<!-- AdminDashboardComponent -->
+<g id="node5" class="node">
+<title>AdminDashboardComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="4019.36,-266 3838.64,-266 3838.64,-230 4019.36,-230 4019.36,-266"/>
+<text text-anchor="middle" x="3929" y="-243.8" font-family="Times,serif" font-size="14.00">AdminDashboardComponent</text>
+</g>
+<!-- AdminDashboardComponent&#45;&gt;AdminPageModule -->
+<g id="edge4" class="edge">
+<title>AdminDashboardComponent&#45;&gt;AdminPageModule</title>
+<path fill="none" stroke="black" d="M3929,-266.11C3929,-285.34 3929,-313 3929,-313 3929,-313 3777.69,-313 3777.69,-313"/>
+<polygon fill="black" stroke="black" points="3777.69,-309.5 3767.69,-313 3777.69,-316.5 3777.69,-309.5"/>
+</g>
+<!-- AdminPage -->
+<g id="node6" class="node">
+<title>AdminPage</title>
+<polygon fill="#ffffb3" stroke="black" points="3821.1,-266 3738.9,-266 3738.9,-230 3821.1,-230 3821.1,-266"/>
+<text text-anchor="middle" x="3780" y="-243.8" font-family="Times,serif" font-size="14.00">AdminPage</text>
+</g>
+<!-- AdminPage&#45;&gt;AdminPageModule -->
+<g id="edge5" class="edge">
+<title>AdminPage&#45;&gt;AdminPageModule</title>
+<path fill="none" stroke="black" d="M3753.39,-266.11C3753.39,-266.11 3753.39,-284.99 3753.39,-284.99"/>
+<polygon fill="black" stroke="black" points="3749.89,-284.99 3753.39,-294.99 3756.89,-284.99 3749.89,-284.99"/>
+</g>
+<!-- AdminPageRoutingModule -->
+<g id="node8" class="node">
+<title>AdminPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="3715.27,-266 3712.27,-270 3691.27,-270 3688.27,-266 3544.73,-266 3544.73,-230 3715.27,-230 3715.27,-266"/>
+<text text-anchor="middle" x="3630" y="-243.8" font-family="Times,serif" font-size="14.00">AdminPageRoutingModule</text>
+</g>
+<!-- AdminPageRoutingModule&#45;&gt;AdminPageModule -->
+<g id="edge6" class="edge">
+<title>AdminPageRoutingModule&#45;&gt;AdminPageModule</title>
+<path fill="none" stroke="black" d="M3678.78,-266.11C3678.78,-266.11 3678.78,-284.99 3678.78,-284.99"/>
+<polygon fill="black" stroke="black" points="3675.28,-284.99 3678.78,-294.99 3682.28,-284.99 3675.28,-284.99"/>
+</g>
+<!-- AppComponent -->
+<g id="node9" class="node">
+<title>AppComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="12297.94,-122 12192.06,-122 12192.06,-86 12297.94,-86 12297.94,-122"/>
+<text text-anchor="middle" x="12245" y="-99.8" font-family="Times,serif" font-size="14.00">AppComponent</text>
+</g>
+<!-- AppModule -->
+<g id="node11" class="node">
+<title>AppModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="12067.66,-190 12064.66,-194 12043.66,-194 12040.66,-190 11984.34,-190 11984.34,-154 12067.66,-154 12067.66,-190"/>
+<text text-anchor="middle" x="12026" y="-167.8" font-family="Times,serif" font-size="14.00">AppModule</text>
+</g>
+<!-- AppComponent&#45;&gt;AppModule -->
+<g id="edge8" class="edge">
+<title>AppComponent&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M12245,-122.22C12245,-142.37 12245,-172 12245,-172 12245,-172 12077.71,-172 12077.71,-172"/>
+<polygon fill="black" stroke="black" points="12077.71,-168.5 12067.71,-172 12077.71,-175.5 12077.71,-168.5"/>
+</g>
+<!-- SideMenuComponent -->
+<g id="node10" class="node">
+<title>SideMenuComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="12174.38,-122 12035.62,-122 12035.62,-86 12174.38,-86 12174.38,-122"/>
+<text text-anchor="middle" x="12105" y="-99.8" font-family="Times,serif" font-size="14.00">SideMenuComponent</text>
+</g>
+<!-- SideMenuComponent&#45;&gt;AppModule -->
+<g id="edge9" class="edge">
+<title>SideMenuComponent&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M12051.69,-122.22C12051.69,-122.22 12051.69,-143.73 12051.69,-143.73"/>
+<polygon fill="black" stroke="black" points="12048.19,-143.73 12051.69,-153.73 12055.19,-143.73 12048.19,-143.73"/>
+</g>
+<!-- AppComponent  -->
+<g id="node13" class="node">
+<title>AppComponent </title>
+<polygon fill="#80b1d3" stroke="black" points="12080.44,-266 11971.56,-266 11971.56,-230 12080.44,-230 12080.44,-266"/>
+<text text-anchor="middle" x="12026" y="-243.8" font-family="Times,serif" font-size="14.00">AppComponent </text>
+</g>
+<!-- AppModule&#45;&gt;AppComponent  -->
+<g id="edge11" class="edge">
+<title>AppModule&#45;&gt;AppComponent </title>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M12026,-190.01C12026,-190.01 12026,-219.85 12026,-219.85"/>
+<polygon fill="black" stroke="black" points="12022.5,-219.85 12026,-229.85 12029.5,-219.85 12022.5,-219.85"/>
+</g>
+<!-- AppRoutingModule -->
+<g id="node12" class="node">
+<title>AppRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="12012.27,-122 12009.27,-126 11988.27,-126 11985.27,-122 11883.73,-122 11883.73,-86 12012.27,-86 12012.27,-122"/>
+<text text-anchor="middle" x="11948" y="-99.8" font-family="Times,serif" font-size="14.00">AppRoutingModule</text>
+</g>
+<!-- AppRoutingModule&#45;&gt;AppModule -->
+<g id="edge10" class="edge">
+<title>AppRoutingModule&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M11998.28,-122.22C11998.28,-122.22 11998.28,-143.73 11998.28,-143.73"/>
+<polygon fill="black" stroke="black" points="11994.78,-143.73 11998.28,-153.73 12001.78,-143.73 11994.78,-143.73"/>
+</g>
+<!-- ErrorInterceptor -->
+<g id="node14" class="node">
+<title>ErrorInterceptor</title>
+<ellipse fill="#fdb462" stroke="black" cx="11786" cy="-104" rx="73.53" ry="18"/>
+<text text-anchor="middle" x="11786" y="-99.8" font-family="Times,serif" font-size="14.00">ErrorInterceptor</text>
+</g>
+<!-- ErrorInterceptor&#45;&gt;AppModule -->
+<g id="edge12" class="edge">
+<title>ErrorInterceptor&#45;&gt;AppModule</title>
+<path fill="none" stroke="black" d="M11786,-122.22C11786,-142.37 11786,-172 11786,-172 11786,-172 11974.2,-172 11974.2,-172"/>
+<polygon fill="black" stroke="black" points="11974.2,-175.5 11984.2,-172 11974.2,-168.5 11974.2,-175.5"/>
+</g>
+<!-- ChoicesPage -->
+<g id="node15" class="node">
+<title>ChoicesPage</title>
+<polygon fill="#ffffb3" stroke="black" points="4347.31,-266 4258.69,-266 4258.69,-230 4347.31,-230 4347.31,-266"/>
+<text text-anchor="middle" x="4303" y="-243.8" font-family="Times,serif" font-size="14.00">ChoicesPage</text>
+</g>
+<!-- ChoicesPage&#45;&gt;ChoicesPageModule -->
+<g id="edge13" class="edge">
+<title>ChoicesPage&#45;&gt;ChoicesPageModule</title>
+<path fill="none" stroke="black" d="M4303,-266.11C4303,-285.34 4303,-313 4303,-313 4303,-313 4223.16,-313 4223.16,-313"/>
+<polygon fill="black" stroke="black" points="4223.16,-309.5 4213.16,-313 4223.16,-316.5 4223.16,-309.5"/>
+</g>
+<!-- ChoicesPageRoutingModule -->
+<g id="node17" class="node">
+<title>ChoicesPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="4235.48,-266 4232.48,-270 4211.48,-270 4208.48,-266 4058.52,-266 4058.52,-230 4235.48,-230 4235.48,-266"/>
+<text text-anchor="middle" x="4147" y="-243.8" font-family="Times,serif" font-size="14.00">ChoicesPageRoutingModule</text>
+</g>
+<!-- ChoicesPageRoutingModule&#45;&gt;ChoicesPageModule -->
+<g id="edge14" class="edge">
+<title>ChoicesPageRoutingModule&#45;&gt;ChoicesPageModule</title>
+<path fill="none" stroke="black" d="M4168.98,-266.11C4168.98,-266.11 4168.98,-284.99 4168.98,-284.99"/>
+<polygon fill="black" stroke="black" points="4165.48,-284.99 4168.98,-294.99 4172.48,-284.99 4165.48,-284.99"/>
+</g>
+<!-- ContactPage -->
+<g id="node18" class="node">
+<title>ContactPage</title>
+<polygon fill="#ffffb3" stroke="black" points="4673.26,-266 4586.74,-266 4586.74,-230 4673.26,-230 4673.26,-266"/>
+<text text-anchor="middle" x="4630" y="-243.8" font-family="Times,serif" font-size="14.00">ContactPage</text>
+</g>
+<!-- ContactPage&#45;&gt;ContactPageModule -->
+<g id="edge16" class="edge">
+<title>ContactPage&#45;&gt;ContactPageModule</title>
+<path fill="none" stroke="black" d="M4630,-266.11C4630,-285.34 4630,-313 4630,-313 4630,-313 4550.28,-313 4550.28,-313"/>
+<polygon fill="black" stroke="black" points="4550.28,-309.5 4540.28,-313 4550.28,-316.5 4550.28,-309.5"/>
+</g>
+<!-- ContactPageRoutingModule -->
+<g id="node20" class="node">
+<title>ContactPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="4562.93,-266 4559.93,-270 4538.93,-270 4535.93,-266 4387.07,-266 4387.07,-230 4562.93,-230 4562.93,-266"/>
+<text text-anchor="middle" x="4475" y="-243.8" font-family="Times,serif" font-size="14.00">ContactPageRoutingModule</text>
+</g>
+<!-- ContactPageRoutingModule&#45;&gt;ContactPageModule -->
+<g id="edge17" class="edge">
+<title>ContactPageRoutingModule&#45;&gt;ContactPageModule</title>
+<path fill="none" stroke="black" d="M4496.72,-266.11C4496.72,-266.11 4496.72,-284.99 4496.72,-284.99"/>
+<polygon fill="black" stroke="black" points="4493.22,-284.99 4496.72,-294.99 4500.22,-284.99 4493.22,-284.99"/>
+</g>
+<!-- FacilityPage -->
+<g id="node21" class="node">
+<title>FacilityPage</title>
+<polygon fill="#ffffb3" stroke="black" points="4996.99,-266 4911.01,-266 4911.01,-230 4996.99,-230 4996.99,-266"/>
+<text text-anchor="middle" x="4954" y="-243.8" font-family="Times,serif" font-size="14.00">FacilityPage</text>
+</g>
+<!-- FacilityPage&#45;&gt;FacilityPageModule -->
+<g id="edge19" class="edge">
+<title>FacilityPage&#45;&gt;FacilityPageModule</title>
+<path fill="none" stroke="black" d="M4954,-266.11C4954,-285.34 4954,-313 4954,-313 4954,-313 4874.86,-313 4874.86,-313"/>
+<polygon fill="black" stroke="black" points="4874.86,-309.5 4864.86,-313 4874.86,-316.5 4874.86,-309.5"/>
+</g>
+<!-- FacilityPageRoutingModule -->
+<g id="node23" class="node">
+<title>FacilityPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="4887.15,-266 4884.15,-270 4863.15,-270 4860.15,-266 4712.85,-266 4712.85,-230 4887.15,-230 4887.15,-266"/>
+<text text-anchor="middle" x="4800" y="-243.8" font-family="Times,serif" font-size="14.00">FacilityPageRoutingModule</text>
+</g>
+<!-- FacilityPageRoutingModule&#45;&gt;FacilityPageModule -->
+<g id="edge20" class="edge">
+<title>FacilityPageRoutingModule&#45;&gt;FacilityPageModule</title>
+<path fill="none" stroke="black" d="M4821.59,-266.11C4821.59,-266.11 4821.59,-284.99 4821.59,-284.99"/>
+<polygon fill="black" stroke="black" points="4818.09,-284.99 4821.59,-294.99 4825.09,-284.99 4818.09,-284.99"/>
+</g>
+<!-- FaqPage -->
+<g id="node24" class="node">
+<title>FaqPage</title>
+<polygon fill="#ffffb3" stroke="black" points="5277.21,-266 5212.79,-266 5212.79,-230 5277.21,-230 5277.21,-266"/>
+<text text-anchor="middle" x="5245" y="-243.8" font-family="Times,serif" font-size="14.00">FaqPage</text>
+</g>
+<!-- FaqPage&#45;&gt;FaqPageModule -->
+<g id="edge22" class="edge">
+<title>FaqPage&#45;&gt;FaqPageModule</title>
+<path fill="none" stroke="black" d="M5245,-266.29C5245,-288.21 5245,-322 5245,-322 5245,-322 5177.07,-322 5177.07,-322"/>
+<polygon fill="black" stroke="black" points="5177.07,-318.5 5167.07,-322 5177.07,-325.5 5177.07,-318.5"/>
+</g>
+<!-- FaqPageRoutingModule -->
+<g id="node26" class="node">
+<title>FaqPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="5189.38,-266 5186.38,-270 5165.38,-270 5162.38,-266 5036.62,-266 5036.62,-230 5189.38,-230 5189.38,-266"/>
+<text text-anchor="middle" x="5113" y="-243.8" font-family="Times,serif" font-size="14.00">FaqPageRoutingModule</text>
+</g>
+<!-- FaqPageRoutingModule&#45;&gt;FaqPageModule -->
+<g id="edge23" class="edge">
+<title>FaqPageRoutingModule&#45;&gt;FaqPageModule</title>
+<path fill="none" stroke="black" d="M5130.96,-266.11C5130.96,-266.11 5130.96,-284.99 5130.96,-284.99"/>
+<polygon fill="black" stroke="black" points="5127.46,-284.99 5130.96,-294.99 5134.46,-284.99 5127.46,-284.99"/>
+</g>
+<!-- FileUploaderComponent -->
+<g id="node27" class="node">
+<title>FileUploaderComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="5670.7,-266 5515.3,-266 5515.3,-230 5670.7,-230 5670.7,-266"/>
+<text text-anchor="middle" x="5593" y="-243.8" font-family="Times,serif" font-size="14.00">FileUploaderComponent</text>
+</g>
+<!-- FileUploaderComponent&#45;&gt;GalleryPageModule -->
+<g id="edge25" class="edge">
+<title>FileUploaderComponent&#45;&gt;GalleryPageModule</title>
+<path fill="none" stroke="black" d="M5593,-266.03C5593,-282.4 5593,-304 5593,-304 5593,-304 5684.34,-304 5684.34,-304"/>
+<polygon fill="black" stroke="black" points="5684.34,-307.5 5694.34,-304 5684.34,-300.5 5684.34,-307.5"/>
+</g>
+<!-- GalleryPage -->
+<g id="node28" class="node">
+<title>GalleryPage</title>
+<polygon fill="#ffffb3" stroke="black" points="6280.69,-266 6195.31,-266 6195.31,-230 6280.69,-230 6280.69,-266"/>
+<text text-anchor="middle" x="6238" y="-243.8" font-family="Times,serif" font-size="14.00">GalleryPage</text>
+</g>
+<!-- GalleryPage&#45;&gt;GalleryPageModule -->
+<g id="edge26" class="edge">
+<title>GalleryPage&#45;&gt;GalleryPageModule</title>
+<path fill="none" stroke="black" d="M6238,-266.09C6238,-289.13 6238,-326 6238,-326 6238,-326 5833.6,-326 5833.6,-326"/>
+<polygon fill="black" stroke="black" points="5833.6,-322.5 5823.6,-326 5833.6,-329.5 5833.6,-322.5"/>
+</g>
+<!-- ImageUploadComponent -->
+<g id="node29" class="node">
+<title>ImageUploadComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="6177.53,-266 6020.47,-266 6020.47,-230 6177.53,-230 6177.53,-266"/>
+<text text-anchor="middle" x="6099" y="-243.8" font-family="Times,serif" font-size="14.00">ImageUploadComponent</text>
+</g>
+<!-- ImageUploadComponent&#45;&gt;GalleryPageModule -->
+<g id="edge27" class="edge">
+<title>ImageUploadComponent&#45;&gt;GalleryPageModule</title>
+<path fill="none" stroke="black" d="M6099,-266.04C6099,-287.66 6099,-321 6099,-321 6099,-321 5833.35,-321 5833.35,-321"/>
+<polygon fill="black" stroke="black" points="5833.35,-317.5 5823.35,-321 5833.35,-324.5 5833.35,-317.5"/>
+</g>
+<!-- PhotoUploadComponent -->
+<g id="node30" class="node">
+<title>PhotoUploadComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="6002.72,-266 5847.28,-266 5847.28,-230 6002.72,-230 6002.72,-266"/>
+<text text-anchor="middle" x="5925" y="-243.8" font-family="Times,serif" font-size="14.00">PhotoUploadComponent</text>
+</g>
+<!-- PhotoUploadComponent&#45;&gt;GalleryPageModule -->
+<g id="edge28" class="edge">
+<title>PhotoUploadComponent&#45;&gt;GalleryPageModule</title>
+<path fill="none" stroke="black" d="M5925,-266.22C5925,-286.37 5925,-316 5925,-316 5925,-316 5833.66,-316 5833.66,-316"/>
+<polygon fill="black" stroke="black" points="5833.66,-312.5 5823.66,-316 5833.66,-319.5 5833.66,-312.5"/>
+</g>
+<!-- PhotosListComponent -->
+<g id="node31" class="node">
+<title>PhotosListComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="5829.73,-266 5688.27,-266 5688.27,-230 5829.73,-230 5829.73,-266"/>
+<text text-anchor="middle" x="5759" y="-243.8" font-family="Times,serif" font-size="14.00">PhotosListComponent</text>
+</g>
+<!-- PhotosListComponent&#45;&gt;GalleryPageModule -->
+<g id="edge29" class="edge">
+<title>PhotosListComponent&#45;&gt;GalleryPageModule</title>
+<path fill="none" stroke="black" d="M5780.46,-266.11C5780.46,-266.11 5780.46,-284.99 5780.46,-284.99"/>
+<polygon fill="black" stroke="black" points="5776.96,-284.99 5780.46,-294.99 5783.96,-284.99 5776.96,-284.99"/>
+</g>
+<!-- GalleryPageRoutingModule -->
+<g id="node33" class="node">
+<title>GalleryPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="5490.86,-266 5487.86,-270 5466.86,-270 5463.86,-266 5317.14,-266 5317.14,-230 5490.86,-230 5490.86,-266"/>
+<text text-anchor="middle" x="5404" y="-243.8" font-family="Times,serif" font-size="14.00">GalleryPageRoutingModule</text>
+</g>
+<!-- GalleryPageRoutingModule&#45;&gt;GalleryPageModule -->
+<g id="edge30" class="edge">
+<title>GalleryPageRoutingModule&#45;&gt;GalleryPageModule</title>
+<path fill="none" stroke="black" d="M5404,-266.11C5404,-285.34 5404,-313 5404,-313 5404,-313 5684.71,-313 5684.71,-313"/>
+<polygon fill="black" stroke="black" points="5684.71,-316.5 5694.71,-313 5684.71,-309.5 5684.71,-316.5"/>
+</g>
+<!-- BenefitsComponent -->
+<g id="node34" class="node">
+<title>BenefitsComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="7489.98,-266 7362.02,-266 7362.02,-230 7489.98,-230 7489.98,-266"/>
+<text text-anchor="middle" x="7426" y="-243.8" font-family="Times,serif" font-size="14.00">BenefitsComponent</text>
+</g>
+<!-- BenefitsComponent&#45;&gt;HomePageModule -->
+<g id="edge32" class="edge">
+<title>BenefitsComponent&#45;&gt;HomePageModule</title>
+<path fill="none" stroke="black" d="M7426,-266.27C7426,-284.56 7426,-310 7426,-310 7426,-310 7115.79,-310 7115.79,-310"/>
+<polygon fill="black" stroke="black" points="7115.79,-306.5 7105.79,-310 7115.79,-313.5 7115.79,-306.5"/>
+</g>
+<!-- BenefitsTrackerComponent -->
+<g id="node35" class="node">
+<title>BenefitsTrackerComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="7343.5,-266 7172.5,-266 7172.5,-230 7343.5,-230 7343.5,-266"/>
+<text text-anchor="middle" x="7258" y="-243.8" font-family="Times,serif" font-size="14.00">BenefitsTrackerComponent</text>
+</g>
+<!-- BenefitsTrackerComponent&#45;&gt;HomePageModule -->
+<g id="edge33" class="edge">
+<title>BenefitsTrackerComponent&#45;&gt;HomePageModule</title>
+<path fill="none" stroke="black" d="M7258,-266.01C7258,-282.05 7258,-303 7258,-303 7258,-303 7115.75,-303 7115.75,-303"/>
+<polygon fill="black" stroke="black" points="7115.75,-299.5 7105.75,-303 7115.75,-306.5 7115.75,-299.5"/>
+</g>
+<!-- HomePage -->
+<g id="node36" class="node">
+<title>HomePage</title>
+<polygon fill="#ffffb3" stroke="black" points="7154.92,-266 7077.08,-266 7077.08,-230 7154.92,-230 7154.92,-266"/>
+<text text-anchor="middle" x="7116" y="-243.8" font-family="Times,serif" font-size="14.00">HomePage</text>
+</g>
+<!-- HomePage&#45;&gt;HomePageModule -->
+<g id="edge34" class="edge">
+<title>HomePage&#45;&gt;HomePageModule</title>
+<path fill="none" stroke="black" d="M7091.39,-266.11C7091.39,-266.11 7091.39,-284.99 7091.39,-284.99"/>
+<polygon fill="black" stroke="black" points="7087.89,-284.99 7091.39,-294.99 7094.89,-284.99 7087.89,-284.99"/>
+</g>
+<!-- HomePageFourComponent -->
+<g id="node37" class="node">
+<title>HomePageFourComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="7059.7,-266 6890.3,-266 6890.3,-230 7059.7,-230 7059.7,-266"/>
+<text text-anchor="middle" x="6975" y="-243.8" font-family="Times,serif" font-size="14.00">HomePageFourComponent</text>
+</g>
+<!-- HomePageFourComponent&#45;&gt;HomePageModule -->
+<g id="edge35" class="edge">
+<title>HomePageFourComponent&#45;&gt;HomePageModule</title>
+<path fill="none" stroke="black" d="M7034.57,-266.11C7034.57,-266.11 7034.57,-284.99 7034.57,-284.99"/>
+<polygon fill="black" stroke="black" points="7031.07,-284.99 7034.57,-294.99 7038.07,-284.99 7031.07,-284.99"/>
+</g>
+<!-- HomePageThreeComponent -->
+<g id="node38" class="node">
+<title>HomePageThreeComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="6872.9,-266 6697.1,-266 6697.1,-230 6872.9,-230 6872.9,-266"/>
+<text text-anchor="middle" x="6785" y="-243.8" font-family="Times,serif" font-size="14.00">HomePageThreeComponent</text>
+</g>
+<!-- HomePageThreeComponent&#45;&gt;HomePageModule -->
+<g id="edge36" class="edge">
+<title>HomePageThreeComponent&#45;&gt;HomePageModule</title>
+<path fill="none" stroke="black" d="M6785,-266.24C6785,-281.57 6785,-301 6785,-301 6785,-301 6974.37,-301 6974.37,-301"/>
+<polygon fill="black" stroke="black" points="6974.37,-304.5 6984.37,-301 6974.37,-297.5 6974.37,-304.5"/>
+</g>
+<!-- HomePageTwoComponent -->
+<g id="node39" class="node">
+<title>HomePageTwoComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="6679.42,-266 6510.58,-266 6510.58,-230 6679.42,-230 6679.42,-266"/>
+<text text-anchor="middle" x="6595" y="-243.8" font-family="Times,serif" font-size="14.00">HomePageTwoComponent</text>
+</g>
+<!-- HomePageTwoComponent&#45;&gt;HomePageModule -->
+<g id="edge37" class="edge">
+<title>HomePageTwoComponent&#45;&gt;HomePageModule</title>
+<path fill="none" stroke="black" d="M6595,-266.03C6595,-283.06 6595,-306 6595,-306 6595,-306 6974.31,-306 6974.31,-306"/>
+<polygon fill="black" stroke="black" points="6974.31,-309.5 6984.31,-306 6974.31,-302.5 6974.31,-309.5"/>
+</g>
+<!-- IntroVideoComponent -->
+<g id="node40" class="node">
+<title>IntroVideoComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="7824.26,-266 7681.74,-266 7681.74,-230 7824.26,-230 7824.26,-266"/>
+<text text-anchor="middle" x="7753" y="-243.8" font-family="Times,serif" font-size="14.00">IntroVideoComponent</text>
+</g>
+<!-- IntroVideoComponent&#45;&gt;HomePageModule -->
+<g id="edge38" class="edge">
+<title>IntroVideoComponent&#45;&gt;HomePageModule</title>
+<path fill="none" stroke="black" d="M7753,-266.01C7753,-288.49 7753,-324 7753,-324 7753,-324 7115.67,-324 7115.67,-324"/>
+<polygon fill="black" stroke="black" points="7115.67,-320.5 7105.67,-324 7115.67,-327.5 7115.67,-320.5"/>
+</g>
+<!-- LandingPageComponent -->
+<g id="node41" class="node">
+<title>LandingPageComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="7663.7,-266 7508.3,-266 7508.3,-230 7663.7,-230 7663.7,-266"/>
+<text text-anchor="middle" x="7586" y="-243.8" font-family="Times,serif" font-size="14.00">LandingPageComponent</text>
+</g>
+<!-- LandingPageComponent&#45;&gt;HomePageModule -->
+<g id="edge39" class="edge">
+<title>LandingPageComponent&#45;&gt;HomePageModule</title>
+<path fill="none" stroke="black" d="M7586,-266.13C7586,-286.57 7586,-317 7586,-317 7586,-317 7115.48,-317 7115.48,-317"/>
+<polygon fill="black" stroke="black" points="7115.48,-313.5 7105.48,-317 7115.48,-320.5 7115.48,-313.5"/>
+</g>
+<!-- HomePageRoutingModule -->
+<g id="node43" class="node">
+<title>HomePageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="6487.09,-266 6484.09,-270 6463.09,-270 6460.09,-266 6320.91,-266 6320.91,-230 6487.09,-230 6487.09,-266"/>
+<text text-anchor="middle" x="6404" y="-243.8" font-family="Times,serif" font-size="14.00">HomePageRoutingModule</text>
+</g>
+<!-- HomePageRoutingModule&#45;&gt;HomePageModule -->
+<g id="edge40" class="edge">
+<title>HomePageRoutingModule&#45;&gt;HomePageModule</title>
+<path fill="none" stroke="black" d="M6404,-266.22C6404,-284.83 6404,-311 6404,-311 6404,-311 6974.41,-311 6974.41,-311"/>
+<polygon fill="black" stroke="black" points="6974.41,-314.5 6984.41,-311 6974.41,-307.5 6974.41,-314.5"/>
+</g>
+<!-- LineChartComponent -->
+<g id="node44" class="node">
+<title>LineChartComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="12476.09,-122 12337.91,-122 12337.91,-86 12476.09,-86 12476.09,-122"/>
+<text text-anchor="middle" x="12407" y="-99.8" font-family="Times,serif" font-size="14.00">LineChartComponent</text>
+</g>
+<!-- LineChartModule -->
+<g id="node45" class="node">
+<title>LineChartModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="12465.31,-190 12462.31,-194 12441.31,-194 12438.31,-190 12348.69,-190 12348.69,-154 12465.31,-154 12465.31,-190"/>
+<text text-anchor="middle" x="12407" y="-167.8" font-family="Times,serif" font-size="14.00">LineChartModule</text>
+</g>
+<!-- LineChartComponent&#45;&gt;LineChartModule -->
+<g id="edge42" class="edge">
+<title>LineChartComponent&#45;&gt;LineChartModule</title>
+<path fill="none" stroke="black" d="M12407,-122.22C12407,-122.22 12407,-143.73 12407,-143.73"/>
+<polygon fill="black" stroke="black" points="12403.5,-143.73 12407,-153.73 12410.5,-143.73 12403.5,-143.73"/>
+</g>
+<!-- ModalViewPage -->
+<g id="node46" class="node">
+<title>ModalViewPage</title>
+<polygon fill="#ffffb3" stroke="black" points="12848.08,-122 12737.92,-122 12737.92,-86 12848.08,-86 12848.08,-122"/>
+<text text-anchor="middle" x="12793" y="-99.8" font-family="Times,serif" font-size="14.00">ModalViewPage</text>
+</g>
+<!-- ModalViewPageModule -->
+<g id="node47" class="node">
+<title>ModalViewPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="12773.63,-190 12770.63,-194 12749.63,-194 12746.63,-190 12620.37,-190 12620.37,-154 12773.63,-154 12773.63,-190"/>
+<text text-anchor="middle" x="12697" y="-167.8" font-family="Times,serif" font-size="14.00">ModalViewPageModule</text>
+</g>
+<!-- ModalViewPage&#45;&gt;ModalViewPageModule -->
+<g id="edge43" class="edge">
+<title>ModalViewPage&#45;&gt;ModalViewPageModule</title>
+<path fill="none" stroke="black" d="M12755.89,-122.22C12755.89,-122.22 12755.89,-143.73 12755.89,-143.73"/>
+<polygon fill="black" stroke="black" points="12752.39,-143.73 12755.89,-153.73 12759.39,-143.73 12752.39,-143.73"/>
+</g>
+<!-- ModalViewPageRoutingModule -->
+<g id="node48" class="node">
+<title>ModalViewPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="12714.25,-122 12711.25,-126 12690.25,-126 12687.25,-122 12515.75,-122 12515.75,-86 12714.25,-86 12714.25,-122"/>
+<text text-anchor="middle" x="12615" y="-99.8" font-family="Times,serif" font-size="14.00">ModalViewPageRoutingModule</text>
+</g>
+<!-- ModalViewPageRoutingModule&#45;&gt;ModalViewPageModule -->
+<g id="edge44" class="edge">
+<title>ModalViewPageRoutingModule&#45;&gt;ModalViewPageModule</title>
+<path fill="none" stroke="black" d="M12667.28,-122.22C12667.28,-122.22 12667.28,-143.73 12667.28,-143.73"/>
+<polygon fill="black" stroke="black" points="12663.78,-143.73 12667.28,-153.73 12670.78,-143.73 12663.78,-143.73"/>
+</g>
+<!-- NutritionPage -->
+<g id="node49" class="node">
+<title>NutritionPage</title>
+<polygon fill="#ffffb3" stroke="black" points="8166.04,-266 8071.96,-266 8071.96,-230 8166.04,-230 8166.04,-266"/>
+<text text-anchor="middle" x="8119" y="-243.8" font-family="Times,serif" font-size="14.00">NutritionPage</text>
+</g>
+<!-- NutritionPage&#45;&gt;NutritionPageModule -->
+<g id="edge45" class="edge">
+<title>NutritionPage&#45;&gt;NutritionPageModule</title>
+<path fill="none" stroke="black" d="M8119,-266.11C8119,-285.34 8119,-313 8119,-313 8119,-313 8035.13,-313 8035.13,-313"/>
+<polygon fill="black" stroke="black" points="8035.13,-309.5 8025.13,-313 8035.13,-316.5 8035.13,-309.5"/>
+</g>
+<!-- NutritionPageRoutingModule -->
+<g id="node51" class="node">
+<title>NutritionPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="8047.71,-266 8044.71,-270 8023.71,-270 8020.71,-266 7864.29,-266 7864.29,-230 8047.71,-230 8047.71,-266"/>
+<text text-anchor="middle" x="7956" y="-243.8" font-family="Times,serif" font-size="14.00">NutritionPageRoutingModule</text>
+</g>
+<!-- NutritionPageRoutingModule&#45;&gt;NutritionPageModule -->
+<g id="edge46" class="edge">
+<title>NutritionPageRoutingModule&#45;&gt;NutritionPageModule</title>
+<path fill="none" stroke="black" d="M7979.02,-266.11C7979.02,-266.11 7979.02,-284.99 7979.02,-284.99"/>
+<polygon fill="black" stroke="black" points="7975.52,-284.99 7979.02,-294.99 7982.52,-284.99 7975.52,-284.99"/>
+</g>
+<!-- ProductsPage -->
+<g id="node52" class="node">
+<title>ProductsPage</title>
+<polygon fill="#ffffb3" stroke="black" points="8502.21,-266 8409.79,-266 8409.79,-230 8502.21,-230 8502.21,-266"/>
+<text text-anchor="middle" x="8456" y="-243.8" font-family="Times,serif" font-size="14.00">ProductsPage</text>
+</g>
+<!-- ProductsPage&#45;&gt;ProductsPageModule -->
+<g id="edge48" class="edge">
+<title>ProductsPage&#45;&gt;ProductsPageModule</title>
+<path fill="none" stroke="black" d="M8456,-266.11C8456,-285.34 8456,-313 8456,-313 8456,-313 8373.85,-313 8373.85,-313"/>
+<polygon fill="black" stroke="black" points="8373.85,-309.5 8363.85,-313 8373.85,-316.5 8373.85,-309.5"/>
+</g>
+<!-- ProductsPageRoutingModule -->
+<g id="node54" class="node">
+<title>ProductsPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="8386.37,-266 8383.37,-270 8362.37,-270 8359.37,-266 8205.63,-266 8205.63,-230 8386.37,-230 8386.37,-266"/>
+<text text-anchor="middle" x="8296" y="-243.8" font-family="Times,serif" font-size="14.00">ProductsPageRoutingModule</text>
+</g>
+<!-- ProductsPageRoutingModule&#45;&gt;ProductsPageModule -->
+<g id="edge49" class="edge">
+<title>ProductsPageRoutingModule&#45;&gt;ProductsPageModule</title>
+<path fill="none" stroke="black" d="M8318.63,-266.11C8318.63,-266.11 8318.63,-284.99 8318.63,-284.99"/>
+<polygon fill="black" stroke="black" points="8315.13,-284.99 8318.63,-294.99 8322.13,-284.99 8315.13,-284.99"/>
+</g>
+<!-- SafetyPage -->
+<g id="node55" class="node">
+<title>SafetyPage</title>
+<polygon fill="#ffffb3" stroke="black" points="8812.47,-266 8733.53,-266 8733.53,-230 8812.47,-230 8812.47,-266"/>
+<text text-anchor="middle" x="8773" y="-243.8" font-family="Times,serif" font-size="14.00">SafetyPage</text>
+</g>
+<!-- SafetyPage&#45;&gt;SafetyPageModule -->
+<g id="edge51" class="edge">
+<title>SafetyPage&#45;&gt;SafetyPageModule</title>
+<path fill="none" stroke="black" d="M8773,-266.11C8773,-285.34 8773,-313 8773,-313 8773,-313 8697.06,-313 8697.06,-313"/>
+<polygon fill="black" stroke="black" points="8697.06,-309.5 8687.06,-313 8697.06,-316.5 8697.06,-309.5"/>
+</g>
+<!-- SafetyPageRoutingModule -->
+<g id="node57" class="node">
+<title>SafetyPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="8709.64,-266 8706.64,-270 8685.64,-270 8682.64,-266 8542.36,-266 8542.36,-230 8709.64,-230 8709.64,-266"/>
+<text text-anchor="middle" x="8626" y="-243.8" font-family="Times,serif" font-size="14.00">SafetyPageRoutingModule</text>
+</g>
+<!-- SafetyPageRoutingModule&#45;&gt;SafetyPageModule -->
+<g id="edge52" class="edge">
+<title>SafetyPageRoutingModule&#45;&gt;SafetyPageModule</title>
+<path fill="none" stroke="black" d="M8646.42,-266.11C8646.42,-266.11 8646.42,-284.99 8646.42,-284.99"/>
+<polygon fill="black" stroke="black" points="8642.92,-284.99 8646.42,-294.99 8649.92,-284.99 8642.92,-284.99"/>
+</g>
+<!-- HasPermissionDirective -->
+<g id="node58" class="node">
+<title>HasPermissionDirective</title>
+<polygon fill="#ffffb3" stroke="black" points="3497.07,-122 3344.93,-122 3344.93,-86 3497.07,-86 3497.07,-122"/>
+<text text-anchor="middle" x="3421" y="-99.8" font-family="Times,serif" font-size="14.00">HasPermissionDirective</text>
+</g>
+<!-- SharedDirectivesModule -->
+<g id="node61" class="node">
+<title>SharedDirectivesModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="3371.95,-190 3368.95,-194 3347.95,-194 3344.95,-190 3216.05,-190 3216.05,-154 3371.95,-154 3371.95,-190"/>
+<text text-anchor="middle" x="3294" y="-167.8" font-family="Times,serif" font-size="14.00">SharedDirectivesModule</text>
+</g>
+<!-- HasPermissionDirective&#45;&gt;SharedDirectivesModule -->
+<g id="edge54" class="edge">
+<title>HasPermissionDirective&#45;&gt;SharedDirectivesModule</title>
+<path fill="none" stroke="black" d="M3358.47,-122.22C3358.47,-122.22 3358.47,-143.73 3358.47,-143.73"/>
+<polygon fill="black" stroke="black" points="3354.97,-143.73 3358.47,-153.73 3361.97,-143.73 3354.97,-143.73"/>
+</g>
+<!-- SafePipe -->
+<g id="node59" class="node">
+<title>SafePipe</title>
+<polygon fill="#ffffb3" stroke="black" points="3326.76,-122 3261.24,-122 3261.24,-86 3326.76,-86 3326.76,-122"/>
+<text text-anchor="middle" x="3294" y="-99.8" font-family="Times,serif" font-size="14.00">SafePipe</text>
+</g>
+<!-- SafePipe&#45;&gt;SharedDirectivesModule -->
+<g id="edge55" class="edge">
+<title>SafePipe&#45;&gt;SharedDirectivesModule</title>
+<path fill="none" stroke="black" d="M3294,-122.22C3294,-122.22 3294,-143.73 3294,-143.73"/>
+<polygon fill="black" stroke="black" points="3290.5,-143.73 3294,-153.73 3297.5,-143.73 3290.5,-143.73"/>
+</g>
+<!-- ToHttpsPipe -->
+<g id="node60" class="node">
+<title>ToHttpsPipe</title>
+<polygon fill="#ffffb3" stroke="black" points="3243.27,-122 3156.73,-122 3156.73,-86 3243.27,-86 3243.27,-122"/>
+<text text-anchor="middle" x="3200" y="-99.8" font-family="Times,serif" font-size="14.00">ToHttpsPipe</text>
+</g>
+<!-- ToHttpsPipe&#45;&gt;SharedDirectivesModule -->
+<g id="edge56" class="edge">
+<title>ToHttpsPipe&#45;&gt;SharedDirectivesModule</title>
+<path fill="none" stroke="black" d="M3229.71,-122.22C3229.71,-122.22 3229.71,-143.73 3229.71,-143.73"/>
+<polygon fill="black" stroke="black" points="3226.21,-143.73 3229.71,-153.73 3233.21,-143.73 3226.21,-143.73"/>
+</g>
+<!-- SharedDirectivesModule&#45;&gt;SharedModule -->
+<g id="edge73" class="edge">
+<title>SharedDirectivesModule&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M3215.89,-172C3175.29,-172 3134.04,-172 3134.04,-172 3134.04,-172 3134.04,-259 3134.04,-259 3134.04,-259 2552.24,-259 2552.24,-259"/>
+<polygon fill="black" stroke="black" points="2552.24,-255.5 2542.24,-259 2552.24,-262.5 2552.24,-255.5"/>
+</g>
+<!-- HasPermissionDirective  -->
+<g id="node62" class="node">
+<title>HasPermissionDirective </title>
+<polygon fill="#fb8072" stroke="black" points="3504.57,-266 3349.43,-266 3349.43,-230 3504.57,-230 3504.57,-266"/>
+<text text-anchor="middle" x="3427" y="-243.8" font-family="Times,serif" font-size="14.00">HasPermissionDirective </text>
+</g>
+<!-- SharedDirectivesModule&#45;&gt;HasPermissionDirective  -->
+<g id="edge57" class="edge">
+<title>SharedDirectivesModule&#45;&gt;HasPermissionDirective </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M3360.6,-190.01C3360.6,-190.01 3360.6,-219.85 3360.6,-219.85"/>
+<polygon fill="black" stroke="black" points="3357.1,-219.85 3360.6,-229.85 3364.1,-219.85 3357.1,-219.85"/>
+</g>
+<!-- SafePipe  -->
+<g id="node63" class="node">
+<title>SafePipe </title>
+<polygon fill="#fb8072" stroke="black" points="3331.76,-266 3262.24,-266 3262.24,-230 3331.76,-230 3331.76,-266"/>
+<text text-anchor="middle" x="3297" y="-243.8" font-family="Times,serif" font-size="14.00">SafePipe </text>
+</g>
+<!-- SharedDirectivesModule&#45;&gt;SafePipe  -->
+<g id="edge58" class="edge">
+<title>SharedDirectivesModule&#45;&gt;SafePipe </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M3297,-190.01C3297,-190.01 3297,-219.85 3297,-219.85"/>
+<polygon fill="black" stroke="black" points="3293.5,-219.85 3297,-229.85 3300.5,-219.85 3293.5,-219.85"/>
+</g>
+<!-- ToHttpsPipe  -->
+<g id="node64" class="node">
+<title>ToHttpsPipe </title>
+<polygon fill="#fb8072" stroke="black" points="3244.27,-266 3153.73,-266 3153.73,-230 3244.27,-230 3244.27,-266"/>
+<text text-anchor="middle" x="3199" y="-243.8" font-family="Times,serif" font-size="14.00">ToHttpsPipe </text>
+</g>
+<!-- SharedDirectivesModule&#45;&gt;ToHttpsPipe  -->
+<g id="edge59" class="edge">
+<title>SharedDirectivesModule&#45;&gt;ToHttpsPipe </title>
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M3230.08,-190.01C3230.08,-190.01 3230.08,-219.85 3230.08,-219.85"/>
+<polygon fill="black" stroke="black" points="3226.58,-219.85 3230.08,-229.85 3233.58,-219.85 3226.58,-219.85"/>
+</g>
+<!-- AboutAppComponent -->
+<g id="node65" class="node">
+<title>AboutAppComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="3114.44,-190 2973.56,-190 2973.56,-154 3114.44,-154 3114.44,-190"/>
+<text text-anchor="middle" x="3044" y="-167.8" font-family="Times,serif" font-size="14.00">AboutAppComponent</text>
+</g>
+<!-- AboutAppComponent&#45;&gt;SharedModule -->
+<g id="edge60" class="edge">
+<title>AboutAppComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M3044,-190.15C3044,-213.76 3044,-252 3044,-252 3044,-252 2552.38,-252 2552.38,-252"/>
+<polygon fill="black" stroke="black" points="2552.38,-248.5 2542.38,-252 2552.38,-255.5 2552.38,-248.5"/>
+</g>
+<!-- FooterComponent -->
+<g id="node66" class="node">
+<title>FooterComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="2955.88,-190 2838.12,-190 2838.12,-154 2955.88,-154 2955.88,-190"/>
+<text text-anchor="middle" x="2897" y="-167.8" font-family="Times,serif" font-size="14.00">FooterComponent</text>
+</g>
+<!-- FooterComponent&#45;&gt;SharedModule -->
+<g id="edge61" class="edge">
+<title>FooterComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M2897,-190.04C2897,-211.66 2897,-245 2897,-245 2897,-245 2552.54,-245 2552.54,-245"/>
+<polygon fill="black" stroke="black" points="2552.54,-241.5 2542.54,-245 2552.54,-248.5 2552.54,-241.5"/>
+</g>
+<!-- ForgotPasswordComponent -->
+<g id="node67" class="node">
+<title>ForgotPasswordComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="2820.32,-190 2647.68,-190 2647.68,-154 2820.32,-154 2820.32,-190"/>
+<text text-anchor="middle" x="2734" y="-167.8" font-family="Times,serif" font-size="14.00">ForgotPasswordComponent</text>
+</g>
+<!-- ForgotPasswordComponent&#45;&gt;SharedModule -->
+<g id="edge62" class="edge">
+<title>ForgotPasswordComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M2734,-190.03C2734,-209.58 2734,-238 2734,-238 2734,-238 2552.35,-238 2552.35,-238"/>
+<polygon fill="black" stroke="black" points="2552.35,-234.5 2542.35,-238 2552.35,-241.5 2552.35,-234.5"/>
+</g>
+<!-- LocationComponent -->
+<g id="node68" class="node">
+<title>LocationComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="2629.6,-190 2498.4,-190 2498.4,-154 2629.6,-154 2629.6,-190"/>
+<text text-anchor="middle" x="2564" y="-167.8" font-family="Times,serif" font-size="14.00">LocationComponent</text>
+</g>
+<!-- LocationComponent&#45;&gt;SharedModule -->
+<g id="edge63" class="edge">
+<title>LocationComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M2520.33,-190.01C2520.33,-190.01 2520.33,-219.85 2520.33,-219.85"/>
+<polygon fill="black" stroke="black" points="2516.83,-219.85 2520.33,-229.85 2523.83,-219.85 2516.83,-219.85"/>
+</g>
+<!-- LoginComponent -->
+<g id="node69" class="node">
+<title>LoginComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="2480.28,-190 2365.72,-190 2365.72,-154 2480.28,-154 2480.28,-190"/>
+<text text-anchor="middle" x="2423" y="-167.8" font-family="Times,serif" font-size="14.00">LoginComponent</text>
+</g>
+<!-- LoginComponent&#45;&gt;SharedModule -->
+<g id="edge64" class="edge">
+<title>LoginComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M2478.35,-190.01C2478.35,-190.01 2478.35,-219.85 2478.35,-219.85"/>
+<polygon fill="black" stroke="black" points="2474.85,-219.85 2478.35,-229.85 2481.85,-219.85 2474.85,-219.85"/>
+</g>
+<!-- MapComponent -->
+<g id="node70" class="node">
+<title>MapComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="2347.49,-190 2240.51,-190 2240.51,-154 2347.49,-154 2347.49,-190"/>
+<text text-anchor="middle" x="2294" y="-167.8" font-family="Times,serif" font-size="14.00">MapComponent</text>
+</g>
+<!-- MapComponent&#45;&gt;SharedModule -->
+<g id="edge65" class="edge">
+<title>MapComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M2295.64,-190.08C2295.64,-191.85 2295.64,-193 2295.64,-193 2295.64,-193 2476.32,-193 2476.32,-193 2476.32,-193 2476.32,-219.99 2476.32,-219.99"/>
+<polygon fill="black" stroke="black" points="2472.82,-219.99 2476.32,-229.99 2479.82,-219.99 2472.82,-219.99"/>
+</g>
+<!-- PhoneAuthComponent -->
+<g id="node71" class="node">
+<title>PhoneAuthComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="2222.33,-190 2077.67,-190 2077.67,-154 2222.33,-154 2222.33,-190"/>
+<text text-anchor="middle" x="2150" y="-167.8" font-family="Times,serif" font-size="14.00">PhoneAuthComponent</text>
+</g>
+<!-- PhoneAuthComponent&#45;&gt;SharedModule -->
+<g id="edge66" class="edge">
+<title>PhoneAuthComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M2173,-190.12C2173,-192.97 2173,-195 2173,-195 2173,-195 2474.29,-195 2474.29,-195 2474.29,-195 2474.29,-219.76 2474.29,-219.76"/>
+<polygon fill="black" stroke="black" points="2470.79,-219.76 2474.29,-229.76 2477.79,-219.76 2470.79,-219.76"/>
+</g>
+<!-- PopoverComponent -->
+<g id="node72" class="node">
+<title>PopoverComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="2059.99,-190 1932.01,-190 1932.01,-154 2059.99,-154 2059.99,-190"/>
+<text text-anchor="middle" x="1996" y="-167.8" font-family="Times,serif" font-size="14.00">PopoverComponent</text>
+</g>
+<!-- PopoverComponent&#45;&gt;SharedModule -->
+<g id="edge67" class="edge">
+<title>PopoverComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M1996,-190.06C1996,-194.49 1996,-198 1996,-198 1996,-198 2472.25,-198 2472.25,-198 2472.25,-198 2472.25,-219.95 2472.25,-219.95"/>
+<polygon fill="black" stroke="black" points="2468.75,-219.95 2472.25,-229.95 2475.75,-219.95 2468.75,-219.95"/>
+</g>
+<!-- PrivacyComponent -->
+<g id="node73" class="node">
+<title>PrivacyComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="1914.1,-190 1789.9,-190 1789.9,-154 1914.1,-154 1914.1,-190"/>
+<text text-anchor="middle" x="1852" y="-167.8" font-family="Times,serif" font-size="14.00">PrivacyComponent</text>
+</g>
+<!-- PrivacyComponent&#45;&gt;SharedModule -->
+<g id="edge68" class="edge">
+<title>PrivacyComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M1852,-190.21C1852,-195.55 1852,-200 1852,-200 1852,-200 2470.22,-200 2470.22,-200 2470.22,-200 2470.22,-219.85 2470.22,-219.85"/>
+<polygon fill="black" stroke="black" points="2466.72,-219.85 2470.22,-229.85 2473.72,-219.85 2466.72,-219.85"/>
+</g>
+<!-- RatingsComponent -->
+<g id="node74" class="node">
+<title>RatingsComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="1772.11,-190 1647.89,-190 1647.89,-154 1772.11,-154 1772.11,-190"/>
+<text text-anchor="middle" x="1710" y="-167.8" font-family="Times,serif" font-size="14.00">RatingsComponent</text>
+</g>
+<!-- RatingsComponent&#45;&gt;SharedModule -->
+<g id="edge69" class="edge">
+<title>RatingsComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M1710,-190.14C1710,-196.46 1710,-202 1710,-202 1710,-202 2468.19,-202 2468.19,-202 2468.19,-202 2468.19,-219.82 2468.19,-219.82"/>
+<polygon fill="black" stroke="black" points="2464.69,-219.82 2468.19,-229.82 2471.69,-219.82 2464.69,-219.82"/>
+</g>
+<!-- SignupComponent -->
+<g id="node75" class="node">
+<title>SignupComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="1629.51,-190 1508.49,-190 1508.49,-154 1629.51,-154 1629.51,-190"/>
+<text text-anchor="middle" x="1569" y="-167.8" font-family="Times,serif" font-size="14.00">SignupComponent</text>
+</g>
+<!-- SignupComponent&#45;&gt;SharedModule -->
+<g id="edge70" class="edge">
+<title>SignupComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M1569,-190.04C1569,-197.75 1569,-205 1569,-205 1569,-205 2466.15,-205 2466.15,-205 2466.15,-205 2466.15,-219.51 2466.15,-219.51"/>
+<polygon fill="black" stroke="black" points="2462.65,-219.51 2466.15,-229.51 2469.65,-219.51 2462.65,-219.51"/>
+</g>
+<!-- TermsComponent -->
+<g id="node76" class="node">
+<title>TermsComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="1490.6,-190 1373.4,-190 1373.4,-154 1490.6,-154 1490.6,-190"/>
+<text text-anchor="middle" x="1432" y="-167.8" font-family="Times,serif" font-size="14.00">TermsComponent</text>
+</g>
+<!-- TermsComponent&#45;&gt;SharedModule -->
+<g id="edge71" class="edge">
+<title>TermsComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M1432,-190.32C1432,-198.79 1432,-207 1432,-207 1432,-207 2464.12,-207 2464.12,-207 2464.12,-207 2464.12,-219.9 2464.12,-219.9"/>
+<polygon fill="black" stroke="black" points="2460.62,-219.9 2464.12,-229.9 2467.62,-219.9 2460.62,-219.9"/>
+</g>
+<!-- ToggleComponent -->
+<g id="node77" class="node">
+<title>ToggleComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="1355.49,-190 1234.51,-190 1234.51,-154 1355.49,-154 1355.49,-190"/>
+<text text-anchor="middle" x="1295" y="-167.8" font-family="Times,serif" font-size="14.00">ToggleComponent</text>
+</g>
+<!-- ToggleComponent&#45;&gt;SharedModule -->
+<g id="edge72" class="edge">
+<title>ToggleComponent&#45;&gt;SharedModule</title>
+<path fill="none" stroke="black" d="M1295,-190.07C1295,-199.46 1295,-209 1295,-209 1295,-209 2462.09,-209 2462.09,-209 2462.09,-209 2462.09,-219.87 2462.09,-219.87"/>
+<polygon fill="black" stroke="black" points="2458.59,-219.87 2462.09,-229.87 2465.59,-219.87 2458.59,-219.87"/>
+</g>
+<!-- TestimonialsPage -->
+<g id="node86" class="node">
+<title>TestimonialsPage</title>
+<polygon fill="#ffffb3" stroke="black" points="9195.54,-266 9080.46,-266 9080.46,-230 9195.54,-230 9195.54,-266"/>
+<text text-anchor="middle" x="9138" y="-243.8" font-family="Times,serif" font-size="14.00">TestimonialsPage</text>
+</g>
+<!-- TestimonialsPage&#45;&gt;TestimonialsPageModule -->
+<g id="edge82" class="edge">
+<title>TestimonialsPage&#45;&gt;TestimonialsPageModule</title>
+<path fill="none" stroke="black" d="M9138,-266.12C9138,-280.78 9138,-299 9138,-299 9138,-299 9043.63,-299 9043.63,-299"/>
+<polygon fill="black" stroke="black" points="9043.63,-295.5 9033.63,-299 9043.63,-302.5 9043.63,-295.5"/>
+</g>
+<!-- TestimonialsPageRoutingModule -->
+<g id="node88" class="node">
+<title>TestimonialsPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="9056.2,-266 9053.2,-270 9032.2,-270 9029.2,-266 8851.8,-266 8851.8,-230 9056.2,-230 9056.2,-266"/>
+<text text-anchor="middle" x="8954" y="-243.8" font-family="Times,serif" font-size="14.00">TestimonialsPageRoutingModule</text>
+</g>
+<!-- TestimonialsPageRoutingModule&#45;&gt;TestimonialsPageModule -->
+<g id="edge84" class="edge">
+<title>TestimonialsPageRoutingModule&#45;&gt;TestimonialsPageModule</title>
+<path fill="none" stroke="black" d="M8980.51,-266.11C8980.51,-266.11 8980.51,-284.99 8980.51,-284.99"/>
+<polygon fill="black" stroke="black" points="8977.01,-284.99 8980.51,-294.99 8984.01,-284.99 8977.01,-284.99"/>
+</g>
+<!-- UnknownPage -->
+<g id="node89" class="node">
+<title>UnknownPage</title>
+<polygon fill="#ffffb3" stroke="black" points="13198.43,-122 13099.57,-122 13099.57,-86 13198.43,-86 13198.43,-122"/>
+<text text-anchor="middle" x="13149" y="-99.8" font-family="Times,serif" font-size="14.00">UnknownPage</text>
+</g>
+<!-- UnknownPageModule -->
+<g id="node90" class="node">
+<title>UnknownPageModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="13128.97,-190 13125.97,-194 13104.97,-194 13101.97,-190 12987.03,-190 12987.03,-154 13128.97,-154 13128.97,-190"/>
+<text text-anchor="middle" x="13058" y="-167.8" font-family="Times,serif" font-size="14.00">UnknownPageModule</text>
+</g>
+<!-- UnknownPage&#45;&gt;UnknownPageModule -->
+<g id="edge85" class="edge">
+<title>UnknownPage&#45;&gt;UnknownPageModule</title>
+<path fill="none" stroke="black" d="M13114.39,-122.22C13114.39,-122.22 13114.39,-143.73 13114.39,-143.73"/>
+<polygon fill="black" stroke="black" points="13110.89,-143.73 13114.39,-153.73 13117.89,-143.73 13110.89,-143.73"/>
+</g>
+<!-- UnknownPageRoutingModule -->
+<g id="node91" class="node">
+<title>UnknownPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="13075.59,-122 13072.59,-126 13051.59,-126 13048.59,-122 12888.41,-122 12888.41,-86 13075.59,-86 13075.59,-122"/>
+<text text-anchor="middle" x="12982" y="-99.8" font-family="Times,serif" font-size="14.00">UnknownPageRoutingModule</text>
+</g>
+<!-- UnknownPageRoutingModule&#45;&gt;UnknownPageModule -->
+<g id="edge86" class="edge">
+<title>UnknownPageRoutingModule&#45;&gt;UnknownPageModule</title>
+<path fill="none" stroke="black" d="M13031.28,-122.22C13031.28,-122.22 13031.28,-143.73 13031.28,-143.73"/>
+<polygon fill="black" stroke="black" points="13027.78,-143.73 13031.28,-153.73 13034.78,-143.73 13027.78,-143.73"/>
+</g>
+<!-- CancelServiceComponent -->
+<g id="node92" class="node">
+<title>CancelServiceComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="10361.18,-266 10198.82,-266 10198.82,-230 10361.18,-230 10361.18,-266"/>
+<text text-anchor="middle" x="10280" y="-243.8" font-family="Times,serif" font-size="14.00">CancelServiceComponent</text>
+</g>
+<!-- CancelServiceComponent&#45;&gt;UserPageModule -->
+<g id="edge87" class="edge">
+<title>CancelServiceComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M10280,-266.01C10280,-282.05 10280,-303 10280,-303 10280,-303 10373.14,-303 10373.14,-303"/>
+<polygon fill="black" stroke="black" points="10373.14,-306.5 10383.14,-303 10373.14,-299.5 10373.14,-306.5"/>
+</g>
+<!-- CartviewComponent -->
+<g id="node93" class="node">
+<title>CartviewComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="10181.15,-266 10048.85,-266 10048.85,-230 10181.15,-230 10181.15,-266"/>
+<text text-anchor="middle" x="10115" y="-243.8" font-family="Times,serif" font-size="14.00">CartviewComponent</text>
+</g>
+<!-- CartviewComponent&#45;&gt;UserPageModule -->
+<g id="edge88" class="edge">
+<title>CartviewComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M10092.89,-266.27C10092.89,-284.56 10092.89,-310 10092.89,-310 10092.89,-310 10373.07,-310 10373.07,-310"/>
+<polygon fill="black" stroke="black" points="10373.07,-313.5 10383.07,-310 10373.07,-306.5 10373.07,-313.5"/>
+</g>
+<!-- CartviewComponent&#45;&gt;UserPageModule -->
+<g id="edge89" class="edge">
+<title>CartviewComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M10137.11,-266.03C10137.11,-283.06 10137.11,-306 10137.11,-306 10137.11,-306 10373.38,-306 10373.38,-306"/>
+<polygon fill="black" stroke="black" points="10373.38,-309.5 10383.38,-306 10373.38,-302.5 10373.38,-309.5"/>
+</g>
+<!-- CheckoutComponent -->
+<g id="node94" class="node">
+<title>CheckoutComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="10030.49,-266 9895.51,-266 9895.51,-230 10030.49,-230 10030.49,-266"/>
+<text text-anchor="middle" x="9963" y="-243.8" font-family="Times,serif" font-size="14.00">CheckoutComponent</text>
+</g>
+<!-- CheckoutComponent&#45;&gt;UserPageModule -->
+<g id="edge90" class="edge">
+<title>CheckoutComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M9963,-266.11C9963,-285.34 9963,-313 9963,-313 9963,-313 10372.94,-313 10372.94,-313"/>
+<polygon fill="black" stroke="black" points="10372.94,-316.5 10382.94,-313 10372.94,-309.5 10372.94,-316.5"/>
+</g>
+<!-- InvoicesComponent -->
+<g id="node95" class="node">
+<title>InvoicesComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="9877.26,-266 9748.74,-266 9748.74,-230 9877.26,-230 9877.26,-266"/>
+<text text-anchor="middle" x="9813" y="-243.8" font-family="Times,serif" font-size="14.00">InvoicesComponent</text>
+</g>
+<!-- InvoicesComponent&#45;&gt;UserPageModule -->
+<g id="edge91" class="edge">
+<title>InvoicesComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M9813,-266.13C9813,-286.57 9813,-317 9813,-317 9813,-317 10373.25,-317 10373.25,-317"/>
+<polygon fill="black" stroke="black" points="10373.25,-320.5 10383.25,-317 10373.25,-313.5 10373.25,-320.5"/>
+</g>
+<!-- NewReviewComponent -->
+<g id="node96" class="node">
+<title>NewReviewComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="9730.02,-266 9579.98,-266 9579.98,-230 9730.02,-230 9730.02,-266"/>
+<text text-anchor="middle" x="9655" y="-243.8" font-family="Times,serif" font-size="14.00">NewReviewComponent</text>
+</g>
+<!-- NewReviewComponent&#45;&gt;UserPageModule -->
+<g id="edge92" class="edge">
+<title>NewReviewComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M9655,-266.04C9655,-287.66 9655,-321 9655,-321 9655,-321 10373.23,-321 10373.23,-321"/>
+<polygon fill="black" stroke="black" points="10373.23,-324.5 10383.23,-321 10373.23,-317.5 10373.23,-324.5"/>
+</g>
+<!-- NewsFormComponent -->
+<g id="node97" class="node">
+<title>NewsFormComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="9561.54,-266 9418.46,-266 9418.46,-230 9561.54,-230 9561.54,-266"/>
+<text text-anchor="middle" x="9490" y="-243.8" font-family="Times,serif" font-size="14.00">NewsFormComponent</text>
+</g>
+<!-- NewsFormComponent&#45;&gt;UserPageModule -->
+<g id="edge93" class="edge">
+<title>NewsFormComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M9490,-266.01C9490,-288.49 9490,-324 9490,-324 9490,-324 10373.07,-324 10373.07,-324"/>
+<polygon fill="black" stroke="black" points="10373.07,-327.5 10383.07,-324 10373.07,-320.5 10373.07,-327.5"/>
+</g>
+<!-- ProfileComponent -->
+<g id="node98" class="node">
+<title>ProfileComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="11671.93,-266 11552.07,-266 11552.07,-230 11671.93,-230 11671.93,-266"/>
+<text text-anchor="middle" x="11612" y="-243.8" font-family="Times,serif" font-size="14.00">ProfileComponent</text>
+</g>
+<!-- ProfileComponent&#45;&gt;UserPageModule -->
+<g id="edge94" class="edge">
+<title>ProfileComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M11612,-266.15C11612,-289.76 11612,-328 11612,-328 11612,-328 10506.92,-328 10506.92,-328"/>
+<polygon fill="black" stroke="black" points="10506.92,-324.5 10496.92,-328 10506.92,-331.5 10506.92,-324.5"/>
+</g>
+<!-- SettingsComponent -->
+<g id="node99" class="node">
+<title>SettingsComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="11534.45,-266 11407.55,-266 11407.55,-230 11534.45,-230 11534.45,-266"/>
+<text text-anchor="middle" x="11471" y="-243.8" font-family="Times,serif" font-size="14.00">SettingsComponent</text>
+</g>
+<!-- SettingsComponent&#45;&gt;UserPageModule -->
+<g id="edge95" class="edge">
+<title>SettingsComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M11471,-266.01C11471,-288.49 11471,-324 11471,-324 11471,-324 10506.9,-324 10506.9,-324"/>
+<polygon fill="black" stroke="black" points="10506.9,-320.5 10496.9,-324 10506.9,-327.5 10506.9,-320.5"/>
+</g>
+<!-- SupportComponent -->
+<g id="node100" class="node">
+<title>SupportComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="11389.67,-266 11264.33,-266 11264.33,-230 11389.67,-230 11389.67,-266"/>
+<text text-anchor="middle" x="11327" y="-243.8" font-family="Times,serif" font-size="14.00">SupportComponent</text>
+</g>
+<!-- SupportComponent&#45;&gt;UserPageModule -->
+<g id="edge96" class="edge">
+<title>SupportComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M11347.94,-266.04C11347.94,-287.66 11347.94,-321 11347.94,-321 11347.94,-321 10506.8,-321 10506.8,-321"/>
+<polygon fill="black" stroke="black" points="10506.8,-317.5 10496.8,-321 10506.8,-324.5 10506.8,-317.5"/>
+</g>
+<!-- SupportComponent&#45;&gt;UserPageModule -->
+<g id="edge97" class="edge">
+<title>SupportComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M11306.06,-266.13C11306.06,-286.57 11306.06,-317 11306.06,-317 11306.06,-317 10506.82,-317 10506.82,-317"/>
+<polygon fill="black" stroke="black" points="10506.82,-313.5 10496.82,-317 10506.82,-320.5 10506.82,-313.5"/>
+</g>
+<!-- TicketComponent -->
+<g id="node101" class="node">
+<title>TicketComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="11246.6,-266 11129.4,-266 11129.4,-230 11246.6,-230 11246.6,-266"/>
+<text text-anchor="middle" x="11188" y="-243.8" font-family="Times,serif" font-size="14.00">TicketComponent</text>
+</g>
+<!-- TicketComponent&#45;&gt;UserPageModule -->
+<g id="edge98" class="edge">
+<title>TicketComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M11188,-266.11C11188,-285.34 11188,-313 11188,-313 11188,-313 10506.84,-313 10506.84,-313"/>
+<polygon fill="black" stroke="black" points="10506.84,-309.5 10496.84,-313 10506.84,-316.5 10506.84,-309.5"/>
+</g>
+<!-- UserDashboardComponent -->
+<g id="node102" class="node">
+<title>UserDashboardComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="11111.4,-266 10942.6,-266 10942.6,-230 11111.4,-230 11111.4,-266"/>
+<text text-anchor="middle" x="11027" y="-243.8" font-family="Times,serif" font-size="14.00">UserDashboardComponent</text>
+</g>
+<!-- UserDashboardComponent&#45;&gt;UserPageModule -->
+<g id="edge99" class="edge">
+<title>UserDashboardComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M11027,-266.27C11027,-284.56 11027,-310 11027,-310 11027,-310 10506.82,-310 10506.82,-310"/>
+<polygon fill="black" stroke="black" points="10506.82,-306.5 10496.82,-310 10506.82,-313.5 10506.82,-306.5"/>
+</g>
+<!-- UserPage -->
+<g id="node103" class="node">
+<title>UserPage</title>
+<polygon fill="#ffffb3" stroke="black" points="10924.64,-266 10855.36,-266 10855.36,-230 10924.64,-230 10924.64,-266"/>
+<text text-anchor="middle" x="10890" y="-243.8" font-family="Times,serif" font-size="14.00">UserPage</text>
+</g>
+<!-- UserPage&#45;&gt;UserPageModule -->
+<g id="edge100" class="edge">
+<title>UserPage&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M10890,-266.03C10890,-283.06 10890,-306 10890,-306 10890,-306 10506.99,-306 10506.99,-306"/>
+<polygon fill="black" stroke="black" points="10506.99,-302.5 10496.99,-306 10506.99,-309.5 10506.99,-302.5"/>
+</g>
+<!-- UserTicketsComponent -->
+<g id="node104" class="node">
+<title>UserTicketsComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="10837.47,-266 10688.53,-266 10688.53,-230 10837.47,-230 10837.47,-266"/>
+<text text-anchor="middle" x="10763" y="-243.8" font-family="Times,serif" font-size="14.00">UserTicketsComponent</text>
+</g>
+<!-- UserTicketsComponent&#45;&gt;UserPageModule -->
+<g id="edge101" class="edge">
+<title>UserTicketsComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M10763,-266.01C10763,-282.05 10763,-303 10763,-303 10763,-303 10506.63,-303 10506.63,-303"/>
+<polygon fill="black" stroke="black" points="10506.63,-299.5 10496.63,-303 10506.63,-306.5 10506.63,-299.5"/>
+</g>
+<!-- VerifyEmailComponent -->
+<g id="node105" class="node">
+<title>VerifyEmailComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="10670.8,-266 10519.2,-266 10519.2,-230 10670.8,-230 10670.8,-266"/>
+<text text-anchor="middle" x="10595" y="-243.8" font-family="Times,serif" font-size="14.00">VerifyEmailComponent</text>
+</g>
+<!-- VerifyEmailComponent&#45;&gt;UserPageModule -->
+<g id="edge102" class="edge">
+<title>VerifyEmailComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M10595,-266.12C10595,-280.78 10595,-299 10595,-299 10595,-299 10506.84,-299 10506.84,-299"/>
+<polygon fill="black" stroke="black" points="10506.84,-295.5 10496.84,-299 10506.84,-302.5 10506.84,-295.5"/>
+</g>
+<!-- WebrtcComponent -->
+<g id="node106" class="node">
+<title>WebrtcComponent</title>
+<polygon fill="#ffffb3" stroke="black" points="10501.03,-266 10378.97,-266 10378.97,-230 10501.03,-230 10501.03,-266"/>
+<text text-anchor="middle" x="10440" y="-243.8" font-family="Times,serif" font-size="14.00">WebrtcComponent</text>
+</g>
+<!-- WebrtcComponent&#45;&gt;UserPageModule -->
+<g id="edge103" class="edge">
+<title>WebrtcComponent&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M10458.86,-266.11C10458.86,-266.11 10458.86,-284.99 10458.86,-284.99"/>
+<polygon fill="black" stroke="black" points="10455.36,-284.99 10458.86,-294.99 10462.36,-284.99 10455.36,-284.99"/>
+</g>
+<!-- UserPageRoutingModule -->
+<g id="node108" class="node">
+<title>UserPageRoutingModule</title>
+<polygon fill="#8dd3c7" stroke="black" points="9394.31,-266 9391.31,-270 9370.31,-270 9367.31,-266 9235.69,-266 9235.69,-230 9394.31,-230 9394.31,-266"/>
+<text text-anchor="middle" x="9315" y="-243.8" font-family="Times,serif" font-size="14.00">UserPageRoutingModule</text>
+</g>
+<!-- UserPageRoutingModule&#45;&gt;UserPageModule -->
+<g id="edge105" class="edge">
+<title>UserPageRoutingModule&#45;&gt;UserPageModule</title>
+<path fill="none" stroke="black" d="M9315,-266.15C9315,-289.76 9315,-328 9315,-328 9315,-328 10373.05,-328 10373.05,-328"/>
+<polygon fill="black" stroke="black" points="10373.05,-331.5 10383.05,-328 10373.05,-324.5 10373.05,-331.5"/>
+</g>
+</g>
+</svg>
 
-<div><pre class="line-numbers"><code class="language-sh">git clone https://github.com/apsistec/expert-fit.git</code></pre></div>   </li>
-   <li> Install NPM packages
-
-<div><pre class="line-numbers"><code class="language-sh">npm install</code></pre></div></li>
-
-<li>Setup Firebase backend
-
-<div><pre class="line-numbers"><code class="language-sh">firebase init</code></pre></div><li>Enter your APIs in `environments/environment.ts` and `environments/environment.prod.ts`
-
-<div><pre class="line-numbers"><code class="language-js">export const environment = {
-  production: &#39;boolean&#39;,
-  firebaseConfig: {
-    apiKey: &#39;...&#39;,
-    authDomain: &#39;...&#39;,
-    databaseURL: &#39;...&#39;,
-    projectId: &#39;...&#39;,
-    storageBucket: &#39;...&#39;,
-    messagingSenderId: &#39;...&#39;,
-    appId: &#39;...&#39;,
-    measurementId: &#39;...&#39;
-  },
-  stripePubKey: &#39;pk_test_ API&#39;,
-  taxRates: [&#39;enter API&#39;]
-};</code></pre></div><li>Compile the function code
-
-<div><pre class="line-numbers"><code class="language-sh">cd functions</code></pre></div><div><pre class="line-numbers"><code class="language-sh">npm install</code></pre></div><div><pre class="line-numbers"><code class="language-sh">ng build</code></pre></div><div><pre class="line-numbers"><code class="language-sh">cd ..</code></pre></div> </li>
-
-<li>Compile the app code -production quality
-
-<div><pre class="line-numbers"><code class="language-sh">ionic build --prod</code></pre></div>   </li>
-
-<li>Work on the app code with hot-reload
-
-<div><pre class="line-numbers"><code class="language-sh">ionic serve</code></pre></div>   </li>
-
-<li>Deploy to Firebase Authentication, Hosting, Database, Serverless and Storage
-
-<div><pre class="line-numbers"><code class="language-sh">firebase deploy</code></pre></div>   </li>
-
-</ol>
-</details>
-
-<!-- USAGE EXAMPLES -->
-
-<h2 id="usage">Usage</h2>
-<p>Use this space to show useful examples of how a project can be used. Additional
-screenshots, code examples and demos work well in this space. You may also link
-to more resources.</p>
-<p><em>For more examples, please refer to the <a href="https://github.com/apsistec/expert-fit">Documentation</a></em></p>
-<!-- ROADMAP -->
-
-<h2 id="roadmap">Roadmap</h2>
-<p>See the <a href="https://github.com/apsistec/expert-fit/issues">open issues</a> for a list
-of proposed features (and known issues).</p>
-<!-- CONTRIBUTING -->
-
-<h2 id="contributing">Contributing</h2>
-<p>Contributions are what make the open source community such an amazing place to
-be learn, inspire, and create. Any contributions you make are <strong>greatly appreciated</strong>.</p>
-<ol>
-<li>Fork the Project</li>
-<li>Create your Feature Branch (<code>git checkout -b feature/AmazingFeature</code>)</li>
-<li>Commit your Changes (<code>git commit -m &#39;Add some AmazingFeature&#39;</code>)</li>
-<li>Push to the Branch (<code>git push origin feature/AmazingFeature</code>)</li>
-<li>Open a Pull Request</li>
-</ol>
-<!-- LICENSE -->
-
-<h2 id="license">License</h2>
-<p>Distributed under the MIT License. See <code>LICENSE</code> for more information.</p>
-<!-- CONTACT -->
-
-<h2 id="contact">Contact</h2>
-<details open>
-<summary>
-Doug White
-</summary>
-<ul>
-<li>Email:<a href="doug@apsistec.app"> :email:</a></li>
-<li>Twitter: <a href="https://twitter.com/apsistec)">@apsistec</a></li>
-<li>This project: <a href="https://github.com/apsistec/expert-fit">expert-fit</a></li>
-<li>Github projects: <a href="https://github.com/apsistec">Apsistec</a></li>
-</ul>
-</details>
-
-<!-- ACKNOWLEDGEMENTS -->
-
-<h2 id="acknowledgements">Acknowledgements</h2>
-<ul>
-<li><a href="https://www.webpagefx.com/tools/emoji-cheat-sheet">GitHub Emoji Cheat Sheet</a></li>
-<li><a href="https://shields.io">Img Shields</a></li>
-<li><a href="https://choosealicense.com">Choose an Open Source License</a></li>
-<li><a href="https://pages.github.com">GitHub Pages</a></li>
-<li><a href="https://ionicons.com">Ion Icons</a></li>
-</ul>
-<hr>
-<!-- MARKDOWN LINKS & IMAGES -->
-
-
-
-
+    </div>
+    <i id="fullscreen" class="icon ion-ios-resize module-graph-fullscreen-btn" aria-hidden="true"></i>
+    <div class="btn-group">
+        <button id="zoom-in" class="btn btn-default btn-sm">Zoom in</button>
+        <button id="reset" class="btn btn-default btn-sm">Reset</button>
+        <button id="zoom-out" class="btn btn-default btn-sm">Zoom out</button>
+    </div>
+</div>
+  
+<div class="container-fluid overview">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-ios-archive"></span></h4>
+                    <p class="card-text">
+                        <a href="./modules.html">35 Modules</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-cog"></span></h4>
+                    <p class="card-text">58 Components</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-code-working"></span></h4>
+                    <p class="card-text">1 Directive</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-arrow-round-down"></span></h4>
+                    <p class="card-text">18 Injectables</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-add"></span></h4>
+                    <p class="card-text">2 Pipes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-ios-lock"></span></h4>
+                    <p class="card-text">2 Guards</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-md-information-circle-outline"></span></h4>
+                    <p class="card-text">11 Interfaces</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-center">
+                <div class="card-block">
+                    <h4 class="card-title"><span class="icon ion-ios-git-branch"></span></h4>
+                    <p class="card-text">
+                        <a href="./routes.html">0 </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/libs/svg-pan-zoom.min.js"></script>
+<script src="js/svg-pan-zoom.controls.js"></script> 
 
 
 
@@ -277,7 +1688,7 @@ Doug White
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'overview';
             var COMPODOC_CURRENT_PAGE_URL = 'index.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>

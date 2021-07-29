@@ -1,6 +1,6 @@
 // Initialize Firebase Admin
-import * as functions from 'firebase-functions';
-import * as admin from 'firebase-admin';
+import * as functions from "firebase-functions";
+import * as admin from "firebase-admin";
 admin.initializeApp();
 
 // Initialize Cloud Firestore Database
@@ -12,10 +12,15 @@ db.settings(settings);
 export const stripeSecret = functions.config().stripe.secret;
 
 // Export Stripe
-import Stripe from 'stripe';
+import {Stripe} from "stripe";
 export const stripe = new Stripe(stripeSecret, {
-  apiVersion: '2020-08-27'
+  apiVersion: "2020-08-27",
+  typescript: true,
+  maxNetworkRetries: 3,
+  timeout: 3000
 });
+
+
 
 export default {
   stripeSecret: stripeSecret,
@@ -23,5 +28,5 @@ export default {
   stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
   productsCollectionPath: process.env.PRODUCTS_COLLECTION,
   customersCollectionPath: process.env.CUSTOMERS_COLLECTION,
-  syncUsersOnCreate: process.env.SYNC_USERS_ON_CREATE === 'Sync'
+  syncUsersOnCreate: process.env.SYNC_USERS_ON_CREATE === "Sync"
 };

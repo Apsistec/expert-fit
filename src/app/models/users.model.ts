@@ -21,4 +21,5 @@ export interface User {
   username?: string;
   isNewUser?: boolean;
   providerData?: any;
+  fcmTokens?: { [token: string]: true };
 }

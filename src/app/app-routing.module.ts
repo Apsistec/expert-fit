@@ -16,8 +16,8 @@ import { RoleGuard } from './guards/role.guard';
 // const employeeOnly = () => hasCustomClaim('employee');
 // const adminOnly = () => hasCustomClaim('admin');
 // const redirectLoggedInToDash = () => redirectLoggedInTo(['/user/dashboard']);
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
-const verifiedEmail = () => emailVerified;
+// const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
+// const verifiedEmail = () => emailVerified;
 const routes: Routes = [
   {
     path: '',
@@ -31,14 +31,14 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then((m) => m.AdminPageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
+    // ...canActivate(redirectUnauthorizedToLogin),
     canActivate: [PaidGuard, RoleGuard]
   },
 
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserPageModule),
-    ...canActivate(redirectUnauthorizedToLogin)
+    // ...canActivate(redirectUnauthorizedToLogin)
   },
   {
     path: 'pricing',
@@ -119,12 +119,14 @@ const routes: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
+    RouterModule.forRoot(routes
+      // , {
       // preloadingStrategy: QuicklinkStrategy
-      scrollPositionRestoration: 'enabled',
+      // scrollPositionRestoration: 'enabled',
       // anchorScrolling: 'enabled'
-      enableTracing: true
-    })
+      // enableTracing: true
+    // }
+    )
   ],
   exports: [RouterModule]
 })

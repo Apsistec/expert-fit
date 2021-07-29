@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ImageCropperModule } from 'ngx-image-cropper';
 
@@ -21,8 +21,7 @@ import { WebcamModule } from 'ngx-webcam';
     ImageCropperModule,
     IonicModule,
     GalleryPageRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
+    SharedModule
   ],
   declarations: [GalleryPage, FileUploaderComponent, ImageUploadComponent, PhotoUploadComponent, PhotosListComponent]
 })

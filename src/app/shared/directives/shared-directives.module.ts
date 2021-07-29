@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { DocPipe } from './pipes/doc.pipe';
 import { SafePipe } from './pipes/safe.pipe';
 import { ToHttpsPipe } from './pipes/to-https.pipe';
-import { FadeHeaderDirective } from './fade-header.directive';
 import { HasPermissionDirective } from './has-permission.directive';
-import { HideHeaderDirective } from './hide-header.directive';
+// import { FadeHeaderDirective } from './fade-header.directive';
+// import { DocPipe } from './pipes/doc.pipe';
+// import { HideHeaderDirective } from './hide-header.directive';
 
 @NgModule({
-  declarations: [HasPermissionDirective, HideHeaderDirective, FadeHeaderDirective, ToHttpsPipe, SafePipe, DocPipe],
+  declarations: [HasPermissionDirective, ToHttpsPipe, SafePipe, ],
   imports: [CommonModule],
-  exports: [HasPermissionDirective, HideHeaderDirective, FadeHeaderDirective, ToHttpsPipe, SafePipe, DocPipe]
+  exports: [HasPermissionDirective, ToHttpsPipe, SafePipe, ]
 })
 export class SharedDirectivesModule {}
